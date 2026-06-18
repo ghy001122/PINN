@@ -162,7 +162,7 @@ def simulate_ground_truth(
 
     c0 = np.full(nx, merged["c_v0"], dtype=float)
     temp0 = np.full(nx, merged["T0"], dtype=float)
-    m0 = np.zeros(nx, dtype=float)
+    m0 = equilibrium_m(c0, temp0, merged)
     y0 = np.concatenate([c0, temp0, m0])
 
     rhs = _rhs_factory(voltage_fn, merged, nx, dx)

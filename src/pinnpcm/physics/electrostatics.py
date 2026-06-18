@@ -12,7 +12,11 @@ def solve_series_electrostatics(
     params: dict[str, float],
     dx: float,
 ) -> dict[str, np.ndarray | float]:
-    """Compute area resistance, current density, field, current, conductance, and phi."""
+    """Compute series electrical fields and port observables.
+
+    The returned `phi` is a cell-centered potential reconstructed with the
+    left electrode potential `V_app` as the reference.
+    """
 
     sigma_arr = np.maximum(np.asarray(sigma, dtype=float), params["eps_sigma"])
     r_area = float(np.sum(dx / sigma_arr) + params["eps_R"])
@@ -23,7 +27,7 @@ def solve_series_electrostatics(
     conductance = float(current / (voltage + params["eps_V"]))
 
     cell_drop = electric_field * dx
-    phi = np.cumsum(cell_drop) - 0.5 * cell_drop
+    phi = voltage - (np.cumsum(cell_drop) - 0.5 * cell_drop)
     return {
         "R_area": r_area,
         "J": current_density,
