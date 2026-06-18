@@ -1,0 +1,26 @@
+.venv/
+.vscode/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# Generated benchmark data and outputs are reproducible and should not be committed.
+data/processed/*
+!data/processed/.gitkeep
+outputs/figures/*
+!outputs/figures/.gitkeep
+outputs/logs/*
+!outputs/logs/.gitkeep
+outputs/checkpoints/*
+!outputs/checkpoints/.gitkeep
+outputs/tables/*
+!outputs/tables/.gitkeep
+
+*.npz
+*.npy
+*.pt
+*.pth
+*.ckpt

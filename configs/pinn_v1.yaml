@@ -1,0 +1,20 @@
+description: "PINN v1 skeleton config. Training is under active development; do not report performance from this placeholder."
+model:
+  hidden_dim: 128
+  hidden_layers: 4
+  fourier_features: 32
+  fourier_scale: 4.0
+training:
+  seed: 2026
+  batch_size: 2048
+  epochs: 1000
+  learning_rate: 1.0e-3
+loss_weights:
+  L_phi: 1.0
+  L_c: 1.0
+  L_T: 1.0
+  L_m: 1.0
+  L_bc: 1.0
+  L_ic: 1.0
+  L_data: 10.0
+  L_reg: 1.0e-6

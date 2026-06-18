@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pinn-phase-change-memristor"
+version = "0.1.0"
+description = "Physics-informed digital twin for sparse-data inverse identification in oxide optoelectronic memristive devices."
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+authors = [
+  { name = "Research project contributors" }
+]
+dependencies = [
+  "numpy==1.26.4",
+  "scipy==1.13.1",
+  "matplotlib==3.8.4",
+  "pandas==2.2.2",
+  "PyYAML==6.0.1",
+  "tqdm==4.66.4",
+  "pytest==8.2.2",
+  "torch==2.3.1",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-ra"

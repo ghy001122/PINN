@@ -1,0 +1,19 @@
+description: "Ground Truth v1 synthetic benchmark config. Parameters are literature-guided synthetic priors, not measured material parameters."
+protocols:
+  triangle:
+    nx: 31
+    nt: 400
+    t_max: 0.002
+    n_obs: 16
+    noise_level: 0.05
+  ltp_ltd:
+    nx: 31
+    nt: 500
+    t_max: 0.004
+    n_obs: 20
+    noise_level: 0.05
+solver:
+  method: Radau
+  rtol: 1.0e-6
+  atol: 1.0e-8
+seed: 2026
