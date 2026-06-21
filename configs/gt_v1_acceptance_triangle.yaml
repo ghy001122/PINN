@@ -1,0 +1,67 @@
+description: "Frozen Ground Truth v1.1 acceptance config for the triangle main protocol. Literature-guided synthetic priors, not measured material parameters."
+protocol: triangle
+role: pinn_main_training_set
+run:
+  nx: 31
+  nt: 400
+  t_max: null
+  method: Radau
+  rtol: 1.0e-6
+  atol: 1.0e-8
+  seed: 2026
+sparse_observation:
+  n_obs: 16
+  noise_level: 0.05
+acceptance_metrics:
+  G_ratio: 2.915301903395705
+  max_delta_T: 8.750689766759194
+  max_abs_delta_c_v: 0.00207390149033114
+  max_abs_delta_m: 0.19195497789296317
+  approximate_iv_loop_area: 6.241117083184925e-12
+params:
+  L_eff: 100.0e-9
+  A_contact: 7.853981633974483e-9
+  eta_A: 1.0e-6
+  T0: 300.0
+  rho: 3400.0
+  Cp: 700.0
+  k_th: 1.2
+  gamma_sub: 4.5e8
+  c_v0: 0.08
+  D_v0: 8.0e-16
+  mu_v0: 5.0e-16
+  k_r0: 5.0
+  E_D_eV: 0.25
+  E_mu_eV: 0.20
+  E_r_eV: 0.15
+  T_sw: 313.0
+  dT_sw: 4.8
+  alpha_c: 100.0
+  tau_m: 4.0e-4
+  sigma_off0: 3.0e-3
+  sigma_on0: 1.65
+  E_off_eV: 0.12
+  beta_off: 3.0
+  beta_on: 7.0
+  eps_sigma: 1.0e-30
+  eps_R: 1.0e-30
+  eps_V: 1.0e-12
+  triangle_v_peak: 0.20
+  ltp_v_pos: 0.08
+  ltp_v_neg: -0.02
+  layer_profile: bilayer
+  initial_defect_mode: gaussian_seed
+  L_int: 22.0e-9
+  nb_oxide_sigma_off0: 1.4e-3
+  nb_oxide_sigma_on0: 2.4
+  nb_oxide_D_v0: 2.0e-15
+  nb_oxide_mu_v0: 1.0e-15
+  nb_oxide_k_th: 0.8
+  v2o5_sigma_off0: 3.2e-3
+  v2o5_sigma_on0: 1.35
+  v2o5_D_v0: 7.0e-16
+  v2o5_mu_v0: 4.0e-16
+  v2o5_k_th: 1.35
+  gaussian_delta_c: 0.028
+  gaussian_x_d: 25.0e-9
+  gaussian_w_d: 9.0e-9
