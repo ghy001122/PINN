@@ -10,7 +10,7 @@ from scipy.integrate import solve_ivp
 
 from pinnpcm.physics.conductivity import arrhenius_reference, mixed_conductivity
 from pinnpcm.physics.electrostatics import solve_series_electrostatics
-from pinnpcm.physics.params import merge_params
+from pinnpcm.physics.params import initial_defect_profile, merge_params, spatial_param_profiles
 from pinnpcm.physics.voltage_protocols import default_t_max, get_voltage_protocol
 
 
@@ -73,7 +73,7 @@ def _rhs_factory(
 
         heat_flux = np.zeros(nx + 1, dtype=float)
         dtemp_dx = (temperature[1:] - temperature[:-1]) / dx
-        heat_flux[1:-1] = -params["k_th"] * dtemp_dx
+        heat_flux[1:-1] = -_face_average(np.asarray(params["k_th"], dtype=float)) * dtemp_dx
         joule_heat = current_density * electric_field
         dtemp_dt = (
             -(heat_flux[1:] - heat_flux[:-1]) / dx
@@ -93,7 +93,8 @@ def _postprocess_solution(
     t_eval: np.ndarray,
     x: np.ndarray,
     voltage_fn: Any,
-    params: dict[str, float],
+    params: dict[str, Any],
+    serializable_params: dict[str, Any],
     dx: float,
 ) -> dict[str, np.ndarray | str]:
     """Compute algebraic fields and port observables from dynamic states."""
@@ -132,7 +133,7 @@ def _postprocess_solution(
         "E": electric_field,
         "phi": phi,
         "sigma": sigma,
-        "params_json": json.dumps(params, sort_keys=True),
+        "params_json": json.dumps(serializable_params, sort_keys=True),
     }
 
 
@@ -155,17 +156,18 @@ def simulate_ground_truth(
 
     merged = merge_params(params)
     duration = default_t_max(protocol) if t_max is None else float(t_max)
-    voltage_fn = get_voltage_protocol(protocol, duration)
+    voltage_fn = get_voltage_protocol(protocol, duration, merged)
     dx = merged["L_eff"] / nx
     x = (np.arange(nx, dtype=float) + 0.5) * dx
     t_eval = np.linspace(0.0, duration, nt)
+    physics_params = {**merged, **spatial_param_profiles(x, merged)}
 
-    c0 = np.full(nx, merged["c_v0"], dtype=float)
+    c0 = initial_defect_profile(x, merged)
     temp0 = np.full(nx, merged["T0"], dtype=float)
     m0 = equilibrium_m(c0, temp0, merged)
     y0 = np.concatenate([c0, temp0, m0])
 
-    rhs = _rhs_factory(voltage_fn, merged, nx, dx)
+    rhs = _rhs_factory(voltage_fn, physics_params, nx, dx)
     sol = solve_ivp(
         rhs,
         (0.0, duration),
@@ -179,7 +181,7 @@ def simulate_ground_truth(
     if not sol.success:
         raise RuntimeError(f"Ground Truth solver failed: {sol.message}")
 
-    result = _postprocess_solution(sol.y, t_eval, x, voltage_fn, merged, dx)
+    result = _postprocess_solution(sol.y, t_eval, x, voltage_fn, physics_params, merged, dx)
     result["success"] = True
     result["message"] = sol.message
     result["protocol"] = protocol

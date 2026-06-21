@@ -29,3 +29,8 @@ where = ["src"]
 pythonpath = ["src"]
 testpaths = ["tests"]
 addopts = "-ra"
+filterwarnings = [
+  "ignore:.*parseString.*:pyparsing.exceptions.PyparsingDeprecationWarning:matplotlib\\._fontconfig_pattern",
+  "ignore:.*resetCache.*:pyparsing.exceptions.PyparsingDeprecationWarning:matplotlib\\._fontconfig_pattern",
+  "ignore:.*enablePackrat.*:pyparsing.exceptions.PyparsingDeprecationWarning:matplotlib\\._mathtext",
+]

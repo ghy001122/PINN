@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import sys
 from pathlib import Path
 
@@ -58,18 +59,32 @@ def _plot_map(
     save_figure(fig, path)
 
 
+def _params_from_data(data: dict[str, np.ndarray]) -> dict[str, float]:
+    """Parse JSON-serialized parameter metadata from a Ground Truth npz."""
+
+    if "params_json" not in data:
+        return {}
+    raw = data["params_json"]
+    text = str(raw.item() if hasattr(raw, "item") else raw)
+    return json.loads(text)
+
+
 def main() -> None:
     """CLI entrypoint."""
 
     args = build_parser().parse_args()
     outdir = ensure_dir(args.outdir)
     data = _load_npz(args.input)
+    params = _params_from_data(data)
 
     x = data["x"]
     t = data["t"]
     voltage = data["V"]
     current = data["I"]
     conductance = data["G"]
+    delta_defect = data["c_v"] - data["c_v"][0:1, :]
+    delta_temperature = data["T"] - float(params.get("T0", data["T"][0].mean()))
+    delta_m = data["m"] - data["m"][0:1, :]
 
     fig, ax = plt.subplots(figsize=(5.2, 4.0))
     ax.plot(voltage, current * 1e9, linewidth=1.8)
@@ -89,6 +104,9 @@ def main() -> None:
     _plot_map(t, x, data["c_v"], "Effective Defect State", "c_v (dimensionless)", outdir / "defect_map.png")
     _plot_map(t, x, data["m"], "Effective Conductive-State Fraction", "m (dimensionless)", outdir / "m_state_map.png")
     _plot_map(t, x, data["sigma"], "Conductivity Field", "Conductivity (S/m)", outdir / "sigma_map.png")
+    _plot_map(t, x, delta_defect, "Defect-State Change", "Delta c_v (dimensionless)", outdir / "delta_defect_map.png")
+    _plot_map(t, x, delta_temperature, "Temperature Rise", "Delta T (K)", outdir / "delta_temperature_map.png")
+    _plot_map(t, x, delta_m, "Conductive-State Change", "Delta m (dimensionless)", outdir / "delta_m_map.png")
 
     fig, ax_v = plt.subplots(figsize=(6.0, 4.0))
     ax_i = ax_v.twinx()

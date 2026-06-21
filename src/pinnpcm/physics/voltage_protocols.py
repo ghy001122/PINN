@@ -12,13 +12,13 @@ def default_t_max(protocol: str) -> float:
     """Return the default duration for a voltage protocol."""
 
     if protocol == "triangle":
-        return 2.0e-3
+        return 3.0e-3
     if protocol == "ltp_ltd":
-        return 4.0e-3
+        return 5.0e-3
     raise ValueError(f"Unsupported protocol: {protocol}")
 
 
-def triangle_voltage(t: ArrayLike, t_max: float, v_peak: float = 0.08) -> np.ndarray:
+def triangle_voltage(t: ArrayLike, t_max: float, v_peak: float = 0.20) -> np.ndarray:
     """Smooth-free triangular sweep from -v_peak to +v_peak and back."""
 
     t_arr = np.asarray(t, dtype=float)
@@ -36,8 +36,8 @@ def _smooth_window(t: np.ndarray, start: float, end: float, edge: float) -> np.n
 def ltp_ltd_voltage(
     t: ArrayLike,
     t_max: float,
-    v_pos: float = 0.09,
-    v_neg: float = -0.07,
+    v_pos: float = 0.22,
+    v_neg: float = -0.18,
     n_pos: int = 6,
     n_neg: int = 6,
 ) -> np.ndarray:
@@ -60,13 +60,23 @@ def ltp_ltd_voltage(
     return voltage
 
 
-def get_voltage_protocol(protocol: str, t_max: float | None = None) -> Callable[[ArrayLike], np.ndarray]:
+def get_voltage_protocol(
+    protocol: str,
+    t_max: float | None = None,
+    params: dict[str, float] | None = None,
+) -> Callable[[ArrayLike], np.ndarray]:
     """Return a vectorized voltage function for a named protocol."""
 
     duration = default_t_max(protocol) if t_max is None else float(t_max)
+    params = params or {}
 
     if protocol == "triangle":
-        return lambda t: triangle_voltage(t, duration)
+        return lambda t: triangle_voltage(t, duration, v_peak=float(params.get("triangle_v_peak", 0.20)))
     if protocol == "ltp_ltd":
-        return lambda t: ltp_ltd_voltage(t, duration)
+        return lambda t: ltp_ltd_voltage(
+            t,
+            duration,
+            v_pos=float(params.get("ltp_v_pos", 0.22)),
+            v_neg=float(params.get("ltp_v_neg", -0.18)),
+        )
     raise ValueError(f"Unsupported protocol: {protocol}")
