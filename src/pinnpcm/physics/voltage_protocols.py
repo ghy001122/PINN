@@ -14,7 +14,7 @@ def default_t_max(protocol: str) -> float:
     if protocol == "triangle":
         return 3.0e-3
     if protocol == "ltp_ltd":
-        return 5.0e-3
+        return 15.0e-3
     raise ValueError(f"Unsupported protocol: {protocol}")
 
 
@@ -36,8 +36,8 @@ def _smooth_window(t: np.ndarray, start: float, end: float, edge: float) -> np.n
 def ltp_ltd_voltage(
     t: ArrayLike,
     t_max: float,
-    v_pos: float = 0.22,
-    v_neg: float = -0.18,
+    v_pos: float = 0.08,
+    v_neg: float = -0.02,
     n_pos: int = 6,
     n_neg: int = 6,
 ) -> np.ndarray:
@@ -76,7 +76,7 @@ def get_voltage_protocol(
         return lambda t: ltp_ltd_voltage(
             t,
             duration,
-            v_pos=float(params.get("ltp_v_pos", 0.22)),
-            v_neg=float(params.get("ltp_v_neg", -0.18)),
+            v_pos=float(params.get("ltp_v_pos", 0.08)),
+            v_neg=float(params.get("ltp_v_neg", -0.02)),
         )
     raise ValueError(f"Unsupported protocol: {protocol}")

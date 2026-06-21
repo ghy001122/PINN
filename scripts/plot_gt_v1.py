@@ -29,6 +29,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Plot synthetic Ground Truth v1 data.")
     parser.add_argument("--input", type=Path, required=True)
     parser.add_argument("--outdir", type=Path, required=True)
+    parser.add_argument("--protocol", choices=["auto", "triangle", "ltp_ltd"], default="auto")
     return parser
 
 
@@ -69,6 +70,46 @@ def _params_from_data(data: dict[str, np.ndarray]) -> dict[str, float]:
     return json.loads(text)
 
 
+def _infer_protocol(input_path: Path, requested: str) -> str:
+    """Infer the voltage protocol from CLI input when possible."""
+
+    if requested != "auto":
+        return requested
+    return "ltp_ltd" if "ltp_ltd" in input_path.stem else "triangle"
+
+
+def _pulse_conductance(voltage: np.ndarray, conductance: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    """Return pulse indices and per-pulse conductance values for pulse trains."""
+
+    threshold = 0.1 * max(float(np.max(np.abs(voltage))), 1.0e-30)
+    active = np.abs(voltage) > threshold
+    starts: list[int] = []
+    ends: list[int] = []
+    in_segment = False
+    start = 0
+
+    for idx, is_active in enumerate(active):
+        if is_active and not in_segment:
+            start = idx
+            in_segment = True
+        elif not is_active and in_segment:
+            starts.append(start)
+            ends.append(idx)
+            in_segment = False
+    if in_segment:
+        starts.append(start)
+        ends.append(active.size)
+
+    pulse_g = []
+    for start_idx, end_idx in zip(starts, ends):
+        segment_g = conductance[start_idx:end_idx]
+        if segment_g.size:
+            pulse_g.append(float(np.mean(segment_g)))
+
+    pulse_index = np.arange(1, len(pulse_g) + 1, dtype=int)
+    return pulse_index, np.asarray(pulse_g, dtype=float)
+
+
 def main() -> None:
     """CLI entrypoint."""
 
@@ -76,6 +117,7 @@ def main() -> None:
     outdir = ensure_dir(args.outdir)
     data = _load_npz(args.input)
     params = _params_from_data(data)
+    protocol = _infer_protocol(args.input, args.protocol)
 
     x = data["x"]
     t = data["t"]
@@ -120,6 +162,18 @@ def main() -> None:
     ax_v.set_title("Voltage and Current vs Time")
     fig.tight_layout()
     save_figure(fig, outdir / "voltage_current_time.png")
+
+    if protocol == "ltp_ltd":
+        pulse_index, pulse_g = _pulse_conductance(voltage, conductance)
+        if pulse_g.size:
+            g0 = pulse_g[0] if abs(pulse_g[0]) > 1.0e-30 else 1.0
+            fig, ax = plt.subplots(figsize=(5.4, 3.8))
+            ax.plot(pulse_index, pulse_g / g0, marker="o", linewidth=1.8)
+            ax.set_xlabel("Pulse index")
+            ax.set_ylabel("G / G0 (dimensionless)")
+            ax.set_title("Normalized Conductance vs Pulse Index")
+            ax.grid(True, alpha=0.25)
+            save_figure(fig, outdir / "normalized_g_vs_pulse.png")
 
     print(f"Saved figures to: {outdir}")
 
