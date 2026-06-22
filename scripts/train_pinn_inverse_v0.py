@@ -33,6 +33,15 @@ from pinnpcm.utils.io import ensure_dir, write_json
 from pinnpcm.utils.seed import seed_everything
 
 
+DEFAULT_NRMSE_SCALES = {
+    "delta_T": 8.750689766759194,
+    "delta_c_v": 0.00207390149033114,
+    "delta_m": 0.19195497789296317,
+    "sigma_min": 0.0022561446979527944,
+    "sigma_max": 0.0237445194669558,
+}
+
+
 def build_parser() -> argparse.ArgumentParser:
     """Build the command-line parser."""
 
@@ -60,6 +69,12 @@ def _rmse(pred: np.ndarray, target: np.ndarray) -> float:
     """Return root mean square error."""
 
     return float(np.sqrt(np.mean(np.square(pred - target))))
+
+
+def _nrmse(rmse: float, scale: float) -> float:
+    """Return normalized RMSE against a positive acceptance scale."""
+
+    return float(rmse / max(abs(float(scale)), 1.0e-30))
 
 
 def _display_path(path: Path) -> str:
@@ -320,18 +335,42 @@ def train(config_path: Path, *, epochs_override: int | None = None, output_dir_o
             )
 
     predictions, port_pred = _evaluate(model, data, device)
+    nrmse_cfg = {key: float(value) for key, value in dict(cfg.get("nrmse_scales", {})).items()}
+    nrmse_scales = dict(DEFAULT_NRMSE_SCALES)
+    nrmse_scales.update(nrmse_cfg)
+    sigma_scale = nrmse_scales.get(
+        "sigma_range",
+        nrmse_scales["sigma_max"] - nrmse_scales["sigma_min"],
+    )
+
+    rmse_delta_t = _rmse(predictions["delta_T"], gt_delta_t)
+    rmse_delta_c = _rmse(predictions["delta_c_v"], gt_delta_c)
+    rmse_delta_m = _rmse(predictions["delta_m"], gt_delta_m)
+    rmse_sigma = _rmse(predictions["sigma"], gt_sigma)
     metrics = {
         "final_total_loss": history[-1]["total_loss"],
         "final_port_loss": history[-1]["port_loss"],
         "relative_G_error": _relative_l2(port_pred["G"], np.asarray(data.gt["G"], dtype=float)),
         "relative_I_error": _relative_l2(port_pred["I"], np.asarray(data.gt["I"], dtype=float)),
-        "rmse_delta_T": _rmse(predictions["delta_T"], gt_delta_t),
-        "rmse_delta_c_v": _rmse(predictions["delta_c_v"], gt_delta_c),
-        "rmse_delta_m": _rmse(predictions["delta_m"], gt_delta_m),
-        "rmse_sigma": _rmse(predictions["sigma"], gt_sigma),
+        "rmse_delta_T": rmse_delta_t,
+        "rmse_delta_c_v": rmse_delta_c,
+        "rmse_delta_m": rmse_delta_m,
+        "rmse_sigma": rmse_sigma,
+        "nrmse_delta_T": _nrmse(rmse_delta_t, nrmse_scales["delta_T"]),
+        "nrmse_delta_c_v": _nrmse(rmse_delta_c, nrmse_scales["delta_c_v"]),
+        "nrmse_delta_m": _nrmse(rmse_delta_m, nrmse_scales["delta_m"]),
+        "nrmse_sigma": _nrmse(rmse_sigma, sigma_scale),
         "max_abs_error_delta_T": float(np.max(np.abs(predictions["delta_T"] - gt_delta_t))),
         "max_abs_error_delta_c_v": float(np.max(np.abs(predictions["delta_c_v"] - gt_delta_c))),
         "max_abs_error_delta_m": float(np.max(np.abs(predictions["delta_m"] - gt_delta_m))),
+        "nrmse_scales": {
+            "delta_T": nrmse_scales["delta_T"],
+            "delta_c_v": nrmse_scales["delta_c_v"],
+            "delta_m": nrmse_scales["delta_m"],
+            "sigma_min": nrmse_scales["sigma_min"],
+            "sigma_max": nrmse_scales["sigma_max"],
+            "sigma_scale": sigma_scale,
+        },
         "gt_keys": data.gt_keys,
         "obs_keys": data.obs_keys,
         "sigma_closure": "PINN inverse v0 predicts positive sigma as a surrogate closure.",

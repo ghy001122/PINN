@@ -1,0 +1,128 @@
+{
+  "benchmark": "Frozen Ground Truth v1.1 triangle synthetic numerical digital-twin benchmark.",
+  "experiments": [
+    {
+      "artifacts": {
+        "compare_g_time": "outputs\\pinn_inverse_v0\\triangle_full_anchor\\compare_g_time.png",
+        "loss_curve": "outputs\\pinn_inverse_v0\\triangle_full_anchor\\loss_curve.png",
+        "metrics": "outputs\\pinn_inverse_v0\\triangle_full_anchor\\metrics.json",
+        "pred_delta_T_map": "outputs\\pinn_inverse_v0\\triangle_full_anchor\\pred_delta_T_map.png",
+        "pred_delta_c_v_map": "outputs\\pinn_inverse_v0\\triangle_full_anchor\\pred_delta_c_v_map.png",
+        "pred_delta_m_map": "outputs\\pinn_inverse_v0\\triangle_full_anchor\\pred_delta_m_map.png",
+        "pred_sigma_map": "outputs\\pinn_inverse_v0\\triangle_full_anchor\\pred_sigma_map.png",
+        "train_history": "outputs\\pinn_inverse_v0\\triangle_full_anchor\\train_history.json"
+      },
+      "config_path": "configs\\pinn_inverse_v0_triangle_full_anchor.yaml",
+      "field_anchor_points": 2048,
+      "loss_weights": {
+        "w_field_anchor": 1.0,
+        "w_ic": 1.0,
+        "w_physics_light": 0.001,
+        "w_port_data": 1.0,
+        "w_smooth": 0.001
+      },
+      "metrics": {
+        "final_port_loss": 0.002501274924725294,
+        "final_total_loss": 0.190429225564003,
+        "max_abs_error_delta_T": 8.663473560864247,
+        "max_abs_error_delta_c_v": 0.0035695517011874317,
+        "max_abs_error_delta_m": 0.06374653266075501,
+        "nrmse_delta_T": 0.45881552519801055,
+        "nrmse_delta_c_v": 0.2565041037277942,
+        "nrmse_delta_m": 0.054121152492179136,
+        "nrmse_sigma": 0.03666896141668517,
+        "relative_G_error": 0.04331491706021674,
+        "relative_I_error": 0.05644935907792122,
+        "rmse_delta_T": 4.014952321180476,
+        "rmse_delta_c_v": 0.0005319642429971257,
+        "rmse_delta_m": 0.010388824630177936,
+        "rmse_sigma": 0.0007879563852751732
+      },
+      "name": "triangle_full_anchor",
+      "output_dir": "outputs\\pinn_inverse_v0\\triangle_full_anchor"
+    },
+    {
+      "artifacts": {
+        "compare_g_time": "outputs\\pinn_inverse_v0\\triangle_weak_anchor\\compare_g_time.png",
+        "loss_curve": "outputs\\pinn_inverse_v0\\triangle_weak_anchor\\loss_curve.png",
+        "metrics": "outputs\\pinn_inverse_v0\\triangle_weak_anchor\\metrics.json",
+        "pred_delta_T_map": "outputs\\pinn_inverse_v0\\triangle_weak_anchor\\pred_delta_T_map.png",
+        "pred_delta_c_v_map": "outputs\\pinn_inverse_v0\\triangle_weak_anchor\\pred_delta_c_v_map.png",
+        "pred_delta_m_map": "outputs\\pinn_inverse_v0\\triangle_weak_anchor\\pred_delta_m_map.png",
+        "pred_sigma_map": "outputs\\pinn_inverse_v0\\triangle_weak_anchor\\pred_sigma_map.png",
+        "train_history": "outputs\\pinn_inverse_v0\\triangle_weak_anchor\\train_history.json"
+      },
+      "config_path": "configs\\pinn_inverse_v0_triangle_weak_anchor.yaml",
+      "field_anchor_points": 2048,
+      "loss_weights": {
+        "w_field_anchor": 0.1,
+        "w_ic": 1.0,
+        "w_physics_light": 0.001,
+        "w_port_data": 1.0,
+        "w_smooth": 0.001
+      },
+      "metrics": {
+        "final_port_loss": 0.002722268458455801,
+        "final_total_loss": 0.06827482581138611,
+        "max_abs_error_delta_T": 8.710109835399862,
+        "max_abs_error_delta_c_v": 0.018185269886629274,
+        "max_abs_error_delta_m": 0.09685394973786848,
+        "nrmse_delta_T": 0.46955335930796416,
+        "nrmse_delta_c_v": 2.7812821135348074,
+        "nrmse_delta_m": 0.17516756534619493,
+        "nrmse_sigma": 0.08235574256119227,
+        "relative_G_error": 0.060000174387631715,
+        "relative_I_error": 0.07142255466034995,
+        "rmse_delta_T": 4.108915776243605,
+        "rmse_delta_c_v": 0.00576810512029118,
+        "rmse_delta_m": 0.03362428613359303,
+        "rmse_sigma": 0.0017696910604520749
+      },
+      "name": "triangle_weak_anchor",
+      "output_dir": "outputs\\pinn_inverse_v0\\triangle_weak_anchor"
+    },
+    {
+      "artifacts": {
+        "compare_g_time": "outputs\\pinn_inverse_v0\\triangle_port_only\\compare_g_time.png",
+        "loss_curve": "outputs\\pinn_inverse_v0\\triangle_port_only\\loss_curve.png",
+        "metrics": "outputs\\pinn_inverse_v0\\triangle_port_only\\metrics.json",
+        "pred_delta_T_map": "outputs\\pinn_inverse_v0\\triangle_port_only\\pred_delta_T_map.png",
+        "pred_delta_c_v_map": "outputs\\pinn_inverse_v0\\triangle_port_only\\pred_delta_c_v_map.png",
+        "pred_delta_m_map": "outputs\\pinn_inverse_v0\\triangle_port_only\\pred_delta_m_map.png",
+        "pred_sigma_map": "outputs\\pinn_inverse_v0\\triangle_port_only\\pred_sigma_map.png",
+        "train_history": "outputs\\pinn_inverse_v0\\triangle_port_only\\train_history.json"
+      },
+      "config_path": "configs\\pinn_inverse_v0_triangle_port_only.yaml",
+      "field_anchor_points": 2048,
+      "loss_weights": {
+        "w_field_anchor": 0.0,
+        "w_ic": 1.0,
+        "w_physics_light": 0.001,
+        "w_port_data": 1.0,
+        "w_smooth": 0.001
+      },
+      "metrics": {
+        "final_port_loss": 0.001892740954644978,
+        "final_total_loss": 0.0021123397164046764,
+        "max_abs_error_delta_T": 8.74593320411833,
+        "max_abs_error_delta_c_v": 0.031186911060311517,
+        "max_abs_error_delta_m": 0.23292024242186204,
+        "nrmse_delta_T": 0.4725309531484271,
+        "nrmse_delta_c_v": 5.165463900541057,
+        "nrmse_delta_m": 0.40788139868512785,
+        "nrmse_sigma": 0.3239361550038183,
+        "relative_G_error": 0.07169673218475178,
+        "relative_I_error": 0.0676400156881798,
+        "rmse_delta_T": 4.134971776192909,
+        "rmse_delta_c_v": 0.0107126632815838,
+        "rmse_delta_m": 0.07829486486755462,
+        "rmse_sigma": 0.006960861499627958
+      },
+      "name": "triangle_port_only",
+      "output_dir": "outputs\\pinn_inverse_v0\\triangle_port_only"
+    }
+  ],
+  "note": "PINN inverse v0 is a pipeline proof-of-concept, not a strict PDE-constrained inverse PINN.",
+  "repo_url": "https://github.com/ghy001122/PINN",
+  "summary_json_path": "outputs\\tables\\pinn_inverse_v0_ablation_summary.json"
+}

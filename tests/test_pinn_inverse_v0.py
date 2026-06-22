@@ -13,6 +13,14 @@ import torch
 from pinnpcm.pinn.data import load_inverse_v0_data
 from pinnpcm.pinn.losses import reconstruct_port_from_sigma
 from pinnpcm.pinn.models import InverseV0Net
+from pinnpcm.utils.config import load_yaml
+
+
+ABLATION_CONFIGS = [
+    Path("configs/pinn_inverse_v0_triangle_full_anchor.yaml"),
+    Path("configs/pinn_inverse_v0_triangle_weak_anchor.yaml"),
+    Path("configs/pinn_inverse_v0_triangle_port_only.yaml"),
+]
 
 
 def test_inverse_v0_data_loader_reads_frozen_acceptance_data() -> None:
@@ -93,3 +101,53 @@ def test_train_pinn_inverse_v0_smoke(tmp_path: Path) -> None:
     metrics = json.loads(metrics_path.read_text(encoding="utf-8"))
     assert np.isfinite(metrics["final_total_loss"])
     assert np.isfinite(metrics["relative_G_error"])
+    for key in ("nrmse_delta_T", "nrmse_delta_c_v", "nrmse_delta_m", "nrmse_sigma"):
+        assert key in metrics
+        assert np.isfinite(metrics[key])
+
+
+def test_ablation_configs_are_readable_and_port_only_disables_anchor() -> None:
+    """Ablation configs should be readable and encode the intended weights."""
+
+    configs = {path.name: load_yaml(path) for path in ABLATION_CONFIGS}
+
+    assert configs["pinn_inverse_v0_triangle_full_anchor.yaml"]["loss_weights"]["w_field_anchor"] == 1.0
+    assert configs["pinn_inverse_v0_triangle_weak_anchor.yaml"]["loss_weights"]["w_field_anchor"] == 0.1
+    assert configs["pinn_inverse_v0_triangle_port_only.yaml"]["loss_weights"]["w_field_anchor"] == 0.0
+    for cfg in configs.values():
+        data = load_inverse_v0_data(cfg, root=Path.cwd())
+        assert data.train_data_path.exists()
+        assert data.sparse_obs_path.exists()
+
+
+def test_ablation_script_smoke(tmp_path: Path) -> None:
+    """The ablation runner should support a small smoke test."""
+
+    output_root = tmp_path / "pinn_inverse_v0_ablation"
+    summary_path = tmp_path / "pinn_inverse_v0_ablation_summary.json"
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/run_pinn_inverse_v0_ablation.py",
+            "--epochs",
+            "1",
+            "--output-root",
+            str(output_root),
+            "--summary",
+            str(summary_path),
+        ],
+        cwd=Path.cwd(),
+        check=True,
+        text=True,
+        capture_output=True,
+        timeout=180,
+    )
+
+    assert "triangle_port_only" in result.stdout
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    assert len(summary["experiments"]) == 3
+    for experiment in summary["experiments"]:
+        metrics = experiment["metrics"]
+        for key in ("nrmse_delta_T", "nrmse_delta_c_v", "nrmse_delta_m", "nrmse_sigma"):
+            assert key in metrics
+            assert np.isfinite(metrics[key])

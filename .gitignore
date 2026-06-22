@@ -18,6 +18,7 @@ outputs/checkpoints/*
 !outputs/checkpoints/.gitkeep
 outputs/tables/*
 !outputs/tables/.gitkeep
+!outputs/tables/pinn_inverse_v0_ablation_summary.json
 outputs/pinn_inverse_v0/*
 
 *.npz
