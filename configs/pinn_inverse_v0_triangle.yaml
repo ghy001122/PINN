@@ -1,0 +1,37 @@
+description: "PINN inverse v0 proof-of-concept on frozen Ground Truth v1.1 triangle synthetic benchmark."
+train_data: data/processed/gt_v1_acceptance/gt_triangle.npz
+sparse_obs: data/processed/gt_v1_acceptance/obs_triangle_sparse.npz
+manifest: data/processed/gt_v1_acceptance/manifest.json
+output_dir: outputs/pinn_inverse_v0/triangle
+
+seed: 2026
+device: cpu
+epochs: 200
+lr: 1.0e-3
+hidden_dim: 64
+num_layers: 3
+fourier_features: 32
+fourier_scale: 3.0
+
+field_anchor_points: 2048
+plot_dpi: 160
+
+model_bounds:
+  c_v_min: 0.0
+  c_v_max: 0.2
+  delta_T_max: 20.0
+  sigma_min: 1.0e-4
+  sigma_max: 1.0
+
+loss_weights:
+  w_port_data: 1.0
+  w_ic: 1.0
+  w_field_anchor: 1.0
+  w_smooth: 1.0e-3
+  w_physics_light: 1.0e-3
+
+loss_scales:
+  c_v: 1.0e-2
+  delta_T: 10.0
+  m: 0.1
+  sigma_log: 1.0
