@@ -4,6 +4,7 @@ Current high-level structure:
 
 ```text
 .
+|-- AGENTS.md
 |-- configs/
 |   |-- gt_v1.yaml
 |   |-- gt_v1_acceptance_ltp_ltd.yaml
@@ -16,40 +17,73 @@ Current high-level structure:
 |-- data/
 |   |-- README.md
 |   `-- processed/
+|       `-- .gitkeep
 |-- docs/
+|   |-- codex_reports/
+|   |   |-- evidence_chain_patch_report.md
+|   |   `-- pinn_inverse_v0_ablation_audit_report.md
+|   |-- project_state/
+|   |   |-- file_inventory.md
+|   |   |-- latest_changes.md
+|   |   |-- repo_tree.md
+|   |   `-- reproducibility.md
+|   |-- data_provenance.md
+|   |-- device_anchor.md
+|   |-- experiment_plan.md
 |   |-- gt_v1_acceptance_report.md
 |   |-- method_equations.md
 |   |-- pinn_inverse_v0_ablation_report.md
-|   |-- codex_reports/
-|   `-- project_state/
+|   `-- reviewer_defense.md
 |-- outputs/
 |   |-- checkpoints/
+|   |   `-- .gitkeep
 |   |-- figures/
+|   |   `-- .gitkeep
 |   |-- logs/
-|   |-- pinn_inverse_v0/
-|   `-- tables/
+|   |   `-- .gitkeep
+|   |-- tables/
+|   |   |-- .gitkeep
+|   |   `-- pinn_inverse_v0_ablation_summary.json
+|   `-- pinn_inverse_v0/
+|       `-- ignored generated training artifacts
 |-- scripts/
+|   |-- analyze_gt_v1.py
+|   |-- evaluate_v1.py
+|   |-- plot_gt_v1.py
+|   |-- run_gt_v1.py
 |   |-- run_gt_v1_acceptance.py
 |   |-- run_pinn_inverse_v0_ablation.py
+|   |-- scan_gt_v1.py
 |   |-- train_pinn_inverse_v0.py
 |   `-- train_pinn_v1.py
 |-- src/
 |   `-- pinnpcm/
+|       |-- baselines/
 |       |-- physics/
 |       |-- pinn/
 |       |-- utils/
 |       `-- visualization/
 |-- tests/
+|   |-- test_conductivity.py
+|   |-- test_data_shapes.py
+|   |-- test_electrostatics.py
+|   |-- test_gt_profiles.py
+|   |-- test_gt_solver_smoke.py
+|   |-- test_imports.py
+|   |-- test_pinn_inverse_v0.py
+|   `-- test_voltage_protocols.py
+|-- DATASET_REGISTRY.md
+|-- EXPERIMENT_REGISTRY.md
+|-- FIGURE_REGISTRY.md
+|-- NEXT_ACTIONS.md
 |-- PROJECT_STATE.md
 |-- RESEARCH_LOG.md
-|-- NEXT_ACTIONS.md
-|-- EXPERIMENT_REGISTRY.md
-|-- DATASET_REGISTRY.md
-|-- FIGURE_REGISTRY.md
+|-- README.md
 |-- pyproject.toml
-|-- requirements.txt
-`-- README.md
+`-- requirements.txt
 ```
 
 Generated large outputs remain under `data\processed\` and `outputs\` and are
-not intended for normal Git commits.
+not intended for normal Git commits. The only committed output artifact from the
+PINN inverse v0 ablation audit is
+`outputs\tables\pinn_inverse_v0_ablation_summary.json`.

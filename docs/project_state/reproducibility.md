@@ -44,6 +44,20 @@ This regenerates:
 
 Only the lightweight summary JSON is intended to be committed.
 
+## PINN inverse v0 ablation smoke test
+
+For evidence-chain or CI-style checks that should not overwrite the official
+ablation summary, run:
+
+```powershell
+python scripts/run_pinn_inverse_v0_ablation.py --smoke-test
+```
+
+This writes ignored smoke artifacts to:
+
+- `outputs\pinn_inverse_v0_smoke\`
+- `outputs\tables\pinn_inverse_v0_ablation_smoke_summary.json`
+
 ## Academic boundary
 
 All generated results are synthetic numerical digital-twin benchmark outputs.

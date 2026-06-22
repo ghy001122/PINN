@@ -20,6 +20,7 @@ outputs/tables/*
 !outputs/tables/.gitkeep
 !outputs/tables/pinn_inverse_v0_ablation_summary.json
 outputs/pinn_inverse_v0/*
+outputs/pinn_inverse_v0_smoke/*
 
 *.npz
 *.npy

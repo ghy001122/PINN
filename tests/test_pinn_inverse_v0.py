@@ -129,8 +129,7 @@ def test_ablation_script_smoke(tmp_path: Path) -> None:
         [
             sys.executable,
             "scripts/run_pinn_inverse_v0_ablation.py",
-            "--epochs",
-            "1",
+            "--smoke-test",
             "--output-root",
             str(output_root),
             "--summary",

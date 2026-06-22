@@ -49,6 +49,11 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Run PINN inverse v0 ablation audit.")
     parser.add_argument("--epochs", type=int, default=None, help="Override epochs for every ablation run.")
     parser.add_argument(
+        "--smoke-test",
+        action="store_true",
+        help="Run a one-epoch smoke test in a separate ignored output directory.",
+    )
+    parser.add_argument(
         "--output-root",
         type=Path,
         default=Path("outputs/pinn_inverse_v0"),
@@ -136,6 +141,12 @@ def main() -> None:
     """CLI entry point."""
 
     args = build_parser().parse_args()
+    if args.smoke_test:
+        args.epochs = 1 if args.epochs is None else args.epochs
+        if args.output_root == Path("outputs/pinn_inverse_v0"):
+            args.output_root = Path("outputs/pinn_inverse_v0_smoke")
+        if args.summary == Path("outputs/tables/pinn_inverse_v0_ablation_summary.json"):
+            args.summary = Path("outputs/tables/pinn_inverse_v0_ablation_smoke_summary.json")
     run_ablation(epochs_override=args.epochs, output_root=args.output_root, summary_path=args.summary)
 
 

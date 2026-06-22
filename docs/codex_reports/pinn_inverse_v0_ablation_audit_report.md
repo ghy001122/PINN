@@ -4,8 +4,7 @@
 
 - GitHub repo URL: `https://github.com/ghy001122/PINN`
 - Branch: `main`
-- Commit hash: recorded by the GitHub sync for this report. The exact pushed
-  commit is reported in the final Codex response for this task.
+- Commit hash: `ffad313297c78cfc158e6ae270c3b86639d79e1d`
 
 ## Scope
 
