@@ -2,16 +2,16 @@
 
 ## Immediate next step
 
-Move from PINN inverse v0 proof-of-concept toward PINN inverse v0.1 or v1 with
-a more physical differentiable closure for `sigma(x,t)` and stronger thermal
-constraints.
+Move from PINN inverse v1 to a stronger v1.1 physics closure focused on thermal
+identifiability and sigma closure. The current v1 confirms the training path but
+does not yet reduce `delta_T` error.
 
 ## Recommended tasks
 
-1. Replace or augment the direct `sigma` surrogate with a differentiable
-   conductivity relation tied to `c_v`, `delta_T`, and `m`.
-2. Add a light but explicit physics residual audit for temperature and state
-   evolution without claiming full PDE-constrained performance prematurely.
+1. Replace or further constrain the direct `sigma` surrogate with a
+   differentiable conductivity relation tied to `c_v`, `delta_T`, and `m`.
+2. Strengthen the thermal residual and scaling so `delta_T` is identifiable
+   beyond field anchors.
 3. Test sparse-observation sensitivity by varying the number of terminal
    observations in `obs_triangle_sparse.npz`.
 4. Add diagnostics for identifiability, especially whether multiple hidden

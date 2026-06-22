@@ -30,3 +30,35 @@ Ethics note:
 
 All results in this repository are synthetic numerical benchmark results unless
 explicitly documented otherwise in `docs\data_provenance.md`.
+
+## PINN inverse v1 physics regularization
+
+Date: 2026-06-22
+
+Actions:
+
+- Added `src\pinnpcm\pinn\physics_residuals.py`.
+- Added `configs\pinn_inverse_v1_triangle_physics.yaml`.
+- Added `configs\pinn_inverse_v1_triangle_weak_anchor.yaml`.
+- Added `configs\pinn_inverse_v1_triangle_port_physics.yaml`.
+- Added `scripts\train_pinn_inverse_v1.py`.
+- Added `scripts\run_pinn_inverse_v1_experiments.py`.
+- Added `outputs\tables\pinn_inverse_v1_summary.json`.
+- Added `docs\pinn_inverse_v1_physics_design.md`.
+- Added `docs\pinn_inverse_v1_report.md`.
+
+Findings:
+
+- v1 adds heat, state, defect, sigma-consistency, and boundary residuals through
+  torch autograd.
+- `triangle_physics` slightly improves terminal port error and `sigma` nRMSE
+  relative to v0 full_anchor.
+- `triangle_port_physics` improves hidden-field regularity relative to v0
+  port_only but worsens terminal `G(t)` error.
+- `delta_T` remains the largest absolute error source and is not materially
+  improved by the current lightweight heat residual.
+
+Boundary:
+
+v1 is physics-regularized and approximate. It is not yet a strict
+PDE-constrained inverse PINN.

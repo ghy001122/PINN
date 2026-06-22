@@ -13,6 +13,9 @@ Current high-level structure:
 |   |-- pinn_inverse_v0_triangle_full_anchor.yaml
 |   |-- pinn_inverse_v0_triangle_weak_anchor.yaml
 |   |-- pinn_inverse_v0_triangle_port_only.yaml
+|   |-- pinn_inverse_v1_triangle_physics.yaml
+|   |-- pinn_inverse_v1_triangle_weak_anchor.yaml
+|   |-- pinn_inverse_v1_triangle_port_physics.yaml
 |   `-- pinn_v1.yaml
 |-- data/
 |   |-- README.md
@@ -21,7 +24,8 @@ Current high-level structure:
 |-- docs/
 |   |-- codex_reports/
 |   |   |-- evidence_chain_patch_report.md
-|   |   `-- pinn_inverse_v0_ablation_audit_report.md
+|   |   |-- pinn_inverse_v0_ablation_audit_report.md
+|   |   `-- pinn_inverse_v1_physics_report.md
 |   |-- project_state/
 |   |   |-- file_inventory.md
 |   |   |-- latest_changes.md
@@ -33,6 +37,8 @@ Current high-level structure:
 |   |-- gt_v1_acceptance_report.md
 |   |-- method_equations.md
 |   |-- pinn_inverse_v0_ablation_report.md
+|   |-- pinn_inverse_v1_physics_design.md
+|   |-- pinn_inverse_v1_report.md
 |   `-- reviewer_defense.md
 |-- outputs/
 |   |-- checkpoints/
@@ -43,8 +49,11 @@ Current high-level structure:
 |   |   `-- .gitkeep
 |   |-- tables/
 |   |   |-- .gitkeep
-|   |   `-- pinn_inverse_v0_ablation_summary.json
-|   `-- pinn_inverse_v0/
+|   |   |-- pinn_inverse_v0_ablation_summary.json
+|   |   `-- pinn_inverse_v1_summary.json
+|   |-- pinn_inverse_v0/
+|   |   `-- ignored generated training artifacts
+|   `-- pinn_inverse_v1/
 |       `-- ignored generated training artifacts
 |-- scripts/
 |   |-- analyze_gt_v1.py
@@ -53,8 +62,10 @@ Current high-level structure:
 |   |-- run_gt_v1.py
 |   |-- run_gt_v1_acceptance.py
 |   |-- run_pinn_inverse_v0_ablation.py
+|   |-- run_pinn_inverse_v1_experiments.py
 |   |-- scan_gt_v1.py
 |   |-- train_pinn_inverse_v0.py
+|   |-- train_pinn_inverse_v1.py
 |   `-- train_pinn_v1.py
 |-- src/
 |   `-- pinnpcm/
@@ -71,6 +82,7 @@ Current high-level structure:
 |   |-- test_gt_solver_smoke.py
 |   |-- test_imports.py
 |   |-- test_pinn_inverse_v0.py
+|   |-- test_pinn_inverse_v1.py
 |   `-- test_voltage_protocols.py
 |-- DATASET_REGISTRY.md
 |-- EXPERIMENT_REGISTRY.md
@@ -84,6 +96,7 @@ Current high-level structure:
 ```
 
 Generated large outputs remain under `data\processed\` and `outputs\` and are
-not intended for normal Git commits. The only committed output artifact from the
-PINN inverse v0 ablation audit is
-`outputs\tables\pinn_inverse_v0_ablation_summary.json`.
+not intended for normal Git commits. Committed output artifacts are limited to
+lightweight summary JSON files such as
+`outputs\tables\pinn_inverse_v0_ablation_summary.json` and
+`outputs\tables\pinn_inverse_v1_summary.json`.

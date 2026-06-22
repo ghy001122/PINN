@@ -61,3 +61,31 @@ Modified:
 Deleted:
 
 - None.
+
+## PINN inverse v1 physics residuals
+
+Added:
+
+- `configs\pinn_inverse_v1_triangle_physics.yaml`
+- `configs\pinn_inverse_v1_triangle_weak_anchor.yaml`
+- `configs\pinn_inverse_v1_triangle_port_physics.yaml`
+- `src\pinnpcm\pinn\physics_residuals.py`
+- `scripts\train_pinn_inverse_v1.py`
+- `scripts\run_pinn_inverse_v1_experiments.py`
+- `tests\test_pinn_inverse_v1.py`
+- `docs\pinn_inverse_v1_physics_design.md`
+- `docs\pinn_inverse_v1_report.md`
+- `docs\codex_reports\pinn_inverse_v1_physics_report.md`
+- `outputs\tables\pinn_inverse_v1_summary.json`
+
+Modified:
+
+- `.gitignore`: ignores generated v1 training artifacts while allowing the
+  lightweight v1 summary JSON.
+- Project state and registry files now document the v1 phase and outputs.
+
+Deleted:
+
+- None.
+
+Frozen Ground Truth v1.1 files were not modified.

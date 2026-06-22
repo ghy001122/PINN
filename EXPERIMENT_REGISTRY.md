@@ -33,3 +33,24 @@ Runs:
 
 Status: completed. Generated training outputs are reproducible and are not
 committed, except the lightweight summary JSON.
+
+## PINN inverse v1 physics-regularized audit
+
+- Single-run trainer: `scripts\train_pinn_inverse_v1.py`
+- Batch runner: `scripts\run_pinn_inverse_v1_experiments.py`
+- Summary: `outputs\tables\pinn_inverse_v1_summary.json`
+- Design: `docs\pinn_inverse_v1_physics_design.md`
+- Report: `docs\pinn_inverse_v1_report.md`
+
+Runs:
+
+- `configs\pinn_inverse_v1_triangle_physics.yaml` ->
+  `outputs\pinn_inverse_v1\triangle_physics\`
+- `configs\pinn_inverse_v1_triangle_weak_anchor.yaml` ->
+  `outputs\pinn_inverse_v1\triangle_weak_anchor\`
+- `configs\pinn_inverse_v1_triangle_port_physics.yaml` ->
+  `outputs\pinn_inverse_v1\triangle_port_physics\`
+
+Status: completed as a physics-regularized approximation. Generated training
+outputs are reproducible and are not committed, except the lightweight summary
+JSON.

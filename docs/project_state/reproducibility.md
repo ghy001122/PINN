@@ -58,6 +58,27 @@ This writes ignored smoke artifacts to:
 - `outputs\pinn_inverse_v0_smoke\`
 - `outputs\tables\pinn_inverse_v0_ablation_smoke_summary.json`
 
+## PINN inverse v1 smoke test
+
+```powershell
+python scripts/train_pinn_inverse_v1.py --config configs/pinn_inverse_v1_triangle_physics.yaml --epochs 2
+```
+
+## PINN inverse v1 experiment reproduction
+
+```powershell
+python scripts/run_pinn_inverse_v1_experiments.py
+```
+
+This regenerates:
+
+- `outputs\pinn_inverse_v1\triangle_physics\`
+- `outputs\pinn_inverse_v1\triangle_weak_anchor\`
+- `outputs\pinn_inverse_v1\triangle_port_physics\`
+- `outputs\tables\pinn_inverse_v1_summary.json`
+
+Only the lightweight v1 summary JSON is intended to be committed.
+
 ## Academic boundary
 
 All generated results are synthetic numerical digital-twin benchmark outputs.

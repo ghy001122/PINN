@@ -1,0 +1,146 @@
+{
+  "benchmark": "Frozen Ground Truth v1.1 triangle synthetic numerical digital-twin benchmark.",
+  "experiments": [
+    {
+      "artifacts": {
+        "compare_g_time": "outputs\\pinn_inverse_v1\\triangle_physics\\compare_g_time.png",
+        "loss_components": "outputs\\pinn_inverse_v1\\triangle_physics\\loss_components.png",
+        "loss_curve": "outputs\\pinn_inverse_v1\\triangle_physics\\loss_curve.png",
+        "metrics": "outputs\\pinn_inverse_v1\\triangle_physics\\metrics.json",
+        "pred_delta_T_map": "outputs\\pinn_inverse_v1\\triangle_physics\\pred_delta_T_map.png",
+        "pred_delta_c_v_map": "outputs\\pinn_inverse_v1\\triangle_physics\\pred_delta_c_v_map.png",
+        "pred_delta_m_map": "outputs\\pinn_inverse_v1\\triangle_physics\\pred_delta_m_map.png",
+        "pred_sigma_map": "outputs\\pinn_inverse_v1\\triangle_physics\\pred_sigma_map.png",
+        "residual_components": "outputs\\pinn_inverse_v1\\triangle_physics\\residual_components.png",
+        "train_history": "outputs\\pinn_inverse_v1\\triangle_physics\\train_history.json"
+      },
+      "config_path": "configs\\pinn_inverse_v1_triangle_physics.yaml",
+      "loss_weights": {
+        "w_boundary": 0.001,
+        "w_defect_residual": 0.001,
+        "w_field_anchor": 1.0,
+        "w_heat_residual": 0.001,
+        "w_ic": 1.0,
+        "w_port_data": 1.0,
+        "w_sigma_consistency": 0.01,
+        "w_smooth": 0.001,
+        "w_state_residual": 0.01
+      },
+      "metrics": {
+        "final_defect_residual": 0.0005120213027112186,
+        "final_heat_residual": 0.017007464542984962,
+        "final_port_loss": 0.0024956464767456055,
+        "final_sigma_consistency": 0.03274700045585632,
+        "final_state_residual": 0.007955554872751236,
+        "final_total_loss": 0.19172033667564392,
+        "nrmse_delta_T": 0.459679164519594,
+        "nrmse_delta_c_v": 0.2570472758098848,
+        "nrmse_delta_m": 0.05397013834881097,
+        "nrmse_sigma": 0.03645067947627571,
+        "relative_G_error": 0.042727336748965214,
+        "relative_I_error": 0.05560840604920115,
+        "rmse_delta_T": 4.022509760954027,
+        "rmse_delta_c_v": 0.0005330907283876796,
+        "rmse_delta_m": 0.010359836713626173,
+        "rmse_sigma": 0.000783265861134568
+      },
+      "name": "triangle_physics",
+      "output_dir": "outputs\\pinn_inverse_v1\\triangle_physics"
+    },
+    {
+      "artifacts": {
+        "compare_g_time": "outputs\\pinn_inverse_v1\\triangle_weak_anchor\\compare_g_time.png",
+        "loss_components": "outputs\\pinn_inverse_v1\\triangle_weak_anchor\\loss_components.png",
+        "loss_curve": "outputs\\pinn_inverse_v1\\triangle_weak_anchor\\loss_curve.png",
+        "metrics": "outputs\\pinn_inverse_v1\\triangle_weak_anchor\\metrics.json",
+        "pred_delta_T_map": "outputs\\pinn_inverse_v1\\triangle_weak_anchor\\pred_delta_T_map.png",
+        "pred_delta_c_v_map": "outputs\\pinn_inverse_v1\\triangle_weak_anchor\\pred_delta_c_v_map.png",
+        "pred_delta_m_map": "outputs\\pinn_inverse_v1\\triangle_weak_anchor\\pred_delta_m_map.png",
+        "pred_sigma_map": "outputs\\pinn_inverse_v1\\triangle_weak_anchor\\pred_sigma_map.png",
+        "residual_components": "outputs\\pinn_inverse_v1\\triangle_weak_anchor\\residual_components.png",
+        "train_history": "outputs\\pinn_inverse_v1\\triangle_weak_anchor\\train_history.json"
+      },
+      "config_path": "configs\\pinn_inverse_v1_triangle_weak_anchor.yaml",
+      "loss_weights": {
+        "w_boundary": 0.001,
+        "w_defect_residual": 0.001,
+        "w_field_anchor": 0.1,
+        "w_heat_residual": 0.001,
+        "w_ic": 1.0,
+        "w_port_data": 1.0,
+        "w_sigma_consistency": 0.01,
+        "w_smooth": 0.001,
+        "w_state_residual": 0.01
+      },
+      "metrics": {
+        "final_defect_residual": 0.0024670888669788837,
+        "final_heat_residual": 0.00033522373996675014,
+        "final_port_loss": 0.0027702783700078726,
+        "final_sigma_consistency": 0.10000892728567123,
+        "final_state_residual": 0.007747901603579521,
+        "final_total_loss": 0.06847309321165085,
+        "nrmse_delta_T": 0.4698397713573344,
+        "nrmse_delta_c_v": 2.7821646781579683,
+        "nrmse_delta_m": 0.17047385980449117,
+        "nrmse_sigma": 0.0795399055268045,
+        "relative_G_error": 0.06023422693503565,
+        "relative_I_error": 0.07027316832500283,
+        "rmse_delta_T": 4.1114220792331055,
+        "rmse_delta_c_v": 0.0057699354723784665,
+        "rmse_delta_m": 0.032723305990099205,
+        "rmse_sigma": 0.0017091832989715283
+      },
+      "name": "triangle_weak_anchor",
+      "output_dir": "outputs\\pinn_inverse_v1\\triangle_weak_anchor"
+    },
+    {
+      "artifacts": {
+        "compare_g_time": "outputs\\pinn_inverse_v1\\triangle_port_physics\\compare_g_time.png",
+        "loss_components": "outputs\\pinn_inverse_v1\\triangle_port_physics\\loss_components.png",
+        "loss_curve": "outputs\\pinn_inverse_v1\\triangle_port_physics\\loss_curve.png",
+        "metrics": "outputs\\pinn_inverse_v1\\triangle_port_physics\\metrics.json",
+        "pred_delta_T_map": "outputs\\pinn_inverse_v1\\triangle_port_physics\\pred_delta_T_map.png",
+        "pred_delta_c_v_map": "outputs\\pinn_inverse_v1\\triangle_port_physics\\pred_delta_c_v_map.png",
+        "pred_delta_m_map": "outputs\\pinn_inverse_v1\\triangle_port_physics\\pred_delta_m_map.png",
+        "pred_sigma_map": "outputs\\pinn_inverse_v1\\triangle_port_physics\\pred_sigma_map.png",
+        "residual_components": "outputs\\pinn_inverse_v1\\triangle_port_physics\\residual_components.png",
+        "train_history": "outputs\\pinn_inverse_v1\\triangle_port_physics\\train_history.json"
+      },
+      "config_path": "configs\\pinn_inverse_v1_triangle_port_physics.yaml",
+      "loss_weights": {
+        "w_boundary": 0.001,
+        "w_defect_residual": 0.001,
+        "w_field_anchor": 0.0,
+        "w_heat_residual": 0.01,
+        "w_ic": 1.0,
+        "w_port_data": 1.0,
+        "w_sigma_consistency": 0.05,
+        "w_smooth": 0.001,
+        "w_state_residual": 0.02
+      },
+      "metrics": {
+        "final_defect_residual": 0.006718229968100786,
+        "final_heat_residual": 1.7583115550223738e-06,
+        "final_port_loss": 0.00579855777323246,
+        "final_sigma_consistency": 0.30754387378692627,
+        "final_state_residual": 0.0003062546020373702,
+        "final_total_loss": 0.021508311852812767,
+        "nrmse_delta_T": 0.4716395812043498,
+        "nrmse_delta_c_v": 4.920043895115868,
+        "nrmse_delta_m": 0.37468204237545,
+        "nrmse_sigma": 0.10966470169728927,
+        "relative_G_error": 0.10750809785303164,
+        "relative_I_error": 0.08434525408980736,
+        "rmse_delta_T": 4.127171656843496,
+        "rmse_delta_c_v": 0.010203686366575425,
+        "rmse_delta_m": 0.0719220831610698,
+        "rmse_sigma": 0.0023565162088926067
+      },
+      "name": "triangle_port_physics",
+      "output_dir": "outputs\\pinn_inverse_v1\\triangle_port_physics"
+    }
+  ],
+  "note": "PINN inverse v1 adds approximate physics regularization; it is not claimed as a complete PDE-constrained inverse PINN.",
+  "repo_url": "https://github.com/ghy001122/PINN",
+  "summary_json_path": "outputs\\tables\\pinn_inverse_v1_summary.json"
+}

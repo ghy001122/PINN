@@ -24,6 +24,7 @@ These are reproducible training artifacts and are ignored by Git:
 ## Lightweight committed evidence
 
 - `outputs\tables\pinn_inverse_v0_ablation_summary.json`
+- `outputs\tables\pinn_inverse_v1_summary.json`
 
-This JSON stores compact scalar metrics for cloud review without committing
-large generated arrays or figures.
+These JSON files store compact scalar metrics for cloud review without
+committing large generated arrays or figures.

@@ -21,6 +21,9 @@ outputs/tables/*
 !outputs/tables/pinn_inverse_v0_ablation_summary.json
 outputs/pinn_inverse_v0/*
 outputs/pinn_inverse_v0_smoke/*
+outputs/pinn_inverse_v1/*
+outputs/pinn_inverse_v1_smoke/*
+!outputs/tables/pinn_inverse_v1_summary.json
 
 *.npz
 *.npy

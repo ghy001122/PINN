@@ -2,10 +2,11 @@
 
 ## Current phase
 
-The project is in the PINN inverse v0 audit phase. Ground Truth v1.1 is frozen
-and serves as a synthetic numerical digital-twin benchmark. PINN inverse v0 now
-has a runnable training loop and a three-way ablation audit for field-anchor
-dependence.
+The project is in the PINN inverse v1 physics-regularized audit phase. Ground
+Truth v1.1 is frozen and serves as a synthetic numerical digital-twin benchmark.
+PINN inverse v0 remains preserved as the proof-of-concept baseline, and v1 adds
+approximate physics residual regularization for heat, state, defect, sigma
+consistency, and boundary behavior.
 
 ## Research line
 
@@ -40,12 +41,23 @@ the PINN inverse v0 ablation audit.
   - `outputs\tables\pinn_inverse_v0_ablation_summary.json`
 - Added audit report:
   - `docs\pinn_inverse_v0_ablation_report.md`
+- Added PINN inverse v1 physics-regularized workflow:
+  - `configs\pinn_inverse_v1_triangle_physics.yaml`
+  - `configs\pinn_inverse_v1_triangle_weak_anchor.yaml`
+  - `configs\pinn_inverse_v1_triangle_port_physics.yaml`
+  - `src\pinnpcm\pinn\physics_residuals.py`
+  - `scripts\train_pinn_inverse_v1.py`
+  - `scripts\run_pinn_inverse_v1_experiments.py`
+  - `outputs\tables\pinn_inverse_v1_summary.json`
+  - `docs\pinn_inverse_v1_physics_design.md`
+  - `docs\pinn_inverse_v1_report.md`
 
 ## Current evidence
 
-`port_only` can still reconstruct terminal `G(t)` at v0 level
-(`relative_G_error = 0.07169673218475178`), but hidden fields depend strongly on
-field-anchor supervision. `delta_c_v` is the most anchor-dependent hidden field.
+v1 confirms that approximate physics residuals can regularize hidden fields but
+do not yet solve identifiability. `triangle_port_physics` improves `sigma`,
+`m`, and `delta_c_v` relative to v0 port_only, but terminal `G(t)` error is
+worse than v0 port_only. `delta_T` remains the main absolute error source.
 
 ## Boundary
 
