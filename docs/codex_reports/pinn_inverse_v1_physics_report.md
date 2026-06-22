@@ -5,7 +5,7 @@
 - GitHub repo URL: `https://github.com/ghy001122/PINN`
 - Branch: `main`
 - Base commit before v1 work: `44bf789356ca39e682a52e9a5f19a0f33fe9e3d9`
-- Pushed v1 commit hash: recorded in the final Codex response for this task.
+- Pushed v1 implementation commit hash: `5d315037cfffb789d9bd2b0d61e9ed0ab02f29a6`
 
 ## Scope
 
