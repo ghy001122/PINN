@@ -29,6 +29,8 @@ These are reproducible training artifacts and are ignored by Git:
 - `outputs\tables\pinn_identifiability_summary.json`
 - `outputs\tables\pinn_identifiability_correlation.csv`
 - `outputs\tables\gamma_sub_identifiability_summary.json`
+- `outputs\tables\gamma_sub_confounding_summary.json`
+- `outputs\tables\gamma_sub_sensitivity_ranking.csv`
 
 These JSON and CSV files store compact scalar metrics and correlations for
 cloud review without committing large generated arrays or figures.

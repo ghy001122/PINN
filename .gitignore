@@ -22,6 +22,8 @@ outputs/tables/*
 !outputs/tables/pinn_identifiability_summary.json
 !outputs/tables/pinn_identifiability_correlation.csv
 !outputs/tables/gamma_sub_identifiability_summary.json
+!outputs/tables/gamma_sub_confounding_summary.json
+!outputs/tables/gamma_sub_sensitivity_ranking.csv
 outputs/pinn_inverse_v0/*
 outputs/pinn_inverse_v0_smoke/*
 outputs/pinn_inverse_v1/*

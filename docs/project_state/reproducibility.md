@@ -135,6 +135,20 @@ This regenerates:
 Only the lightweight summary JSON is intended to be committed. The generated
 figures remain ignored by Git.
 
+## gamma_sub confounding audit reproduction
+
+```powershell
+python scripts/audit_gamma_sub_confounding.py
+python scripts/invert_gamma_sub_with_mismatch.py
+```
+
+This regenerates:
+
+- `outputs\tables\gamma_sub_confounding_summary.json`
+- `outputs\tables\gamma_sub_sensitivity_ranking.csv`
+
+The audit intentionally writes only lightweight tabular evidence.
+
 ## Academic boundary
 
 All generated results are synthetic numerical digital-twin benchmark outputs.

@@ -152,6 +152,36 @@ Deleted:
 Frozen Ground Truth v1.1 files and existing v0/v1/v1.1 results were not
 modified.
 
+## gamma_sub robustness and confounding audit
+
+Added:
+
+- `scripts\audit_gamma_sub_confounding.py`
+- `scripts\invert_gamma_sub_with_mismatch.py`
+- `docs\gamma_sub_confounding_report.md`
+- `docs\codex_reports\gamma_sub_confounding_audit_report.md`
+- `outputs\tables\gamma_sub_confounding_summary.json`
+- `outputs\tables\gamma_sub_sensitivity_ranking.csv`
+
+Modified:
+
+- `.gitignore`: allows the lightweight confounding JSON and CSV.
+- `tests\test_gamma_sub_identifiability.py`: adds smoke tests for the
+  confounding and mismatch scripts.
+- `PROJECT_STATE.md`, `RESEARCH_LOG.md`, `NEXT_ACTIONS.md`,
+  `EXPERIMENT_REGISTRY.md`, `DATASET_REGISTRY.md`, and `FIGURE_REGISTRY.md`:
+  document the robustness audit and its conditional conclusion.
+- `docs\project_state\repo_tree.md`, `docs\project_state\file_inventory.md`,
+  `docs\project_state\latest_changes.md`, and
+  `docs\project_state\reproducibility.md`: update the project-state snapshot.
+
+Deleted:
+
+- None.
+
+Frozen Ground Truth v1.1 files and existing v0/v1/v1.1 and gamma_sub audit
+results were not modified.
+
 ## v2a gamma_sub identifiability audit
 
 Added:

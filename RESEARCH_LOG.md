@@ -158,3 +158,32 @@ Boundary:
 This is synthetic numerical digital-twin evidence for a reduced scalar inverse
 problem, not experimental validation and not proof of full hidden-field
 identifiability.
+
+## gamma_sub robustness and confounding audit
+
+Date: 2026-06-23
+
+Actions:
+
+- Added `scripts\audit_gamma_sub_confounding.py`.
+- Added `scripts\invert_gamma_sub_with_mismatch.py`.
+- Added `outputs\tables\gamma_sub_confounding_summary.json`.
+- Added `outputs\tables\gamma_sub_sensitivity_ranking.csv`.
+- Added `docs\gamma_sub_confounding_report.md`.
+- Added `docs\codex_reports\gamma_sub_confounding_audit_report.md`.
+
+Findings:
+
+- `T_sw` has the largest aggregate sensitivity in the local perturbation audit.
+- `sigma_on0` and `tau_m` are the closest response-shape confounders for
+  `gamma_sub`.
+- Mismatch inversion is not robust as an unconstrained claim: `T_sw_plus_2K`
+  pushes the recovered `gamma_sub` to the upper bound.
+- The gamma_sub branch remains useful only as a constrained reduced inverse
+  problem with independently fixed or calibrated switching, conductivity, and
+  geometric-scale parameters.
+
+Boundary:
+
+All results are synthetic numerical digital-twin benchmark outputs, not
+experimental measurements.

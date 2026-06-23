@@ -2,10 +2,10 @@
 
 ## Immediate next step
 
-Use the v2a `gamma_sub` audit as the reduced inverse-problem branch while
-keeping the hidden-field identifiability limitations explicit. Current
-terminal-only observations do not uniquely identify all hidden fields, but they
-can support a fixed-microphysics scalar inversion for `gamma_sub`.
+Use the `gamma_sub` branch only as a constrained reduced inverse problem. The
+confounding audit shows that `gamma_sub` is stable under nominal fixed
+microphysics, but mismatch in `T_sw`, `tau_m`, `sigma_on0`, or `eta_A` can
+produce systematic bias.
 
 ## Recommended tasks
 
@@ -13,8 +13,9 @@ can support a fixed-microphysics scalar inversion for `gamma_sub`.
    claiming hidden temperature recovery.
 2. Add or simulate spatially resolved evidence if defect-field recovery is a
    target claim.
-3. Run a future joint-identifiability audit for `gamma_sub`, `T_sw`, and
-   `tau_m` before claiming multi-parameter thermal-switching recovery.
+3. Before implementing gamma_sub-PINN as a main method, decide whether
+   `T_sw`, `tau_m`, `sigma_on0`, and `eta_A` are fixed priors or jointly
+   estimated with explicit identifiability caveats.
 4. Replace or further constrain the direct `sigma` surrogate with a
    differentiable conductivity relation tied to `c_v`, `delta_T`, and `m`.
 5. Test sparse-observation sensitivity by varying the number of terminal

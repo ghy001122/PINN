@@ -2,12 +2,11 @@
 
 ## Current phase
 
-The project is in the v2a reduced-parameter identifiability audit phase. Ground
+The project is in the gamma_sub robustness and confounding audit phase. Ground
 Truth v1.1 is frozen and serves as a synthetic numerical digital-twin benchmark.
-PINN inverse v0 remains preserved as the proof-of-concept baseline, v1 adds
-approximate physics residual regularization, v1.1 tunes residual balancing, and
-the current v2a audit asks whether `gamma_sub` can be recovered from terminal
-`V(t)`, `I(t)`, and `G(t)` when microscopic parameters are fixed.
+The current work evaluates whether the v2a reduced `gamma_sub` inverse problem
+remains reliable when `T_sw`, `tau_m`, `sigma_on0`, and `eta_A` are perturbed or
+mismatched.
 
 ## Research line
 
@@ -79,6 +78,13 @@ the PINN inverse v0 ablation audit.
   - `outputs\figures\gamma_sub_identifiability\gamma_sub_objective_profile.png`
   - `docs\gamma_sub_identifiability_report.md`
   - `docs\codex_reports\gamma_sub_identifiability_audit_report.md`
+- Added `gamma_sub` robustness and confounding audit:
+  - `scripts\audit_gamma_sub_confounding.py`
+  - `scripts\invert_gamma_sub_with_mismatch.py`
+  - `outputs\tables\gamma_sub_confounding_summary.json`
+  - `outputs\tables\gamma_sub_sensitivity_ranking.csv`
+  - `docs\gamma_sub_confounding_report.md`
+  - `docs\codex_reports\gamma_sub_confounding_audit_report.md`
 
 ## Current evidence
 
@@ -92,6 +98,11 @@ The v2a reduced audit confirms that `gamma_sub` is stably invertible in the
 single-parameter setting when `D_v0`, `mu_v0`, `T_sw`, `tau_m`, and other
 microscopic parameters remain fixed. This does not prove joint identifiability
 with switching or defect parameters released.
+
+The confounding audit shows that this reduced inverse story must stay
+conditional. `T_sw` is more sensitive than `gamma_sub`, `sigma_on0` and `tau_m`
+have response vectors close to `gamma_sub`, and mismatch inversion can produce
+large systematic gamma bias.
 
 ## Boundary
 

@@ -111,3 +111,16 @@ Figures:
 Status: completed as a reduced scalar inverse-problem audit. The summary JSON
 is lightweight committed evidence; generated figures are reproducible and
 ignored by Git.
+
+## gamma_sub robustness and confounding audit
+
+- Confounding script: `scripts\audit_gamma_sub_confounding.py`
+- Mismatch inversion script: `scripts\invert_gamma_sub_with_mismatch.py`
+- Input: `data\processed\gt_v1_acceptance\gt_triangle.npz`
+- Summary: `outputs\tables\gamma_sub_confounding_summary.json`
+- Sensitivity ranking: `outputs\tables\gamma_sub_sensitivity_ranking.csv`
+- Report: `docs\gamma_sub_confounding_report.md`
+- Codex report: `docs\codex_reports\gamma_sub_confounding_audit_report.md`
+
+Status: completed as a robustness audit. The lightweight JSON and CSV are
+committed evidence.

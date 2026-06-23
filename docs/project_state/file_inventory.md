@@ -37,6 +37,12 @@
 - `scripts\invert_gamma_sub_v0.py`: optimizes only `gamma_sub` with
   finite-difference Adam plus L-BFGS-B using terminal `G/I` loss and a
   candidate heat-residual regularizer.
+- `scripts\audit_gamma_sub_confounding.py`: perturbs `gamma_sub`, `T_sw`,
+  `tau_m`, `sigma_on0`, and `eta_A` to rank response sensitivity and
+  confounding directions.
+- `scripts\invert_gamma_sub_with_mismatch.py`: generates mismatched synthetic
+  targets and then optimizes only `gamma_sub` with nominal fixed parameters to
+  quantify systematic bias.
 
 ## Current test coverage
 
@@ -47,8 +53,9 @@
   checks, autograd derivative checks, and v1 training smoke test.
 - `tests\test_pinn_identifiability.py`: identifiability analyzer output smoke
   test using temporary table and figure directories.
-- `tests\test_gamma_sub_identifiability.py`: smoke tests for the gamma_sub scan
-  and single-parameter inversion scripts using reduced temporary outputs.
+- `tests\test_gamma_sub_identifiability.py`: smoke tests for the gamma_sub scan,
+  single-parameter inversion, confounding audit, and mismatch inversion scripts
+  using reduced temporary outputs.
 
 ## Evidence-chain reports
 
@@ -69,6 +76,10 @@
   reduced `gamma_sub` inverse audit.
 - `docs\codex_reports\gamma_sub_identifiability_audit_report.md`: final Codex
   report for the `gamma_sub` identifiability patch.
+- `docs\gamma_sub_confounding_report.md`: project-facing report for the
+  `gamma_sub` robustness and mismatch audit.
+- `docs\codex_reports\gamma_sub_confounding_audit_report.md`: final Codex
+  report for the `gamma_sub` confounding patch.
 
 ## Frozen files not to modify during PINN audit
 

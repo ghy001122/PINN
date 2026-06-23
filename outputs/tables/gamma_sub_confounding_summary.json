@@ -1,0 +1,1130 @@
+{
+  "baseline_relative_rmse_G_vs_target": 0.0,
+  "baseline_relative_rmse_I_vs_target": 0.0,
+  "benchmark": "Frozen Ground Truth v1.1 triangle synthetic numerical digital-twin benchmark.",
+  "confounding_ranking": [
+    {
+      "aggregate_sensitivity": 0.2919421082128766,
+      "cosine_with_gamma_sub": -0.9468534328639979,
+      "parameter": "sigma_on0",
+      "rank": 1
+    },
+    {
+      "aggregate_sensitivity": 0.21023972551107956,
+      "cosine_with_gamma_sub": 0.9419308101833433,
+      "parameter": "tau_m",
+      "rank": 2
+    },
+    {
+      "aggregate_sensitivity": 248.28742849880723,
+      "cosine_with_gamma_sub": 0.9046382724137423,
+      "parameter": "T_sw",
+      "rank": 3
+    },
+    {
+      "aggregate_sensitivity": 0.7856742013183865,
+      "cosine_with_gamma_sub": -0.43584559677733203,
+      "parameter": "eta_A",
+      "rank": 4
+    }
+  ],
+  "interpretation": {
+    "closest_gamma_sub_confounder": "sigma_on0",
+    "gamma_sub_rank_by_aggregate_sensitivity": 3,
+    "most_sensitive_parameter": "T_sw"
+  },
+  "mismatch_inversion": {
+    "cases": [
+      {
+        "clean_absolute_relative_gamma_error": 5.589729404449463e-07,
+        "clean_relative_gamma_bias": -5.589729404449463e-07,
+        "max_noisy_absolute_relative_gamma_error": 0.009824713728360865,
+        "name": "nominal",
+        "results": [
+          {
+            "G_loss": 1.6784949771369932e-14,
+            "I_loss": 2.5627728324408372e-14,
+            "absolute_relative_gamma_error": 5.589729404449463e-07,
+            "adam_gamma_sub": 411695042.3773958,
+            "adam_trace": [
+              {
+                "gamma_sub": 377404481.1171603,
+                "gradient": 4.3226872757629505e-07,
+                "step": 1.0,
+                "total_loss": 0.0029031514832366452
+              },
+              {
+                "gamma_sub": 431496967.4182216,
+                "gradient": -0.032685037240967385,
+                "step": 2.0,
+                "total_loss": 0.00016832505745857694
+              },
+              {
+                "gamma_sub": 514795749.603896,
+                "gradient": 0.016457919078727505,
+                "step": 4.0,
+                "total_loss": 0.0017271174404956543
+              },
+              {
+                "gamma_sub": 475755574.8119387,
+                "gradient": 0.02149517757869809,
+                "step": 6.0,
+                "total_loss": 0.0002962107260540882
+              },
+              {
+                "gamma_sub": 420556092.3890176,
+                "gradient": -0.0022785251901192055,
+                "step": 8.0,
+                "total_loss": 0.00043319752275604
+              },
+              {
+                "gamma_sub": 411695042.3773958,
+                "gradient": -0.017785507656138733,
+                "step": 10.0,
+                "total_loss": 0.0007481975164302924
+              }
+            ],
+            "estimated_gamma_sub": 449999748.4621768,
+            "heat_residual_loss": 0.00010299861074114755,
+            "initial_gamma_sub": 450000000.0,
+            "lbfgs_message": "CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL",
+            "lbfgs_success": true,
+            "noise_level": 0.0,
+            "relative_gamma_bias": -5.589729404449463e-07,
+            "total_loss": 1.0299861370102894e-06
+          },
+          {
+            "G_loss": 0.0013892082360884115,
+            "I_loss": 0.004077599665141228,
+            "absolute_relative_gamma_error": 0.00841574498799695,
+            "adam_gamma_sub": 411725117.17262584,
+            "adam_trace": [
+              {
+                "gamma_sub": 375872021.07455856,
+                "gradient": 0.0015884063738812373,
+                "step": 1.0,
+                "total_loss": 0.006160359265195555
+              },
+              {
+                "gamma_sub": 427075846.7599694,
+                "gradient": -0.031545609618135975,
+                "step": 2.0,
+                "total_loss": 0.003608276023426382
+              },
+              {
+                "gamma_sub": 506001618.92653275,
+                "gradient": 0.016106097206421238,
+                "step": 4.0,
+                "total_loss": 0.004923839755540943
+              },
+              {
+                "gamma_sub": 468210400.28435946,
+                "gradient": 0.0196529287567031,
+                "step": 6.0,
+                "total_loss": 0.003647683060762196
+              },
+              {
+                "gamma_sub": 416837788.95076406,
+                "gradient": -0.00319790282128553,
+                "step": 8.0,
+                "total_loss": 0.003862549075542065
+              },
+              {
+                "gamma_sub": 411725117.17262584,
+                "gradient": -0.016766953770381666,
+                "step": 10.0,
+                "total_loss": 0.004033997563816562
+              }
+            ],
+            "estimated_gamma_sub": 446212914.7554014,
+            "heat_residual_loss": 0.00010261785687638764,
+            "initial_gamma_sub": 450000000.0,
+            "lbfgs_message": "CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL",
+            "lbfgs_success": true,
+            "noise_level": 0.02,
+            "relative_gamma_bias": -0.00841574498799695,
+            "total_loss": 0.003429034247227789
+          },
+          {
+            "G_loss": 0.008129778737803661,
+            "I_loss": 0.023026242605556777,
+            "absolute_relative_gamma_error": 0.009824713728360865,
+            "adam_gamma_sub": 410331226.5382975,
+            "adam_trace": [
+              {
+                "gamma_sub": 375871962.556608,
+                "gradient": 0.0018413877820184755,
+                "step": 1.0,
+                "total_loss": 0.02231064441648918
+              },
+              {
+                "gamma_sub": 426590131.94823533,
+                "gradient": -0.03105738992599548,
+                "step": 2.0,
+                "total_loss": 0.019819626630481122
+              },
+              {
+                "gamma_sub": 506123591.8815153,
+                "gradient": 0.015062070417885454,
+                "step": 4.0,
+                "total_loss": 0.021167462110456475
+              },
+              {
+                "gamma_sub": 468053983.2195362,
+                "gradient": 0.019839700534660495,
+                "step": 6.0,
+                "total_loss": 0.01987090615591394
+              },
+              {
+                "gamma_sub": 415699904.2716236,
+                "gradient": -0.002855168282708453,
+                "step": 8.0,
+                "total_loss": 0.020091100295847243
+              },
+              {
+                "gamma_sub": 410331226.5382975,
+                "gradient": -0.017013284527434374,
+                "step": 10.0,
+                "total_loss": 0.020274291725210978
+              }
+            ],
+            "estimated_gamma_sub": 445578878.8222376,
+            "heat_residual_loss": 0.000102554202399801,
+            "initial_gamma_sub": 450000000.0,
+            "lbfgs_message": "CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL",
+            "lbfgs_success": true,
+            "noise_level": 0.05,
+            "relative_gamma_bias": -0.009824713728360865,
+            "total_loss": 0.019643925582606046
+          }
+        ],
+        "target_overrides": {}
+      },
+      {
+        "clean_absolute_relative_gamma_error": 1.2222222222222205,
+        "clean_relative_gamma_bias": 1.2222222222222205,
+        "max_noisy_absolute_relative_gamma_error": 1.2222222222222205,
+        "name": "T_sw_plus_2K",
+        "results": [
+          {
+            "G_loss": 0.08151342227934151,
+            "I_loss": 0.07373725124165885,
+            "absolute_relative_gamma_error": 1.2222222222222205,
+            "adam_gamma_sub": 999999999.9999993,
+            "adam_trace": [
+              {
+                "gamma_sub": 538747811.7415006,
+                "gradient": -0.5830204824245713,
+                "step": 1.0,
+                "total_loss": 0.35087673012062304
+              },
+              {
+                "gamma_sub": 644365896.3736523,
+                "gradient": -0.5121925942029162,
+                "step": 2.0,
+                "total_loss": 0.2661438514640996
+              },
+              {
+                "gamma_sub": 914621435.1436149,
+                "gradient": -0.3543160138020612,
+                "step": 4.0,
+                "total_loss": 0.14164562213916138
+              },
+              {
+                "gamma_sub": 999999999.9999993,
+                "gradient": -0.24260058126473522,
+                "step": 6.0,
+                "total_loss": 0.11838347092331107
+              },
+              {
+                "gamma_sub": 999999999.9999993,
+                "gradient": -0.24260058126473522,
+                "step": 8.0,
+                "total_loss": 0.11838347092331107
+              },
+              {
+                "gamma_sub": 999999999.9999993,
+                "gradient": -0.24260058126473522,
+                "step": 10.0,
+                "total_loss": 0.11838347092331107
+              }
+            ],
+            "estimated_gamma_sub": 999999999.9999993,
+            "heat_residual_loss": 0.00014230231401379906,
+            "initial_gamma_sub": 450000000.0,
+            "lbfgs_message": "CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL",
+            "lbfgs_success": true,
+            "noise_level": 0.0,
+            "relative_gamma_bias": 1.2222222222222205,
+            "total_loss": 0.11838347092331107
+          },
+          {
+            "G_loss": 0.08286451219431445,
+            "I_loss": 0.07771696077222498,
+            "absolute_relative_gamma_error": 1.2222222222222205,
+            "adam_gamma_sub": 999999999.9999993,
+            "adam_trace": [
+              {
+                "gamma_sub": 538747811.7478112,
+                "gradient": -0.5852407749326114,
+                "step": 1.0,
+                "total_loss": 0.3552238017473324
+              },
+              {
+                "gamma_sub": 644366725.5335898,
+                "gradient": -0.5142067664913696,
+                "step": 2.0,
+                "total_loss": 0.27014986686623804
+              },
+              {
+                "gamma_sub": 914636422.4839298,
+                "gradient": -0.35587752614383655,
+                "step": 4.0,
+                "total_loss": 0.14509844104021663
+              },
+              {
+                "gamma_sub": 999999999.9999993,
+                "gradient": -0.24385602905924905,
+                "step": 6.0,
+                "total_loss": 0.12172441560356709
+              },
+              {
+                "gamma_sub": 999999999.9999993,
+                "gradient": -0.24385602905924905,
+                "step": 8.0,
+                "total_loss": 0.12172441560356709
+              },
+              {
+                "gamma_sub": 999999999.9999993,
+                "gradient": -0.24385602905924905,
+                "step": 10.0,
+                "total_loss": 0.12172441560356709
+              }
+            ],
+            "estimated_gamma_sub": 999999999.9999993,
+            "heat_residual_loss": 0.00014230231401379906,
+            "initial_gamma_sub": 450000000.0,
+            "lbfgs_message": "CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL",
+            "lbfgs_success": true,
+            "noise_level": 0.02,
+            "relative_gamma_bias": 1.2222222222222205,
+            "total_loss": 0.12172441560356709
+          },
+          {
+            "G_loss": 0.08196359693741088,
+            "I_loss": 0.08823015253137383,
+            "absolute_relative_gamma_error": 1.2222222222222205,
+            "adam_gamma_sub": 999999999.9999993,
+            "adam_trace": [
+              {
+                "gamma_sub": 538747811.7264029,
+                "gradient": -0.5777763914541645,
+                "step": 1.0,
+                "total_loss": 0.35677760292045013
+              },
+              {
+                "gamma_sub": 644368510.6385853,
+                "gradient": -0.5077837200229596,
+                "step": 2.0,
+                "total_loss": 0.27275294545007217
+              },
+              {
+                "gamma_sub": 914661423.0483339,
+                "gradient": -0.35165557513758317,
+                "step": 4.0,
+                "total_loss": 0.1491800723091282
+              },
+              {
+                "gamma_sub": 999999999.9999993,
+                "gradient": -0.2410982970203308,
+                "step": 6.0,
+                "total_loss": 0.12608009622623792
+              },
+              {
+                "gamma_sub": 999999999.9999993,
+                "gradient": -0.2410982970203308,
+                "step": 8.0,
+                "total_loss": 0.12608009622623792
+              },
+              {
+                "gamma_sub": 999999999.9999993,
+                "gradient": -0.2410982970203308,
+                "step": 10.0,
+                "total_loss": 0.12608009622623792
+              }
+            ],
+            "estimated_gamma_sub": 999999999.9999993,
+            "heat_residual_loss": 0.00014230231401379906,
+            "initial_gamma_sub": 450000000.0,
+            "lbfgs_message": "CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL",
+            "lbfgs_success": true,
+            "noise_level": 0.05,
+            "relative_gamma_bias": 1.2222222222222205,
+            "total_loss": 0.12608009622623792
+          }
+        ],
+        "target_overrides": {
+          "T_sw": 315.0
+        }
+      },
+      {
+        "clean_absolute_relative_gamma_error": 0.4154717417582663,
+        "clean_relative_gamma_bias": 0.4154717417582663,
+        "max_noisy_absolute_relative_gamma_error": 0.42065381510153455,
+        "name": "tau_m_x1p5",
+        "results": [
+          {
+            "G_loss": 0.0008286420399594315,
+            "I_loss": 0.0005328643794010064,
+            "absolute_relative_gamma_error": 0.4154717417582663,
+            "adam_gamma_sub": 597141232.0091026,
+            "adam_trace": [
+              {
+                "gamma_sub": 538747800.7226654,
+                "gradient": -0.0764654301161126,
+                "step": 1.0,
+                "total_loss": 0.004155955257783405
+              },
+              {
+                "gamma_sub": 636518452.730375,
+                "gradient": -0.03678224497774914,
+                "step": 2.0,
+                "total_loss": 0.0010963181426896027
+              },
+              {
+                "gamma_sub": 776385049.4376396,
+                "gradient": 0.02662402928017793,
+                "step": 4.0,
+                "total_loss": 0.005153189135573461
+              },
+              {
+                "gamma_sub": 765413755.4603246,
+                "gradient": 0.0426068262167219,
+                "step": 6.0,
+                "total_loss": 0.004601055625388376
+              },
+              {
+                "gamma_sub": 679562857.634252,
+                "gradient": 0.027118820332365026,
+                "step": 8.0,
+                "total_loss": 0.001541658249608867
+              },
+              {
+                "gamma_sub": 597141232.0091026,
+                "gradient": -0.0008301230088215726,
+                "step": 10.0,
+                "total_loss": 0.0015459564735776229
+              }
+            ],
+            "estimated_gamma_sub": 636962283.7912198,
+            "heat_residual_loss": 0.0001197502353810558,
+            "initial_gamma_sub": 450000000.0,
+            "lbfgs_message": "CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL",
+            "lbfgs_success": true,
+            "noise_level": 0.0,
+            "relative_gamma_bias": 0.4154717417582663,
+            "total_loss": 0.0010962717320137452
+          },
+          {
+            "G_loss": 0.0016901534216579384,
+            "I_loss": 0.0036358522234589564,
+            "absolute_relative_gamma_error": 0.40457303974352044,
+            "adam_gamma_sub": 587448196.0199145,
+            "adam_trace": [
+              {
+                "gamma_sub": 538747800.345916,
+                "gradient": -0.07425940568338056,
+                "step": 1.0,
+                "total_loss": 0.006276489231446649
+              },
+              {
+                "gamma_sub": 636100195.6723768,
+                "gradient": -0.03485645113516189,
+                "step": 2.0,
+                "total_loss": 0.0035136252175491807
+              },
+              {
+                "gamma_sub": 770402403.1840413,
+                "gradient": 0.027396167315213524,
+                "step": 4.0,
+                "total_loss": 0.007548880066223913
+              },
+              {
+                "gamma_sub": 753486701.0390726,
+                "gradient": 0.04161243554445055,
+                "step": 6.0,
+                "total_loss": 0.006707481110099318
+              },
+              {
+                "gamma_sub": 666673458.5721163,
+                "gradient": 0.024954496137526098,
+                "step": 8.0,
+                "total_loss": 0.0038103455296008776
+              },
+              {
+                "gamma_sub": 587448196.0199145,
+                "gradient": -0.003132399755902809,
+                "step": 10.0,
+                "total_loss": 0.004085501625323917
+              }
+            ],
+            "estimated_gamma_sub": 632057867.8845842,
+            "heat_residual_loss": 0.00011936369564620996,
+            "initial_gamma_sub": 450000000.0,
+            "lbfgs_message": "CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL",
+            "lbfgs_success": true,
+            "noise_level": 0.02,
+            "relative_gamma_bias": 0.40457303974352044,
+            "total_loss": 0.0035092731703438786
+          },
+          {
+            "G_loss": 0.007721268197737315,
+            "I_loss": 0.018667459823625762,
+            "absolute_relative_gamma_error": 0.42065381510153455,
+            "adam_gamma_sub": 601855162.2625375,
+            "adam_trace": [
+              {
+                "gamma_sub": 538747800.6239921,
+                "gradient": -0.07587507882344133,
+                "step": 1.0,
+                "total_loss": 0.020194549385922276
+              },
+              {
+                "gamma_sub": 636712488.8906686,
+                "gradient": -0.03691773115096357,
+                "step": 2.0,
+                "total_loss": 0.017057923058926595
+              },
+              {
+                "gamma_sub": 779148955.7546458,
+                "gradient": 0.02569665978846887,
+                "step": 4.0,
+                "total_loss": 0.02103163412906201
+              },
+              {
+                "gamma_sub": 771004644.9760022,
+                "gradient": 0.04215724218874107,
+                "step": 6.0,
+                "total_loss": 0.02062829604039717
+              },
+              {
+                "gamma_sub": 685681786.6256971,
+                "gradient": 0.027525983035609297,
+                "step": 8.0,
+                "total_loss": 0.017566856830413966
+              },
+              {
+                "gamma_sub": 601855162.2625375,
+                "gradient": 0.0002616168640383604,
+                "step": 10.0,
+                "total_loss": 0.017442129955793584
+              }
+            ],
+            "estimated_gamma_sub": 639294216.7956905,
+            "heat_residual_loss": 0.0001199330426682158,
+            "initial_gamma_sub": 450000000.0,
+            "lbfgs_message": "CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL",
+            "lbfgs_success": true,
+            "noise_level": 0.05,
+            "relative_gamma_bias": 0.42065381510153455,
+            "total_loss": 0.01705619743997688
+          }
+        ],
+        "target_overrides": {
+          "tau_m": 0.0006000000000000001
+        }
+      },
+      {
+        "clean_absolute_relative_gamma_error": 0.15910675758527623,
+        "clean_relative_gamma_bias": -0.15910675758527623,
+        "max_noisy_absolute_relative_gamma_error": 0.18068653765608245,
+        "name": "sigma_on0_x1p15",
+        "results": [
+          {
+            "G_loss": 9.64623134209137e-05,
+            "I_loss": 8.048227885744405e-05,
+            "absolute_relative_gamma_error": 0.15910675758527623,
+            "adam_gamma_sub": 389105212.618808,
+            "adam_trace": [
+              {
+                "gamma_sub": 375871617.4459578,
+                "gradient": 0.03032459975487228,
+                "step": 1.0,
+                "total_loss": 0.00014150723178060214
+              },
+              {
+                "gamma_sub": 334884455.9603845,
+                "gradient": -0.0011463077007363375,
+                "step": 2.0,
+                "total_loss": 0.001386093947829602
+              },
+              {
+                "gamma_sub": 347142962.7707155,
+                "gradient": -0.021872310355951746,
+                "step": 4.0,
+                "total_loss": 0.0007639749764385928
+              },
+              {
+                "gamma_sub": 396948201.74088687,
+                "gradient": -0.0029811587270260494,
+                "step": 6.0,
+                "total_loss": 0.00033452476380831363
+              },
+              {
+                "gamma_sub": 415017505.75193954,
+                "gradient": 0.015233991872118886,
+                "step": 8.0,
+                "total_loss": 0.0008761821752973314
+              },
+              {
+                "gamma_sub": 389105212.618808,
+                "gradient": 0.011895235350536082,
+                "step": 10.0,
+                "total_loss": 0.00020439025835178478
+              }
+            ],
+            "estimated_gamma_sub": 378401959.0866257,
+            "heat_residual_loss": 9.543435765012053e-05,
+            "initial_gamma_sub": 450000000.0,
+            "lbfgs_message": "CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL",
+            "lbfgs_success": true,
+            "noise_level": 0.0,
+            "relative_gamma_bias": -0.15910675758527623,
+            "total_loss": 0.00013765779642613694
+          },
+          {
+            "G_loss": 0.001223127044942238,
+            "I_loss": 0.0037829288490514815,
+            "absolute_relative_gamma_error": 0.15650494616995744,
+            "adam_gamma_sub": 388189799.6851337,
+            "adam_trace": [
+              {
+                "gamma_sub": 375871617.9100062,
+                "gradient": 0.029706722403836098,
+                "step": 1.0,
+                "total_loss": 0.003123711103646578
+              },
+              {
+                "gamma_sub": 335739304.7073577,
+                "gradient": -0.0016669698453653837,
+                "step": 2.0,
+                "total_loss": 0.004372388519355484
+              },
+              {
+                "gamma_sub": 349765432.1045118,
+                "gradient": -0.021423006945144835,
+                "step": 4.0,
+                "total_loss": 0.003678468855815795
+              },
+              {
+                "gamma_sub": 399706781.56813633,
+                "gradient": -0.002125535063459863,
+                "step": 6.0,
+                "total_loss": 0.003344979137885768
+              },
+              {
+                "gamma_sub": 415457898.33879703,
+                "gradient": 0.015389561161399942,
+                "step": 8.0,
+                "total_loss": 0.0038205706962405822
+              },
+              {
+                "gamma_sub": 388189799.6851337,
+                "gradient": 0.011109520725018125,
+                "step": 10.0,
+                "total_loss": 0.003158700424785995
+              }
+            ],
+            "estimated_gamma_sub": 379572774.22351915,
+            "heat_residual_loss": 9.556358479155944e-05,
+            "initial_gamma_sub": 450000000.0,
+            "lbfgs_message": "CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL",
+            "lbfgs_success": true,
+            "noise_level": 0.02,
+            "relative_gamma_bias": -0.15650494616995744,
+            "total_loss": 0.0031155471053158942
+          },
+          {
+            "G_loss": 0.008499720471900089,
+            "I_loss": 0.021613356377141815,
+            "absolute_relative_gamma_error": 0.18068653765608245,
+            "adam_gamma_sub": 395188934.2385943,
+            "adam_trace": [
+              {
+                "gamma_sub": 375871615.11589813,
+                "gradient": 0.033860897494332715,
+                "step": 1.0,
+                "total_loss": 0.019338056177978787
+              },
+              {
+                "gamma_sub": 329174971.5482271,
+                "gradient": 0.003192966270539663,
+                "step": 2.0,
+                "total_loss": 0.020344274488803535
+              },
+              {
+                "gamma_sub": 326832503.96580553,
+                "gradient": -0.02365073603046292,
+                "step": 4.0,
+                "total_loss": 0.0204774105484712
+              },
+              {
+                "gamma_sub": 372609644.0102384,
+                "gradient": -0.00960223992760515,
+                "step": 6.0,
+                "total_loss": 0.019316539015670233
+              },
+              {
+                "gamma_sub": 406692543.1798096,
+                "gradient": 0.011430093598236482,
+                "step": 8.0,
+                "total_loss": 0.020111755661539374
+              },
+              {
+                "gamma_sub": 395188934.2385943,
+                "gradient": 0.016207040477669823,
+                "step": 10.0,
+                "total_loss": 0.01970833146169899
+              }
+            ],
+            "estimated_gamma_sub": 368691058.0547629,
+            "heat_residual_loss": 9.435530944112392e-05,
+            "initial_gamma_sub": 450000000.0,
+            "lbfgs_message": "CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL",
+            "lbfgs_success": true,
+            "noise_level": 0.05,
+            "relative_gamma_bias": -0.18068653765608245,
+            "total_loss": 0.019307342213565407
+          }
+        ],
+        "target_overrides": {
+          "sigma_on0": 1.8974999999999997
+        }
+      },
+      {
+        "clean_absolute_relative_gamma_error": 0.37638404015035737,
+        "clean_relative_gamma_bias": -0.37638404015035737,
+        "max_noisy_absolute_relative_gamma_error": 0.37481697935328445,
+        "name": "eta_A_x1p15",
+        "results": [
+          {
+            "G_loss": 0.006512271979919555,
+            "I_loss": 0.00664820241156992,
+            "absolute_relative_gamma_error": 0.37638404015035737,
+            "adam_gamma_sub": 245180285.9681775,
+            "adam_trace": [
+              {
+                "gamma_sub": 375871605.0214848,
+                "gradient": 0.06843420413927372,
+                "step": 1.0,
+                "total_loss": 0.015663398371351094
+              },
+              {
+                "gamma_sub": 316365440.49273986,
+                "gradient": 0.04106300071868482,
+                "step": 2.0,
+                "total_loss": 0.010782082512018117
+              },
+              {
+                "gamma_sub": 240722676.30911374,
+                "gradient": -0.004142623143786227,
+                "step": 4.0,
+                "total_loss": 0.011253310855651219
+              },
+              {
+                "gamma_sub": 214824120.50369066,
+                "gradient": -0.02602223994336983,
+                "step": 6.0,
+                "total_loss": 0.013970939867303685
+              },
+              {
+                "gamma_sub": 220510076.41694498,
+                "gradient": -0.029510575737092867,
+                "step": 8.0,
+                "total_loss": 0.01323359944433707
+              },
+              {
+                "gamma_sub": 245180285.9681775,
+                "gradient": -0.022347082470121273,
+                "step": 10.0,
+                "total_loss": 0.010941220525519893
+              }
+            ],
+            "estimated_gamma_sub": 280627181.9323392,
+            "heat_residual_loss": 8.403380874346998e-05,
+            "initial_gamma_sub": 450000000.0,
+            "lbfgs_message": "CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL",
+            "lbfgs_success": true,
+            "noise_level": 0.0,
+            "relative_gamma_bias": -0.37638404015035737,
+            "total_loss": 0.00983721352379195
+          },
+          {
+            "G_loss": 0.007270167688268891,
+            "I_loss": 0.01019516503427811,
+            "absolute_relative_gamma_error": 0.37481697935328445,
+            "adam_gamma_sub": 246709435.0086702,
+            "adam_trace": [
+              {
+                "gamma_sub": 375871605.06307334,
+                "gradient": 0.06814752800028168,
+                "step": 1.0,
+                "total_loss": 0.018102307494794877
+              },
+              {
+                "gamma_sub": 316390056.08072567,
+                "gradient": 0.04075478668215096,
+                "step": 2.0,
+                "total_loss": 0.013276451388094086
+              },
+              {
+                "gamma_sub": 240971594.56250352,
+                "gradient": -0.004419785136043953,
+                "step": 4.0,
+                "total_loss": 0.013815766751053822
+              },
+              {
+                "gamma_sub": 215489471.98870653,
+                "gradient": -0.026145673758562957,
+                "step": 6.0,
+                "total_loss": 0.016497104749452686
+              },
+              {
+                "gamma_sub": 221622994.02008054,
+                "gradient": -0.029443646203673138,
+                "step": 8.0,
+                "total_loss": 0.015706857050174213
+              },
+              {
+                "gamma_sub": 246709435.0086702,
+                "gradient": -0.022076323805937045,
+                "step": 10.0,
+                "total_loss": 0.013417281676007925
+              }
+            ],
+            "estimated_gamma_sub": 281332359.291022,
+            "heat_residual_loss": 8.411971724596272e-05,
+            "initial_gamma_sub": 450000000.0,
+            "lbfgs_message": "CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL",
+            "lbfgs_success": true,
+            "noise_level": 0.02,
+            "relative_gamma_bias": -0.37481697935328445,
+            "total_loss": 0.012368591402580406
+          },
+          {
+            "G_loss": 0.013754621877512464,
+            "I_loss": 0.030270349345957733,
+            "absolute_relative_gamma_error": 0.3705414154233579,
+            "adam_gamma_sub": 250849407.16909498,
+            "adam_trace": [
+              {
+                "gamma_sub": 375871605.3617249,
+                "gradient": 0.06615740507716592,
+                "step": 1.0,
+                "total_loss": 0.034280891235101925
+              },
+              {
+                "gamma_sub": 316458407.14897317,
+                "gradient": 0.039201998204841486,
+                "step": 2.0,
+                "total_loss": 0.02968846803023861
+              },
+              {
+                "gamma_sub": 241657375.36833954,
+                "gradient": -0.005061910266309911,
+                "step": 4.0,
+                "total_loss": 0.030392883457338742
+              },
+              {
+                "gamma_sub": 217308899.55675083,
+                "gradient": -0.025981822835453333,
+                "step": 6.0,
+                "total_loss": 0.0329251632606168
+              },
+              {
+                "gamma_sub": 224651585.05521825,
+                "gradient": -0.028711885875890318,
+                "step": 8.0,
+                "total_loss": 0.03201307517289669
+              },
+              {
+                "gamma_sub": 250849407.16909498,
+                "gradient": -0.02093787810385087,
+                "step": 10.0,
+                "total_loss": 0.029780139393493534
+              }
+            ],
+            "estimated_gamma_sub": 283256363.05948895,
+            "heat_residual_loss": 8.435376793782341e-05,
+            "initial_gamma_sub": 450000000.0,
+            "lbfgs_message": "CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL",
+            "lbfgs_success": true,
+            "noise_level": 0.05,
+            "relative_gamma_bias": -0.3705414154233579,
+            "total_loss": 0.028890640088170706
+          }
+        ],
+        "target_overrides": {
+          "eta_A": 1.1499999999999998e-06
+        }
+      }
+    ],
+    "fixed_model_parameters": {
+      "D_v0": 8e-16,
+      "T_sw": 313.0,
+      "eta_A": 1e-06,
+      "gamma_sub": 450000000.0,
+      "mu_v0": 5e-16,
+      "sigma_on0": 1.65,
+      "tau_m": 0.0004
+    },
+    "noise_levels": [
+      0.0,
+      0.02,
+      0.05
+    ],
+    "nominal_gamma_sub": 450000000.0,
+    "optimizer": {
+      "adam_steps": 10,
+      "coarse": "manual finite-difference Adam on log(gamma_sub)",
+      "fine": "scipy L-BFGS-B on log(gamma_sub)",
+      "gamma_bounds": [
+        150000000.0,
+        1000000000.0
+      ],
+      "lbfgs_maxiter": 8
+    },
+    "summary": {
+      "gamma_sub_reliable_under_tested_mismatch": false,
+      "worst_clean_bias_case": "T_sw_plus_2K",
+      "worst_clean_relative_bias": 1.2222222222222205
+    },
+    "target_path": "data\\processed\\gt_v1_acceptance\\gt_triangle.npz"
+  },
+  "note": "Synthetic numerical digital-twin gamma_sub confounding and mismatch audit, not experimental data.",
+  "nt": 400,
+  "nx": 31,
+  "outputs": {
+    "sensitivity_ranking_csv": "outputs\\tables\\gamma_sub_sensitivity_ranking.csv",
+    "summary_json": "outputs\\tables\\gamma_sub_confounding_summary.json"
+  },
+  "parameter_values": {
+    "T_sw": {
+      "base": 313.0,
+      "high": 315.0,
+      "low": 311.0
+    },
+    "eta_A": {
+      "base": 1e-06,
+      "high": 1.1e-06,
+      "low": 9e-07
+    },
+    "gamma_sub": {
+      "base": 450000000.0,
+      "high": 540000000.0,
+      "low": 360000000.0
+    },
+    "sigma_on0": {
+      "base": 1.65,
+      "high": 1.815,
+      "low": 1.4849999999999999
+    },
+    "tau_m": {
+      "base": 0.0004,
+      "high": 0.0005,
+      "low": 0.00030000000000000003
+    }
+  },
+  "perturbation_runs": {
+    "T_sw": {
+      "high_G_mean": 3.5035624899469764e-10,
+      "high_max_delta_T": 5.850184406571259,
+      "high_value": 315.0,
+      "low_G_mean": 1.732617784691999e-09,
+      "low_max_delta_T": 44.257605709845336,
+      "low_value": 311.0
+    },
+    "eta_A": {
+      "high_G_mean": 5.586089796417098e-10,
+      "high_max_delta_T": 8.750689766759194,
+      "high_value": 1.1e-06,
+      "low_G_mean": 4.5704371061594426e-10,
+      "low_max_delta_T": 8.750689766759194,
+      "low_value": 9e-07
+    },
+    "gamma_sub": {
+      "high_G_mean": 4.938528438306773e-10,
+      "high_max_delta_T": 8.113456628696724,
+      "high_value": 540000000.0,
+      "low_G_mean": 5.241009413867194e-10,
+      "low_max_delta_T": 9.482707539195644,
+      "low_value": 360000000.0
+    },
+    "sigma_on0": {
+      "high_G_mean": 5.193252032490769e-10,
+      "high_max_delta_T": 8.97730431034995,
+      "high_value": 1.815,
+      "low_G_mean": 4.957966269885131e-10,
+      "low_max_delta_T": 8.51614211032728,
+      "low_value": 1.4849999999999999
+    },
+    "tau_m": {
+      "high_G_mean": 4.884963046503322e-10,
+      "high_max_delta_T": 8.394126189180156,
+      "high_value": 0.0005,
+      "low_G_mean": 5.331109636072872e-10,
+      "low_max_delta_T": 9.234112209803868,
+      "low_value": 0.00030000000000000003
+    }
+  },
+  "sensitivity_ranking": [
+    {
+      "aggregate_sensitivity": 248.28742849880723,
+      "cosine_with_gamma_sub": 0.9046382724137423,
+      "parameter": "T_sw",
+      "rank": 1
+    },
+    {
+      "aggregate_sensitivity": 0.7856742013183865,
+      "cosine_with_gamma_sub": -0.43584559677733203,
+      "parameter": "eta_A",
+      "rank": 2
+    },
+    {
+      "aggregate_sensitivity": 0.32884370993900625,
+      "cosine_with_gamma_sub": 1.0,
+      "parameter": "gamma_sub",
+      "rank": 3
+    },
+    {
+      "aggregate_sensitivity": 0.2919421082128766,
+      "cosine_with_gamma_sub": -0.9468534328639979,
+      "parameter": "sigma_on0",
+      "rank": 4
+    },
+    {
+      "aggregate_sensitivity": 0.21023972551107956,
+      "cosine_with_gamma_sub": 0.9419308101833433,
+      "parameter": "tau_m",
+      "rank": 5
+    }
+  ],
+  "sensitivity_rows": [
+    {
+      "G_t_sensitivity": 0.22481030420079723,
+      "I_t_sensitivity": 0.2756145562331842,
+      "aggregate_sensitivity": 0.32884370993900625,
+      "base_value": 450000000.0,
+      "cosine_with_gamma_sub": 1.0,
+      "high_relative_rmse_G_vs_target": 0.042636391826600596,
+      "high_relative_rmse_I_vs_target": 0.05203394022016146,
+      "high_value": 540000000.0,
+      "low_relative_rmse_G_vs_target": 0.05101619169754437,
+      "low_relative_rmse_I_vs_target": 0.063896264400765,
+      "low_value": 360000000.0,
+      "max_delta_T_sensitivity": 0.39118370865466645,
+      "mean_delta_T_sensitivity": 0.391184089485383,
+      "parameter": "gamma_sub",
+      "relative_step": 0.2,
+      "signed_response_vector": [
+        -0.14890965113462507,
+        -0.23209645597059503,
+        -0.39118370865466645,
+        -0.391184089485383
+      ]
+    },
+    {
+      "G_t_sensitivity": 72.06058276079496,
+      "I_t_sensitivity": 74.06411327661323,
+      "aggregate_sensitivity": 248.28742849880723,
+      "base_value": 313.0,
+      "cosine_with_gamma_sub": 0.9046382724137423,
+      "high_relative_rmse_G_vs_target": 0.35727370633566985,
+      "high_relative_rmse_I_vs_target": 0.373147712994391,
+      "high_value": 315.0,
+      "low_relative_rmse_G_vs_target": 4.720601748467384,
+      "low_relative_rmse_I_vs_target": 7.008742572381535,
+      "low_value": 311.0,
+      "max_delta_T_sensitivity": 343.44500800355024,
+      "mean_delta_T_sensitivity": 343.4441652093775,
+      "parameter": "T_sw",
+      "relative_step": 0.006389776357827476,
+      "signed_response_vector": [
+        -212.99006285480317,
+        -554.7881000303082,
+        -343.44500800355024,
+        -343.4441652093775
+      ]
+    },
+    {
+      "G_t_sensitivity": 0.21866677521456734,
+      "I_t_sensitivity": 0.23510378932257067,
+      "aggregate_sensitivity": 0.21023972551107956,
+      "base_value": 0.0004,
+      "cosine_with_gamma_sub": 0.9419308101833433,
+      "high_relative_rmse_G_vs_target": 0.04958188382998547,
+      "high_relative_rmse_I_vs_target": 0.05204754180321128,
+      "high_value": 0.0005,
+      "low_relative_rmse_G_vs_target": 0.06631274306789957,
+      "low_relative_rmse_I_vs_target": 0.07302614590393826,
+      "low_value": 0.00030000000000000003,
+      "max_delta_T_sensitivity": 0.19198167070543973,
+      "mean_delta_T_sensitivity": 0.1919819171392832,
+      "parameter": "tau_m",
+      "relative_step": 0.24999999999999997,
+      "signed_response_vector": [
+        -0.175708327797121,
+        -0.21669747417987598,
+        -0.19198167070543973,
+        -0.1919819171392832
+      ]
+    },
+    {
+      "G_t_sensitivity": 0.29998235752171415,
+      "I_t_sensitivity": 0.33476300078717675,
+      "aggregate_sensitivity": 0.2919421082128766,
+      "base_value": 1.65,
+      "cosine_with_gamma_sub": -0.9468534328639979,
+      "high_relative_rmse_G_vs_target": 0.028707875688443706,
+      "high_relative_rmse_I_vs_target": 0.032146672700708284,
+      "high_value": 1.815,
+      "low_relative_rmse_G_vs_target": 0.02965895366934768,
+      "low_relative_rmse_I_vs_target": 0.03283629514140994,
+      "low_value": 1.4849999999999999,
+      "max_delta_T_sensitivity": 0.2635004852842937,
+      "mean_delta_T_sensitivity": 0.2635006469171122,
+      "parameter": "sigma_on0",
+      "relative_step": 0.10000000000000003,
+      "signed_response_vector": [
+        0.23165966561458098,
+        0.29135950526584775,
+        0.2635004852842937,
+        0.2635006469171122
+      ]
+    },
+    {
+      "G_t_sensitivity": 1.1111111111111116,
+      "I_t_sensitivity": 1.1111111111111116,
+      "aggregate_sensitivity": 0.7856742013183865,
+      "base_value": 1e-06,
+      "cosine_with_gamma_sub": -0.43584559677733203,
+      "high_relative_rmse_G_vs_target": 0.10000000000000019,
+      "high_relative_rmse_I_vs_target": 0.1000000000000002,
+      "high_value": 1.1e-06,
+      "low_relative_rmse_G_vs_target": 0.09999999999999999,
+      "low_relative_rmse_I_vs_target": 0.09999999999999999,
+      "low_value": 9e-07,
+      "max_delta_T_sensitivity": 0.0,
+      "mean_delta_T_sensitivity": 0.0,
+      "parameter": "eta_A",
+      "relative_step": 0.10000000000000005,
+      "signed_response_vector": [
+        1.000000000000001,
+        1.0000000000000004,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "target_path": "data\\processed\\gt_v1_acceptance\\gt_triangle.npz"
+}
