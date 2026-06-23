@@ -62,3 +62,32 @@ Boundary:
 
 v1 is physics-regularized and approximate. It is not yet a strict
 PDE-constrained inverse PINN.
+
+## PINN inverse v1.1 residual balancing
+
+Date: 2026-06-23
+
+Actions:
+
+- Added `configs\pinn_inverse_v1_1_triangle_physics_balanced.yaml`.
+- Added `configs\pinn_inverse_v1_1_triangle_port_physics_balanced.yaml`.
+- Added `scripts\run_pinn_inverse_v1_1_experiments.py`.
+- Extended `scripts\train_pinn_inverse_v1.py` with optional running-scale
+  residual balancing, warmup scheduling, per-field anchor weights, and sigma
+  initial-state regularization.
+- Added `outputs\tables\pinn_inverse_v1_1_summary.json`.
+- Added `docs\pinn_inverse_v1_1_report.md`.
+- Added `docs\codex_reports\pinn_inverse_v1_1_report.md`.
+
+Findings:
+
+- v1.1 physics_balanced improves `relative_G_error` and sigma nRMSE slightly
+  relative to v1 physics, but `delta_T` worsens.
+- v1.1 port_physics_balanced improves terminal `G(t)` and sigma nRMSE relative
+  to v0 port_only, but hidden `delta_c_v` and `m` remain weak.
+- v1.1 is not a primary paper-figure candidate for hidden-field reconstruction.
+
+Boundary:
+
+All v1.1 results are synthetic numerical digital-twin benchmark outputs, not
+experimental data.

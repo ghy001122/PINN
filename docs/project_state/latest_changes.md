@@ -89,3 +89,30 @@ Deleted:
 - None.
 
 Frozen Ground Truth v1.1 files were not modified.
+
+## PINN inverse v1.1 residual balancing
+
+Added:
+
+- `configs\pinn_inverse_v1_1_triangle_physics_balanced.yaml`
+- `configs\pinn_inverse_v1_1_triangle_port_physics_balanced.yaml`
+- `scripts\run_pinn_inverse_v1_1_experiments.py`
+- `docs\pinn_inverse_v1_1_report.md`
+- `docs\codex_reports\pinn_inverse_v1_1_report.md`
+- `outputs\tables\pinn_inverse_v1_1_summary.json`
+
+Modified:
+
+- `scripts\train_pinn_inverse_v1.py`: added optional residual running-scale
+  balancing, warmup scheduling, per-field anchor weights, and sigma initial
+  regularization.
+- `tests\test_pinn_inverse_v1.py`: added v1.1 config checks.
+- `.gitignore`: ignores generated v1.1 training artifacts while allowing the
+  lightweight v1.1 summary JSON.
+- Project status and registry files now document v1.1.
+
+Deleted:
+
+- None.
+
+Frozen Ground Truth v1.1 files and existing v0/v1 summaries were not modified.

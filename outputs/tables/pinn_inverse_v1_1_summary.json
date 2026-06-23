@@ -1,0 +1,126 @@
+{
+  "benchmark": "Frozen Ground Truth v1.1 triangle synthetic numerical digital-twin benchmark.",
+  "experiments": [
+    {
+      "artifacts": {
+        "compare_g_time": "outputs\\pinn_inverse_v1_1\\triangle_physics_balanced\\compare_g_time.png",
+        "loss_components": "outputs\\pinn_inverse_v1_1\\triangle_physics_balanced\\loss_components.png",
+        "loss_curve": "outputs\\pinn_inverse_v1_1\\triangle_physics_balanced\\loss_curve.png",
+        "metrics": "outputs\\pinn_inverse_v1_1\\triangle_physics_balanced\\metrics.json",
+        "pred_delta_T_map": "outputs\\pinn_inverse_v1_1\\triangle_physics_balanced\\pred_delta_T_map.png",
+        "pred_delta_c_v_map": "outputs\\pinn_inverse_v1_1\\triangle_physics_balanced\\pred_delta_c_v_map.png",
+        "pred_delta_m_map": "outputs\\pinn_inverse_v1_1\\triangle_physics_balanced\\pred_delta_m_map.png",
+        "pred_sigma_map": "outputs\\pinn_inverse_v1_1\\triangle_physics_balanced\\pred_sigma_map.png",
+        "residual_components": "outputs\\pinn_inverse_v1_1\\triangle_physics_balanced\\residual_components.png",
+        "train_history": "outputs\\pinn_inverse_v1_1\\triangle_physics_balanced\\train_history.json"
+      },
+      "config_path": "configs\\pinn_inverse_v1_1_triangle_physics_balanced.yaml",
+      "loss_schedule": {
+        "enabled": true,
+        "start_factor": 0.05,
+        "warmup_epochs": 80
+      },
+      "loss_weights": {
+        "w_boundary": 0.0001,
+        "w_defect_residual": 0.0001,
+        "w_field_anchor": 1.0,
+        "w_heat_residual": 0.001,
+        "w_ic": 1.0,
+        "w_port_data": 1.0,
+        "w_sigma_consistency": 0.001,
+        "w_sigma_initial": 0.01,
+        "w_smooth": 0.001,
+        "w_state_residual": 0.001
+      },
+      "metrics": {
+        "final_defect_residual": 0.0004227387544233352,
+        "final_heat_residual": 0.00010278339323122054,
+        "final_port_loss": 0.0025999865029007196,
+        "final_sigma_consistency": 0.02828482910990715,
+        "final_sigma_initial_loss": 0.0007302154554054141,
+        "final_state_residual": 0.008880123496055603,
+        "final_total_loss": 0.3755813241004944,
+        "nrmse_delta_T": 0.4695037015933208,
+        "nrmse_delta_c_v": 0.2581316506897529,
+        "nrmse_delta_m": 0.052597555765579784,
+        "nrmse_sigma": 0.035571239321291886,
+        "relative_G_error": 0.04179092330243043,
+        "relative_I_error": 0.05390511891755371,
+        "rmse_delta_T": 4.108481236988235,
+        "rmse_delta_c_v": 0.0005353396150671157,
+        "rmse_delta_m": 0.010096362654205765,
+        "rmse_sigma": 0.0007643681214982448
+      },
+      "name": "triangle_physics_balanced",
+      "output_dir": "outputs\\pinn_inverse_v1_1\\triangle_physics_balanced",
+      "residual_balancing": {
+        "enabled": true,
+        "max_scale": "1.0e3",
+        "min_scale": 0.0001,
+        "momentum": 0.95
+      }
+    },
+    {
+      "artifacts": {
+        "compare_g_time": "outputs\\pinn_inverse_v1_1\\triangle_port_physics_balanced\\compare_g_time.png",
+        "loss_components": "outputs\\pinn_inverse_v1_1\\triangle_port_physics_balanced\\loss_components.png",
+        "loss_curve": "outputs\\pinn_inverse_v1_1\\triangle_port_physics_balanced\\loss_curve.png",
+        "metrics": "outputs\\pinn_inverse_v1_1\\triangle_port_physics_balanced\\metrics.json",
+        "pred_delta_T_map": "outputs\\pinn_inverse_v1_1\\triangle_port_physics_balanced\\pred_delta_T_map.png",
+        "pred_delta_c_v_map": "outputs\\pinn_inverse_v1_1\\triangle_port_physics_balanced\\pred_delta_c_v_map.png",
+        "pred_delta_m_map": "outputs\\pinn_inverse_v1_1\\triangle_port_physics_balanced\\pred_delta_m_map.png",
+        "pred_sigma_map": "outputs\\pinn_inverse_v1_1\\triangle_port_physics_balanced\\pred_sigma_map.png",
+        "residual_components": "outputs\\pinn_inverse_v1_1\\triangle_port_physics_balanced\\residual_components.png",
+        "train_history": "outputs\\pinn_inverse_v1_1\\triangle_port_physics_balanced\\train_history.json"
+      },
+      "config_path": "configs\\pinn_inverse_v1_1_triangle_port_physics_balanced.yaml",
+      "loss_schedule": {
+        "enabled": true,
+        "start_factor": 0.05,
+        "warmup_epochs": 100
+      },
+      "loss_weights": {
+        "w_boundary": 1e-05,
+        "w_defect_residual": 1e-05,
+        "w_field_anchor": 0.0,
+        "w_heat_residual": 0.0001,
+        "w_ic": 1.0,
+        "w_port_data": 2.0,
+        "w_sigma_consistency": 0.001,
+        "w_sigma_initial": 0.005,
+        "w_smooth": 0.001,
+        "w_state_residual": 0.0001
+      },
+      "metrics": {
+        "final_defect_residual": 0.00918776448816061,
+        "final_heat_residual": 4.8663345353361365e-08,
+        "final_port_loss": 0.0014746750239282846,
+        "final_sigma_consistency": 0.8367587924003601,
+        "final_sigma_initial_loss": 0.003936735913157463,
+        "final_state_residual": 0.0002883978304453194,
+        "final_total_loss": 0.0049948059022426605,
+        "nrmse_delta_T": 0.4724478734618287,
+        "nrmse_delta_c_v": 5.434511475058795,
+        "nrmse_delta_m": 0.41367830135338995,
+        "nrmse_sigma": 0.2653110337224564,
+        "relative_G_error": 0.06619276407141951,
+        "relative_I_error": 0.05792024748087449,
+        "rmse_delta_T": 4.134244771629567,
+        "rmse_delta_c_v": 0.011270641447346115,
+        "rmse_delta_m": 0.07940760919108852,
+        "rmse_sigma": 0.005701102922714426
+      },
+      "name": "triangle_port_physics_balanced",
+      "output_dir": "outputs\\pinn_inverse_v1_1\\triangle_port_physics_balanced",
+      "residual_balancing": {
+        "enabled": true,
+        "max_scale": "1.0e3",
+        "min_scale": 0.0001,
+        "momentum": 0.95
+      }
+    }
+  ],
+  "note": "PINN inverse v1.1 tunes residual balancing and schedules; it is not a complete PDE-constrained inverse PINN.",
+  "repo_url": "https://github.com/ghy001122/PINN",
+  "summary_json_path": "outputs\\tables\\pinn_inverse_v1_1_summary.json"
+}

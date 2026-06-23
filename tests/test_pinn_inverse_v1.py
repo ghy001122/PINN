@@ -22,6 +22,11 @@ V1_CONFIGS = [
     Path("configs/pinn_inverse_v1_triangle_port_physics.yaml"),
 ]
 
+V1_1_CONFIGS = [
+    Path("configs/pinn_inverse_v1_1_triangle_physics_balanced.yaml"),
+    Path("configs/pinn_inverse_v1_1_triangle_port_physics_balanced.yaml"),
+]
+
 
 def test_v1_configs_are_readable() -> None:
     """All v1 configs should load and expose required loss weights."""
@@ -127,3 +132,16 @@ def test_train_pinn_inverse_v1_smoke(tmp_path: Path) -> None:
     assert required_metrics.issubset(metrics)
     for key in required_metrics:
         assert np.isfinite(metrics[key])
+
+
+def test_v1_1_configs_enable_balancing_and_schedule() -> None:
+    """v1.1 configs should enable residual balancing and warmup scheduling."""
+
+    for path in V1_1_CONFIGS:
+        cfg = load_yaml(path)
+        assert cfg["residual_balancing"]["enabled"] is True
+        assert cfg["loss_schedule"]["enabled"] is True
+        assert "w_sigma_initial" in cfg["loss_weights"]
+        data = load_inverse_v0_data(cfg, root=Path.cwd())
+        assert data.train_data_path.exists()
+        assert data.sparse_obs_path.exists()

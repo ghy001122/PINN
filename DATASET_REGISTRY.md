@@ -25,6 +25,7 @@ These are reproducible training artifacts and are ignored by Git:
 
 - `outputs\tables\pinn_inverse_v0_ablation_summary.json`
 - `outputs\tables\pinn_inverse_v1_summary.json`
+- `outputs\tables\pinn_inverse_v1_1_summary.json`
 
 These JSON files store compact scalar metrics for cloud review without
 committing large generated arrays or figures.

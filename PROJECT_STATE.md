@@ -2,11 +2,11 @@
 
 ## Current phase
 
-The project is in the PINN inverse v1 physics-regularized audit phase. Ground
+The project is in the PINN inverse v1.1 residual-balancing audit phase. Ground
 Truth v1.1 is frozen and serves as a synthetic numerical digital-twin benchmark.
-PINN inverse v0 remains preserved as the proof-of-concept baseline, and v1 adds
-approximate physics residual regularization for heat, state, defect, sigma
-consistency, and boundary behavior.
+PINN inverse v0 remains preserved as the proof-of-concept baseline, v1 adds
+approximate physics residual regularization, and v1.1 tunes residual balancing,
+warmup scheduling, and sigma drift controls.
 
 ## Research line
 
@@ -51,13 +51,20 @@ the PINN inverse v0 ablation audit.
   - `outputs\tables\pinn_inverse_v1_summary.json`
   - `docs\pinn_inverse_v1_physics_design.md`
   - `docs\pinn_inverse_v1_report.md`
+- Added PINN inverse v1.1 residual-balancing workflow:
+  - `configs\pinn_inverse_v1_1_triangle_physics_balanced.yaml`
+  - `configs\pinn_inverse_v1_1_triangle_port_physics_balanced.yaml`
+  - `scripts\run_pinn_inverse_v1_1_experiments.py`
+  - `outputs\tables\pinn_inverse_v1_1_summary.json`
+  - `docs\pinn_inverse_v1_1_report.md`
+  - `docs\codex_reports\pinn_inverse_v1_1_report.md`
 
 ## Current evidence
 
-v1 confirms that approximate physics residuals can regularize hidden fields but
-do not yet solve identifiability. `triangle_port_physics` improves `sigma`,
-`m`, and `delta_c_v` relative to v0 port_only, but terminal `G(t)` error is
-worse than v0 port_only. `delta_T` remains the main absolute error source.
+v1.1 confirms that residual balancing can improve terminal port fit in
+`port_physics` relative to v0 port_only, and can slightly stabilize anchored
+sigma. It does not improve `delta_T`; thermal dynamics remain the main
+identifiability problem.
 
 ## Boundary
 

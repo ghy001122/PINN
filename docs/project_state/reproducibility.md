@@ -79,6 +79,26 @@ This regenerates:
 
 Only the lightweight v1 summary JSON is intended to be committed.
 
+## PINN inverse v1.1 smoke test
+
+```powershell
+python scripts/train_pinn_inverse_v1.py --config configs/pinn_inverse_v1_1_triangle_physics_balanced.yaml --epochs 2
+```
+
+## PINN inverse v1.1 experiment reproduction
+
+```powershell
+python scripts/run_pinn_inverse_v1_1_experiments.py
+```
+
+This regenerates:
+
+- `outputs\pinn_inverse_v1_1\triangle_physics_balanced\`
+- `outputs\pinn_inverse_v1_1\triangle_port_physics_balanced\`
+- `outputs\tables\pinn_inverse_v1_1_summary.json`
+
+Only the lightweight v1.1 summary JSON is intended to be committed.
+
 ## Academic boundary
 
 All generated results are synthetic numerical digital-twin benchmark outputs.

@@ -16,6 +16,8 @@ Current high-level structure:
 |   |-- pinn_inverse_v1_triangle_physics.yaml
 |   |-- pinn_inverse_v1_triangle_weak_anchor.yaml
 |   |-- pinn_inverse_v1_triangle_port_physics.yaml
+|   |-- pinn_inverse_v1_1_triangle_physics_balanced.yaml
+|   |-- pinn_inverse_v1_1_triangle_port_physics_balanced.yaml
 |   `-- pinn_v1.yaml
 |-- data/
 |   |-- README.md
@@ -25,7 +27,8 @@ Current high-level structure:
 |   |-- codex_reports/
 |   |   |-- evidence_chain_patch_report.md
 |   |   |-- pinn_inverse_v0_ablation_audit_report.md
-|   |   `-- pinn_inverse_v1_physics_report.md
+|   |   |-- pinn_inverse_v1_physics_report.md
+|   |   `-- pinn_inverse_v1_1_report.md
 |   |-- project_state/
 |   |   |-- file_inventory.md
 |   |   |-- latest_changes.md
@@ -39,6 +42,7 @@ Current high-level structure:
 |   |-- pinn_inverse_v0_ablation_report.md
 |   |-- pinn_inverse_v1_physics_design.md
 |   |-- pinn_inverse_v1_report.md
+|   |-- pinn_inverse_v1_1_report.md
 |   `-- reviewer_defense.md
 |-- outputs/
 |   |-- checkpoints/
@@ -50,10 +54,13 @@ Current high-level structure:
 |   |-- tables/
 |   |   |-- .gitkeep
 |   |   |-- pinn_inverse_v0_ablation_summary.json
-|   |   `-- pinn_inverse_v1_summary.json
+|   |   |-- pinn_inverse_v1_summary.json
+|   |   `-- pinn_inverse_v1_1_summary.json
 |   |-- pinn_inverse_v0/
 |   |   `-- ignored generated training artifacts
-|   `-- pinn_inverse_v1/
+|   |-- pinn_inverse_v1/
+|   |   `-- ignored generated training artifacts
+|   `-- pinn_inverse_v1_1/
 |       `-- ignored generated training artifacts
 |-- scripts/
 |   |-- analyze_gt_v1.py
@@ -63,6 +70,7 @@ Current high-level structure:
 |   |-- run_gt_v1_acceptance.py
 |   |-- run_pinn_inverse_v0_ablation.py
 |   |-- run_pinn_inverse_v1_experiments.py
+|   |-- run_pinn_inverse_v1_1_experiments.py
 |   |-- scan_gt_v1.py
 |   |-- train_pinn_inverse_v0.py
 |   |-- train_pinn_inverse_v1.py
@@ -99,4 +107,5 @@ Generated large outputs remain under `data\processed\` and `outputs\` and are
 not intended for normal Git commits. Committed output artifacts are limited to
 lightweight summary JSON files such as
 `outputs\tables\pinn_inverse_v0_ablation_summary.json` and
-`outputs\tables\pinn_inverse_v1_summary.json`.
+`outputs\tables\pinn_inverse_v1_summary.json`, and
+`outputs\tables\pinn_inverse_v1_1_summary.json`.

@@ -27,6 +27,8 @@
 - `scripts\train_pinn_inverse_v1.py`: single-run v1 physics-regularized
   training entry point.
 - `scripts\run_pinn_inverse_v1_experiments.py`: three-run v1 experiment runner.
+- `scripts\run_pinn_inverse_v1_1_experiments.py`: two-run v1.1
+  residual-balancing experiment runner.
 
 ## Current test coverage
 
@@ -44,6 +46,8 @@
   report for state-file consistency and smoke-test verification.
 - `docs\codex_reports\pinn_inverse_v1_physics_report.md`: final Codex report
   for the v1 physics-regularized implementation and experiment run.
+- `docs\codex_reports\pinn_inverse_v1_1_report.md`: final Codex report for
+  the v1.1 residual-balancing audit.
 
 ## Frozen files not to modify during PINN audit
 

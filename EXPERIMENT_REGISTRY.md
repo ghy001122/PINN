@@ -54,3 +54,20 @@ Runs:
 Status: completed as a physics-regularized approximation. Generated training
 outputs are reproducible and are not committed, except the lightweight summary
 JSON.
+
+## PINN inverse v1.1 residual-balancing audit
+
+- Batch runner: `scripts\run_pinn_inverse_v1_1_experiments.py`
+- Summary: `outputs\tables\pinn_inverse_v1_1_summary.json`
+- Report: `docs\pinn_inverse_v1_1_report.md`
+- Codex report: `docs\codex_reports\pinn_inverse_v1_1_report.md`
+
+Runs:
+
+- `configs\pinn_inverse_v1_1_triangle_physics_balanced.yaml` ->
+  `outputs\pinn_inverse_v1_1\triangle_physics_balanced\`
+- `configs\pinn_inverse_v1_1_triangle_port_physics_balanced.yaml` ->
+  `outputs\pinn_inverse_v1_1\triangle_port_physics_balanced\`
+
+Status: completed as a residual-balancing audit. Generated training outputs are
+reproducible and are not committed, except the lightweight summary JSON.

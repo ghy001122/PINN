@@ -1,0 +1,75 @@
+description: "PINN inverse v1.1 balanced port-plus-physics run without field anchors on frozen Ground Truth v1.1 triangle synthetic benchmark."
+train_data: data/processed/gt_v1_acceptance/gt_triangle.npz
+sparse_obs: data/processed/gt_v1_acceptance/obs_triangle_sparse.npz
+manifest: data/processed/gt_v1_acceptance/manifest.json
+output_dir: outputs/pinn_inverse_v1_1/triangle_port_physics_balanced
+
+seed: 2026
+device: cpu
+epochs: 200
+lr: 1.0e-3
+hidden_dim: 64
+num_layers: 3
+fourier_features: 32
+fourier_scale: 3.0
+
+field_anchor_points: 2048
+physics_collocation_points: 512
+boundary_points: 96
+plot_dpi: 160
+
+model_bounds:
+  c_v_min: 0.0
+  c_v_max: 0.2
+  delta_T_max: 20.0
+  sigma_min: 1.0e-4
+  sigma_max: 1.0
+
+loss_weights:
+  w_port_data: 2.0
+  w_ic: 1.0
+  w_field_anchor: 0.0
+  w_smooth: 1.0e-3
+  w_heat_residual: 1.0e-4
+  w_state_residual: 1.0e-4
+  w_defect_residual: 1.0e-5
+  w_sigma_consistency: 1.0e-3
+  w_boundary: 1.0e-5
+  w_sigma_initial: 5.0e-3
+
+field_anchor_weights:
+  c_v: 1.0
+  delta_T: 1.0
+  m: 1.0
+  log_sigma: 1.0
+
+loss_schedule:
+  enabled: true
+  warmup_epochs: 100
+  start_factor: 0.05
+
+residual_balancing:
+  enabled: true
+  momentum: 0.95
+  min_scale: 1.0e-4
+  max_scale: 1.0e3
+
+loss_scales:
+  c_v: 1.0e-2
+  delta_T: 10.0
+  m: 0.1
+  sigma_log: 1.0
+
+nrmse_scales:
+  delta_T: 8.750689766759194
+  delta_c_v: 0.00207390149033114
+  delta_m: 0.19195497789296317
+  sigma_range: 0.021488374768003004
+
+physics_scales:
+  heat_diffusion: 2.0e-2
+  heat_source: 5.0e-2
+  heat_cooling: 1.0e-1
+  defect_diffusion: 2.0e-3
+  defect_drift: 1.0e-3
+  defect_relaxation: 5.0e-2

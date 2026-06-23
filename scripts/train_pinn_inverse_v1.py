@@ -50,6 +50,71 @@ def _select_indices(total_points: int, n_points: int, rng: np.random.Generator, 
     return torch.as_tensor(rng.choice(total_points, size=n_pick, replace=False), dtype=torch.long, device=device)
 
 
+def _scheduled_weights(weights: dict[str, float], epoch: int, schedule: dict[str, Any]) -> dict[str, float]:
+    """Apply optional warmup scheduling to selected loss weights."""
+
+    if not schedule.get("enabled", False):
+        return dict(weights)
+    warmup_epochs = max(int(schedule.get("warmup_epochs", 1)), 1)
+    start_factor = float(schedule.get("start_factor", 0.1))
+    factor = start_factor + (1.0 - start_factor) * min(float(epoch) / float(warmup_epochs), 1.0)
+    keys = tuple(
+        schedule.get(
+            "warmup_keys",
+            (
+                "w_heat_residual",
+                "w_state_residual",
+                "w_defect_residual",
+                "w_sigma_consistency",
+                "w_boundary",
+                "w_sigma_initial",
+            ),
+        )
+    )
+    scheduled = dict(weights)
+    for key in keys:
+        if key in scheduled:
+            scheduled[key] = scheduled[key] * factor
+    return scheduled
+
+
+def _balanced_loss(
+    name: str,
+    value: torch.Tensor,
+    running_scales: dict[str, float],
+    balance_cfg: dict[str, Any],
+) -> torch.Tensor:
+    """Optionally normalize a raw loss by a running scale."""
+
+    if not balance_cfg.get("enabled", False):
+        return value
+    keys = set(
+        balance_cfg.get(
+            "keys",
+            (
+                "heat_residual_loss",
+                "state_residual_loss",
+                "defect_residual_loss",
+                "sigma_consistency_loss",
+                "boundary_loss",
+                "sigma_initial_loss",
+            ),
+        )
+    )
+    if name not in keys:
+        return value
+
+    detached = float(torch.clamp(value.detach(), min=0.0).cpu())
+    momentum = float(balance_cfg.get("momentum", 0.95))
+    previous = running_scales.get(name, detached)
+    running_scales[name] = momentum * previous + (1.0 - momentum) * detached
+    min_scale = float(balance_cfg.get("min_scale", 1.0e-4))
+    max_scale = float(balance_cfg.get("max_scale", 1.0e6))
+    scale = min(max(running_scales[name], min_scale), max_scale)
+    scale_tensor = torch.as_tensor(scale, dtype=value.dtype, device=value.device)
+    return value / scale_tensor
+
+
 def _plot_map(path: Path, values: np.ndarray, x: np.ndarray, t: np.ndarray, title: str, colorbar: str, dpi: int) -> None:
     """Save a field map."""
 
@@ -96,7 +161,7 @@ def _save_figures(
 
     components_path = output_dir / "loss_components.png"
     fig, ax = plt.subplots(figsize=(6.4, 4.0), constrained_layout=True)
-    for key in ("port_loss", "ic_loss", "field_anchor_loss", "smooth_loss", "boundary_loss"):
+    for key in ("port_loss", "ic_loss", "field_anchor_loss", "smooth_loss", "boundary_loss", "sigma_initial_loss"):
         ax.semilogy(epochs, [max(row[key], 1.0e-30) for row in history], label=key)
     ax.set_xlabel("epoch")
     ax.set_ylabel("component loss")
@@ -218,6 +283,9 @@ def train(config_path: Path, *, epochs_override: int | None = None, output_dir_o
     weights = {key: float(value) for key, value in dict(cfg.get("loss_weights", {})).items()}
     scales = {key: float(value) for key, value in dict(cfg.get("loss_scales", {})).items()}
     physics_scales = {key: float(value) for key, value in dict(cfg.get("physics_scales", {})).items()}
+    balance_cfg = dict(cfg.get("residual_balancing", {}))
+    schedule_cfg = dict(cfg.get("loss_schedule", {}))
+    field_anchor_weights = {key: float(value) for key, value in dict(cfg.get("field_anchor_weights", {})).items()}
     c_scale = scales.get("c_v", 1.0e-2)
     temp_scale = scales.get("delta_T", 10.0)
     m_scale = scales.get("m", 0.1)
@@ -229,6 +297,7 @@ def train(config_path: Path, *, epochs_override: int | None = None, output_dir_o
     n_collocation = int(cfg.get("physics_collocation_points", 512))
     n_boundary = int(cfg.get("boundary_points", 128))
     history: list[dict[str, float]] = []
+    running_scales: dict[str, float] = {}
     n_epochs = int(cfg.get("epochs", 120))
     print(f"Training PINN inverse v1 for {n_epochs} epochs on {device}.")
 
@@ -254,13 +323,19 @@ def train(config_path: Path, *, epochs_override: int | None = None, output_dir_o
             flat_delta_m = (fields["m"] - target_m[0:1, :]).reshape(-1)
             flat_log_sigma = fields["log_sigma"].reshape(-1)
             field_anchor_loss = (
-                normalized_mse(flat_c[anchor_idx], target_c.reshape(-1)[anchor_idx], c_scale)
-                + normalized_mse(flat_delta_t[anchor_idx], target_delta_t.reshape(-1)[anchor_idx], temp_scale)
-                + normalized_mse(flat_delta_m[anchor_idx], target_delta_m.reshape(-1)[anchor_idx], m_scale)
-                + normalized_mse(flat_log_sigma[anchor_idx], target_sigma_log.reshape(-1)[anchor_idx], sigma_log_scale)
+                field_anchor_weights.get("c_v", 1.0)
+                * normalized_mse(flat_c[anchor_idx], target_c.reshape(-1)[anchor_idx], c_scale)
+                + field_anchor_weights.get("delta_T", 1.0)
+                * normalized_mse(flat_delta_t[anchor_idx], target_delta_t.reshape(-1)[anchor_idx], temp_scale)
+                + field_anchor_weights.get("m", 1.0)
+                * normalized_mse(flat_delta_m[anchor_idx], target_delta_m.reshape(-1)[anchor_idx], m_scale)
+                + field_anchor_weights.get("log_sigma", 1.0)
+                * normalized_mse(flat_log_sigma[anchor_idx], target_sigma_log.reshape(-1)[anchor_idx], sigma_log_scale)
             )
         else:
             field_anchor_loss = torch.zeros((), dtype=coords.dtype, device=device)
+
+        sigma_initial_loss = normalized_mse(fields["log_sigma"][0], target_sigma_log[0], sigma_log_scale)
 
         smooth_loss = (
             smoothness_loss(fields["c_v"] / c_scale)
@@ -289,18 +364,29 @@ def train(config_path: Path, *, epochs_override: int | None = None, output_dir_o
             torch.square(boundary["defect_boundary"])
         )
 
+        scheduled = _scheduled_weights(weights, epoch, schedule_cfg)
+        heat_term = _balanced_loss("heat_residual_loss", heat_loss, running_scales, balance_cfg)
+        state_term = _balanced_loss("state_residual_loss", state_loss, running_scales, balance_cfg)
+        defect_term = _balanced_loss("defect_residual_loss", defect_loss, running_scales, balance_cfg)
+        sigma_consistency_term = _balanced_loss(
+            "sigma_consistency_loss", sigma_consistency_loss, running_scales, balance_cfg
+        )
+        boundary_term = _balanced_loss("boundary_loss", boundary_loss, running_scales, balance_cfg)
+        sigma_initial_term = _balanced_loss("sigma_initial_loss", sigma_initial_loss, running_scales, balance_cfg)
+
         physics_loss = (
-            weights.get("w_heat_residual", 0.0) * heat_loss
-            + weights.get("w_state_residual", 0.0) * state_loss
-            + weights.get("w_defect_residual", 0.0) * defect_loss
-            + weights.get("w_sigma_consistency", 0.0) * sigma_consistency_loss
-            + weights.get("w_boundary", 0.0) * boundary_loss
+            scheduled.get("w_heat_residual", 0.0) * heat_term
+            + scheduled.get("w_state_residual", 0.0) * state_term
+            + scheduled.get("w_defect_residual", 0.0) * defect_term
+            + scheduled.get("w_sigma_consistency", 0.0) * sigma_consistency_term
+            + scheduled.get("w_boundary", 0.0) * boundary_term
+            + scheduled.get("w_sigma_initial", 0.0) * sigma_initial_term
         )
         total = (
-            weights.get("w_port_data", 1.0) * port_loss
-            + weights.get("w_ic", 1.0) * ic_loss
-            + weights.get("w_field_anchor", 0.0) * field_anchor_loss
-            + weights.get("w_smooth", 0.0) * smooth_loss
+            scheduled.get("w_port_data", 1.0) * port_loss
+            + scheduled.get("w_ic", 1.0) * ic_loss
+            + scheduled.get("w_field_anchor", 0.0) * field_anchor_loss
+            + scheduled.get("w_smooth", 0.0) * smooth_loss
             + physics_loss
         )
         if not torch.isfinite(total):
@@ -322,6 +408,9 @@ def train(config_path: Path, *, epochs_override: int | None = None, output_dir_o
             "defect_residual_loss": float(defect_loss.detach().cpu()),
             "sigma_consistency_loss": float(sigma_consistency_loss.detach().cpu()),
             "boundary_loss": float(boundary_loss.detach().cpu()),
+            "sigma_initial_loss": float(sigma_initial_loss.detach().cpu()),
+            "w_heat_residual_effective": float(scheduled.get("w_heat_residual", 0.0)),
+            "w_sigma_consistency_effective": float(scheduled.get("w_sigma_consistency", 0.0)),
         }
         history.append(row)
         if epoch == 1 or epoch == n_epochs or epoch % max(n_epochs // 10, 1) == 0:
@@ -359,6 +448,9 @@ def train(config_path: Path, *, epochs_override: int | None = None, output_dir_o
         "final_state_residual": history[-1]["state_residual_loss"],
         "final_defect_residual": history[-1]["defect_residual_loss"],
         "final_sigma_consistency": history[-1]["sigma_consistency_loss"],
+        "final_sigma_initial_loss": history[-1]["sigma_initial_loss"],
+        "residual_balancing": balance_cfg,
+        "loss_schedule": schedule_cfg,
         "sigma_closure": "PINN inverse v1 uses a positive network sigma with approximate torch sigma-consistency regularization.",
     }
     figure_paths = _save_figures(output_dir, history, data, predictions, port_pred, int(cfg.get("plot_dpi", 160)))
