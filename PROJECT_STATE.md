@@ -2,12 +2,12 @@
 
 ## Current phase
 
-The project is in the PINN inverse identifiability audit phase. Ground Truth
-v1.1 is frozen and serves as a synthetic numerical digital-twin benchmark. PINN
-inverse v0 remains preserved as the proof-of-concept baseline, v1 adds
+The project is in the v2a reduced-parameter identifiability audit phase. Ground
+Truth v1.1 is frozen and serves as a synthetic numerical digital-twin benchmark.
+PINN inverse v0 remains preserved as the proof-of-concept baseline, v1 adds
 approximate physics residual regularization, v1.1 tunes residual balancing, and
-the current audit quantifies whether terminal `V(t)`, `I(t)`, and `G(t)` can
-uniquely identify hidden fields.
+the current v2a audit asks whether `gamma_sub` can be recovered from terminal
+`V(t)`, `I(t)`, and `G(t)` when microscopic parameters are fixed.
 
 ## Research line
 
@@ -68,6 +68,17 @@ the PINN inverse v0 ablation audit.
   - `outputs\figures\pinn_identifiability\lag_correlation.png`
   - `docs\pinn_identifiability_audit_report.md`
   - `docs\codex_reports\pinn_identifiability_audit_report.md`
+- Added v2a `gamma_sub` identifiability audit:
+  - `scripts\scan_gamma_sub_identifiability.py`
+  - `scripts\invert_gamma_sub_v0.py`
+  - `outputs\tables\gamma_sub_identifiability_summary.json`
+  - `outputs\figures\gamma_sub_identifiability\gamma_sub_scan_responses.png`
+  - `outputs\figures\gamma_sub_identifiability\gamma_sub_sensitivity.png`
+  - `outputs\figures\gamma_sub_identifiability\gamma_sub_temperature_response.png`
+  - `outputs\figures\gamma_sub_identifiability\gamma_sub_inversion_multistart.png`
+  - `outputs\figures\gamma_sub_identifiability\gamma_sub_objective_profile.png`
+  - `docs\gamma_sub_identifiability_report.md`
+  - `docs\codex_reports\gamma_sub_identifiability_audit_report.md`
 
 ## Current evidence
 
@@ -76,6 +87,11 @@ with `mean_sigma`, while aggregate `delta_T`, `delta_c_v`, and `m` are also
 strongly correlated with `G(t)`. Terminal observations constrain the integrated
 conductance response but do not uniquely recover the hidden thermal, defect,
 state, and conductivity fields.
+
+The v2a reduced audit confirms that `gamma_sub` is stably invertible in the
+single-parameter setting when `D_v0`, `mu_v0`, `T_sw`, `tau_m`, and other
+microscopic parameters remain fixed. This does not prove joint identifiability
+with switching or defect parameters released.
 
 ## Boundary
 

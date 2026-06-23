@@ -116,6 +116,25 @@ This regenerates:
 Only the lightweight summary JSON and correlation CSV are intended to be
 committed. The generated figures remain ignored by Git.
 
+## v2a gamma_sub identifiability reproduction
+
+```powershell
+python scripts/scan_gamma_sub_identifiability.py
+python scripts/invert_gamma_sub_v0.py
+```
+
+This regenerates:
+
+- `outputs\tables\gamma_sub_identifiability_summary.json`
+- `outputs\figures\gamma_sub_identifiability\gamma_sub_scan_responses.png`
+- `outputs\figures\gamma_sub_identifiability\gamma_sub_sensitivity.png`
+- `outputs\figures\gamma_sub_identifiability\gamma_sub_temperature_response.png`
+- `outputs\figures\gamma_sub_identifiability\gamma_sub_inversion_multistart.png`
+- `outputs\figures\gamma_sub_identifiability\gamma_sub_objective_profile.png`
+
+Only the lightweight summary JSON is intended to be committed. The generated
+figures remain ignored by Git.
+
 ## Academic boundary
 
 All generated results are synthetic numerical digital-twin benchmark outputs.

@@ -32,6 +32,11 @@
 - `scripts\analyze_pinn_identifiability.py`: reads the frozen triangle
   benchmark and computes terminal-to-hidden-field correlations, hidden-field
   correlations, lag correlations, and spatial sensitivity profiles.
+- `scripts\scan_gamma_sub_identifiability.py`: scans fixed-microphysics
+  `gamma_sub` values and writes port/thermal sensitivity evidence.
+- `scripts\invert_gamma_sub_v0.py`: optimizes only `gamma_sub` with
+  finite-difference Adam plus L-BFGS-B using terminal `G/I` loss and a
+  candidate heat-residual regularizer.
 
 ## Current test coverage
 
@@ -42,6 +47,8 @@
   checks, autograd derivative checks, and v1 training smoke test.
 - `tests\test_pinn_identifiability.py`: identifiability analyzer output smoke
   test using temporary table and figure directories.
+- `tests\test_gamma_sub_identifiability.py`: smoke tests for the gamma_sub scan
+  and single-parameter inversion scripts using reduced temporary outputs.
 
 ## Evidence-chain reports
 
@@ -58,6 +65,10 @@
 - `docs\pinn_identifiability_audit_report.md`: project-facing report that
   explains why terminal-only observations do not uniquely recover all hidden
   fields.
+- `docs\gamma_sub_identifiability_report.md`: project-facing report for the
+  reduced `gamma_sub` inverse audit.
+- `docs\codex_reports\gamma_sub_identifiability_audit_report.md`: final Codex
+  report for the `gamma_sub` identifiability patch.
 
 ## Frozen files not to modify during PINN audit
 

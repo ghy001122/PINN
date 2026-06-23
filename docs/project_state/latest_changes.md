@@ -151,3 +151,40 @@ Deleted:
 
 Frozen Ground Truth v1.1 files and existing v0/v1/v1.1 results were not
 modified.
+
+## v2a gamma_sub identifiability audit
+
+Added:
+
+- `scripts\scan_gamma_sub_identifiability.py`
+- `scripts\invert_gamma_sub_v0.py`
+- `tests\test_gamma_sub_identifiability.py`
+- `docs\gamma_sub_identifiability_report.md`
+- `docs\codex_reports\gamma_sub_identifiability_audit_report.md`
+- `outputs\tables\gamma_sub_identifiability_summary.json`
+
+Generated but not committed:
+
+- `outputs\figures\gamma_sub_identifiability\gamma_sub_scan_responses.png`
+- `outputs\figures\gamma_sub_identifiability\gamma_sub_sensitivity.png`
+- `outputs\figures\gamma_sub_identifiability\gamma_sub_temperature_response.png`
+- `outputs\figures\gamma_sub_identifiability\gamma_sub_inversion_multistart.png`
+- `outputs\figures\gamma_sub_identifiability\gamma_sub_objective_profile.png`
+
+Modified:
+
+- `.gitignore`: allows the lightweight gamma_sub summary JSON while keeping
+  generated figures ignored.
+- `PROJECT_STATE.md`, `RESEARCH_LOG.md`, `NEXT_ACTIONS.md`,
+  `EXPERIMENT_REGISTRY.md`, `DATASET_REGISTRY.md`, and `FIGURE_REGISTRY.md`:
+  document the v2a reduced inverse audit.
+- `docs\project_state\repo_tree.md`, `docs\project_state\file_inventory.md`,
+  `docs\project_state\latest_changes.md`, and
+  `docs\project_state\reproducibility.md`: update the project-state snapshot.
+
+Deleted:
+
+- None.
+
+Frozen Ground Truth v1.1 files and existing v0/v1/v1.1 results were not
+modified.

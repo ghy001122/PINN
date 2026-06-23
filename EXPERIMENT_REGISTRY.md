@@ -90,3 +90,24 @@ Figures:
 Status: completed as a descriptive identifiability audit. The summary JSON and
 CSV are lightweight committed evidence; generated figures are reproducible and
 ignored by Git.
+
+## v2a gamma_sub identifiability audit
+
+- Scan script: `scripts\scan_gamma_sub_identifiability.py`
+- Inversion script: `scripts\invert_gamma_sub_v0.py`
+- Input: `data\processed\gt_v1_acceptance\gt_triangle.npz`
+- Summary: `outputs\tables\gamma_sub_identifiability_summary.json`
+- Report: `docs\gamma_sub_identifiability_report.md`
+- Codex report: `docs\codex_reports\gamma_sub_identifiability_audit_report.md`
+
+Figures:
+
+- `outputs\figures\gamma_sub_identifiability\gamma_sub_scan_responses.png`
+- `outputs\figures\gamma_sub_identifiability\gamma_sub_sensitivity.png`
+- `outputs\figures\gamma_sub_identifiability\gamma_sub_temperature_response.png`
+- `outputs\figures\gamma_sub_identifiability\gamma_sub_inversion_multistart.png`
+- `outputs\figures\gamma_sub_identifiability\gamma_sub_objective_profile.png`
+
+Status: completed as a reduced scalar inverse-problem audit. The summary JSON
+is lightweight committed evidence; generated figures are reproducible and
+ignored by Git.

@@ -2,9 +2,10 @@
 
 ## Immediate next step
 
-Use the identifiability audit to redesign observability before further PINN
-tuning. Current terminal-only observations constrain integrated conductance but
-do not uniquely identify `delta_T`, `c_v`, `m`, and `sigma`.
+Use the v2a `gamma_sub` audit as the reduced inverse-problem branch while
+keeping the hidden-field identifiability limitations explicit. Current
+terminal-only observations do not uniquely identify all hidden fields, but they
+can support a fixed-microphysics scalar inversion for `gamma_sub`.
 
 ## Recommended tasks
 
@@ -12,13 +13,15 @@ do not uniquely identify `delta_T`, `c_v`, `m`, and `sigma`.
    claiming hidden temperature recovery.
 2. Add or simulate spatially resolved evidence if defect-field recovery is a
    target claim.
-3. Replace or further constrain the direct `sigma` surrogate with a
+3. Run a future joint-identifiability audit for `gamma_sub`, `T_sw`, and
+   `tau_m` before claiming multi-parameter thermal-switching recovery.
+4. Replace or further constrain the direct `sigma` surrogate with a
    differentiable conductivity relation tied to `c_v`, `delta_T`, and `m`.
-4. Test sparse-observation sensitivity by varying the number of terminal
+5. Test sparse-observation sensitivity by varying the number of terminal
    observations in `obs_triangle_sparse.npz`.
-5. Keep the paper narrative explicit: port-only inversion diagnoses
+6. Keep the paper narrative explicit: port-only inversion diagnoses
    conductance-level dynamics but does not prove unique hidden-field recovery.
-6. Keep all generated datasets and figures reproducible through scripts rather
+7. Keep all generated datasets and figures reproducible through scripts rather
    than committing large binary artifacts.
 
 ## Do not do next

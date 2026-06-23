@@ -25,6 +25,7 @@ Current high-level structure:
 |       `-- .gitkeep
 |-- docs/
 |   |-- codex_reports/
+|   |   |-- gamma_sub_identifiability_audit_report.md
 |   |   |-- evidence_chain_patch_report.md
 |   |   |-- pinn_inverse_v0_ablation_audit_report.md
 |   |   |-- pinn_inverse_v1_physics_report.md
@@ -38,6 +39,7 @@ Current high-level structure:
 |   |-- data_provenance.md
 |   |-- device_anchor.md
 |   |-- experiment_plan.md
+|   |-- gamma_sub_identifiability_report.md
 |   |-- gt_v1_acceptance_report.md
 |   |-- method_equations.md
 |   |-- pinn_inverse_v0_ablation_report.md
@@ -55,6 +57,7 @@ Current high-level structure:
 |   |   `-- .gitkeep
 |   |-- tables/
 |   |   |-- .gitkeep
+|   |   |-- gamma_sub_identifiability_summary.json
 |   |   |-- pinn_identifiability_correlation.csv
 |   |   |-- pinn_identifiability_summary.json
 |   |   |-- pinn_inverse_v0_ablation_summary.json
@@ -77,6 +80,8 @@ Current high-level structure:
 |   |-- run_pinn_inverse_v1_experiments.py
 |   |-- run_pinn_inverse_v1_1_experiments.py
 |   |-- scan_gt_v1.py
+|   |-- scan_gamma_sub_identifiability.py
+|   |-- invert_gamma_sub_v0.py
 |   |-- train_pinn_inverse_v0.py
 |   |-- train_pinn_inverse_v1.py
 |   `-- train_pinn_v1.py
@@ -94,6 +99,7 @@ Current high-level structure:
 |   |-- test_gt_profiles.py
 |   |-- test_gt_solver_smoke.py
 |   |-- test_imports.py
+|   |-- test_gamma_sub_identifiability.py
 |   |-- test_pinn_identifiability.py
 |   |-- test_pinn_inverse_v0.py
 |   |-- test_pinn_inverse_v1.py
@@ -116,4 +122,5 @@ lightweight summary JSON files such as
 `outputs\tables\pinn_inverse_v1_summary.json`, and
 `outputs\tables\pinn_inverse_v1_1_summary.json`,
 `outputs\tables\pinn_identifiability_summary.json`, and
-`outputs\tables\pinn_identifiability_correlation.csv`.
+`outputs\tables\pinn_identifiability_correlation.csv`, and
+`outputs\tables\gamma_sub_identifiability_summary.json`.
