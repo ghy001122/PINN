@@ -99,6 +99,23 @@ This regenerates:
 
 Only the lightweight v1.1 summary JSON is intended to be committed.
 
+## PINN identifiability audit reproduction
+
+```powershell
+python scripts/analyze_pinn_identifiability.py
+```
+
+This regenerates:
+
+- `outputs\tables\pinn_identifiability_summary.json`
+- `outputs\tables\pinn_identifiability_correlation.csv`
+- `outputs\figures\pinn_identifiability\correlation_heatmap.png`
+- `outputs\figures\pinn_identifiability\spatial_sensitivity.png`
+- `outputs\figures\pinn_identifiability\lag_correlation.png`
+
+Only the lightweight summary JSON and correlation CSV are intended to be
+committed. The generated figures remain ignored by Git.
+
 ## Academic boundary
 
 All generated results are synthetic numerical digital-twin benchmark outputs.

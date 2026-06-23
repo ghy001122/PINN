@@ -19,6 +19,8 @@ outputs/checkpoints/*
 outputs/tables/*
 !outputs/tables/.gitkeep
 !outputs/tables/pinn_inverse_v0_ablation_summary.json
+!outputs/tables/pinn_identifiability_summary.json
+!outputs/tables/pinn_identifiability_correlation.csv
 outputs/pinn_inverse_v0/*
 outputs/pinn_inverse_v0_smoke/*
 outputs/pinn_inverse_v1/*

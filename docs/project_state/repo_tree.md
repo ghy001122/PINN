@@ -28,7 +28,8 @@ Current high-level structure:
 |   |   |-- evidence_chain_patch_report.md
 |   |   |-- pinn_inverse_v0_ablation_audit_report.md
 |   |   |-- pinn_inverse_v1_physics_report.md
-|   |   `-- pinn_inverse_v1_1_report.md
+|   |   |-- pinn_inverse_v1_1_report.md
+|   |   `-- pinn_identifiability_audit_report.md
 |   |-- project_state/
 |   |   |-- file_inventory.md
 |   |   |-- latest_changes.md
@@ -43,6 +44,7 @@ Current high-level structure:
 |   |-- pinn_inverse_v1_physics_design.md
 |   |-- pinn_inverse_v1_report.md
 |   |-- pinn_inverse_v1_1_report.md
+|   |-- pinn_identifiability_audit_report.md
 |   `-- reviewer_defense.md
 |-- outputs/
 |   |-- checkpoints/
@@ -53,6 +55,8 @@ Current high-level structure:
 |   |   `-- .gitkeep
 |   |-- tables/
 |   |   |-- .gitkeep
+|   |   |-- pinn_identifiability_correlation.csv
+|   |   |-- pinn_identifiability_summary.json
 |   |   |-- pinn_inverse_v0_ablation_summary.json
 |   |   |-- pinn_inverse_v1_summary.json
 |   |   `-- pinn_inverse_v1_1_summary.json
@@ -64,6 +68,7 @@ Current high-level structure:
 |       `-- ignored generated training artifacts
 |-- scripts/
 |   |-- analyze_gt_v1.py
+|   |-- analyze_pinn_identifiability.py
 |   |-- evaluate_v1.py
 |   |-- plot_gt_v1.py
 |   |-- run_gt_v1.py
@@ -89,6 +94,7 @@ Current high-level structure:
 |   |-- test_gt_profiles.py
 |   |-- test_gt_solver_smoke.py
 |   |-- test_imports.py
+|   |-- test_pinn_identifiability.py
 |   |-- test_pinn_inverse_v0.py
 |   |-- test_pinn_inverse_v1.py
 |   `-- test_voltage_protocols.py
@@ -108,4 +114,6 @@ not intended for normal Git commits. Committed output artifacts are limited to
 lightweight summary JSON files such as
 `outputs\tables\pinn_inverse_v0_ablation_summary.json` and
 `outputs\tables\pinn_inverse_v1_summary.json`, and
-`outputs\tables\pinn_inverse_v1_1_summary.json`.
+`outputs\tables\pinn_inverse_v1_1_summary.json`,
+`outputs\tables\pinn_identifiability_summary.json`, and
+`outputs\tables\pinn_identifiability_correlation.csv`.

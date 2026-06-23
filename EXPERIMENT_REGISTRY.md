@@ -71,3 +71,22 @@ Runs:
 
 Status: completed as a residual-balancing audit. Generated training outputs are
 reproducible and are not committed, except the lightweight summary JSON.
+
+## PINN identifiability audit
+
+- Analyzer: `scripts\analyze_pinn_identifiability.py`
+- Input: `data\processed\gt_v1_acceptance\gt_triangle.npz`
+- Summary: `outputs\tables\pinn_identifiability_summary.json`
+- Correlation table: `outputs\tables\pinn_identifiability_correlation.csv`
+- Report: `docs\pinn_identifiability_audit_report.md`
+- Codex report: `docs\codex_reports\pinn_identifiability_audit_report.md`
+
+Figures:
+
+- `outputs\figures\pinn_identifiability\correlation_heatmap.png`
+- `outputs\figures\pinn_identifiability\spatial_sensitivity.png`
+- `outputs\figures\pinn_identifiability\lag_correlation.png`
+
+Status: completed as a descriptive identifiability audit. The summary JSON and
+CSV are lightweight committed evidence; generated figures are reproducible and
+ignored by Git.

@@ -91,3 +91,35 @@ Boundary:
 
 All v1.1 results are synthetic numerical digital-twin benchmark outputs, not
 experimental data.
+
+## PINN identifiability audit
+
+Date: 2026-06-23
+
+Actions:
+
+- Added `scripts\analyze_pinn_identifiability.py`.
+- Generated `outputs\tables\pinn_identifiability_summary.json`.
+- Generated `outputs\tables\pinn_identifiability_correlation.csv`.
+- Generated `outputs\figures\pinn_identifiability\correlation_heatmap.png`.
+- Generated `outputs\figures\pinn_identifiability\spatial_sensitivity.png`.
+- Generated `outputs\figures\pinn_identifiability\lag_correlation.png`.
+- Added `docs\pinn_identifiability_audit_report.md`.
+- Added `docs\codex_reports\pinn_identifiability_audit_report.md`.
+
+Findings:
+
+- `G(t)` is nearly perfectly correlated with `mean_sigma`
+  (`r = 0.9999966158284996`).
+- `G(t)` is also highly correlated with aggregate `delta_T`, `delta_c_v`, and
+  `m`, which makes terminal-only hidden-field decomposition non-unique.
+- In the frozen benchmark, `sigma` aligns more strongly with `m`
+  (`r = 0.8241268575488281`) than with `c_v`
+  (`r = 0.3216744579750865`).
+- v1.1 did not significantly improve `delta_T` because it improved residual
+  balancing but did not add independent thermal observability.
+
+Boundary:
+
+The identifiability audit is a synthetic numerical digital-twin analysis. It is
+not experimental evidence.

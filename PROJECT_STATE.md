@@ -2,11 +2,12 @@
 
 ## Current phase
 
-The project is in the PINN inverse v1.1 residual-balancing audit phase. Ground
-Truth v1.1 is frozen and serves as a synthetic numerical digital-twin benchmark.
-PINN inverse v0 remains preserved as the proof-of-concept baseline, v1 adds
-approximate physics residual regularization, and v1.1 tunes residual balancing,
-warmup scheduling, and sigma drift controls.
+The project is in the PINN inverse identifiability audit phase. Ground Truth
+v1.1 is frozen and serves as a synthetic numerical digital-twin benchmark. PINN
+inverse v0 remains preserved as the proof-of-concept baseline, v1 adds
+approximate physics residual regularization, v1.1 tunes residual balancing, and
+the current audit quantifies whether terminal `V(t)`, `I(t)`, and `G(t)` can
+uniquely identify hidden fields.
 
 ## Research line
 
@@ -58,13 +59,23 @@ the PINN inverse v0 ablation audit.
   - `outputs\tables\pinn_inverse_v1_1_summary.json`
   - `docs\pinn_inverse_v1_1_report.md`
   - `docs\codex_reports\pinn_inverse_v1_1_report.md`
+- Added PINN identifiability audit:
+  - `scripts\analyze_pinn_identifiability.py`
+  - `outputs\tables\pinn_identifiability_summary.json`
+  - `outputs\tables\pinn_identifiability_correlation.csv`
+  - `outputs\figures\pinn_identifiability\correlation_heatmap.png`
+  - `outputs\figures\pinn_identifiability\spatial_sensitivity.png`
+  - `outputs\figures\pinn_identifiability\lag_correlation.png`
+  - `docs\pinn_identifiability_audit_report.md`
+  - `docs\codex_reports\pinn_identifiability_audit_report.md`
 
 ## Current evidence
 
-v1.1 confirms that residual balancing can improve terminal port fit in
-`port_physics` relative to v0 port_only, and can slightly stabilize anchored
-sigma. It does not improve `delta_T`; thermal dynamics remain the main
-identifiability problem.
+The identifiability audit confirms that `G(t)` is nearly perfectly correlated
+with `mean_sigma`, while aggregate `delta_T`, `delta_c_v`, and `m` are also
+strongly correlated with `G(t)`. Terminal observations constrain the integrated
+conductance response but do not uniquely recover the hidden thermal, defect,
+state, and conductivity fields.
 
 ## Boundary
 

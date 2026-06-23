@@ -29,6 +29,9 @@
 - `scripts\run_pinn_inverse_v1_experiments.py`: three-run v1 experiment runner.
 - `scripts\run_pinn_inverse_v1_1_experiments.py`: two-run v1.1
   residual-balancing experiment runner.
+- `scripts\analyze_pinn_identifiability.py`: reads the frozen triangle
+  benchmark and computes terminal-to-hidden-field correlations, hidden-field
+  correlations, lag correlations, and spatial sensitivity profiles.
 
 ## Current test coverage
 
@@ -37,6 +40,8 @@
   test, and nRMSE metrics checks.
 - `tests\test_pinn_inverse_v1.py`: v1 config checks, physics residual finite
   checks, autograd derivative checks, and v1 training smoke test.
+- `tests\test_pinn_identifiability.py`: identifiability analyzer output smoke
+  test using temporary table and figure directories.
 
 ## Evidence-chain reports
 
@@ -48,6 +53,11 @@
   for the v1 physics-regularized implementation and experiment run.
 - `docs\codex_reports\pinn_inverse_v1_1_report.md`: final Codex report for
   the v1.1 residual-balancing audit.
+- `docs\codex_reports\pinn_identifiability_audit_report.md`: final Codex
+  report for the terminal-observation identifiability audit.
+- `docs\pinn_identifiability_audit_report.md`: project-facing report that
+  explains why terminal-only observations do not uniquely recover all hidden
+  fields.
 
 ## Frozen files not to modify during PINN audit
 

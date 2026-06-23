@@ -1,0 +1,137 @@
+{
+  "benchmark": "Frozen Ground Truth v1.1 triangle synthetic numerical digital-twin benchmark.",
+  "best_lag_correlation_to_G": {
+    "mean_delta_T": {
+      "correlation": 0.9629198348385506,
+      "lag_steps": 37
+    },
+    "mean_delta_c_v": {
+      "correlation": -0.9640506641000847,
+      "lag_steps": 40
+    },
+    "mean_m": {
+      "correlation": 0.9964124490525389,
+      "lag_steps": -5
+    },
+    "mean_sigma": {
+      "correlation": 0.9999966158284996,
+      "lag_steps": 0
+    }
+  },
+  "field_dynamic_ranges": {
+    "G": {
+      "max": 9.365699106132546e-10,
+      "min": 3.2126000724739705e-10,
+      "std": 1.6232636310601064e-10
+    },
+    "I": {
+      "max": 8.504823695086273e-11,
+      "min": -1.873139821217143e-10,
+      "std": 6.184861209451499e-11
+    },
+    "delta_T": {
+      "max": 8.750689766759194,
+      "min": 0.0,
+      "time_mean_std": 2.097297925608961
+    },
+    "delta_c_v": {
+      "max": 0.0008160785902477652,
+      "min": -0.00207390149033114,
+      "time_mean_std": 2.90338646106564e-05
+    },
+    "m": {
+      "max": 0.2981754874193237,
+      "min": 0.062483412275670766,
+      "time_mean_std": 0.04374682128231506
+    },
+    "sigma": {
+      "max": 0.0237445194669558,
+      "min": 0.0022561446979527944,
+      "time_mean_std": 0.002207841580263298
+    }
+  },
+  "hidden_field_correlations": {
+    "c_v__m": 0.44175184060613176,
+    "c_v__sigma": 0.3216744579750865,
+    "delta_T__m": 0.8541353336498209,
+    "delta_T__sigma": 0.6988542299422462,
+    "delta_c_v__sigma": -0.49255846850127327,
+    "m__sigma": 0.8241268575488281
+  },
+  "input_path": "data\\processed\\gt_v1_acceptance\\gt_triangle.npz",
+  "interpretation": {
+    "c_v_identifiability": "Weakest among the audited hidden fields. delta_c_v changes slowly and has strong spatial structure, but terminal G only constrains an integrated conductance.",
+    "delta_T_identifiability": "Weak from terminal signals alone. Mean and max delta_T are highly correlated with G, but their time series are also highly correlated with sigma and m, so the inverse problem is not unique without field anchors or additional thermal observations.",
+    "next_step": "Prioritize observability and narrative discipline: add or simulate auxiliary thermal/spatial observations for future inverse studies, keep current port-only results as an identifiability audit, and avoid claiming unique hidden-field recovery from terminal data alone.",
+    "sigma_driver": "Sigma is more directly aligned with m than with delta_c_v in this frozen benchmark.",
+    "v1_1_delta_T_reason": "v1.1 did not significantly improve delta_T because the terminal port loss is sensitive to the integrated conductance, while multiple hidden-field combinations can yield similar G(t). The heat residual is approximate and does not add an independent thermal measurement."
+  },
+  "n_time": 400,
+  "n_x": 31,
+  "note": "This is a synthetic numerical digital-twin identifiability audit, not an experimental analysis.",
+  "npz_keys": [
+    "x",
+    "t",
+    "V",
+    "I",
+    "G",
+    "c_v",
+    "T",
+    "m",
+    "E",
+    "phi",
+    "sigma",
+    "params_json"
+  ],
+  "outputs": {
+    "correlation_csv": "outputs\\tables\\pinn_identifiability_correlation.csv",
+    "correlation_heatmap": "outputs\\figures\\pinn_identifiability\\correlation_heatmap.png",
+    "lag_correlation": "outputs\\figures\\pinn_identifiability\\lag_correlation.png",
+    "spatial_sensitivity": "outputs\\figures\\pinn_identifiability\\spatial_sensitivity.png",
+    "summary_json": "outputs\\tables\\pinn_identifiability_summary.json"
+  },
+  "peak_spatial_sensitivity_to_G": {
+    "delta_T": {
+      "correlation": 0.9549575414821615,
+      "x_m": 9.838709677419355e-08
+    },
+    "delta_c_v": {
+      "correlation": -0.9888456857766619,
+      "x_m": 8.870967741935484e-08
+    },
+    "m": {
+      "correlation": 0.9958147029486689,
+      "x_m": 1.6129032258064515e-09
+    },
+    "sigma": {
+      "correlation": 0.9999980973748842,
+      "x_m": 3.7096774193548384e-08
+    }
+  },
+  "terminal_to_field_correlations": {
+    "G": {
+      "max_abs_delta_c_v": 0.9473551593678594,
+      "max_delta_T": 0.9549574289516599,
+      "mean_delta_T": 0.9549574996859841,
+      "mean_delta_c_v": -0.9581640749145087,
+      "mean_m": 0.9953127170309772,
+      "mean_sigma": 0.9999966158284996
+    },
+    "I": {
+      "max_abs_delta_c_v": -0.22007093811931358,
+      "max_delta_T": -0.25313633198480945,
+      "mean_delta_T": -0.2531362615431085,
+      "mean_delta_c_v": 0.2549359716554792,
+      "mean_m": -0.39261499135006156,
+      "mean_sigma": -0.469403953689254
+    },
+    "V": {
+      "max_abs_delta_c_v": 0.022367692473100862,
+      "max_delta_T": -0.04585616576249772,
+      "mean_delta_T": -0.04585617707997714,
+      "mean_delta_c_v": 0.01601145852302686,
+      "mean_m": -0.19552996578413145,
+      "mean_sigma": -0.2678723597039921
+    }
+  }
+}

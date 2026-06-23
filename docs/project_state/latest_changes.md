@@ -116,3 +116,38 @@ Deleted:
 - None.
 
 Frozen Ground Truth v1.1 files and existing v0/v1 summaries were not modified.
+
+## PINN identifiability audit
+
+Added:
+
+- `scripts\analyze_pinn_identifiability.py`
+- `tests\test_pinn_identifiability.py`
+- `docs\pinn_identifiability_audit_report.md`
+- `docs\codex_reports\pinn_identifiability_audit_report.md`
+- `outputs\tables\pinn_identifiability_summary.json`
+- `outputs\tables\pinn_identifiability_correlation.csv`
+
+Generated but not committed:
+
+- `outputs\figures\pinn_identifiability\correlation_heatmap.png`
+- `outputs\figures\pinn_identifiability\spatial_sensitivity.png`
+- `outputs\figures\pinn_identifiability\lag_correlation.png`
+
+Modified:
+
+- `.gitignore`: allows the lightweight identifiability JSON and CSV while
+  keeping generated figures ignored.
+- `PROJECT_STATE.md`, `RESEARCH_LOG.md`, `NEXT_ACTIONS.md`,
+  `EXPERIMENT_REGISTRY.md`, and `FIGURE_REGISTRY.md`: document the
+  identifiability audit.
+- `docs\project_state\repo_tree.md`, `docs\project_state\file_inventory.md`,
+  `docs\project_state\latest_changes.md`, and
+  `docs\project_state\reproducibility.md`: update the evidence-chain snapshot.
+
+Deleted:
+
+- None.
+
+Frozen Ground Truth v1.1 files and existing v0/v1/v1.1 results were not
+modified.
