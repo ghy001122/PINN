@@ -28,13 +28,14 @@ literature-guided priors for confounding parameters.
 
 ## Codex Low-Token Context Workflow
 
-For future Codex work, first read:
+For non-trivial Codex work, first read:
 
 1. `CODEX_CONTEXT.md`
 2. `docs/research_strategy/active_phase.md`
 
-Then follow `docs/research_strategy/context_loading_policy.md`. Do not load all
-long reports, reference packs, or papers by default.
+Then follow `docs/research_strategy/context_loading_policy.md`. Long reports,
+reference packs, papers, and code should be loaded only when the task requires
+them.
 
 ## Paper Thread
 

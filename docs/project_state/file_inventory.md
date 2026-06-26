@@ -108,6 +108,8 @@
   report for the `gamma_sub` confounding patch.
 - `docs\codex_reports\local_codex_context_integration_report.md`: final Codex
   report for the local reference-pack and low-token workflow integration.
+- `docs\codex_reports\documentation_structure_cleanup_report.md`: final Codex
+  report for Markdown deduplication and context-integration verification.
 
 ## Frozen files not to modify during PINN audit
 

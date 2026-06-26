@@ -39,6 +39,23 @@ The local reference pack was integrated as documentation only. Re-running this
 integration should not modify frozen Ground Truth files, source code, configs,
 tests, generated arrays, or generated figures.
 
+## Documentation-only verification
+
+For documentation cleanup or context-policy maintenance:
+
+```powershell
+python -m pytest
+git status --short
+git diff --name-only
+```
+
+When running from an unactivated PowerShell, use the workspace virtual
+environment explicitly:
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest
+```
+
 ## Ground Truth v1.1 acceptance reproduction
 
 ```powershell

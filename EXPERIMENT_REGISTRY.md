@@ -8,6 +8,8 @@
 - Loading policy: `docs\research_strategy\context_loading_policy.md`
 - Handoff: `docs\research_strategy\current_research_handoff.md`
 - Report: `docs\codex_reports\local_codex_context_integration_report.md`
+- Cleanup report:
+  `docs\codex_reports\documentation_structure_cleanup_report.md`
 
 Status: completed as documentation and workflow integration only. No new
 experiment, training run, Ground Truth revision, or generated dataset was

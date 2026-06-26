@@ -3,7 +3,8 @@
 ## Local Codex context workflow integration
 
 No figures were generated or committed for the local reference-pack integration.
-The task was documentation-only.
+The context integration and documentation-structure cleanup tasks were
+documentation-only.
 
 ## Ground Truth v1.1 acceptance figures
 

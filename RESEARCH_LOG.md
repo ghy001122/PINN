@@ -1,5 +1,33 @@
 # Research log
 
+## Documentation structure cleanup
+
+Date: 2026-06-26
+
+Actions:
+
+- Reviewed context and status Markdown references with `git grep`.
+- Compressed repeated historical file lists in `PROJECT_STATE.md` and
+  `docs\project_state\latest_changes.md`.
+- Kept `CODEX_CONTEXT.md` plus `docs\research_strategy\active_phase.md` as the
+  required low-token first-read pair.
+- Kept `docs\research_strategy\context_loading_policy.md` as the full Tier 0
+  through Tier 4 loading policy.
+- Updated `docs\codex_reports\local_codex_context_integration_report.md` with
+  concrete context-integration verification results.
+
+Findings:
+
+- `context_index.md`, `current_research_handoff.md`, and
+  `codex_workflow_rules.md` are referenced and still provide unique routing or
+  workflow value.
+- No context files were deleted.
+
+Boundary:
+
+This was documentation-only cleanup. No research code, configs, tests, frozen
+Ground Truth files, generated arrays, or generated figures were modified.
+
 ## Local Codex context integration
 
 Date: 2026-06-26

@@ -3,8 +3,9 @@
 ## Immediate next step
 
 Use the `gamma_sub` branch only as a constrained reduced inverse problem. The
-next implementation task is literature-backed constrained `gamma_sub` inversion,
-using the low-token context workflow in `CODEX_CONTEXT.md` and
+next implementation task remains literature-backed constrained `gamma_sub`
+inversion. Start from `CODEX_CONTEXT.md` and
+`docs\research_strategy\active_phase.md`, then follow
 `docs\research_strategy\context_loading_policy.md`.
 
 Before implementing the next inverse script, prepare or update:

@@ -44,11 +44,7 @@ python -m pytest
 
 - For every non-trivial task, read `CODEX_CONTEXT.md` and
   `docs/research_strategy/active_phase.md` first.
-- Follow `docs/research_strategy/context_loading_policy.md` before loading
-  longer project history, literature notes, reports, or code.
-- Never load all long context by default. Long-context reads must be justified
-  by the active task.
-- The current active phase is literature-backed constrained `gamma_sub`
-  inversion preparation. F-Pyramid, STL, observability augmentation,
-  NeuroSPICE/NeuroPINN, and system-level mapping are deferred unless
-  `docs/research_strategy/active_phase.md` is explicitly updated.
+- Follow `docs/research_strategy/context_loading_policy.md` for all longer
+  context, including project history, reports, literature notes, and code.
+- Treat `docs/research_strategy/active_phase.md` as the authority for whether a
+  deferred method is allowed.

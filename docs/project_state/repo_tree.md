@@ -29,6 +29,7 @@ Current high-level structure:
 |   |   |-- gamma_sub_confounding_audit_report.md
 |   |   |-- gamma_sub_identifiability_audit_report.md
 |   |   |-- evidence_chain_patch_report.md
+|   |   |-- documentation_structure_cleanup_report.md
 |   |   |-- local_codex_context_integration_report.md
 |   |   |-- pinn_inverse_v0_ablation_audit_report.md
 |   |   |-- pinn_inverse_v1_physics_report.md

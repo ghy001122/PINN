@@ -71,16 +71,34 @@ parameters were not modified.
 
 ## Verification
 
-Required verification:
+Actual verification performed for the context-integration task:
 
 ```powershell
-python -m pytest
-git status --short
+.\.venv\Scripts\python.exe -m pytest
+```
+
+- Result: `27 passed`.
+- Warning note: matplotlib/pyparsing deprecation warnings remained from the
+  existing environment, but they did not fail the suite.
+
+Repository checks after the context-integration push:
+
+```powershell
+git status --short --untracked-files=all
 git diff --name-only
 ```
 
-The final command results are reported in the final Codex response for this
-task.
+- Result: clean working tree; `git diff --name-only` returned no paths.
+- Git emitted a local warning about `C:\Users\CJ/.config/git/ignore`
+  permissions. It did not affect repository content or the push.
+
+Scope confirmation:
+
+- Frozen GT v1.1 files were not modified.
+- No research code, training scripts, configs, or tests were modified.
+- No PDF, DOCX, ZIP, NPZ, large figure, cache, or virtual environment file was
+  staged or committed.
+- Google Drive was not accessed because the local digest was sufficient.
 
 ## Future Low-Token First-Read Rule
 
