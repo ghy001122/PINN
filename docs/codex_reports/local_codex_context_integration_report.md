@@ -10,7 +10,8 @@ changes, or Ground Truth modifications were performed.
 
 - GitHub repo URL: `https://github.com/ghy001122/PINN`
 - Branch: `main`
-- Commit hash: recorded by the final pushed Git commit for this task
+- Primary integration commit hash:
+  `a0e0e0f2e786d8f2a9d84e02551b22afcd457e9d`
 
 ## Reference Pack
 
