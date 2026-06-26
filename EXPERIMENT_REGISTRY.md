@@ -1,5 +1,18 @@
 # Experiment registry
 
+## Local Codex context workflow integration
+
+- Source pack: `E:\pinn_codex_reference_pack`
+- Context entry: `CODEX_CONTEXT.md`
+- Active phase: `docs\research_strategy\active_phase.md`
+- Loading policy: `docs\research_strategy\context_loading_policy.md`
+- Handoff: `docs\research_strategy\current_research_handoff.md`
+- Report: `docs\codex_reports\local_codex_context_integration_report.md`
+
+Status: completed as documentation and workflow integration only. No new
+experiment, training run, Ground Truth revision, or generated dataset was
+created.
+
 ## Ground Truth v1.1 acceptance
 
 - Runner: `scripts\run_gt_v1_acceptance.py`

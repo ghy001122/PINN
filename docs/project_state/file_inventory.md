@@ -1,5 +1,31 @@
 # File inventory
 
+## Low-token Codex context workflow
+
+- `CODEX_CONTEXT.md`: first-read project context for non-trivial Codex tasks.
+- `docs\research_strategy\active_phase.md`: current authorized phase,
+  currently literature-backed constrained `gamma_sub` inversion preparation.
+- `docs\research_strategy\context_loading_policy.md`: Tier 0 through Tier 4
+  context-loading rules.
+- `docs\research_strategy\context_index.md`: quick routing index for context
+  files, registries, and reports.
+- `docs\research_strategy\current_research_handoff.md`: concise handoff from
+  GT v1.1 through v0/v1/v1.1 and the `gamma_sub` audits.
+- `docs\research_strategy\codex_workflow_rules.md`: workflow, research,
+  engineering, and verification rules.
+- `docs\research_strategy\next_task_literature_backed_constrained_gamma_sub.md`:
+  prepared next-task scaffold, not executed in the context-integration task.
+
+## Literature and reference routing
+
+- `docs\literature_notes\pinn_phase_change_literature_digest.md`: compressed
+  local notes on PINN, phase-transition, memristor, and surrogate references.
+- `docs\literature_notes\gamma_sub_evidence_digest.md`: compressed rationale
+  for reduced `gamma_sub` inversion and confounding limits.
+- `references\project_sources\README.md`: local reference-pack provenance and
+  non-copy policy.
+- `references\papers\PAPER_REGISTRY.md`: compact paper routing registry.
+
 ## Core package
 
 - `src\pinnpcm\physics\`: Ground Truth physics, electrostatics, conductivity,
@@ -80,6 +106,8 @@
   `gamma_sub` robustness and mismatch audit.
 - `docs\codex_reports\gamma_sub_confounding_audit_report.md`: final Codex
   report for the `gamma_sub` confounding patch.
+- `docs\codex_reports\local_codex_context_integration_report.md`: final Codex
+  report for the local reference-pack and low-token workflow integration.
 
 ## Frozen files not to modify during PINN audit
 

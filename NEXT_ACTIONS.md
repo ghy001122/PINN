@@ -3,9 +3,15 @@
 ## Immediate next step
 
 Use the `gamma_sub` branch only as a constrained reduced inverse problem. The
-confounding audit shows that `gamma_sub` is stable under nominal fixed
-microphysics, but mismatch in `T_sw`, `tau_m`, `sigma_on0`, or `eta_A` can
-produce systematic bias.
+next implementation task is literature-backed constrained `gamma_sub` inversion,
+using the low-token context workflow in `CODEX_CONTEXT.md` and
+`docs\research_strategy\context_loading_policy.md`.
+
+Before implementing the next inverse script, prepare or update:
+
+- `docs\literature_gamma_sub_evidence_chain.md`
+- `docs\parameter_prior_registry.md`
+- `scripts\invert_gamma_sub_constrained.py`
 
 ## Recommended tasks
 
@@ -30,3 +36,16 @@ produce systematic bias.
 - Do not modify frozen Ground Truth v1.1 acceptance configs or metrics.
 - Do not describe synthetic numerical benchmark outputs as experimental data.
 - Do not add paper claims before the inverse method is quantitatively audited.
+- Do not start F-Pyramid, STL continuation, observability-augmented sparse
+  temperature/state recovery, NeuroSPICE/NeuroPINN, or system-level mapping
+  unless `docs\research_strategy\active_phase.md` is explicitly updated.
+
+## Deferred Method Enhancements
+
+Record these as future options, not current work:
+
+- replace free `log_sigma` with physics-constrained sigma closure;
+- implement gamma_sub-PINN;
+- add F-Pyramid or multi-resolution Fourier features;
+- add stiff transfer learning continuation;
+- add observability-augmented sparse `T/m` extension.

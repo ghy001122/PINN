@@ -2,11 +2,11 @@
 
 ## Current phase
 
-The project is in the gamma_sub robustness and confounding audit phase. Ground
-Truth v1.1 is frozen and serves as a synthetic numerical digital-twin benchmark.
-The current work evaluates whether the v2a reduced `gamma_sub` inverse problem
-remains reliable when `T_sw`, `tau_m`, `sigma_on0`, and `eta_A` are perturbed or
-mismatched.
+The project is in the literature-backed constrained `gamma_sub` inversion
+preparation phase. Ground Truth v1.1 is frozen and serves as a synthetic
+numerical digital-twin benchmark. The current work is not a new experiment; it
+integrates the local reference pack into a low-token Codex context workflow and
+prepares the next constrained reduced inverse-problem step.
 
 ## Research line
 
@@ -30,6 +30,19 @@ the PINN inverse v0 ablation audit.
 
 ## Latest completed work
 
+- Integrated the local reference pack into compact context and research-strategy
+  documents:
+  - `CODEX_CONTEXT.md`
+  - `docs\research_strategy\active_phase.md`
+  - `docs\research_strategy\context_loading_policy.md`
+  - `docs\research_strategy\context_index.md`
+  - `docs\research_strategy\current_research_handoff.md`
+  - `docs\research_strategy\codex_workflow_rules.md`
+  - `docs\research_strategy\next_task_literature_backed_constrained_gamma_sub.md`
+  - `docs\literature_notes\pinn_phase_change_literature_digest.md`
+  - `docs\literature_notes\gamma_sub_evidence_digest.md`
+  - `references\project_sources\README.md`
+  - `references\papers\PAPER_REGISTRY.md`
 - Added ablation configs:
   - `configs\pinn_inverse_v0_triangle_full_anchor.yaml`
   - `configs\pinn_inverse_v0_triangle_weak_anchor.yaml`
@@ -103,6 +116,11 @@ The confounding audit shows that this reduced inverse story must stay
 conditional. `T_sw` is more sensitive than `gamma_sub`, `sigma_on0` and `tau_m`
 have response vectors close to `gamma_sub`, and mismatch inversion can produce
 large systematic gamma bias.
+
+The local reference-pack integration establishes a low-token context rule:
+future non-trivial tasks should read `CODEX_CONTEXT.md` and
+`docs\research_strategy\active_phase.md` first, then load only task-relevant
+reports, summaries, literature notes, or code.
 
 ## Boundary
 

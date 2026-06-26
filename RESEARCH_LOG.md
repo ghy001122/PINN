@@ -1,5 +1,34 @@
 # Research log
 
+## Local Codex context integration
+
+Date: 2026-06-26
+
+Actions:
+
+- Read the local reference pack at `E:\pinn_codex_reference_pack`.
+- Added `CODEX_CONTEXT.md`.
+- Added low-token context workflow files under `docs\research_strategy\`.
+- Added compressed literature digests under `docs\literature_notes\`.
+- Added reference-pack provenance and paper routing files under `references\`.
+- Updated project state, registries, README, and project-state snapshots.
+
+Findings:
+
+- The active phase is literature-backed constrained `gamma_sub` inversion
+  preparation.
+- Port-only full hidden-field inversion remains ill-posed.
+- The reduced `gamma_sub` route is conditional on fixed or narrow-prior
+  confounding parameters, especially `T_sw`, `tau_m`, `sigma_on0`, and `eta_A`.
+- F-Pyramid, STL, observability augmentation, and NeuroSPICE/NeuroPINN remain
+  deferred method enhancements.
+
+Boundary:
+
+This was a documentation-only integration. No Ground Truth frozen files,
+source code, configs, tests, training outputs, or large binary artifacts were
+modified.
+
 ## PINN inverse v0 ablation audit
 
 Date: 2026-06-22

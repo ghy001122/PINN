@@ -17,6 +17,28 @@ workspace `.venv` Python 3.11 interpreter.
 python -m pytest
 ```
 
+## Low-token context workflow
+
+For future non-trivial tasks, begin with:
+
+```text
+CODEX_CONTEXT.md
+docs\research_strategy\active_phase.md
+```
+
+Then follow:
+
+```text
+docs\research_strategy\context_loading_policy.md
+```
+
+Do not load all long reports, raw reference-pack files, or full papers by
+default. Long-context reads must be justified by the active task.
+
+The local reference pack was integrated as documentation only. Re-running this
+integration should not modify frozen Ground Truth files, source code, configs,
+tests, generated arrays, or generated figures.
+
 ## Ground Truth v1.1 acceptance reproduction
 
 ```powershell

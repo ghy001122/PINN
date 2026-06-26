@@ -5,6 +5,7 @@ Current high-level structure:
 ```text
 .
 |-- AGENTS.md
+|-- CODEX_CONTEXT.md
 |-- configs/
 |   |-- gt_v1.yaml
 |   |-- gt_v1_acceptance_ltp_ltd.yaml
@@ -28,15 +29,26 @@ Current high-level structure:
 |   |   |-- gamma_sub_confounding_audit_report.md
 |   |   |-- gamma_sub_identifiability_audit_report.md
 |   |   |-- evidence_chain_patch_report.md
+|   |   |-- local_codex_context_integration_report.md
 |   |   |-- pinn_inverse_v0_ablation_audit_report.md
 |   |   |-- pinn_inverse_v1_physics_report.md
 |   |   |-- pinn_inverse_v1_1_report.md
 |   |   `-- pinn_identifiability_audit_report.md
+|   |-- literature_notes/
+|   |   |-- gamma_sub_evidence_digest.md
+|   |   `-- pinn_phase_change_literature_digest.md
 |   |-- project_state/
 |   |   |-- file_inventory.md
 |   |   |-- latest_changes.md
 |   |   |-- repo_tree.md
 |   |   `-- reproducibility.md
+|   |-- research_strategy/
+|   |   |-- active_phase.md
+|   |   |-- codex_workflow_rules.md
+|   |   |-- context_index.md
+|   |   |-- context_loading_policy.md
+|   |   |-- current_research_handoff.md
+|   |   `-- next_task_literature_backed_constrained_gamma_sub.md
 |   |-- data_provenance.md
 |   |-- device_anchor.md
 |   |-- experiment_plan.md
@@ -73,6 +85,11 @@ Current high-level structure:
 |   |   `-- ignored generated training artifacts
 |   `-- pinn_inverse_v1_1/
 |       `-- ignored generated training artifacts
+|-- references/
+|   |-- papers/
+|   |   `-- PAPER_REGISTRY.md
+|   `-- project_sources/
+|       `-- README.md
 |-- scripts/
 |   |-- analyze_gt_v1.py
 |   |-- analyze_pinn_identifiability.py
@@ -132,3 +149,6 @@ lightweight summary JSON files such as
 `outputs\tables\gamma_sub_identifiability_summary.json`,
 `outputs\tables\gamma_sub_confounding_summary.json`, and
 `outputs\tables\gamma_sub_sensitivity_ranking.csv`.
+
+The local reference pack itself is not copied into the repository. Only compact
+context, literature digest, and routing files are tracked.

@@ -14,6 +14,28 @@ Hardware anchor: **Nb/NbOx/V2O5/Ni**.
 
 The software model is inspired by this interface-engineered oxide memristor stack, but the generated data is a synthetic benchmark. It is not measured experimental data and does not claim to reproduce every microscopic detail of a real device.
 
+## Current Project Phase
+
+The current active phase is documented in
+`docs/research_strategy/active_phase.md`:
+
+**literature-backed constrained gamma_sub inversion preparation**.
+
+The completed v0/v1/v1.1 PINN audits and identifiability audits show that
+port-only full hidden-field inversion is ill-posed. The current research route
+therefore focuses on constrained reduced inversion of `gamma_sub` under
+literature-guided priors for confounding parameters.
+
+## Codex Low-Token Context Workflow
+
+For future Codex work, first read:
+
+1. `CODEX_CONTEXT.md`
+2. `docs/research_strategy/active_phase.md`
+
+Then follow `docs/research_strategy/context_loading_policy.md`. Do not load all
+long reports, reference packs, or papers by default.
+
 ## Paper Thread
 
 1. One-dimensional coupled Ground Truth solver for electro-thermal-defect-conductive-state dynamics.
@@ -87,7 +109,9 @@ All default parameters are literature-guided synthetic priors or order-of-magnit
 
 ## PINN Status
 
-The first engineering version includes a runnable PINN skeleton:
+The repository now includes runnable PINN inverse v0/v1/v1.1 audit workflows
+and a reduced `gamma_sub` identifiability path. Earlier skeleton components are
+kept for continuity:
 
 - Fourier-feature MLP in `src/pinnpcm/pinn/network.py`
 - Physical variable transforms in `src/pinnpcm/pinn/transforms.py`
@@ -95,7 +119,8 @@ The first engineering version includes a runnable PINN skeleton:
 - Loss aggregation in `src/pinnpcm/pinn/losses.py`
 - Training script placeholder in `scripts/train_pinn_v1.py`
 
-PINN training is under active development. Do not report inverse-identification performance until training, baselines, ablations, and validation plots have been completed.
+Do not report inverse-identification results as experimental validation. Current
+results are synthetic numerical digital-twin benchmark evidence.
 
 ## Directory Map
 

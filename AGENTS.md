@@ -39,3 +39,16 @@ python -m pytest
 - Use Python 3.11, `venv`, `pip`, `requirements.txt`, and `pyproject.toml`.
 - Do not add `environment.yml`, `Pipfile`, `poetry.lock`, `conda.yaml`, or `setup.py`.
 - Keep this project directly under the current root. Do not create a nested `PINN/PINN` directory.
+
+## Codex Context Workflow
+
+- For every non-trivial task, read `CODEX_CONTEXT.md` and
+  `docs/research_strategy/active_phase.md` first.
+- Follow `docs/research_strategy/context_loading_policy.md` before loading
+  longer project history, literature notes, reports, or code.
+- Never load all long context by default. Long-context reads must be justified
+  by the active task.
+- The current active phase is literature-backed constrained `gamma_sub`
+  inversion preparation. F-Pyramid, STL, observability augmentation,
+  NeuroSPICE/NeuroPINN, and system-level mapping are deferred unless
+  `docs/research_strategy/active_phase.md` is explicitly updated.
