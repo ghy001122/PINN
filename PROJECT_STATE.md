@@ -2,11 +2,10 @@
 
 ## Current phase
 
-The project is in the literature-backed constrained `gamma_sub` inversion
-preparation phase. Ground Truth v1.1 is frozen and serves as a synthetic
-numerical digital-twin benchmark. Current documentation work maintains the
-low-token Codex context workflow and prepares the next constrained reduced
-inverse-problem step without launching new experiments.
+The literature-backed constrained `gamma_sub` inversion stage has been executed
+on the frozen Ground Truth v1.1 triangle benchmark. The current evidence now
+supports a conditional reduced inverse-problem route: `gamma_sub` is stable in
+nominal fixed-prior cases, but it is not robust to uncontrolled `T_sw` mismatch.
 
 ## Research line
 
@@ -25,8 +24,7 @@ memristive defect diagnosis and SCI paper preparation.
 - `data\processed\gt_v1_acceptance\gt_ltp_ltd.npz`
 - `data\processed\gt_v1_acceptance\obs_ltp_ltd_sparse.npz`
 
-These files and the underlying Ground Truth v1.1 equations were not changed in
-the PINN inverse v0 ablation audit.
+Ground Truth v1.1 remains frozen across subsequent inverse, audit, and documentation-integration workflows unless an explicit Ground Truth revision is opened.
 
 ## Current evidence
 
@@ -45,6 +43,13 @@ The confounding audit shows that this reduced inverse story must stay
 conditional. `T_sw` is more sensitive than `gamma_sub`, `sigma_on0` and `tau_m`
 have response vectors close to `gamma_sub`, and mismatch inversion can produce
 large systematic gamma bias.
+
+The constrained inversion audit adds a literature-guided prior registry and a
+bounded prior-width sweep. It recovers the clean nominal `gamma_sub = 4.5e8`
+exactly on the frozen benchmark candidate grid, but the maximum tested relative
+error reaches `1.2222222222222223` under `T_sw` mismatch. `T_sw` is therefore the
+most dangerous confounder and must be fixed, independently calibrated, or tightly
+bounded before using `gamma_sub` as a paper-level reduced inverse target.
 
 The local reference-pack integration establishes a low-token context rule:
 future non-trivial tasks should read `CODEX_CONTEXT.md` and

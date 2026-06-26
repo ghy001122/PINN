@@ -1,5 +1,35 @@
 # Latest changes
 
+## Literature-backed constrained gamma_sub inversion
+
+Scope:
+
+- Implement constrained scalar `gamma_sub` inversion under literature-guided and
+  engineering-prior bounds.
+- Keep `D_v0`, `mu_v0`, frozen Ground Truth v1.1 data, frozen configs, metrics,
+  manifest, equations, and default parameters unchanged.
+- Use `T_sw`, `tau_m`, `sigma_on0`, and `eta_A` only as bounded confounders in a
+  prior-width sweep.
+
+Changed:
+
+- Added `configs\gamma_sub_constrained_inversion.yaml`.
+- Added `scripts\invert_gamma_sub_constrained.py`.
+- Added `tests\test_gamma_sub_constrained.py`.
+- Added `docs\literature_gamma_sub_evidence_chain.md`.
+- Added `docs\parameter_prior_registry.md`.
+- Added `docs\gamma_sub_constrained_inversion_report.md`.
+- Added `docs\codex_reports\gamma_sub_constrained_inversion_report.md`.
+- Added `outputs\tables\gamma_sub_constrained_inversion_summary.json`.
+- Added `outputs\tables\gamma_sub_prior_width_sweep.csv`.
+- Updated project state, registries, and reproducibility notes.
+
+Result:
+
+Clean nominal `gamma_sub` was recovered with relative error `0.0`. The maximum
+tested relative error was `1.2222222222222223`, and `T_sw` was the most dangerous
+confounder.
+
 ## Documentation structure cleanup
 
 Scope:

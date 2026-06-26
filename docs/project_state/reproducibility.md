@@ -1,5 +1,18 @@
 # Reproducibility
 
+## Literature-backed constrained gamma_sub inversion reproduction
+
+```powershell
+python scripts/invert_gamma_sub_constrained.py --config configs/gamma_sub_constrained_inversion.yaml
+```
+
+This reads the frozen Ground Truth v1.1 triangle files and regenerates:
+
+- `outputs\tables\gamma_sub_constrained_inversion_summary.json`
+- `outputs\tables\gamma_sub_prior_width_sweep.csv`
+
+It does not regenerate or modify frozen Ground Truth data.
+
 ## Environment
 
 Use Python 3.11 with the repository requirements:

@@ -1,5 +1,13 @@
 # Figure registry
 
+## Literature-backed constrained gamma_sub inversion figures
+
+No figures were generated or committed for this constrained audit. Evidence is
+stored in the lightweight tables:
+
+- `outputs\tables\gamma_sub_constrained_inversion_summary.json`
+- `outputs\tables\gamma_sub_prior_width_sweep.csv`
+
 ## Local Codex context workflow integration
 
 No figures were generated or committed for the local reference-pack integration.

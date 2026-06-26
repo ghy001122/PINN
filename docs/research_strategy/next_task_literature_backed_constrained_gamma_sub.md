@@ -1,3 +1,15 @@
+# Status: completed
+
+This task was implemented by `scripts\invert_gamma_sub_constrained.py` with
+configuration `configs\gamma_sub_constrained_inversion.yaml`. The generated
+lightweight evidence is stored in
+`outputs\tables\gamma_sub_constrained_inversion_summary.json` and
+`outputs\tables\gamma_sub_prior_width_sweep.csv`.
+
+The key conclusion is conditional: nominal fixed-prior `gamma_sub` inversion is
+stable, while `T_sw` is the most dangerous confounder.
+
+---
 # Next Task: Literature-Backed Constrained gamma_sub Inversion
 
 This is the prepared next task. It is not executed by the local context

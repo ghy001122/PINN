@@ -1,5 +1,20 @@
 # Experiment registry
 
+## Literature-backed constrained gamma_sub inversion
+
+- Config: `configs\gamma_sub_constrained_inversion.yaml`
+- Script: `scripts\invert_gamma_sub_constrained.py`
+- Test: `tests\test_gamma_sub_constrained.py`
+- Input target: `data\processed\gt_v1_acceptance\gt_triangle.npz`
+- Input sparse observation: `data\processed\gt_v1_acceptance\obs_triangle_sparse.npz`
+- Summary: `outputs\tables\gamma_sub_constrained_inversion_summary.json`
+- Prior-width sweep: `outputs\tables\gamma_sub_prior_width_sweep.csv`
+- Report: `docs\gamma_sub_constrained_inversion_report.md`
+- Codex report: `docs\codex_reports\gamma_sub_constrained_inversion_report.md`
+
+Status: completed as a constrained reduced inverse audit. The lightweight JSON
+and CSV are committed evidence. No frozen Ground Truth file was modified.
+
 ## Local Codex context workflow integration
 
 - Source pack: `E:\pinn_codex_reference_pack`

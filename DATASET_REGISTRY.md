@@ -1,5 +1,17 @@
 # Dataset registry
 
+## Literature-backed constrained gamma_sub inversion evidence
+
+These lightweight tables were generated from the frozen Ground Truth v1.1
+triangle benchmark and sparse terminal observations. They are synthetic
+numerical digital-twin benchmark evidence, not experimental data.
+
+- `outputs\tables\gamma_sub_constrained_inversion_summary.json`
+- `outputs\tables\gamma_sub_prior_width_sweep.csv`
+
+The corresponding frozen input arrays remain ignored by Git and were not
+modified.
+
 ## Reference-pack integration
 
 The local reference pack at `E:\pinn_codex_reference_pack` was read and

@@ -10,6 +10,7 @@ Current high-level structure:
 |   |-- gt_v1.yaml
 |   |-- gt_v1_acceptance_ltp_ltd.yaml
 |   |-- gt_v1_acceptance_triangle.yaml
+|   |-- gamma_sub_constrained_inversion.yaml
 |   |-- pinn_inverse_v0_triangle.yaml
 |   |-- pinn_inverse_v0_triangle_full_anchor.yaml
 |   |-- pinn_inverse_v0_triangle_weak_anchor.yaml
@@ -28,6 +29,7 @@ Current high-level structure:
 |   |-- codex_reports/
 |   |   |-- gamma_sub_confounding_audit_report.md
 |   |   |-- gamma_sub_identifiability_audit_report.md
+|   |   |-- gamma_sub_constrained_inversion_report.md
 |   |   |-- evidence_chain_patch_report.md
 |   |   |-- documentation_structure_cleanup_report.md
 |   |   |-- local_codex_context_integration_report.md
@@ -54,9 +56,12 @@ Current high-level structure:
 |   |-- device_anchor.md
 |   |-- experiment_plan.md
 |   |-- gamma_sub_confounding_report.md
+|   |-- gamma_sub_constrained_inversion_report.md
+|   |-- literature_gamma_sub_evidence_chain.md
 |   |-- gamma_sub_identifiability_report.md
 |   |-- gt_v1_acceptance_report.md
 |   |-- method_equations.md
+|   |-- parameter_prior_registry.md
 |   |-- pinn_inverse_v0_ablation_report.md
 |   |-- pinn_inverse_v1_physics_design.md
 |   |-- pinn_inverse_v1_report.md
@@ -75,6 +80,8 @@ Current high-level structure:
 |   |   |-- gamma_sub_confounding_summary.json
 |   |   |-- gamma_sub_identifiability_summary.json
 |   |   |-- gamma_sub_sensitivity_ranking.csv
+|   |   |-- gamma_sub_constrained_inversion_summary.json
+|   |   |-- gamma_sub_prior_width_sweep.csv
 |   |   |-- pinn_identifiability_correlation.csv
 |   |   |-- pinn_identifiability_summary.json
 |   |   |-- pinn_inverse_v0_ablation_summary.json
@@ -98,6 +105,7 @@ Current high-level structure:
 |   |-- evaluate_v1.py
 |   |-- invert_gamma_sub_v0.py
 |   |-- invert_gamma_sub_with_mismatch.py
+|   |-- invert_gamma_sub_constrained.py
 |   |-- plot_gt_v1.py
 |   |-- run_gt_v1.py
 |   |-- run_gt_v1_acceptance.py
@@ -124,6 +132,7 @@ Current high-level structure:
 |   |-- test_gt_solver_smoke.py
 |   |-- test_imports.py
 |   |-- test_gamma_sub_identifiability.py
+|   |-- test_gamma_sub_constrained.py
 |   |-- test_pinn_identifiability.py
 |   |-- test_pinn_inverse_v0.py
 |   |-- test_pinn_inverse_v1.py

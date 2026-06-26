@@ -1,5 +1,36 @@
 # Research log
 
+## Literature-backed constrained gamma_sub inversion
+
+Date: 2026-06-26
+
+Actions:
+
+- Added `configs\gamma_sub_constrained_inversion.yaml`.
+- Added `scripts\invert_gamma_sub_constrained.py`.
+- Added `tests\test_gamma_sub_constrained.py`.
+- Added `docs\literature_gamma_sub_evidence_chain.md`.
+- Added `docs\parameter_prior_registry.md`.
+- Added `docs\gamma_sub_constrained_inversion_report.md`.
+- Added `docs\codex_reports\gamma_sub_constrained_inversion_report.md`.
+- Generated `outputs\tables\gamma_sub_constrained_inversion_summary.json`.
+- Generated `outputs\tables\gamma_sub_prior_width_sweep.csv`.
+
+Findings:
+
+- Clean nominal `gamma_sub` was recovered as `450000000.0` with relative error
+  `0.0`.
+- The largest tested relative error was `1.2222222222222223`.
+- `T_sw` was the most dangerous confounder in the prior-width sweep.
+- The result supports a constrained reduced inverse problem, not port-only full
+  hidden-field recovery.
+
+Boundary:
+
+All outputs are synthetic numerical digital-twin benchmark evidence. Frozen
+Ground Truth v1.1 data, configs, metrics, manifest, equations, and default
+parameters were not modified.
+
 ## Documentation structure cleanup
 
 Date: 2026-06-26

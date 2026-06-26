@@ -1,0 +1,76 @@
+# Literature-backed constrained gamma_sub inversion configuration
+
+benchmark: "Frozen Ground Truth v1.1 triangle synthetic numerical digital-twin benchmark"
+target_npz: data/processed/gt_v1_acceptance/gt_triangle.npz
+sparse_obs_npz: data/processed/gt_v1_acceptance/obs_triangle_sparse.npz
+summary_json: outputs/tables/gamma_sub_constrained_inversion_summary.json
+prior_width_csv: outputs/tables/gamma_sub_prior_width_sweep.csv
+
+simulation:
+  protocol: triangle
+  nx: 31
+  nt: 400
+  method: Radau
+  rtol: 1.0e-5
+  atol: 1.0e-7
+
+inverse:
+  primary_parameter: gamma_sub
+  gamma_candidates:
+    - 1.5e8
+    - 2.0e8
+    - 2.75e8
+    - 3.25e8
+    - 3.75e8
+    - 4.0e8
+    - 4.25e8
+    - 4.5e8
+    - 4.75e8
+    - 5.0e8
+    - 5.5e8
+    - 6.5e8
+    - 7.5e8
+    - 9.0e8
+    - 1.0e9
+  multistart_initials:
+    - 2.5e8
+    - 4.5e8
+    - 8.0e8
+  start_window_log_radius: 0.75
+  success_relative_error_threshold: 0.15
+
+loss:
+  w_g: 1.0
+  w_i: 0.5
+  w_heat: 0.01
+
+noise:
+  levels: [0.0, 0.02, 0.05]
+  seed: 2026
+
+prior_width_sweep:
+  widths: [0.0, 0.05, 0.1, 0.25, 0.5, 1.0]
+  confounders:
+    T_sw:
+      mode: additive
+      unit: K
+      max_delta: 2.0
+    tau_m:
+      mode: relative
+      unit: fraction
+      max_fraction: 0.5
+    sigma_on0:
+      mode: relative
+      unit: fraction
+      max_fraction: 0.15
+    eta_A:
+      mode: relative
+      unit: fraction
+      max_fraction: 0.15
+
+frozen_microphysics:
+  - D_v0
+  - mu_v0
+  - E_D_eV
+  - E_mu_eV
+  - E_r_eV

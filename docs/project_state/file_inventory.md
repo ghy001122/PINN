@@ -69,6 +69,7 @@
 - `scripts\invert_gamma_sub_with_mismatch.py`: generates mismatched synthetic
   targets and then optimizes only `gamma_sub` with nominal fixed parameters to
   quantify systematic bias.
+- `scripts\invert_gamma_sub_constrained.py`: performs the literature-backed constrained reduced inverse audit with `gamma_sub` as the only primary inverse target and bounded `T_sw`, `tau_m`, `sigma_on0`, and `eta_A` confounders.
 
 ## Current test coverage
 
@@ -82,6 +83,7 @@
 - `tests\test_gamma_sub_identifiability.py`: smoke tests for the gamma_sub scan,
   single-parameter inversion, confounding audit, and mismatch inversion scripts
   using reduced temporary outputs.
+- `tests\test_gamma_sub_constrained.py`: verifies the constrained gamma_sub config scope and runs a reduced smoke test with temporary JSON/CSV outputs.
 
 ## Evidence-chain reports
 
@@ -110,6 +112,10 @@
   report for the local reference-pack and low-token workflow integration.
 - `docs\codex_reports\documentation_structure_cleanup_report.md`: final Codex
   report for Markdown deduplication and context-integration verification.
+- `docs\literature_gamma_sub_evidence_chain.md`: literature and engineering-prior evidence chain for the constrained gamma_sub reduced inverse target.
+- `docs\parameter_prior_registry.md`: prior table for gamma_sub and bounded confounders.
+- `docs\gamma_sub_constrained_inversion_report.md`: project-facing constrained gamma_sub inversion report.
+- `docs\codex_reports\gamma_sub_constrained_inversion_report.md`: final Codex report for this constrained inversion task.
 
 ## Frozen files not to modify during PINN audit
 

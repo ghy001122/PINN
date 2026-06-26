@@ -24,6 +24,8 @@ outputs/tables/*
 !outputs/tables/gamma_sub_identifiability_summary.json
 !outputs/tables/gamma_sub_confounding_summary.json
 !outputs/tables/gamma_sub_sensitivity_ranking.csv
+!outputs/tables/gamma_sub_constrained_inversion_summary.json
+!outputs/tables/gamma_sub_prior_width_sweep.csv
 outputs/pinn_inverse_v0/*
 outputs/pinn_inverse_v0_smoke/*
 outputs/pinn_inverse_v1/*
@@ -38,3 +40,6 @@ outputs/pinn_inverse_v1_1_smoke/*
 *.pt
 *.pth
 *.ckpt
+
+# Local Windows cache artifacts that can appear under this workspace.
+%SystemDrive%/
