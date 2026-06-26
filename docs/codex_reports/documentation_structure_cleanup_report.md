@@ -14,6 +14,8 @@ system-level mapping, full-field recovery, or training experiment was started.
 - Branch: `main`
 - Base commit before cleanup:
   `152448672c200930bd2c2bd8ecdf3ab1388998ab`
+- Primary cleanup commit:
+  `59979384bb003718804e3751655afbc343ca2a42`
 
 ## Files Reviewed
 
