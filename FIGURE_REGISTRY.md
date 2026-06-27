@@ -1,5 +1,14 @@
 # Figure registry
 
+## Paper-readiness gamma_sub robustness figures
+
+No figures were generated or committed for this robustness pack. Evidence is
+stored in lightweight tables:
+
+- `outputs\tables\gamma_sub_paper_readiness_summary.json`
+- `outputs\tables\gamma_sub_observation_sensitivity.csv`
+- `outputs\tables\gamma_sub_offgrid_summary.csv`
+
 ## Literature-backed constrained gamma_sub inversion figures
 
 No figures were generated or committed for this constrained audit. Evidence is

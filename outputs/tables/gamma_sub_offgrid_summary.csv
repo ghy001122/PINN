@@ -1,0 +1,2 @@
+test_type,true_gamma_sub,nearest_grid_estimate,nearest_grid_relative_error,refined_estimate,refined_relative_error,used_refinement,objective_value,G_loss,I_loss,n_obs,success_flag
+off_grid_gamma_sub,462000000.0,450000000.0,0.025974025974025976,462018731.3745052,4.054410066065334e-05,True,9.919965102207929e-05,5.286581974018518e-05,9.057569429716569e-05,16,True

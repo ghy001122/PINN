@@ -1,5 +1,20 @@
 # Reproducibility
 
+## Paper-readiness gamma_sub robustness reproduction
+
+```powershell
+python scripts/audit_gamma_sub_paper_readiness.py
+```
+
+This reads the frozen Ground Truth v1.1 triangle files and regenerates:
+
+- `outputs\tables\gamma_sub_paper_readiness_summary.json`
+- `outputs\tables\gamma_sub_observation_sensitivity.csv`
+- `outputs\tables\gamma_sub_offgrid_summary.csv`
+- `docs\gamma_sub_paper_readiness_report.md`
+
+It does not regenerate or modify frozen Ground Truth data.
+
 ## Literature-backed constrained gamma_sub inversion reproduction
 
 ```powershell

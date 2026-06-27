@@ -1,5 +1,38 @@
 # Research log
 
+## Paper-readiness gamma_sub robustness pack
+
+Date: 2026-06-27
+
+Actions:
+
+- Added `docs\paper\model_hierarchy_and_claim_boundary.md`.
+- Added `docs\paper\equation_variable_registry.md`.
+- Added `docs\paper\experiment_to_figure_mapping.md`.
+- Added `scripts\audit_gamma_sub_paper_readiness.py`.
+- Added `tests\test_gamma_sub_paper_readiness.py`.
+- Generated `outputs\tables\gamma_sub_paper_readiness_summary.json`.
+- Generated `outputs\tables\gamma_sub_observation_sensitivity.csv`.
+- Generated `outputs\tables\gamma_sub_offgrid_summary.csv`.
+- Added `docs\gamma_sub_paper_readiness_report.md`.
+- Added `docs\codex_reports\gamma_sub_paper_readiness_report.md`.
+
+Findings:
+
+- Off-grid `gamma_sub = 4.62e8` was localized with nearest-grid relative error
+  `0.025974025974025976` and refined relative error
+  `4.054410066065334e-05`.
+- `n_obs = 8, 16, 32, 64` all recovered nominal `gamma_sub = 4.5e8` with
+  relative error `0.0`.
+- `T_sw` remained the most dangerous confounder.
+- Frozen GT hash checks remained unchanged.
+
+Boundary:
+
+This pack supports a one-dimensional reduced-order synthetic numerical
+digital-twin benchmark claim only. It does not support experimental-data, full
+3D device simulation, or sparse-port full hidden-field recovery claims.
+
 ## Literature-backed constrained gamma_sub inversion
 
 Date: 2026-06-26

@@ -70,7 +70,8 @@
   targets and then optimizes only `gamma_sub` with nominal fixed parameters to
   quantify systematic bias.
 - `scripts\invert_gamma_sub_constrained.py`: performs the literature-backed constrained reduced inverse audit with `gamma_sub` as the only primary inverse target and bounded `T_sw`, `tau_m`, `sigma_on0`, and `eta_A` confounders.
-
+- `scripts\audit_gamma_sub_paper_readiness.py`: runs off-grid `gamma_sub` and
+  observation-count robustness checks for paper-readiness defense.
 ## Current test coverage
 
 - `tests\test_pinn_inverse_v0.py`: data loading, model forward, conductance
@@ -84,10 +85,23 @@
   single-parameter inversion, confounding audit, and mismatch inversion scripts
   using reduced temporary outputs.
 - `tests\test_gamma_sub_constrained.py`: verifies the constrained gamma_sub config scope and runs a reduced smoke test with temporary JSON/CSV outputs.
-
+- `tests\test_gamma_sub_paper_readiness.py`: checks paper docs, paper-readiness
+  schema, finite off-grid and observation-sensitivity outputs, and frozen GT
+  hash preservation.
 ## Evidence-chain reports
 
-- `docs\codex_reports\pinn_inverse_v0_ablation_audit_report.md`: main ablation
+- `docs\paper\model_hierarchy_and_claim_boundary.md`: paper-defense hierarchy,
+  included/excluded physics, and allowed/forbidden claims.
+- `docs\paper\equation_variable_registry.md`: variable units and equation
+  registry for electrical, thermal, defect, switching, conductivity, and port
+  relations.
+- `docs\paper\experiment_to_figure_mapping.md`: maps GT, v0/v1/v1.1,
+  identifiability, confounding, constrained inversion, and paper-readiness
+  evidence to manuscript sections and candidate figures/tables.
+- `docs\gamma_sub_paper_readiness_report.md`: project-facing robustness report
+  for off-grid and observation-count checks.
+- `docs\codex_reports\gamma_sub_paper_readiness_report.md`: final Codex report
+  for this paper-readiness task.`n- `docs\codex_reports\pinn_inverse_v0_ablation_audit_report.md`: main ablation
   audit report for commit `ffad313297c78cfc158e6ae270c3b86639d79e1d`.
 - `docs\codex_reports\evidence_chain_patch_report.md`: evidence-chain patch
   report for state-file consistency and smoke-test verification.

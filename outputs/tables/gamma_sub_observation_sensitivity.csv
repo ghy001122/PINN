@@ -1,0 +1,5 @@
+n_obs,nominal_estimated_gamma_sub,nominal_relative_error,nominal_success_flag,worst_confounder,worst_confounder_relative_error,worst_confounder_estimated_gamma_sub,stability_flag,prior_width
+8,450000000.0,0.0,True,T_sw,0.1111111111111111,400000000.0,True,0.05
+16,450000000.0,0.0,True,T_sw,0.1111111111111111,400000000.0,True,0.05
+32,450000000.0,0.0,True,T_sw,0.1111111111111111,400000000.0,True,0.05
+64,450000000.0,0.0,True,T_sw,0.1111111111111111,400000000.0,True,0.05

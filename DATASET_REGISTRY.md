@@ -1,5 +1,18 @@
 # Dataset registry
 
+## Paper-readiness gamma_sub robustness evidence
+
+These lightweight tables were generated from the frozen Ground Truth v1.1
+triangle benchmark and sparse terminal observations. They are synthetic
+numerical digital-twin benchmark evidence, not experimental data.
+
+- `outputs\tables\gamma_sub_paper_readiness_summary.json`
+- `outputs\tables\gamma_sub_observation_sensitivity.csv`
+- `outputs\tables\gamma_sub_offgrid_summary.csv`
+
+The corresponding frozen input arrays remain ignored by Git and were not
+modified.
+
 ## Literature-backed constrained gamma_sub inversion evidence
 
 These lightweight tables were generated from the frozen Ground Truth v1.1

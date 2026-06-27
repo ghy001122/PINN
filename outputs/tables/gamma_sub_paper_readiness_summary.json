@@ -1,0 +1,114 @@
+{
+  "benchmark": "One-dimensional reduced-order synthetic numerical digital-twin benchmark.",
+  "candidate_gamma_sub": [
+    150000000.0,
+    200000000.0,
+    275000000.0,
+    325000000.0,
+    375000000.0,
+    400000000.0,
+    425000000.0,
+    450000000.0,
+    475000000.0,
+    500000000.0,
+    550000000.0,
+    650000000.0,
+    750000000.0,
+    900000000.0,
+    1000000000.0
+  ],
+  "config_path": "configs\\gamma_sub_constrained_inversion.yaml",
+  "frozen_gt_hashes_after": {
+    "sparse_obs_npz": "f45daf53136a255b3666ebeb56e6298ce148a613c46fa596b795e7ade68ea602",
+    "target_npz": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8"
+  },
+  "frozen_gt_hashes_before": {
+    "sparse_obs_npz": "f45daf53136a255b3666ebeb56e6298ce148a613c46fa596b795e7ade68ea602",
+    "target_npz": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8"
+  },
+  "frozen_gt_unchanged": true,
+  "most_dangerous_confounder": "T_sw",
+  "observation_sensitivity": [
+    {
+      "n_obs": 8,
+      "nominal_estimated_gamma_sub": 450000000.0,
+      "nominal_relative_error": 0.0,
+      "nominal_success_flag": true,
+      "prior_width": 0.05,
+      "stability_flag": true,
+      "worst_confounder": "T_sw",
+      "worst_confounder_estimated_gamma_sub": 400000000.0,
+      "worst_confounder_relative_error": 0.1111111111111111
+    },
+    {
+      "n_obs": 16,
+      "nominal_estimated_gamma_sub": 450000000.0,
+      "nominal_relative_error": 0.0,
+      "nominal_success_flag": true,
+      "prior_width": 0.05,
+      "stability_flag": true,
+      "worst_confounder": "T_sw",
+      "worst_confounder_estimated_gamma_sub": 400000000.0,
+      "worst_confounder_relative_error": 0.1111111111111111
+    },
+    {
+      "n_obs": 32,
+      "nominal_estimated_gamma_sub": 450000000.0,
+      "nominal_relative_error": 0.0,
+      "nominal_success_flag": true,
+      "prior_width": 0.05,
+      "stability_flag": true,
+      "worst_confounder": "T_sw",
+      "worst_confounder_estimated_gamma_sub": 400000000.0,
+      "worst_confounder_relative_error": 0.1111111111111111
+    },
+    {
+      "n_obs": 64,
+      "nominal_estimated_gamma_sub": 450000000.0,
+      "nominal_relative_error": 0.0,
+      "nominal_success_flag": true,
+      "prior_width": 0.05,
+      "stability_flag": true,
+      "worst_confounder": "T_sw",
+      "worst_confounder_estimated_gamma_sub": 400000000.0,
+      "worst_confounder_relative_error": 0.1111111111111111
+    }
+  ],
+  "observation_sensitivity_passed": true,
+  "offgrid": {
+    "G_loss": 5.286581974018518e-05,
+    "I_loss": 9.057569429716569e-05,
+    "n_obs": 16,
+    "nearest_grid_estimate": 450000000.0,
+    "nearest_grid_relative_error": 0.025974025974025976,
+    "objective_value": 9.919965102207929e-05,
+    "refined_estimate": 462018731.3745052,
+    "refined_relative_error": 4.054410066065334e-05,
+    "refinement_note": "three-point quadratic fit in log(gamma_sub)",
+    "success_flag": true,
+    "test_type": "off_grid_gamma_sub",
+    "true_gamma_sub": 462000000.0,
+    "used_refinement": true
+  },
+  "offgrid_test_passed": true,
+  "outputs": {
+    "observation_sensitivity_csv": "outputs\\tables\\gamma_sub_observation_sensitivity.csv",
+    "offgrid_summary_csv": "outputs\\tables\\gamma_sub_offgrid_summary.csv",
+    "report_md": "docs\\gamma_sub_paper_readiness_report.md",
+    "summary_json": "outputs\\tables\\gamma_sub_paper_readiness_summary.json"
+  },
+  "scope": "Sparse-port inverse identifiability and constrained gamma_sub inversion only; not experimental data and not sparse-port full-field recovery.",
+  "sparse_obs_keys": [
+    "protocol",
+    "t_idx",
+    "t",
+    "V",
+    "I",
+    "G",
+    "I_clean",
+    "G_clean",
+    "noise_level"
+  ],
+  "sparse_obs_npz": "data\\processed\\gt_v1_acceptance\\obs_triangle_sparse.npz",
+  "target_npz": "data\\processed\\gt_v1_acceptance\\gt_triangle.npz"
+}

@@ -2,10 +2,11 @@
 
 ## Current phase
 
-The literature-backed constrained `gamma_sub` inversion stage has been executed
-on the frozen Ground Truth v1.1 triangle benchmark. The current evidence now
-supports a conditional reduced inverse-problem route: `gamma_sub` is stable in
-nominal fixed-prior cases, but it is not robust to uncontrolled `T_sw` mismatch.
+The literature-backed constrained `gamma_sub` inversion stage and the
+paper-readiness robustness pack have been executed on the frozen Ground Truth
+v1.1 triangle benchmark. The current evidence supports a conditional reduced
+inverse-problem route: `gamma_sub` is stable in nominal fixed-prior and off-grid
+robustness checks, but it remains sensitive to uncontrolled `T_sw` mismatch.
 
 ## Research line
 
@@ -47,14 +48,13 @@ large systematic gamma bias.
 The constrained inversion audit adds a literature-guided prior registry and a
 bounded prior-width sweep. It recovers the clean nominal `gamma_sub = 4.5e8`
 exactly on the frozen benchmark candidate grid, but the maximum tested relative
-error reaches `1.2222222222222223` under `T_sw` mismatch. `T_sw` is therefore the
-most dangerous confounder and must be fixed, independently calibrated, or tightly
-bounded before using `gamma_sub` as a paper-level reduced inverse target.
+error reaches `1.2222222222222223` under `T_sw` mismatch.
 
-The local reference-pack integration establishes a low-token context rule:
-future non-trivial tasks should read `CODEX_CONTEXT.md` and
-`docs\research_strategy\active_phase.md` first, then load only task-relevant
-reports, summaries, literature notes, or code.
+The paper-readiness robustness pack adds off-grid and observation-count checks.
+For off-grid `gamma_sub = 4.62e8`, the nearest-grid estimate has relative error
+`0.025974025974025976`, while local log-quadratic refinement has relative error
+`4.054410066065334e-05`. For `n_obs = 8, 16, 32, 64`, nominal recovery remains
+exact and `T_sw` remains the most dangerous confounder.
 
 Detailed historical file lists and reproduction entries live in:
 
@@ -68,4 +68,5 @@ Detailed historical file lists and reproduction entries live in:
 ## Boundary
 
 All Ground Truth and PINN results are synthetic, numerical, digital-twin
-benchmark results. They are not measured experimental data.
+benchmark results. They are not measured experimental data, not full 3D device
+simulation results, and not sparse-port full hidden-field recovery.

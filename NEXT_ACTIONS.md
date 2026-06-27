@@ -2,45 +2,44 @@
 
 ## Immediate next step
 
-Review the constrained `gamma_sub` inversion evidence before opening any new
-method work. The current conclusion is conditional: nominal fixed-prior
-`gamma_sub` inversion is stable, but `T_sw` is the most dangerous confounder and
-must be fixed, independently calibrated, or tightly bounded.
+Use the paper-readiness robustness pack to frame a method-oriented SCI small
+paper around a one-dimensional reduced-order synthetic numerical digital-twin
+benchmark. The defensible main claim is constrained `gamma_sub` inversion under
+fixed or tightly bounded switching/conductivity priors.
 
 Primary evidence:
 
-- `docs\gamma_sub_constrained_inversion_report.md`
-- `docs\parameter_prior_registry.md`
-- `docs\literature_gamma_sub_evidence_chain.md`
-- `outputs\tables\gamma_sub_constrained_inversion_summary.json`
-- `outputs\tables\gamma_sub_prior_width_sweep.csv`
+- `docs\paper\model_hierarchy_and_claim_boundary.md`
+- `docs\paper\equation_variable_registry.md`
+- `docs\paper\experiment_to_figure_mapping.md`
+- `docs\gamma_sub_paper_readiness_report.md`
+- `outputs\tables\gamma_sub_paper_readiness_summary.json`
+- `outputs\tables\gamma_sub_observation_sensitivity.csv`
+- `outputs\tables\gamma_sub_offgrid_summary.csv`
 
 ## Recommended tasks
 
-1. Decide whether the paper's main inverse claim is restricted to fixed or
-   independently calibrated `T_sw`.
-2. If authorized, implement a gamma_sub-PINN that keeps `gamma_sub` as the only
-   primary inverse target and uses a physics-constrained sigma closure.
-3. Add stronger thermal observability or auxiliary thermal constraints before
-   claiming hidden temperature recovery.
-4. Add or simulate spatially resolved evidence if defect-field recovery is a
-   target claim.
-5. Test sparse-observation sensitivity by varying the number of terminal
-   observations in `obs_triangle_sparse.npz`.
-6. Keep the paper narrative explicit: port-only inversion diagnoses
-   conductance-level dynamics but does not prove unique hidden-field recovery.
-7. Keep all generated datasets and figures reproducible through scripts rather
+1. Draft a method-and-results outline that explicitly labels all data as
+   synthetic numerical digital-twin benchmark evidence.
+2. Keep the main claim restricted to sparse-port identifiability and constrained
+   `gamma_sub` inversion, with `T_sw` listed as the limiting confounder.
+3. Decide whether to add only text-level reviewer defenses next, or explicitly
+   authorize a later gamma_sub-PINN implementation.
+4. If future method work is authorized, keep `gamma_sub` as the only primary
+   inverse target and use a physics-constrained sigma closure.
+5. Keep all generated datasets and figures reproducible through scripts rather
    than committing large binary artifacts.
 
 ## Do not do next
 
-- Do not modify frozen Ground Truth v1.1 acceptance configs or metrics.
+- Do not modify frozen Ground Truth v1.1 acceptance configs, data, metrics,
+  manifest, equations, or default parameters.
 - Do not describe synthetic numerical benchmark outputs as experimental data.
-- Do not add paper claims before the reduced inverse method is quantitatively
-  bounded by priors.
+- Do not claim full 3D device simulation or sparse-port full hidden-field
+  recovery.
 - Do not start F-Pyramid, STL continuation, observability-augmented sparse
-  temperature/state recovery, NeuroSPICE/NeuroPINN, or system-level mapping
-  unless `docs\research_strategy\active_phase.md` is explicitly updated.
+  temperature/state recovery, VO2-NbO2 oscillator work, NeuroSPICE/NeuroPINN,
+  or system-level mapping unless explicitly authorized.
 
 ## Deferred Method Enhancements
 
