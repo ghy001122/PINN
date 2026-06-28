@@ -2,11 +2,7 @@
 
 ## Current phase
 
-The literature-backed constrained `gamma_sub` inversion stage and the
-paper-readiness robustness pack have been executed on the frozen Ground Truth
-v1.1 triangle benchmark. The current evidence supports a conditional reduced
-inverse-problem route: `gamma_sub` is stable in nominal fixed-prior and off-grid
-robustness checks, but it remains sensitive to uncontrolled `T_sw` mismatch.
+The literature-backed constrained `gamma_sub` inversion, paper-readiness robustness pack, and continuous off-grid refinement audit have been executed on the frozen Ground Truth v1.1 triangle benchmark. The current evidence supports a conditional reduced inverse-problem route: `gamma_sub` is stable in nominal fixed-prior, off-grid, observation-count, and simulator-backed continuous-refinement checks, but it remains sensitive to uncontrolled `T_sw` mismatch.
 
 ## Research line
 
@@ -55,6 +51,8 @@ For off-grid `gamma_sub = 4.62e8`, the nearest-grid estimate has relative error
 `0.025974025974025976`, while local log-quadratic refinement has relative error
 `4.054410066065334e-05`. For `n_obs = 8, 16, 32, 64`, nominal recovery remains
 exact and `T_sw` remains the most dangerous confounder.
+
+The continuous off-grid refinement audit replaces log-quadratic profile interpolation with scalar continuous optimization that re-runs the simulator at each trial `gamma_sub`. Across 36 official synthetic numerical digital-twin cases (`gamma_sub = 4.38e8, 4.62e8, 5.15e8`; `n_obs = 8, 16, 32, 64`; noise `0, 0.02, 0.05`), the maximum nearest-grid relative error is `0.08225108225108226`, the maximum continuous-refined relative error is `0.05565017963752034`, all true values are excluded from the candidate grid, and all refinement cases evaluate non-grid simulator calls.
 
 Detailed historical file lists and reproduction entries live in:
 

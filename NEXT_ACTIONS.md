@@ -2,10 +2,7 @@
 
 ## Immediate next step
 
-Use the paper-readiness robustness pack to frame a method-oriented SCI small
-paper around a one-dimensional reduced-order synthetic numerical digital-twin
-benchmark. The defensible main claim is constrained `gamma_sub` inversion under
-fixed or tightly bounded switching/conductivity priors.
+Use the paper-readiness robustness pack plus the continuous off-grid `gamma_sub` refinement audit to frame a method-oriented SCI small paper around a one-dimensional reduced-order synthetic numerical digital-twin benchmark. The defensible main claim is constrained `gamma_sub` inversion under fixed or tightly bounded switching/conductivity priors, with simulator-backed scalar refinement for off-grid `gamma_sub`.
 
 Primary evidence:
 
@@ -16,6 +13,9 @@ Primary evidence:
 - `outputs\tables\gamma_sub_paper_readiness_summary.json`
 - `outputs\tables\gamma_sub_observation_sensitivity.csv`
 - `outputs\tables\gamma_sub_offgrid_summary.csv`
+- `docs\gamma_sub_continuous_refinement_report.md`
+- `outputs\tables\gamma_sub_continuous_refinement_summary.json`
+- `outputs\tables\gamma_sub_continuous_refinement_cases.csv`
 
 ## Recommended tasks
 

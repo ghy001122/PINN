@@ -72,6 +72,8 @@
 - `scripts\invert_gamma_sub_constrained.py`: performs the literature-backed constrained reduced inverse audit with `gamma_sub` as the only primary inverse target and bounded `T_sw`, `tau_m`, `sigma_on0`, and `eta_A` confounders.
 - `scripts\audit_gamma_sub_paper_readiness.py`: runs off-grid `gamma_sub` and
   observation-count robustness checks for paper-readiness defense.
+- `scripts\refine_gamma_sub_continuous.py`: performs simulator-backed continuous scalar refinement for off-grid `gamma_sub`, with true off-grid cases, observation-count sensitivity, and noise sensitivity.
+
 ## Current test coverage
 
 - `tests\test_pinn_inverse_v0.py`: data loading, model forward, conductance
@@ -88,6 +90,8 @@
 - `tests\test_gamma_sub_paper_readiness.py`: checks paper docs, paper-readiness
   schema, finite off-grid and observation-sensitivity outputs, and frozen GT
   hash preservation.
+- `tests\test_gamma_sub_continuous_refinement.py`: checks continuous-refinement summary schema, finite outputs, off-grid truth exclusion, simulator-backed non-grid evaluations, and frozen GT hash preservation.
+
 ## Evidence-chain reports
 
 - `docs\paper\model_hierarchy_and_claim_boundary.md`: paper-defense hierarchy,
@@ -101,7 +105,10 @@
 - `docs\gamma_sub_paper_readiness_report.md`: project-facing robustness report
   for off-grid and observation-count checks.
 - `docs\codex_reports\gamma_sub_paper_readiness_report.md`: final Codex report
-  for this paper-readiness task.`n- `docs\codex_reports\pinn_inverse_v0_ablation_audit_report.md`: main ablation
+  for this paper-readiness task.
+- `docs\gamma_sub_continuous_refinement_report.md`: project-facing report for simulator-backed continuous off-grid `gamma_sub` refinement.
+- `docs\codex_reports\gamma_sub_continuous_refinement_report.md`: final Codex report for the continuous off-grid `gamma_sub` refinement audit.
+- `docs\codex_reports\pinn_inverse_v0_ablation_audit_report.md`: main ablation
   audit report for commit `ffad313297c78cfc158e6ae270c3b86639d79e1d`.
 - `docs\codex_reports\evidence_chain_patch_report.md`: evidence-chain patch
   report for state-file consistency and smoke-test verification.

@@ -1,5 +1,32 @@
 # Research log
 
+## Continuous off-grid gamma_sub refinement audit
+
+Date: 2026-06-28
+
+Actions:
+
+- Added `scripts\refine_gamma_sub_continuous.py`.
+- Added `tests\test_gamma_sub_continuous_refinement.py`.
+- Generated `outputs\tables\gamma_sub_continuous_refinement_summary.json`.
+- Generated `outputs\tables\gamma_sub_continuous_refinement_cases.csv`.
+- Added `docs\gamma_sub_continuous_refinement_report.md`.
+- Added `docs\codex_reports\gamma_sub_continuous_refinement_report.md`.
+
+Findings:
+
+- Official off-grid true values `4.38e8`, `4.62e8`, and `5.15e8` are excluded from the candidate grid.
+- Continuous refinement re-runs the simulator at non-grid `gamma_sub` values rather than interpolating candidate profiles.
+- Maximum nearest-grid relative error: `0.08225108225108226`.
+- Maximum continuous-refined relative error: `0.05565017963752034`.
+- Mean error reduction: `0.019138563856834004`.
+- Clean, 2% noise, 5% noise, and `n_obs = 8, 16, 32, 64` cases all pass the configured `gamma_sub` success threshold.
+- `T_sw` remains the most dangerous confounder from prior audits.
+
+Boundary:
+
+This audit supports a one-dimensional reduced-order synthetic numerical digital-twin benchmark claim under fixed or tightly bounded priors. It does not prove experimental-data inversion, full 3D simulation, or sparse-port full hidden-field recovery.
+
 ## Paper-readiness gamma_sub robustness pack
 
 Date: 2026-06-27

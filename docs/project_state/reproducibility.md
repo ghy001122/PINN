@@ -1,5 +1,20 @@
 # Reproducibility
 
+## Continuous off-grid gamma_sub refinement reproduction
+
+```powershell
+python scripts/refine_gamma_sub_continuous.py
+```
+
+This reads the frozen Ground Truth v1.1 triangle files and regenerates:
+
+- `outputs\tables\gamma_sub_continuous_refinement_summary.json`
+- `outputs\tables\gamma_sub_continuous_refinement_cases.csv`
+- `docs\gamma_sub_continuous_refinement_report.md`
+- `docs\codex_reports\gamma_sub_continuous_refinement_report.md`
+
+It does not regenerate or modify frozen Ground Truth data.
+
 ## Paper-readiness gamma_sub robustness reproduction
 
 ```powershell

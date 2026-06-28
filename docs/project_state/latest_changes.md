@@ -1,5 +1,27 @@
 # Latest changes
 
+## Continuous off-grid gamma_sub refinement audit
+
+Scope:
+
+- Replace candidate-profile interpolation with simulator-backed continuous scalar refinement for off-grid `gamma_sub`.
+- Test true `gamma_sub = 4.38e8, 4.62e8, 5.15e8`, `n_obs = 8, 16, 32, 64`, and noise `0, 0.02, 0.05`.
+- Keep frozen Ground Truth v1.1 and all prior v0/v1/v1.1, identifiability, confounding, constrained inversion, and paper-readiness evidence unchanged.
+
+Changed:
+
+- Added `scripts\refine_gamma_sub_continuous.py`.
+- Added `tests\test_gamma_sub_continuous_refinement.py`.
+- Added `outputs\tables\gamma_sub_continuous_refinement_summary.json`.
+- Added `outputs\tables\gamma_sub_continuous_refinement_cases.csv`.
+- Added `docs\gamma_sub_continuous_refinement_report.md`.
+- Added `docs\codex_reports\gamma_sub_continuous_refinement_report.md`.
+- Updated project state, registries, and reproducibility notes.
+
+Result:
+
+All official off-grid cases exclude true `gamma_sub` from the candidate grid and evaluate non-grid simulator calls during refinement. Maximum nearest-grid relative error is `0.08225108225108226`; maximum continuous-refined relative error is `0.05565017963752034`; `T_sw` remains the limiting confounder.
+
 ## Paper-readiness gamma_sub robustness pack
 
 Scope:

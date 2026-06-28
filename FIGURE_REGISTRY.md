@@ -1,5 +1,12 @@
 # Figure registry
 
+## Continuous off-grid gamma_sub refinement figures
+
+No figures were generated or committed for this audit. Evidence is stored in lightweight tables:
+
+- `outputs\tables\gamma_sub_continuous_refinement_summary.json`
+- `outputs\tables\gamma_sub_continuous_refinement_cases.csv`
+
 ## Paper-readiness gamma_sub robustness figures
 
 No figures were generated or committed for this robustness pack. Evidence is

@@ -1,5 +1,14 @@
 # Dataset registry
 
+## Continuous off-grid gamma_sub refinement evidence
+
+These lightweight tables were generated from the frozen Ground Truth v1.1 triangle benchmark and sparse terminal observations. They are synthetic numerical digital-twin benchmark evidence, not experimental data.
+
+- `outputs\tables\gamma_sub_continuous_refinement_summary.json`
+- `outputs\tables\gamma_sub_continuous_refinement_cases.csv`
+
+The corresponding frozen input arrays remain ignored by Git and were not modified.
+
 ## Paper-readiness gamma_sub robustness evidence
 
 These lightweight tables were generated from the frozen Ground Truth v1.1
