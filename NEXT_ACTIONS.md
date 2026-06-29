@@ -2,33 +2,25 @@
 
 ## Immediate next step
 
-Use the paper-readiness robustness pack plus the continuous off-grid `gamma_sub` refinement audit to frame a method-oriented SCI small paper around a one-dimensional reduced-order synthetic numerical digital-twin benchmark. The defensible main claim is constrained `gamma_sub` inversion under fixed or tightly bounded switching/conductivity priors, with simulator-backed scalar refinement for off-grid `gamma_sub`.
+Use the F-SPS-PINN v2 smoke training pipeline as the next engineering checkpoint. The goal is forward/backward/train smoke validation with the white-box `vo2_sigma(T, c_v, m)` closure, not a large ablation or performance claim.
 
 Primary evidence:
 
-- `docs\paper\model_hierarchy_and_claim_boundary.md`
-- `docs\paper\equation_variable_registry.md`
-- `docs\paper\experiment_to_figure_mapping.md`
-- `docs\gamma_sub_paper_readiness_report.md`
-- `outputs\tables\gamma_sub_paper_readiness_summary.json`
-- `outputs\tables\gamma_sub_observation_sensitivity.csv`
-- `outputs\tables\gamma_sub_offgrid_summary.csv`
-- `docs\gamma_sub_continuous_refinement_report.md`
-- `outputs\tables\gamma_sub_continuous_refinement_summary.json`
-- `outputs\tables\gamma_sub_continuous_refinement_cases.csv`
+- `docs\codex_reports\f_sps_pinn_architecture_mvp_report.md`
+- `configs\pinn_inverse_v2_f_sps_smoke.yaml`
+- `scripts\train_pinn_inverse_v2_smoke.py`
+- `tests\test_pinn_inverse_v2_smoke.py`
+- `outputs\tables\pinn_inverse_v2_f_sps_smoke_summary.json`
+
+The constrained `gamma_sub` inversion remains the most stable paper claim. The F-SPS-PINN path is method development that must remain bounded as synthetic numerical digital-twin smoke evidence until proper baselines are run.
 
 ## Recommended tasks
 
-1. Draft a method-and-results outline that explicitly labels all data as
-   synthetic numerical digital-twin benchmark evidence.
-2. Keep the main claim restricted to sparse-port identifiability and constrained
-   `gamma_sub` inversion, with `T_sw` listed as the limiting confounder.
-3. Decide whether to add only text-level reviewer defenses next, or explicitly
-   authorize a later gamma_sub-PINN implementation.
-4. If future method work is authorized, keep `gamma_sub` as the only primary
-   inverse target and use a physics-constrained sigma closure.
-5. Keep all generated datasets and figures reproducible through scripts rather
-   than committing large binary artifacts.
+1. Keep v2 smoke claims limited to finite forward/backward/train closure with `vo2_sigma`.
+2. Add a small-run baseline comparing free `log_sigma` versus white-box `vo2_sigma` only after the smoke path is stable.
+3. Preserve the constrained `gamma_sub` storyline as the defensible paper core.
+4. Keep dynamic gate and frequency losses disabled until each has a separate smoke test in the v2 training path.
+5. Keep all generated datasets and figures reproducible through scripts rather than committing large binary artifacts.
 
 ## Do not do next
 

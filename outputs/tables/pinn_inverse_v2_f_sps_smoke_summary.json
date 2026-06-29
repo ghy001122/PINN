@@ -1,0 +1,69 @@
+{
+  "benchmark": "synthetic numerical digital-twin smoke test",
+  "config": "configs\\pinn_inverse_v2_f_sps_smoke.yaml",
+  "dynamic_gate_enabled": false,
+  "epochs": 3,
+  "final_loss": 0.08242770284414291,
+  "finite_loss": true,
+  "frequency_loss_enabled": false,
+  "frozen_hashes_after": {
+    "sparse_obs": "f45daf53136a255b3666ebeb56e6298ce148a613c46fa596b795e7ade68ea602",
+    "train_data": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8"
+  },
+  "frozen_hashes_before": {
+    "sparse_obs": "f45daf53136a255b3666ebeb56e6298ce148a613c46fa596b795e7ade68ea602",
+    "train_data": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8"
+  },
+  "frozen_inputs_unchanged": true,
+  "frozen_mtimes_after": {
+    "sparse_obs": 1782060474121208000,
+    "train_data": 1782060474118294900
+  },
+  "frozen_mtimes_before": {
+    "sparse_obs": 1782060474121208000,
+    "train_data": 1782060474118294900
+  },
+  "history": [
+    {
+      "epoch": 1.0,
+      "field_anchor_loss": 0.028963500633835793,
+      "port_g_loss": 0.06419599801301956,
+      "port_i_loss": 0.03568998724222183,
+      "sigma_max": 0.004592015407979488,
+      "sigma_min": 0.004394432529807091,
+      "smooth_loss": 4.01254339976731e-07,
+      "total_loss": 0.08348917216062546
+    },
+    {
+      "epoch": 2.0,
+      "field_anchor_loss": 0.028682135045528412,
+      "port_g_loss": 0.06378890573978424,
+      "port_i_loss": 0.03547196835279465,
+      "sigma_max": 0.004612171556800604,
+      "sigma_min": 0.004405113868415356,
+      "smooth_loss": 3.84333873171272e-07,
+      "total_loss": 0.08295900374650955
+    },
+    {
+      "epoch": 3.0,
+      "field_anchor_loss": 0.028402060270309448,
+      "port_g_loss": 0.06338106095790863,
+      "port_i_loss": 0.03525308147072792,
+      "sigma_max": 0.004632454365491867,
+      "sigma_min": 0.004415146075189114,
+      "smooth_loss": 3.697087436194124e-07,
+      "total_loss": 0.08242770284414291
+    }
+  ],
+  "initial_loss": 0.08348917216062546,
+  "loss_decreased": true,
+  "output_dir": "outputs\\pinn_inverse_v2\\f_sps_smoke",
+  "seed": 2026,
+  "sigma_max": 0.004632454365491867,
+  "sigma_min": 0.004415146075189114,
+  "sparse_obs": "data\\processed\\gt_v1_acceptance\\obs_triangle_sparse.npz",
+  "summary_json": "outputs\\tables\\pinn_inverse_v2_f_sps_smoke_summary.json",
+  "train_data": "data\\processed\\gt_v1_acceptance\\gt_triangle.npz",
+  "used_free_log_sigma": false,
+  "used_vo2_sigma": true
+}

@@ -1,5 +1,11 @@
 # Figure registry
 
+## F-SPS-PINN v2 smoke figures
+
+No figures were generated or committed for the F-SPS-PINN architecture MVP or v2 smoke training pipeline. Evidence is stored in lightweight JSON:
+
+- `outputs\tables\pinn_inverse_v2_f_sps_smoke_summary.json`
+
 ## Continuous off-grid gamma_sub refinement figures
 
 No figures were generated or committed for this audit. Evidence is stored in lightweight tables:

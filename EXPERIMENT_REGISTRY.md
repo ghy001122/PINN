@@ -1,5 +1,28 @@
 # Experiment registry
 
+## F-SPS-PINN v2 smoke training pipeline
+
+- Config: `configs\pinn_inverse_v2_f_sps_smoke.yaml`
+- Script: `scripts\train_pinn_inverse_v2_smoke.py`
+- Test: `tests\test_pinn_inverse_v2_smoke.py`
+- Input target: `data\processed\gt_v1_acceptance\gt_triangle.npz`
+- Input sparse observation: `data\processed\gt_v1_acceptance\obs_triangle_sparse.npz`
+- Summary: `outputs\tables\pinn_inverse_v2_f_sps_smoke_summary.json`
+- Report: `docs\codex_reports\pinn_inverse_v2_f_sps_smoke_report.md`
+
+Status: completed as a minimal smoke training loop. It uses Fourier-pyramid features and `sigma = vo2_sigma(T, c_v, m)`, writes a lightweight JSON summary, and does not use the free `log_sigma` path. This is not a formal performance experiment.
+
+## F-SPS-PINN architecture MVP
+
+- VO2-like constitutive closure: `src\pinnpcm\physics\vo2_constitutive.py`
+- Fourier pyramid and opt-in MLP: `src\pinnpcm\pinn\network.py`
+- Dynamic residual gate: `src\pinnpcm\pinn\loss_balancer.py`
+- Differentiable oscillation metrics: `src\pinnpcm\physics\oscillation_metrics.py`
+- Tests: `tests\test_vo2_constitutive.py`, `tests\test_fourier_pyramid.py`, `tests\test_loss_balancer.py`, `tests\test_oscillation_metrics.py`
+- Report: `docs\codex_reports\f_sps_pinn_architecture_mvp_report.md`
+
+Status: completed as isolated architecture MVP, not a training result.
+
 ## Continuous off-grid gamma_sub refinement audit
 
 - Script: `scripts\refine_gamma_sub_continuous.py`

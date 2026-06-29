@@ -1,5 +1,13 @@
 # Dataset registry
 
+## F-SPS-PINN v2 smoke training evidence
+
+This lightweight JSON was generated from the frozen Ground Truth v1.1 triangle benchmark and sparse terminal observations. It is synthetic numerical digital-twin smoke evidence, not a performance result and not experimental data.
+
+- `outputs\tables\pinn_inverse_v2_f_sps_smoke_summary.json`
+
+The F-SPS-PINN architecture MVP itself produced no new dataset.
+
 ## Continuous off-grid gamma_sub refinement evidence
 
 These lightweight tables were generated from the frozen Ground Truth v1.1 triangle benchmark and sparse terminal observations. They are synthetic numerical digital-twin benchmark evidence, not experimental data.

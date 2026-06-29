@@ -1,0 +1,45 @@
+# F-SPS-PINN v2 smoke training configuration.
+# This is a synthetic numerical digital-twin smoke test, not a performance experiment.
+train_data: data/processed/gt_v1_acceptance/gt_triangle.npz
+sparse_obs: data/processed/gt_v1_acceptance/obs_triangle_sparse.npz
+manifest: data/processed/gt_v1_acceptance/manifest.json
+output_dir: outputs/pinn_inverse_v2/f_sps_smoke
+summary_json: outputs/tables/pinn_inverse_v2_f_sps_smoke_summary.json
+
+epochs: 3
+seed: 2026
+device: cpu
+lr: 1.0e-3
+hidden_dim: 32
+hidden_layers: 2
+fourier_scales: [1.0, 2.0, 4.0]
+
+model_bounds:
+  c_v_min: 0.0
+  c_v_max: 0.2
+  delta_T_max: 20.0
+
+loss_weights:
+  w_port_g: 1.0
+  w_port_i: 0.5
+  w_field_anchor: 0.05
+  w_smooth: 1.0e-4
+  w_dynamic_gate: 0.0
+  w_frequency: 0.0
+
+field_anchor_points: 128
+
+vo2_params:
+  T_c: 313.0
+  transition_width: 5.0
+  transition_width_min: 0.5
+  T_ref: 300.0
+  c_v_ref: 0.08
+  sigma_ins0: 0.0025
+  sigma_met0: 0.03
+  E_ins_eV: 0.05
+  beta_c: 2.0
+  metal_temp_coeff: 0.0
+  mixing_mode: linear
+  eps_sigma: 1.0e-12
+  sigma_max: 1.0

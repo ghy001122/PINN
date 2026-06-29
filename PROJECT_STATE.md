@@ -2,7 +2,9 @@
 
 ## Current phase
 
-The literature-backed constrained `gamma_sub` inversion, paper-readiness robustness pack, and continuous off-grid refinement audit have been executed on the frozen Ground Truth v1.1 triangle benchmark. The current evidence supports a conditional reduced inverse-problem route: `gamma_sub` is stable in nominal fixed-prior, off-grid, observation-count, and simulator-backed continuous-refinement checks, but it remains sensitive to uncontrolled `T_sw` mismatch.
+F-SPS-PINN architecture MVP is complete as an isolated, unit-tested architecture package. The v2 smoke training pipeline is now available and demonstrates a minimal forward/backward/train loop using the white-box `vo2_sigma(T, c_v, m)` closure on the frozen Ground Truth v1.1 triangle benchmark.
+
+This remains a smoke-training milestone, not a formal performance result. The most defensible paper line is still the constrained reduced `gamma_sub` inverse problem under fixed or tightly bounded priors. F-SPS-PINN is the next method-development path for replacing conductivity shortcuts and testing stiffness-aware training, not a validated full hidden-field recovery claim.
 
 ## Research line
 
@@ -53,6 +55,10 @@ For off-grid `gamma_sub = 4.62e8`, the nearest-grid estimate has relative error
 exact and `T_sw` remains the most dangerous confounder.
 
 The continuous off-grid refinement audit replaces log-quadratic profile interpolation with scalar continuous optimization that re-runs the simulator at each trial `gamma_sub`. Across 36 official synthetic numerical digital-twin cases (`gamma_sub = 4.38e8, 4.62e8, 5.15e8`; `n_obs = 8, 16, 32, 64`; noise `0, 0.02, 0.05`), the maximum nearest-grid relative error is `0.08225108225108226`, the maximum continuous-refined relative error is `0.05565017963752034`, all true values are excluded from the candidate grid, and all refinement cases evaluate non-grid simulator calls.
+
+The F-SPS-PINN architecture MVP added a VO2-like white-box conductivity closure, opt-in Fourier-pyramid embedding, dynamic residual gate, and differentiable oscillation metrics. These modules passed unit tests and preserve the old free `log_sigma` path as an ablation baseline.
+
+The v2 smoke training pipeline adds `configs\pinn_inverse_v2_f_sps_smoke.yaml` and `scripts\train_pinn_inverse_v2_smoke.py`. It runs a 3-epoch CPU smoke test, reconstructs terminal `G/I` using `sigma = vo2_sigma(T, c_v, m)`, writes `outputs\tables\pinn_inverse_v2_f_sps_smoke_summary.json`, and confirms frozen input hashes and mtimes are unchanged.
 
 Detailed historical file lists and reproduction entries live in:
 
