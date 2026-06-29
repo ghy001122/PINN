@@ -8,13 +8,9 @@ default.
 
 Current phase:
 
-`literature-backed constrained gamma_sub inversion preparation`
+`F-SPS-PINN architecture MVP`
 
-The project has moved away from unconstrained port-only full hidden-field
-recovery as a primary claim. The active research direction is
-identifiability-guided target-space reduction: use literature-guided priors to
-constrain confounding parameters and invert the effective thermal dissipation
-parameter `gamma_sub` from sparse terminal observations.
+The constrained reduced `gamma_sub` inversion stage is complete. The active work is an isolated F-SPS-PINN architecture MVP: add differentiable, numerically stable phase-transition method components without replacing existing v0/v1/v1.1 training paths or modifying frozen Ground Truth v1.1.
 
 ## Project Boundary
 
@@ -72,6 +68,11 @@ The following are deferred method enhancements, not current tasks unless
 - stiff transfer learning or continuation training
 - observability-augmented sparse temperature/state measurements
 - NeuroSPICE, NeuroPINN, or system-level mapping
+
+
+## Phase-Change Architecture Blueprint
+
+Read `docs/research_strategy/phase_change_pinn_sci_sprint_blueprint.md` only for phase-change, VO2, F-SPS-PINN, or related architecture-refactoring tasks. It is a planning guide, not an experimental result report.
 
 ## Low-Token First Read
 
