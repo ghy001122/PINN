@@ -1,0 +1,72 @@
+{
+  "benchmark": "synthetic numerical digital-twin small-run baseline",
+  "claim_boundary": "small-run synthetic numerical benchmark only; no F-SPS-PINN performance superiority claim",
+  "config": "configs\\pinn_inverse_v2_f_sps_baseline.yaml",
+  "epochs": 8,
+  "frozen_hashes_after": {
+    "sparse_obs": "f45daf53136a255b3666ebeb56e6298ce148a613c46fa596b795e7ade68ea602",
+    "train_data": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8"
+  },
+  "frozen_hashes_before": {
+    "sparse_obs": "f45daf53136a255b3666ebeb56e6298ce148a613c46fa596b795e7ade68ea602",
+    "train_data": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8"
+  },
+  "frozen_inputs_unchanged": true,
+  "frozen_mtimes_after": {
+    "sparse_obs": 1782060474121208000,
+    "train_data": 1782060474118294900
+  },
+  "frozen_mtimes_before": {
+    "sparse_obs": 1782060474121208000,
+    "train_data": 1782060474118294900
+  },
+  "num_runs": 2,
+  "output_root": "outputs\\pinn_inverse_v2\\f_sps_baseline",
+  "runs": [
+    {
+      "conductivity_mode": "free_log_sigma",
+      "epochs": 8,
+      "final_loss": 0.08363717049360275,
+      "finite_loss": true,
+      "initial_loss": 0.09483879059553146,
+      "loss_decreased": true,
+      "nrmse_c_v": 0.3329757906450112,
+      "nrmse_delta_T": 0.47216525753771105,
+      "nrmse_m": 0.311927582851063,
+      "nrmse_sigma": 0.17958202213083294,
+      "relative_G_error": 0.408902714577596,
+      "relative_I_error": 0.43039374888349763,
+      "run_name": "free_log_sigma",
+      "seed": 2026,
+      "sigma_max": 0.004945037886500359,
+      "sigma_min": 0.004308660980314016,
+      "used_free_log_sigma": true,
+      "used_vo2_sigma": false
+    },
+    {
+      "conductivity_mode": "white_box_vo2_sigma",
+      "epochs": 8,
+      "final_loss": 0.08345235139131546,
+      "finite_loss": true,
+      "initial_loss": 0.08722592145204544,
+      "loss_decreased": true,
+      "nrmse_c_v": 0.33499704314444895,
+      "nrmse_delta_T": 0.4721508718130579,
+      "nrmse_m": 0.3034902197486291,
+      "nrmse_sigma": 0.1789054620107825,
+      "relative_G_error": 0.4090955992821045,
+      "relative_I_error": 0.42799523908857184,
+      "run_name": "white_box_vo2_sigma",
+      "seed": 2026,
+      "sigma_max": 0.004738473333418369,
+      "sigma_min": 0.004458672367036343,
+      "used_free_log_sigma": false,
+      "used_vo2_sigma": true
+    }
+  ],
+  "runs_csv": "outputs\\tables\\pinn_inverse_v2_f_sps_baseline_runs.csv",
+  "seed": 2026,
+  "sparse_obs": "data\\processed\\gt_v1_acceptance\\obs_triangle_sparse.npz",
+  "summary_json": "outputs\\tables\\pinn_inverse_v2_f_sps_baseline_summary.json",
+  "train_data": "data\\processed\\gt_v1_acceptance\\gt_triangle.npz"
+}

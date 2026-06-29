@@ -1,5 +1,18 @@
 # Experiment registry
 
+## F-SPS-PINN v2 small-run baseline
+
+- Config: `configs\pinn_inverse_v2_f_sps_baseline.yaml`
+- Runner: `scripts\run_pinn_inverse_v2_baseline.py`
+- Test: `tests\test_pinn_inverse_v2_baseline.py`
+- Input target: `data\processed\gt_v1_acceptance\gt_triangle.npz`
+- Input sparse observation: `data\processed\gt_v1_acceptance\obs_triangle_sparse.npz`
+- Summary: `outputs\tables\pinn_inverse_v2_f_sps_baseline_summary.json`
+- Runs CSV: `outputs\tables\pinn_inverse_v2_f_sps_baseline_runs.csv`
+- Report: `docs\codex_reports\pinn_inverse_v2_f_sps_baseline_report.md`
+
+Status: completed as a small-run synthetic numerical baseline. It compares `free_log_sigma` and `white_box_vo2_sigma` under matched seed, epochs, anchor count, and sparse terminal observations. It is not a formal performance experiment and does not replace v0/v1/v1.1 paths.
+
 ## F-SPS-PINN v2 smoke training pipeline
 
 - Config: `configs\pinn_inverse_v2_f_sps_smoke.yaml`

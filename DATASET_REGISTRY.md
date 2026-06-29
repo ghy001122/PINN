@@ -1,5 +1,14 @@
 # Dataset registry
 
+## F-SPS-PINN v2 small-run baseline evidence
+
+These lightweight tables were generated from the frozen Ground Truth v1.1 triangle benchmark and sparse terminal observations. They are synthetic numerical digital-twin small-run evidence, not formal performance results and not experimental data.
+
+- `outputs\tables\pinn_inverse_v2_f_sps_baseline_summary.json`
+- `outputs\tables\pinn_inverse_v2_f_sps_baseline_runs.csv`
+
+The corresponding frozen input arrays remain ignored by Git and were not modified.
+
 ## F-SPS-PINN v2 smoke training evidence
 
 This lightweight JSON was generated from the frozen Ground Truth v1.1 triangle benchmark and sparse terminal observations. It is synthetic numerical digital-twin smoke evidence, not a performance result and not experimental data.

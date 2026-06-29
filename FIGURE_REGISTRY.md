@@ -1,5 +1,12 @@
 # Figure registry
 
+## F-SPS-PINN v2 small-run baseline figures
+
+No figures were generated or committed for the F-SPS-PINN v2 small-run baseline. Evidence is stored in lightweight tables:
+
+- `outputs\tables\pinn_inverse_v2_f_sps_baseline_summary.json`
+- `outputs\tables\pinn_inverse_v2_f_sps_baseline_runs.csv`
+
 ## F-SPS-PINN v2 smoke figures
 
 No figures were generated or committed for the F-SPS-PINN architecture MVP or v2 smoke training pipeline. Evidence is stored in lightweight JSON:

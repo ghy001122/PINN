@@ -4,7 +4,7 @@
 
 - `CODEX_CONTEXT.md`: first-read project context for non-trivial Codex tasks.
 - `docs\research_strategy\active_phase.md`: current authorized phase,
-  currently literature-backed constrained `gamma_sub` inversion preparation.
+  currently F-SPS-PINN v2 small-run baseline.
 - `docs\research_strategy\context_loading_policy.md`: Tier 0 through Tier 4
   context-loading rules.
 - `docs\research_strategy\context_index.md`: quick routing index for context
@@ -75,6 +75,8 @@
 - `scripts\refine_gamma_sub_continuous.py`: performs simulator-backed continuous scalar refinement for off-grid `gamma_sub`, with true off-grid cases, observation-count sensitivity, and noise sensitivity.
 - `configs\pinn_inverse_v2_f_sps_smoke.yaml`: v2 smoke config for a short CPU training loop using white-box `vo2_sigma`.
 - `scripts\train_pinn_inverse_v2_smoke.py`: minimal F-SPS-PINN v2 smoke trainer; predicts `T`, `c_v`, and `m`, computes `sigma` through `vo2_sigma`, and writes a lightweight summary JSON.
+- `configs\pinn_inverse_v2_f_sps_baseline.yaml`: small-run baseline config comparing `free_log_sigma` and `white_box_vo2_sigma`.
+- `scripts\run_pinn_inverse_v2_baseline.py`: matched small-run baseline runner that writes JSON/CSV evidence without modifying frozen GT or old v0/v1/v1.1 paths.
 
 ## Current test coverage
 
@@ -98,6 +100,7 @@
 - `tests\test_loss_balancer.py`: checks dynamic residual gate normalization, differentiability, and anti-collapse behavior.
 - `tests\test_oscillation_metrics.py`: checks differentiable spectral and pulse metrics, including zero-signal backward stability.
 - `tests\test_pinn_inverse_v2_smoke.py`: checks v2 smoke config/script execution, summary JSON, VO2 sigma use, no free `log_sigma`, and frozen input hash/mtime preservation.
+- `tests\test_pinn_inverse_v2_baseline.py`: checks v2 baseline config/script execution, summary JSON/CSV, mode flags, finite metrics, and frozen input hash/mtime preservation.
 
 ## Evidence-chain reports
 
@@ -146,6 +149,7 @@
 - `docs\codex_reports\gamma_sub_constrained_inversion_report.md`: final Codex report for this constrained inversion task.
 - `docs\codex_reports\f_sps_pinn_architecture_mvp_report.md`: final Codex report for the isolated F-SPS-PINN architecture MVP.
 - `docs\codex_reports\pinn_inverse_v2_f_sps_smoke_report.md`: final Codex report for the v2 smoke training pipeline.
+- `docs\codex_reports\pinn_inverse_v2_f_sps_baseline_report.md`: final Codex report for the v2 small-run baseline.
 
 ## Frozen files not to modify during PINN audit
 

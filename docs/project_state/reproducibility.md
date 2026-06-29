@@ -1,5 +1,18 @@
 # Reproducibility
 
+## F-SPS-PINN v2 small-run baseline reproduction
+
+```powershell
+python scripts/run_pinn_inverse_v2_baseline.py --config configs/pinn_inverse_v2_f_sps_baseline.yaml
+```
+
+This reads the frozen Ground Truth v1.1 triangle files and regenerates:
+
+- `outputs\tables\pinn_inverse_v2_f_sps_baseline_summary.json`
+- `outputs\tables\pinn_inverse_v2_f_sps_baseline_runs.csv`
+
+It does not regenerate or modify frozen Ground Truth data. It is a small-run synthetic numerical benchmark only, not a formal performance experiment.
+
 ## Continuous off-grid gamma_sub refinement reproduction
 
 ```powershell

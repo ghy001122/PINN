@@ -32,6 +32,8 @@ outputs/tables/*
 !outputs/tables/gamma_sub_continuous_refinement_summary.json
 !outputs/tables/gamma_sub_continuous_refinement_cases.csv
 !outputs/tables/pinn_inverse_v2_f_sps_smoke_summary.json
+!outputs/tables/pinn_inverse_v2_f_sps_baseline_summary.json
+!outputs/tables/pinn_inverse_v2_f_sps_baseline_runs.csv
 outputs/pinn_inverse_v0/*
 outputs/pinn_inverse_v0_smoke/*
 outputs/pinn_inverse_v1/*

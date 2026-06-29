@@ -2,9 +2,9 @@
 
 ## Current phase
 
-F-SPS-PINN architecture MVP is complete as an isolated, unit-tested architecture package. The v2 smoke training pipeline is now available and demonstrates a minimal forward/backward/train loop using the white-box `vo2_sigma(T, c_v, m)` closure on the frozen Ground Truth v1.1 triangle benchmark.
+F-SPS-PINN architecture MVP is complete as an isolated, unit-tested architecture package. The v2 smoke training pipeline is complete and demonstrates a minimal forward/backward/train loop using the white-box `vo2_sigma(T, c_v, m)` closure on the frozen Ground Truth v1.1 triangle benchmark. The current method-development checkpoint is the F-SPS-PINN v2 small-run baseline comparing `free_log_sigma` and `white_box_vo2_sigma` under matched training settings.
 
-This remains a smoke-training milestone, not a formal performance result. The most defensible paper line is still the constrained reduced `gamma_sub` inverse problem under fixed or tightly bounded priors. F-SPS-PINN is the next method-development path for replacing conductivity shortcuts and testing stiffness-aware training, not a validated full hidden-field recovery claim.
+This remains a small-run synthetic numerical benchmark, not a formal performance result. The most defensible paper line is still the constrained reduced `gamma_sub` inverse problem under fixed or tightly bounded priors. F-SPS-PINN is the next method-development path for replacing conductivity shortcuts and testing stiffness-aware training, not a validated full hidden-field recovery claim.
 
 ## Research line
 
@@ -59,6 +59,8 @@ The continuous off-grid refinement audit replaces log-quadratic profile interpol
 The F-SPS-PINN architecture MVP added a VO2-like white-box conductivity closure, opt-in Fourier-pyramid embedding, dynamic residual gate, and differentiable oscillation metrics. These modules passed unit tests and preserve the old free `log_sigma` path as an ablation baseline.
 
 The v2 smoke training pipeline adds `configs\pinn_inverse_v2_f_sps_smoke.yaml` and `scripts\train_pinn_inverse_v2_smoke.py`. It runs a 3-epoch CPU smoke test, reconstructs terminal `G/I` using `sigma = vo2_sigma(T, c_v, m)`, writes `outputs\tables\pinn_inverse_v2_f_sps_smoke_summary.json`, and confirms frozen input hashes and mtimes are unchanged.
+
+The v2 small-run baseline adds configs\pinn_inverse_v2_f_sps_baseline.yaml and scripts\run_pinn_inverse_v2_baseline.py. It compares ree_log_sigma and white_box_vo2_sigma with the same seed, epochs, anchor count, and sparse terminal observations, writes outputs\tables\pinn_inverse_v2_f_sps_baseline_summary.json and outputs\tables\pinn_inverse_v2_f_sps_baseline_runs.csv, and confirms frozen input hashes and mtimes are unchanged. The result is not a performance-superiority claim.
 
 Detailed historical file lists and reproduction entries live in:
 

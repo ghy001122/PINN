@@ -1,5 +1,26 @@
 # Latest changes
 
+## F-SPS-PINN v2 small-run baseline
+
+Scope:
+
+- Compare `free_log_sigma` and `white_box_vo2_sigma` under matched seed, epochs, field-anchor count, and sparse terminal observations.
+- Keep frozen Ground Truth v1.1 and old v0/v1/v1.1 paths unchanged.
+- Treat results as small-run synthetic numerical evidence only, not a formal performance conclusion.
+
+Changed:
+
+- Added `configs\pinn_inverse_v2_f_sps_baseline.yaml`.
+- Added `scripts\run_pinn_inverse_v2_baseline.py`.
+- Added `tests\test_pinn_inverse_v2_baseline.py`.
+- Added `outputs\tables\pinn_inverse_v2_f_sps_baseline_summary.json`.
+- Added `outputs\tables\pinn_inverse_v2_f_sps_baseline_runs.csv`.
+- Updated project state, registries, file inventory, and reproducibility notes.
+
+Result:
+
+Both baseline modes produced finite losses and loss decreases in the 8-epoch CPU small run. The white-box `vo2_sigma` path did not use free `log_sigma`; the free-log-sigma run remains only an ablation baseline. Frozen input hashes and mtimes were unchanged.
+
 ## Continuous off-grid gamma_sub refinement audit
 
 Scope:
