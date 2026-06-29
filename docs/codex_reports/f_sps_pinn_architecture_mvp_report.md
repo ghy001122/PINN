@@ -4,7 +4,8 @@
 
 - Repo: `https://github.com/ghy001122/PINN`
 - Branch: `main`
-- Commit hash: `0dbef58db3bb82b632d63eb4a58927a0e699a31b`
+- Implementation commit hash: `8409cbe6a8368ba2fe49e5991e9c1908a3635c33`
+- Hash note: this report is saved in the immediate follow-up report-backfill commit because a Git commit cannot contain its own final SHA.
 
 ## Scope
 
