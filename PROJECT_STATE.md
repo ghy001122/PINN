@@ -2,11 +2,11 @@
 
 ## Current phase
 
-F-SPS-PINN architecture MVP is complete as an isolated, unit-tested architecture package. The v2 smoke training pipeline is complete and demonstrates a minimal forward/backward/train loop using the white-box `vo2_sigma(T, c_v, m)` closure on the frozen Ground Truth v1.1 triangle benchmark. The v2 small-run baseline is complete and compares `free_log_sigma` and `white_box_vo2_sigma` under matched small-run settings.
+F-SPS-PINN architecture MVP is complete as an isolated, unit-tested architecture package. The v2 smoke training pipeline is complete and demonstrates a minimal forward/backward/train loop using the white-box `vo2_sigma(T, c_v, m)` closure on the frozen Ground Truth v1.1 triangle benchmark. The v2 small-run baseline and v2 phase-transition stress preflight are complete as bounded method-development evidence.
 
-The current method-development checkpoint is `F-SPS-PINN v2 phase-transition stress preflight`. It tests whether the white-box VO2 closure remains numerically finite under mild, sharp, near-threshold, and high-contrast phase-transition parameter settings. This is a small-run synthetic numerical stress preflight, not a formal performance result.
+The current method-development checkpoint is `F-SPS-PINN v2 Fourier on/off ablation under stress`. It compares `vo2_sigma_fourier_off` and `vo2_sigma_fourier_on` under the same sharp-transition stress condition. This is a small-run synthetic numerical ablation, not a formal performance result.
 
-The most defensible paper line remains the constrained reduced `gamma_sub` inverse problem under fixed or tightly bounded priors. F-SPS-PINN is the next method-development path for replacing conductivity shortcuts and testing stiffness-aware training, not a validated full hidden-field recovery claim.
+The most defensible paper line remains the constrained reduced `gamma_sub` inverse problem under fixed or tightly bounded priors. F-SPS-PINN is a method-development path for replacing conductivity shortcuts and testing stiffness-aware training, not a validated full hidden-field recovery claim.
 
 ## Research line
 
@@ -46,6 +46,8 @@ The v2 smoke training pipeline adds `configs\pinn_inverse_v2_f_sps_smoke.yaml` a
 The v2 small-run baseline adds `configs\pinn_inverse_v2_f_sps_baseline.yaml` and `scripts\run_pinn_inverse_v2_baseline.py`. It compares `free_log_sigma` and `white_box_vo2_sigma` with the same seed, epochs, anchor count, and sparse terminal observations, writes `outputs\tables\pinn_inverse_v2_f_sps_baseline_summary.json` and `outputs\tables\pinn_inverse_v2_f_sps_baseline_runs.csv`, and confirms frozen input hashes and mtimes are unchanged. The result is not a performance-superiority claim.
 
 The v2 phase-transition stress preflight adds `configs\pinn_inverse_v2_phase_transition_stress.yaml` and `scripts\run_pinn_inverse_v2_phase_transition_stress.py`. It runs `mild_transition`, `sharp_transition`, `near_threshold`, and `high_contrast` cases using `white_box_vo2_sigma` with temperature-derived phase fraction, writes `outputs\tables\pinn_inverse_v2_phase_transition_stress_summary.json` and `outputs\tables\pinn_inverse_v2_phase_transition_stress_cases.csv`, and confirms frozen input hashes and mtimes are unchanged. The result is a stress preflight only, not a performance-superiority claim.
+
+The v2 Fourier ablation adds `configs\pinn_inverse_v2_fourier_ablation.yaml` and `scripts\run_pinn_inverse_v2_fourier_ablation.py`. It compares `vo2_sigma_fourier_off` and `vo2_sigma_fourier_on` under the same sharp-transition stress condition, writes `outputs\tables\pinn_inverse_v2_fourier_ablation_summary.json` and `outputs\tables\pinn_inverse_v2_fourier_ablation_runs.csv`, and confirms frozen input hashes and mtimes are unchanged. Fourier on does not clearly outperform Fourier off in this small-run result.
 
 Detailed historical file lists and reproduction entries live in:
 

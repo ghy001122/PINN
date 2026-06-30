@@ -36,6 +36,8 @@ outputs/tables/*
 !outputs/tables/pinn_inverse_v2_f_sps_baseline_runs.csv
 !outputs/tables/pinn_inverse_v2_phase_transition_stress_summary.json
 !outputs/tables/pinn_inverse_v2_phase_transition_stress_cases.csv
+!outputs/tables/pinn_inverse_v2_fourier_ablation_summary.json
+!outputs/tables/pinn_inverse_v2_fourier_ablation_runs.csv
 outputs/pinn_inverse_v0/*
 outputs/pinn_inverse_v0_smoke/*
 outputs/pinn_inverse_v1/*

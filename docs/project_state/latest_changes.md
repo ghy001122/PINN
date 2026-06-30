@@ -1,5 +1,29 @@
 # Latest changes
 
+## F-SPS-PINN v2 Fourier on/off ablation under stress
+
+Scope:
+
+- Compare `vo2_sigma_fourier_off` and `vo2_sigma_fourier_on` under the same sharp-transition stress condition.
+- Reuse v2 baseline data loading, training loop, metrics, and frozen-input checks.
+- Keep frozen Ground Truth v1.1 and old v0/v1/v1.1 paths unchanged.
+- Treat results as small-run synthetic numerical evidence only, not a formal performance conclusion.
+
+Changed:
+
+- Added `configs\pinn_inverse_v2_fourier_ablation.yaml`.
+- Added `scripts\run_pinn_inverse_v2_fourier_ablation.py`.
+- Added `tests\test_pinn_inverse_v2_fourier_ablation.py`.
+- Added `outputs\tables\pinn_inverse_v2_fourier_ablation_summary.json`.
+- Added `outputs\tables\pinn_inverse_v2_fourier_ablation_runs.csv`.
+- Added opt-in `use_fourier` support to `src\pinnpcm\pinn\network.py` and v2 baseline utilities.
+- Updated project state, registries, file inventory, and reproducibility notes.
+
+Result:
+
+Both Fourier-off and Fourier-on runs produced finite losses, used `white_box_vo2_sigma`, did not use free `log_sigma`, and preserved frozen input hashes and mtimes. Fourier on does not clearly outperform Fourier off in this small-run result.
+
+
 ## F-SPS-PINN v2 phase-transition stress preflight
 
 Scope:

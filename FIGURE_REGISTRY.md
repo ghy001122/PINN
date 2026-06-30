@@ -1,5 +1,13 @@
 # Figure registry
 
+## F-SPS-PINN v2 Fourier ablation figures
+
+No figures were generated or committed for the F-SPS-PINN v2 Fourier on/off ablation. Evidence is stored in lightweight tables:
+
+- `outputs\tables\pinn_inverse_v2_fourier_ablation_summary.json`
+- `outputs\tables\pinn_inverse_v2_fourier_ablation_runs.csv`
+
+
 ## F-SPS-PINN v2 phase-transition stress figures
 
 No figures were generated or committed for the F-SPS-PINN v2 phase-transition stress preflight. Evidence is stored in lightweight tables:

@@ -1,0 +1,101 @@
+{
+  "all_finite_loss": true,
+  "all_frozen_inputs_unchanged": true,
+  "all_used_vo2_sigma": true,
+  "benchmark": "synthetic numerical digital-twin Fourier on/off ablation under sharp-transition stress",
+  "claim_boundary": "small-run Fourier ablation only; no F-SPS-PINN superiority claim unless supported by results",
+  "config": "configs\\pinn_inverse_v2_fourier_ablation.yaml",
+  "epochs": 10,
+  "frozen_hashes_after": {
+    "sparse_obs": "f45daf53136a255b3666ebeb56e6298ce148a613c46fa596b795e7ade68ea602",
+    "train_data": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8"
+  },
+  "frozen_hashes_before": {
+    "sparse_obs": "f45daf53136a255b3666ebeb56e6298ce148a613c46fa596b795e7ade68ea602",
+    "train_data": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8"
+  },
+  "frozen_inputs_unchanged": true,
+  "frozen_mtimes_after": {
+    "sparse_obs": 1782060474121208000,
+    "train_data": 1782060474118294900
+  },
+  "frozen_mtimes_before": {
+    "sparse_obs": 1782060474121208000,
+    "train_data": 1782060474118294900
+  },
+  "num_runs": 2,
+  "output_root": "outputs\\pinn_inverse_v2\\fourier_ablation",
+  "recommended_interpretation": "If Fourier on clearly outperforms off, treat it only as supplemental method evidence. If it does not, interpret this as evidence that multiscale features alone do not resolve terminal-observation underdetermination; it is not a project failure.",
+  "runs": [
+    {
+      "T_c": 313.0,
+      "conductivity_mode": "white_box_vo2_sigma",
+      "final_loss": 0.17737101018428802,
+      "finite_loss": true,
+      "fourier_enabled": false,
+      "fourier_scales": [
+        1.0,
+        2.0,
+        4.0
+      ],
+      "frozen_inputs_unchanged": true,
+      "initial_loss": 0.17903722822666168,
+      "loss_decreased": true,
+      "nrmse_c_v": 0.39587474578254106,
+      "nrmse_delta_T": 0.47211250988064973,
+      "nrmse_m": 0.3051101828428313,
+      "nrmse_sigma": 0.24940025054427328,
+      "relative_G_error": 0.6509982160898017,
+      "relative_I_error": 0.6596275873510091,
+      "run_name": "vo2_sigma_fourier_off",
+      "sigma_contrast": 12.0,
+      "sigma_dynamic_range": 1.0061456248628189,
+      "sigma_ins0": 0.0025,
+      "sigma_max": 0.0025679238606244326,
+      "sigma_met0": 0.03,
+      "sigma_min": 0.0025522387586534023,
+      "stress_case": "sharp_transition",
+      "transition_width": 0.75,
+      "used_free_log_sigma": false,
+      "used_vo2_sigma": true
+    },
+    {
+      "T_c": 313.0,
+      "conductivity_mode": "white_box_vo2_sigma",
+      "final_loss": 0.17817334830760956,
+      "finite_loss": true,
+      "fourier_enabled": true,
+      "fourier_scales": [
+        1.0,
+        2.0,
+        4.0
+      ],
+      "frozen_inputs_unchanged": true,
+      "initial_loss": 0.17952024936676025,
+      "loss_decreased": true,
+      "nrmse_c_v": 0.36176873917221936,
+      "nrmse_delta_T": 0.4721668922791489,
+      "nrmse_m": 0.3119689623087828,
+      "nrmse_sigma": 0.24992714418015055,
+      "relative_G_error": 0.6529524166709443,
+      "relative_I_error": 0.6607393386460401,
+      "run_name": "vo2_sigma_fourier_on",
+      "sigma_contrast": 12.0,
+      "sigma_dynamic_range": 1.022688214827701,
+      "sigma_ins0": 0.0025,
+      "sigma_max": 0.0025732412468641996,
+      "sigma_met0": 0.03,
+      "sigma_min": 0.0025161541998386383,
+      "stress_case": "sharp_transition",
+      "transition_width": 0.75,
+      "used_free_log_sigma": false,
+      "used_vo2_sigma": true
+    }
+  ],
+  "runs_csv": "outputs\\tables\\pinn_inverse_v2_fourier_ablation_runs.csv",
+  "seed": 2026,
+  "sparse_obs": "data\\processed\\gt_v1_acceptance\\obs_triangle_sparse.npz",
+  "stress_case": "sharp_transition",
+  "summary_json": "outputs\\tables\\pinn_inverse_v2_fourier_ablation_summary.json",
+  "train_data": "data\\processed\\gt_v1_acceptance\\gt_triangle.npz"
+}

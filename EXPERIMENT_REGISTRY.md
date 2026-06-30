@@ -1,5 +1,19 @@
 # Experiment registry
 
+## F-SPS-PINN v2 Fourier on/off ablation under stress
+
+- Config: `configs\pinn_inverse_v2_fourier_ablation.yaml`
+- Runner: `scripts\run_pinn_inverse_v2_fourier_ablation.py`
+- Test: `tests\test_pinn_inverse_v2_fourier_ablation.py`
+- Input target: `data\processed\gt_v1_acceptance\gt_triangle.npz`
+- Input sparse observation: `data\processed\gt_v1_acceptance\obs_triangle_sparse.npz`
+- Summary: `outputs\tables\pinn_inverse_v2_fourier_ablation_summary.json`
+- Runs CSV: `outputs\tables\pinn_inverse_v2_fourier_ablation_runs.csv`
+- Report: `docs\codex_reports\pinn_inverse_v2_fourier_ablation_report.md`
+
+Status: completed as a small-run synthetic numerical Fourier on/off ablation under sharp-transition stress. It compares `vo2_sigma_fourier_off` and `vo2_sigma_fourier_on` under matched settings. It is not a formal performance experiment and does not replace v0/v1/v1.1 paths.
+
+
 ## F-SPS-PINN v2 phase-transition stress preflight
 
 - Config: `configs\pinn_inverse_v2_phase_transition_stress.yaml`

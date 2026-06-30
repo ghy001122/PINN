@@ -122,6 +122,7 @@ class V2BaselineNet(nn.Module):
         hidden_dim: int,
         hidden_layers: int,
         fourier_scales: list[float],
+        fourier_enabled: bool,
         c_v_min: float,
         c_v_max: float,
         delta_T_max: float,
@@ -155,6 +156,7 @@ class V2BaselineNet(nn.Module):
             hidden_dim=int(hidden_dim),
             hidden_layers=int(hidden_layers),
             scales=[float(value) for value in fourier_scales],
+            use_fourier=bool(fourier_enabled),
         )
         self._initialize_bias(initial_c_v=initial_c_v, initial_m=initial_m, initial_sigma=initial_sigma)
 
@@ -326,6 +328,7 @@ def _run_one(
         hidden_dim=int(base_cfg.get("hidden_dim", 32)),
         hidden_layers=int(base_cfg.get("hidden_layers", 2)),
         fourier_scales=[float(value) for value in base_cfg.get("fourier_scales", [1.0, 2.0, 4.0])],
+        fourier_enabled=bool(base_cfg.get("fourier_enabled", True)),
         c_v_min=float(model_bounds.get("c_v_min", 0.0)),
         c_v_max=float(model_bounds.get("c_v_max", 0.2)),
         delta_T_max=float(model_bounds.get("delta_T_max", 20.0)),

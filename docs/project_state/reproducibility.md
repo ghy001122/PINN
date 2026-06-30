@@ -1,5 +1,19 @@
 # Reproducibility
 
+## F-SPS-PINN v2 Fourier ablation reproduction
+
+```powershell
+python scripts/run_pinn_inverse_v2_fourier_ablation.py --config configs/pinn_inverse_v2_fourier_ablation.yaml
+```
+
+This reads the frozen Ground Truth v1.1 triangle files and regenerates:
+
+- `outputs\tables\pinn_inverse_v2_fourier_ablation_summary.json`
+- `outputs\tables\pinn_inverse_v2_fourier_ablation_runs.csv`
+
+It does not regenerate or modify frozen Ground Truth data. It is a small-run synthetic numerical benchmark only, not a formal performance experiment.
+
+
 ## F-SPS-PINN v2 phase-transition stress preflight reproduction
 
 ```powershell

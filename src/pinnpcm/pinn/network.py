@@ -127,11 +127,18 @@ class StiffAwareMLP(nn.Module):
         hidden_dim: int = 64,
         hidden_layers: int = 3,
         scales: tuple[float, ...] | list[float] = (1.0, 2.0, 4.0, 8.0),
+        use_fourier: bool = True,
     ) -> None:
         super().__init__()
-        self.embedding = FourierPyramidEmbedding(in_dim=in_dim, scales=scales, include_input=True)
+        self.use_fourier = bool(use_fourier)
+        if self.use_fourier:
+            self.embedding = FourierPyramidEmbedding(in_dim=in_dim, scales=scales, include_input=True)
+            encoded_dim = self.embedding.out_dim
+        else:
+            self.embedding = nn.Identity()
+            encoded_dim = int(in_dim)
         layers: list[nn.Module] = []
-        last_dim = self.embedding.out_dim
+        last_dim = encoded_dim
         for _ in range(int(hidden_layers)):
             layers.append(nn.Linear(last_dim, int(hidden_dim)))
             layers.append(nn.SiLU())

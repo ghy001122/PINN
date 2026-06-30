@@ -4,7 +4,7 @@
 
 - `CODEX_CONTEXT.md`: first-read project context for non-trivial Codex tasks.
 - `docs\research_strategy\active_phase.md`: current authorized phase,
-  currently F-SPS-PINN v2 phase-transition stress preflight.
+  currently F-SPS-PINN v2 Fourier on/off ablation under stress.
 - `docs\research_strategy\context_loading_policy.md`: Tier 0 through Tier 4
   context-loading rules.
 - `docs\research_strategy\context_index.md`: quick routing index for context
@@ -79,6 +79,8 @@
 - `scripts\run_pinn_inverse_v2_baseline.py`: matched small-run baseline runner that writes JSON/CSV evidence without modifying frozen GT or old v0/v1/v1.1 paths.
 - `configs\pinn_inverse_v2_phase_transition_stress.yaml`: stress-preflight config for mild, sharp, near-threshold, and high-contrast VO2 closure cases.
 - `scripts\run_pinn_inverse_v2_phase_transition_stress.py`: reuses v2 baseline utilities to run phase-transition stress cases and write lightweight JSON/CSV evidence.
+- `configs\pinn_inverse_v2_fourier_ablation.yaml`: Fourier on/off ablation config under the sharp-transition VO2 closure stress case.
+- `scripts\run_pinn_inverse_v2_fourier_ablation.py`: reuses v2 baseline utilities to compare Fourier-off and Fourier-on runs and write lightweight JSON/CSV evidence.
 
 ## Current test coverage
 
@@ -104,6 +106,7 @@
 - `tests\test_pinn_inverse_v2_smoke.py`: checks v2 smoke config/script execution, summary JSON, VO2 sigma use, no free `log_sigma`, and frozen input hash/mtime preservation.
 - `tests\test_pinn_inverse_v2_baseline.py`: checks v2 baseline config/script execution, summary JSON/CSV, mode flags, finite metrics, and frozen input hash/mtime preservation.
 - `tests\test_pinn_inverse_v2_phase_transition_stress.py`: checks stress config/script execution, summary JSON/CSV schema, finite metrics, mode flags, and frozen input hash/mtime preservation.
+- `tests\test_pinn_inverse_v2_fourier_ablation.py`: checks Fourier ablation config/script execution, summary JSON/CSV schema, finite metrics, mode flags, and frozen input hash/mtime preservation.
 
 ## Evidence-chain reports
 
@@ -154,6 +157,7 @@
 - `docs\codex_reports\pinn_inverse_v2_f_sps_smoke_report.md`: final Codex report for the v2 smoke training pipeline.
 - `docs\codex_reports\pinn_inverse_v2_f_sps_baseline_report.md`: final Codex report for the v2 small-run baseline.
 - `docs\codex_reports\pinn_inverse_v2_phase_transition_stress_report.md`: final Codex report for the v2 phase-transition stress preflight.
+- `docs\codex_reports\pinn_inverse_v2_fourier_ablation_report.md`: final Codex report for the v2 Fourier on/off ablation.
 
 ## Frozen files not to modify during PINN audit
 
