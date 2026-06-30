@@ -1,0 +1,472 @@
+{
+  "all_finite_results": true,
+  "baseline_case": {
+    "G_loss": 0.08237142046334764,
+    "I_loss": 0.07766307179632437,
+    "T_sw_delta_K": 2.0,
+    "T_sw_prior_width": 1.0,
+    "T_sw_target": 315.0,
+    "case_name": "port_only_wide_tsw",
+    "finite_result": true,
+    "frozen_inputs_unchanged": true,
+    "gamma_est": 1000000000.0,
+    "gamma_relative_error": 1.2222222222222223,
+    "gamma_true": 450000000.0,
+    "heat_residual_loss": 0.00014403996923541932,
+    "interpretation": "Port-only baseline under wide T_sw mismatch; exposes gamma_sub/T_sw confounding.",
+    "n_temperature_anchors": 0,
+    "objective_value": 0.12120439676120218,
+    "observation_mode": "port_only",
+    "temperature_anchor_indices": [],
+    "temperature_anchor_loss": 0.0
+  },
+  "benchmark": "Frozen Ground Truth v1.1 triangle synthetic numerical digital-twin benchmark",
+  "best_combined_case": {
+    "G_loss": 0.00040889512491461467,
+    "I_loss": 0.0002499776402179519,
+    "T_sw_delta_K": 0.2,
+    "T_sw_prior_width": 0.1,
+    "T_sw_target": 313.2,
+    "case_name": "port_plus_temperature_anchor_and_tsw_prior_n2",
+    "finite_result": true,
+    "frozen_inputs_unchanged": true,
+    "gamma_est": 550000000.0,
+    "gamma_relative_error": 0.2222222222222222,
+    "gamma_true": 450000000.0,
+    "heat_residual_loss": 0.00011380578845661339,
+    "interpretation": "Auxiliary observability or tighter T_sw prior reduced gamma_sub bias in this synthetic case.",
+    "n_temperature_anchors": 2,
+    "objective_value": 0.0008484305036321651,
+    "observation_mode": "port_plus_temperature_anchor_and_tsw_prior",
+    "temperature_anchor_indices": [
+      [
+        48,
+        1
+      ],
+      [
+        351,
+        29
+      ]
+    ],
+    "temperature_anchor_loss": 0.0008954528592114528
+  },
+  "best_overall_case": {
+    "G_loss": 0.00040889512491461467,
+    "I_loss": 0.0002499776402179519,
+    "T_sw_delta_K": 0.2,
+    "T_sw_prior_width": 0.1,
+    "T_sw_target": 313.2,
+    "case_name": "port_plus_tsw_prior_narrow",
+    "finite_result": true,
+    "frozen_inputs_unchanged": true,
+    "gamma_est": 550000000.0,
+    "gamma_relative_error": 0.2222222222222222,
+    "gamma_true": 450000000.0,
+    "heat_residual_loss": 0.00011380578845661339,
+    "interpretation": "Auxiliary observability or tighter T_sw prior reduced gamma_sub bias in this synthetic case.",
+    "n_temperature_anchors": 0,
+    "objective_value": 0.0005350220029081567,
+    "observation_mode": "port_plus_tsw_prior",
+    "temperature_anchor_indices": [],
+    "temperature_anchor_loss": 0.0
+  },
+  "best_temperature_anchor_case": {
+    "G_loss": 0.08237142046334764,
+    "I_loss": 0.07766307179632437,
+    "T_sw_delta_K": 2.0,
+    "T_sw_prior_width": 1.0,
+    "T_sw_target": 315.0,
+    "case_name": "port_plus_temperature_anchor_n2",
+    "finite_result": true,
+    "frozen_inputs_unchanged": true,
+    "gamma_est": 1000000000.0,
+    "gamma_relative_error": 1.2222222222222223,
+    "gamma_true": 450000000.0,
+    "heat_residual_loss": 0.00014403996923541932,
+    "interpretation": "This setting matched the port-only gamma_sub bias in this candidate-grid audit.",
+    "n_temperature_anchors": 2,
+    "objective_value": 0.1232876836444935,
+    "observation_mode": "port_plus_temperature_anchor",
+    "temperature_anchor_indices": [
+      [
+        48,
+        1
+      ],
+      [
+        351,
+        29
+      ]
+    ],
+    "temperature_anchor_loss": 0.00595224823797519
+  },
+  "best_tsw_prior_case": {
+    "G_loss": 0.00040889512491461467,
+    "I_loss": 0.0002499776402179519,
+    "T_sw_delta_K": 0.2,
+    "T_sw_prior_width": 0.1,
+    "T_sw_target": 313.2,
+    "case_name": "port_plus_tsw_prior_narrow",
+    "finite_result": true,
+    "frozen_inputs_unchanged": true,
+    "gamma_est": 550000000.0,
+    "gamma_relative_error": 0.2222222222222222,
+    "gamma_true": 450000000.0,
+    "heat_residual_loss": 0.00011380578845661339,
+    "interpretation": "Auxiliary observability or tighter T_sw prior reduced gamma_sub bias in this synthetic case.",
+    "n_temperature_anchors": 0,
+    "objective_value": 0.0005350220029081567,
+    "observation_mode": "port_plus_tsw_prior",
+    "temperature_anchor_indices": [],
+    "temperature_anchor_loss": 0.0
+  },
+  "combined_observability_reduced_bias": true,
+  "config_path": "configs\\gamma_sub_observability_augmented.yaml",
+  "frozen_gt_hashes_after": {
+    "sparse_obs_npz": "f45daf53136a255b3666ebeb56e6298ce148a613c46fa596b795e7ade68ea602",
+    "target_npz": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8"
+  },
+  "frozen_gt_hashes_before": {
+    "sparse_obs_npz": "f45daf53136a255b3666ebeb56e6298ce148a613c46fa596b795e7ade68ea602",
+    "target_npz": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8"
+  },
+  "frozen_gt_unchanged": true,
+  "narrow_tsw_prior_reduced_bias": true,
+  "note": "Synthetic numerical digital-twin observability audit; not measured experimental data.",
+  "num_cases": 9,
+  "outputs": {
+    "cases_csv": "outputs\\tables\\gamma_sub_observability_augmented_cases.csv",
+    "codex_report_md": "docs\\codex_reports\\gamma_sub_observability_augmented_report.md",
+    "report_md": "docs\\gamma_sub_observability_augmented_report.md",
+    "summary_json": "outputs\\tables\\gamma_sub_observability_augmented_summary.json"
+  },
+  "rows": [
+    {
+      "G_loss": 0.08237142046334764,
+      "I_loss": 0.07766307179632437,
+      "T_sw_delta_K": 2.0,
+      "T_sw_prior_width": 1.0,
+      "T_sw_target": 315.0,
+      "case_name": "port_only_wide_tsw",
+      "finite_result": true,
+      "frozen_inputs_unchanged": true,
+      "gamma_est": 1000000000.0,
+      "gamma_relative_error": 1.2222222222222223,
+      "gamma_true": 450000000.0,
+      "heat_residual_loss": 0.00014403996923541932,
+      "interpretation": "Port-only baseline under wide T_sw mismatch; exposes gamma_sub/T_sw confounding.",
+      "n_temperature_anchors": 0,
+      "objective_value": 0.12120439676120218,
+      "observation_mode": "port_only",
+      "temperature_anchor_indices": [],
+      "temperature_anchor_loss": 0.0
+    },
+    {
+      "G_loss": 0.08237142046334764,
+      "I_loss": 0.07766307179632437,
+      "T_sw_delta_K": 2.0,
+      "T_sw_prior_width": 1.0,
+      "T_sw_target": 315.0,
+      "case_name": "port_plus_temperature_anchor_n2",
+      "finite_result": true,
+      "frozen_inputs_unchanged": true,
+      "gamma_est": 1000000000.0,
+      "gamma_relative_error": 1.2222222222222223,
+      "gamma_true": 450000000.0,
+      "heat_residual_loss": 0.00014403996923541932,
+      "interpretation": "This setting matched the port-only gamma_sub bias in this candidate-grid audit.",
+      "n_temperature_anchors": 2,
+      "objective_value": 0.1232876836444935,
+      "observation_mode": "port_plus_temperature_anchor",
+      "temperature_anchor_indices": [
+        [
+          48,
+          1
+        ],
+        [
+          351,
+          29
+        ]
+      ],
+      "temperature_anchor_loss": 0.00595224823797519
+    },
+    {
+      "G_loss": 0.08237142046334764,
+      "I_loss": 0.07766307179632437,
+      "T_sw_delta_K": 2.0,
+      "T_sw_prior_width": 1.0,
+      "T_sw_target": 315.0,
+      "case_name": "port_plus_temperature_anchor_n4",
+      "finite_result": true,
+      "frozen_inputs_unchanged": true,
+      "gamma_est": 1000000000.0,
+      "gamma_relative_error": 1.2222222222222223,
+      "gamma_true": 450000000.0,
+      "heat_residual_loss": 0.00014403996923541932,
+      "interpretation": "This setting matched the port-only gamma_sub bias in this candidate-grid audit.",
+      "n_temperature_anchors": 4,
+      "objective_value": 0.12267244718528027,
+      "observation_mode": "port_plus_temperature_anchor",
+      "temperature_anchor_indices": [
+        [
+          48,
+          1
+        ],
+        [
+          149,
+          10
+        ],
+        [
+          250,
+          19
+        ],
+        [
+          351,
+          29
+        ]
+      ],
+      "temperature_anchor_loss": 0.0041944297830802625
+    },
+    {
+      "G_loss": 0.08237142046334764,
+      "I_loss": 0.07766307179632437,
+      "T_sw_delta_K": 2.0,
+      "T_sw_prior_width": 1.0,
+      "T_sw_target": 315.0,
+      "case_name": "port_plus_temperature_anchor_n8",
+      "finite_result": true,
+      "frozen_inputs_unchanged": true,
+      "gamma_est": 1000000000.0,
+      "gamma_relative_error": 1.2222222222222223,
+      "gamma_true": 450000000.0,
+      "heat_residual_loss": 0.00014403996923541932,
+      "interpretation": "This setting matched the port-only gamma_sub bias in this candidate-grid audit.",
+      "n_temperature_anchors": 8,
+      "objective_value": 0.12220745703356309,
+      "observation_mode": "port_plus_temperature_anchor",
+      "temperature_anchor_indices": [
+        [
+          48,
+          1
+        ],
+        [
+          91,
+          5
+        ],
+        [
+          134,
+          9
+        ],
+        [
+          177,
+          13
+        ],
+        [
+          221,
+          17
+        ],
+        [
+          264,
+          21
+        ],
+        [
+          307,
+          25
+        ],
+        [
+          351,
+          29
+        ]
+      ],
+      "temperature_anchor_loss": 0.0028658864924597568
+    },
+    {
+      "G_loss": 0.08237142046334764,
+      "I_loss": 0.07766307179632437,
+      "T_sw_delta_K": 2.0,
+      "T_sw_prior_width": 1.0,
+      "T_sw_target": 315.0,
+      "case_name": "port_plus_tsw_prior_wide",
+      "finite_result": true,
+      "frozen_inputs_unchanged": true,
+      "gamma_est": 1000000000.0,
+      "gamma_relative_error": 1.2222222222222223,
+      "gamma_true": 450000000.0,
+      "heat_residual_loss": 0.00014403996923541932,
+      "interpretation": "This setting matched the port-only gamma_sub bias in this candidate-grid audit.",
+      "n_temperature_anchors": 0,
+      "objective_value": 0.12120439676120218,
+      "observation_mode": "port_plus_tsw_prior",
+      "temperature_anchor_indices": [],
+      "temperature_anchor_loss": 0.0
+    },
+    {
+      "G_loss": 0.00040889512491461467,
+      "I_loss": 0.0002499776402179519,
+      "T_sw_delta_K": 0.2,
+      "T_sw_prior_width": 0.1,
+      "T_sw_target": 313.2,
+      "case_name": "port_plus_tsw_prior_narrow",
+      "finite_result": true,
+      "frozen_inputs_unchanged": true,
+      "gamma_est": 550000000.0,
+      "gamma_relative_error": 0.2222222222222222,
+      "gamma_true": 450000000.0,
+      "heat_residual_loss": 0.00011380578845661339,
+      "interpretation": "Auxiliary observability or tighter T_sw prior reduced gamma_sub bias in this synthetic case.",
+      "n_temperature_anchors": 0,
+      "objective_value": 0.0005350220029081567,
+      "observation_mode": "port_plus_tsw_prior",
+      "temperature_anchor_indices": [],
+      "temperature_anchor_loss": 0.0
+    },
+    {
+      "G_loss": 0.00040889512491461467,
+      "I_loss": 0.0002499776402179519,
+      "T_sw_delta_K": 0.2,
+      "T_sw_prior_width": 0.1,
+      "T_sw_target": 313.2,
+      "case_name": "port_plus_temperature_anchor_and_tsw_prior_n2",
+      "finite_result": true,
+      "frozen_inputs_unchanged": true,
+      "gamma_est": 550000000.0,
+      "gamma_relative_error": 0.2222222222222222,
+      "gamma_true": 450000000.0,
+      "heat_residual_loss": 0.00011380578845661339,
+      "interpretation": "Auxiliary observability or tighter T_sw prior reduced gamma_sub bias in this synthetic case.",
+      "n_temperature_anchors": 2,
+      "objective_value": 0.0008484305036321651,
+      "observation_mode": "port_plus_temperature_anchor_and_tsw_prior",
+      "temperature_anchor_indices": [
+        [
+          48,
+          1
+        ],
+        [
+          351,
+          29
+        ]
+      ],
+      "temperature_anchor_loss": 0.0008954528592114528
+    },
+    {
+      "G_loss": 0.00040889512491461467,
+      "I_loss": 0.0002499776402179519,
+      "T_sw_delta_K": 0.2,
+      "T_sw_prior_width": 0.1,
+      "T_sw_target": 313.2,
+      "case_name": "port_plus_temperature_anchor_and_tsw_prior_n4",
+      "finite_result": true,
+      "frozen_inputs_unchanged": true,
+      "gamma_est": 550000000.0,
+      "gamma_relative_error": 0.2222222222222222,
+      "gamma_true": 450000000.0,
+      "heat_residual_loss": 0.00011380578845661339,
+      "interpretation": "Auxiliary observability or tighter T_sw prior reduced gamma_sub bias in this synthetic case.",
+      "n_temperature_anchors": 4,
+      "objective_value": 0.000702722372077508,
+      "observation_mode": "port_plus_temperature_anchor_and_tsw_prior",
+      "temperature_anchor_indices": [
+        [
+          48,
+          1
+        ],
+        [
+          149,
+          10
+        ],
+        [
+          250,
+          19
+        ],
+        [
+          351,
+          29
+        ]
+      ],
+      "temperature_anchor_loss": 0.0004791439119124324
+    },
+    {
+      "G_loss": 0.00040889512491461467,
+      "I_loss": 0.0002499776402179519,
+      "T_sw_delta_K": 0.2,
+      "T_sw_prior_width": 0.1,
+      "T_sw_target": 313.2,
+      "case_name": "port_plus_temperature_anchor_and_tsw_prior_n8",
+      "finite_result": true,
+      "frozen_inputs_unchanged": true,
+      "gamma_est": 550000000.0,
+      "gamma_relative_error": 0.2222222222222222,
+      "gamma_true": 450000000.0,
+      "heat_residual_loss": 0.00011380578845661339,
+      "interpretation": "Auxiliary observability or tighter T_sw prior reduced gamma_sub bias in this synthetic case.",
+      "n_temperature_anchors": 8,
+      "objective_value": 0.000667145632141917,
+      "observation_mode": "port_plus_temperature_anchor_and_tsw_prior",
+      "temperature_anchor_indices": [
+        [
+          48,
+          1
+        ],
+        [
+          91,
+          5
+        ],
+        [
+          134,
+          9
+        ],
+        [
+          177,
+          13
+        ],
+        [
+          221,
+          17
+        ],
+        [
+          264,
+          21
+        ],
+        [
+          307,
+          25
+        ],
+        [
+          351,
+          29
+        ]
+      ],
+      "temperature_anchor_loss": 0.0003774960835250296
+    }
+  ],
+  "scope": "Only gamma_sub is estimated. Temperature anchors and T_sw priors are observability probes, not full hidden-field recovery.",
+  "sparse_obs_keys": [
+    "protocol",
+    "t_idx",
+    "t",
+    "V",
+    "I",
+    "G",
+    "I_clean",
+    "G_clean",
+    "noise_level"
+  ],
+  "sparse_obs_npz": "data\\processed\\gt_v1_acceptance\\obs_triangle_sparse.npz",
+  "target_keys": [
+    "x",
+    "t",
+    "V",
+    "I",
+    "G",
+    "c_v",
+    "T",
+    "m",
+    "E",
+    "phi",
+    "sigma",
+    "params_json"
+  ],
+  "target_npz": "data\\processed\\gt_v1_acceptance\\gt_triangle.npz",
+  "temperature_anchor_reduced_bias": false,
+  "true_gamma_sub": 450000000.0
+}

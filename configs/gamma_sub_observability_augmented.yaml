@@ -1,0 +1,58 @@
+# Observability-augmented gamma_sub audit configuration
+
+benchmark: "Frozen Ground Truth v1.1 triangle synthetic numerical digital-twin benchmark"
+target_npz: data/processed/gt_v1_acceptance/gt_triangle.npz
+sparse_obs_npz: data/processed/gt_v1_acceptance/obs_triangle_sparse.npz
+summary_json: outputs/tables/gamma_sub_observability_augmented_summary.json
+cases_csv: outputs/tables/gamma_sub_observability_augmented_cases.csv
+report_md: docs/gamma_sub_observability_augmented_report.md
+codex_report_md: docs/codex_reports/gamma_sub_observability_augmented_report.md
+
+simulation:
+  protocol: triangle
+  nx: 31
+  nt: 400
+  method: Radau
+  rtol: 1.0e-5
+  atol: 1.0e-7
+
+inverse:
+  primary_parameter: gamma_sub
+  gamma_candidates:
+    - 1.5e8
+    - 2.0e8
+    - 2.75e8
+    - 3.25e8
+    - 3.75e8
+    - 4.0e8
+    - 4.25e8
+    - 4.5e8
+    - 4.75e8
+    - 5.0e8
+    - 5.5e8
+    - 6.5e8
+    - 7.5e8
+    - 9.0e8
+    - 1.0e9
+  success_relative_error_threshold: 0.15
+
+loss:
+  w_g: 1.0
+  w_i: 0.5
+  w_heat: 0.01
+  w_temperature_anchor: 0.35
+
+observability:
+  tsw_direction: 1
+  tsw_max_delta_K: 2.0
+  wide_tsw_prior_width: 1.0
+  narrow_tsw_prior_width: 0.1
+  temperature_anchor_counts: [2, 4, 8]
+  temperature_anchor_note: "Synthetic auxiliary temperature observations only; not measured experimental temperature data."
+
+frozen_microphysics:
+  - D_v0
+  - mu_v0
+  - E_D_eV
+  - E_mu_eV
+  - E_r_eV

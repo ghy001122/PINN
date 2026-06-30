@@ -1,5 +1,20 @@
 # Reproducibility
 
+## Observability-augmented gamma_sub audit reproduction
+
+```powershell
+python scripts/audit_gamma_sub_observability_augmented.py --config configs/gamma_sub_observability_augmented.yaml
+```
+
+This reads frozen Ground Truth v1.1 files and regenerates:
+
+- `outputs\tables\gamma_sub_observability_augmented_summary.json`
+- `outputs\tables\gamma_sub_observability_augmented_cases.csv`
+- `docs\gamma_sub_observability_augmented_report.md`
+- `docs\codex_reports\gamma_sub_observability_augmented_report.md`
+
+It does not regenerate or modify frozen Ground Truth data. It is synthetic numerical observability evidence only, not experimental temperature measurement.
+
 ## F-SPS-PINN v2 Fourier ablation reproduction
 
 ```powershell

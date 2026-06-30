@@ -1,5 +1,12 @@
 # Figure registry
 
+## Observability-augmented gamma_sub figures
+
+No figures were generated or committed for this lightweight audit. Evidence is stored in lightweight tables:
+
+- `outputs\tables\gamma_sub_observability_augmented_summary.json`
+- `outputs\tables\gamma_sub_observability_augmented_cases.csv`
+
 ## F-SPS-PINN v2 Fourier ablation figures
 
 No figures were generated or committed for the F-SPS-PINN v2 Fourier on/off ablation. Evidence is stored in lightweight tables:

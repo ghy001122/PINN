@@ -1,5 +1,30 @@
 # Research log
 
+## Observability-augmented gamma_sub audit
+
+Date: 2026-06-30
+
+Actions:
+
+- Added `configs\gamma_sub_observability_augmented.yaml`.
+- Added `scripts\audit_gamma_sub_observability_augmented.py`.
+- Added `tests\test_gamma_sub_observability_augmented.py`.
+- Generated `outputs\tables\gamma_sub_observability_augmented_summary.json`.
+- Generated `outputs\tables\gamma_sub_observability_augmented_cases.csv`.
+- Added `docs\gamma_sub_observability_augmented_report.md`.
+- Added `docs\codex_reports\gamma_sub_observability_augmented_report.md`.
+
+Findings:
+
+- Port-only inversion under wide `T_sw` mismatch gives `gamma_relative_error = 1.2222222222222223` and estimates the upper candidate bound `1.0e9`.
+- Sparse synthetic temperature anchors with `n_T_anchor = 2, 4, 8` do not reduce that bias in this candidate-grid audit.
+- Narrowing `T_sw` prior width to `0.1` reduces `gamma_relative_error` to `0.2222222222222222`.
+- Frozen input hashes are unchanged.
+
+Boundary:
+
+This is a synthetic numerical digital-twin observability audit. It does not claim real temperature measurement, full hidden-field recovery, or F-SPS-PINN performance improvement.
+
 ## F-SPS-PINN v2 phase-transition stress preflight
 
 Date: 2026-06-30

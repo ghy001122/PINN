@@ -1,5 +1,19 @@
 # Experiment registry
 
+## Observability-augmented gamma_sub audit
+
+- Config: `configs\gamma_sub_observability_augmented.yaml`
+- Script: `scripts\audit_gamma_sub_observability_augmented.py`
+- Test: `tests\test_gamma_sub_observability_augmented.py`
+- Input target: `data\processed\gt_v1_acceptance\gt_triangle.npz`
+- Input sparse observation: `data\processed\gt_v1_acceptance\obs_triangle_sparse.npz`
+- Summary: `outputs\tables\gamma_sub_observability_augmented_summary.json`
+- Cases CSV: `outputs\tables\gamma_sub_observability_augmented_cases.csv`
+- Report: `docs\gamma_sub_observability_augmented_report.md`
+- Codex report: `docs\codex_reports\gamma_sub_observability_augmented_report.md`
+
+Status: completed as a lightweight synthetic numerical observability audit. Sparse temperature anchors alone did not reduce the wide `T_sw` mismatch bias; narrowing the `T_sw` prior did. No frozen Ground Truth file was modified.
+
 ## F-SPS-PINN v2 Fourier on/off ablation under stress
 
 - Config: `configs\pinn_inverse_v2_fourier_ablation.yaml`

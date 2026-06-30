@@ -25,6 +25,7 @@ The defensible core claim is:
 | Literature-backed constrained inversion | `scripts/invert_gamma_sub_constrained.py`, `configs/gamma_sub_constrained_inversion.yaml` | `outputs/tables/gamma_sub_constrained_inversion_summary.json`, `outputs/tables/gamma_sub_prior_width_sweep.csv` | `docs/gamma_sub_constrained_inversion_report.md` | Figure 5 / Table 4 | `gamma_sub` can be used as a reduced inverse target under fixed or tightly bounded priors | The method recovers all material parameters jointly |
 | Paper-readiness robustness | `scripts/audit_gamma_sub_paper_readiness.py` | `outputs/tables/gamma_sub_paper_readiness_summary.json`, `outputs/tables/gamma_sub_observation_sensitivity.csv`, `outputs/tables/gamma_sub_offgrid_summary.csv` | `docs/gamma_sub_paper_readiness_report.md` | Table 5 | Off-grid and observation-count checks support bounded robustness claims | Candidate-grid inclusion alone proves continuous identifiability |
 | Continuous off-grid refinement | `scripts/refine_gamma_sub_continuous.py` | `outputs/tables/gamma_sub_continuous_refinement_summary.json`, `outputs/tables/gamma_sub_continuous_refinement_cases.csv` | `docs/gamma_sub_continuous_refinement_report.md` | Figure 6 / Table 6 | Re-simulated scalar continuous refinement reduces off-grid dependence in tested cases | The optimizer is a general multi-parameter inverse solver |
+| Observability-augmented `gamma_sub` audit | `scripts/audit_gamma_sub_observability_augmented.py`, `configs/gamma_sub_observability_augmented.yaml` | `outputs/tables/gamma_sub_observability_augmented_summary.json`, `outputs/tables/gamma_sub_observability_augmented_cases.csv` | `docs/gamma_sub_observability_augmented_report.md` | Table 7 / Discussion | Narrowing `T_sw` prior reduces `gamma_sub` bias; sparse temperature anchors alone do not solve the tested wide-mismatch confounding | Minimal temperature anchors prove full hidden-field recovery or real experimental thermal validation |
 
 ## Appendix And Supplementary Evidence Table
 
@@ -65,6 +66,7 @@ Main text priority:
 3. Constrained `gamma_sub` inversion and objective profile.
 4. Confounding and prior-width sensitivity, with `T_sw` highlighted.
 5. Off-grid continuous refinement and observation/noise sensitivity.
+6. Observability-augmented `gamma_sub` audit showing that independent `T_sw` calibration is more decisive than sparse temperature anchors alone in the current candidate-grid test.
 
 Supplementary priority:
 

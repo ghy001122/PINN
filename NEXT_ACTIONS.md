@@ -39,7 +39,7 @@ These results are useful engineering evidence but do not currently support a cla
 - Do not describe synthetic numerical benchmark outputs as experimental data.
 - Do not claim full 3D device simulation or sparse-port full hidden-field recovery.
 - Do not claim F-SPS-PINN, Fourier features, stress preflight, or phase-transition closure solved the inverse problem.
-- Do not start STL continuation, observability-augmented sparse temperature/state recovery, VO2-NbO2 oscillator work, NeuroSPICE/NeuroPINN, or system-level mapping unless explicitly authorized.
+- Do not start STL continuation, observability-augmented full-field recovery, experimental sparse temperature/state extension, VO2-NbO2 oscillator work, NeuroSPICE/NeuroPINN, or system-level mapping unless explicitly authorized.
 
 ## Deferred method enhancements
 
@@ -47,5 +47,5 @@ Record these as future options, not current manuscript-critical work:
 
 - implement gamma_sub-PINN;
 - add stiff transfer learning continuation;
-- add observability-augmented sparse `T/m` extension;
+- add observability-augmented full-field recovery or experimental sparse `T/m` extension;
 - extend F-SPS-PINN as a separate method paper after stronger ablation evidence.

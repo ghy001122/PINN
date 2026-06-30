@@ -1,5 +1,27 @@
 # Latest changes
 
+## Observability-augmented gamma_sub audit
+
+Scope:
+
+- Test whether minimal synthetic temperature anchors or narrower `T_sw` priors reduce `gamma_sub` / `T_sw` confounding.
+- Keep frozen Ground Truth v1.1 files read-only.
+- Do not add F-SPS-PINN experiments or large training runs.
+
+Changed:
+
+- Added `configs\gamma_sub_observability_augmented.yaml`.
+- Added `scripts\audit_gamma_sub_observability_augmented.py`.
+- Added `tests\test_gamma_sub_observability_augmented.py`.
+- Added `outputs\tables\gamma_sub_observability_augmented_summary.json`.
+- Added `outputs\tables\gamma_sub_observability_augmented_cases.csv`.
+- Added `docs\gamma_sub_observability_augmented_report.md`.
+- Added `docs\codex_reports\gamma_sub_observability_augmented_report.md`.
+
+Result:
+
+Sparse temperature anchors alone did not reduce the wide `T_sw` mismatch bias in this candidate-grid audit. Narrowing the `T_sw` prior reduced `gamma_sub` relative error from `1.2222222222222223` to `0.2222222222222222`.
+
 ## SCI manuscript evidence consolidation
 
 Scope:

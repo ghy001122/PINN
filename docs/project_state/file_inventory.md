@@ -73,6 +73,8 @@
 - `scripts\audit_gamma_sub_paper_readiness.py`: runs off-grid `gamma_sub` and
   observation-count robustness checks for paper-readiness defense.
 - `scripts\refine_gamma_sub_continuous.py`: performs simulator-backed continuous scalar refinement for off-grid `gamma_sub`, with true off-grid cases, observation-count sensitivity, and noise sensitivity.
+- `configs\gamma_sub_observability_augmented.yaml`: config for the lightweight observability-augmented `gamma_sub` audit.
+- `scripts\audit_gamma_sub_observability_augmented.py`: tests sparse synthetic temperature anchors and narrowed `T_sw` prior width for reducing `gamma_sub` / `T_sw` confounding.
 - `configs\pinn_inverse_v2_f_sps_smoke.yaml`: v2 smoke config for a short CPU training loop using white-box `vo2_sigma`.
 - `scripts\train_pinn_inverse_v2_smoke.py`: minimal F-SPS-PINN v2 smoke trainer; predicts `T`, `c_v`, and `m`, computes `sigma` through `vo2_sigma`, and writes a lightweight summary JSON.
 - `configs\pinn_inverse_v2_f_sps_baseline.yaml`: small-run baseline config comparing `free_log_sigma` and `white_box_vo2_sigma`.
@@ -99,6 +101,7 @@
   schema, finite off-grid and observation-sensitivity outputs, and frozen GT
   hash preservation.
 - `tests\test_gamma_sub_continuous_refinement.py`: checks continuous-refinement summary schema, finite outputs, off-grid truth exclusion, simulator-backed non-grid evaluations, and frozen GT hash preservation.
+- `tests\test_gamma_sub_observability_augmented.py`: checks observability-augmented config scope, smoke execution, finite outputs, mode coverage, and frozen GT hash preservation.
 - `tests\test_vo2_constitutive.py`: checks VO2-like conductivity positivity, differentiability, finite extreme-temperature behavior, and Bruggeman safeguards.
 - `tests\test_fourier_pyramid.py`: checks Fourier pyramid shape and differentiability.
 - `tests\test_loss_balancer.py`: checks dynamic residual gate normalization, differentiability, and anti-collapse behavior.
@@ -112,6 +115,8 @@
 
 - `docs\paper\sci_manuscript_evidence_matrix.md`: manuscript-ready evidence matrix that maps existing synthetic numerical benchmark results to main-text claims, appendix evidence, proposed figures/tables, allowed claims, and forbidden overclaims.
 - `docs\codex_reports\sci_manuscript_evidence_consolidation_report.md`: final Codex report for the documentation-only manuscript evidence consolidation task.
+- `docs\gamma_sub_observability_augmented_report.md`: project-facing report for sparse temperature-anchor and narrowed-`T_sw` prior observability audit.
+- `docs\codex_reports\gamma_sub_observability_augmented_report.md`: Codex report for the observability-augmented `gamma_sub` audit.
 - `docs\paper\model_hierarchy_and_claim_boundary.md`: paper-defense hierarchy,
   included/excluded physics, and allowed/forbidden claims.
 - `docs\paper\equation_variable_registry.md`: variable units and equation

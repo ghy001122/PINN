@@ -1,5 +1,14 @@
 # Dataset registry
 
+## Observability-augmented gamma_sub evidence
+
+These lightweight tables were generated from frozen Ground Truth v1.1 parameters and sparse terminal observation times. They are synthetic numerical digital-twin observability evidence, not experimental data.
+
+- `outputs\tables\gamma_sub_observability_augmented_summary.json`
+- `outputs\tables\gamma_sub_observability_augmented_cases.csv`
+
+The corresponding frozen input arrays remain ignored by Git and were not modified.
+
 ## F-SPS-PINN v2 Fourier ablation evidence
 
 These lightweight tables were generated from the frozen Ground Truth v1.1 triangle benchmark and sparse terminal observations. They are synthetic numerical digital-twin Fourier-ablation evidence, not formal performance results and not experimental data.
