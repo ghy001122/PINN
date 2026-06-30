@@ -1,5 +1,19 @@
 # Reproducibility
 
+## F-SPS-PINN v2 phase-transition stress preflight reproduction
+
+```powershell
+python scripts/run_pinn_inverse_v2_phase_transition_stress.py --config configs/pinn_inverse_v2_phase_transition_stress.yaml
+```
+
+This reads the frozen Ground Truth v1.1 triangle files and regenerates:
+
+- `outputs\tables\pinn_inverse_v2_phase_transition_stress_summary.json`
+- `outputs\tables\pinn_inverse_v2_phase_transition_stress_cases.csv`
+
+It does not regenerate or modify frozen Ground Truth data. It is a stress-preflight synthetic numerical benchmark only, not a formal performance experiment.
+
+
 ## F-SPS-PINN v2 small-run baseline reproduction
 
 ```powershell

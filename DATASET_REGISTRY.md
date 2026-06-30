@@ -1,5 +1,15 @@
 # Dataset registry
 
+## F-SPS-PINN v2 phase-transition stress evidence
+
+These lightweight tables were generated from the frozen Ground Truth v1.1 triangle benchmark and sparse terminal observations. They are synthetic numerical digital-twin stress-preflight evidence, not formal performance results and not experimental data.
+
+- `outputs\tables\pinn_inverse_v2_phase_transition_stress_summary.json`
+- `outputs\tables\pinn_inverse_v2_phase_transition_stress_cases.csv`
+
+The corresponding frozen input arrays remain ignored by Git and were not modified.
+
+
 ## F-SPS-PINN v2 small-run baseline evidence
 
 These lightweight tables were generated from the frozen Ground Truth v1.1 triangle benchmark and sparse terminal observations. They are synthetic numerical digital-twin small-run evidence, not formal performance results and not experimental data.

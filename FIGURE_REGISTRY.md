@@ -1,5 +1,13 @@
 # Figure registry
 
+## F-SPS-PINN v2 phase-transition stress figures
+
+No figures were generated or committed for the F-SPS-PINN v2 phase-transition stress preflight. Evidence is stored in lightweight tables:
+
+- `outputs\tables\pinn_inverse_v2_phase_transition_stress_summary.json`
+- `outputs\tables\pinn_inverse_v2_phase_transition_stress_cases.csv`
+
+
 ## F-SPS-PINN v2 small-run baseline figures
 
 No figures were generated or committed for the F-SPS-PINN v2 small-run baseline. Evidence is stored in lightweight tables:

@@ -1,5 +1,28 @@
 # Latest changes
 
+## F-SPS-PINN v2 phase-transition stress preflight
+
+Scope:
+
+- Exercise the white-box `vo2_sigma` path under `mild_transition`, `sharp_transition`, `near_threshold`, and `high_contrast` settings.
+- Reuse v2 baseline data loading, training loop, metrics, and frozen-input checks.
+- Keep frozen Ground Truth v1.1 and old v0/v1/v1.1 paths unchanged.
+- Treat results as stress-preflight synthetic numerical evidence only, not a formal performance conclusion.
+
+Changed:
+
+- Added `configs\pinn_inverse_v2_phase_transition_stress.yaml`.
+- Added `scripts\run_pinn_inverse_v2_phase_transition_stress.py`.
+- Added `tests\test_pinn_inverse_v2_phase_transition_stress.py`.
+- Added `outputs\tables\pinn_inverse_v2_phase_transition_stress_summary.json`.
+- Added `outputs\tables\pinn_inverse_v2_phase_transition_stress_cases.csv`.
+- Updated project state, registries, file inventory, and reproducibility notes.
+
+Result:
+
+All four stress cases produced finite losses, used `white_box_vo2_sigma`, did not use free `log_sigma`, and preserved frozen input hashes and mtimes. This is a preflight stability check only.
+
+
 ## F-SPS-PINN v2 small-run baseline
 
 Scope:

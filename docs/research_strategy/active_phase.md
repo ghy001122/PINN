@@ -2,9 +2,9 @@
 
 ## Current Phase
 
-`F-SPS-PINN v2 small-run baseline`
+`F-SPS-PINN v2 phase-transition stress preflight`
 
-The literature-backed constrained `gamma_sub` inversion stage is complete. The F-SPS-PINN architecture MVP and v2 smoke training pipeline are also complete. The current authorized phase is a small-run synthetic numerical baseline that compares the old free `log_sigma` conductivity shortcut against the white-box `vo2_sigma(T, c_v, m)` closure under matched training settings.
+The literature-backed constrained `gamma_sub` inversion stage is complete. The F-SPS-PINN architecture MVP, v2 smoke training pipeline, and v2 small-run baseline are complete. The current authorized phase is a stress preflight that tests whether the white-box `vo2_sigma(T, c_v, m)` closure remains numerically stable under synthetic phase-transition stiffness settings.
 
 ## Why This Phase Is Active
 
@@ -13,13 +13,14 @@ The completed identifiability, confounding, constrained-inversion, paper-readine
 - port-only full hidden-field inversion is ill-posed for `delta_T`, `c_v`, `m`, and `sigma`;
 - `gamma_sub` is identifiable only as a constrained reduced inverse target when switching and conductivity priors are fixed or tightly bounded;
 - `T_sw` remains the limiting confounder;
-- the architecture MVP is unit-tested and the v2 smoke loop confirms finite forward/backward/train behavior with `vo2_sigma`;
-- the next method step is to compare the free conductivity shortcut with the white-box closure in a bounded small-run baseline.
+- the v2 small-run baseline confirms both `free_log_sigma` and `white_box_vo2_sigma` paths can run under matched settings, but it does not support a performance-superiority claim;
+- the next method check is to stress the white-box VO2 closure with sharper transition, near-threshold, and high-contrast synthetic parameters.
 
 ## Allowed Work
 
-- run the v2 small-run baseline with matched seed, epochs, anchor count, and sparse terminal observations;
-- compare `free_log_sigma` and `white_box_vo2_sigma` as conductivity modes;
+- run a small CPU phase-transition stress preflight with epochs <= 20;
+- test `white_box_vo2_sigma` under `mild_transition`, `sharp_transition`, `near_threshold`, and `high_contrast` cases;
+- use the frozen Ground Truth v1.1 triangle data as read-only training target and sparse observation input;
 - commit lightweight JSON/CSV evidence only;
 - update compact project context and Codex reports for this phase.
 
@@ -27,13 +28,14 @@ The completed identifiability, confounding, constrained-inversion, paper-readine
 
 Do not do these unless a later explicit task authorizes them:
 
+- open a new Ground Truth revision or modify frozen Ground Truth v1.1 configs, data, metrics, report, default parameters, or equations;
 - replace the old `log_sigma` / v0 / v1 / v1.1 main training paths;
 - run long training experiments or overwrite existing results;
-- modify frozen Ground Truth v1.1 configs, data, metrics, report, default parameters, or equations;
-- claim F-SPS-PINN performance superiority from the small-run baseline;
+- claim F-SPS-PINN performance superiority from the stress preflight;
 - claim real VO2/NbO2 experimental validation;
+- claim sparse-port unique full hidden-field recovery;
 - start STL continuation, observability-augmented sparse temperature or state recovery, NeuroSPICE, NeuroPINN, VSN, or system-level mapping.
 
 ## Evidence Boundary
 
-All current results remain synthetic numerical digital-twin benchmark evidence. This phase is a bounded method-development comparison; it does not create a formal performance conclusion, a complete experimental conclusion, or a validated full device model.
+All current results remain synthetic numerical digital-twin benchmark evidence. This phase tests numerical stability and small-scale response under phase-transition parameter stress; it does not create a formal performance conclusion, a complete experimental conclusion, or a validated full device model.

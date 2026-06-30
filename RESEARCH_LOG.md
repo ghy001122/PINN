@@ -1,5 +1,30 @@
 # Research log
 
+## F-SPS-PINN v2 phase-transition stress preflight
+
+Date: 2026-06-30
+
+Actions:
+
+- Added `configs\pinn_inverse_v2_phase_transition_stress.yaml`.
+- Added `scripts\run_pinn_inverse_v2_phase_transition_stress.py`.
+- Added `tests\test_pinn_inverse_v2_phase_transition_stress.py`.
+- Generated `outputs\tables\pinn_inverse_v2_phase_transition_stress_summary.json`.
+- Generated `outputs\tables\pinn_inverse_v2_phase_transition_stress_cases.csv`.
+- Added `docs\codex_reports\pinn_inverse_v2_phase_transition_stress_report.md`.
+
+Findings:
+
+- All four stress cases produced finite losses and used `white_box_vo2_sigma`.
+- All stress cases decreased loss in the small CPU preflight budget.
+- `near_threshold` is the hardest stress case in this preflight, with `relative_G_error = 1.0033520810671768`.
+- Frozen input hashes and mtimes were unchanged.
+
+Boundary:
+
+This is a synthetic numerical digital-twin stress preflight only. It does not support a formal F-SPS-PINN performance superiority claim, real VO2/NbO2 experimental validation, or sparse-port full hidden-field recovery.
+
+
 ## Continuous off-grid gamma_sub refinement audit
 
 Date: 2026-06-28

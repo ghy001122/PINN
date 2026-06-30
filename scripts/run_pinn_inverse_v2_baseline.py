@@ -186,7 +186,8 @@ class V2BaselineNet(nn.Module):
         if self.conductivity_mode == "free_log_sigma":
             sigma = self.sigma_min + (self.sigma_max - self.sigma_min) * torch.sigmoid(raw[..., 3:4])
         else:
-            sigma = vo2_sigma(T, c_v, m, params=vo2_params)
+            phase_arg = None if bool(vo2_params.get("use_temperature_phase_fraction", False)) else m
+            sigma = vo2_sigma(T, c_v, phase_arg, params=vo2_params)
         fields["sigma"] = sigma
         return fields
 

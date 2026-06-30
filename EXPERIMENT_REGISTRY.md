@@ -1,5 +1,19 @@
 # Experiment registry
 
+## F-SPS-PINN v2 phase-transition stress preflight
+
+- Config: `configs\pinn_inverse_v2_phase_transition_stress.yaml`
+- Runner: `scripts\run_pinn_inverse_v2_phase_transition_stress.py`
+- Test: `tests\test_pinn_inverse_v2_phase_transition_stress.py`
+- Input target: `data\processed\gt_v1_acceptance\gt_triangle.npz`
+- Input sparse observation: `data\processed\gt_v1_acceptance\obs_triangle_sparse.npz`
+- Summary: `outputs\tables\pinn_inverse_v2_phase_transition_stress_summary.json`
+- Cases CSV: `outputs\tables\pinn_inverse_v2_phase_transition_stress_cases.csv`
+- Report: `docs\codex_reports\pinn_inverse_v2_phase_transition_stress_report.md`
+
+Status: completed as a small-run synthetic numerical phase-transition stress preflight. It exercises `white_box_vo2_sigma` under `mild_transition`, `sharp_transition`, `near_threshold`, and `high_contrast` settings. It is not a formal performance experiment and does not replace v0/v1/v1.1 paths.
+
+
 ## F-SPS-PINN v2 small-run baseline
 
 - Config: `configs\pinn_inverse_v2_f_sps_baseline.yaml`

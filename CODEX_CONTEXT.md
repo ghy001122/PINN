@@ -6,9 +6,9 @@ This file is the first-read context for non-trivial Codex work in this repositor
 
 Current phase:
 
-`F-SPS-PINN v2 small-run baseline`
+`F-SPS-PINN v2 phase-transition stress preflight`
 
-The constrained reduced `gamma_sub` inversion stage is complete. The F-SPS-PINN architecture MVP and v2 smoke training pipeline are complete. The active work is a bounded small-run synthetic numerical baseline comparing a free `log_sigma` conductivity shortcut with the white-box `vo2_sigma(T, c_v, m)` closure, without replacing existing v0/v1/v1.1 paths or modifying frozen Ground Truth v1.1.
+The constrained reduced `gamma_sub` inversion stage is complete. The F-SPS-PINN architecture MVP, v2 smoke training pipeline, and v2 small-run baseline are complete. The active work is a bounded synthetic stress preflight for the white-box `vo2_sigma(T, c_v, m)` closure under sharper, near-threshold, and higher-contrast phase-transition parameters, without replacing existing v0/v1/v1.1 paths or modifying frozen Ground Truth v1.1.
 
 ## Project Boundary
 
@@ -31,20 +31,20 @@ Do not modify frozen Ground Truth v1.1 files unless the user explicitly opens a 
 - The identifiability audit showed that terminal `V(t)`, `I(t)`, and `G(t)` constrain conductance-level response but do not uniquely recover `delta_T`, `c_v`, `m`, and `sigma`.
 - The `gamma_sub` identifiability audit showed stable single-parameter recovery when micro-kinetic parameters are fixed.
 - The `gamma_sub` confounding audit showed that `T_sw`, `tau_m`, `sigma_on0`, and `eta_A` can bias `gamma_sub` unless constrained by priors.
-- F-SPS-PINN architecture MVP and v2 smoke training are complete as method-development evidence, not performance conclusions.
+- F-SPS-PINN architecture MVP, v2 smoke training, and v2 small-run baseline are complete as method-development evidence, not performance conclusions.
 
 ## Current Claim Boundary
 
 Allowed claim:
 
-Under literature-guided micro-kinetic priors and constrained confounding parameters, `gamma_sub` is a more identifiable reduced inverse target than full hidden-field reconstruction from purely electrical terminal data. F-SPS-PINN v2 is currently a synthetic method-development baseline for comparing conductivity closures.
+Under literature-guided micro-kinetic priors and constrained confounding parameters, `gamma_sub` is a more identifiable reduced inverse target than full hidden-field reconstruction from purely electrical terminal data. F-SPS-PINN v2 is currently a synthetic method-development path for testing white-box conductivity closures and stiffness-aware components.
 
 Disallowed claims:
 
 - Port-only observations uniquely recover all hidden fields.
 - The current benchmark is experimental data.
 - Current `gamma_sub` inversion proves device-level thermal parameters without prior constraints.
-- Small-run F-SPS-PINN baselines prove performance superiority.
+- Small-run or stress-preflight F-SPS-PINN results prove performance superiority.
 
 ## Deferred Extensions
 
