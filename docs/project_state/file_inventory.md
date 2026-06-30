@@ -1,4 +1,4 @@
-# File inventory
+﻿# File inventory
 
 ## Low-token Codex context workflow
 
@@ -83,6 +83,17 @@
 - `configs\gamma_sub_tsw_confounding_phase_map.yaml`: config for the two-dimensional `T_sw_delta_K` by `T_sw_prior_width` phase-map audit.
 - `scripts\audit_gamma_sub_tsw_confounding_phase_map.py`: scans the T_sw confounding phase map while estimating only `gamma_sub`.
 - `scripts\build_gamma_sub_gap_closing_figures.py`: builds reproducible figure-ready PNGs from gap-closing JSON/CSV evidence.
+- `configs\gamma_sub_multi_protocol_recoverability.yaml`: config for multi-protocol `gamma_sub` recoverability audit.
+- `scripts\audit_gamma_sub_multi_protocol_recoverability.py`: compares triangle, LTP/LTD, derived multi-amplitude synthetic, and mixed-protocol objectives while estimating only `gamma_sub`.
+- `configs\gamma_sub_tsw_profile_likelihood.yaml`: config for `gamma_sub` by `T_sw` profile-likelihood landscape.
+- `scripts\audit_gamma_sub_tsw_profile_likelihood.py`: scans the port-objective landscape and extracts ridge/condition-number diagnostics.
+- `configs\gamma_sub_joint_inversion_boundary.yaml`: config for nuisance-release boundary audit.
+- `scripts\audit_gamma_sub_joint_inversion_boundary.py`: releases `T_sw`, `tau_m`, `sigma_on0`, and `eta_A` in lightweight candidate grids to quantify ambiguity.
+- `configs\gamma_sub_protocol_observability_design.yaml`: config for candidate stimulation protocol sensitivity design.
+- `scripts\audit_gamma_sub_protocol_observability_design.py`: ranks candidate protocols by `gamma_sub` sensitivity and `T_sw` sensitivity alignment.
+- `scripts\gamma_sub_validation_common.py`: shared helpers for lightweight `gamma_sub` validation audits.
+- `scripts\build_gamma_sub_sci_validation_figures.py`: builds figure-ready PNGs from the new JSON/CSV evidence.
+- `tests\test_gamma_sub_multi_protocol_recoverability.py`, `tests\test_gamma_sub_tsw_profile_likelihood.py`, `tests\test_gamma_sub_joint_inversion_boundary.py`, `tests\test_gamma_sub_protocol_observability_design.py`: smoke and schema tests for the new audits.
 - `configs\gamma_sub_auxiliary_observability_sweep.yaml`: config for auxiliary observability modes under controlled `T_sw` mismatch.
 - `scripts\audit_gamma_sub_auxiliary_observability_sweep.py`: compares synthetic auxiliary information channels while estimating only `gamma_sub`.
 - `configs\pinn_inverse_v2_f_sps_smoke.yaml`: v2 smoke config for a short CPU training loop using white-box `vo2_sigma`.
@@ -117,6 +128,7 @@
 - `tests\test_gamma_sub_scalar_baselines.py`: checks scalar baseline comparison outputs and frozen GT hash preservation.
 - `tests\test_gamma_sub_tsw_confounding_phase_map.py`: checks phase-map config scope, finite outputs, recoverability fields, matrix schema, and frozen GT hash preservation.
 - `tests\test_gamma_sub_auxiliary_observability_sweep.py`: checks auxiliary-observability config scope, finite outputs, mode coverage, calibrated-`T_sw` coverage, and frozen GT hash preservation.
+- `tests\test_gamma_sub_multi_protocol_recoverability.py`, `tests\test_gamma_sub_tsw_profile_likelihood.py`, `tests\test_gamma_sub_joint_inversion_boundary.py`, and `tests\test_gamma_sub_protocol_observability_design.py`: check config scope, finite outputs, schema fields, and frozen GT hash preservation for the SCI validation pack.
 - `tests\test_vo2_constitutive.py`: checks VO2-like conductivity positivity, differentiability, finite extreme-temperature behavior, and Bruggeman safeguards.
 - `tests\test_fourier_pyramid.py`: checks Fourier pyramid shape and differentiability.
 - `tests\test_loss_balancer.py`: checks dynamic residual gate normalization, differentiability, and anti-collapse behavior.
@@ -137,6 +149,7 @@
 - `docs\codex_reports\gamma_sub_scalar_baseline_comparison_report.md`: Codex report for scalar baseline comparison.
 - `docs\codex_reports\gamma_sub_tsw_confounding_phase_map_report.md`: Codex report for the two-dimensional T_sw confounding phase-map audit.
 - `docs\codex_reports\gamma_sub_auxiliary_observability_sweep_report.md`: Codex report for the auxiliary-observability sweep.
+- `docs\codex_reports\gamma_sub_multi_protocol_and_profile_likelihood_validation_report.md`: Codex report for the multi-protocol, profile-likelihood, joint-boundary, and protocol-design validation pack.
 - `docs\paper\model_hierarchy_and_claim_boundary.md`: paper-defense hierarchy,
   included/excluded physics, and allowed/forbidden claims.
 - `docs\paper\equation_variable_registry.md`: variable units and equation

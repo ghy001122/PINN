@@ -1,0 +1,50 @@
+﻿benchmark: "Frozen Ground Truth v1.1 synthetic numerical digital-twin multi-protocol recoverability audit"
+summary_json: outputs/tables/gamma_sub_multi_protocol_recoverability_summary.json
+cases_csv: outputs/tables/gamma_sub_multi_protocol_recoverability_cases.csv
+report_md: docs/codex_reports/gamma_sub_multi_protocol_and_profile_likelihood_validation_report.md
+
+inputs:
+  triangle_target_npz: data/processed/gt_v1_acceptance/gt_triangle.npz
+  triangle_sparse_obs_npz: data/processed/gt_v1_acceptance/obs_triangle_sparse.npz
+  ltp_ltd_target_npz: data/processed/gt_v1_acceptance/gt_ltp_ltd.npz
+  ltp_ltd_sparse_obs_npz: data/processed/gt_v1_acceptance/obs_ltp_ltd_sparse.npz
+
+simulation:
+  nx: 21
+  nt_triangle: 160
+  nt_ltp_ltd: 180
+  method: Radau
+  rtol: 1.0e-5
+  atol: 1.0e-7
+
+inverse:
+  primary_parameter: gamma_sub
+  gamma_candidates: [1.5e8, 2.0e8, 2.75e8, 3.25e8, 3.75e8, 4.0e8, 4.25e8, 4.5e8, 4.75e8, 5.0e8, 5.5e8, 6.5e8, 7.5e8, 9.0e8, 1.0e9]
+  recoverable_relative_error_thresholds: [0.1, 0.2]
+
+loss:
+  w_g: 1.0
+  w_i: 0.5
+  w_heat: 0.01
+
+sweep:
+  protocols: [triangle, ltp_ltd, multi_amplitude_synthetic, mixed_protocol]
+  observation_counts: [8, 32]
+  noise_levels: [0.0, 0.02]
+  scenarios:
+    - name: nominal_fixed_prior
+      T_sw_delta_K: 0.0
+      T_sw_prior_width: 0.0
+    - name: T_sw_mismatch
+      T_sw_delta_K: 2.0
+      T_sw_prior_width: 1.0
+    - name: narrow_T_sw_prior
+      T_sw_delta_K: 2.0
+      T_sw_prior_width: 0.1
+  seed: 2026
+
+protocol_overrides:
+  multi_amplitude_synthetic:
+    protocol: triangle
+    triangle_v_peak: 0.26
+    t_max: 3.0e-3

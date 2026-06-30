@@ -1,0 +1,112 @@
+{
+  "all_finite_results": true,
+  "benchmark": "Synthetic numerical digital-twin protocol observability design preflight",
+  "best_protocol_by_distinguishability": {
+    "distinguishability_score": 0.8948013347502902,
+    "expected_gamma_error_proxy": 1.1175665046130796,
+    "finite_result": true,
+    "frozen_inputs_unchanged": true,
+    "protocol": "ltp_ltd",
+    "protocol_name": "multi_pulse",
+    "recommended_for_gamma_sub_inversion": false,
+    "sensitivity_angle_or_cosine": 0.9525383127185862,
+    "sensitivity_norm_T_sw": 5.755483487223021,
+    "sensitivity_norm_gamma_sub": 18.853129460922034
+  },
+  "config_path": "configs\\gamma_sub_protocol_observability_design.yaml",
+  "frozen_gt_hashes_after": {
+    "data\\processed\\gt_v1_acceptance\\gt_triangle.npz": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8",
+    "data\\processed\\gt_v1_acceptance\\obs_triangle_sparse.npz": "f45daf53136a255b3666ebeb56e6298ce148a613c46fa596b795e7ade68ea602"
+  },
+  "frozen_gt_hashes_before": {
+    "data\\processed\\gt_v1_acceptance\\gt_triangle.npz": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8",
+    "data\\processed\\gt_v1_acceptance\\obs_triangle_sparse.npz": "f45daf53136a255b3666ebeb56e6298ce148a613c46fa596b795e7ade68ea602"
+  },
+  "frozen_gt_unchanged": true,
+  "key_interpretation": "Protocols with larger gamma_sub sensitivity and lower alignment with T_sw sensitivity are better candidates for constrained gamma_sub inversion.",
+  "note": "Synthetic numerical digital-twin protocol observability design preflight; not experimental data.",
+  "num_protocols": 6,
+  "outputs": {
+    "cases_csv": "outputs/tables/gamma_sub_protocol_observability_design_cases.csv",
+    "summary_json": "outputs/tables/gamma_sub_protocol_observability_design_summary.json"
+  },
+  "recommended_protocols": [
+    "long_pulse",
+    "short_pulse"
+  ],
+  "rows": [
+    {
+      "distinguishability_score": 0.8948013347502902,
+      "expected_gamma_error_proxy": 1.1175665046130796,
+      "finite_result": true,
+      "frozen_inputs_unchanged": true,
+      "protocol": "ltp_ltd",
+      "protocol_name": "multi_pulse",
+      "recommended_for_gamma_sub_inversion": false,
+      "sensitivity_angle_or_cosine": 0.9525383127185862,
+      "sensitivity_norm_T_sw": 5.755483487223021,
+      "sensitivity_norm_gamma_sub": 18.853129460922034
+    },
+    {
+      "distinguishability_score": 0.13886327380653682,
+      "expected_gamma_error_proxy": 7.201328130814429,
+      "finite_result": true,
+      "frozen_inputs_unchanged": true,
+      "protocol": "ltp_ltd",
+      "protocol_name": "long_pulse",
+      "recommended_for_gamma_sub_inversion": true,
+      "sensitivity_angle_or_cosine": 0.9481386763643258,
+      "sensitivity_norm_T_sw": 0.8716118435778285,
+      "sensitivity_norm_gamma_sub": 2.677588308043415
+    },
+    {
+      "distinguishability_score": 0.08555277208370304,
+      "expected_gamma_error_proxy": 11.688691969228314,
+      "finite_result": true,
+      "frozen_inputs_unchanged": true,
+      "protocol": "ltp_ltd",
+      "protocol_name": "short_pulse",
+      "recommended_for_gamma_sub_inversion": true,
+      "sensitivity_angle_or_cosine": 0.8054126601383119,
+      "sensitivity_norm_T_sw": 0.23075983288756133,
+      "sensitivity_norm_gamma_sub": 0.4396625810523625
+    },
+    {
+      "distinguishability_score": 0.030774251923348487,
+      "expected_gamma_error_proxy": 32.49469727130225,
+      "finite_result": true,
+      "frozen_inputs_unchanged": true,
+      "protocol": "ltp_ltd",
+      "protocol_name": "mixed_amplitude_pulse",
+      "recommended_for_gamma_sub_inversion": false,
+      "sensitivity_angle_or_cosine": 0.979199863570836,
+      "sensitivity_norm_T_sw": 1.5469609389043188,
+      "sensitivity_norm_gamma_sub": 1.4795216381465512
+    },
+    {
+      "distinguishability_score": 0.01847443141226208,
+      "expected_gamma_error_proxy": 54.12886479073274,
+      "finite_result": true,
+      "frozen_inputs_unchanged": true,
+      "protocol": "triangle",
+      "protocol_name": "triangle_high_amplitude",
+      "recommended_for_gamma_sub_inversion": false,
+      "sensitivity_angle_or_cosine": 0.9933823417845044,
+      "sensitivity_norm_T_sw": 3.281336964147279,
+      "sensitivity_norm_gamma_sub": 2.791687151355608
+    },
+    {
+      "distinguishability_score": 0.005475455471373597,
+      "expected_gamma_error_proxy": 182.63320836561118,
+      "finite_result": true,
+      "frozen_inputs_unchanged": true,
+      "protocol": "triangle",
+      "protocol_name": "triangle_low_amplitude",
+      "recommended_for_gamma_sub_inversion": false,
+      "sensitivity_angle_or_cosine": 0.9668110971158045,
+      "sensitivity_norm_T_sw": 0.15163309810322614,
+      "sensitivity_norm_gamma_sub": 0.164978501714228
+    }
+  ],
+  "scope": "Finite-difference sensitivity design audit for candidate stimulation protocols; no frozen GT revision and no training."
+}

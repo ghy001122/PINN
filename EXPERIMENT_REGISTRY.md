@@ -1,4 +1,25 @@
-# Experiment registry
+﻿# Experiment registry
+
+## Gamma_sub multi-protocol and profile-likelihood validation pack
+
+- Multi-protocol recoverability config: `configs\gamma_sub_multi_protocol_recoverability.yaml`
+- Multi-protocol recoverability script: `scripts\audit_gamma_sub_multi_protocol_recoverability.py`
+- Multi-protocol recoverability test: `tests\test_gamma_sub_multi_protocol_recoverability.py`
+- Profile-likelihood config: `configs\gamma_sub_tsw_profile_likelihood.yaml`
+- Profile-likelihood script: `scripts\audit_gamma_sub_tsw_profile_likelihood.py`
+- Profile-likelihood test: `tests\test_gamma_sub_tsw_profile_likelihood.py`
+- Joint inversion boundary config: `configs\gamma_sub_joint_inversion_boundary.yaml`
+- Joint inversion boundary script: `scripts\audit_gamma_sub_joint_inversion_boundary.py`
+- Joint inversion boundary test: `tests\test_gamma_sub_joint_inversion_boundary.py`
+- Protocol observability design config: `configs\gamma_sub_protocol_observability_design.yaml`
+- Protocol observability design script: `scripts\audit_gamma_sub_protocol_observability_design.py`
+- Protocol observability design test: `tests\test_gamma_sub_protocol_observability_design.py`
+- Shared helper: `scripts\gamma_sub_validation_common.py`
+- Figure builder: `scripts\build_gamma_sub_sci_validation_figures.py`
+- Outputs: `outputs\tables\gamma_sub_multi_protocol_recoverability_summary.json`, `outputs\tables\gamma_sub_multi_protocol_recoverability_cases.csv`, `outputs\tables\gamma_sub_tsw_profile_likelihood_summary.json`, `outputs\tables\gamma_sub_tsw_profile_likelihood_grid.csv`, `outputs\tables\gamma_sub_tsw_profile_likelihood_profiles.csv`, `outputs\tables\gamma_sub_joint_inversion_boundary_summary.json`, `outputs\tables\gamma_sub_joint_inversion_boundary_cases.csv`, `outputs\tables\gamma_sub_protocol_observability_design_summary.json`, `outputs\tables\gamma_sub_protocol_observability_design_cases.csv`
+- Report: `docs\codex_reports\gamma_sub_multi_protocol_and_profile_likelihood_validation_report.md`
+
+Status: completed as lightweight synthetic numerical validation evidence. It strengthens SCI manuscript experimental breadth and reviewer-defense scope without modifying frozen Ground Truth or adding F-SPS-PINN experiments.
 
 ## SCI gap-closing gamma_sub validation pack
 

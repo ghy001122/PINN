@@ -1,4 +1,4 @@
-# Codex Context
+﻿# Codex Context
 
 This file is the first-read context for non-trivial Codex work in this repository. It is intentionally compact. Do not load the full project history by default.
 
@@ -35,6 +35,7 @@ Do not modify frozen Ground Truth v1.1 files unless the user explicitly opens a 
 - The observability-augmented gamma_sub audit shows that sparse temperature anchors alone did not reduce the wide `T_sw` mismatch bias in the current candidate-grid setup, while a narrowed `T_sw` prior reduced the gamma relative error from `1.2222222222222223` to `0.2222222222222222`.
 - The T_sw confounding phase-map audit separates calibration-error amplitude from residual prior width and maps recoverable `gamma_sub` regions; 27 of 42 official cells meet relative error <= 0.1 and 32 meet <= 0.2.
 - The auxiliary observability sweep shows that synthetic sparse/dense T, T-derivative, m, and sigma proxies did not recover the wide T_sw mismatch case; only calibrated T_sw reached the recovery thresholds in the official sweep.
+- The multi-protocol/profile-likelihood validation pack adds 48-case multi-protocol recoverability, a `gamma_sub` by `T_sw` objective landscape with condition number `10.762998753222757`, a joint-inversion boundary audit where `T_sw + tau_m` is most ambiguous and `sigma_on0` gives the worst gamma error, and a protocol observability design preflight that ranks `multi_pulse` highest by distinguishability while recommending `long_pulse` and `short_pulse` under the configured cosine threshold.
 - F-SPS-PINN architecture MVP, v2 smoke training, v2 small-run baseline, v2 phase-transition stress preflight, and v2 Fourier ablation are complete as method-development evidence, not main performance conclusions.
 
 ## Current Claim Boundary

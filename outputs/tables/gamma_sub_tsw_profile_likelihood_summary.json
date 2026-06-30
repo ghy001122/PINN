@@ -1,0 +1,55 @@
+{
+  "all_finite_results": true,
+  "benchmark": "Frozen Ground Truth v1.1 triangle synthetic numerical digital-twin gamma_sub x T_sw profile likelihood",
+  "condition_number": 10.762998753222757,
+  "config_path": "configs\\gamma_sub_tsw_profile_likelihood.yaml",
+  "forbidden_overclaim": "Do not claim unconstrained joint identifiability of gamma_sub and T_sw from sparse ports.",
+  "frozen_gt_hashes_after": {
+    "data\\processed\\gt_v1_acceptance\\gt_triangle.npz": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8",
+    "data\\processed\\gt_v1_acceptance\\obs_triangle_sparse.npz": "f45daf53136a255b3666ebeb56e6298ce148a613c46fa596b795e7ade68ea602"
+  },
+  "frozen_gt_hashes_before": {
+    "data\\processed\\gt_v1_acceptance\\gt_triangle.npz": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8",
+    "data\\processed\\gt_v1_acceptance\\obs_triangle_sparse.npz": "f45daf53136a255b3666ebeb56e6298ce148a613c46fa596b795e7ade68ea602"
+  },
+  "frozen_gt_unchanged": true,
+  "interpretation_for_manuscript": "The port objective contains a gamma_sub/T_sw valley, so gamma_sub recovery must be claimed as conditional on fixed or tightly bounded switching-temperature prior.",
+  "note": "Synthetic numerical digital-twin profile likelihood; not experimental data.",
+  "num_grid_points": 77,
+  "outputs": {
+    "grid_csv": "outputs/tables/gamma_sub_tsw_profile_likelihood_grid.csv",
+    "profiles_csv": "outputs/tables/gamma_sub_tsw_profile_likelihood_profiles.csv",
+    "summary_json": "outputs/tables/gamma_sub_tsw_profile_likelihood_summary.json"
+  },
+  "ridge_metrics": {
+    "best_pair": {
+      "T_sw_offset_K": 0.0,
+      "gamma_sub": 425000000.0,
+      "objective": 5.098387239050622e-05
+    },
+    "condition_number": 10.762998753222757,
+    "fisher_like_curvature_matrix": [
+      [
+        8.675787574134326,
+        0.31112063951448793
+      ],
+      [
+        0.31112063951448793,
+        0.8195198728265906
+      ]
+    ],
+    "gamma_sub_T_sw_coupling_coefficient": 0.11667951715199494,
+    "gamma_sub_and_T_sw_locally_confounded": true,
+    "low_objective_point_count": 71,
+    "objective_has_elongated_ridge": true,
+    "ridge_slope_Tsw_offset_per_log_gamma": -1.0345106683735896,
+    "true_pair_rank": 2
+  },
+  "scope": "Two-dimensional gamma_sub x T_sw objective landscape using port G/I objective on the frozen triangle benchmark.",
+  "sparse_obs_npz": "data\\processed\\gt_v1_acceptance\\obs_triangle_sparse.npz",
+  "target_npz": "data\\processed\\gt_v1_acceptance\\gt_triangle.npz",
+  "true_T_sw": 313.0,
+  "true_gamma_sub": 450000000.0,
+  "whether_gamma_sub_and_T_sw_are_locally_confounded": true,
+  "whether_objective_has_elongated_ridge": true
+}

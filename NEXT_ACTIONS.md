@@ -1,8 +1,8 @@
-# Next actions
+﻿# Next actions
 
 ## Immediate next step
 
-The immediate step is `SCI manuscript figure and table drafting` with the gap-closing validation pack, T_sw confounding phase-map, auxiliary observability sweep, and reproducible figure-ready outputs now available. Use existing synthetic numerical digital-twin evidence to build a manuscript-ready claim matrix, figure/table routing, and reviewer-defense boundary. Do not run new training experiments in this phase.
+The immediate step is `SCI manuscript figure and table drafting` with the gap-closing validation pack, T_sw confounding phase-map, auxiliary observability sweep, multi-protocol/profile-likelihood validation pack, and reproducible figure-ready outputs now available. Use existing synthetic numerical digital-twin evidence to build a manuscript-ready claim matrix, figure/table routing, and reviewer-defense boundary. Do not run new training experiments in this phase.
 
 The constrained `gamma_sub` inversion remains the most stable paper mainline. F-SPS-PINN v2 is a method-development line and should be positioned as appendix, discussion, or future work unless a separate method paper is explicitly opened.
 
@@ -33,6 +33,7 @@ These results are useful engineering evidence but do not currently support a cla
 4. Keep F-SPS-PINN as an appendix or future-work subsection unless new evidence is separately authorized.
 5. Use the new gap-closing audits to write a sharper limitations paragraph: `T_sw` prior width dominates, anchor placement alone did not fix the bias, and scalar optimizers are not the novelty, and non-calibrated synthetic auxiliary proxies did not overcome wide `T_sw` mismatch.
 6. Keep all future results reproducible through scripts and lightweight JSON/CSV evidence.
+7. Use the multi-protocol/profile-likelihood validation pack to strengthen the reviewer-defense narrative: multi-protocol checks increase experimental breadth, profile likelihood explains objective geometry, joint-boundary cases define nuisance-release limits, and protocol-design sensitivity adds forward-looking innovation.
 
 ## Do not do next
 

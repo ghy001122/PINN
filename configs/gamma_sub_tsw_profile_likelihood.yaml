@@ -1,0 +1,25 @@
+﻿benchmark: "Frozen Ground Truth v1.1 triangle synthetic numerical digital-twin gamma_sub x T_sw profile likelihood"
+target_npz: data/processed/gt_v1_acceptance/gt_triangle.npz
+sparse_obs_npz: data/processed/gt_v1_acceptance/obs_triangle_sparse.npz
+summary_json: outputs/tables/gamma_sub_tsw_profile_likelihood_summary.json
+grid_csv: outputs/tables/gamma_sub_tsw_profile_likelihood_grid.csv
+profiles_csv: outputs/tables/gamma_sub_tsw_profile_likelihood_profiles.csv
+
+simulation:
+  protocol: triangle
+  nx: 21
+  nt: 160
+  method: Radau
+  rtol: 1.0e-5
+  atol: 1.0e-7
+
+inverse:
+  primary_parameter: gamma_sub
+  gamma_grid: [3.0e8, 3.5e8, 4.0e8, 4.25e8, 4.5e8, 4.75e8, 5.0e8, 5.5e8, 6.5e8, 8.0e8, 1.0e9]
+  T_sw_offset_grid_K: [-2.0, -1.0, -0.5, 0.0, 0.5, 1.0, 2.0]
+  observation_count: 32
+
+loss:
+  w_g: 1.0
+  w_i: 0.5
+  w_heat: 0.01

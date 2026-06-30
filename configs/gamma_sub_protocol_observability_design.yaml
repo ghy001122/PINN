@@ -1,0 +1,56 @@
+﻿benchmark: "Synthetic numerical digital-twin protocol observability design preflight"
+summary_json: outputs/tables/gamma_sub_protocol_observability_design_summary.json
+cases_csv: outputs/tables/gamma_sub_protocol_observability_design_cases.csv
+
+base_target_npz: data/processed/gt_v1_acceptance/gt_triangle.npz
+base_sparse_obs_npz: data/processed/gt_v1_acceptance/obs_triangle_sparse.npz
+
+simulation:
+  nx: 21
+  nt: 160
+  method: Radau
+  rtol: 1.0e-5
+  atol: 1.0e-7
+
+sensitivity:
+  gamma_fraction: 0.15
+  T_sw_delta_K: 0.5
+  observation_count: 32
+  recommendation_min_gamma_norm: 0.02
+  recommendation_max_abs_cosine: 0.95
+
+protocols:
+  - name: triangle_low_amplitude
+    protocol: triangle
+    t_max: 3.0e-3
+    params:
+      triangle_v_peak: 0.12
+  - name: triangle_high_amplitude
+    protocol: triangle
+    t_max: 3.0e-3
+    params:
+      triangle_v_peak: 0.26
+  - name: short_pulse
+    protocol: ltp_ltd
+    t_max: 6.0e-3
+    params:
+      ltp_v_pos: 0.10
+      ltp_v_neg: -0.03
+  - name: long_pulse
+    protocol: ltp_ltd
+    t_max: 24.0e-3
+    params:
+      ltp_v_pos: 0.08
+      ltp_v_neg: -0.02
+  - name: multi_pulse
+    protocol: ltp_ltd
+    t_max: 15.0e-3
+    params:
+      ltp_v_pos: 0.11
+      ltp_v_neg: -0.04
+  - name: mixed_amplitude_pulse
+    protocol: ltp_ltd
+    t_max: 15.0e-3
+    params:
+      ltp_v_pos: 0.14
+      ltp_v_neg: -0.06

@@ -1,4 +1,4 @@
-# Project state
+﻿# Project state
 
 ## Current phase
 
@@ -55,6 +55,7 @@ The SCI gap-closing validation pack adds three lightweight audits. The `T_sw` pr
 The T_sw confounding phase-map audit adds `configs\gamma_sub_tsw_confounding_phase_map.yaml` and `scripts\audit_gamma_sub_tsw_confounding_phase_map.py`. It scans `T_sw_delta_K = [0.0, 0.04, 0.1, 0.2, 0.4, 1.0, 2.0]` and `T_sw_prior_width = [0.02, 0.05, 0.1, 0.2, 0.5, 1.0]` while estimating only `gamma_sub`. The applied residual mismatch is explicitly `effective_T_sw_delta_K = T_sw_delta_K * T_sw_prior_width`. Official results contain 42 finite cases, with 27 recoverable at relative error <= 0.1 and 32 recoverable at <= 0.2. The worst case remains large `T_sw` uncertainty with `gamma_sub` relative error `1.2222222222222223`. Frozen input hashes are unchanged.
 
 The auxiliary observability sweep adds `configs\gamma_sub_auxiliary_observability_sweep.yaml` and `scripts\audit_gamma_sub_auxiliary_observability_sweep.py`. It compares `port_only`, `port_plus_sparse_T`, `port_plus_dense_T`, `port_plus_T_temporal_derivative_proxy`, `port_plus_m_proxy`, `port_plus_sigma_aggregate_proxy`, and `port_plus_calibrated_T_sw` under controlled `T_sw_delta_K = 2.0` mismatch while estimating only `gamma_sub`. Official results contain 172 finite cases; only 2 cases are recoverable at `relative_error <= 0.1` and `<= 0.2`, both from calibrated `T_sw`. The best non-calibrated auxiliary proxy remains at relative error `1.0`, so the evidence strengthens the conclusion that independent `T_sw` calibration dominates in the wide-mismatch regime.
+The multi-protocol/profile-likelihood validation pack adds four reviewer-facing audits while estimating only `gamma_sub`. Multi-protocol recoverability evaluates 48 finite cases across triangle, LTP/LTD, derived multi-amplitude synthetic, and mixed-protocol objectives; `ltp_ltd` has the lowest mean error, but all protocols still fail under wide `T_sw` mismatch. The profile-likelihood landscape has condition number `10.762998753222757` and an elongated `gamma_sub`/`T_sw` ridge. The joint-boundary audit identifies `gamma_plus_T_sw_plus_tau_m` as the most ambiguous release and `gamma_plus_sigma_on0` as the worst gamma-error case. The protocol-design preflight ranks `multi_pulse` highest by distinguishability and recommends `long_pulse` and `short_pulse` under the configured sensitivity-angle rule. Frozen input hashes are unchanged.
 The manuscript evidence consolidation adds `docs\paper\sci_manuscript_evidence_matrix.md` to bind each allowed paper claim to existing scripts, lightweight tables, reports, and forbidden overclaims.
 
 Detailed historical file lists and reproduction entries live in:

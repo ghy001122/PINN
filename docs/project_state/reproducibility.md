@@ -1,4 +1,34 @@
-# Reproducibility
+﻿# Reproducibility
+
+## Gamma_sub multi-protocol and profile-likelihood validation reproduction
+
+```powershell
+python scripts/audit_gamma_sub_multi_protocol_recoverability.py --config configs/gamma_sub_multi_protocol_recoverability.yaml
+python scripts/audit_gamma_sub_tsw_profile_likelihood.py --config configs/gamma_sub_tsw_profile_likelihood.yaml
+python scripts/audit_gamma_sub_joint_inversion_boundary.py --config configs/gamma_sub_joint_inversion_boundary.yaml
+python scripts/audit_gamma_sub_protocol_observability_design.py --config configs/gamma_sub_protocol_observability_design.yaml
+python scripts/build_gamma_sub_sci_validation_figures.py
+```
+
+These commands read frozen Ground Truth v1.1 files and regenerate:
+
+- `outputs\tables\gamma_sub_multi_protocol_recoverability_summary.json`
+- `outputs\tables\gamma_sub_multi_protocol_recoverability_cases.csv`
+- `outputs\tables\gamma_sub_tsw_profile_likelihood_summary.json`
+- `outputs\tables\gamma_sub_tsw_profile_likelihood_grid.csv`
+- `outputs\tables\gamma_sub_tsw_profile_likelihood_profiles.csv`
+- `outputs\tables\gamma_sub_joint_inversion_boundary_summary.json`
+- `outputs\tables\gamma_sub_joint_inversion_boundary_cases.csv`
+- `outputs\tables\gamma_sub_protocol_observability_design_summary.json`
+- `outputs\tables\gamma_sub_protocol_observability_design_cases.csv`
+- `outputs\figures\gamma_sub_sci_validation\multi_protocol_recoverability.png`
+- `outputs\figures\gamma_sub_sci_validation\profile_likelihood_landscape.png`
+- `outputs\figures\gamma_sub_sci_validation\profile_likelihood_ridge.png`
+- `outputs\figures\gamma_sub_sci_validation\joint_inversion_boundary.png`
+- `outputs\figures\gamma_sub_sci_validation\protocol_observability_design.png`
+- `docs\codex_reports\gamma_sub_multi_protocol_and_profile_likelihood_validation_report.md`
+
+They do not regenerate or modify frozen Ground Truth data and do not run F-SPS-PINN experiments.
 
 ## SCI gap-closing validation pack reproduction
 

@@ -1,4 +1,30 @@
-# Research log
+﻿# Research log
+
+## Gamma_sub multi-protocol and profile-likelihood validation pack
+
+Date: 2026-06-30
+
+Actions:
+
+- Added `configs\gamma_sub_multi_protocol_recoverability.yaml` and `scripts\audit_gamma_sub_multi_protocol_recoverability.py`.
+- Added `configs\gamma_sub_tsw_profile_likelihood.yaml` and `scripts\audit_gamma_sub_tsw_profile_likelihood.py`.
+- Added `configs\gamma_sub_joint_inversion_boundary.yaml` and `scripts\audit_gamma_sub_joint_inversion_boundary.py`.
+- Added `configs\gamma_sub_protocol_observability_design.yaml` and `scripts\audit_gamma_sub_protocol_observability_design.py`.
+- Added `scripts\gamma_sub_validation_common.py` and `scripts\build_gamma_sub_sci_validation_figures.py`.
+- Added four smoke/schema tests for the new audits.
+- Generated lightweight JSON/CSV evidence and ignored figure-ready PNGs under `outputs\figures\gamma_sub_sci_validation\`.
+
+Findings:
+
+- Multi-protocol recoverability: 48 finite cases; `ltp_ltd` has the lowest mean error, while wide `T_sw` mismatch still drives all tested protocols to large error.
+- Profile likelihood: the `gamma_sub` by `T_sw` objective landscape has condition number `10.762998753222757`, true-pair rank `2`, and an elongated ridge.
+- Joint boundary: `gamma_plus_T_sw_plus_tau_m` is the most ambiguous case; `gamma_plus_sigma_on0` gives the worst gamma error in the tested release grid.
+- Protocol design: `multi_pulse` has the highest distinguishability score; `long_pulse` and `short_pulse` meet the configured recommendation rule.
+- Frozen input hashes are unchanged.
+
+Boundary:
+
+All outputs are synthetic numerical digital-twin benchmark evidence. The pack strengthens conditional recoverability and reviewer-defense claims only; it does not prove experimental validation, F-SPS-PINN superiority, or sparse-port full hidden-field recovery.
 
 ## Auxiliary observability sweep
 

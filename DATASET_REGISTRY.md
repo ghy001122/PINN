@@ -1,4 +1,20 @@
-# Dataset registry
+﻿# Dataset registry
+
+## Gamma_sub multi-protocol and profile-likelihood validation evidence
+
+These lightweight tables were generated from frozen Ground Truth v1.1 parameters and in-memory synthetic protocol variants. They are synthetic numerical digital-twin validation evidence, not experimental data.
+
+- `outputs\tables\gamma_sub_multi_protocol_recoverability_summary.json`
+- `outputs\tables\gamma_sub_multi_protocol_recoverability_cases.csv`
+- `outputs\tables\gamma_sub_tsw_profile_likelihood_summary.json`
+- `outputs\tables\gamma_sub_tsw_profile_likelihood_grid.csv`
+- `outputs\tables\gamma_sub_tsw_profile_likelihood_profiles.csv`
+- `outputs\tables\gamma_sub_joint_inversion_boundary_summary.json`
+- `outputs\tables\gamma_sub_joint_inversion_boundary_cases.csv`
+- `outputs\tables\gamma_sub_protocol_observability_design_summary.json`
+- `outputs\tables\gamma_sub_protocol_observability_design_cases.csv`
+
+The corresponding frozen input arrays remain ignored by Git and were not modified.
 
 ## SCI gap-closing gamma_sub validation evidence
 

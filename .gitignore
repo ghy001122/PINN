@@ -66,3 +66,12 @@ outputs/pinn_inverse_v1_1_smoke/*
 
 # Local Windows cache artifacts that can appear under this workspace.
 %SystemDrive%/
+!outputs/tables/gamma_sub_multi_protocol_recoverability_summary.json
+!outputs/tables/gamma_sub_multi_protocol_recoverability_cases.csv
+!outputs/tables/gamma_sub_tsw_profile_likelihood_summary.json
+!outputs/tables/gamma_sub_tsw_profile_likelihood_grid.csv
+!outputs/tables/gamma_sub_tsw_profile_likelihood_profiles.csv
+!outputs/tables/gamma_sub_joint_inversion_boundary_summary.json
+!outputs/tables/gamma_sub_joint_inversion_boundary_cases.csv
+!outputs/tables/gamma_sub_protocol_observability_design_summary.json
+!outputs/tables/gamma_sub_protocol_observability_design_cases.csv

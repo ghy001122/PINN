@@ -1,4 +1,35 @@
-# Latest changes
+﻿# Latest changes
+
+## Gamma_sub multi-protocol and profile-likelihood validation pack
+
+Scope:
+
+- Add multi-protocol recoverability across triangle, LTP/LTD, derived multi-amplitude synthetic, and mixed-protocol objectives.
+- Add a `gamma_sub` by `T_sw` profile-likelihood landscape to quantify objective ridge geometry.
+- Add a joint inversion boundary audit that releases nuisance parameters in lightweight candidate grids.
+- Add protocol observability design preflight using finite-difference sensitivity vectors.
+- Keep frozen Ground Truth v1.1 read-only and do not add F-SPS-PINN experiments.
+
+Changed:
+
+- Added `configs\gamma_sub_multi_protocol_recoverability.yaml`.
+- Added `configs\gamma_sub_tsw_profile_likelihood.yaml`.
+- Added `configs\gamma_sub_joint_inversion_boundary.yaml`.
+- Added `configs\gamma_sub_protocol_observability_design.yaml`.
+- Added `scripts\gamma_sub_validation_common.py`.
+- Added `scripts\audit_gamma_sub_multi_protocol_recoverability.py`.
+- Added `scripts\audit_gamma_sub_tsw_profile_likelihood.py`.
+- Added `scripts\audit_gamma_sub_joint_inversion_boundary.py`.
+- Added `scripts\audit_gamma_sub_protocol_observability_design.py`.
+- Added `scripts\build_gamma_sub_sci_validation_figures.py`.
+- Added four tests under `tests\` for the new audits.
+- Added lightweight JSON/CSV evidence under `outputs\tables\`.
+- Generated ignored figure-ready PNGs under `outputs\figures\gamma_sub_sci_validation\`.
+- Added `docs\codex_reports\gamma_sub_multi_protocol_and_profile_likelihood_validation_report.md`.
+
+Result:
+
+The official runs are finite and frozen inputs are unchanged. Multi-protocol recovery contains 48 cases, with `ltp_ltd` the best mean-error protocol and wide `T_sw` mismatch still failing across protocols. The profile landscape has condition number `10.762998753222757` and an elongated `gamma_sub`/`T_sw` ridge. The joint-boundary audit identifies `gamma_plus_T_sw_plus_tau_m` as most ambiguous and `gamma_plus_sigma_on0` as the worst gamma-error release. The protocol-design preflight ranks `multi_pulse` highest by distinguishability and recommends `long_pulse` and `short_pulse` under the configured rule.
 
 ## Auxiliary observability sweep
 

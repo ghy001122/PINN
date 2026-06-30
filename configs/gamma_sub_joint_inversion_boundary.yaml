@@ -1,0 +1,40 @@
+﻿benchmark: "Frozen Ground Truth v1.1 triangle synthetic numerical digital-twin joint inversion boundary audit"
+target_npz: data/processed/gt_v1_acceptance/gt_triangle.npz
+sparse_obs_npz: data/processed/gt_v1_acceptance/obs_triangle_sparse.npz
+summary_json: outputs/tables/gamma_sub_joint_inversion_boundary_summary.json
+cases_csv: outputs/tables/gamma_sub_joint_inversion_boundary_cases.csv
+
+simulation:
+  protocol: triangle
+  nx: 21
+  nt: 160
+  method: Radau
+  rtol: 1.0e-5
+  atol: 1.0e-7
+
+inverse:
+  primary_parameter: gamma_sub
+  gamma_candidates: [2.75e8, 3.25e8, 3.75e8, 4.0e8, 4.25e8, 4.5e8, 4.75e8, 5.0e8, 5.5e8, 6.5e8, 7.5e8]
+  observation_count: 32
+  recoverable_relative_error_thresholds: [0.1, 0.2]
+  near_equivalent_objective_ratio: 1.05
+
+loss:
+  w_g: 1.0
+  w_i: 0.5
+  w_heat: 0.01
+
+released_parameter_grids:
+  T_sw_offset_K: [-2.0, -1.0, 0.0, 1.0, 2.0]
+  tau_m_scale: [0.75, 1.0, 1.25]
+  sigma_on0_scale: [0.85, 1.0, 1.15]
+  eta_A_scale: [0.8, 1.0, 1.2]
+
+cases:
+  - gamma_only
+  - gamma_plus_T_sw
+  - gamma_plus_tau_m
+  - gamma_plus_sigma_on0
+  - gamma_plus_eta_A
+  - gamma_plus_T_sw_plus_tau_m
+  - gamma_plus_T_sw_plus_sigma_on0
