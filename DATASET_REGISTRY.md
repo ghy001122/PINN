@@ -1,5 +1,17 @@
 # Dataset registry
 
+## SCI gap-closing gamma_sub validation evidence
+
+These lightweight tables were generated from frozen Ground Truth v1.1 parameters and sparse terminal observation times. They are synthetic numerical digital-twin validation evidence, not experimental data.
+
+- `outputs\tables\gamma_sub_tsw_prior_width_sweep_summary.json`
+- `outputs\tables\gamma_sub_tsw_prior_width_sweep_cases.csv`
+- `outputs\tables\gamma_sub_temperature_anchor_placement_summary.json`
+- `outputs\tables\gamma_sub_temperature_anchor_placement_cases.csv`
+- `outputs\tables\gamma_sub_scalar_baseline_comparison.csv`
+
+The corresponding frozen input arrays remain ignored by Git and were not modified.
+
 ## Observability-augmented gamma_sub evidence
 
 These lightweight tables were generated from frozen Ground Truth v1.1 parameters and sparse terminal observation times. They are synthetic numerical digital-twin observability evidence, not experimental data.

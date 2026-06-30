@@ -1,5 +1,24 @@
 # Experiment registry
 
+## SCI gap-closing gamma_sub validation pack
+
+- T_sw prior-width config: `configs\gamma_sub_tsw_prior_width_sweep.yaml`
+- T_sw prior-width script: `scripts\audit_gamma_sub_tsw_prior_width_sweep.py`
+- T_sw prior-width test: `tests\test_gamma_sub_tsw_prior_width_sweep.py`
+- T_sw prior-width outputs: `outputs\tables\gamma_sub_tsw_prior_width_sweep_summary.json`, `outputs\tables\gamma_sub_tsw_prior_width_sweep_cases.csv`
+- T_sw prior-width report: `docs\codex_reports\gamma_sub_tsw_prior_width_sweep_report.md`
+- Temperature-anchor placement config: `configs\gamma_sub_temperature_anchor_placement.yaml`
+- Temperature-anchor placement script: `scripts\audit_gamma_sub_temperature_anchor_placement.py`
+- Temperature-anchor placement test: `tests\test_gamma_sub_temperature_anchor_placement.py`
+- Temperature-anchor placement outputs: `outputs\tables\gamma_sub_temperature_anchor_placement_summary.json`, `outputs\tables\gamma_sub_temperature_anchor_placement_cases.csv`
+- Temperature-anchor placement report: `docs\codex_reports\gamma_sub_temperature_anchor_placement_report.md`
+- Scalar baseline script: `scripts\compare_gamma_sub_scalar_baselines.py`
+- Scalar baseline test: `tests\test_gamma_sub_scalar_baselines.py`
+- Scalar baseline output: `outputs\tables\gamma_sub_scalar_baseline_comparison.csv`
+- Scalar baseline report: `docs\codex_reports\gamma_sub_scalar_baseline_comparison_report.md`
+
+Status: completed as lightweight synthetic numerical validation evidence. It strengthens the constrained `gamma_sub` manuscript line without modifying frozen Ground Truth or adding F-SPS-PINN experiments.
+
 ## Observability-augmented gamma_sub audit
 
 - Config: `configs\gamma_sub_observability_augmented.yaml`

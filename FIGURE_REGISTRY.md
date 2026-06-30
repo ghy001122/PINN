@@ -1,5 +1,15 @@
 # Figure registry
 
+## SCI gap-closing gamma_sub validation figures
+
+No figures were generated or committed for the T_sw prior-width sweep, temperature-anchor placement audit, or scalar baseline comparison. Evidence is stored in lightweight tables:
+
+- `outputs\tables\gamma_sub_tsw_prior_width_sweep_summary.json`
+- `outputs\tables\gamma_sub_tsw_prior_width_sweep_cases.csv`
+- `outputs\tables\gamma_sub_temperature_anchor_placement_summary.json`
+- `outputs\tables\gamma_sub_temperature_anchor_placement_cases.csv`
+- `outputs\tables\gamma_sub_scalar_baseline_comparison.csv`
+
 ## Observability-augmented gamma_sub figures
 
 No figures were generated or committed for this lightweight audit. Evidence is stored in lightweight tables:

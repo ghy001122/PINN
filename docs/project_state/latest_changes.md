@@ -1,5 +1,18 @@
 # Latest changes
 
+## SCI gap-closing validation pack
+
+Scope:
+
+- Add T_sw prior-width sweep for `gamma_sub` error trend.
+- Add temperature-anchor placement audit to test whether anchor failure is a placement artifact.
+- Add scalar baseline comparison to show optimizer novelty is not the main claim.
+- Keep frozen Ground Truth and F-SPS-PINN paths unchanged.
+
+Result:
+
+`gamma_sub` relative error falls from `1.2222222222222223` to `0.05555555555555555` as `T_sw_prior_width` narrows from `1.0` to `0.02`. Temperature-anchor placement variants do not reduce the wide-mismatch bias. Simple scalar baselines solve the fixed-prior reduced problem, so the contribution remains identifiability-guided target reduction plus prior-boundary auditing.
+
 ## Observability-augmented gamma_sub audit
 
 Scope:

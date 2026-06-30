@@ -1,0 +1,110 @@
+{
+  "all_finite_results": true,
+  "benchmark": "Frozen Ground Truth v1.1 triangle synthetic numerical digital-twin benchmark",
+  "config_path": "configs\\gamma_sub_tsw_prior_width_sweep.yaml",
+  "error_nonincreasing_as_prior_narrows": true,
+  "error_reduction_widest_to_narrowest": 1.1666666666666667,
+  "frozen_gt_hashes_after": {
+    "sparse_obs_npz": "f45daf53136a255b3666ebeb56e6298ce148a613c46fa596b795e7ade68ea602",
+    "target_npz": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8"
+  },
+  "frozen_gt_hashes_before": {
+    "sparse_obs_npz": "f45daf53136a255b3666ebeb56e6298ce148a613c46fa596b795e7ade68ea602",
+    "target_npz": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8"
+  },
+  "frozen_gt_unchanged": true,
+  "narrowest_prior_width": 0.02,
+  "narrowest_relative_error": 0.05555555555555555,
+  "note": "Synthetic numerical digital-twin T_sw prior-width sweep; not experimental data.",
+  "outputs": {
+    "cases_csv": "outputs\\tables\\gamma_sub_tsw_prior_width_sweep_cases.csv",
+    "report_md": "docs\\codex_reports\\gamma_sub_tsw_prior_width_sweep_report.md",
+    "summary_json": "outputs\\tables\\gamma_sub_tsw_prior_width_sweep_summary.json"
+  },
+  "rows": [
+    {
+      "G_loss": 0.08237142046334764,
+      "I_loss": 0.07766307179632437,
+      "T_sw_delta_K": 2.0,
+      "T_sw_prior_width": 1.0,
+      "finite_result": true,
+      "frozen_inputs_unchanged": true,
+      "gamma_est": 1000000000.0,
+      "gamma_true": 450000000.0,
+      "heat_residual_loss": 0.00014403996923541932,
+      "objective_value": 0.12120439676120218,
+      "relative_error": 1.2222222222222223
+    },
+    {
+      "G_loss": 0.007982404880493302,
+      "I_loss": 0.005610571153857297,
+      "T_sw_delta_K": 1.0,
+      "T_sw_prior_width": 0.5,
+      "finite_result": true,
+      "frozen_inputs_unchanged": true,
+      "gamma_est": 1000000000.0,
+      "gamma_true": 450000000.0,
+      "heat_residual_loss": 0.00014403996923541932,
+      "objective_value": 0.010789130857114304,
+      "relative_error": 1.2222222222222223
+    },
+    {
+      "G_loss": 0.001623644183029587,
+      "I_loss": 0.0010454609145607143,
+      "T_sw_delta_K": 0.4,
+      "T_sw_prior_width": 0.2,
+      "finite_result": true,
+      "frozen_inputs_unchanged": true,
+      "gamma_est": 650000000.0,
+      "gamma_true": 450000000.0,
+      "heat_residual_loss": 0.00012224451693628152,
+      "objective_value": 0.002147597085479307,
+      "relative_error": 0.4444444444444444
+    },
+    {
+      "G_loss": 0.00040889512491461467,
+      "I_loss": 0.0002499776402179519,
+      "T_sw_delta_K": 0.2,
+      "T_sw_prior_width": 0.1,
+      "finite_result": true,
+      "frozen_inputs_unchanged": true,
+      "gamma_est": 550000000.0,
+      "gamma_true": 450000000.0,
+      "heat_residual_loss": 0.00011380578845661339,
+      "objective_value": 0.0005350220029081567,
+      "relative_error": 0.2222222222222222
+    },
+    {
+      "G_loss": 9.961391482986705e-05,
+      "I_loss": 5.899396150215068e-05,
+      "T_sw_delta_K": 0.1,
+      "T_sw_prior_width": 0.05,
+      "finite_result": true,
+      "frozen_inputs_unchanged": true,
+      "gamma_est": 500000000.0,
+      "gamma_true": 450000000.0,
+      "heat_residual_loss": 0.00010946716976896814,
+      "objective_value": 0.00013020556727863207,
+      "relative_error": 0.1111111111111111
+    },
+    {
+      "G_loss": 1.2626558307323979e-05,
+      "I_loss": 1.517098981195838e-05,
+      "T_sw_delta_K": 0.04,
+      "T_sw_prior_width": 0.02,
+      "finite_result": true,
+      "frozen_inputs_unchanged": true,
+      "gamma_est": 475000000.0,
+      "gamma_true": 450000000.0,
+      "heat_residual_loss": 0.00010721312165194623,
+      "objective_value": 2.128418442982263e-05,
+      "relative_error": 0.05555555555555555
+    }
+  ],
+  "scope": "Only gamma_sub is estimated; T_sw prior width is a controlled confounder stress variable.",
+  "sparse_obs_npz": "data\\processed\\gt_v1_acceptance\\obs_triangle_sparse.npz",
+  "target_npz": "data\\processed\\gt_v1_acceptance\\gt_triangle.npz",
+  "true_gamma_sub": 450000000.0,
+  "widest_prior_width": 1.0,
+  "widest_relative_error": 1.2222222222222223
+}

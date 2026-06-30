@@ -1,5 +1,27 @@
 # Research log
 
+## SCI gap-closing validation pack
+
+Date: 2026-06-30
+
+Actions:
+
+- Added `configs\gamma_sub_tsw_prior_width_sweep.yaml` and `scripts\audit_gamma_sub_tsw_prior_width_sweep.py`.
+- Added `configs\gamma_sub_temperature_anchor_placement.yaml` and `scripts\audit_gamma_sub_temperature_anchor_placement.py`.
+- Added `scripts\compare_gamma_sub_scalar_baselines.py`.
+- Added tests for all three lightweight validation scripts.
+- Generated lightweight JSON/CSV evidence and Codex reports.
+
+Findings:
+
+- T_sw prior-width sweep: `gamma_sub` relative error decreases from `1.2222222222222223` at width `1.0` to `0.05555555555555555` at width `0.02`.
+- Temperature-anchor placement: uniform, random, and high-gradient anchors do not reduce the wide `T_sw` mismatch bias in this candidate-grid audit.
+- Scalar baselines: simple scalar grid search and continuous scalar refinement are adequate for the fixed-prior reduced problem, so optimizer novelty is not the manuscript claim.
+
+Boundary:
+
+All outputs are synthetic numerical digital-twin benchmark evidence. Frozen GT is unchanged. No F-SPS-PINN experiment was added.
+
 ## Observability-augmented gamma_sub audit
 
 Date: 2026-06-30

@@ -1,0 +1,344 @@
+{
+  "all_finite_results": true,
+  "any_anchor_placement_reduced_bias": false,
+  "baseline_relative_error": 1.2222222222222223,
+  "benchmark": "Frozen Ground Truth v1.1 triangle synthetic numerical digital-twin benchmark",
+  "best_case": {
+    "G_loss": 0.08237142046334764,
+    "I_loss": 0.07766307179632437,
+    "case_name": "uniform_anchors",
+    "finite_result": true,
+    "frozen_inputs_unchanged": true,
+    "gamma_est": 1000000000.0,
+    "gamma_relative_error": 1.2222222222222223,
+    "gamma_true": 450000000.0,
+    "heat_residual_loss": 0.00014403996923541932,
+    "n_temperature_anchors": 8,
+    "objective_value": 0.12407028325366193,
+    "placement_mode": "uniform",
+    "seed": null,
+    "temperature_anchor_indices": [
+      [
+        48,
+        1
+      ],
+      [
+        91,
+        5
+      ],
+      [
+        134,
+        9
+      ],
+      [
+        177,
+        13
+      ],
+      [
+        221,
+        17
+      ],
+      [
+        264,
+        21
+      ],
+      [
+        307,
+        25
+      ],
+      [
+        351,
+        29
+      ]
+    ],
+    "temperature_anchor_loss": 0.0028658864924597568
+  },
+  "config_path": "configs\\gamma_sub_temperature_anchor_placement.yaml",
+  "frozen_gt_hashes_after": {
+    "sparse_obs_npz": "f45daf53136a255b3666ebeb56e6298ce148a613c46fa596b795e7ade68ea602",
+    "target_npz": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8"
+  },
+  "frozen_gt_hashes_before": {
+    "sparse_obs_npz": "f45daf53136a255b3666ebeb56e6298ce148a613c46fa596b795e7ade68ea602",
+    "target_npz": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8"
+  },
+  "frozen_gt_unchanged": true,
+  "note": "Synthetic numerical digital-twin temperature-anchor placement audit; not experimental data.",
+  "outputs": {
+    "cases_csv": "outputs\\tables\\gamma_sub_temperature_anchor_placement_cases.csv",
+    "report_md": "docs\\codex_reports\\gamma_sub_temperature_anchor_placement_report.md",
+    "summary_json": "outputs\\tables\\gamma_sub_temperature_anchor_placement_summary.json"
+  },
+  "rows": [
+    {
+      "G_loss": 0.08237142046334764,
+      "I_loss": 0.07766307179632437,
+      "case_name": "port_only",
+      "finite_result": true,
+      "frozen_inputs_unchanged": true,
+      "gamma_est": 1000000000.0,
+      "gamma_relative_error": 1.2222222222222223,
+      "gamma_true": 450000000.0,
+      "heat_residual_loss": 0.00014403996923541932,
+      "n_temperature_anchors": 0,
+      "objective_value": 0.12120439676120218,
+      "placement_mode": "none",
+      "seed": null,
+      "temperature_anchor_indices": [],
+      "temperature_anchor_loss": 0.0
+    },
+    {
+      "G_loss": 0.08237142046334764,
+      "I_loss": 0.07766307179632437,
+      "case_name": "uniform_anchors",
+      "finite_result": true,
+      "frozen_inputs_unchanged": true,
+      "gamma_est": 1000000000.0,
+      "gamma_relative_error": 1.2222222222222223,
+      "gamma_true": 450000000.0,
+      "heat_residual_loss": 0.00014403996923541932,
+      "n_temperature_anchors": 8,
+      "objective_value": 0.12407028325366193,
+      "placement_mode": "uniform",
+      "seed": null,
+      "temperature_anchor_indices": [
+        [
+          48,
+          1
+        ],
+        [
+          91,
+          5
+        ],
+        [
+          134,
+          9
+        ],
+        [
+          177,
+          13
+        ],
+        [
+          221,
+          17
+        ],
+        [
+          264,
+          21
+        ],
+        [
+          307,
+          25
+        ],
+        [
+          351,
+          29
+        ]
+      ],
+      "temperature_anchor_loss": 0.0028658864924597568
+    },
+    {
+      "G_loss": 0.08237142046334764,
+      "I_loss": 0.07766307179632437,
+      "case_name": "high_gradient_anchors",
+      "finite_result": true,
+      "frozen_inputs_unchanged": true,
+      "gamma_est": 1000000000.0,
+      "gamma_relative_error": 1.2222222222222223,
+      "gamma_true": 450000000.0,
+      "heat_residual_loss": 0.00014403996923541932,
+      "n_temperature_anchors": 8,
+      "objective_value": 0.12161017814707328,
+      "placement_mode": "high_gradient",
+      "seed": null,
+      "temperature_anchor_indices": [
+        [
+          397,
+          5
+        ],
+        [
+          393,
+          5
+        ],
+        [
+          397,
+          3
+        ],
+        [
+          397,
+          7
+        ],
+        [
+          389,
+          5
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          200,
+          5
+        ],
+        [
+          393,
+          3
+        ]
+      ],
+      "temperature_anchor_loss": 0.0004057813858711021
+    },
+    {
+      "G_loss": 0.08237142046334764,
+      "I_loss": 0.07766307179632437,
+      "case_name": "random_anchors_seed_2026",
+      "finite_result": true,
+      "frozen_inputs_unchanged": true,
+      "gamma_est": 1000000000.0,
+      "gamma_relative_error": 1.2222222222222223,
+      "gamma_true": 450000000.0,
+      "heat_residual_loss": 0.00014403996923541932,
+      "n_temperature_anchors": 8,
+      "objective_value": 0.12379137414096199,
+      "placement_mode": "random",
+      "seed": 2026,
+      "temperature_anchor_indices": [
+        [
+          312,
+          19
+        ],
+        [
+          97,
+          11
+        ],
+        [
+          48,
+          25
+        ],
+        [
+          244,
+          23
+        ],
+        [
+          156,
+          21
+        ],
+        [
+          189,
+          27
+        ],
+        [
+          65,
+          21
+        ],
+        [
+          158,
+          6
+        ]
+      ],
+      "temperature_anchor_loss": 0.002586977379759817
+    },
+    {
+      "G_loss": 0.08237142046334764,
+      "I_loss": 0.07766307179632437,
+      "case_name": "random_anchors_seed_2027",
+      "finite_result": true,
+      "frozen_inputs_unchanged": true,
+      "gamma_est": 1000000000.0,
+      "gamma_relative_error": 1.2222222222222223,
+      "gamma_true": 450000000.0,
+      "heat_residual_loss": 0.00014403996923541932,
+      "n_temperature_anchors": 8,
+      "objective_value": 0.12434759848028946,
+      "placement_mode": "random",
+      "seed": 2027,
+      "temperature_anchor_indices": [
+        [
+          242,
+          27
+        ],
+        [
+          42,
+          14
+        ],
+        [
+          87,
+          20
+        ],
+        [
+          163,
+          21
+        ],
+        [
+          131,
+          19
+        ],
+        [
+          66,
+          9
+        ],
+        [
+          192,
+          4
+        ],
+        [
+          199,
+          19
+        ]
+      ],
+      "temperature_anchor_loss": 0.003143201719087289
+    },
+    {
+      "G_loss": 0.08237142046334764,
+      "I_loss": 0.07766307179632437,
+      "case_name": "random_anchors_seed_2028",
+      "finite_result": true,
+      "frozen_inputs_unchanged": true,
+      "gamma_est": 1000000000.0,
+      "gamma_relative_error": 1.2222222222222223,
+      "gamma_true": 450000000.0,
+      "heat_residual_loss": 0.00014403996923541932,
+      "n_temperature_anchors": 8,
+      "objective_value": 0.12417925739738765,
+      "placement_mode": "random",
+      "seed": 2028,
+      "temperature_anchor_indices": [
+        [
+          220,
+          28
+        ],
+        [
+          163,
+          25
+        ],
+        [
+          154,
+          9
+        ],
+        [
+          229,
+          12
+        ],
+        [
+          115,
+          13
+        ],
+        [
+          275,
+          25
+        ],
+        [
+          147,
+          19
+        ],
+        [
+          355,
+          14
+        ]
+      ],
+      "temperature_anchor_loss": 0.0029748606361854704
+    }
+  ],
+  "scope": "Only gamma_sub is estimated; temperature anchors are synthetic observability probes.",
+  "sparse_obs_npz": "data\\processed\\gt_v1_acceptance\\obs_triangle_sparse.npz",
+  "target_npz": "data\\processed\\gt_v1_acceptance\\gt_triangle.npz"
+}

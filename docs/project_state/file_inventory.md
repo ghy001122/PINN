@@ -75,6 +75,11 @@
 - `scripts\refine_gamma_sub_continuous.py`: performs simulator-backed continuous scalar refinement for off-grid `gamma_sub`, with true off-grid cases, observation-count sensitivity, and noise sensitivity.
 - `configs\gamma_sub_observability_augmented.yaml`: config for the lightweight observability-augmented `gamma_sub` audit.
 - `scripts\audit_gamma_sub_observability_augmented.py`: tests sparse synthetic temperature anchors and narrowed `T_sw` prior width for reducing `gamma_sub` / `T_sw` confounding.
+- `configs\gamma_sub_tsw_prior_width_sweep.yaml`: config for T_sw prior-width trend audit.
+- `scripts\audit_gamma_sub_tsw_prior_width_sweep.py`: scans T_sw prior width while estimating only `gamma_sub`.
+- `configs\gamma_sub_temperature_anchor_placement.yaml`: config for temperature-anchor placement audit.
+- `scripts\audit_gamma_sub_temperature_anchor_placement.py`: compares uniform, random, and high-gradient synthetic temperature anchors.
+- `scripts\compare_gamma_sub_scalar_baselines.py`: compares candidate-grid search, continuous scalar least-squares refinement, and the constrained gamma_sub workflow.
 - `configs\pinn_inverse_v2_f_sps_smoke.yaml`: v2 smoke config for a short CPU training loop using white-box `vo2_sigma`.
 - `scripts\train_pinn_inverse_v2_smoke.py`: minimal F-SPS-PINN v2 smoke trainer; predicts `T`, `c_v`, and `m`, computes `sigma` through `vo2_sigma`, and writes a lightweight summary JSON.
 - `configs\pinn_inverse_v2_f_sps_baseline.yaml`: small-run baseline config comparing `free_log_sigma` and `white_box_vo2_sigma`.
@@ -102,6 +107,9 @@
   hash preservation.
 - `tests\test_gamma_sub_continuous_refinement.py`: checks continuous-refinement summary schema, finite outputs, off-grid truth exclusion, simulator-backed non-grid evaluations, and frozen GT hash preservation.
 - `tests\test_gamma_sub_observability_augmented.py`: checks observability-augmented config scope, smoke execution, finite outputs, mode coverage, and frozen GT hash preservation.
+- `tests\test_gamma_sub_tsw_prior_width_sweep.py`: checks prior-width config scope, finite trend outputs, and frozen GT hash preservation.
+- `tests\test_gamma_sub_temperature_anchor_placement.py`: checks placement modes, finite outputs, and frozen GT hash preservation.
+- `tests\test_gamma_sub_scalar_baselines.py`: checks scalar baseline comparison outputs and frozen GT hash preservation.
 - `tests\test_vo2_constitutive.py`: checks VO2-like conductivity positivity, differentiability, finite extreme-temperature behavior, and Bruggeman safeguards.
 - `tests\test_fourier_pyramid.py`: checks Fourier pyramid shape and differentiability.
 - `tests\test_loss_balancer.py`: checks dynamic residual gate normalization, differentiability, and anti-collapse behavior.
@@ -117,6 +125,9 @@
 - `docs\codex_reports\sci_manuscript_evidence_consolidation_report.md`: final Codex report for the documentation-only manuscript evidence consolidation task.
 - `docs\gamma_sub_observability_augmented_report.md`: project-facing report for sparse temperature-anchor and narrowed-`T_sw` prior observability audit.
 - `docs\codex_reports\gamma_sub_observability_augmented_report.md`: Codex report for the observability-augmented `gamma_sub` audit.
+- `docs\codex_reports\gamma_sub_tsw_prior_width_sweep_report.md`: Codex report for T_sw prior-width trend audit.
+- `docs\codex_reports\gamma_sub_temperature_anchor_placement_report.md`: Codex report for anchor-placement audit.
+- `docs\codex_reports\gamma_sub_scalar_baseline_comparison_report.md`: Codex report for scalar baseline comparison.
 - `docs\paper\model_hierarchy_and_claim_boundary.md`: paper-defense hierarchy,
   included/excluded physics, and allowed/forbidden claims.
 - `docs\paper\equation_variable_registry.md`: variable units and equation

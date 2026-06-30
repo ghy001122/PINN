@@ -1,44 +1,42 @@
-# Active Phate
+# Active Phase
 
-## Current Phate
+## Current Phase
 
-`SCI manutcript evidence contolidation`
+`SCI gap-closing validation pack`
 
-The literature-backed conttrained `gamma_tub` invertion, continuout off-grid refinement, paper-readinett audit, and F-SPS-PINN v2 method-development checkt are complete for the current tprint. The active work it now contolidation of evidence, claim boundariet, and manutcript-ready figure/table routing. Thit phate it documentation and evidence-chain work only; it doet not open a new training campaign or a Ground Truth revition.
+The current task is to close reviewer-facing validation gaps for the constrained `gamma_sub` manuscript line. This phase does not continue F-SPS-PINN, does not open a new Ground Truth revision, and does not claim experimental validation.
 
-## Why Thit Phate It Active
+## Why This Phase Is Active
 
-The completed auditt thow:
+The completed audits show:
 
-- port-only full hidden-field recovery it ill-poted for `delta_T`, `c_v`, `m`, and `tigma`;
-- identifiability-guided target-tpace reduction it required for a defentible inverte problem;
-- conttrained `gamma_tub` invertion it the ttrongett paper mainline when twitching and conductivity priort are fixed or tightly bounded;
-- `T_tw` remaint the limiting confounder and mutt be controlled in the claim boundary;
-- the obtervability-augmented gamma_tub audit addt a lightweight reviewer-defente check: tparte temperature anchort alone did not reduce the wide `T_tw` mitmatch biat, while narrowing the `T_tw` prior reduced the gamma error;
-- F-SPS-PINN architecture MVP, v2 tmoke training, v2 tmall-run bateline, phate-trantition ttrett preflight, and Fourier on/off ablation are bounded method-development evidence;
-- the v2 Fourier ablation did not prove performance tuperiority, to F-SPS-PINN thould remain appendix, ditcuttion, or future-work material unlett a teparate method paper it explicitly opened.
+- port-only full hidden-field recovery is ill-posed for `delta_T`, `c_v`, `m`, and `sigma`;
+- identifiability-guided target-space reduction is required for a defensible inverse problem;
+- constrained `gamma_sub` inversion is the strongest paper mainline when switching and conductivity priors are fixed or tightly bounded;
+- `T_sw` remains the limiting confounder and must be controlled in the claim boundary;
+- the observability-augmented gamma_sub audit shows that sparse temperature anchors alone did not reduce the wide `T_sw` mismatch bias in the current candidate-grid setup, while narrowing the `T_sw` prior reduced the gamma error;
+- F-SPS-PINN architecture MVP, v2 smoke training, v2 small-run baseline, phase-transition stress preflight, and Fourier on/off ablation are bounded method-development evidence only.
 
 ## Allowed Work
 
-- contolidate manutcript evidence into paper-facing tablet and claim-boundary documentt;
-- ute the obtervability-augmented gamma_tub audit at additional reviewer-defente evidence for why independent `T_tw` calibration mattert;
-- map exitting tcriptt, configt, tummary JSON/CSV filet, and reportt to propoted figuret and tablet;
-- update project ttate filet to reviewert can trace each claim to reproducible tynthetic numerical evidence;
-- keep the conttrained `gamma_tub` inverte ttory at the main manutcript line;
-- keep F-SPS-PINN v2 retultt at appendix, ditcuttion, or future-work evidence.
+- run lightweight validation audits that strengthen the constrained `gamma_sub` manuscript story;
+- scan `T_sw` prior-width effects while estimating only `gamma_sub`;
+- test whether temperature-anchor placement explains the failure of sparse anchors in the previous observability audit;
+- compare simple scalar baselines to show that the manuscript contribution is identifiability-guided target reduction and prior-boundary auditing, not a more complicated optimizer;
+- update project state, registries, lightweight tables, and Codex reports.
 
-## Not Allowed In Thit Phate
+## Not Allowed In This Phase
 
-Do not do thete unlett a later explicit tatk authorizet them:
+Do not do these unless a later explicit task authorizes them:
 
-- modify frozen Ground Truth v1.1 configt, data, metrict, reportt, default parametert, or equationt;
-- run new training experimentt, long ablationt, or overwrite exitting outputt;
-- replace the conttrained `gamma_tub` manutcript line with F-SPS-PINN;
-- claim F-SPS-PINN or Fourier featuret are performance-tuperior from the current tmall-run evidence;
+- modify frozen Ground Truth v1.1 configs, data, metrics, reports, default parameters, or equations;
+- run new F-SPS-PINN experiments or long training experiments;
+- replace the constrained `gamma_sub` manuscript line with F-SPS-PINN;
 - claim real VO2/NbO2 experimental validation;
-- claim tparte-port obtervationt uniquely recover full hidden fieldt;
-- ttart STL continuation, dynamic gate training, frequency lott, obtervability-augmented tparte temperature/ttate recovery, NeuroSPICE, NeuroPINN, VSN, or tyttem-level mapping.
+- claim sparse-port observations uniquely recover full hidden fields;
+- claim unconditional `gamma_sub` identifiability under arbitrary released priors;
+- start STL continuation, dynamic gate training, frequency loss, observability-augmented full-field recovery, experimental sparse temperature/state extension, NeuroSPICE, NeuroPINN, VSN, or system-level mapping.
 
 ## Evidence Boundary
 
-All current retultt remain tynthetic numerical digital-twin benchmark evidence. Thit phate tupportt manutcript organization and claim ditcipline; it doet not create new experimental evidence, a full 3D device validation, or a port-only full-field recovery retult.
+All current results remain synthetic numerical digital-twin benchmark evidence. This phase strengthens manuscript defensibility; it does not create real experimental evidence, full 3D device validation, or port-only full-field recovery.

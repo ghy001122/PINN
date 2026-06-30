@@ -1,5 +1,26 @@
 # Reproducibility
 
+## SCI gap-closing validation pack reproduction
+
+```powershell
+python scripts/audit_gamma_sub_tsw_prior_width_sweep.py --config configs/gamma_sub_tsw_prior_width_sweep.yaml
+python scripts/audit_gamma_sub_temperature_anchor_placement.py --config configs/gamma_sub_temperature_anchor_placement.yaml
+python scripts/compare_gamma_sub_scalar_baselines.py
+```
+
+These commands read frozen Ground Truth v1.1 files and regenerate:
+
+- `outputs\tables\gamma_sub_tsw_prior_width_sweep_summary.json`
+- `outputs\tables\gamma_sub_tsw_prior_width_sweep_cases.csv`
+- `outputs\tables\gamma_sub_temperature_anchor_placement_summary.json`
+- `outputs\tables\gamma_sub_temperature_anchor_placement_cases.csv`
+- `outputs\tables\gamma_sub_scalar_baseline_comparison.csv`
+- `docs\codex_reports\gamma_sub_tsw_prior_width_sweep_report.md`
+- `docs\codex_reports\gamma_sub_temperature_anchor_placement_report.md`
+- `docs\codex_reports\gamma_sub_scalar_baseline_comparison_report.md`
+
+They do not regenerate or modify frozen Ground Truth data and do not run F-SPS-PINN experiments.
+
 ## Observability-augmented gamma_sub audit reproduction
 
 ```powershell
