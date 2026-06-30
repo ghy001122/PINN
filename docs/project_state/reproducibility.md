@@ -10,6 +10,8 @@ python scripts/compare_gamma_sub_scalar_baselines.py
 
 These commands read frozen Ground Truth v1.1 files and regenerate:
 
+- `outputs\tables\gamma_sub_auxiliary_observability_sweep_summary.json`
+- `outputs\tables\gamma_sub_auxiliary_observability_sweep_cases.csv`
 - `outputs\tables\gamma_sub_tsw_confounding_phase_map_summary.json`
 - `outputs\tables\gamma_sub_tsw_confounding_phase_map_cases.csv`
 - `outputs\tables\gamma_sub_tsw_prior_width_sweep_summary.json`
@@ -17,11 +19,14 @@ These commands read frozen Ground Truth v1.1 files and regenerate:
 - `outputs\tables\gamma_sub_temperature_anchor_placement_summary.json`
 - `outputs\tables\gamma_sub_temperature_anchor_placement_cases.csv`
 - `outputs\tables\gamma_sub_scalar_baseline_comparison.csv`
+- `docs\codex_reports\gamma_sub_auxiliary_observability_sweep_report.md`
 - `docs\codex_reports\gamma_sub_tsw_confounding_phase_map_report.md`
 - `outputs\figures\gamma_sub_gap_closing\tsw_confounding_phase_map.png`
 - `outputs\figures\gamma_sub_gap_closing\tsw_prior_width_error_curve.png`
 - `outputs\figures\gamma_sub_gap_closing\anchor_placement_bar.png`
 - `outputs\figures\gamma_sub_gap_closing\scalar_baseline_comparison.png`
+- `outputs\figures\gamma_sub_gap_closing\auxiliary_observability_heatmap.png`
+- `outputs\figures\gamma_sub_gap_closing\auxiliary_mode_comparison.png`
 - `docs\codex_reports\gamma_sub_tsw_prior_width_sweep_report.md`
 - `docs\codex_reports\gamma_sub_temperature_anchor_placement_report.md`
 - `docs\codex_reports\gamma_sub_scalar_baseline_comparison_report.md`

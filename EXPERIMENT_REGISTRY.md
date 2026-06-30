@@ -2,7 +2,11 @@
 
 ## SCI gap-closing gamma_sub validation pack
 
-- T_sw confounding phase-map config: `configs\gamma_sub_tsw_confounding_phase_map.yaml`
+- Auxiliary observability sweep config: `configs\gamma_sub_auxiliary_observability_sweep.yaml`
+- Auxiliary observability sweep script: `scripts\audit_gamma_sub_auxiliary_observability_sweep.py`
+- Auxiliary observability sweep test: `tests\test_gamma_sub_auxiliary_observability_sweep.py`
+- Auxiliary observability sweep outputs: `outputs\tables\gamma_sub_auxiliary_observability_sweep_summary.json`, `outputs\tables\gamma_sub_auxiliary_observability_sweep_cases.csv`
+- Auxiliary observability sweep report: `docs\codex_reports\gamma_sub_auxiliary_observability_sweep_report.md`- T_sw confounding phase-map config: `configs\gamma_sub_tsw_confounding_phase_map.yaml`
 - T_sw confounding phase-map script: `scripts\audit_gamma_sub_tsw_confounding_phase_map.py`
 - T_sw confounding phase-map test: `tests\test_gamma_sub_tsw_confounding_phase_map.py`
 - T_sw confounding phase-map outputs: `outputs\tables\gamma_sub_tsw_confounding_phase_map_summary.json`, `outputs\tables\gamma_sub_tsw_confounding_phase_map_cases.csv`
@@ -23,7 +27,7 @@
 - Scalar baseline output: `outputs\tables\gamma_sub_scalar_baseline_comparison.csv`
 - Scalar baseline report: `docs\codex_reports\gamma_sub_scalar_baseline_comparison_report.md`
 
-Status: completed as lightweight synthetic numerical validation evidence. It strengthens the constrained `gamma_sub` manuscript line with prior-width, anchor-placement, scalar-baseline, and T_sw phase-map audits without modifying frozen Ground Truth or adding F-SPS-PINN experiments.
+Status: completed as lightweight synthetic numerical validation evidence. It strengthens the constrained `gamma_sub` manuscript line with auxiliary-observability, prior-width, anchor-placement, scalar-baseline, and T_sw phase-map audits without modifying frozen Ground Truth or adding F-SPS-PINN experiments.
 
 ## Observability-augmented gamma_sub audit
 

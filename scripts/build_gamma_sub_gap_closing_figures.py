@@ -1,4 +1,4 @@
-﻿"""Build figure-ready gamma_sub gap-closing plots.
+"""Build figure-ready gamma_sub gap-closing plots.
 
 The figures are generated from lightweight JSON/CSV evidence tables and are
 reproducible. They are synthetic numerical digital-twin benchmark visuals, not
@@ -112,6 +112,59 @@ def _scalar_baseline(csv_path: Path, out_path: Path) -> None:
     plt.close(fig)
 
 
+
+def _auxiliary_heatmap(csv_path: Path, out_path: Path) -> None:
+    rows = [row for row in _read_csv(csv_path) if float(row["noise"]) == 0.0]
+    modes = [
+        "port_plus_sparse_T",
+        "port_plus_T_temporal_derivative_proxy",
+        "port_plus_m_proxy",
+        "port_plus_sigma_aggregate_proxy",
+    ]
+    anchors = sorted({int(row["anchor_count"]) for row in rows if row["observation_mode"] in modes})
+    values = np.full((len(modes), len(anchors)), np.nan, dtype=float)
+    for i, mode in enumerate(modes):
+        for j, anchor in enumerate(anchors):
+            selected = [row for row in rows if row["observation_mode"] == mode and int(row["anchor_count"]) == anchor]
+            if selected:
+                values[i, j] = min(float(row["relative_error"]) for row in selected)
+    fig, ax = plt.subplots(figsize=(8.0, 4.4))
+    im = ax.imshow(values, origin="lower", aspect="auto", cmap="magma_r", vmin=0.0, vmax=max(1.25, float(np.nanmax(values))))
+    ax.set_xticks(range(len(anchors)), [str(anchor) for anchor in anchors])
+    ax.set_yticks(range(len(modes)), [mode.replace("port_plus_", "").replace("_proxy", "") for mode in modes])
+    ax.set_xlabel("auxiliary anchor count")
+    ax.set_title("Best gamma_sub relative error by auxiliary proxy")
+    for i in range(values.shape[0]):
+        for j in range(values.shape[1]):
+            if np.isfinite(values[i, j]):
+                ax.text(j, i, f"{values[i, j]:.2f}", ha="center", va="center", color="black", fontsize=8)
+    fig.colorbar(im, ax=ax, label="relative error")
+    fig.tight_layout()
+    fig.savefig(out_path, dpi=180)
+    plt.close(fig)
+
+
+def _auxiliary_mode_comparison(csv_path: Path, out_path: Path) -> None:
+    rows = _read_csv(csv_path)
+    modes = sorted({row["observation_mode"] for row in rows})
+    best = []
+    for mode in modes:
+        selected = [row for row in rows if row["observation_mode"] == mode]
+        best.append(min(float(row["relative_error"]) for row in selected))
+    labels = [mode.replace("port_plus_", "+ ").replace("port_only", "port only").replace("_", " ") for mode in modes]
+    fig, ax = plt.subplots(figsize=(9.0, 4.4))
+    ax.bar(range(len(modes)), best, color="#e15759")
+    ax.set_xticks(range(len(modes)), labels, rotation=30, ha="right", fontsize=8)
+    ax.set_ylabel("best gamma_sub relative error")
+    ax.set_title("Auxiliary observability mode comparison")
+    ax.axhline(0.1, color="black", linestyle="--", linewidth=1, label="0.1 threshold")
+    ax.axhline(0.2, color="gray", linestyle=":", linewidth=1, label="0.2 threshold")
+    ax.legend(fontsize=8)
+    ax.grid(True, axis="y", alpha=0.25)
+    fig.tight_layout()
+    fig.savefig(out_path, dpi=180)
+    plt.close(fig)
+
 def build_gap_closing_figures(outdir: Path = DEFAULT_OUTDIR) -> dict[str, Any]:
     outdir = _resolve(outdir)
     outdir.mkdir(parents=True, exist_ok=True)
@@ -120,11 +173,15 @@ def build_gap_closing_figures(outdir: Path = DEFAULT_OUTDIR) -> dict[str, Any]:
         "tsw_prior_width_error_curve": outdir / "tsw_prior_width_error_curve.png",
         "anchor_placement_bar": outdir / "anchor_placement_bar.png",
         "scalar_baseline_comparison": outdir / "scalar_baseline_comparison.png",
+        "auxiliary_observability_heatmap": outdir / "auxiliary_observability_heatmap.png",
+        "auxiliary_mode_comparison": outdir / "auxiliary_mode_comparison.png",
     }
     _phase_map(_resolve("outputs/tables/gamma_sub_tsw_confounding_phase_map_summary.json"), outputs["tsw_confounding_phase_map"])
     _prior_width_curve(_resolve("outputs/tables/gamma_sub_tsw_prior_width_sweep_cases.csv"), outputs["tsw_prior_width_error_curve"])
     _anchor_bar(_resolve("outputs/tables/gamma_sub_temperature_anchor_placement_cases.csv"), outputs["anchor_placement_bar"])
     _scalar_baseline(_resolve("outputs/tables/gamma_sub_scalar_baseline_comparison.csv"), outputs["scalar_baseline_comparison"])
+    _auxiliary_heatmap(_resolve("outputs/tables/gamma_sub_auxiliary_observability_sweep_cases.csv"), outputs["auxiliary_observability_heatmap"])
+    _auxiliary_mode_comparison(_resolve("outputs/tables/gamma_sub_auxiliary_observability_sweep_cases.csv"), outputs["auxiliary_mode_comparison"])
     return {"outputs": {key: _display(path) for key, path in outputs.items()}}
 
 

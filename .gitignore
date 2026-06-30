@@ -47,6 +47,8 @@ outputs/tables/*
 !outputs/tables/gamma_sub_scalar_baseline_comparison.csv
 !outputs/tables/gamma_sub_tsw_confounding_phase_map_summary.json
 !outputs/tables/gamma_sub_tsw_confounding_phase_map_cases.csv
+!outputs/tables/gamma_sub_auxiliary_observability_sweep_summary.json
+!outputs/tables/gamma_sub_auxiliary_observability_sweep_cases.csv
 outputs/pinn_inverse_v0/*
 outputs/pinn_inverse_v0_smoke/*
 outputs/pinn_inverse_v1/*

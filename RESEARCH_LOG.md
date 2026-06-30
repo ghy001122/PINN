@@ -1,5 +1,31 @@
 # Research log
 
+## Auxiliary observability sweep
+
+Date: 2026-06-30
+
+Actions:
+
+- Added `configs\gamma_sub_auxiliary_observability_sweep.yaml`.
+- Added `scripts\audit_gamma_sub_auxiliary_observability_sweep.py`.
+- Added `tests\test_gamma_sub_auxiliary_observability_sweep.py`.
+- Updated `scripts\build_gamma_sub_gap_closing_figures.py`.
+- Generated `outputs\tables\gamma_sub_auxiliary_observability_sweep_summary.json`.
+- Generated `outputs\tables\gamma_sub_auxiliary_observability_sweep_cases.csv`.
+- Generated reproducible figure-ready outputs under `outputs\figures\gamma_sub_gap_closing\`.
+- Added `docs\codex_reports\gamma_sub_auxiliary_observability_sweep_report.md`.
+
+Findings:
+
+- The official sweep evaluates 172 finite cases while estimating only `gamma_sub`.
+- Port-only under controlled `T_sw_delta_K = 2.0` mismatch remains at relative error `1.2222222222222223`.
+- Sparse/dense synthetic T, T-derivative, m, and sigma proxies do not reach the 0.1 or 0.2 recovery thresholds in the wide-mismatch setting.
+- The calibrated-`T_sw` cases recover `gamma_sub` with relative error `0.0`, reinforcing the claim that independent `T_sw` calibration dominates.
+- Frozen input hashes are unchanged.
+
+Boundary:
+
+All outputs are synthetic numerical digital-twin benchmark evidence. Synthetic auxiliary observability is design guidance only; it is not real experimental measurement and does not imply full hidden-field recovery.
 ## T_sw confounding phase-map audit
 
 Date: 2026-06-30

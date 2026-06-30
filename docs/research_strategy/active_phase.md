@@ -24,6 +24,7 @@ The completed audits show:
 - test whether temperature-anchor placement explains the failure of sparse anchors in the previous observability audit;
 - compare simple scalar baselines to show that the manuscript contribution is identifiability-guided target reduction and prior-boundary auditing, not a more complicated optimizer;
 - build a two-dimensional T_sw confounding phase map that separates calibration-error amplitude from residual prior-width effects;
+- run auxiliary observability sweeps that compare synthetic T, derivative, m, sigma, and calibrated-`T_sw` information channels;
 - update project state, registries, lightweight tables, and Codex reports.
 
 ## Not Allowed In This Phase

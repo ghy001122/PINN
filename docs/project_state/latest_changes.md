@@ -1,5 +1,28 @@
 # Latest changes
 
+## Auxiliary observability sweep
+
+Scope:
+
+- Compare port-only, sparse/dense synthetic temperature, temporal-derivative, switching-state, sigma-aggregate, and calibrated-`T_sw` observability modes under a controlled wide `T_sw` mismatch.
+- Estimate only `gamma_sub`; keep frozen Ground Truth v1.1 read-only.
+- Generate lightweight JSON/CSV evidence and figure-ready plots without adding training artifacts.
+
+Changed:
+
+- Added `configs\gamma_sub_auxiliary_observability_sweep.yaml`.
+- Added `scripts\audit_gamma_sub_auxiliary_observability_sweep.py`.
+- Added `tests\test_gamma_sub_auxiliary_observability_sweep.py`.
+- Updated `scripts\build_gamma_sub_gap_closing_figures.py`.
+- Added `outputs\tables\gamma_sub_auxiliary_observability_sweep_summary.json`.
+- Added `outputs\tables\gamma_sub_auxiliary_observability_sweep_cases.csv`.
+- Added `docs\codex_reports\gamma_sub_auxiliary_observability_sweep_report.md`.
+- Generated ignored figure-ready PNGs `outputs\figures\gamma_sub_gap_closing\auxiliary_observability_heatmap.png` and `outputs\figures\gamma_sub_gap_closing\auxiliary_mode_comparison.png`.
+
+Result:
+
+The official 172-case sweep is finite and keeps frozen inputs unchanged. Only the calibrated-`T_sw` cases are recoverable at `relative_error <= 0.1` and `<= 0.2`; the best non-calibrated auxiliary proxy remains at relative error `1.0`. This strengthens the manuscript boundary that independent `T_sw` calibration dominates in the wide-mismatch regime.
+
 ## T_sw confounding phase-map audit
 
 Scope:

@@ -14,7 +14,7 @@ This mapping is for manuscript planning only. All entries refer to synthetic num
 | `gamma_sub` identifiability and confounding | `docs/gamma_sub_identifiability_report.md`, `docs/gamma_sub_confounding_report.md`, `outputs/tables/gamma_sub_identifiability_summary.json`, `outputs/tables/gamma_sub_confounding_summary.json`, `outputs/tables/gamma_sub_sensitivity_ranking.csv` | Main result and discussion | Figure 4 / Table 3 | Motivate target-space reduction and identify `T_sw` as limiting confounder |
 | Constrained `gamma_sub` inversion | `docs/gamma_sub_constrained_inversion_report.md`, `outputs/tables/gamma_sub_constrained_inversion_summary.json`, `outputs/tables/gamma_sub_prior_width_sweep.csv` | Main result | Figure 5 / Table 4 | Show constrained reduced inverse success and prior-width limits |
 | Off-grid and observation robustness | `docs/gamma_sub_paper_readiness_report.md`, `docs/gamma_sub_continuous_refinement_report.md`, `outputs/tables/gamma_sub_paper_readiness_summary.json`, `outputs/tables/gamma_sub_continuous_refinement_summary.json`, `outputs/tables/gamma_sub_continuous_refinement_cases.csv` | Reviewer defense / result | Figure 6 / Table 5 | Show off-grid continuous refinement and observation-count/noise sensitivity |
-| SCI gap-closing validation pack | `outputs/tables/gamma_sub_tsw_confounding_phase_map_summary.json`, `outputs/tables/gamma_sub_tsw_confounding_phase_map_cases.csv`, `outputs/tables/gamma_sub_tsw_prior_width_sweep_summary.json`, `outputs/tables/gamma_sub_temperature_anchor_placement_summary.json`, `outputs/tables/gamma_sub_scalar_baseline_comparison.csv`, `outputs/figures/gamma_sub_gap_closing/` | Reviewer defense / discussion | Figure 7 / Table 6 / Supplementary Table | Show T_sw recoverability phase map, prior-width trend, anchor-placement limitation, and scalar-baseline framing |
+| SCI gap-closing validation pack | `outputs/tables/gamma_sub_auxiliary_observability_sweep_summary.json`, `outputs/tables/gamma_sub_auxiliary_observability_sweep_cases.csv`, `outputs/tables/gamma_sub_tsw_confounding_phase_map_summary.json`, `outputs/tables/gamma_sub_tsw_confounding_phase_map_cases.csv`, `outputs/tables/gamma_sub_tsw_prior_width_sweep_summary.json`, `outputs/tables/gamma_sub_temperature_anchor_placement_summary.json`, `outputs/tables/gamma_sub_scalar_baseline_comparison.csv`, `outputs/figures/gamma_sub_gap_closing/` | Reviewer defense / discussion | Figure 7 / Table 6 / Supplementary Table | Show auxiliary-observability limits, T_sw recoverability phase map, prior-width trend, anchor-placement limitation, and scalar-baseline framing |
 
 ## Supplementary Or Appendix Mapping
 
@@ -32,7 +32,7 @@ This mapping is for manuscript planning only. All entries refer to synthetic num
 2. Show why direct port-only hidden-field inversion is underdetermined.
 3. Reduce the inverse target to `gamma_sub` under literature-guided priors.
 4. Audit confounders and state that `T_sw` must be fixed or tightly bounded.
-5. Use constrained inversion, off-grid refinement, observation sensitivity, noise sensitivity, and the T_sw confounding phase map as reviewer-defense evidence.
+5. Use constrained inversion, off-grid refinement, observation sensitivity, noise sensitivity, the T_sw confounding phase map, and the auxiliary-observability sweep as reviewer-defense evidence.
 6. Move F-SPS-PINN v2 material to appendix, discussion, or future work unless a separate method paper is opened.
 
 ## Forbidden Mapping
