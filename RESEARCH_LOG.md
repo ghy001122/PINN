@@ -1,5 +1,32 @@
 # Research log
 
+## T_sw confounding phase-map audit
+
+Date: 2026-06-30
+
+Actions:
+
+- Added `configs\gamma_sub_tsw_confounding_phase_map.yaml`.
+- Added `scripts\audit_gamma_sub_tsw_confounding_phase_map.py`.
+- Added `tests\test_gamma_sub_tsw_confounding_phase_map.py`.
+- Added `scripts\build_gamma_sub_gap_closing_figures.py`.
+- Generated `outputs\tables\gamma_sub_tsw_confounding_phase_map_summary.json`.
+- Generated `outputs\tables\gamma_sub_tsw_confounding_phase_map_cases.csv`.
+- Generated reproducible figure-ready outputs under `outputs\figures\gamma_sub_gap_closing\`.
+- Added `docs\codex_reports\gamma_sub_tsw_confounding_phase_map_report.md`.
+
+Findings:
+
+- The audit scans 42 combinations of `T_sw_delta_K` and `T_sw_prior_width` while estimating only `gamma_sub`.
+- The applied residual mismatch is `effective_T_sw_delta_K = T_sw_delta_K * T_sw_prior_width`, explicitly separating calibration-error amplitude from residual prior width.
+- 27 of 42 cases are recoverable at `relative_error <= 0.1`; 32 of 42 are recoverable at `relative_error <= 0.2`.
+- The worst cases remain wide `T_sw` uncertainty, with maximum `gamma_sub` relative error `1.2222222222222223`.
+- Frozen input hashes are unchanged.
+
+Boundary:
+
+All outputs are synthetic numerical digital-twin benchmark evidence. This audit does not claim real experiment, unconditional `gamma_sub` identifiability, or sparse-port full hidden-field recovery.
+
 ## SCI gap-closing validation pack
 
 Date: 2026-06-30
@@ -72,6 +99,8 @@ Boundary:
 This is a synthetic numerical digital-twin stress preflight only. It does not support a formal F-SPS-PINN performance superiority claim, real VO2/NbO2 experimental validation, or sparse-port full hidden-field recovery.
 
 
+
+
 ## Continuous off-grid gamma_sub refinement audit
 
 Date: 2026-06-28
@@ -98,6 +127,8 @@ Findings:
 Boundary:
 
 This audit supports a one-dimensional reduced-order synthetic numerical digital-twin benchmark claim under fixed or tightly bounded priors. It does not prove experimental-data inversion, full 3D simulation, or sparse-port full hidden-field recovery.
+
+
 
 ## Paper-readiness gamma_sub robustness pack
 
@@ -132,6 +163,8 @@ This pack supports a one-dimensional reduced-order synthetic numerical
 digital-twin benchmark claim only. It does not support experimental-data, full
 3D device simulation, or sparse-port full hidden-field recovery claims.
 
+
+
 ## Literature-backed constrained gamma_sub inversion
 
 Date: 2026-06-26
@@ -163,6 +196,8 @@ All outputs are synthetic numerical digital-twin benchmark evidence. Frozen
 Ground Truth v1.1 data, configs, metrics, manifest, equations, and default
 parameters were not modified.
 
+
+
 ## Documentation structure cleanup
 
 Date: 2026-06-26
@@ -190,6 +225,8 @@ Boundary:
 
 This was documentation-only cleanup. No research code, configs, tests, frozen
 Ground Truth files, generated arrays, or generated figures were modified.
+
+
 
 ## Local Codex context integration
 
@@ -219,6 +256,8 @@ Boundary:
 This was a documentation-only integration. No Ground Truth frozen files,
 source code, configs, tests, training outputs, or large binary artifacts were
 modified.
+
+
 
 ## PINN inverse v0 ablation audit
 
@@ -250,6 +289,8 @@ Ethics note:
 
 All results in this repository are synthetic numerical benchmark results unless
 explicitly documented otherwise in `docs\data_provenance.md`.
+
+
 
 ## PINN inverse v1 physics regularization
 
@@ -283,6 +324,8 @@ Boundary:
 v1 is physics-regularized and approximate. It is not yet a strict
 PDE-constrained inverse PINN.
 
+
+
 ## PINN inverse v1.1 residual balancing
 
 Date: 2026-06-23
@@ -311,6 +354,8 @@ Boundary:
 
 All v1.1 results are synthetic numerical digital-twin benchmark outputs, not
 experimental data.
+
+
 
 ## PINN identifiability audit
 
@@ -343,6 +388,8 @@ Boundary:
 
 The identifiability audit is a synthetic numerical digital-twin analysis. It is
 not experimental evidence.
+
+
 
 ## v2a gamma_sub identifiability audit
 
@@ -378,6 +425,8 @@ Boundary:
 This is synthetic numerical digital-twin evidence for a reduced scalar inverse
 problem, not experimental validation and not proof of full hidden-field
 identifiability.
+
+
 
 ## gamma_sub robustness and confounding audit
 

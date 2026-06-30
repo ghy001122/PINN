@@ -9,6 +9,8 @@ These lightweight tables were generated from frozen Ground Truth v1.1 parameters
 - `outputs\tables\gamma_sub_temperature_anchor_placement_summary.json`
 - `outputs\tables\gamma_sub_temperature_anchor_placement_cases.csv`
 - `outputs\tables\gamma_sub_scalar_baseline_comparison.csv`
+- `outputs\tables\gamma_sub_tsw_confounding_phase_map_summary.json`
+- `outputs\tables\gamma_sub_tsw_confounding_phase_map_cases.csv`
 
 The corresponding frozen input arrays remain ignored by Git and were not modified.
 

@@ -23,6 +23,7 @@ The completed audits show:
 - scan `T_sw` prior-width effects while estimating only `gamma_sub`;
 - test whether temperature-anchor placement explains the failure of sparse anchors in the previous observability audit;
 - compare simple scalar baselines to show that the manuscript contribution is identifiability-guided target reduction and prior-boundary auditing, not a more complicated optimizer;
+- build a two-dimensional T_sw confounding phase map that separates calibration-error amplitude from residual prior-width effects;
 - update project state, registries, lightweight tables, and Codex reports.
 
 ## Not Allowed In This Phase

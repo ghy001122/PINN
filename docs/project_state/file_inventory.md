@@ -80,6 +80,9 @@
 - `configs\gamma_sub_temperature_anchor_placement.yaml`: config for temperature-anchor placement audit.
 - `scripts\audit_gamma_sub_temperature_anchor_placement.py`: compares uniform, random, and high-gradient synthetic temperature anchors.
 - `scripts\compare_gamma_sub_scalar_baselines.py`: compares candidate-grid search, continuous scalar least-squares refinement, and the constrained gamma_sub workflow.
+- `configs\gamma_sub_tsw_confounding_phase_map.yaml`: config for the two-dimensional `T_sw_delta_K` by `T_sw_prior_width` phase-map audit.
+- `scripts\audit_gamma_sub_tsw_confounding_phase_map.py`: scans the T_sw confounding phase map while estimating only `gamma_sub`.
+- `scripts\build_gamma_sub_gap_closing_figures.py`: builds reproducible figure-ready PNGs from gap-closing JSON/CSV evidence.
 - `configs\pinn_inverse_v2_f_sps_smoke.yaml`: v2 smoke config for a short CPU training loop using white-box `vo2_sigma`.
 - `scripts\train_pinn_inverse_v2_smoke.py`: minimal F-SPS-PINN v2 smoke trainer; predicts `T`, `c_v`, and `m`, computes `sigma` through `vo2_sigma`, and writes a lightweight summary JSON.
 - `configs\pinn_inverse_v2_f_sps_baseline.yaml`: small-run baseline config comparing `free_log_sigma` and `white_box_vo2_sigma`.
@@ -110,6 +113,7 @@
 - `tests\test_gamma_sub_tsw_prior_width_sweep.py`: checks prior-width config scope, finite trend outputs, and frozen GT hash preservation.
 - `tests\test_gamma_sub_temperature_anchor_placement.py`: checks placement modes, finite outputs, and frozen GT hash preservation.
 - `tests\test_gamma_sub_scalar_baselines.py`: checks scalar baseline comparison outputs and frozen GT hash preservation.
+- `tests\test_gamma_sub_tsw_confounding_phase_map.py`: checks phase-map config scope, finite outputs, recoverability fields, matrix schema, and frozen GT hash preservation.
 - `tests\test_vo2_constitutive.py`: checks VO2-like conductivity positivity, differentiability, finite extreme-temperature behavior, and Bruggeman safeguards.
 - `tests\test_fourier_pyramid.py`: checks Fourier pyramid shape and differentiability.
 - `tests\test_loss_balancer.py`: checks dynamic residual gate normalization, differentiability, and anti-collapse behavior.
@@ -128,6 +132,7 @@
 - `docs\codex_reports\gamma_sub_tsw_prior_width_sweep_report.md`: Codex report for T_sw prior-width trend audit.
 - `docs\codex_reports\gamma_sub_temperature_anchor_placement_report.md`: Codex report for anchor-placement audit.
 - `docs\codex_reports\gamma_sub_scalar_baseline_comparison_report.md`: Codex report for scalar baseline comparison.
+- `docs\codex_reports\gamma_sub_tsw_confounding_phase_map_report.md`: Codex report for the two-dimensional T_sw confounding phase-map audit.
 - `docs\paper\model_hierarchy_and_claim_boundary.md`: paper-defense hierarchy,
   included/excluded physics, and allowed/forbidden claims.
 - `docs\paper\equation_variable_registry.md`: variable units and equation

@@ -2,6 +2,12 @@
 
 ## SCI gap-closing gamma_sub validation pack
 
+- T_sw confounding phase-map config: `configs\gamma_sub_tsw_confounding_phase_map.yaml`
+- T_sw confounding phase-map script: `scripts\audit_gamma_sub_tsw_confounding_phase_map.py`
+- T_sw confounding phase-map test: `tests\test_gamma_sub_tsw_confounding_phase_map.py`
+- T_sw confounding phase-map outputs: `outputs\tables\gamma_sub_tsw_confounding_phase_map_summary.json`, `outputs\tables\gamma_sub_tsw_confounding_phase_map_cases.csv`
+- T_sw confounding phase-map report: `docs\codex_reports\gamma_sub_tsw_confounding_phase_map_report.md`
+- Gap-closing figure builder: `scripts\build_gamma_sub_gap_closing_figures.py`
 - T_sw prior-width config: `configs\gamma_sub_tsw_prior_width_sweep.yaml`
 - T_sw prior-width script: `scripts\audit_gamma_sub_tsw_prior_width_sweep.py`
 - T_sw prior-width test: `tests\test_gamma_sub_tsw_prior_width_sweep.py`
@@ -17,7 +23,7 @@
 - Scalar baseline output: `outputs\tables\gamma_sub_scalar_baseline_comparison.csv`
 - Scalar baseline report: `docs\codex_reports\gamma_sub_scalar_baseline_comparison_report.md`
 
-Status: completed as lightweight synthetic numerical validation evidence. It strengthens the constrained `gamma_sub` manuscript line without modifying frozen Ground Truth or adding F-SPS-PINN experiments.
+Status: completed as lightweight synthetic numerical validation evidence. It strengthens the constrained `gamma_sub` manuscript line with prior-width, anchor-placement, scalar-baseline, and T_sw phase-map audits without modifying frozen Ground Truth or adding F-SPS-PINN experiments.
 
 ## Observability-augmented gamma_sub audit
 

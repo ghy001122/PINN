@@ -1,5 +1,28 @@
 # Latest changes
 
+## T_sw confounding phase-map audit
+
+Scope:
+
+- Add a two-dimensional `T_sw_delta_K` by `T_sw_prior_width` phase map for constrained `gamma_sub` recovery.
+- Estimate only `gamma_sub`; keep frozen Ground Truth v1.1 read-only.
+- Generate reproducible figure-ready gap-closing plots without adding training artifacts.
+
+Changed:
+
+- Added `configs\gamma_sub_tsw_confounding_phase_map.yaml`.
+- Added `scripts\audit_gamma_sub_tsw_confounding_phase_map.py`.
+- Added `tests\test_gamma_sub_tsw_confounding_phase_map.py`.
+- Added `scripts\build_gamma_sub_gap_closing_figures.py`.
+- Added `outputs\tables\gamma_sub_tsw_confounding_phase_map_summary.json`.
+- Added `outputs\tables\gamma_sub_tsw_confounding_phase_map_cases.csv`.
+- Added `docs\codex_reports\gamma_sub_tsw_confounding_phase_map_report.md`.
+- Generated ignored figure-ready PNGs under `outputs\figures\gamma_sub_gap_closing\`.
+
+Result:
+
+The official 42-case phase map is finite and keeps frozen inputs unchanged. `gamma_sub` recovery is robust only in the low residual-`T_sw` region: 27 cases are recoverable at `relative_error <= 0.1`, 32 cases at `<= 0.2`, and the widest `T_sw` uncertainty still yields relative error `1.2222222222222223`.
+
 ## SCI gap-closing validation pack
 
 Scope:
@@ -56,6 +79,7 @@ Changed:
 Result:
 
 The current manuscript direction is narrowed to sparse-port inverse identifiability, target-space reduction, and constrained `gamma_sub` inversion under fixed or tightly bounded priors. F-SPS-PINN remains bounded method-development evidence and is not a main performance claim.
+
 ## F-SPS-PINN v2 Fourier on/off ablation under stress
 
 Scope:
@@ -124,6 +148,8 @@ Result:
 
 Both baseline modes produced finite losses and loss decreases in the 8-epoch CPU small run. The white-box `vo2_sigma` path did not use free `log_sigma`; the free-log-sigma run remains only an ablation baseline. Frozen input hashes and mtimes were unchanged.
 
+
+
 ## Continuous off-grid gamma_sub refinement audit
 
 Scope:
@@ -145,6 +171,8 @@ Changed:
 Result:
 
 All official off-grid cases exclude true `gamma_sub` from the candidate grid and evaluate non-grid simulator calls during refinement. Maximum nearest-grid relative error is `0.08225108225108226`; maximum continuous-refined relative error is `0.05565017963752034`; `T_sw` remains the limiting confounder.
+
+
 
 ## Paper-readiness gamma_sub robustness pack
 
@@ -178,6 +206,8 @@ Off-grid `gamma_sub = 4.62e8` was localized with nearest-grid relative error
 Nominal recovery stayed exact for `n_obs = 8, 16, 32, 64`; `T_sw` remained the
 most dangerous confounder.
 
+
+
 ## Recent history index
 
 For complete historical details, use:
@@ -188,6 +218,8 @@ For complete historical details, use:
 - generated figures: `FIGURE_REGISTRY.md`
 - file ownership and reports: `docs\project_state\file_inventory.md`
 - stage reports: `docs\codex_reports\`
+
+
 
 ## Documentation structure cleanup
 
@@ -210,6 +242,8 @@ Changed:
   loading policy for detailed Codex workflow.
 - `docs\codex_reports\local_codex_context_integration_report.md`: now records
   concrete verification results from the context-integration task.
+
+
 
 ## Local Codex context workflow integration
 

@@ -2,7 +2,7 @@
 
 ## Current phase
 
-The current authorized phase is `SCI manuscript evidence consolidation`. The repository is shifting from additional F-SPS-PINN engineering checks to manuscript-ready evidence organization for a method-oriented SCI paper.
+The current authorized phase is `SCI gap-closing validation pack / manuscript evidence consolidation`. The repository is closing reviewer-facing validation gaps for the constrained `gamma_sub` manuscript line while preparing manuscript-ready evidence organization for a method-oriented SCI paper.
 
 F-SPS-PINN architecture MVP, v2 smoke training, v2 small-run baseline, v2 phase-transition stress preflight, and v2 Fourier on/off ablation are complete as bounded method-development evidence. The Fourier ablation did not prove F-SPS-PINN performance superiority, so F-SPS-PINN should remain appendix, discussion, or future-work material unless a separate method paper is opened.
 
@@ -51,6 +51,8 @@ The v2 Fourier ablation adds `configs\pinn_inverse_v2_fourier_ablation.yaml` and
 
 The observability-augmented audit adds `configs\gamma_sub_observability_augmented.yaml` and `scripts\audit_gamma_sub_observability_augmented.py`. Under a controlled wide `T_sw` mismatch target, port-only `gamma_sub` inversion again hits the upper candidate bound with relative error `1.2222222222222223`. Sparse synthetic temperature anchors with `n_T_anchor = 2, 4, 8` do not reduce that bias in this candidate-grid audit. Narrowing the `T_sw` prior width from `1.0` to `0.1` reduces the relative error to `0.2222222222222222`, confirming that independent switching-temperature calibration is more critical than terminal data alone.
 The SCI gap-closing validation pack adds three lightweight audits. The `T_sw` prior-width sweep shows a monotonic candidate-grid trend: as `T_sw_prior_width` narrows from `1.0` to `0.02`, `gamma_sub` relative error decreases from `1.2222222222222223` to `0.05555555555555555`. The temperature-anchor placement audit shows that uniform, random, and high-gradient sparse synthetic temperature anchors still do not reduce the wide `T_sw` mismatch bias, so the anchor failure is not simply a uniform-placement artifact. The scalar baseline comparison shows that simple scalar grid search and continuous scalar least-squares are already adequate for the reduced problem under fixed priors; the manuscript contribution is identifiability-guided target reduction and prior-boundary auditing, not optimizer novelty.
+
+The T_sw confounding phase-map audit adds `configs\gamma_sub_tsw_confounding_phase_map.yaml` and `scripts\audit_gamma_sub_tsw_confounding_phase_map.py`. It scans `T_sw_delta_K = [0.0, 0.04, 0.1, 0.2, 0.4, 1.0, 2.0]` and `T_sw_prior_width = [0.02, 0.05, 0.1, 0.2, 0.5, 1.0]` while estimating only `gamma_sub`. The applied residual mismatch is explicitly `effective_T_sw_delta_K = T_sw_delta_K * T_sw_prior_width`. Official results contain 42 finite cases, with 27 recoverable at relative error <= 0.1 and 32 recoverable at <= 0.2. The worst case remains large `T_sw` uncertainty with `gamma_sub` relative error `1.2222222222222223`. Frozen input hashes are unchanged.
 The manuscript evidence consolidation adds `docs\paper\sci_manuscript_evidence_matrix.md` to bind each allowed paper claim to existing scripts, lightweight tables, reports, and forbidden overclaims.
 
 Detailed historical file lists and reproduction entries live in:

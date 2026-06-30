@@ -2,7 +2,7 @@
 
 ## Immediate next step
 
-The immediate step is `SCI manuscript evidence consolidation` with the gap-closing validation pack now available. Use existing synthetic numerical digital-twin evidence to build a manuscript-ready claim matrix, figure/table routing, and reviewer-defense boundary. Do not run new training experiments in this phase.
+The immediate step is `SCI manuscript figure and table drafting` with the gap-closing validation pack, T_sw confounding phase-map, and reproducible figure-ready outputs now available. Use existing synthetic numerical digital-twin evidence to build a manuscript-ready claim matrix, figure/table routing, and reviewer-defense boundary. Do not run new training experiments in this phase.
 
 The constrained `gamma_sub` inversion remains the most stable paper mainline. F-SPS-PINN v2 is a method-development line and should be positioned as appendix, discussion, or future work unless a separate method paper is explicitly opened.
 
@@ -12,7 +12,7 @@ The constrained `gamma_sub` inversion remains the most stable paper mainline. F-
 2. Show that sparse electrical port observations do not uniquely recover full hidden fields.
 3. Use identifiability analysis to justify target-space reduction.
 4. Present constrained `gamma_sub` inversion under fixed or tightly bounded priors.
-5. Use confounding, prior-width, off-grid, observation-count, and continuous-refinement audits as reviewer-defense evidence.
+5. Use confounding, prior-width, off-grid, observation-count, continuous-refinement, and T_sw phase-map audits as reviewer-defense evidence.
 
 ## Appendix or supplementary line
 
@@ -27,11 +27,12 @@ These results are useful engineering evidence but do not currently support a cla
 
 ## Recommended tasks
 
-1. Draft manuscript figures and tables from `docs/paper/sci_manuscript_evidence_matrix.md`.
+1. Draft manuscript figures and tables from `docs/paper/sci_manuscript_evidence_matrix.md` and the generated `outputs/figures/gamma_sub_gap_closing/` figure-ready files.
 2. Convert the main `gamma_sub` evidence chain into a concise Method/Result narrative.
 3. Prepare a limitations section that explicitly names `T_sw`, `tau_m`, `sigma_on0`, and `eta_A` confounding.
 4. Keep F-SPS-PINN as an appendix or future-work subsection unless new evidence is separately authorized.
-5. Use the new gap-closing audits to write a sharper limitations paragraph: `T_sw` prior width dominates, anchor placement alone did not fix the bias, and scalar optimizers are not the novelty.\n6. Keep all future results reproducible through scripts and lightweight JSON/CSV evidence.
+5. Use the new gap-closing audits to write a sharper limitations paragraph: `T_sw` prior width dominates, anchor placement alone did not fix the bias, and scalar optimizers are not the novelty.
+6. Keep all future results reproducible through scripts and lightweight JSON/CSV evidence.
 
 ## Do not do next
 

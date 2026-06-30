@@ -33,6 +33,7 @@ Do not modify frozen Ground Truth v1.1 files unless the user explicitly opens a 
 - The `gamma_sub` confounding audit showed that `T_sw`, `tau_m`, `sigma_on0`, and `eta_A` can bias `gamma_sub` unless constrained by priors.
 - The constrained inversion, paper-readiness, and continuous-refinement audits support `gamma_sub` only as a reduced inverse target under fixed or tightly bounded priors.
 - The observability-augmented gamma_sub audit shows that sparse temperature anchors alone did not reduce the wide `T_sw` mismatch bias in the current candidate-grid setup, while a narrowed `T_sw` prior reduced the gamma relative error from `1.2222222222222223` to `0.2222222222222222`.
+- The T_sw confounding phase-map audit separates calibration-error amplitude from residual prior width and maps recoverable `gamma_sub` regions; 27 of 42 official cells meet relative error <= 0.1 and 32 meet <= 0.2.
 - F-SPS-PINN architecture MVP, v2 smoke training, v2 small-run baseline, v2 phase-transition stress preflight, and v2 Fourier ablation are complete as method-development evidence, not main performance conclusions.
 
 ## Current Claim Boundary
