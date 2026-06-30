@@ -95,3 +95,6 @@ Defect and thermal no-flux boundaries are used in the Ground Truth solver:
 These equations support a synthetic numerical digital-twin benchmark for method
 development. They do not establish measured device parameters or full-field
 experimental recovery.
+## F-SPS-PINN V2 Closure Note
+
+The v2 method-development path also includes a white-box VO2-like closure `vo2_sigma(T, c_v, m)` and an optional Fourier-pyramid feature embedding. In the current manuscript evidence chain, these are appendix or future-work method components. They should not be presented as the primary validated conductivity law for the frozen Ground Truth v1.1 benchmark, and they should not be used to claim performance superiority from the small-run v2 checks.

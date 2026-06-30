@@ -2,43 +2,41 @@
 
 ## Current Phase
 
-`F-SPS-PINN v2 Fourier on/off ablation under stress`
+`SCI manuscript evidence consolidation`
 
-The literature-backed constrained `gamma_sub` inversion stage is complete. The F-SPS-PINN architecture MVP, v2 smoke training pipeline, v2 small-run baseline, and v2 phase-transition stress preflight are complete. The current authorized phase is a small Fourier on/off ablation under the sharp-transition stress condition.
+The literature-backed constrained `gamma_sub` inversion, continuous off-grid refinement, paper-readiness audit, and F-SPS-PINN v2 method-development checks are complete for the current sprint. The active work is now consolidation of evidence, claim boundaries, and manuscript-ready figure/table routing. This phase is documentation and evidence-chain work only; it does not open a new training campaign or a Ground Truth revision.
 
 ## Why This Phase Is Active
 
-The completed identifiability, confounding, constrained-inversion, paper-readiness, continuous off-grid refinement, v2 baseline, and v2 stress-preflight audits show:
+The completed audits show:
 
-- port-only full hidden-field inversion is ill-posed for `delta_T`, `c_v`, `m`, and `sigma`;
-- `gamma_sub` is identifiable only as a constrained reduced inverse target when switching and conductivity priors are fixed or tightly bounded;
-- `T_sw` remains the limiting confounder;
-- the v2 small-run baseline confirms both `free_log_sigma` and `white_box_vo2_sigma` paths can run under matched settings, but it does not support a performance-superiority claim;
-- the v2 stress preflight confirms numerical stability and trainability for `white_box_vo2_sigma` under mild, sharp, near-threshold, and high-contrast synthetic stress cases, but it also does not support a performance-superiority claim;
-- the next bounded method check is whether Fourier-pyramid features help under a shared sharp-transition stress condition.
+- port-only full hidden-field recovery is ill-posed for `delta_T`, `c_v`, `m`, and `sigma`;
+- identifiability-guided target-space reduction is required for a defensible inverse problem;
+- constrained `gamma_sub` inversion is the strongest paper mainline when switching and conductivity priors are fixed or tightly bounded;
+- `T_sw` remains the limiting confounder and must be controlled in the claim boundary;
+- F-SPS-PINN architecture MVP, v2 smoke training, v2 small-run baseline, phase-transition stress preflight, and Fourier on/off ablation are bounded method-development evidence;
+- the v2 Fourier ablation did not prove performance superiority, so F-SPS-PINN should remain appendix, discussion, or future-work material unless a separate method paper is explicitly opened.
 
 ## Allowed Work
 
-- run a small CPU Fourier on/off ablation with epochs <= 50;
-- keep `conductivity_mode = white_box_vo2_sigma` for the main comparison;
-- keep the same seed, epochs, field-anchor points, loss weights, and sharp-transition stress condition for Fourier off and Fourier on;
-- use the frozen Ground Truth v1.1 triangle data as read-only training target and sparse observation input;
-- commit lightweight JSON/CSV evidence only;
-- update compact project context and Codex reports for this phase.
+- consolidate manuscript evidence into paper-facing tables and claim-boundary documents;
+- map existing scripts, configs, summary JSON/CSV files, and reports to proposed figures and tables;
+- update project state files so reviewers can trace each claim to reproducible synthetic numerical evidence;
+- keep the constrained `gamma_sub` inverse story as the main manuscript line;
+- keep F-SPS-PINN v2 results as appendix, discussion, or future-work evidence.
 
 ## Not Allowed In This Phase
 
 Do not do these unless a later explicit task authorizes them:
 
-- open a new Ground Truth revision or modify frozen Ground Truth v1.1 configs, data, metrics, report, default parameters, or equations;
-- replace the old `log_sigma` / v0 / v1 / v1.1 main training paths;
-- run long training experiments or overwrite existing results;
-- claim F-SPS-PINN performance superiority from the Fourier ablation;
+- modify frozen Ground Truth v1.1 configs, data, metrics, reports, default parameters, or equations;
+- run new training experiments, long ablations, or overwrite existing outputs;
+- replace the constrained `gamma_sub` manuscript line with F-SPS-PINN;
+- claim F-SPS-PINN or Fourier features are performance-superior from the current small-run evidence;
 - claim real VO2/NbO2 experimental validation;
-- claim sparse-port unique full hidden-field recovery;
-- claim stress preflight or Fourier ablation has solved phase-transition stiffness;
-- start STL continuation, dynamic gate training, frequency loss, observability-augmented sparse temperature or state recovery, NeuroSPICE, NeuroPINN, VSN, or system-level mapping.
+- claim sparse-port observations uniquely recover full hidden fields;
+- start STL continuation, dynamic gate training, frequency loss, observability-augmented sparse temperature/state recovery, NeuroSPICE, NeuroPINN, VSN, or system-level mapping.
 
 ## Evidence Boundary
 
-All current results remain synthetic numerical digital-twin benchmark evidence. This phase tests a small Fourier-feature switch under a fixed stress condition; it does not create a formal performance conclusion, a complete experimental conclusion, or a validated full device model.
+All current results remain synthetic numerical digital-twin benchmark evidence. This phase supports manuscript organization and claim discipline; it does not create new experimental evidence, a full 3D device validation, or a port-only full-field recovery result.

@@ -43,3 +43,8 @@ device simulation, and not a proof of sparse-port full-field recovery.
 The defensible manuscript framing is a method-oriented SCI small paper on a
 one-dimensional reduced-order digital-twin benchmark for sparse-port inverse
 identifiability and constrained effective thermal-parameter inversion.
+## F-SPS-PINN Placement
+
+F-SPS-PINN architecture MVP, v2 smoke training, v2 small-run baseline, v2 phase-transition stress preflight, and v2 Fourier on/off ablation are engineering evidence for possible future method development. They should be placed in appendix, discussion, or future-work material for the current manuscript.
+
+Current F-SPS-PINN evidence does not justify a main-text performance-superiority claim. It also does not replace the constrained `gamma_sub` reduced inverse line as the most defensible current paper contribution.

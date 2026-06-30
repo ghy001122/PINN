@@ -2,11 +2,11 @@
 
 ## Current phase
 
-F-SPS-PINN architecture MVP is complete as an isolated, unit-tested architecture package. The v2 smoke training pipeline is complete and demonstrates a minimal forward/backward/train loop using the white-box `vo2_sigma(T, c_v, m)` closure on the frozen Ground Truth v1.1 triangle benchmark. The v2 small-run baseline and v2 phase-transition stress preflight are complete as bounded method-development evidence.
+The current authorized phase is `SCI manuscript evidence consolidation`. The repository is shifting from additional F-SPS-PINN engineering checks to manuscript-ready evidence organization for a method-oriented SCI paper.
 
-The current method-development checkpoint is `F-SPS-PINN v2 Fourier on/off ablation under stress`. It compares `vo2_sigma_fourier_off` and `vo2_sigma_fourier_on` under the same sharp-transition stress condition. This is a small-run synthetic numerical ablation, not a formal performance result.
+F-SPS-PINN architecture MVP, v2 smoke training, v2 small-run baseline, v2 phase-transition stress preflight, and v2 Fourier on/off ablation are complete as bounded method-development evidence. The Fourier ablation did not prove F-SPS-PINN performance superiority, so F-SPS-PINN should remain appendix, discussion, or future-work material unless a separate method paper is opened.
 
-The most defensible paper line remains the constrained reduced `gamma_sub` inverse problem under fixed or tightly bounded priors. F-SPS-PINN is a method-development path for replacing conductivity shortcuts and testing stiffness-aware training, not a validated full hidden-field recovery claim.
+The most defensible paper line remains the constrained reduced `gamma_sub` inverse problem under fixed or tightly bounded priors. The manuscript claim should focus on sparse-port inverse identifiability, target-space reduction, and constrained effective thermal-parameter inversion in a one-dimensional synthetic numerical digital-twin benchmark.
 
 ## Research line
 
@@ -47,7 +47,9 @@ The v2 small-run baseline adds `configs\pinn_inverse_v2_f_sps_baseline.yaml` and
 
 The v2 phase-transition stress preflight adds `configs\pinn_inverse_v2_phase_transition_stress.yaml` and `scripts\run_pinn_inverse_v2_phase_transition_stress.py`. It runs `mild_transition`, `sharp_transition`, `near_threshold`, and `high_contrast` cases using `white_box_vo2_sigma` with temperature-derived phase fraction, writes `outputs\tables\pinn_inverse_v2_phase_transition_stress_summary.json` and `outputs\tables\pinn_inverse_v2_phase_transition_stress_cases.csv`, and confirms frozen input hashes and mtimes are unchanged. The result is a stress preflight only, not a performance-superiority claim.
 
-The v2 Fourier ablation adds `configs\pinn_inverse_v2_fourier_ablation.yaml` and `scripts\run_pinn_inverse_v2_fourier_ablation.py`. It compares `vo2_sigma_fourier_off` and `vo2_sigma_fourier_on` under the same sharp-transition stress condition, writes `outputs\tables\pinn_inverse_v2_fourier_ablation_summary.json` and `outputs\tables\pinn_inverse_v2_fourier_ablation_runs.csv`, and confirms frozen input hashes and mtimes are unchanged. Fourier on does not clearly outperform Fourier off in this small-run result.
+The v2 Fourier ablation adds `configs\pinn_inverse_v2_fourier_ablation.yaml` and `scripts\run_pinn_inverse_v2_fourier_ablation.py`. It compares `vo2_sigma_fourier_off` and `vo2_sigma_fourier_on` under the same sharp-transition stress condition, writes `outputs\tables\pinn_inverse_v2_fourier_ablation_summary.json` and `outputs\tables\pinn_inverse_v2_fourier_ablation_runs.csv`, and confirms frozen input hashes and mtimes are unchanged. Fourier on does not clearly outperform Fourier off in this small-run result. The manuscript evidence matrix routes this F-SPS-PINN evidence to appendix, discussion, or future work rather than the main claim.
+
+The manuscript evidence consolidation adds `docs\paper\sci_manuscript_evidence_matrix.md` to bind each allowed paper claim to existing scripts, lightweight tables, reports, and forbidden overclaims.
 
 Detailed historical file lists and reproduction entries live in:
 

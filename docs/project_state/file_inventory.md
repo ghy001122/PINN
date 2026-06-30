@@ -4,7 +4,7 @@
 
 - `CODEX_CONTEXT.md`: first-read project context for non-trivial Codex tasks.
 - `docs\research_strategy\active_phase.md`: current authorized phase,
-  currently F-SPS-PINN v2 Fourier on/off ablation under stress.
+  currently SCI manuscript evidence consolidation.
 - `docs\research_strategy\context_loading_policy.md`: Tier 0 through Tier 4
   context-loading rules.
 - `docs\research_strategy\context_index.md`: quick routing index for context
@@ -110,6 +110,8 @@
 
 ## Evidence-chain reports
 
+- `docs\paper\sci_manuscript_evidence_matrix.md`: manuscript-ready evidence matrix that maps existing synthetic numerical benchmark results to main-text claims, appendix evidence, proposed figures/tables, allowed claims, and forbidden overclaims.
+- `docs\codex_reports\sci_manuscript_evidence_consolidation_report.md`: final Codex report for the documentation-only manuscript evidence consolidation task.
 - `docs\paper\model_hierarchy_and_claim_boundary.md`: paper-defense hierarchy,
   included/excluded physics, and allowed/forbidden claims.
 - `docs\paper\equation_variable_registry.md`: variable units and equation

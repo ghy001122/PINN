@@ -6,9 +6,9 @@ This file is the first-read context for non-trivial Codex work in this repositor
 
 Current phase:
 
-`F-SPS-PINN v2 Fourier on/off ablation under stress`
+`SCI manuscript evidence consolidation`
 
-The constrained reduced `gamma_sub` inversion stage is complete. The F-SPS-PINN architecture MVP, v2 smoke training pipeline, v2 small-run baseline, and v2 phase-transition stress preflight are complete. The active work is a bounded Fourier on/off ablation under the shared sharp-transition `vo2_sigma` stress condition, without replacing existing v0/v1/v1.1 paths or modifying frozen Ground Truth v1.1.
+The constrained reduced `gamma_sub` inversion stage, continuous off-grid refinement, paper-readiness robustness checks, and bounded F-SPS-PINN v2 method-development checks are complete for the current sprint. The active work is now to consolidate manuscript evidence, claim boundaries, and figure/table routing without running new training experiments or modifying frozen Ground Truth v1.1.
 
 ## Project Boundary
 
@@ -31,13 +31,14 @@ Do not modify frozen Ground Truth v1.1 files unless the user explicitly opens a 
 - The identifiability audit showed that terminal `V(t)`, `I(t)`, and `G(t)` constrain conductance-level response but do not uniquely recover `delta_T`, `c_v`, `m`, and `sigma`.
 - The `gamma_sub` identifiability audit showed stable single-parameter recovery when micro-kinetic parameters are fixed.
 - The `gamma_sub` confounding audit showed that `T_sw`, `tau_m`, `sigma_on0`, and `eta_A` can bias `gamma_sub` unless constrained by priors.
-- F-SPS-PINN architecture MVP, v2 smoke training, v2 small-run baseline, and v2 phase-transition stress preflight are complete as method-development evidence, not performance conclusions.
+- The constrained inversion, paper-readiness, and continuous-refinement audits support `gamma_sub` only as a reduced inverse target under fixed or tightly bounded priors.
+- F-SPS-PINN architecture MVP, v2 smoke training, v2 small-run baseline, v2 phase-transition stress preflight, and v2 Fourier ablation are complete as method-development evidence, not main performance conclusions.
 
 ## Current Claim Boundary
 
 Allowed claim:
 
-Under literature-guided micro-kinetic priors and constrained confounding parameters, `gamma_sub` is a more identifiable reduced inverse target than full hidden-field reconstruction from purely electrical terminal data. F-SPS-PINN v2 is currently a synthetic method-development path for testing white-box conductivity closures and stiffness-aware components.
+Under literature-guided micro-kinetic priors and constrained confounding parameters, `gamma_sub` is a more identifiable reduced inverse target than full hidden-field reconstruction from purely electrical terminal data. The defensible manuscript line is identifiability-guided target-space reduction in a one-dimensional synthetic numerical digital-twin benchmark.
 
 Disallowed claims:
 
@@ -45,6 +46,7 @@ Disallowed claims:
 - The current benchmark is experimental data.
 - Current `gamma_sub` inversion proves device-level thermal parameters without prior constraints.
 - Small-run, stress-preflight, or Fourier-ablation F-SPS-PINN results prove performance superiority.
+- F-SPS-PINN is the current main paper result unless a separate method paper is explicitly opened.
 
 ## Deferred Extensions
 
@@ -54,6 +56,7 @@ The following are deferred method enhancements, not current tasks unless `docs/r
 - stiff transfer learning or continuation training
 - observability-augmented sparse temperature/state measurements
 - NeuroSPICE, NeuroPINN, or system-level mapping
+- a separate F-SPS-PINN method paper
 
 ## Phase-Change Architecture Blueprint
 

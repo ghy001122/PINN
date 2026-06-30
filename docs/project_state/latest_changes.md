@@ -1,5 +1,26 @@
 # Latest changes
 
+## SCI manuscript evidence consolidation
+
+Scope:
+
+- Consolidate existing synthetic numerical digital-twin evidence into manuscript-ready claim, figure, and table routing.
+- Keep constrained `gamma_sub` inversion as the main SCI paper line.
+- Place F-SPS-PINN v2 smoke, baseline, stress, and Fourier evidence in appendix, discussion, or future work.
+- Do not run new training experiments or modify frozen Ground Truth v1.1.
+
+Changed:
+
+- Added `docs\paper\sci_manuscript_evidence_matrix.md`.
+- Updated `docs\paper\model_hierarchy_and_claim_boundary.md`.
+- Updated `docs\paper\equation_variable_registry.md`.
+- Updated `docs\paper\experiment_to_figure_mapping.md`.
+- Updated `CODEX_CONTEXT.md`, `PROJECT_STATE.md`, `NEXT_ACTIONS.md`, and `docs\research_strategy\active_phase.md`.
+- Added `docs\codex_reports\sci_manuscript_evidence_consolidation_report.md`.
+
+Result:
+
+The current manuscript direction is narrowed to sparse-port inverse identifiability, target-space reduction, and constrained `gamma_sub` inversion under fixed or tightly bounded priors. F-SPS-PINN remains bounded method-development evidence and is not a main performance claim.
 ## F-SPS-PINN v2 Fourier on/off ablation under stress
 
 Scope:

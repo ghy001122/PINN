@@ -2,54 +2,50 @@
 
 ## Immediate next step
 
-Use the F-SPS-PINN v2 Fourier on/off ablation under stress as the current engineering checkpoint. The goal is to compare `vo2_sigma_fourier_off` and `vo2_sigma_fourier_on` under the same sharp-transition synthetic stress condition, seed, epochs, field-anchor count, and loss weights. This is not a large ablation or formal performance claim.
+The immediate step is `SCI manuscript evidence consolidation`. Use existing synthetic numerical digital-twin evidence to build a manuscript-ready claim matrix, figure/table routing, and reviewer-defense boundary. Do not run new training experiments in this phase.
 
-Primary evidence already completed:
+The constrained `gamma_sub` inversion remains the most stable paper mainline. F-SPS-PINN v2 is a method-development line and should be positioned as appendix, discussion, or future work unless a separate method paper is explicitly opened.
 
-- `docs\codex_reports\f_sps_pinn_architecture_mvp_report.md`
-- `configs\pinn_inverse_v2_f_sps_smoke.yaml`
-- `scripts\train_pinn_inverse_v2_smoke.py`
-- `outputs\tables\pinn_inverse_v2_f_sps_smoke_summary.json`
-- `configs\pinn_inverse_v2_f_sps_baseline.yaml`
-- `scripts\run_pinn_inverse_v2_baseline.py`
-- `outputs\tables\pinn_inverse_v2_f_sps_baseline_summary.json`
-- `outputs\tables\pinn_inverse_v2_f_sps_baseline_runs.csv`
-- `configs\pinn_inverse_v2_phase_transition_stress.yaml`
-- `scripts\run_pinn_inverse_v2_phase_transition_stress.py`
-- `outputs\tables\pinn_inverse_v2_phase_transition_stress_summary.json`
-- `outputs\tables\pinn_inverse_v2_phase_transition_stress_cases.csv`
+## Main manuscript line
 
-Current ablation evidence:
+1. Present Ground Truth v1.1 as a synthetic one-dimensional reduced-order benchmark.
+2. Show that sparse electrical port observations do not uniquely recover full hidden fields.
+3. Use identifiability analysis to justify target-space reduction.
+4. Present constrained `gamma_sub` inversion under fixed or tightly bounded priors.
+5. Use confounding, prior-width, off-grid, observation-count, and continuous-refinement audits as reviewer-defense evidence.
 
-- `configs\pinn_inverse_v2_fourier_ablation.yaml`
-- `scripts\run_pinn_inverse_v2_fourier_ablation.py`
-- `tests\test_pinn_inverse_v2_fourier_ablation.py`
-- `outputs\tables\pinn_inverse_v2_fourier_ablation_summary.json`
-- `outputs\tables\pinn_inverse_v2_fourier_ablation_runs.csv`
+## Appendix or supplementary line
 
-The constrained `gamma_sub` inversion remains the most stable paper claim. The F-SPS-PINN path is method development that must remain bounded as synthetic numerical digital-twin evidence until stronger baselines and stress tests support a narrower claim.
+- PINN inverse v0/v1/v1.1 negative and diagnostic results.
+- F-SPS-PINN architecture MVP.
+- v2 smoke training.
+- v2 small-run free-log-sigma versus white-box `vo2_sigma` baseline.
+- v2 phase-transition stress preflight.
+- v2 Fourier on/off ablation.
+
+These results are useful engineering evidence but do not currently support a claim of F-SPS-PINN performance superiority.
 
 ## Recommended tasks
 
-1. Keep Fourier-ablation claims limited to small-run numerical comparison under one stress condition.
-2. If Fourier on clearly helps, run a slightly longer small-run or prepare a figure-ready summary.
-3. If Fourier on does not clearly help, return to the constrained `gamma_sub` paper mainline and keep F-SPS-PINN in appendix or future work.
-4. Keep frequency losses, dynamic gate training, and STL disabled until each has a separate smoke test in the v2 training path.
-5. Keep all generated datasets and figures reproducible through scripts rather than committing large binary artifacts.
+1. Draft manuscript figures and tables from `docs/paper/sci_manuscript_evidence_matrix.md`.
+2. Convert the main `gamma_sub` evidence chain into a concise Method/Result narrative.
+3. Prepare a limitations section that explicitly names `T_sw`, `tau_m`, `sigma_on0`, and `eta_A` confounding.
+4. Keep F-SPS-PINN as an appendix or future-work subsection unless new evidence is separately authorized.
+5. Keep all future results reproducible through scripts and lightweight JSON/CSV evidence.
 
 ## Do not do next
 
 - Do not modify frozen Ground Truth v1.1 acceptance configs, data, metrics, manifest, equations, or default parameters.
 - Do not describe synthetic numerical benchmark outputs as experimental data.
 - Do not claim full 3D device simulation or sparse-port full hidden-field recovery.
-- Do not claim F-SPS-PINN performance superiority from the Fourier ablation.
-- Do not claim stress preflight or Fourier ablation has solved phase-transition stiffness.
+- Do not claim F-SPS-PINN, Fourier features, stress preflight, or phase-transition closure solved the inverse problem.
 - Do not start STL continuation, observability-augmented sparse temperature/state recovery, VO2-NbO2 oscillator work, NeuroSPICE/NeuroPINN, or system-level mapping unless explicitly authorized.
 
-## Deferred Method Enhancements
+## Deferred method enhancements
 
-Record these as future options, not current work:
+Record these as future options, not current manuscript-critical work:
 
 - implement gamma_sub-PINN;
 - add stiff transfer learning continuation;
-- add observability-augmented sparse `T/m` extension.
+- add observability-augmented sparse `T/m` extension;
+- extend F-SPS-PINN as a separate method paper after stronger ablation evidence.
