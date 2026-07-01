@@ -1,5 +1,35 @@
 # Latest changes
 
+## Response-surface verification and manuscript claim consolidation pack
+
+Scope:
+
+- Verify response-surface evidence against simulator-backed source-grid anchors.
+- Add sequential protocol-design value-of-information preflight.
+- Add balanced F-SPS medium-budget coverage across all model labels and epoch budgets.
+- Build claim stress-test, proposed figure/table docs, manuscript outline, and manuscript-ready figure builder.
+- Keep frozen Ground Truth v1.1 and existing v0/v1/v1.1/gamma_sub/F-SPS results unchanged.
+
+Changed:
+
+- Added `configs\gamma_sub_response_surface_anchor_verification.yaml`.
+- Added `configs\gamma_sub_sequential_protocol_design.yaml`.
+- Added `configs\f_sps_balanced_medium_budget_benchmark.yaml`.
+- Added `scripts\audit_gamma_sub_response_surface_anchor_verification.py`.
+- Added `scripts\audit_gamma_sub_sequential_protocol_design.py`.
+- Added `scripts\train_f_sps_balanced_medium_budget_benchmark.py`.
+- Added `scripts\build_manuscript_claim_stress_test.py`.
+- Added `scripts\build_manuscript_ready_gamma_sub_figures.py`.
+- Added four tests for new scripts and schema checks.
+- Added lightweight JSON/CSV evidence under `outputs\tables\`.
+- Generated ignored figure-ready PNGs under `outputs\figures\manuscript_ready_gamma_sub\`.
+- Added `docs\paper\claim_stress_test_matrix.md`, `docs\paper\proposed_main_figures.md`, `docs\paper\proposed_tables.md`, and `docs\paper\manuscript_outline_v1.md`.
+
+Result:
+
+Anchor verification uses 60 cases and supports the response-surface phase diagrams only with explicit qualification. Sequential protocol design identifies `multi_pulse_to_ltp_ltd` as the best response-surface preflight candidate, but this remains a hypothesis requiring stronger validation. Balanced F-SPS executes 12 finite cases with even model/epoch coverage and still does not support F-SPS superiority.
+
+
 ## High-throughput gamma_sub identifiability and F-SPS medium-budget pack
 
 Scope:

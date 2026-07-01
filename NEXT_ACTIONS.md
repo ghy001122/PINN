@@ -2,16 +2,19 @@
 
 ## Immediate next step
 
-The immediate step is `manuscript figure/table drafting and claim-boundary tightening` after the high-throughput `gamma_sub` identifiability pack and bounded F-SPS medium-budget benchmark. Use the existing synthetic numerical digital-twin evidence to draft the main SCI narrative around constrained `gamma_sub` recovery, profile-likelihood/phase-diagram limitations, protocol robustness, and explicit `T_sw` confounding boundaries.
+The immediate step is `manuscript drafting from verified gamma_sub evidence` after response-surface anchor verification, sequential protocol-design preflight, balanced F-SPS coverage, and claim stress testing.
 
-Do not run new training or large ODE sweeps in the next phase unless a new task explicitly authorizes them. The constrained `gamma_sub` inversion remains the most stable paper mainline. F-SPS-PINN v2 remains a method-development line and should be positioned as appendix, discussion, or future work because the current medium-budget subset does not show superiority over the free-log-sigma shortcut.
+The next research work should focus on converting the verified synthetic numerical digital-twin evidence into a concise SCI manuscript narrative. Do not run new large training jobs or large ODE sweeps unless a new task explicitly authorizes them.
+
+The constrained `gamma_sub` inversion remains the most stable paper mainline. F-SPS-PINN v2 remains a method-development line and should be positioned as appendix, discussion, or future work because the balanced benchmark still does not show superiority over the best non-F-SPS baseline.
+
 ## Main manuscript line
 
 1. Present Ground Truth v1.1 as a synthetic one-dimensional reduced-order benchmark.
 2. Show that sparse electrical port observations do not uniquely recover full hidden fields.
 3. Use identifiability analysis to justify target-space reduction.
 4. Present constrained `gamma_sub` inversion under fixed or tightly bounded priors.
-5. Use confounding, prior-width, off-grid, observation-count, continuous-refinement, T_sw phase-map, and auxiliary-observability audits as reviewer-defense evidence.
+5. Use confounding, prior-width, off-grid, observation-count, continuous-refinement, T_sw phase-map, auxiliary-observability, response-surface anchor verification, sequential protocol preflight, and statistical robustness audits as reviewer-defense evidence.
 
 ## Appendix or supplementary line
 
@@ -21,18 +24,18 @@ Do not run new training or large ODE sweeps in the next phase unless a new task 
 - v2 small-run free-log-sigma versus white-box `vo2_sigma` baseline.
 - v2 phase-transition stress preflight.
 - v2 Fourier on/off ablation.
+- Balanced F-SPS medium-budget benchmark.
 
 These results are useful engineering evidence but do not currently support a claim of F-SPS-PINN performance superiority.
 
 ## Recommended tasks
 
-1. Draft manuscript figures and tables from `docs/paper/sci_manuscript_evidence_matrix.md` and the generated `outputs/figures/gamma_sub_gap_closing/` figure-ready files.
-2. Convert the main `gamma_sub` evidence chain into a concise Method/Result narrative.
-3. Prepare a limitations section that explicitly names `T_sw`, `tau_m`, `sigma_on0`, and `eta_A` confounding.
-4. Keep F-SPS-PINN as an appendix or future-work subsection unless new evidence is separately authorized.
-5. Use the new gap-closing audits to write a sharper limitations paragraph: `T_sw` prior width dominates, anchor placement alone did not fix the bias, and scalar optimizers are not the novelty, and non-calibrated synthetic auxiliary proxies did not overcome wide `T_sw` mismatch.
-6. Keep all future results reproducible through scripts and lightweight JSON/CSV evidence.
-7. Use the multi-protocol/profile-likelihood validation pack to strengthen the reviewer-defense narrative: multi-protocol checks increase experimental breadth, profile likelihood explains objective geometry, joint-boundary cases define nuisance-release limits, and protocol-design sensitivity adds forward-looking innovation.
+1. Draft the manuscript around `docs/paper/manuscript_outline_v1.md`.
+2. Use `docs/paper/claim_stress_test_matrix.md` as the overclaim guardrail.
+3. Build final figures from `docs/paper/proposed_main_figures.md` and tables from `docs/paper/proposed_tables.md`.
+4. Keep the wording explicit: synthetic numerical digital-twin benchmark, not experimental data.
+5. Treat `T_sw` as the main limitation and required prior/calibration boundary.
+6. Use sequential protocol design as a hypothesis/preflight result, not a validated experimental design.
 
 ## Do not do next
 
@@ -40,6 +43,7 @@ These results are useful engineering evidence but do not currently support a cla
 - Do not describe synthetic numerical benchmark outputs as experimental data.
 - Do not claim full 3D device simulation or sparse-port full hidden-field recovery.
 - Do not claim F-SPS-PINN, Fourier features, stress preflight, or phase-transition closure solved the inverse problem.
+- Do not claim every dense response-surface grid point is simulator-backed unless a future task re-solves those cases.
 - Do not start STL continuation, observability-augmented full-field recovery, experimental sparse temperature/state extension, VO2-NbO2 oscillator work, NeuroSPICE/NeuroPINN, or system-level mapping unless explicitly authorized.
 
 ## Deferred method enhancements

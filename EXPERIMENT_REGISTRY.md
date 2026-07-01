@@ -1,5 +1,26 @@
 # Experiment registry
 
+## Response-surface verification and manuscript claim consolidation pack
+
+- Anchor verification config: `configs\gamma_sub_response_surface_anchor_verification.yaml`
+- Anchor verification script: `scripts\audit_gamma_sub_response_surface_anchor_verification.py`
+- Anchor verification test: `tests\test_gamma_sub_response_surface_anchor_verification.py`
+- Sequential protocol design config: `configs\gamma_sub_sequential_protocol_design.yaml`
+- Sequential protocol design script: `scripts\audit_gamma_sub_sequential_protocol_design.py`
+- Sequential protocol design test: `tests\test_gamma_sub_sequential_protocol_design.py`
+- Balanced F-SPS config: `configs\f_sps_balanced_medium_budget_benchmark.yaml`
+- Balanced F-SPS runner: `scripts\train_f_sps_balanced_medium_budget_benchmark.py`
+- Balanced F-SPS test: `tests\test_f_sps_balanced_medium_budget_benchmark.py`
+- Claim stress-test builder: `scripts\build_manuscript_claim_stress_test.py`
+- Claim stress-test test: `tests\test_manuscript_claim_stress_test.py`
+- Manuscript figure builder: `scripts\build_manuscript_ready_gamma_sub_figures.py`
+- Outputs: `outputs\tables\gamma_sub_response_surface_anchor_verification_summary.json`, `outputs\tables\gamma_sub_response_surface_anchor_verification_cases.csv`, `outputs\tables\gamma_sub_sequential_protocol_design_summary.json`, `outputs\tables\gamma_sub_sequential_protocol_design_cases.csv`, `outputs\tables\f_sps_balanced_medium_budget_benchmark_summary.json`, `outputs\tables\f_sps_balanced_medium_budget_benchmark_cases.csv`, `outputs\tables\manuscript_claim_stress_test_summary.json`
+- Manuscript docs: `docs\paper\claim_stress_test_matrix.md`, `docs\paper\proposed_main_figures.md`, `docs\paper\proposed_tables.md`, `docs\paper\manuscript_outline_v1.md`
+- Report: `docs\codex_reports\gamma_sub_response_surface_verification_and_manuscript_claim_consolidation_report.md`
+
+Status: completed as synthetic numerical digital-twin manuscript-defense evidence. It verifies response-surface anchors, adds sequential protocol-design preflight, balances F-SPS medium-budget coverage, and consolidates claim boundaries without modifying frozen Ground Truth.
+
+
 ## High-throughput gamma_sub identifiability and F-SPS medium-budget pack
 
 - Dense profile config: `configs\gamma_sub_tsw_dense_profile_likelihood.yaml`

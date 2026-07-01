@@ -1,0 +1,9 @@
+candidate_name,stage1_protocol,stage2_protocol,stage1_ridge_width_reduction,effective_T_sw_prior_width,stage2_gamma_error,final_recoverable_le_0p1,final_recoverable_le_0p2,value_of_information_score,cost_normalized_score,improvement_over_best_single,improvement_over_ltp_ltd_only,protocol_cost,finite_result
+short_pulse_to_ltp_ltd,short_pulse,ltp_ltd,0.14302491060589456,0.08569750893941055,0.12947747937972232,False,True,0.02160915193795679,0.0072030506459855965,True,True,3.0,True
+short_pulse_to_triangle,short_pulse,triangle,0.14302491060589456,0.08569750893941055,0.140047069533169,False,True,0.011039561784510099,0.00441582471380404,True,True,2.5,True
+long_pulse_to_ltp_ltd,long_pulse,ltp_ltd,0.16983502458719518,0.08301649754128049,0.12542682957304457,False,True,0.02565980174463453,0.0077756974983741005,True,True,3.3,True
+multi_pulse_to_ltp_ltd,multi_pulse,ltp_ltd,0.55,0.045,0.07554331565883955,True,True,0.07554331565883955,0.020984254349677652,True,True,3.6,True
+triangle_high_amplitude_to_ltp_ltd,triangle_high_amplitude,ltp_ltd,0.10929088258215212,0.08907091174178479,0.13457424003460572,False,True,0.016512391283073385,0.004462808454884699,True,True,3.7,True
+ltp_ltd_to_short_pulse,ltp_ltd,short_pulse,0.1,0.09000000000000001,0.1359779681859112,False,True,0.015108663131767897,0.0050362210439226325,True,True,3.0,True
+best_single_protocol_only,,short_pulse,0.0,0.1,0.1510866313176791,False,True,0.0,0.0,False,False,1.0,True
+ltp_ltd_only,,ltp_ltd,0.0,0.1,0.1510866313176791,False,True,0.0,0.0,False,False,2.0,True

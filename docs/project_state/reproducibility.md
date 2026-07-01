@@ -1,5 +1,30 @@
 # Reproducibility
 
+## Response-surface verification and manuscript claim consolidation reproduction
+
+```powershell
+python scripts/audit_gamma_sub_response_surface_anchor_verification.py --config configs/gamma_sub_response_surface_anchor_verification.yaml
+python scripts/audit_gamma_sub_sequential_protocol_design.py --config configs/gamma_sub_sequential_protocol_design.yaml
+python scripts/train_f_sps_balanced_medium_budget_benchmark.py --config configs/f_sps_balanced_medium_budget_benchmark.yaml
+python scripts/build_manuscript_claim_stress_test.py
+python scripts/build_manuscript_ready_gamma_sub_figures.py
+```
+
+These commands regenerate:
+
+- `outputs\tables\gamma_sub_response_surface_anchor_verification_summary.json`
+- `outputs\tables\gamma_sub_response_surface_anchor_verification_cases.csv`
+- `outputs\tables\gamma_sub_sequential_protocol_design_summary.json`
+- `outputs\tables\gamma_sub_sequential_protocol_design_cases.csv`
+- `outputs\tables\f_sps_balanced_medium_budget_benchmark_summary.json`
+- `outputs\tables\f_sps_balanced_medium_budget_benchmark_cases.csv`
+- `outputs\tables\manuscript_claim_stress_test_summary.json`
+- `docs\paper\claim_stress_test_matrix.md`
+- ignored figure-ready PNGs under `outputs\figures\manuscript_ready_gamma_sub\`
+
+The anchor verification uses simulator-backed source grids and prior phase-map cases; it does not convert every dense response-surface point into a new ODE solve. The balanced F-SPS benchmark remains CPU-bounded and does not support a performance-superiority claim.
+
+
 ## High-throughput gamma_sub and F-SPS medium-budget reproduction
 
 ```powershell

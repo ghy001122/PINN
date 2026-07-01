@@ -1,5 +1,20 @@
 # Dataset registry
 
+## Response-surface verification and manuscript claim consolidation evidence
+
+These lightweight JSON/CSV files are synthetic numerical digital-twin benchmark evidence, not experimental data. They are generated from existing simulator-backed source grids, response-surface summaries, and bounded CPU training against frozen Ground Truth v1.1 inputs.
+
+- `outputs\tables\gamma_sub_response_surface_anchor_verification_summary.json`
+- `outputs\tables\gamma_sub_response_surface_anchor_verification_cases.csv`
+- `outputs\tables\gamma_sub_sequential_protocol_design_summary.json`
+- `outputs\tables\gamma_sub_sequential_protocol_design_cases.csv`
+- `outputs\tables\f_sps_balanced_medium_budget_benchmark_summary.json`
+- `outputs\tables\f_sps_balanced_medium_budget_benchmark_cases.csv`
+- `outputs\tables\manuscript_claim_stress_test_summary.json`
+
+Frozen Ground Truth v1.1 input arrays remain ignored by Git and were not modified.
+
+
 ## High-throughput gamma_sub and F-SPS medium-budget evidence
 
 These lightweight JSON/CSV files are synthetic numerical digital-twin benchmark evidence, not experimental data. They are generated from existing validated simulator-backed evidence or bounded CPU training against frozen Ground Truth v1.1 inputs.

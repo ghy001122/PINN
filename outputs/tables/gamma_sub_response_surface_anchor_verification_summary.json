@@ -1,0 +1,18 @@
+{
+  "benchmark": "gamma_sub_response_surface_anchor_verification",
+  "boundary_disagreement_cases": 0,
+  "classification_agreement_rate": 0.8833333333333333,
+  "max_discrepancy": 0.34298978353285103,
+  "mean_absolute_discrepancy": 0.05373609469259508,
+  "median_absolute_discrepancy": 0.03420116487516757,
+  "note": "Synthetic numerical digital-twin response-surface anchor verification; not experimental data.",
+  "num_anchor_cases": 60,
+  "num_finite_anchor_cases": 60,
+  "outputs": {
+    "cases_csv": "outputs/tables/gamma_sub_response_surface_anchor_verification_cases.csv",
+    "summary_json": "outputs/tables/gamma_sub_response_surface_anchor_verification_summary.json"
+  },
+  "required_claim_qualification": "Response-surface phase diagrams are acceptable as manuscript evidence only with explicit qualification: dense points are interpolated from simulator-backed source grids, and boundary regions should be described as screening evidence rather than exhaustive ODE re-solves.",
+  "source_boundary": "Anchor verification compares the response surface with prior simulator-backed source grids and phase-map cases. It does not convert every dense-grid point into a new ODE solve.\n",
+  "whether_response_surface_is_acceptable_for_manuscript": true
+}

@@ -1,0 +1,48 @@
+{
+  "benchmark": "gamma_sub_sequential_protocol_design",
+  "best_candidate_by_cost_normalized_score": {
+    "candidate_name": "multi_pulse_to_ltp_ltd",
+    "cost_normalized_score": 0.020984254349677652,
+    "effective_T_sw_prior_width": 0.045,
+    "final_recoverable_le_0p1": true,
+    "final_recoverable_le_0p2": true,
+    "finite_result": true,
+    "improvement_over_best_single": true,
+    "improvement_over_ltp_ltd_only": true,
+    "protocol_cost": 3.6,
+    "stage1_protocol": "multi_pulse",
+    "stage1_ridge_width_reduction": 0.55,
+    "stage2_gamma_error": 0.07554331565883955,
+    "stage2_protocol": "ltp_ltd",
+    "value_of_information_score": 0.07554331565883955
+  },
+  "best_candidate_by_gamma_error": {
+    "candidate_name": "multi_pulse_to_ltp_ltd",
+    "cost_normalized_score": 0.020984254349677652,
+    "effective_T_sw_prior_width": 0.045,
+    "final_recoverable_le_0p1": true,
+    "final_recoverable_le_0p2": true,
+    "finite_result": true,
+    "improvement_over_best_single": true,
+    "improvement_over_ltp_ltd_only": true,
+    "protocol_cost": 3.6,
+    "stage1_protocol": "multi_pulse",
+    "stage1_ridge_width_reduction": 0.55,
+    "stage2_gamma_error": 0.07554331565883955,
+    "stage2_protocol": "ltp_ltd",
+    "value_of_information_score": 0.07554331565883955
+  },
+  "best_single_protocol_reference": "short_pulse",
+  "best_single_protocol_relative_error": 0.1510866313176791,
+  "claim_boundary": "Sequential protocol scores are value-of-information preflight evidence derived from existing response-surface audits, not a new experimental protocol validation.\n",
+  "interpretation": "Sequential protocol design improves the response-surface preflight score in the current bounded model, but it remains a protocol-design hypothesis that needs simulator-backed validation before a strong claim.",
+  "ltp_ltd_only_relative_error": 0.1510866313176791,
+  "note": "Synthetic numerical digital-twin sequential protocol design preflight; not experimental data.",
+  "num_candidates": 8,
+  "outputs": {
+    "cases_csv": "outputs/tables/gamma_sub_sequential_protocol_design_cases.csv",
+    "summary_json": "outputs/tables/gamma_sub_sequential_protocol_design_summary.json"
+  },
+  "whether_sequential_design_improves_over_best_single": true,
+  "whether_sequential_design_improves_over_ltp_ltd_only": true
+}

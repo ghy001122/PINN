@@ -1,4 +1,4 @@
-.venv/
+﻿.venv/
 .vscode/
 __pycache__/
 *.pyc
@@ -88,3 +88,10 @@ outputs/pinn_inverse_v1_1_smoke/*
 !outputs/tables/gamma_sub_statistical_robustness_cases.csv
 !outputs/tables/f_sps_medium_budget_benchmark_summary.json
 !outputs/tables/f_sps_medium_budget_benchmark_cases.csv
+!outputs/tables/gamma_sub_response_surface_anchor_verification_summary.json
+!outputs/tables/gamma_sub_response_surface_anchor_verification_cases.csv
+!outputs/tables/gamma_sub_sequential_protocol_design_summary.json
+!outputs/tables/gamma_sub_sequential_protocol_design_cases.csv
+!outputs/tables/f_sps_balanced_medium_budget_benchmark_summary.json
+!outputs/tables/f_sps_balanced_medium_budget_benchmark_cases.csv
+!outputs/tables/manuscript_claim_stress_test_summary.json

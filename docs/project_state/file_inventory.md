@@ -1,5 +1,26 @@
 # File inventory
 
+## Response-surface verification and manuscript claim consolidation files
+
+- `configs\gamma_sub_response_surface_anchor_verification.yaml`: anchor-verification config.
+- `scripts\audit_gamma_sub_response_surface_anchor_verification.py`: compares response-surface predictions with simulator-backed source-grid and phase-map anchors.
+- `tests\test_gamma_sub_response_surface_anchor_verification.py`: config and smoke/schema test.
+- `configs\gamma_sub_sequential_protocol_design.yaml`: sequential protocol-design preflight config.
+- `scripts\audit_gamma_sub_sequential_protocol_design.py`: value-of-information preflight runner.
+- `tests\test_gamma_sub_sequential_protocol_design.py`: config and smoke/schema test.
+- `configs\f_sps_balanced_medium_budget_benchmark.yaml`: balanced F-SPS medium-budget benchmark config.
+- `scripts\train_f_sps_balanced_medium_budget_benchmark.py`: balanced F-SPS runner that reuses v2 baseline utilities.
+- `tests\test_f_sps_balanced_medium_budget_benchmark.py`: balanced coverage, finite metric, and frozen-input test.
+- `scripts\build_manuscript_claim_stress_test.py`: writes claim stress-test Markdown and summary JSON.
+- `tests\test_manuscript_claim_stress_test.py`: claim matrix smoke test.
+- `scripts\build_manuscript_ready_gamma_sub_figures.py`: builds ignored figure-ready PNGs from lightweight tables.
+- `docs\paper\claim_stress_test_matrix.md`: claim/evidence/limitation/forbidden-overclaim matrix.
+- `docs\paper\proposed_main_figures.md`: main-figure routing plan.
+- `docs\paper\proposed_tables.md`: table routing plan.
+- `docs\paper\manuscript_outline_v1.md`: manuscript outline and claim boundary.
+- `docs\codex_reports\gamma_sub_response_surface_verification_and_manuscript_claim_consolidation_report.md`: final task report.
+
+
 ## Low-token Codex context workflow
 
 - `CODEX_CONTEXT.md`: first-read project context for non-trivial Codex tasks.

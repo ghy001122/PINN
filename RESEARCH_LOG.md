@@ -1,5 +1,29 @@
 # Research log
 
+## Response-surface verification and manuscript claim consolidation pack
+
+Date: 2026-07-01
+
+Actions:
+
+- Added response-surface anchor verification against simulator-backed profile source grids and phase-map cases.
+- Added sequential protocol-design value-of-information preflight.
+- Added balanced F-SPS medium-budget benchmark with model and epoch coverage checks.
+- Added manuscript claim stress-test matrix, proposed main figures, proposed tables, manuscript outline, and figure builder.
+- Generated lightweight JSON/CSV evidence and ignored figure-ready PNGs under `outputs\figures\manuscript_ready_gamma_sub\`.
+
+Findings:
+
+- Anchor verification evaluates 60 cases with classification agreement rate `0.8833333333333333`, mean absolute discrepancy `0.05373609469259508`, and median absolute discrepancy `0.03420116487516757`. This supports response-surface use only with explicit qualification.
+- Sequential protocol design ranks `multi_pulse_to_ltp_ltd` best by response-surface gamma error (`0.07554331565883955`) and improves over the configured single-protocol references in the preflight model. It remains a hypothesis requiring stronger simulator-backed validation.
+- Balanced F-SPS benchmark plans 36 cases and executes 12 finite CPU-bounded cases, with 3 executed cases for each model and 4 executed cases for each epoch budget. `white_box_vo2_sigma_fourier` is best in the executed subset; `f_sps_pinn` does not improve over free-log-sigma or white-box Fourier baselines.
+- Claim stress testing binds 7 manuscript claims to evidence, limitations, and forbidden overclaims.
+
+Boundary:
+
+All outputs are synthetic numerical digital-twin benchmark evidence. Frozen Ground Truth v1.1 files are unchanged. Dense response-surface evidence remains interpolated unless explicitly marked as simulator-backed anchor data. F-SPS evidence remains appendix or future-work material.
+
+
 ## High-throughput gamma_sub identifiability and F-SPS medium-budget pack
 
 Date: 2026-07-01

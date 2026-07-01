@@ -1,0 +1,27 @@
+# Response-surface anchor verification for constrained gamma_sub manuscript evidence.
+# Synthetic numerical digital-twin benchmark only; not experimental data.
+benchmark: gamma_sub_response_surface_anchor_verification
+summary_json: outputs/tables/gamma_sub_response_surface_anchor_verification_summary.json
+cases_csv: outputs/tables/gamma_sub_response_surface_anchor_verification_cases.csv
+
+profile_source_csv: outputs/tables/gamma_sub_tsw_profile_likelihood_grid.csv
+dense_grid_csv: outputs/tables/gamma_sub_tsw_dense_profile_likelihood_grid.csv
+phase_map_cases_csv: outputs/tables/gamma_sub_tsw_confounding_phase_map_cases.csv
+
+num_anchor_cases: 60
+random_seed: 2026
+recoverability_threshold: 0.1
+interpolation_power: 2.0
+
+sampling:
+  objective_minimum: 8
+  ridge_valley: 8
+  recoverability_boundary: 10
+  wide_T_sw_mismatch_failure_zone: 10
+  high_confidence_recoverable_zone: 10
+  random_control_zone: 14
+
+claim_boundary: >
+  Anchor verification compares the response surface with prior simulator-backed
+  source grids and phase-map cases. It does not convert every dense-grid point
+  into a new ODE solve.

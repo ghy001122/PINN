@@ -1,0 +1,52 @@
+# Sequential protocol design preflight for constrained gamma_sub inversion.
+# Synthetic numerical digital-twin benchmark only; not experimental data.
+benchmark: gamma_sub_sequential_protocol_design
+summary_json: outputs/tables/gamma_sub_sequential_protocol_design_summary.json
+cases_csv: outputs/tables/gamma_sub_sequential_protocol_design_cases.csv
+
+base_T_sw_delta_K: 2.0
+base_T_sw_prior_width: 0.1
+observation_count: 32
+noise: 0.02
+
+protocol_actual_summary: outputs/tables/gamma_sub_protocol_actual_inversion_validation_summary.json
+weighted_objective_summary: outputs/tables/gamma_sub_weighted_protocol_objective_summary.json
+
+costs:
+  short_pulse: 1.0
+  long_pulse: 1.3
+  multi_pulse: 1.6
+  triangle: 1.5
+  triangle_high_amplitude: 1.7
+  ltp_ltd: 2.0
+
+candidates:
+  - name: short_pulse_to_ltp_ltd
+    stage1: short_pulse
+    stage2: ltp_ltd
+  - name: short_pulse_to_triangle
+    stage1: short_pulse
+    stage2: triangle
+  - name: long_pulse_to_ltp_ltd
+    stage1: long_pulse
+    stage2: ltp_ltd
+  - name: multi_pulse_to_ltp_ltd
+    stage1: multi_pulse
+    stage2: ltp_ltd
+  - name: triangle_high_amplitude_to_ltp_ltd
+    stage1: triangle_high_amplitude
+    stage2: ltp_ltd
+  - name: ltp_ltd_to_short_pulse
+    stage1: ltp_ltd
+    stage2: short_pulse
+  - name: best_single_protocol_only
+    stage1: null
+    stage2: best_single_protocol
+  - name: ltp_ltd_only
+    stage1: null
+    stage2: ltp_ltd
+
+claim_boundary: >
+  Sequential protocol scores are value-of-information preflight evidence
+  derived from existing response-surface audits, not a new experimental
+  protocol validation.

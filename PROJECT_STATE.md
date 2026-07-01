@@ -2,13 +2,15 @@
 
 ## Current phase
 
-The current authorized phase is `High-throughput gamma_sub identifiability and F-SPS medium-budget evidence consolidation`. The repository is strengthening reviewer-facing evidence for the constrained `gamma_sub` manuscript line while recording bounded F-SPS-PINN method-development evidence as appendix or future-work material.
+The current authorized phase is `gamma_sub response-surface verification and manuscript claim consolidation`. The repository is strengthening reviewer-facing evidence for the constrained `gamma_sub` manuscript line while recording bounded F-SPS-PINN method-development evidence as appendix or future-work material.
 
 F-SPS-PINN architecture MVP, v2 smoke training, v2 small-run baseline, v2 phase-transition stress preflight, v2 Fourier on/off ablation, and the medium-budget planning benchmark are complete or bounded as method-development evidence. The Fourier ablation did not prove F-SPS-PINN performance superiority, so F-SPS-PINN should remain appendix, discussion, or future-work material unless a separate method paper is opened.
 
 The most defensible paper line remains the constrained reduced `gamma_sub` inverse problem under fixed or tightly bounded priors. The manuscript claim should focus on sparse-port inverse identifiability, target-space reduction, and constrained effective thermal-parameter inversion in a one-dimensional synthetic numerical digital-twin benchmark.
 
 The high-throughput gamma_sub pack adds dense response-surface profile likelihood, recoverability phase diagram, protocol actual-validation, weighted protocol objective, bootstrap/noise/seed robustness, and F-SPS medium-budget planning evidence. The dense profile uses IDW interpolation from the prior simulator-backed profile grid rather than thousands of new ODE solves; this is explicitly response-surface evidence.
+
+The response-surface verification and manuscript claim consolidation pack adds `configs\gamma_sub_response_surface_anchor_verification.yaml`, `scripts\audit_gamma_sub_response_surface_anchor_verification.py`, `configs\gamma_sub_sequential_protocol_design.yaml`, `scripts\audit_gamma_sub_sequential_protocol_design.py`, `configs\f_sps_balanced_medium_budget_benchmark.yaml`, `scripts\train_f_sps_balanced_medium_budget_benchmark.py`, `scripts\build_manuscript_claim_stress_test.py`, and `scripts\build_manuscript_ready_gamma_sub_figures.py`. Official outputs contain 60 anchor-verification cases with classification agreement rate `0.8833333333333333`, 8 sequential protocol candidates with `multi_pulse_to_ltp_ltd` best by response-surface gamma error, and 12 balanced F-SPS medium-budget executed cases across all four model labels and all three epoch budgets. The response-surface evidence is acceptable only with explicit qualification, sequential design remains a preflight hypothesis, and balanced F-SPS still does not support superiority over free-log-sigma or white-box Fourier baselines.
 ## Research line
 
 The only active research line is mesh-free, fully differentiable, multi-physics digital twin modeling plus PINN inverse identification for phase-change or memristive defect diagnosis and SCI paper preparation.

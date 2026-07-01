@@ -1,0 +1,139 @@
+{
+  "all_claims_have_forbidden_overclaims": true,
+  "all_claims_have_limitations": true,
+  "benchmark": "synthetic numerical digital-twin manuscript claim stress test",
+  "claims": [
+    {
+      "claim_id": "C1",
+      "claim_text": "Sparse-port full-field recovery is non-identifiable in the current one-dimensional benchmark.",
+      "forbidden_overclaim": "Sparse port data uniquely recover delta_T, c_v, m, and sigma.",
+      "limitation": "This proves an identifiability boundary for the synthetic benchmark, not a theorem for all devices.",
+      "manuscript_section": "Results: identifiability boundary",
+      "strongest_numerical_result": "mean_sigma remains the dominant terminal-observable correlate; summary keys=['benchmark', 'best_lag_correlation_to_G', 'field_dynamic_ranges', 'hidden_field_correlations', 'input_path', 'interpretation']",
+      "supporting_figures": [
+        "outputs/figures/pinn_identifiability/correlation_heatmap.png"
+      ],
+      "supporting_scripts": [
+        "scripts/analyze_pinn_identifiability.py"
+      ],
+      "supporting_tables": [
+        "outputs/tables/pinn_identifiability_summary.json"
+      ]
+    },
+    {
+      "claim_id": "C2",
+      "claim_text": "gamma_sub recovery is conditionally possible under bounded T_sw prior.",
+      "forbidden_overclaim": "gamma_sub is identifiable under arbitrary released nuisance parameters.",
+      "limitation": "The claim requires fixed or tightly bounded switching/conductivity priors.",
+      "manuscript_section": "Results: reduced inverse target",
+      "strongest_numerical_result": "max tested constrained relative error=1.2222222222222223",
+      "supporting_figures": [
+        "outputs/figures/gamma_sub_gap_closing/"
+      ],
+      "supporting_scripts": [
+        "scripts/invert_gamma_sub_constrained.py"
+      ],
+      "supporting_tables": [
+        "outputs/tables/gamma_sub_constrained_inversion_summary.json",
+        "outputs/tables/gamma_sub_prior_width_sweep.csv"
+      ]
+    },
+    {
+      "claim_id": "C3",
+      "claim_text": "Wide T_sw mismatch is the dominant failure mode.",
+      "forbidden_overclaim": "Model mismatch does not affect gamma_sub inversion.",
+      "limitation": "Other parameters also confound gamma_sub; T_sw is the strongest tested one, not the only risk.",
+      "manuscript_section": "Discussion: confounding and priors",
+      "strongest_numerical_result": "worst statistical case=wide_T_sw_mismatch",
+      "supporting_figures": [
+        "outputs/figures/gamma_sub_gap_closing/"
+      ],
+      "supporting_scripts": [
+        "scripts/audit_gamma_sub_confounding.py",
+        "scripts/audit_gamma_sub_statistical_robustness.py"
+      ],
+      "supporting_tables": [
+        "outputs/tables/gamma_sub_confounding_summary.json",
+        "outputs/tables/gamma_sub_statistical_robustness_summary.json"
+      ]
+    },
+    {
+      "claim_id": "C4",
+      "claim_text": "ltp_ltd and short_pulse style protocols improve recoverability relative to less informative choices.",
+      "forbidden_overclaim": "Any multi-protocol design automatically solves gamma_sub/T_sw ambiguity.",
+      "limitation": "Protocol rankings are response-surface guidance and need stronger validation before experimental prescription.",
+      "manuscript_section": "Results: protocol robustness",
+      "strongest_numerical_result": "phase-diagram best_protocol=ltp_ltd",
+      "supporting_figures": [
+        "outputs/figures/high_throughput_sci/protocol_actual_validation.png"
+      ],
+      "supporting_scripts": [
+        "scripts/audit_gamma_sub_recoverability_phase_diagram.py",
+        "scripts/audit_gamma_sub_protocol_actual_inversion_validation.py"
+      ],
+      "supporting_tables": [
+        "outputs/tables/gamma_sub_recoverability_phase_diagram_summary.json",
+        "outputs/tables/gamma_sub_protocol_actual_inversion_validation_summary.json"
+      ]
+    },
+    {
+      "claim_id": "C5",
+      "claim_text": "Naive weighted protocol objective does not improve over the best single protocol.",
+      "forbidden_overclaim": "Weighted stimulation is useless in general.",
+      "limitation": "Only tested configured weights; better optimized designs remain future work.",
+      "manuscript_section": "Ablation: protocol objective",
+      "strongest_numerical_result": "improves_over_best_single=False",
+      "supporting_figures": [
+        "outputs/figures/high_throughput_sci/weighted_protocol_objective.png"
+      ],
+      "supporting_scripts": [
+        "scripts/audit_gamma_sub_weighted_protocol_objective.py"
+      ],
+      "supporting_tables": [
+        "outputs/tables/gamma_sub_weighted_protocol_objective_summary.json"
+      ]
+    },
+    {
+      "claim_id": "C6",
+      "claim_text": "Response-surface phase diagrams are acceptable only with anchor verification and explicit qualification.",
+      "forbidden_overclaim": "All dense response-surface points are simulator-backed ODE solves.",
+      "limitation": "Dense profile is interpolated from simulator-backed source points, not thousands of fresh ODE solves.",
+      "manuscript_section": "Reviewer defense: response-surface validation",
+      "strongest_numerical_result": "classification_agreement_rate=0.8833333333333333",
+      "supporting_figures": [
+        "outputs/figures/manuscript_ready_gamma_sub/main_figure_4_anchor_verification.png"
+      ],
+      "supporting_scripts": [
+        "scripts/audit_gamma_sub_response_surface_anchor_verification.py"
+      ],
+      "supporting_tables": [
+        "outputs/tables/gamma_sub_response_surface_anchor_verification_summary.json",
+        "outputs/tables/gamma_sub_response_surface_anchor_verification_cases.csv"
+      ]
+    },
+    {
+      "claim_id": "C7",
+      "claim_text": "F-SPS-PINN does not currently support a superiority claim.",
+      "forbidden_overclaim": "F-SPS-PINN is validated as more accurate than the free log_sigma shortcut.",
+      "limitation": "F-SPS remains an appendix/future-work method-development line.",
+      "manuscript_section": "Appendix: method development",
+      "strongest_numerical_result": "balanced_f_sps_improves_over_free_log_sigma=False",
+      "supporting_figures": [
+        "outputs/figures/manuscript_ready_gamma_sub/appendix_f_sps_balanced_benchmark.png"
+      ],
+      "supporting_scripts": [
+        "scripts/train_f_sps_medium_budget_benchmark.py",
+        "scripts/train_f_sps_balanced_medium_budget_benchmark.py"
+      ],
+      "supporting_tables": [
+        "outputs/tables/f_sps_medium_budget_benchmark_summary.json",
+        "outputs/tables/f_sps_balanced_medium_budget_benchmark_summary.json"
+      ]
+    }
+  ],
+  "num_claims": 7,
+  "outputs": {
+    "markdown": "docs\\paper\\claim_stress_test_matrix.md",
+    "summary_json": "outputs\\tables\\manuscript_claim_stress_test_summary.json"
+  }
+}
