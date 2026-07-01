@@ -266,3 +266,12 @@ Expected files:
 - `pred_delta_c_v_map.png`
 - `pred_delta_m_map.png`
 - `pred_sigma_map.png`
+## Manuscript-Style Gamma_Sub Figures
+
+Generated ignored figures under `outputs/figures/manuscript_style_gamma_sub/`:
+
+- `figure_tsw_calibration_necessity.png`
+- `figure_simulator_backed_protocol_validation.png`
+- `figure_literature_parameter_sanity.png`
+
+These figures are reproducible via `scripts/build_manuscript_style_gamma_sub_figures.py` and are not committed because `outputs/figures/` is ignored.

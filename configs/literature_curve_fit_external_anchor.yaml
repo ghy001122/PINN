@@ -1,0 +1,17 @@
+﻿# External literature curve fitting template.
+# This config intentionally refuses to fabricate digitized literature curves.
+benchmark: literature_curve_fit_external_anchor
+curve_data_dir: data/literature/curves
+curve_registry_csv: data/literature/literature_curve_registry.csv
+summary_json: outputs/tables/literature_curve_fit_external_anchor_summary.json
+cases_csv: outputs/tables/literature_curve_fit_external_anchor_cases.csv
+notes_md: docs/literature/literature_curve_fit_notes.md
+template_readme: data/literature/README.md
+expected_columns:
+  - source_id
+  - curve_type
+  - x_normalized
+  - y_normalized
+claim_boundary: >
+  If no digitized numerical curve is available with provenance, the script must
+  emit a blocked/template result instead of fabricating external data.

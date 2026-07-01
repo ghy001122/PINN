@@ -15,3 +15,11 @@ All claims in this matrix are limited to synthetic numerical digital-twin benchm
 ## Use Boundary
 
 Use this file to decide which results belong in the main manuscript and which belong in appendix or future work. Do not convert response-surface or small-run method-development evidence into experimental validation claims.
+## Literature-Anchored Pack Claim Stress Test
+
+| Claim | Evidence | Limitation | Forbidden wording |
+| --- | --- | --- | --- |
+| Literature anchors support the prior ranges | `data/literature/literature_parameter_sanity_table.csv` | Anchors are order-of-magnitude or engineering priors | measured material parameters |
+| External curve fitting is not yet complete | `outputs/tables/literature_curve_fit_external_anchor_summary.json` | No digitized curve CSV exists in the repo | fitted public curves without data |
+| T_sw calibration is necessary | `outputs/tables/gamma_sub_tsw_calibration_necessity_summary.json` | Tested in synthetic response-surface setting | unconditional gamma_sub identifiability |
+| Sequential protocol design is promising | `outputs/tables/gamma_sub_simulator_backed_sequential_protocol_validation_summary.json` | Still a synthetic preflight with prior-narrowing assumption | experimental protocol validation |

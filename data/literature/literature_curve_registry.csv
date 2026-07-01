@@ -1,0 +1,3 @@
+source_id,source_title,source_year,curve_type,data_path,provenance,fit_status,notes
+lee_2024_compact_memristor_pinn,A Compact Memristor Model Based on Physics-Informed Neural Networks,2024,I-V or state-response curve,,Google Drive PDF text available; no digitized numerical curve CSV committed,blocked_no_digitized_curve,Do not fabricate curve points; digitize only with provenance later.
+jurj_2026_physics_regularized_printed_memristor_surrogate,A Physics-Regularized Neural Surrogate Framework for Printed Memristors,2026,printed memristor I-V curve,,Google Drive PDF text available; no digitized numerical curve CSV committed,blocked_no_digitized_curve,Use as methodological framing until a digitized curve is added to data/literature/curves.

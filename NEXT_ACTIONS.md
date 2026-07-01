@@ -2,11 +2,11 @@
 
 ## Immediate next step
 
-The immediate step is `manuscript drafting from verified gamma_sub evidence` after response-surface anchor verification, sequential protocol-design preflight, balanced F-SPS coverage, and claim stress testing.
+The immediate step is `manuscript drafting with literature-anchored gamma_sub evidence`.
 
-The next research work should focus on converting the verified synthetic numerical digital-twin evidence into a concise SCI manuscript narrative. Do not run new large training jobs or large ODE sweeps unless a new task explicitly authorizes them.
+The latest pack adds literature/engineering-prior sanity checks, a no-fabrication external-curve template, T_sw calibration-necessity evidence, simulator-backed sequential protocol validation, and manuscript-style figure/caption scaffolding. The next work should convert this verified synthetic numerical digital-twin evidence into manuscript text and final figure panels, not start a new large experiment.
 
-The constrained `gamma_sub` inversion remains the most stable paper mainline. F-SPS-PINN v2 remains a method-development line and should be positioned as appendix, discussion, or future work because the balanced benchmark still does not show superiority over the best non-F-SPS baseline.
+The constrained `gamma_sub` inversion remains the most stable paper mainline. F-SPS-PINN v2 remains appendix, discussion, or future-work material because the current evidence still does not support a performance-superiority claim.
 
 ## Main manuscript line
 

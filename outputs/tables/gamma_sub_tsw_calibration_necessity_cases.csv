@@ -1,0 +1,7 @@
+case_name,protocol,observation_count,noise,T_sw_prior_width,T_sw_bias_K,effective_T_sw_delta_K,true_gamma_sub,estimated_gamma_sub,relative_error,success_flag,finite_result
+uncalibrated_T_sw_wide_prior,ltp_ltd,32,0.02,1.0,2.0,2.0,450000000.0,823939412.5112559,0.8309764722472351,False,True
+weak_T_sw_prior,ltp_ltd,32,0.02,0.5,2.0,1.0,450000000.0,823939412.5112559,0.8309764722472351,False,True
+literature_bounded_T_sw_prior,ltp_ltd,32,0.02,0.1,2.0,0.2,450000000.0,517988984.0929556,0.1510866313176791,False,True
+synthetic_independent_T_sw_calibration,ltp_ltd,32,0.02,0.02,2.0,0.04,450000000.0,466997246.0232389,0.037771657829419776,True,True
+oracle_T_sw,ltp_ltd,32,0.02,0.0,0.0,0.0,450000000.0,462238017.136732,0.027195593637182238,True,True
+wrong_T_sw_calibration,ltp_ltd,32,0.02,0.02,20.0,0.4,450000000.0,585977968.1859112,0.3021732626353582,False,True

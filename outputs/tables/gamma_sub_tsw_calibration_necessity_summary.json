@@ -1,0 +1,102 @@
+{
+  "all_finite_results": true,
+  "benchmark": "gamma_sub_tsw_calibration_necessity",
+  "degradation_rate_under_T_sw_bias": 0.40189043930502644,
+  "manuscript_sentence_for_limitation": "The reduced gamma_sub inverse problem is reliable only when T_sw is independently calibrated or tightly bounded; otherwise T_sw mismatch can dominate the terminal response and bias gamma_sub.",
+  "maximum_reliable_T_sw_prior_width_in_tested_cases": 0.02,
+  "minimum_T_sw_prior_width_for_reliable_gamma_recovery": 0.02,
+  "note": "Synthetic numerical digital-twin T_sw calibration necessity audit; not experimental data.",
+  "outputs": {
+    "cases_csv": "outputs/tables/gamma_sub_tsw_calibration_necessity_cases.csv",
+    "summary_json": "outputs/tables/gamma_sub_tsw_calibration_necessity_summary.json"
+  },
+  "rows": [
+    {
+      "T_sw_bias_K": 2.0,
+      "T_sw_prior_width": 1.0,
+      "case_name": "uncalibrated_T_sw_wide_prior",
+      "effective_T_sw_delta_K": 2.0,
+      "estimated_gamma_sub": 823939412.5112559,
+      "finite_result": true,
+      "noise": 0.02,
+      "observation_count": 32,
+      "protocol": "ltp_ltd",
+      "relative_error": 0.8309764722472351,
+      "success_flag": false,
+      "true_gamma_sub": 450000000.0
+    },
+    {
+      "T_sw_bias_K": 2.0,
+      "T_sw_prior_width": 0.5,
+      "case_name": "weak_T_sw_prior",
+      "effective_T_sw_delta_K": 1.0,
+      "estimated_gamma_sub": 823939412.5112559,
+      "finite_result": true,
+      "noise": 0.02,
+      "observation_count": 32,
+      "protocol": "ltp_ltd",
+      "relative_error": 0.8309764722472351,
+      "success_flag": false,
+      "true_gamma_sub": 450000000.0
+    },
+    {
+      "T_sw_bias_K": 2.0,
+      "T_sw_prior_width": 0.1,
+      "case_name": "literature_bounded_T_sw_prior",
+      "effective_T_sw_delta_K": 0.2,
+      "estimated_gamma_sub": 517988984.0929556,
+      "finite_result": true,
+      "noise": 0.02,
+      "observation_count": 32,
+      "protocol": "ltp_ltd",
+      "relative_error": 0.1510866313176791,
+      "success_flag": false,
+      "true_gamma_sub": 450000000.0
+    },
+    {
+      "T_sw_bias_K": 2.0,
+      "T_sw_prior_width": 0.02,
+      "case_name": "synthetic_independent_T_sw_calibration",
+      "effective_T_sw_delta_K": 0.04,
+      "estimated_gamma_sub": 466997246.0232389,
+      "finite_result": true,
+      "noise": 0.02,
+      "observation_count": 32,
+      "protocol": "ltp_ltd",
+      "relative_error": 0.037771657829419776,
+      "success_flag": true,
+      "true_gamma_sub": 450000000.0
+    },
+    {
+      "T_sw_bias_K": 0.0,
+      "T_sw_prior_width": 0.0,
+      "case_name": "oracle_T_sw",
+      "effective_T_sw_delta_K": 0.0,
+      "estimated_gamma_sub": 462238017.136732,
+      "finite_result": true,
+      "noise": 0.02,
+      "observation_count": 32,
+      "protocol": "ltp_ltd",
+      "relative_error": 0.027195593637182238,
+      "success_flag": true,
+      "true_gamma_sub": 450000000.0
+    },
+    {
+      "T_sw_bias_K": 20.0,
+      "T_sw_prior_width": 0.02,
+      "case_name": "wrong_T_sw_calibration",
+      "effective_T_sw_delta_K": 0.4,
+      "estimated_gamma_sub": 585977968.1859112,
+      "finite_result": true,
+      "noise": 0.02,
+      "observation_count": 32,
+      "protocol": "ltp_ltd",
+      "relative_error": 0.3021732626353582,
+      "success_flag": false,
+      "true_gamma_sub": 450000000.0
+    }
+  ],
+  "scope": "Only gamma_sub is estimated; T_sw is a controlled confounder/prior variable.",
+  "whether_independent_T_sw_calibration_is_required": true,
+  "wrong_T_sw_calibration_relative_error": 0.3021732626353582
+}

@@ -16,3 +16,8 @@ All figures are for a synthetic numerical digital-twin benchmark. They must not 
 | Figure | Evidence | Primary files | Claim boundary |
 | --- | --- | --- | --- |
 | Appendix Figure A1 | Balanced F-SPS medium-budget benchmark | `outputs/tables/f_sps_balanced_medium_budget_benchmark_summary.json`, `outputs/figures/manuscript_ready_gamma_sub/appendix_f_sps_balanced_benchmark.png` | Method-development evidence only; no F-SPS superiority claim |
+## Literature-Anchored Figure Addendum
+
+- Add or update Figure 5 with `outputs/figures/manuscript_style_gamma_sub/figure_tsw_calibration_necessity.png` and `outputs/figures/manuscript_style_gamma_sub/figure_simulator_backed_protocol_validation.png`.
+- Use `outputs/figures/manuscript_style_gamma_sub/figure_literature_parameter_sanity.png` as supplementary prior-boundary evidence.
+- Captions must state synthetic numerical digital-twin benchmark and no experimental validation.

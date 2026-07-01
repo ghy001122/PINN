@@ -1,0 +1,33 @@
+﻿# T_sw calibration necessity audit.
+# Synthetic numerical digital-twin benchmark evidence only.
+benchmark: gamma_sub_tsw_calibration_necessity
+summary_json: outputs/tables/gamma_sub_tsw_calibration_necessity_summary.json
+cases_csv: outputs/tables/gamma_sub_tsw_calibration_necessity_cases.csv
+success_relative_error_threshold: 0.15
+true_gamma_sub: 4.5e8
+protocol: ltp_ltd
+observation_count: 32
+noise: 0.02
+T_sw_delta_K: 2.0
+cases:
+  - case_name: uncalibrated_T_sw_wide_prior
+    T_sw_prior_width: 1.0
+    T_sw_bias_K: 2.0
+  - case_name: weak_T_sw_prior
+    T_sw_prior_width: 0.5
+    T_sw_bias_K: 2.0
+  - case_name: literature_bounded_T_sw_prior
+    T_sw_prior_width: 0.1
+    T_sw_bias_K: 2.0
+  - case_name: synthetic_independent_T_sw_calibration
+    T_sw_prior_width: 0.02
+    T_sw_bias_K: 2.0
+  - case_name: oracle_T_sw
+    T_sw_prior_width: 0.0
+    T_sw_bias_K: 0.0
+  - case_name: wrong_T_sw_calibration
+    T_sw_prior_width: 0.02
+    T_sw_bias_K: 20.0
+claim_boundary: >
+  This audit estimates only gamma_sub and tests how T_sw prior width or bias
+  controls recovery. It does not prove joint identifiability.

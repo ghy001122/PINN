@@ -1,0 +1,13 @@
+﻿# Literature parameter sanity audit for the constrained gamma_sub manuscript line.
+# Synthetic numerical digital-twin benchmark context only; literature values are
+# anchors/priors, not measured parameters for this repository device.
+benchmark: literature_phase_change_parameter_sanity
+frozen_gt_config: configs/gt_v1_acceptance_triangle.yaml
+v2_baseline_config: configs/pinn_inverse_v2_f_sps_baseline.yaml
+parameter_table_csv: data/literature/literature_parameter_sanity_table.csv
+summary_json: outputs/tables/literature_phase_change_parameter_sanity_summary.json
+notes_md: docs/literature/literature_parameter_sanity_notes.md
+claim_boundary: >
+  Literature anchors are used only as order-of-magnitude or engineering-prior
+  sanity checks for a synthetic numerical digital-twin benchmark. They are not
+  direct measurements of the simulated device.

@@ -58,3 +58,10 @@ Do not map these synthetic numerical results to an experimental validation figur
 | Sequential protocol design preflight | `outputs/tables/gamma_sub_sequential_protocol_design_summary.json`, `outputs/tables/gamma_sub_sequential_protocol_design_cases.csv`, `outputs/figures/manuscript_ready_gamma_sub/main_figure_5_protocol_design.png` | Protocol design / discussion | Figure 5 / Table 6 | Show value-of-information hypothesis for reducing the `gamma_sub`/`T_sw` ridge |
 | Balanced F-SPS medium-budget benchmark | `outputs/tables/f_sps_balanced_medium_budget_benchmark_summary.json`, `outputs/tables/f_sps_balanced_medium_budget_benchmark_cases.csv`, `outputs/figures/manuscript_ready_gamma_sub/appendix_f_sps_balanced_benchmark.png` | Appendix / future work | Appendix Figure A1 / Supplementary Table S1 | Record balanced method-development evidence without claiming F-SPS superiority |
 | Claim stress-test matrix | `docs/paper/claim_stress_test_matrix.md`, `outputs/tables/manuscript_claim_stress_test_summary.json` | Supplementary evidence / writing guardrail | Supplementary Table S2 | Prevent overclaiming and map claims to evidence |
+## Literature-Anchored Pack Mapping
+
+| Evidence block | Primary files | Manuscript location | Candidate figure/table | Purpose |
+| --- | --- | --- | --- | --- |
+| Literature sanity and no-fabrication curve template | `data/literature/literature_parameter_sanity_table.csv`, `data/literature/literature_curve_registry.csv`, `docs/literature/` | Method / limitations | Table 3 / Supplementary Table | Anchor priors and document the absence of usable digitized curve data |
+| T_sw calibration necessity | `outputs/tables/gamma_sub_tsw_calibration_necessity_summary.json` | Main result / limitations | Figure 5 | Quantify why T_sw calibration is required |
+| Simulator-backed sequential validation | `outputs/tables/gamma_sub_simulator_backed_sequential_protocol_validation_summary.json` | Discussion / protocol design | Figure 5 / Supplementary Table | Validate the response-surface protocol ranking with ODE-backed cases |

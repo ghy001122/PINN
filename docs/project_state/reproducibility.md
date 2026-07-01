@@ -393,3 +393,16 @@ The audit intentionally writes only lightweight tabular evidence.
 
 All generated results are synthetic numerical digital-twin benchmark outputs.
 They must not be described as measured experimental data.
+## Literature-Anchored Gamma_Sub Pack Reproduction
+
+Run:
+
+```powershell
+.\.venv\Scripts\python.exe scriptsudit_literature_phase_change_parameter_sanity.py
+.\.venv\Scripts\python.exe scriptsit_literature_phase_change_curves.py
+.\.venv\Scripts\python.exe scriptsudit_gamma_sub_tsw_calibration_necessity.py
+.\.venv\Scripts\python.exe scriptsudit_gamma_sub_simulator_backed_sequential_protocol_validation.py
+.\.venv\Scripts\python.exe scriptsuild_manuscript_style_gamma_sub_figures.py
+```
+
+Then validate with the dedicated tests and full `pytest`. Frozen Ground Truth v1.1 must remain unchanged.

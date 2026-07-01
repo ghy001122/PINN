@@ -162,3 +162,19 @@ lightweight summary JSON files such as
 
 The local reference pack itself is not copied into the repository. Only compact
 context, literature digest, and routing files are tracked.
+
+## Literature-Anchored Gamma_Sub Pack Addendum
+
+New top-level additions in this pack:
+
+- `configs/literature_phase_change_parameter_sanity.yaml`
+- `configs/literature_curve_fit_external_anchor.yaml`
+- `configs/gamma_sub_tsw_calibration_necessity.yaml`
+- `configs/gamma_sub_simulator_backed_sequential_protocol_validation.yaml`
+- `scripts/audit_literature_phase_change_parameter_sanity.py`
+- `scripts/fit_literature_phase_change_curves.py`
+- `scripts/audit_gamma_sub_tsw_calibration_necessity.py`
+- `scripts/audit_gamma_sub_simulator_backed_sequential_protocol_validation.py`
+- `scripts/build_manuscript_style_gamma_sub_figures.py`
+- `docs/literature/`
+- `data/literature/`

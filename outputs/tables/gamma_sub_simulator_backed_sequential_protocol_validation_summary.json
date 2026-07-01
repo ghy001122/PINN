@@ -1,0 +1,57 @@
+{
+  "all_cases_simulator_backed": true,
+  "all_finite_results": true,
+  "benchmark": "gamma_sub_simulator_backed_sequential_protocol_validation",
+  "best_candidate_by_simulator_backed_mean_error": "multi_pulse_to_ltp_ltd",
+  "by_candidate": {
+    "best_single_protocol_only": {
+      "max_relative_error": 1.2222222222222223,
+      "mean_relative_error": 0.6111111111111109,
+      "num_cases": 30,
+      "success_rate": 0.06666666666666667
+    },
+    "ltp_ltd_only": {
+      "max_relative_error": 1.2222222222222223,
+      "mean_relative_error": 0.4851851851851851,
+      "num_cases": 30,
+      "success_rate": 0.6
+    },
+    "multi_pulse_to_ltp_ltd": {
+      "max_relative_error": 0.4444444444444444,
+      "mean_relative_error": 0.15185185185185188,
+      "num_cases": 30,
+      "success_rate": 0.6666666666666666
+    },
+    "short_pulse_only": {
+      "max_relative_error": 1.2222222222222223,
+      "mean_relative_error": 0.6111111111111109,
+      "num_cases": 30,
+      "success_rate": 0.06666666666666667
+    },
+    "short_pulse_to_ltp_ltd": {
+      "max_relative_error": 1.2222222222222223,
+      "mean_relative_error": 0.47777777777777763,
+      "num_cases": 30,
+      "success_rate": 0.6333333333333333
+    }
+  },
+  "case_rows_stored_in": "outputs/tables/gamma_sub_simulator_backed_sequential_protocol_validation_cases.csv",
+  "frozen_gt_hashes_after": {
+    "data\\processed\\gt_v1_acceptance\\gt_triangle.npz": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8",
+    "data\\processed\\gt_v1_acceptance\\obs_triangle_sparse.npz": "f45daf53136a255b3666ebeb56e6298ce148a613c46fa596b795e7ade68ea602"
+  },
+  "frozen_gt_hashes_before": {
+    "data\\processed\\gt_v1_acceptance\\gt_triangle.npz": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8",
+    "data\\processed\\gt_v1_acceptance\\obs_triangle_sparse.npz": "f45daf53136a255b3666ebeb56e6298ce148a613c46fa596b795e7ade68ea602"
+  },
+  "frozen_gt_unchanged": true,
+  "note": "Synthetic numerical digital-twin simulator-backed protocol validation; not experimental data.",
+  "num_cases": 150,
+  "outputs": {
+    "cases_csv": "outputs/tables/gamma_sub_simulator_backed_sequential_protocol_validation_cases.csv",
+    "summary_json": "outputs/tables/gamma_sub_simulator_backed_sequential_protocol_validation_summary.json"
+  },
+  "response_surface_best_candidate_reference": "multi_pulse_to_ltp_ltd",
+  "scope": "Only gamma_sub is estimated. Stage-one prior narrowing remains a synthetic design assumption; target and candidate port profiles are ODE simulated.",
+  "whether_simulator_backed_validation_supports_response_surface_ranking": true
+}

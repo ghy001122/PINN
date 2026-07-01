@@ -1,0 +1,17 @@
+{
+  "benchmark": "literature_curve_fit_external_anchor",
+  "best_fit_curve_type": null,
+  "fitted_parameters": null,
+  "limitation": "No provenance-backed digitized numerical literature curve was available in the repository, so curve fitting is blocked and only a template registry is emitted.",
+  "normalized_rmse": null,
+  "note": "Synthetic numerical digital-twin manuscript support; no external curve is fabricated.",
+  "num_curves_fit": 0,
+  "num_sources_found": 2,
+  "outputs": {
+    "cases_csv": "outputs\\tables\\literature_curve_fit_external_anchor_cases.csv",
+    "curve_registry_csv": "data\\literature\\literature_curve_registry.csv",
+    "notes_md": "docs\\literature\\literature_curve_fit_notes.md",
+    "summary_json": "outputs\\tables\\literature_curve_fit_external_anchor_summary.json"
+  },
+  "whether_external_anchor_supports_model_plausibility": false
+}

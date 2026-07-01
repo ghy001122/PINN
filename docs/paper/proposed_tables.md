@@ -12,3 +12,9 @@ All proposed tables summarize synthetic numerical digital-twin benchmark evidenc
 | Table 6 | Sequential protocol design preflight | `outputs/tables/gamma_sub_sequential_protocol_design_summary.json`, `outputs/tables/gamma_sub_sequential_protocol_design_cases.csv` | Protocol design hypothesis ranking |
 | Supplementary Table S1 | Balanced F-SPS medium-budget benchmark | `outputs/tables/f_sps_balanced_medium_budget_benchmark_summary.json`, `outputs/tables/f_sps_balanced_medium_budget_benchmark_cases.csv` | Appendix method-development evidence |
 | Supplementary Table S2 | Claim stress-test matrix | `docs/paper/claim_stress_test_matrix.md`, `outputs/tables/manuscript_claim_stress_test_summary.json` | Prevent overclaiming |
+## Literature-Anchored Table Addendum
+
+- Add `data/literature/literature_parameter_sanity_table.csv` to Table 3 or a supplementary prior table.
+- Add `outputs/tables/gamma_sub_tsw_calibration_necessity_cases.csv` to the T_sw limitation table.
+- Add `outputs/tables/gamma_sub_simulator_backed_sequential_protocol_validation_cases.csv` as a protocol-design validation table.
+- State that `outputs/tables/literature_curve_fit_external_anchor_summary.json` is blocked because no provenance-backed digitized curve exists.

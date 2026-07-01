@@ -358,3 +358,24 @@ ignored by Git.
 
 Status: completed as a robustness audit. The lightweight JSON and CSV are
 committed evidence.
+## Literature-Anchored Gamma_Sub Calibration And Protocol Validation
+
+Status: completed as synthetic numerical digital-twin reviewer-defense evidence.
+
+Files:
+
+- `configs/literature_phase_change_parameter_sanity.yaml`
+- `scripts/audit_literature_phase_change_parameter_sanity.py`
+- `configs/literature_curve_fit_external_anchor.yaml`
+- `scripts/fit_literature_phase_change_curves.py`
+- `configs/gamma_sub_tsw_calibration_necessity.yaml`
+- `scripts/audit_gamma_sub_tsw_calibration_necessity.py`
+- `configs/gamma_sub_simulator_backed_sequential_protocol_validation.yaml`
+- `scripts/audit_gamma_sub_simulator_backed_sequential_protocol_validation.py`
+- `scripts/build_manuscript_style_gamma_sub_figures.py`
+- `tests/test_literature_phase_change_parameter_sanity.py`
+- `tests/test_literature_curve_fit_external_anchor.py`
+- `tests/test_gamma_sub_tsw_calibration_necessity.py`
+- `tests/test_gamma_sub_simulator_backed_sequential_protocol_validation.py`
+
+Key result: best simulator-backed sequential candidate is `multi_pulse_to_ltp_ltd`; T_sw calibration remains required.

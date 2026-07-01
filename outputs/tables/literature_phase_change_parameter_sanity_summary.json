@@ -1,0 +1,19 @@
+{
+  "benchmark": "literature_phase_change_parameter_sanity",
+  "dominant_open_risk": "T_sw must be independently fixed or tightly bounded before gamma_sub claims are strong.",
+  "note": "Synthetic numerical digital-twin benchmark; literature anchors are priors, not experimental calibration.",
+  "num_flagged_as_boundary_sensitive": 1,
+  "num_parameters_checked": 8,
+  "num_within_literature_or_engineering_range": 7,
+  "outputs": {
+    "notes_md": "docs\\literature\\literature_parameter_sanity_notes.md",
+    "parameter_table_csv": "data\\literature\\literature_parameter_sanity_table.csv",
+    "summary_json": "outputs\\tables\\literature_phase_change_parameter_sanity_summary.json"
+  },
+  "usable_literature_sources": [
+    "A Compact Memristor Model Based on Physics-Informed Neural Networks",
+    "A Physics-Regularized Neural Surrogate Framework for Printed Memristors",
+    "Local constrained gamma_sub inversion evidence chain",
+    "Local synthetic benchmark prior registry"
+  ]
+}

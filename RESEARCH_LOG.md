@@ -557,3 +557,6 @@ Boundary:
 
 All results are synthetic numerical digital-twin benchmark outputs, not
 experimental measurements.
+## Literature-Anchored Calibration And Simulator-Backed Protocol Validation
+
+Added a reviewer-defense pack for the constrained `gamma_sub` manuscript line. The pack confirmed that missing digitized literature curves are handled as a blocked/template state, not fabricated data; T_sw calibration is required; and ODE-backed sequential validation supports `multi_pulse_to_ltp_ltd` as the strongest tested preflight candidate. All evidence remains synthetic numerical digital-twin benchmark evidence.

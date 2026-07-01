@@ -76,3 +76,18 @@ Detailed historical file lists and reproduction entries live in:
 ## Boundary
 
 All Ground Truth and PINN results are synthetic, numerical, digital-twin benchmark results. They are not measured experimental data, not full 3D device simulation results, and not sparse-port full hidden-field recovery.
+
+## Literature-Anchored Calibration And Simulator-Backed Protocol Validation Pack
+
+This pack adds literature/engineering-prior sanity checks, external-curve provenance handling, a T_sw calibration-necessity audit, and simulator-backed sequential protocol validation for the constrained `gamma_sub` manuscript line. All outputs remain synthetic numerical digital-twin benchmark evidence, not experimental data.
+
+Key results:
+
+- Literature sanity checks cover `8` parameters; `1` item is flagged as boundary-sensitive.
+- No provenance-backed digitized literature curve CSV was found; external curve fitting is blocked rather than fabricated.
+- T_sw calibration necessity: minimum reliable tested T_sw prior width is `0.02`, wide-prior relative error is `0.8309764722472351`, and wrong-calibration relative error is `0.3021732626353582`.
+- Simulator-backed sequential protocol validation runs `150` finite ODE-backed cases. Best mean-error candidate is `multi_pulse_to_ltp_ltd` and it matches the response-surface preflight best: `True`.
+- Frozen GT hashes are unchanged: `True`.
+
+Claim boundary: this strengthens reviewer defense for constrained reduced `gamma_sub` inversion under fixed or tightly bounded priors. It does not prove sparse-port full hidden-field recovery, real device calibration, or F-SPS-PINN superiority.
+

@@ -249,3 +249,37 @@
 - `docs\gt_v1_acceptance_report.md`
 - `data\processed\gt_v1_acceptance\manifest.json`
 - Ground Truth equations and default Ground Truth parameters.
+## Literature-Anchored Gamma_Sub Pack Files
+
+Configs:
+
+- `configs/literature_phase_change_parameter_sanity.yaml`
+- `configs/literature_curve_fit_external_anchor.yaml`
+- `configs/gamma_sub_tsw_calibration_necessity.yaml`
+- `configs/gamma_sub_simulator_backed_sequential_protocol_validation.yaml`
+
+Scripts:
+
+- `scripts/audit_literature_phase_change_parameter_sanity.py`
+- `scripts/fit_literature_phase_change_curves.py`
+- `scripts/audit_gamma_sub_tsw_calibration_necessity.py`
+- `scripts/audit_gamma_sub_simulator_backed_sequential_protocol_validation.py`
+- `scripts/build_manuscript_style_gamma_sub_figures.py`
+
+Tests:
+
+- `tests/test_literature_phase_change_parameter_sanity.py`
+- `tests/test_literature_curve_fit_external_anchor.py`
+- `tests/test_gamma_sub_tsw_calibration_necessity.py`
+- `tests/test_gamma_sub_simulator_backed_sequential_protocol_validation.py`
+
+Docs/data:
+
+- `docs/literature/literature_parameter_sanity_notes.md`
+- `docs/literature/literature_curve_fit_notes.md`
+- `data/literature/literature_parameter_sanity_table.csv`
+- `data/literature/literature_curve_registry.csv`
+- `docs/paper/main_figure_captions_v1.md`
+- `docs/paper/supplementary_figure_captions_v1.md`
+- `docs/paper/table_captions_v1.md`
+- `docs/paper/visual_style_guide.md`

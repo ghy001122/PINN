@@ -6,9 +6,9 @@ This file is the first-read context for non-trivial Codex work in this repositor
 
 Current phase:
 
-`SCI gap-closing validation pack`
+`literature-anchored gamma_sub calibration and simulator-backed protocol validation`
 
-The constrained reduced `gamma_sub` inversion stage, continuous off-grid refinement, paper-readiness robustness checks, observability-augmented audit, and bounded F-SPS-PINN v2 method-development checks are complete or in evidence-consolidation use. The active work is now to close reviewer-facing validation gaps for the constrained `gamma_sub` manuscript line without running F-SPS-PINN experiments or modifying frozen Ground Truth v1.1.
+The constrained reduced `gamma_sub` inversion stage, continuous off-grid refinement, paper-readiness robustness checks, observability-augmented audit, bounded F-SPS-PINN v2 method-development checks, response-surface anchor verification, and literature/protocol-validation pack are complete or in evidence-consolidation use. The active work is now manuscript drafting from constrained `gamma_sub` evidence without modifying frozen Ground Truth v1.1 or claiming experimental validation.
 
 ## Project Boundary
 
@@ -37,6 +37,7 @@ Do not modify frozen Ground Truth v1.1 files unless the user explicitly opens a 
 - The auxiliary observability sweep shows that synthetic sparse/dense T, T-derivative, m, and sigma proxies did not recover the wide T_sw mismatch case; only calibrated T_sw reached the recovery thresholds in the official sweep.
 - The multi-protocol/profile-likelihood validation pack adds 48-case multi-protocol recoverability, a `gamma_sub` by `T_sw` objective landscape with condition number `10.762998753222757`, a joint-inversion boundary audit where `T_sw + tau_m` is most ambiguous and `sigma_on0` gives the worst gamma error, and a protocol observability design preflight that ranks `multi_pulse` highest by distinguishability while recommending `long_pulse` and `short_pulse` under the configured cosine threshold.
 - F-SPS-PINN architecture MVP, v2 smoke training, v2 small-run baseline, v2 phase-transition stress preflight, and v2 Fourier ablation are complete as method-development evidence, not main performance conclusions.
+- The literature-anchored calibration and simulator-backed protocol validation pack adds parameter sanity checks, a no-fabrication external-curve template, T_sw calibration-necessity evidence, and ODE-backed sequential protocol validation; it keeps T_sw as the dominant claim boundary.
 
 ## Current Claim Boundary
 

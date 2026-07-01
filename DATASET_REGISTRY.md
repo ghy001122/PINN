@@ -190,3 +190,18 @@ These are reproducible training artifacts and are ignored by Git:
 
 These JSON and CSV files store compact scalar metrics and correlations for
 cloud review without committing large generated arrays or figures.
+## Literature And Lightweight Evidence Tables
+
+New lightweight committed data/table artifacts:
+
+- `data/literature/literature_parameter_sanity_table.csv`
+- `data/literature/literature_curve_registry.csv`
+- `outputs/tables/literature_phase_change_parameter_sanity_summary.json`
+- `outputs/tables/literature_curve_fit_external_anchor_summary.json`
+- `outputs/tables/literature_curve_fit_external_anchor_cases.csv`
+- `outputs/tables/gamma_sub_tsw_calibration_necessity_summary.json`
+- `outputs/tables/gamma_sub_tsw_calibration_necessity_cases.csv`
+- `outputs/tables/gamma_sub_simulator_backed_sequential_protocol_validation_summary.json`
+- `outputs/tables/gamma_sub_simulator_backed_sequential_protocol_validation_cases.csv`
+
+No frozen Ground Truth data were modified. No digitized external curve data were fabricated.
