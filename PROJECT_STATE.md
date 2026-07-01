@@ -1,13 +1,14 @@
-﻿# Project state
+# Project state
 
 ## Current phase
 
-The current authorized phase is `SCI gap-closing validation pack / manuscript evidence consolidation`. The repository is closing reviewer-facing validation gaps for the constrained `gamma_sub` manuscript line while preparing manuscript-ready evidence organization for a method-oriented SCI paper.
+The current authorized phase is `High-throughput gamma_sub identifiability and F-SPS medium-budget evidence consolidation`. The repository is strengthening reviewer-facing evidence for the constrained `gamma_sub` manuscript line while recording bounded F-SPS-PINN method-development evidence as appendix or future-work material.
 
-F-SPS-PINN architecture MVP, v2 smoke training, v2 small-run baseline, v2 phase-transition stress preflight, and v2 Fourier on/off ablation are complete as bounded method-development evidence. The Fourier ablation did not prove F-SPS-PINN performance superiority, so F-SPS-PINN should remain appendix, discussion, or future-work material unless a separate method paper is opened.
+F-SPS-PINN architecture MVP, v2 smoke training, v2 small-run baseline, v2 phase-transition stress preflight, v2 Fourier on/off ablation, and the medium-budget planning benchmark are complete or bounded as method-development evidence. The Fourier ablation did not prove F-SPS-PINN performance superiority, so F-SPS-PINN should remain appendix, discussion, or future-work material unless a separate method paper is opened.
 
 The most defensible paper line remains the constrained reduced `gamma_sub` inverse problem under fixed or tightly bounded priors. The manuscript claim should focus on sparse-port inverse identifiability, target-space reduction, and constrained effective thermal-parameter inversion in a one-dimensional synthetic numerical digital-twin benchmark.
 
+The high-throughput gamma_sub pack adds dense response-surface profile likelihood, recoverability phase diagram, protocol actual-validation, weighted protocol objective, bootstrap/noise/seed robustness, and F-SPS medium-budget planning evidence. The dense profile uses IDW interpolation from the prior simulator-backed profile grid rather than thousands of new ODE solves; this is explicitly response-surface evidence.
 ## Research line
 
 The only active research line is mesh-free, fully differentiable, multi-physics digital twin modeling plus PINN inverse identification for phase-change or memristive defect diagnosis and SCI paper preparation.
@@ -27,6 +28,9 @@ Ground Truth v1.1 remains frozen across subsequent inverse, audit, and documenta
 
 ## Current evidence
 
+The high-throughput gamma_sub identifiability pack adds `configs\gamma_sub_tsw_dense_profile_likelihood.yaml`, `configs\gamma_sub_recoverability_phase_diagram.yaml`, `configs\gamma_sub_protocol_actual_inversion_validation.yaml`, `configs\gamma_sub_weighted_protocol_objective.yaml`, `configs\gamma_sub_statistical_robustness.yaml`, `configs\f_sps_medium_budget_benchmark.yaml`, and matching scripts/tests. Official response-surface runs produce 2501 dense profile points, 2688 recoverability phase-diagram cases, 24 protocol-validation cases, 9 weighted-objective cases, and 480 statistical robustness cases. `ltp_ltd` remains the best recoverability protocol in the phase diagram, `short_pulse` is best in protocol actual-validation, weighted objectives do not improve over `ltp_ltd_only`, and wide `T_sw` mismatch remains the dominant failure mode.
+
+The F-SPS medium-budget planning benchmark writes `outputs\tables\f_sps_medium_budget_benchmark_summary.json` and `outputs\tables\f_sps_medium_budget_benchmark_cases.csv`. It plans 45 cases and executes 8 finite CPU-bounded cases across free-log-sigma, white-box VO2 sigma, Fourier VO2 sigma, and F-SPS labels. The executed subset does not support an F-SPS superiority claim; it is appendix or future-work evidence only.
 The identifiability audit confirms that `G(t)` is nearly perfectly correlated with `mean_sigma`, while aggregate `delta_T`, `delta_c_v`, and `m` are also strongly correlated with `G(t)`. Terminal observations constrain the integrated conductance response but do not uniquely recover the hidden thermal, defect, state, and conductivity fields.
 
 The v2a reduced audit confirms that `gamma_sub` is stably invertible in the single-parameter setting when `D_v0`, `mu_v0`, `T_sw`, `tau_m`, and other microscopic parameters remain fixed. This does not prove joint identifiability with switching or defect parameters released.

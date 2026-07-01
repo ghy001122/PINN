@@ -1,4 +1,29 @@
-﻿# Research log
+# Research log
+
+## High-throughput gamma_sub identifiability and F-SPS medium-budget pack
+
+Date: 2026-07-01
+
+Actions:
+
+- Added dense response-surface `gamma_sub` by `T_sw` profile-likelihood audit.
+- Added recoverability phase diagram across protocol, `T_sw` mismatch, prior width, observation count, and noise.
+- Added protocol actual-validation, weighted-protocol objective, and bootstrap/noise/seed robustness audits.
+- Added bounded F-SPS medium-budget planning benchmark with gradient-norm summaries and explicit skipped cases.
+- Generated lightweight JSON/CSV evidence and ignored figure-ready PNGs under `outputs\figures\high_throughput_sci\`.
+
+Findings:
+
+- Dense profile response surface has 2501 grid points derived from 77 simulator-backed source points; best dense pair is near `gamma_sub = 5.004315952035617e8`, `T_sw_offset_K = 0.0`, with true-pair rank 9.
+- Recoverability phase diagram has 2688 finite cases; `ltp_ltd` has the lowest mean relative error and overall recoverability is 0.7024 at <= 0.1 error and 0.8095 at <= 0.2 error.
+- Protocol actual-validation has ranking correlation 0.6571 between sensitivity proxy and response-surface actual error; `short_pulse` is best by actual error.
+- Weighted protocol objectives do not improve over `ltp_ltd_only` in the tested narrow-prior case.
+- Statistical robustness has 480 finite cases with 10 seeds; wide `T_sw` mismatch still drives failures.
+- F-SPS medium-budget plans 45 cases and executes 8 finite cases across free-log-sigma, white-box VO2 sigma, Fourier VO2 sigma, and F-SPS labels; the executed subset does not support an F-SPS superiority claim.
+
+Boundary:
+
+All outputs are synthetic numerical digital-twin benchmark evidence. Dense high-throughput audits are response-surface evidence unless explicitly marked simulator-backed. Frozen Ground Truth v1.1 files are unchanged.
 
 ## Gamma_sub multi-protocol and profile-likelihood validation pack
 

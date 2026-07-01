@@ -1,0 +1,73 @@
+{
+  "all_finite_results": true,
+  "benchmark": "Protocol actual inversion validation from synthetic response-surface recoverability audit",
+  "best_protocol_by_actual_error": "short_pulse",
+  "best_protocol_by_sensitivity_proxy": "multi_pulse",
+  "by_protocol": {
+    "long_pulse": {
+      "max_relative_error": 0.8309764722472351,
+      "mean_relative_error": 0.46005879236233294,
+      "num_cases": 4,
+      "proxy_distinguishability_score": 0.13886327380653682,
+      "recoverable_rate_le_0p1": 0.25,
+      "recoverable_rate_le_0p2": 0.5
+    },
+    "mixed_amplitude_pulse": {
+      "max_relative_error": 0.8309764722472351,
+      "mean_relative_error": 0.46005879236233294,
+      "num_cases": 4,
+      "proxy_distinguishability_score": 0.030774251923348487,
+      "recoverable_rate_le_0p1": 0.25,
+      "recoverable_rate_le_0p2": 0.5
+    },
+    "multi_pulse": {
+      "max_relative_error": 0.8309764722472351,
+      "mean_relative_error": 0.46005879236233294,
+      "num_cases": 4,
+      "proxy_distinguishability_score": 0.8948013347502902,
+      "recoverable_rate_le_0p1": 0.25,
+      "recoverable_rate_le_0p2": 0.5
+    },
+    "short_pulse": {
+      "max_relative_error": 0.8309764722472351,
+      "mean_relative_error": 0.46005879236233294,
+      "num_cases": 4,
+      "proxy_distinguishability_score": 0.08555277208370304,
+      "recoverable_rate_le_0p1": 0.25,
+      "recoverable_rate_le_0p2": 0.5
+    },
+    "triangle_high_amplitude": {
+      "max_relative_error": 0.8988112863082339,
+      "mean_relative_error": 0.4976146121470131,
+      "num_cases": 4,
+      "proxy_distinguishability_score": 0.01847443141226208,
+      "recoverable_rate_le_0p1": 0.25,
+      "recoverable_rate_le_0p2": 0.5
+    },
+    "triangle_low_amplitude": {
+      "max_relative_error": 0.8988112863082339,
+      "mean_relative_error": 0.4976146121470131,
+      "num_cases": 4,
+      "proxy_distinguishability_score": 0.005475455471373597,
+      "recoverable_rate_le_0p1": 0.25,
+      "recoverable_rate_le_0p2": 0.5
+    }
+  },
+  "claim_boundary": "Protocol recommendations remain response-surface validation for constrained gamma_sub inversion only.",
+  "corrected_recommended_protocols": [
+    "triangle_low_amplitude",
+    "triangle_high_amplitude",
+    "short_pulse",
+    "long_pulse",
+    "multi_pulse",
+    "mixed_amplitude_pulse"
+  ],
+  "note": "Synthetic numerical digital-twin protocol validation; not experimental data.",
+  "num_cases": 24,
+  "outputs": {
+    "cases_csv": "outputs/tables/gamma_sub_protocol_actual_inversion_validation_cases.csv",
+    "summary_json": "outputs/tables/gamma_sub_protocol_actual_inversion_validation_summary.json"
+  },
+  "proxy_recommendation_validated_at_top_half": true,
+  "ranking_correlation_between_proxy_and_actual": 0.6571428571428573
+}

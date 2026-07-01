@@ -1,0 +1,76 @@
+{
+  "all_finite_results": true,
+  "benchmark": "Dense response-surface gamma_sub x T_sw profile likelihood for synthetic numerical digital-twin benchmark",
+  "best_pair": {
+    "T_sw_offset_K": 0.0,
+    "gamma_sub": 500431595.2035617,
+    "objective": 0.002603597421887395
+  },
+  "budget_note": "Dense 41x61 official run is IDW interpolation from the prior 77-point simulator-backed profile grid, not 2501 new ODE solves.",
+  "condition_number": 1.0,
+  "curvature_eigenvalues": [
+    1.0,
+    1.0
+  ],
+  "low_objective_fraction_20pct": 0.00039984006397441024,
+  "note": "Synthetic numerical digital-twin dense profile response surface; not experimental data.",
+  "num_dense_grid_points": 2501,
+  "num_source_grid_points": 77,
+  "outputs": {
+    "grid_csv": "outputs/tables/gamma_sub_tsw_dense_profile_likelihood_grid.csv",
+    "profiles_csv": "outputs/tables/gamma_sub_tsw_dense_profile_likelihood_profiles.csv",
+    "summary_json": "outputs/tables/gamma_sub_tsw_dense_profile_likelihood_summary.json"
+  },
+  "ridge_slope": 0.3009780093678878,
+  "ridge_widths": {
+    "threshold_0.01": {
+      "T_sw_uncertainty_interval": [
+        0.0,
+        0.0
+      ],
+      "count": 1,
+      "gamma_sub_uncertainty_interval": [
+        500431595.2035617,
+        500431595.2035617
+      ],
+      "ridge_width_fraction": 0.00039984006397441024
+    },
+    "threshold_0.05": {
+      "T_sw_uncertainty_interval": [
+        0.0,
+        0.0
+      ],
+      "count": 1,
+      "gamma_sub_uncertainty_interval": [
+        500431595.2035617,
+        500431595.2035617
+      ],
+      "ridge_width_fraction": 0.00039984006397441024
+    },
+    "threshold_0.1": {
+      "T_sw_uncertainty_interval": [
+        0.0,
+        0.0
+      ],
+      "count": 1,
+      "gamma_sub_uncertainty_interval": [
+        500431595.2035617,
+        500431595.2035617
+      ],
+      "ridge_width_fraction": 0.00039984006397441024
+    },
+    "threshold_0.2": {
+      "T_sw_uncertainty_interval": [
+        0.0,
+        0.0
+      ],
+      "count": 1,
+      "gamma_sub_uncertainty_interval": [
+        500431595.2035617,
+        500431595.2035617
+      ],
+      "ridge_width_fraction": 0.00039984006397441024
+    }
+  },
+  "true_pair_rank": 9
+}

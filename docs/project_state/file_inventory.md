@@ -1,4 +1,4 @@
-﻿# File inventory
+# File inventory
 
 ## Low-token Codex context workflow
 
@@ -35,6 +35,24 @@
 - `src\pinnpcm\utils\`: YAML, JSON, path, and seed helpers.
 - `src\pinnpcm\visualization\`: plotting helpers.
 
+
+## High-throughput gamma_sub and F-SPS medium-budget files
+
+- `configs\gamma_sub_tsw_dense_profile_likelihood.yaml`: dense response-surface profile-likelihood config.
+- `configs\gamma_sub_recoverability_phase_diagram.yaml`: high-throughput recoverability phase-diagram config.
+- `configs\gamma_sub_protocol_actual_inversion_validation.yaml`: protocol actual-validation config.
+- `configs\gamma_sub_weighted_protocol_objective.yaml`: weighted protocol objective config.
+- `configs\gamma_sub_statistical_robustness.yaml`: bootstrap/noise/seed robustness config.
+- `configs\f_sps_medium_budget_benchmark.yaml`: bounded F-SPS medium-budget planning config.
+- `scripts\gamma_sub_high_throughput_common.py`: shared response-surface helpers.
+- `scripts\audit_gamma_sub_tsw_dense_profile_likelihood.py`: dense profile-likelihood response-surface audit.
+- `scripts\audit_gamma_sub_recoverability_phase_diagram.py`: recoverability phase-diagram audit.
+- `scripts\audit_gamma_sub_protocol_actual_inversion_validation.py`: protocol actual-validation audit.
+- `scripts\audit_gamma_sub_weighted_protocol_objective.py`: weighted protocol objective audit.
+- `scripts\audit_gamma_sub_statistical_robustness.py`: bootstrap/noise/seed robustness audit.
+- `scripts\train_f_sps_medium_budget_benchmark.py`: bounded F-SPS medium-budget planning benchmark.
+- `scripts\build_high_throughput_sci_figures.py`: figure-ready plot builder for the high-throughput pack.
+- `tests\test_gamma_sub_tsw_dense_profile_likelihood.py`, `tests\test_gamma_sub_recoverability_phase_diagram.py`, `tests\test_gamma_sub_protocol_actual_inversion_validation.py`, `tests\test_gamma_sub_weighted_protocol_objective.py`, `tests\test_gamma_sub_statistical_robustness.py`, `tests\test_f_sps_medium_budget_benchmark.py`: schema/smoke/frozen-input tests for this pack.
 ## Current PINN inverse v0 files
 
 - `src\pinnpcm\pinn\data.py`: loads frozen Ground Truth data, sparse
@@ -107,6 +125,8 @@
 
 ## Current test coverage
 
+- 	ests\test_gamma_sub_tsw_dense_profile_likelihood.py, 	ests\test_gamma_sub_recoverability_phase_diagram.py, 	ests\test_gamma_sub_protocol_actual_inversion_validation.py, 	ests\test_gamma_sub_weighted_protocol_objective.py, 	ests\test_gamma_sub_statistical_robustness.py, and 	ests\test_f_sps_medium_budget_benchmark.py: check the high-throughput gamma_sub and F-SPS medium-budget configs, finite outputs, schema fields, and frozen input preservation where relevant.
+
 - `tests\test_pinn_inverse_v0.py`: data loading, model forward, conductance
   reconstruction, single-run smoke test, ablation config checks, ablation smoke
   test, and nRMSE metrics checks.
@@ -139,6 +159,8 @@
 - `tests\test_pinn_inverse_v2_fourier_ablation.py`: checks Fourier ablation config/script execution, summary JSON/CSV schema, finite metrics, mode flags, and frozen input hash/mtime preservation.
 
 ## Evidence-chain reports
+
+- docs\codex_reports\gamma_sub_high_throughput_identifiability_and_f_sps_medium_budget_report.md: final Codex report for the high-throughput gamma_sub identifiability and F-SPS medium-budget pack.
 
 - `docs\paper\sci_manuscript_evidence_matrix.md`: manuscript-ready evidence matrix that maps existing synthetic numerical benchmark results to main-text claims, appendix evidence, proposed figures/tables, allowed claims, and forbidden overclaims.
 - `docs\codex_reports\sci_manuscript_evidence_consolidation_report.md`: final Codex report for the documentation-only manuscript evidence consolidation task.

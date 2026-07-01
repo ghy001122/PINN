@@ -1,0 +1,28 @@
+﻿benchmark: "Protocol actual inversion validation from synthetic response-surface recoverability audit"
+summary_json: outputs/tables/gamma_sub_protocol_actual_inversion_validation_summary.json
+cases_csv: outputs/tables/gamma_sub_protocol_actual_inversion_validation_cases.csv
+
+protocol_design_summary_json: outputs/tables/gamma_sub_protocol_observability_design_summary.json
+
+protocols:
+  - triangle_low_amplitude
+  - triangle_high_amplitude
+  - short_pulse
+  - long_pulse
+  - multi_pulse
+  - mixed_amplitude_pulse
+scenarios:
+  - nominal_fixed_prior
+  - narrow_T_sw_prior
+  - medium_T_sw_prior
+  - wide_T_sw_mismatch
+observation_count: 32
+noise: 0.02
+thresholds: [0.1, 0.2]
+protocol_family_map:
+  triangle_low_amplitude: triangle
+  triangle_high_amplitude: triangle
+  short_pulse: ltp_ltd
+  long_pulse: ltp_ltd
+  multi_pulse: ltp_ltd
+  mixed_amplitude_pulse: ltp_ltd

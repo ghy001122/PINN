@@ -1,0 +1,43 @@
+{
+  "all_finite_results": true,
+  "benchmark": "Weighted protocol objective audit for constrained gamma_sub response-surface inversion",
+  "best_single_protocol_case": {
+    "combination_name": "ltp_ltd_only",
+    "finite_result": true,
+    "gamma_est": 517988984.0929556,
+    "gamma_true": 450000000.0,
+    "noise": 0.02,
+    "observation_count": 32,
+    "protocol_weights": "{\"ltp_ltd\": 1.0}",
+    "recoverable_le_0p1": false,
+    "recoverable_le_0p2": true,
+    "relative_error": 0.1510866313176791,
+    "resolved_protocols": "{\"ltp_ltd\": 1.0}",
+    "scenario": "narrow_T_sw_prior",
+    "source": "weighted_response_surface_objective"
+  },
+  "best_weighted_case": {
+    "combination_name": "ltp_ltd_only",
+    "finite_result": true,
+    "gamma_est": 517988984.0929556,
+    "gamma_true": 450000000.0,
+    "noise": 0.02,
+    "observation_count": 32,
+    "protocol_weights": "{\"ltp_ltd\": 1.0}",
+    "recoverable_le_0p1": false,
+    "recoverable_le_0p2": true,
+    "relative_error": 0.1510866313176791,
+    "resolved_protocols": "{\"ltp_ltd\": 1.0}",
+    "scenario": "narrow_T_sw_prior",
+    "source": "weighted_response_surface_objective"
+  },
+  "claim_boundary": "Weighted objectives are only justified if they improve or stabilize constrained gamma_sub recovery without widening unknown priors.",
+  "improvement_relative_error": 0.0,
+  "improves_over_best_single": false,
+  "note": "Synthetic numerical digital-twin weighted-protocol audit; not experimental data.",
+  "num_combinations": 9,
+  "outputs": {
+    "cases_csv": "outputs/tables/gamma_sub_weighted_protocol_objective_cases.csv",
+    "summary_json": "outputs/tables/gamma_sub_weighted_protocol_objective_summary.json"
+  }
+}

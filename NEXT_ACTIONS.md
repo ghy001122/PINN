@@ -1,11 +1,10 @@
-﻿# Next actions
+# Next actions
 
 ## Immediate next step
 
-The immediate step is `SCI manuscript figure and table drafting` with the gap-closing validation pack, T_sw confounding phase-map, auxiliary observability sweep, multi-protocol/profile-likelihood validation pack, and reproducible figure-ready outputs now available. Use existing synthetic numerical digital-twin evidence to build a manuscript-ready claim matrix, figure/table routing, and reviewer-defense boundary. Do not run new training experiments in this phase.
+The immediate step is `manuscript figure/table drafting and claim-boundary tightening` after the high-throughput `gamma_sub` identifiability pack and bounded F-SPS medium-budget benchmark. Use the existing synthetic numerical digital-twin evidence to draft the main SCI narrative around constrained `gamma_sub` recovery, profile-likelihood/phase-diagram limitations, protocol robustness, and explicit `T_sw` confounding boundaries.
 
-The constrained `gamma_sub` inversion remains the most stable paper mainline. F-SPS-PINN v2 is a method-development line and should be positioned as appendix, discussion, or future work unless a separate method paper is explicitly opened.
-
+Do not run new training or large ODE sweeps in the next phase unless a new task explicitly authorizes them. The constrained `gamma_sub` inversion remains the most stable paper mainline. F-SPS-PINN v2 remains a method-development line and should be positioned as appendix, discussion, or future work because the current medium-budget subset does not show superiority over the free-log-sigma shortcut.
 ## Main manuscript line
 
 1. Present Ground Truth v1.1 as a synthetic one-dimensional reduced-order benchmark.

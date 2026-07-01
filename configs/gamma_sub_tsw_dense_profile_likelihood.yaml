@@ -1,0 +1,19 @@
+﻿benchmark: "Dense response-surface gamma_sub x T_sw profile likelihood for synthetic numerical digital-twin benchmark"
+source_grid_csv: outputs/tables/gamma_sub_tsw_profile_likelihood_grid.csv
+summary_json: outputs/tables/gamma_sub_tsw_dense_profile_likelihood_summary.json
+grid_csv: outputs/tables/gamma_sub_tsw_dense_profile_likelihood_grid.csv
+profiles_csv: outputs/tables/gamma_sub_tsw_dense_profile_likelihood_profiles.csv
+
+grid:
+  gamma_min: 3.0e8
+  gamma_max: 1.0e9
+  gamma_points: 41
+  T_sw_offset_min_K: -2.0
+  T_sw_offset_max_K: 2.0
+  T_sw_offset_points: 61
+  interpolation_power: 2.0
+  low_objective_thresholds: [0.01, 0.05, 0.10, 0.20]
+
+truth:
+  gamma_sub: 4.5e8
+  T_sw_offset_K: 0.0

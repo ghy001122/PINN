@@ -39,3 +39,13 @@ This mapping is for manuscript planning only. All entries refer to synthetic num
 ## Forbidden Mapping
 
 Do not map these synthetic numerical results to an experimental validation figure unless real measured data are later added with documented provenance. Do not map current F-SPS-PINN v2 checks to a main-text performance-superiority claim.
+
+## High-Throughput Addendum Mapping
+
+| Evidence block | Primary files | Manuscript location | Candidate figure/table | Purpose |
+| --- | --- | --- | --- | --- |
+| Dense response-surface profile likelihood | `outputs/tables/gamma_sub_tsw_dense_profile_likelihood_summary.json`, `outputs/tables/gamma_sub_tsw_dense_profile_likelihood_grid.csv`, `outputs/figures/high_throughput_sci/dense_profile_landscape.png` | Main result / reviewer defense | Figure 9a / Table 10 | Show local objective landscape and uncertainty intervals for constrained `gamma_sub`/`T_sw` coupling |
+| Recoverability phase diagram | `outputs/tables/gamma_sub_recoverability_phase_diagram_summary.json`, `outputs/tables/gamma_sub_recoverability_phase_diagram_cases.csv`, `outputs/figures/high_throughput_sci/recoverability_phase_diagram.png` | Main result / reviewer defense | Figure 9b | Map protocol, prior-width, observation-count, and noise regions where recovery is plausible |
+| Protocol actual-validation and weighted objectives | `outputs/tables/gamma_sub_protocol_actual_inversion_validation_summary.json`, `outputs/tables/gamma_sub_weighted_protocol_objective_summary.json`, `outputs/figures/high_throughput_sci/protocol_actual_validation.png`, `outputs/figures/high_throughput_sci/weighted_protocol_objective.png` | Discussion / protocol design | Figure 10 / Supplementary Table | Separate sensitivity-proxy recommendations from actual response-surface recovery and test whether weighting helps |
+| Statistical robustness | `outputs/tables/gamma_sub_statistical_robustness_summary.json`, `outputs/figures/high_throughput_sci/statistical_robustness_boxplot.png` | Reviewer defense / limitations | Figure 11 | Show seed/noise sensitivity and wide-mismatch failure modes |
+| F-SPS medium-budget planning | `outputs/tables/f_sps_medium_budget_benchmark_summary.json`, `outputs/tables/f_sps_medium_budget_benchmark_cases.csv`, `outputs/figures/high_throughput_sci/f_sps_medium_budget_benchmark.png` | Appendix / future work | Supplementary Figure / Table | Record bounded method-development evidence without claiming superiority |

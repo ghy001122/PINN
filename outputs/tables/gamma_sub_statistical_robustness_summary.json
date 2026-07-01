@@ -1,0 +1,218 @@
+{
+  "all_finite_results": true,
+  "benchmark": "Bootstrap/noise/seed statistical robustness response-surface audit for gamma_sub",
+  "best_case": {
+    "failure_flag": false,
+    "finite_result": true,
+    "gamma_est": 450000000.0,
+    "gamma_true": 450000000.0,
+    "noise": 0.0,
+    "observation_count": 32,
+    "protocol": "triangle",
+    "recoverable_le_0p1": true,
+    "recoverable_le_0p2": true,
+    "relative_error": 0.0,
+    "scenario": "nominal_fixed_prior",
+    "seed": 2026,
+    "source": "seeded_response_surface_bootstrap"
+  },
+  "best_protocol_by_robustness": "ltp_ltd",
+  "by_protocol": {
+    "best_actual_protocol": {
+      "IQR": 0.7684089313574409,
+      "failure_rate": 0.3333333333333333,
+      "max_error": 0.906906001900521,
+      "mean_relative_error": 0.33210335413803993,
+      "median_relative_error": 0.14844698574568788,
+      "num_cases": 120,
+      "recoverable_rate_le_0p1": 0.3333333333333333,
+      "recoverable_rate_le_0p2": 0.6666666666666666
+    },
+    "ltp_ltd": {
+      "IQR": 0.7684089313574409,
+      "failure_rate": 0.3333333333333333,
+      "max_error": 0.906906001900521,
+      "mean_relative_error": 0.33210335413803993,
+      "median_relative_error": 0.14844698574568788,
+      "num_cases": 120,
+      "recoverable_rate_le_0p1": 0.3333333333333333,
+      "recoverable_rate_le_0p2": 0.6666666666666666
+    },
+    "mixed_protocol": {
+      "IQR": 0.8154543761344272,
+      "failure_rate": 0.3333333333333333,
+      "max_error": 0.9624308591597366,
+      "mean_relative_error": 0.3524362125546547,
+      "median_relative_error": 0.15753557670970958,
+      "num_cases": 120,
+      "recoverable_rate_le_0p1": 0.3333333333333333,
+      "recoverable_rate_le_0p2": 0.6666666666666666
+    },
+    "triangle": {
+      "IQR": 0.8311361910600891,
+      "failure_rate": 0.3333333333333333,
+      "max_error": 0.9809391449128084,
+      "mean_relative_error": 0.35921383202685947,
+      "median_relative_error": 0.16056510703105012,
+      "num_cases": 120,
+      "recoverable_rate_le_0p1": 0.3333333333333333,
+      "recoverable_rate_le_0p2": 0.6666666666666666
+    }
+  },
+  "by_protocol_scenario": {
+    "best_actual_protocol|narrow_T_sw_prior": {
+      "IQR": 0.008649201510278648,
+      "failure_rate": 0.0,
+      "max_error": 0.1697908418402005,
+      "mean_relative_error": 0.15049381416988913,
+      "median_relative_error": 0.14844698574568788,
+      "num_cases": 40,
+      "recoverable_rate_le_0p1": 0.0,
+      "recoverable_rate_le_0p2": 1.0
+    },
+    "best_actual_protocol|nominal_fixed_prior": {
+      "IQR": 0.02094160192405043,
+      "failure_rate": 0.0,
+      "max_error": 0.043385491714215595,
+      "mean_relative_error": 0.020212079565702222,
+      "median_relative_error": 0.019902523681890716,
+      "num_cases": 40,
+      "recoverable_rate_le_0p1": 1.0,
+      "recoverable_rate_le_0p2": 1.0
+    },
+    "best_actual_protocol|wide_T_sw_mismatch": {
+      "IQR": 0.0461173397323571,
+      "failure_rate": 1.0,
+      "max_error": 0.906906001900521,
+      "mean_relative_error": 0.8256041686785285,
+      "median_relative_error": 0.8159952025943515,
+      "num_cases": 40,
+      "recoverable_rate_le_0p1": 0.0,
+      "recoverable_rate_le_0p2": 0.0
+    },
+    "ltp_ltd|narrow_T_sw_prior": {
+      "IQR": 0.008649201510278648,
+      "failure_rate": 0.0,
+      "max_error": 0.1697908418402005,
+      "mean_relative_error": 0.15049381416988913,
+      "median_relative_error": 0.14844698574568788,
+      "num_cases": 40,
+      "recoverable_rate_le_0p1": 0.0,
+      "recoverable_rate_le_0p2": 1.0
+    },
+    "ltp_ltd|nominal_fixed_prior": {
+      "IQR": 0.02094160192405043,
+      "failure_rate": 0.0,
+      "max_error": 0.043385491714215595,
+      "mean_relative_error": 0.020212079565702222,
+      "median_relative_error": 0.019902523681890716,
+      "num_cases": 40,
+      "recoverable_rate_le_0p1": 1.0,
+      "recoverable_rate_le_0p2": 1.0
+    },
+    "ltp_ltd|wide_T_sw_mismatch": {
+      "IQR": 0.0461173397323571,
+      "failure_rate": 1.0,
+      "max_error": 0.906906001900521,
+      "mean_relative_error": 0.8256041686785285,
+      "median_relative_error": 0.8159952025943515,
+      "num_cases": 40,
+      "recoverable_rate_le_0p1": 0.0,
+      "recoverable_rate_le_0p2": 0.0
+    },
+    "mixed_protocol|narrow_T_sw_prior": {
+      "IQR": 0.009178744459887561,
+      "failure_rate": 0.0,
+      "max_error": 0.18018619950388623,
+      "mean_relative_error": 0.15970772115988235,
+      "median_relative_error": 0.15753557670970958,
+      "num_cases": 40,
+      "recoverable_rate_le_0p1": 0.0,
+      "recoverable_rate_le_0p2": 1.0
+    },
+    "mixed_protocol|nominal_fixed_prior": {
+      "IQR": 0.022223740817359647,
+      "failure_rate": 0.0,
+      "max_error": 0.04604174630896349,
+      "mean_relative_error": 0.02144955382482685,
+      "median_relative_error": 0.02112104553996566,
+      "num_cases": 40,
+      "recoverable_rate_le_0p1": 1.0,
+      "recoverable_rate_le_0p2": 1.0
+    },
+    "mixed_protocol|wide_T_sw_mismatch": {
+      "IQR": 0.0489408503282156,
+      "failure_rate": 1.0,
+      "max_error": 0.9624308591597366,
+      "mean_relative_error": 0.8761513626792548,
+      "median_relative_error": 0.8659540925491079,
+      "num_cases": 40,
+      "recoverable_rate_le_0p1": 0.0,
+      "recoverable_rate_le_0p2": 0.0
+    },
+    "triangle|narrow_T_sw_prior": {
+      "IQR": 0.009355258776423847,
+      "failure_rate": 0.0,
+      "max_error": 0.18365131872511475,
+      "mean_relative_error": 0.16277902348988005,
+      "median_relative_error": 0.16056510703105012,
+      "num_cases": 40,
+      "recoverable_rate_le_0p1": 0.0,
+      "recoverable_rate_le_0p2": 1.0
+    },
+    "triangle|nominal_fixed_prior": {
+      "IQR": 0.022651120448462715,
+      "failure_rate": 0.0,
+      "max_error": 0.04692716450721277,
+      "mean_relative_error": 0.021862045244535055,
+      "median_relative_error": 0.021527219492657308,
+      "num_cases": 40,
+      "recoverable_rate_le_0p1": 1.0,
+      "recoverable_rate_le_0p2": 1.0
+    },
+    "triangle|wide_T_sw_mismatch": {
+      "IQR": 0.049882020526835213,
+      "failure_rate": 1.0,
+      "max_error": 0.9809391449128084,
+      "mean_relative_error": 0.8930004273461634,
+      "median_relative_error": 0.8826070558673598,
+      "num_cases": 40,
+      "recoverable_rate_le_0p1": 0.0,
+      "recoverable_rate_le_0p2": 0.0
+    }
+  },
+  "claim_boundary": "Robustness is conditional on fixed or tightly bounded confounder priors and does not prove full-field recovery.",
+  "note": "Synthetic numerical digital-twin bootstrap/noise/seed robustness audit; not experimental data.",
+  "num_cases": 480,
+  "num_seeds": 10,
+  "outputs": {
+    "cases_csv": "outputs/tables/gamma_sub_statistical_robustness_cases.csv",
+    "summary_json": "outputs/tables/gamma_sub_statistical_robustness_summary.json"
+  },
+  "overall": {
+    "IQR": 0.7799240444547068,
+    "failure_rate": 0.3333333333333333,
+    "max_error": 0.9809391449128084,
+    "mean_relative_error": 0.3439641882143985,
+    "median_relative_error": 0.15543633328437517,
+    "num_cases": 480,
+    "recoverable_rate_le_0p1": 0.3333333333333333,
+    "recoverable_rate_le_0p2": 0.6666666666666666
+  },
+  "seed_budget_note": "Official run uses 10 seeds to keep CPU runtime bounded; the prompt target was 20 seeds.",
+  "worst_case": {
+    "failure_flag": true,
+    "finite_result": true,
+    "gamma_est": 891422615.2107638,
+    "gamma_true": 450000000.0,
+    "noise": 0.05,
+    "observation_count": 32,
+    "protocol": "triangle",
+    "recoverable_le_0p1": false,
+    "recoverable_le_0p2": false,
+    "relative_error": 0.9809391449128084,
+    "scenario": "wide_T_sw_mismatch",
+    "seed": 2035,
+    "source": "seeded_response_surface_bootstrap"
+  }
+}

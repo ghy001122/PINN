@@ -1,4 +1,31 @@
-﻿# Experiment registry
+# Experiment registry
+
+## High-throughput gamma_sub identifiability and F-SPS medium-budget pack
+
+- Dense profile config: `configs\gamma_sub_tsw_dense_profile_likelihood.yaml`
+- Dense profile script: `scripts\audit_gamma_sub_tsw_dense_profile_likelihood.py`
+- Dense profile test: `tests\test_gamma_sub_tsw_dense_profile_likelihood.py`
+- Recoverability phase-diagram config: `configs\gamma_sub_recoverability_phase_diagram.yaml`
+- Recoverability phase-diagram script: `scripts\audit_gamma_sub_recoverability_phase_diagram.py`
+- Recoverability phase-diagram test: `tests\test_gamma_sub_recoverability_phase_diagram.py`
+- Protocol actual-validation config: `configs\gamma_sub_protocol_actual_inversion_validation.yaml`
+- Protocol actual-validation script: `scripts\audit_gamma_sub_protocol_actual_inversion_validation.py`
+- Protocol actual-validation test: `tests\test_gamma_sub_protocol_actual_inversion_validation.py`
+- Weighted protocol objective config: `configs\gamma_sub_weighted_protocol_objective.yaml`
+- Weighted protocol objective script: `scripts\audit_gamma_sub_weighted_protocol_objective.py`
+- Weighted protocol objective test: `tests\test_gamma_sub_weighted_protocol_objective.py`
+- Statistical robustness config: `configs\gamma_sub_statistical_robustness.yaml`
+- Statistical robustness script: `scripts\audit_gamma_sub_statistical_robustness.py`
+- Statistical robustness test: `tests\test_gamma_sub_statistical_robustness.py`
+- F-SPS medium-budget config: `configs\f_sps_medium_budget_benchmark.yaml`
+- F-SPS medium-budget runner: `scripts\train_f_sps_medium_budget_benchmark.py`
+- F-SPS medium-budget test: `tests\test_f_sps_medium_budget_benchmark.py`
+- Shared response-surface helper: `scripts\gamma_sub_high_throughput_common.py`
+- Figure builder: `scripts\build_high_throughput_sci_figures.py`
+- Outputs: `outputs\tables\gamma_sub_tsw_dense_profile_likelihood_summary.json`, `outputs\tables\gamma_sub_tsw_dense_profile_likelihood_grid.csv`, `outputs\tables\gamma_sub_tsw_dense_profile_likelihood_profiles.csv`, `outputs\tables\gamma_sub_recoverability_phase_diagram_summary.json`, `outputs\tables\gamma_sub_recoverability_phase_diagram_cases.csv`, `outputs\tables\gamma_sub_protocol_actual_inversion_validation_summary.json`, `outputs\tables\gamma_sub_protocol_actual_inversion_validation_cases.csv`, `outputs\tables\gamma_sub_weighted_protocol_objective_summary.json`, `outputs\tables\gamma_sub_weighted_protocol_objective_cases.csv`, `outputs\tables\gamma_sub_statistical_robustness_summary.json`, `outputs\tables\gamma_sub_statistical_robustness_cases.csv`, `outputs\tables\f_sps_medium_budget_benchmark_summary.json`, `outputs\tables\f_sps_medium_budget_benchmark_cases.csv`
+- Report: `docs\codex_reports\gamma_sub_high_throughput_identifiability_and_f_sps_medium_budget_report.md`
+
+Status: completed as lightweight response-surface and bounded training evidence. It strengthens the constrained `gamma_sub` manuscript line and records bounded F-SPS method-development evidence. It does not modify frozen Ground Truth, does not claim experimental validation, and does not prove F-SPS superiority.
 
 ## Gamma_sub multi-protocol and profile-likelihood validation pack
 

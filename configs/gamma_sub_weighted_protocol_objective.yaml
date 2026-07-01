@@ -1,0 +1,35 @@
+﻿benchmark: "Weighted protocol objective audit for constrained gamma_sub response-surface inversion"
+summary_json: outputs/tables/gamma_sub_weighted_protocol_objective_summary.json
+cases_csv: outputs/tables/gamma_sub_weighted_protocol_objective_cases.csv
+
+protocol_actual_summary_json: outputs/tables/gamma_sub_protocol_actual_inversion_validation_summary.json
+scenario: narrow_T_sw_prior
+observation_count: 32
+noise: 0.02
+thresholds: [0.1, 0.2]
+combinations:
+  triangle_only:
+    triangle: 1.0
+  ltp_ltd_only:
+    ltp_ltd: 1.0
+  multi_pulse_only:
+    multi_pulse: 1.0
+  equal_triangle_ltp:
+    triangle: 0.5
+    ltp_ltd: 0.5
+  equal_triangle_ltp_multi_pulse:
+    triangle: 0.3333333333
+    ltp_ltd: 0.3333333333
+    multi_pulse: 0.3333333333
+  weighted_triangle_0p25_ltp_0p75:
+    triangle: 0.25
+    ltp_ltd: 0.75
+  weighted_triangle_0p75_ltp_0p25:
+    triangle: 0.75
+    ltp_ltd: 0.25
+  best_actual_protocol_plus_ltp:
+    best_actual_protocol: 0.5
+    ltp_ltd: 0.5
+  best_actual_protocol_plus_triangle:
+    best_actual_protocol: 0.5
+    triangle: 0.5

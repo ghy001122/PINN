@@ -1,0 +1,11 @@
+﻿benchmark: "Bootstrap/noise/seed statistical robustness response-surface audit for gamma_sub"
+summary_json: outputs/tables/gamma_sub_statistical_robustness_summary.json
+cases_csv: outputs/tables/gamma_sub_statistical_robustness_cases.csv
+
+protocols: [triangle, ltp_ltd, mixed_protocol, best_actual_protocol]
+scenarios: [nominal_fixed_prior, narrow_T_sw_prior, wide_T_sw_mismatch]
+noise: [0.0, 0.01, 0.02, 0.05]
+seeds: [2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035]
+observation_count: 32
+thresholds: [0.1, 0.2]
+protocol_actual_summary_json: outputs/tables/gamma_sub_protocol_actual_inversion_validation_summary.json

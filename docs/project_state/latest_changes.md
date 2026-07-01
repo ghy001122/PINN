@@ -1,4 +1,31 @@
-﻿# Latest changes
+# Latest changes
+
+## High-throughput gamma_sub identifiability and F-SPS medium-budget pack
+
+Scope:
+
+- Add dense response-surface, recoverability phase-diagram, protocol actual-validation, weighted-objective, and statistical robustness audits for constrained `gamma_sub` recovery.
+- Add bounded F-SPS medium-budget planning benchmark without checkpoints or large output directories.
+- Keep frozen Ground Truth v1.1 and existing v0/v1/v1.1 results unchanged.
+
+Changed:
+
+- Added `configs\gamma_sub_tsw_dense_profile_likelihood.yaml`.
+- Added `configs\gamma_sub_recoverability_phase_diagram.yaml`.
+- Added `configs\gamma_sub_protocol_actual_inversion_validation.yaml`.
+- Added `configs\gamma_sub_weighted_protocol_objective.yaml`.
+- Added `configs\gamma_sub_statistical_robustness.yaml`.
+- Added `configs\f_sps_medium_budget_benchmark.yaml`.
+- Added `scripts\gamma_sub_high_throughput_common.py`.
+- Added six audit/training scripts and one high-throughput figure builder.
+- Added six tests for the new audits and medium-budget benchmark.
+- Added lightweight JSON/CSV evidence under `outputs\tables\`.
+- Generated ignored figure-ready PNGs under `outputs\figures\high_throughput_sci\`.
+- Added `docs\codex_reports\gamma_sub_high_throughput_identifiability_and_f_sps_medium_budget_report.md`.
+
+Result:
+
+All official high-throughput outputs are finite. The pack supports the constrained `gamma_sub` manuscript line as conditional synthetic numerical evidence, but it also sharpens the limitation that `T_sw` mismatch remains the dominant failure mode. The bounded F-SPS medium-budget subset does not support a performance-superiority claim.
 
 ## Gamma_sub multi-protocol and profile-likelihood validation pack
 

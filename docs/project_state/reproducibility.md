@@ -1,4 +1,18 @@
-﻿# Reproducibility
+# Reproducibility
+
+## High-throughput gamma_sub and F-SPS medium-budget reproduction
+
+```powershell
+python scripts/audit_gamma_sub_tsw_dense_profile_likelihood.py --config configs/gamma_sub_tsw_dense_profile_likelihood.yaml
+python scripts/audit_gamma_sub_recoverability_phase_diagram.py --config configs/gamma_sub_recoverability_phase_diagram.yaml
+python scripts/audit_gamma_sub_protocol_actual_inversion_validation.py --config configs/gamma_sub_protocol_actual_inversion_validation.yaml
+python scripts/audit_gamma_sub_weighted_protocol_objective.py --config configs/gamma_sub_weighted_protocol_objective.yaml
+python scripts/audit_gamma_sub_statistical_robustness.py --config configs/gamma_sub_statistical_robustness.yaml
+python scripts/train_f_sps_medium_budget_benchmark.py --config configs/f_sps_medium_budget_benchmark.yaml
+python scripts/build_high_throughput_sci_figures.py
+```
+
+These commands regenerate the lightweight JSON/CSV evidence under `outputs\tables\` and ignored figure-ready PNGs under `outputs\figures\high_throughput_sci\`. The dense high-throughput profile is response-surface evidence from the prior simulator-backed grid, not thousands of new ODE solves. The F-SPS medium-budget config plans a larger matrix but executes a bounded CPU subset by default.
 
 ## Gamma_sub multi-protocol and profile-likelihood validation reproduction
 

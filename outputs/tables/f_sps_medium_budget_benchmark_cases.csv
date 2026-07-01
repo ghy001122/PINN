@@ -1,0 +1,46 @@
+model_name,conductivity_mode,epochs,seed,executed,disabled_reason,initial_loss,final_loss,finite_loss,loss_decreased,relative_G_error,relative_I_error,nrmse_delta_T,nrmse_c_v,nrmse_m,nrmse_sigma,sigma_min,sigma_max,used_vo2_sigma,used_free_log_sigma,fourier_enabled,dynamic_gate_enabled,gradient_norm_mean,gradient_norm_max,frozen_inputs_unchanged
+free_log_sigma_pinn,free_log_sigma,20,2026,True,,0.08113875240087509,0.04895283654332161,True,True,0.284864391900904,0.31615004047914974,0.472033442886439,0.3297447849027817,0.29724464022221114,0.14065457465203438,0.005586706567555666,0.006653379648923874,False,True,False,False,0.1363203934498966,0.1683481256580697,True
+white_box_vo2_sigma_pinn,white_box_vo2_sigma,20,2026,True,,0.08607997000217438,0.06810317188501358,True,True,0.3577295434707981,0.3816780256459616,0.4720758371810606,0.35492530133483197,0.24851974394429496,0.16418501078838232,0.004870657809078693,0.005239395424723625,True,False,False,False,0.0772356270379531,0.0800707740288156,True
+white_box_vo2_sigma_fourier,white_box_vo2_sigma,20,2026,True,,0.08722592145204544,0.07571648806333542,True,True,0.3860222415587042,0.40321489520919596,0.4721006852509159,0.33543008759450854,0.2806195500583011,0.1724162556806736,0.004489181563258171,0.005095369182527065,True,False,True,False,0.06911632705196422,0.07217530379041066,True
+f_sps_pinn,white_box_vo2_sigma,20,2026,True,,0.08722592145204544,0.07571648806333542,True,True,0.3860222415587042,0.40321489520919596,0.4721006852509159,0.33543008759450854,0.2806195500583011,0.1724162556806736,0.004489181563258171,0.005095369182527065,True,False,True,False,0.06911632705196422,0.07217530379041066,True
+f_sps_pinn_with_dynamic_gate,white_box_vo2_sigma,20,2026,False,Dynamic gate is registered as a deferred extension and is not active in this training path.,,,False,False,,,,,,,,,True,False,True,True,,,
+free_log_sigma_pinn,free_log_sigma,20,2027,True,,0.08257210999727249,0.045046672224998474,True,True,0.2671663222160594,0.2987757265062749,0.4717367918068503,0.32707630289953477,0.32310793931122456,0.13450953730790075,0.005586372688412666,0.0073344893753528595,False,True,False,False,0.15867916400103138,0.20158956846067538,True
+white_box_vo2_sigma_pinn,white_box_vo2_sigma,20,2027,True,,0.09645404666662216,0.07302668690681458,True,True,0.37156434857603193,0.39508874223534785,0.4719647837460492,0.3957557837643789,0.2651144238421038,0.16801356028405187,0.004855207167565823,0.0050576226785779,True,False,False,False,0.08717291572949215,0.08856872875549764,True
+white_box_vo2_sigma_fourier,white_box_vo2_sigma,20,2027,True,,0.0871245339512825,0.07081347703933716,True,True,0.36529348722322347,0.3828700700900781,0.47212422552762096,0.32989339560804115,0.26313541729428674,0.16667013753930573,0.0045913271605968475,0.005683503113687038,True,False,True,False,0.07088673904407758,0.0741830012985156,True
+f_sps_pinn,white_box_vo2_sigma,20,2027,True,,0.0871245339512825,0.07081347703933716,True,True,0.36529348722322347,0.3828700700900781,0.47212422552762096,0.32989339560804115,0.26313541729428674,0.16667013753930573,0.0045913271605968475,0.005683503113687038,True,False,True,False,0.07088673904407758,0.0741830012985156,True
+f_sps_pinn_with_dynamic_gate,white_box_vo2_sigma,20,2027,False,Dynamic gate is registered as a deferred extension and is not active in this training path.,,,False,False,,,,,,,,,True,False,True,True,,,
+free_log_sigma_pinn,free_log_sigma,20,2028,False,not_executed_due_to_cpu_budget_limit,,,False,False,,,,,,,,,False,True,False,False,,,
+white_box_vo2_sigma_pinn,white_box_vo2_sigma,20,2028,False,not_executed_due_to_cpu_budget_limit,,,False,False,,,,,,,,,True,False,False,False,,,
+white_box_vo2_sigma_fourier,white_box_vo2_sigma,20,2028,False,not_executed_due_to_cpu_budget_limit,,,False,False,,,,,,,,,True,False,True,False,,,
+f_sps_pinn,white_box_vo2_sigma,20,2028,False,not_executed_due_to_cpu_budget_limit,,,False,False,,,,,,,,,True,False,True,False,,,
+f_sps_pinn_with_dynamic_gate,white_box_vo2_sigma,20,2028,False,Dynamic gate is registered as a deferred extension and is not active in this training path.,,,False,False,,,,,,,,,True,False,True,True,,,
+free_log_sigma_pinn,free_log_sigma,100,2026,False,not_executed_due_to_cpu_budget_limit,,,False,False,,,,,,,,,False,True,False,False,,,
+white_box_vo2_sigma_pinn,white_box_vo2_sigma,100,2026,False,not_executed_due_to_cpu_budget_limit,,,False,False,,,,,,,,,True,False,False,False,,,
+white_box_vo2_sigma_fourier,white_box_vo2_sigma,100,2026,False,not_executed_due_to_cpu_budget_limit,,,False,False,,,,,,,,,True,False,True,False,,,
+f_sps_pinn,white_box_vo2_sigma,100,2026,False,not_executed_due_to_cpu_budget_limit,,,False,False,,,,,,,,,True,False,True,False,,,
+f_sps_pinn_with_dynamic_gate,white_box_vo2_sigma,100,2026,False,Dynamic gate is registered as a deferred extension and is not active in this training path.,,,False,False,,,,,,,,,True,False,True,True,,,
+free_log_sigma_pinn,free_log_sigma,100,2027,False,not_executed_due_to_cpu_budget_limit,,,False,False,,,,,,,,,False,True,False,False,,,
+white_box_vo2_sigma_pinn,white_box_vo2_sigma,100,2027,False,not_executed_due_to_cpu_budget_limit,,,False,False,,,,,,,,,True,False,False,False,,,
+white_box_vo2_sigma_fourier,white_box_vo2_sigma,100,2027,False,not_executed_due_to_cpu_budget_limit,,,False,False,,,,,,,,,True,False,True,False,,,
+f_sps_pinn,white_box_vo2_sigma,100,2027,False,not_executed_due_to_cpu_budget_limit,,,False,False,,,,,,,,,True,False,True,False,,,
+f_sps_pinn_with_dynamic_gate,white_box_vo2_sigma,100,2027,False,Dynamic gate is registered as a deferred extension and is not active in this training path.,,,False,False,,,,,,,,,True,False,True,True,,,
+free_log_sigma_pinn,free_log_sigma,100,2028,False,not_executed_due_to_cpu_budget_limit,,,False,False,,,,,,,,,False,True,False,False,,,
+white_box_vo2_sigma_pinn,white_box_vo2_sigma,100,2028,False,not_executed_due_to_cpu_budget_limit,,,False,False,,,,,,,,,True,False,False,False,,,
+white_box_vo2_sigma_fourier,white_box_vo2_sigma,100,2028,False,not_executed_due_to_cpu_budget_limit,,,False,False,,,,,,,,,True,False,True,False,,,
+f_sps_pinn,white_box_vo2_sigma,100,2028,False,not_executed_due_to_cpu_budget_limit,,,False,False,,,,,,,,,True,False,True,False,,,
+f_sps_pinn_with_dynamic_gate,white_box_vo2_sigma,100,2028,False,Dynamic gate is registered as a deferred extension and is not active in this training path.,,,False,False,,,,,,,,,True,False,True,True,,,
+free_log_sigma_pinn,free_log_sigma,300,2026,False,not_executed_due_to_cpu_budget_limit,,,False,False,,,,,,,,,False,True,False,False,,,
+white_box_vo2_sigma_pinn,white_box_vo2_sigma,300,2026,False,not_executed_due_to_cpu_budget_limit,,,False,False,,,,,,,,,True,False,False,False,,,
+white_box_vo2_sigma_fourier,white_box_vo2_sigma,300,2026,False,not_executed_due_to_cpu_budget_limit,,,False,False,,,,,,,,,True,False,True,False,,,
+f_sps_pinn,white_box_vo2_sigma,300,2026,False,not_executed_due_to_cpu_budget_limit,,,False,False,,,,,,,,,True,False,True,False,,,
+f_sps_pinn_with_dynamic_gate,white_box_vo2_sigma,300,2026,False,Dynamic gate is registered as a deferred extension and is not active in this training path.,,,False,False,,,,,,,,,True,False,True,True,,,
+free_log_sigma_pinn,free_log_sigma,300,2027,False,not_executed_due_to_cpu_budget_limit,,,False,False,,,,,,,,,False,True,False,False,,,
+white_box_vo2_sigma_pinn,white_box_vo2_sigma,300,2027,False,not_executed_due_to_cpu_budget_limit,,,False,False,,,,,,,,,True,False,False,False,,,
+white_box_vo2_sigma_fourier,white_box_vo2_sigma,300,2027,False,not_executed_due_to_cpu_budget_limit,,,False,False,,,,,,,,,True,False,True,False,,,
+f_sps_pinn,white_box_vo2_sigma,300,2027,False,not_executed_due_to_cpu_budget_limit,,,False,False,,,,,,,,,True,False,True,False,,,
+f_sps_pinn_with_dynamic_gate,white_box_vo2_sigma,300,2027,False,Dynamic gate is registered as a deferred extension and is not active in this training path.,,,False,False,,,,,,,,,True,False,True,True,,,
+free_log_sigma_pinn,free_log_sigma,300,2028,False,not_executed_due_to_cpu_budget_limit,,,False,False,,,,,,,,,False,True,False,False,,,
+white_box_vo2_sigma_pinn,white_box_vo2_sigma,300,2028,False,not_executed_due_to_cpu_budget_limit,,,False,False,,,,,,,,,True,False,False,False,,,
+white_box_vo2_sigma_fourier,white_box_vo2_sigma,300,2028,False,not_executed_due_to_cpu_budget_limit,,,False,False,,,,,,,,,True,False,True,False,,,
+f_sps_pinn,white_box_vo2_sigma,300,2028,False,not_executed_due_to_cpu_budget_limit,,,False,False,,,,,,,,,True,False,True,False,,,
+f_sps_pinn_with_dynamic_gate,white_box_vo2_sigma,300,2028,False,Dynamic gate is registered as a deferred extension and is not active in this training path.,,,False,False,,,,,,,,,True,False,True,True,,,

@@ -1,0 +1,61 @@
+{
+  "all_finite_results": true,
+  "benchmark": "High-throughput recoverability phase diagram from validated synthetic gamma_sub response surface",
+  "best_protocol": "ltp_ltd",
+  "by_protocol": {
+    "ltp_ltd": {
+      "max_relative_error": 1.2222222222222223,
+      "mean_relative_error": 0.14697760880451463,
+      "median_relative_error": 0.03688479922625978,
+      "num_cases": 672,
+      "recoverable_rate_le_0p1": 0.7023809523809523,
+      "recoverable_rate_le_0p2": 0.8095238095238095
+    },
+    "mixed_protocol": {
+      "max_relative_error": 1.2222222222222223,
+      "mean_relative_error": 0.15419062295023114,
+      "median_relative_error": 0.03914305224011242,
+      "num_cases": 672,
+      "recoverable_rate_le_0p1": 0.7023809523809523,
+      "recoverable_rate_le_0p2": 0.8095238095238095
+    },
+    "multi_amplitude_synthetic": {
+      "max_relative_error": 1.2222222222222223,
+      "mean_relative_error": 0.15419062295023114,
+      "median_relative_error": 0.03914305224011242,
+      "num_cases": 672,
+      "recoverable_rate_le_0p1": 0.7023809523809523,
+      "recoverable_rate_le_0p2": 0.8095238095238095
+    },
+    "triangle": {
+      "max_relative_error": 1.2222222222222223,
+      "mean_relative_error": 0.15642131869072703,
+      "median_relative_error": 0.03989580324472995,
+      "num_cases": 672,
+      "recoverable_rate_le_0p1": 0.7023809523809523,
+      "recoverable_rate_le_0p2": 0.8095238095238095
+    }
+  },
+  "critical_T_sw_prior_width_by_protocol_le_0p2": {
+    "ltp_ltd": 1.0,
+    "mixed_protocol": 1.0,
+    "multi_amplitude_synthetic": 1.0,
+    "triangle": 1.0
+  },
+  "critical_noise_by_protocol_le_0p2": {
+    "ltp_ltd": 0.05,
+    "mixed_protocol": 0.05,
+    "multi_amplitude_synthetic": 0.05,
+    "triangle": 0.05
+  },
+  "manuscript_boundary": "Supports conditional gamma_sub recoverability under fixed or tightly bounded T_sw priors; does not support unconstrained joint inverse claims.",
+  "note": "Synthetic numerical digital-twin recoverability phase diagram; not experimental data.",
+  "num_cases": 2688,
+  "outputs": {
+    "cases_csv": "outputs/tables/gamma_sub_recoverability_phase_diagram_cases.csv",
+    "summary_json": "outputs/tables/gamma_sub_recoverability_phase_diagram_summary.json"
+  },
+  "overall_recoverable_rate_le_0p1": 0.7023809523809523,
+  "overall_recoverable_rate_le_0p2": 0.8095238095238095,
+  "worst_protocol": "triangle"
+}
