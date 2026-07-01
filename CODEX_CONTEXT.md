@@ -67,6 +67,16 @@ The following are deferred method enhancements, not current tasks unless `docs/r
 
 Read `docs/research_strategy/phase_change_pinn_sci_sprint_blueprint.md` only for phase-change, VO2, F-SPS-PINN, or related architecture-refactoring tasks. It is a planning guide, not an experimental result report.
 
+## Operating Defaults
+
+- In this Windows workspace, do not use `apply_patch`; it can trigger the known
+  Codex sandbox helper popup. Use concise Python/PowerShell edits inside the
+  workspace instead.
+- Matplotlib/pyparsing deprecation warnings from pinned third-party packages are
+  globally filtered in `pyproject.toml`. When tests pass, do not spend tokens
+  re-analyzing or re-reporting these known external warnings.
+- Prefer `.\.venv\Scripts\python.exe` for validation commands when available.
+
 ## Low-Token First Read
 
 For any non-trivial future task, read only:

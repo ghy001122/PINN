@@ -39,3 +39,14 @@ git diff --name-only
 
 For experiment changes, run the task-specific smoke or full reproduction command
 requested by the user.
+
+## Windows Execution Rules
+
+- Do not use `apply_patch` in this repository unless the user explicitly asks to
+  test it again. The known Windows sandbox helper popup costs time and tokens.
+- For file edits, use small workspace-scoped Python/PowerShell scripts and then
+  inspect `git diff --name-only`.
+- Treat filtered matplotlib/pyparsing deprecation warnings as known external
+  dependency noise. Do not mention them in final answers when pytest passes.
+- If a warning becomes an error, appears from project source, or blocks a test,
+  investigate and report it normally.

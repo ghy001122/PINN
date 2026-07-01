@@ -62,3 +62,12 @@ Read only the related code when implementation or debugging is required:
 
 Never load all long context by default. Future long-context reads must be
 justified by the active task.
+
+## Known Environment Noise
+
+Do not load long history just to re-evaluate these known local issues:
+
+- `matplotlib`/`pyparsing` deprecation warnings under the pinned dependency set
+  are filtered in `pyproject.toml` and are not project failures if pytest passes.
+- The Windows `apply_patch` path can trigger the Codex sandbox helper popup;
+  use workspace-scoped scripted edits instead.

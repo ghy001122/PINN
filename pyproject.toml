@@ -30,7 +30,9 @@ pythonpath = ["src"]
 testpaths = ["tests"]
 addopts = "-ra"
 filterwarnings = [
-  "ignore:.*parseString.*:pyparsing.exceptions.PyparsingDeprecationWarning:matplotlib\\._fontconfig_pattern",
-  "ignore:.*resetCache.*:pyparsing.exceptions.PyparsingDeprecationWarning:matplotlib\\._fontconfig_pattern",
-  "ignore:.*enablePackrat.*:pyparsing.exceptions.PyparsingDeprecationWarning:matplotlib\\._mathtext",
+  # Matplotlib 3.8.x imports pyparsing APIs that emit deprecation warnings under
+  # the pinned dependency set. These are third-party warnings, not project test
+  # failures, and are filtered globally to keep validation output actionable.
+  'ignore::pyparsing.exceptions.PyparsingDeprecationWarning:matplotlib\..*',
+  'ignore::pyparsing.exceptions.PyparsingDeprecationWarning:pyparsing\..*',
 ]

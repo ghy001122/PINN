@@ -34,6 +34,22 @@ python -m pytest
 - Use `pathlib.Path` for paths. Do not hard-code Windows backslash paths in source code.
 - Do not hard-code the absolute path `E:\Python demo\PINN` in code. It may appear in `README.md` only as the user's workspace path.
 
+## Windows Codex Execution Defaults
+
+- Avoid `apply_patch` in this Windows workspace because it can trigger the
+  VS Code/Codex sandbox helper popup (`codex-windows-sandbox-setup.exe`: cannot
+  find the specified module). Use small Python/PowerShell file-edit scripts
+  scoped to the workspace instead.
+- Treat matplotlib/pyparsing deprecation warnings from pinned third-party
+  dependencies as globally filtered external warnings. If tests pass, do not
+  repeat them in every final report unless they become failures or newly affect
+  project code.
+- Prefer `.\.venv\Scripts\python.exe` for validation commands in this workspace
+  when available.
+- Keep final reports focused on failures, changed files, generated lightweight
+  evidence, frozen-GT status, and commit/push state; do not restate known benign
+  environment warnings every turn.
+
 ## Repository Constraints
 
 - Use Python 3.11, `venv`, `pip`, `requirements.txt`, and `pyproject.toml`.
