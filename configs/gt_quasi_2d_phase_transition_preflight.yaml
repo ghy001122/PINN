@@ -1,0 +1,23 @@
+benchmark: gt_quasi_2d_phase_transition_preflight
+output_dir: data/processed/gt_quasi_2d_phase_transition_preflight
+figure_dir: outputs/figures/gt_quasi_2d_phase_transition_preflight
+summary_json: outputs/tables/gt_quasi_2d_phase_transition_preflight_summary.json
+grid:
+  nx: 32
+  ny: 16
+  nt: 24
+  Lx: 1.0e-6
+  Ly: 4.0e-7
+  t_max: 2.0e-3
+physics:
+  T0: 300.0
+  T_c: 314.0
+  transition_width: 3.0
+  gamma_sub: 4.5e8
+  sigma_ins0: 2.0e-3
+  sigma_met0: 2.0
+  c_v0: 0.08
+  delta_c: 0.025
+  voltage_peak: 0.20
+cases: [uniform_strip, localized_hotspot, defect_seeded_filament, lateral_cooling_gradient]
+claim_boundary: Literature-anchored quasi-2D forward/preflight synthetic benchmark only; not full 2D inverse diagnosis and not experimental validation.

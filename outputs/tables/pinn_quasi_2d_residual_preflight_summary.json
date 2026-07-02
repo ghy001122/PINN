@@ -1,0 +1,46 @@
+{
+  "all_residuals_finite": true,
+  "benchmark": "pinn_quasi_2d_residual_preflight",
+  "boundary_losses_finite": true,
+  "forbidden_claims": [
+    "2D inverse diagnosis solved",
+    "experimental validation",
+    "full hidden-field recovery from sparse port current"
+  ],
+  "fourier_feature_stability_note": "Both vanilla and Fourier-feature residual evaluations are finite in this smoke preflight.",
+  "model_results": [
+    {
+      "all_residuals_finite": true,
+      "boundary_loss": 0.04122955724596977,
+      "boundary_losses_finite": true,
+      "defect_residual_mse": 3.3094303830694116e-07,
+      "heat_residual_mse": 0.06389594078063965,
+      "model": "vanilla_mlp",
+      "potential_residual_mse": 1.0864557225431781e-05,
+      "state_residual_mse": 0.29622894525527954,
+      "terminal_current_integral": -0.006304789334535599,
+      "terminal_current_integral_finite": true,
+      "uses_fourier_features": false
+    },
+    {
+      "all_residuals_finite": true,
+      "boundary_loss": 0.05263230577111244,
+      "boundary_losses_finite": true,
+      "defect_residual_mse": 1.913538835651707e-05,
+      "heat_residual_mse": 2.534749984741211,
+      "model": "fourier_feature_mlp",
+      "potential_residual_mse": 3.0302038192749023,
+      "state_residual_mse": 0.12851150333881378,
+      "terminal_current_integral": 0.0016918601468205452,
+      "terminal_current_integral_finite": true,
+      "uses_fourier_features": true
+    }
+  ],
+  "note": "Synthetic quasi-2D autograd residual preflight; no full 2D inverse claim.",
+  "outputs": {
+    "summary_json": "outputs/tables/pinn_quasi_2d_residual_preflight_summary.json"
+  },
+  "terminal_current_integral_finite": true,
+  "whether_2d_inverse_claim_allowed": false,
+  "whether_ready_for_future_2d_training": true
+}

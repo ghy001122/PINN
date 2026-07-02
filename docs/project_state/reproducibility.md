@@ -432,3 +432,15 @@ python scripts/build_final_submission_figures.py
 
 These commands regenerate the lightweight JSON/CSV evidence and final manuscript planning docs. They do not modify frozen Ground Truth data and do not fabricate external curve points.
 
+## ODE spot-check manuscript lock and quasi-2D preflight pack
+
+- Added `configs/gamma_sub_tsw_tolerance_ode_spotcheck.yaml`, `scripts/audit_gamma_sub_tsw_tolerance_ode_spotcheck.py`, and `tests/test_gamma_sub_tsw_tolerance_ode_spotcheck.py`.
+- Added manuscript draft package under `docs/manuscript/`.
+- Added reviewer-defense matrix builder and `docs/manuscript/reviewer_defense_matrix.md`.
+- Added quasi-2D literature registry, model boundary docs, forward preflight, and residual preflight.
+- Generated lightweight tables: `outputs/tables/gamma_sub_tsw_tolerance_ode_spotcheck_summary.json`, `outputs/tables/gamma_sub_tsw_tolerance_ode_spotcheck_cases.csv`, `outputs/tables/quasi_2d_literature_source_registry.json`, `outputs/tables/gt_quasi_2d_phase_transition_preflight_summary.json`, and `outputs/tables/pinn_quasi_2d_residual_preflight_summary.json`.
+- ODE spot-check cases: `270`; 0.1 K supported: `True`.
+- Quasi-2D cases: `4`; fields finite: `True`; observables finite: `True`.
+- Residual preflight finite: `True`; 2D inverse claim allowed: `False`.
+
+Boundary: synthetic numerical digital-twin evidence only. Main manuscript claim remains unchanged: calibration-gated sparse-port reduced inversion of `gamma_sub` under fixed or tightly bounded `T_sw` priors.

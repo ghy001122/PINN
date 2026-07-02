@@ -1,0 +1,15 @@
+benchmark: pinn_quasi_2d_residual_preflight
+summary_json: outputs/tables/pinn_quasi_2d_residual_preflight_summary.json
+seed: 2026
+num_points: 96
+models: [vanilla_mlp, fourier_feature_mlp]
+physics:
+  T0: 300.0
+  T_c: 314.0
+  transition_width: 3.0
+  gamma_sub: 4.5e8
+  kappa_norm: 0.02
+  defect_D_norm: 0.01
+  tau_m_norm: 0.2
+  voltage_left: 0.2
+claim_boundary: Residual and terminal-current integral preflight only; no training or 2D inverse diagnosis claim.

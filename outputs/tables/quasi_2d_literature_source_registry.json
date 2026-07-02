@@ -1,0 +1,41 @@
+{
+  "benchmark": "quasi_2d_literature_source_registry",
+  "sources": [
+    {
+      "allowed_use": "slab/domain-front physics",
+      "forbidden_use": "experimental validation",
+      "id": "vo2_phase_field_slab",
+      "role": "phase-field/domain evolution reference",
+      "source": "Shi & Chen, Phase-field model of IMT in VO2 under electric field"
+    },
+    {
+      "allowed_use": "lateral hotspot and local Joule heating motivation",
+      "forbidden_use": "claiming identical geometry or dimensions without explicit provenance",
+      "id": "vo2_localized_heater_strip",
+      "role": "localized heater/hotspot/electrothermal structure reference",
+      "source": "Bohaichuk et al., localized triggering of VO2 using CNT"
+    },
+    {
+      "allowed_use": "electrothermal threshold-switch motivation",
+      "forbidden_use": "direct parameter copying without provenance",
+      "id": "vo2_sin_threshold_switch",
+      "role": "local activity and electrothermal device-modeling reference",
+      "source": "Brown et al., electro-thermal characterization of dynamical VO2 memristors"
+    },
+    {
+      "allowed_use": "conduction model motivation",
+      "forbidden_use": "2D geometry evidence",
+      "id": "nbo2_threshold_closure",
+      "role": "Frenkel-Poole + Joule-heating conduction closure",
+      "source": "Slesazeck et al., physical model of NbO2 threshold switching"
+    },
+    {
+      "allowed_use": "numerical method inspiration",
+      "forbidden_use": "VO2/NbO2 device validation",
+      "id": "generic_2d_pinn_phase_change",
+      "role": "diffuse-interface/enthalpy PINN method reference",
+      "source": "2025 CPC 2D phase-change PINN"
+    }
+  ],
+  "synthetic_not_experimental": true
+}

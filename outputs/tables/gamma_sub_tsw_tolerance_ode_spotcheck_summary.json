@@ -1,0 +1,43 @@
+{
+  "all_cases_simulator_backed": true,
+  "all_finite_results": true,
+  "benchmark": "gamma_sub_tsw_tolerance_ode_spotcheck",
+  "frozen_gt_hashes_after": {
+    "data\\processed\\gt_v1_acceptance\\gt_triangle.npz": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8",
+    "data\\processed\\gt_v1_acceptance\\obs_triangle_sparse.npz": "f45daf53136a255b3666ebeb56e6298ce148a613c46fa596b795e7ade68ea602"
+  },
+  "frozen_gt_hashes_before": {
+    "data\\processed\\gt_v1_acceptance\\gt_triangle.npz": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8",
+    "data\\processed\\gt_v1_acceptance\\obs_triangle_sparse.npz": "f45daf53136a255b3666ebeb56e6298ce148a613c46fa596b795e7ade68ea602"
+  },
+  "frozen_gt_unchanged": true,
+  "manuscript_sentence_for_ode_spotcheck": "The ODE-backed synthetic spot-check supports the 0.1 K tolerance threshold under the configured <=15% median-error criterion, but it remains a benchmark-specific audit threshold rather than an experimental calibration requirement.",
+  "median_error_by_calibration_error": {
+    "0.04": 0.1111111111111111,
+    "0.1": 0.1111111111111111,
+    "0.2": 0.2222222222222222
+  },
+  "median_error_by_effective_T_sw_delta_K": {
+    "0.04": 0.1111111111111111,
+    "0.1": 0.1111111111111111,
+    "0.2": 0.2222222222222222
+  },
+  "median_error_by_prior_width": {
+    "0.02": 0.1111111111111111,
+    "0.05": 0.1111111111111111,
+    "0.1": 0.2222222222222222
+  },
+  "note": "Synthetic ODE-backed T_sw tolerance spot-check; not experimental calibration evidence.",
+  "num_ode_backed_cases": 270,
+  "outputs": {
+    "cases_csv": "outputs/tables/gamma_sub_tsw_tolerance_ode_spotcheck_cases.csv",
+    "summary_json": "outputs/tables/gamma_sub_tsw_tolerance_ode_spotcheck_summary.json"
+  },
+  "success_rate_by_calibration_error": {
+    "0.04": 0.8111111111111111,
+    "0.1": 0.8,
+    "0.2": 0.4666666666666667
+  },
+  "whether_0p1K_threshold_supported_by_ode_spotcheck": true,
+  "whether_response_surface_tolerance_claim_needs_qualification": false
+}

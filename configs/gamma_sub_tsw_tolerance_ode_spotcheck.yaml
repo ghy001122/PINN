@@ -1,0 +1,37 @@
+benchmark: gamma_sub_tsw_tolerance_ode_spotcheck
+target_npz: data/processed/gt_v1_acceptance/gt_triangle.npz
+sparse_obs_npz: data/processed/gt_v1_acceptance/obs_triangle_sparse.npz
+summary_json: outputs/tables/gamma_sub_tsw_tolerance_ode_spotcheck_summary.json
+cases_csv: outputs/tables/gamma_sub_tsw_tolerance_ode_spotcheck_cases.csv
+simulation:
+  nx: 5
+  nt: 24
+  method: Radau
+  rtol: 1.0e-3
+  atol: 1.0e-5
+inverse:
+  primary_parameter: gamma_sub
+  gamma_candidates: [375000000.0, 425000000.0, 450000000.0, 500000000.0, 550000000.0]
+  success_relative_error_threshold: 0.15
+loss:
+  w_g: 1.0
+  w_i: 0.5
+  w_heat: 0.01
+calibration_error_K: [0.04, 0.1, 0.2]
+T_sw_prior_width_after_calibration: [0.02, 0.05, 0.1]
+T_sw_reference_delta_K: 2.0
+protocols:
+  - protocol: ltp_ltd
+    simulator_protocol: ltp_ltd
+    t_max: 0.015
+    ltp_v_pos: 0.08
+    ltp_v_neg: -0.02
+  - protocol: calibrated_short_pulse_to_ltp_ltd
+    simulator_protocol: ltp_ltd
+    t_max: 0.012
+    ltp_v_pos: 0.08
+    ltp_v_neg: -0.02
+noise: [0.0, 0.02, 0.05]
+seeds: [2026, 2027, 2028, 2029, 2030]
+observation_count: 16
+claim_boundary: Synthetic ODE-backed spot-check for a response-surface calibration-tolerance claim; not experimental calibration evidence.

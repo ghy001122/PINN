@@ -121,3 +121,9 @@ outputs/pinn_inverse_v1_1_smoke/*
 !outputs/tables/literature_targeted_curve_extraction_attempt_summary.json
 !outputs/tables/literature_targeted_curve_extraction_attempt_cases.csv
 !outputs/tables/final_submission_lock_summary.json
+
+!outputs/tables/gamma_sub_tsw_tolerance_ode_spotcheck_summary.json
+!outputs/tables/gamma_sub_tsw_tolerance_ode_spotcheck_cases.csv
+!outputs/tables/quasi_2d_literature_source_registry.json
+!outputs/tables/gt_quasi_2d_phase_transition_preflight_summary.json
+!outputs/tables/pinn_quasi_2d_residual_preflight_summary.json

@@ -1,0 +1,74 @@
+{
+  "all_fields_finite": true,
+  "all_observables_finite": true,
+  "benchmark": "gt_quasi_2d_phase_transition_preflight",
+  "case_summaries": [
+    {
+      "case": "uniform_strip",
+      "fields_finite": true,
+      "figure": "outputs\\figures\\gt_quasi_2d_phase_transition_preflight\\uniform_strip_temperature_sigma_snapshot.png",
+      "max_metallic_fraction": 1.0,
+      "max_phase_front_area": 2.4999999999999994e-13,
+      "max_temperature": 322.86222346357516,
+      "npz": "data\\processed\\gt_quasi_2d_phase_transition_preflight\\uniform_strip.npz",
+      "observables_finite": true
+    },
+    {
+      "case": "localized_hotspot",
+      "fields_finite": true,
+      "figure": "outputs\\figures\\gt_quasi_2d_phase_transition_preflight\\localized_hotspot_temperature_sigma_snapshot.png",
+      "max_metallic_fraction": 1.0,
+      "max_phase_front_area": 2.2109375e-13,
+      "max_temperature": 352.56950147717794,
+      "npz": "data\\processed\\gt_quasi_2d_phase_transition_preflight\\localized_hotspot.npz",
+      "observables_finite": true
+    },
+    {
+      "case": "defect_seeded_filament",
+      "fields_finite": true,
+      "figure": "outputs\\figures\\gt_quasi_2d_phase_transition_preflight\\defect_seeded_filament_temperature_sigma_snapshot.png",
+      "max_metallic_fraction": 1.0,
+      "max_phase_front_area": 2.8124999999999994e-13,
+      "max_temperature": 332.398850670024,
+      "npz": "data\\processed\\gt_quasi_2d_phase_transition_preflight\\defect_seeded_filament.npz",
+      "observables_finite": true
+    },
+    {
+      "case": "lateral_cooling_gradient",
+      "fields_finite": true,
+      "figure": "outputs\\figures\\gt_quasi_2d_phase_transition_preflight\\lateral_cooling_gradient_temperature_sigma_snapshot.png",
+      "max_metallic_fraction": 0.537109375,
+      "max_phase_front_area": 1.1953125e-13,
+      "max_temperature": 322.5811031850153,
+      "npz": "data\\processed\\gt_quasi_2d_phase_transition_preflight\\lateral_cooling_gradient.npz",
+      "observables_finite": true
+    }
+  ],
+  "forbidden_claims": [
+    "experimental validation",
+    "full 2D inverse diagnosis solved",
+    "direct VO2/NbO2 device replication"
+  ],
+  "literature_structure_roles_used": [
+    "vo2_phase_field_slab",
+    "vo2_localized_heater_strip",
+    "vo2_sin_threshold_switch",
+    "nbo2_threshold_closure",
+    "generic_2d_pinn_phase_change"
+  ],
+  "note": "Synthetic literature-anchored quasi-2D forward/preflight benchmark; not experimental data and not a full inverse claim.",
+  "num_cases": 4,
+  "outputs": {
+    "figure_dir": "outputs/figures/gt_quasi_2d_phase_transition_preflight",
+    "figures": [
+      "outputs\\figures\\gt_quasi_2d_phase_transition_preflight\\uniform_strip_temperature_sigma_snapshot.png",
+      "outputs\\figures\\gt_quasi_2d_phase_transition_preflight\\localized_hotspot_temperature_sigma_snapshot.png",
+      "outputs\\figures\\gt_quasi_2d_phase_transition_preflight\\defect_seeded_filament_temperature_sigma_snapshot.png",
+      "outputs\\figures\\gt_quasi_2d_phase_transition_preflight\\lateral_cooling_gradient_temperature_sigma_snapshot.png"
+    ],
+    "output_dir": "data/processed/gt_quasi_2d_phase_transition_preflight",
+    "summary_json": "outputs/tables/gt_quasi_2d_phase_transition_preflight_summary.json"
+  },
+  "ready_for_residual_preflight": true,
+  "synthetic_not_experimental": true
+}

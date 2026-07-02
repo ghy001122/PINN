@@ -54,3 +54,9 @@ Record these as future options, not current manuscript-critical work:
 - add stiff transfer learning continuation;
 - add observability-augmented full-field recovery or experimental sparse `T/m` extension;
 - extend F-SPS-PINN as a separate method paper after stronger ablation evidence.
+
+## Immediate next after ODE spot-check manuscript lock
+
+The immediate next step is manuscript assembly and figure/table drafting from the locked evidence package. Do not open another large method branch unless a reviewer-specific gap appears after drafting.
+
+Keep the main claim narrow: calibration-gated sparse-port reduced inversion of `gamma_sub` under fixed or tightly bounded `T_sw` priors in a one-dimensional synthetic numerical digital-twin benchmark. Quasi-2D remains supplementary extension feasibility, not solved 2D inverse diagnosis.
