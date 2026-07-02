@@ -1,0 +1,7 @@
+source,path_or_url,reason,candidate_curve_types,recommended_action
+local,docs\literature\literature_parameter_sanity_notes.md,Text mentions curve keywords but provides no accepted numeric table,memristor,manually digitize only from cited figure/table with provenance
+local,references\papers\PAPER_REGISTRY.md,Text mentions curve keywords but provides no accepted numeric table,memristor,manually digitize only from cited figure/table with provenance
+google_drive,https://drive.google.com/file/d/1_P82_I6Qc2ON3nWeuyZLudwwJcpgw77k/view?usp=drivesdk,PDF candidate requires manual digitization; no numerical table available,,manual digitization queue; do not fit until CSV exists
+google_drive,https://drive.google.com/file/d/16673zPpCLoveFGGJc497rH0GYHt2bZcx/view?usp=drivesdk,PDF candidate requires manual digitization; no numerical table available,memristor,manual digitization queue; do not fit until CSV exists
+google_drive,https://drive.google.com/file/d/1aLvFvBwmSwVzKoOXOqv73MySwD0rHYa3/view?usp=drivesdk,PDF candidate requires manual digitization; no numerical table available,memristor,manual digitization queue; do not fit until CSV exists
+google_drive,https://drive.google.com/file/d/1c1x4ekUzRM6iHktfdulDCZ35JeXsB-Aw/view?usp=drivesdk,PDF candidate requires manual digitization; no numerical table available,,manual digitization queue; do not fit until CSV exists

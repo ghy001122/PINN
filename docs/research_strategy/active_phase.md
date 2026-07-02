@@ -2,22 +2,22 @@
 
 ## Current Phase
 
-`external curve ingestion and calibrated gamma_sub manuscript workflow pack`
+`calibration tolerance, protocol disentanglement, and submission lock`
 
-The current phase strengthens the constrained `gamma_sub` manuscript line with provenance-backed literature-curve ingestion infrastructure, explicit blocked handling when no digitized curves exist, a T_sw calibration-before-inversion workflow, ODE-backed calibrated sequential protocol validation, claim-stress documentation, and manuscript text scaffolding.
+The current phase locks the constrained `gamma_sub` manuscript evidence chain: T_sw calibration tolerance, calibration-vs-protocol disentanglement, ODE-backed calibrated protocol robustness, targeted external-curve extraction attempt, and final figure/table/claim routing.
 
-This phase does not revise frozen Ground Truth v1.1, does not create experimental evidence, does not claim sparse-port full hidden-field recovery, and does not claim F-SPS-PINN performance superiority.
+This phase does not revise frozen Ground Truth v1.1, does not create experimental evidence, does not claim sparse-port full hidden-field recovery, does not claim unconditional `gamma_sub` identifiability, and does not claim F-SPS-PINN performance superiority.
 
 ## Evidence Added
 
-- Literature curve ingestion: `0` valid CSV curves found; external fit readiness is `False`.
-- External curve fit v2: `0` curves fit; limitation is `blocked: no provenance-backed digitized curves available`.
-- T_sw calibration workflow: `synthetic_probe_calibrated_T_sw` reduces relative error from `0.8309764722472351` to `0.037771657829419776`; wrong calibration remains `0.3021732626353582`.
-- Calibrated sequential protocol validation: `720` simulator-backed cases; best protocol `calibrated_multi_pulse_to_ltp_ltd` has success rate `1.0`.
-- Manuscript drafts: `docs/paper/main_text_results_v1.md`, `docs/paper/methods_v1.md`, `docs/paper/limitations_v1.md`, `docs/paper/abstract_v1.md`, and `docs/paper/title_candidates.md`.
+- T_sw calibration tolerance: `0.1` K residual calibration error and `0.05` prior width under the <=15% median-error criterion.
+- Disentanglement: calibration gain `1.1216748794829614` dominates protocol gain `0.014955665059772812`; protocol advantage survives equal-prior control but needs qualification.
+- Final ODE robustness: `calibrated_short_pulse_to_ltp_ltd` is the best tested protocol, but `whether_ready_as_main_figure` is `False` because worst-case errors remain non-negligible.
+- External curves: targeted extraction found no valid provenance-backed digitized curve table; external curve fitting remains blocked.
+- Submission lock: `7` figures and `7` tables are mapped with claim boundaries.
 
 ## Claim Boundary
 
-Allowed: constrained reduced `gamma_sub` inversion is defensible under fixed or tightly bounded micro-kinetic and switching priors, with T_sw explicitly treated as the dominant calibration boundary.
+Allowed: calibration-gated sparse-port reduced inversion of `gamma_sub` in a one-dimensional synthetic numerical digital-twin benchmark under fixed or tightly bounded priors.
 
-Forbidden: real experimental validation, direct VO2/NbO2 device replication, unique sparse-port full hidden-field recovery, unconditional joint identifiability, fabricated literature curves, or F-SPS-PINN superiority.
+Forbidden: real experimental validation, direct device replication, unique sparse-port full hidden-field recovery, unconditional joint identifiability, fabricated literature curves, or F-SPS-PINN superiority.

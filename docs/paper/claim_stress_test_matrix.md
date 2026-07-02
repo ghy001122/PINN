@@ -32,3 +32,12 @@ Use this file to decide which results belong in the main manuscript and which be
 | T_sw calibration before inversion is required. | `outputs/tables/gamma_sub_tsw_calibration_workflow_summary.json` | Response-surface workflow evidence | Unconditional joint `T_sw`/`gamma_sub` identifiability |
 | Calibrated multi-pulse-to-LTP/LTD is the best current synthetic sequential candidate. | `outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_summary.json` | ODE-backed synthetic preflight only | Experimentally validated pulse protocol |
 
+## Calibration-Gated Submission Lock Addendum
+
+| Evidence block | Script/config | Summary file | Proposed figure/table | Allowed claim | Forbidden overclaim |
+| --- | --- | --- | --- | --- | --- |
+| T_sw calibration tolerance sweep | `scripts/audit_gamma_sub_tsw_calibration_tolerance_sweep.py`, `configs/gamma_sub_tsw_calibration_tolerance_sweep.yaml` | `outputs/tables/gamma_sub_tsw_calibration_tolerance_sweep_summary.json` | Figure 3 / Table 4 | Residual T_sw error must be about `0.1` K or tighter in this synthetic audit | Real calibration accuracy requirement |
+| Calibration-vs-protocol disentanglement | `scripts/audit_gamma_sub_calibration_protocol_disentanglement.py` | `outputs/tables/gamma_sub_calibration_protocol_disentanglement_summary.json` | Figure 4 / Table 5 | Calibration dominates total gain; protocol gain is smaller and qualified | Protocol identity alone solves ambiguity |
+| Calibrated protocol robustness final | `scripts/audit_gamma_sub_calibrated_protocol_robustness_final.py` | `outputs/tables/gamma_sub_calibrated_protocol_robustness_final_summary.json` | Figure 5 / Table 6 | `calibrated_short_pulse_to_ltp_ltd` is best in the tested ODE-backed synthetic grid | Experimental protocol validation |
+| Targeted external curve extraction | `scripts/attempt_literature_curve_extraction_from_sources.py` | `outputs/tables/literature_targeted_curve_extraction_attempt_summary.json` | Figure 7 / Supplement | No provenance-backed digitized curves were found; no curve data were fabricated | Literature curve fit success |
+

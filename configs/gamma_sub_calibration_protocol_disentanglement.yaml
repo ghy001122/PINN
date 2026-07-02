@@ -1,0 +1,41 @@
+benchmark: gamma_sub_calibration_protocol_disentanglement
+summary_json: outputs/tables/gamma_sub_calibration_protocol_disentanglement_summary.json
+cases_csv: outputs/tables/gamma_sub_calibration_protocol_disentanglement_cases.csv
+true_gamma_sub: 450000000.0
+T_sw_delta_K: 2.0
+protocols:
+- protocol: ltp_ltd_only
+  response_protocol: ltp_ltd
+  relative_protocol_factor: 1.0
+- protocol: short_pulse_to_ltp_ltd
+  response_protocol: ltp_ltd
+  relative_protocol_factor: 0.88
+- protocol: multi_pulse_to_ltp_ltd
+  response_protocol: ltp_ltd
+  relative_protocol_factor: 0.72
+T_sw_prior_width_after_calibration:
+- 1.0
+- 0.2
+- 0.1
+- 0.05
+- 0.02
+calibration_error_K:
+- 0.0
+- 0.04
+- 0.1
+- 0.2
+- 0.4
+noise:
+- 0.0
+- 0.02
+- 0.05
+seeds:
+- 2026
+- 2027
+- 2028
+- 2029
+- 2030
+observation_count: 16
+success_threshold: 0.15
+claim_boundary: Synthetic response-surface disentanglement audit; protocol identity
+  is compared under equal prior width and calibration error.

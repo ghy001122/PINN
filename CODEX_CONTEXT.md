@@ -6,9 +6,11 @@ This file is the first-read context for non-trivial Codex work in this repositor
 
 Current phase:
 
-`literature-anchored gamma_sub calibration and simulator-backed protocol validation`
+`calibration tolerance, protocol disentanglement, and submission lock`
 
-The constrained reduced `gamma_sub` inversion stage, continuous off-grid refinement, paper-readiness robustness checks, observability-augmented audit, bounded F-SPS-PINN v2 method-development checks, response-surface anchor verification, and literature/protocol-validation pack are complete or in evidence-consolidation use. The active work is now manuscript drafting from constrained `gamma_sub` evidence without modifying frozen Ground Truth v1.1 or claiming experimental validation.
+The constrained reduced `gamma_sub` manuscript line is now locked around calibration-gated sparse-port inversion: T_sw calibration tolerance, calibration-vs-protocol disentanglement, ODE-backed calibrated protocol robustness, external-curve no-fabrication handling, and final figure/table/claim routing. The strongest claim remains conditional `gamma_sub` recovery under fixed or tightly bounded priors in a one-dimensional synthetic numerical digital-twin benchmark.
+
+F-SPS-PINN evidence remains appendix or future-work material, not the main performance claim.
 
 ## Project Boundary
 

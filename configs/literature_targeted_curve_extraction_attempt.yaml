@@ -1,0 +1,41 @@
+benchmark: literature_targeted_curve_extraction_attempt
+search_roots:
+- data/literature
+- docs/literature
+- references
+summary_json: outputs/tables/literature_targeted_curve_extraction_attempt_summary.json
+cases_csv: outputs/tables/literature_targeted_curve_extraction_attempt_cases.csv
+manual_queue_csv: data/literature/manual_digitization_queue.csv
+protocol_md: docs/literature/manual_digitization_protocol.md
+curve_output_dir: data/literature/curves
+keywords:
+- R(T)
+- sigma(T)
+- I-V
+- hysteresis
+- conductance
+- LTP
+- LTD
+- pulse
+- VO2
+- NbO2
+- memristor
+- phase-change
+drive_candidates:
+- title: Seiler ? - 2025 - Stiff transfer learning for physics-informed neural networks.pdf
+  mime_type: application/pdf
+  url: https://drive.google.com/file/d/1_P82_I6Qc2ON3nWeuyZLudwwJcpgw77k/view?usp=drivesdk
+- title: Jurj - 2026 - A physics-regularized neural surrogate framework for printed
+    memristors.pdf
+  mime_type: application/pdf
+  url: https://drive.google.com/file/d/16673zPpCLoveFGGJc497rH0GYHt2bZcx/view?usp=drivesdk
+- title: Lee ? - 2024 - A compact memristor model based on physics-informed neural
+    networks.pdf????
+  mime_type: application/pdf
+  url: https://drive.google.com/file/d/1aLvFvBwmSwVzKoOXOqv73MySwD0rHYa3/view?usp=drivesdk
+- title: Zhao ? - 2025 - Physics-informed neural networks for solving inverse problems
+    in phase field models.pdf
+  mime_type: application/pdf
+  url: https://drive.google.com/file/d/1c1x4ekUzRM6iHktfdulDCZ35JeXsB-Aw/view?usp=drivesdk
+claim_boundary: Only provenance-backed numerical CSV/JSON tables are accepted. PDF-only
+  curve images are queued for manual digitization and not fit.

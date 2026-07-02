@@ -1,0 +1,55 @@
+{
+  "all_finite_results": true,
+  "benchmark": "gamma_sub_tsw_calibration_tolerance_sweep",
+  "calibrated_protocol_advantage": 0.0565437907077283,
+  "limitation": "This is response-surface evidence for a reduced scalar inverse target; it does not prove unconstrained joint identifiability or experimental calibration.",
+  "manuscript_sentence_for_calibration_requirement": "In the synthetic tolerance sweep, gamma_sub recovery stays reliable only when residual T_sw error is about 0.1 K or the post-calibration prior width is about 0.05 or narrower under the configured <=15% error criterion.",
+  "maximum_tolerable_calibration_error_for_le_0p15": 0.1,
+  "maximum_tolerable_prior_width_for_le_0p15": 0.05,
+  "median_error_by_error_bin": {
+    "0.0": 0.09380045299309986,
+    "0.02": 0.09380045299309986,
+    "0.04": 0.09380045299309986,
+    "0.08": 0.10986413834877753,
+    "0.1": 0.10986413834877753,
+    "0.2": 0.20545073375262055,
+    "0.4": 0.37520181197239943,
+    "0.8": 0.8442040769378987,
+    "1.0": 1.0240102905568635
+  },
+  "median_error_by_prior_width": {
+    "0.0": 0.10686829608429939,
+    "0.02": 0.10686829608429939,
+    "0.05": 0.11300645468170234,
+    "0.1": 0.21373659216859878,
+    "0.2": 0.4109014675052411
+  },
+  "median_error_by_protocol": {
+    "calibrated_multi_pulse_to_ltp_ltd": 0.1696313721231849,
+    "ltp_ltd": 0.2261751628309132
+  },
+  "note": "Synthetic response-surface T_sw calibration tolerance audit; not experimental data.",
+  "num_cases": 1350,
+  "outputs": {
+    "cases_csv": "outputs/tables/gamma_sub_tsw_calibration_tolerance_sweep_cases.csv",
+    "summary_json": "outputs/tables/gamma_sub_tsw_calibration_tolerance_sweep_summary.json"
+  },
+  "success_rate_by_error_bin": {
+    "0.0": 0.6,
+    "0.02": 0.6,
+    "0.04": 0.6,
+    "0.08": 0.6,
+    "0.1": 0.6,
+    "0.2": 0.0,
+    "0.4": 0.0,
+    "0.8": 0.0,
+    "1.0": 0.0
+  },
+  "success_rate_by_prior_width": {
+    "0.0": 0.5555555555555556,
+    "0.02": 0.5555555555555556,
+    "0.05": 0.5555555555555556,
+    "0.1": 0.0,
+    "0.2": 0.0
+  }
+}

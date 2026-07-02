@@ -2,11 +2,11 @@
 
 ## Immediate next step
 
-The immediate step is `main-manuscript drafting and final figure/table assembly from calibrated gamma_sub evidence`.
+The immediate step is `manuscript assembly from locked calibration-gated gamma_sub evidence`.
 
-The latest v2 pack confirms that external literature curve fitting is ethically blocked until provenance-backed digitized CSV/Sheet data are added, while the T_sw calibration-before-inversion workflow and ODE-backed calibrated sequential protocol validation strengthen the constrained `gamma_sub` manuscript line. The next work should assemble final main figures, tables, and prose from existing synthetic numerical digital-twin evidence, not start a new large experiment.
+The latest pack quantifies T_sw calibration tolerance, separates calibration gain from protocol gain, stress-tests calibrated protocol robustness with ODE-backed cases, confirms external curve fitting remains blocked without provenance-backed digitized curves, and locks final figure/table/claim routing.
 
-The constrained `gamma_sub` inversion remains the most stable paper mainline. F-SPS-PINN v2 remains appendix, discussion, or future-work material because current evidence still does not support a performance-superiority claim.
+The manuscript should now be drafted around a narrow claim: calibration-gated sparse-port reduced inversion of `gamma_sub` under fixed or tightly bounded priors. Do not open new large experiments unless a reviewer-specific gap remains after drafting.
 
 ## Main manuscript line
 

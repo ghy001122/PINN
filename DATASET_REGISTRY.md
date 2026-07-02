@@ -224,3 +224,20 @@ These lightweight CSV/JSON files are synthetic numerical digital-twin manuscript
 
 No frozen Ground Truth file was modified. No digitized external curve data were fabricated.
 
+## Calibration tolerance, protocol disentanglement, and submission lock evidence
+
+These lightweight JSON/CSV files are synthetic numerical digital-twin benchmark evidence, not experimental data:
+
+- `outputs/tables/gamma_sub_tsw_calibration_tolerance_sweep_summary.json`
+- `outputs/tables/gamma_sub_tsw_calibration_tolerance_sweep_cases.csv`
+- `outputs/tables/gamma_sub_calibration_protocol_disentanglement_summary.json`
+- `outputs/tables/gamma_sub_calibration_protocol_disentanglement_cases.csv`
+- `outputs/tables/gamma_sub_calibrated_protocol_robustness_final_summary.json`
+- `outputs/tables/gamma_sub_calibrated_protocol_robustness_final_cases.csv`
+- `outputs/tables/literature_targeted_curve_extraction_attempt_summary.json`
+- `outputs/tables/literature_targeted_curve_extraction_attempt_cases.csv`
+- `outputs/tables/final_submission_lock_summary.json`
+- `data/literature/manual_digitization_queue.csv`
+
+No frozen Ground Truth data were modified. No external curve points were fabricated.
+

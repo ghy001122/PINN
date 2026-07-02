@@ -402,3 +402,22 @@ Key result: best simulator-backed sequential candidate is `multi_pulse_to_ltp_lt
 
 Status: completed as synthetic numerical digital-twin manuscript-defense evidence. It does not modify frozen Ground Truth and does not claim experimental validation.
 
+## Calibration tolerance, protocol disentanglement, and submission lock pack
+
+- Tolerance config: `configs/gamma_sub_tsw_calibration_tolerance_sweep.yaml`
+- Tolerance script: `scripts/audit_gamma_sub_tsw_calibration_tolerance_sweep.py`
+- Tolerance test: `tests/test_gamma_sub_tsw_calibration_tolerance_sweep.py`
+- Disentanglement config: `configs/gamma_sub_calibration_protocol_disentanglement.yaml`
+- Disentanglement script: `scripts/audit_gamma_sub_calibration_protocol_disentanglement.py`
+- Disentanglement test: `tests/test_gamma_sub_calibration_protocol_disentanglement.py`
+- Final robustness config: `configs/gamma_sub_calibrated_protocol_robustness_final.yaml`
+- Final robustness script: `scripts/audit_gamma_sub_calibrated_protocol_robustness_final.py`
+- Final robustness test: `tests/test_gamma_sub_calibrated_protocol_robustness_final.py`
+- Targeted curve extraction config: `configs/literature_targeted_curve_extraction_attempt.yaml`
+- Targeted curve extraction script: `scripts/attempt_literature_curve_extraction_from_sources.py`
+- Targeted curve extraction test: `tests/test_literature_targeted_curve_extraction_attempt.py`
+- Final submission lock script: `scripts/build_final_submission_figures.py`
+- Report: `docs/codex_reports/calibration_tolerance_protocol_disentanglement_and_submission_lock_report.md`
+
+Status: completed as synthetic numerical digital-twin manuscript-defense evidence. Frozen Ground Truth remains unchanged.
+

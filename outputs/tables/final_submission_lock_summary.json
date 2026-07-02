@@ -1,0 +1,15 @@
+{
+  "benchmark": "final_submission_lock",
+  "calibrated_protocol_main_figure_ready": false,
+  "claim_matrix_locked": true,
+  "external_curve_status": "no_provenance_backed_digitized_curve_tables_found",
+  "note": "Final manuscript planning lock for synthetic numerical digital-twin evidence.",
+  "num_figures_locked": 7,
+  "num_tables_locked": 7,
+  "outputs": {
+    "claim_matrix": "docs/paper/final_claim_matrix.md",
+    "figure_list": "docs/paper/final_figure_list.md",
+    "summary_json": "outputs/tables/final_submission_lock_summary.json",
+    "table_list": "docs/paper/final_table_list.md"
+  }
+}

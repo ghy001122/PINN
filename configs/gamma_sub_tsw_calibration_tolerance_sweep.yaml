@@ -1,0 +1,43 @@
+benchmark: gamma_sub_tsw_calibration_tolerance_sweep
+summary_json: outputs/tables/gamma_sub_tsw_calibration_tolerance_sweep_summary.json
+cases_csv: outputs/tables/gamma_sub_tsw_calibration_tolerance_sweep_cases.csv
+true_gamma_sub: 450000000.0
+T_sw_delta_K: 2.0
+calibration_error_K:
+- 0.0
+- 0.02
+- 0.04
+- 0.08
+- 0.1
+- 0.2
+- 0.4
+- 0.8
+- 1.0
+T_sw_prior_width_after_calibration:
+- 0.0
+- 0.02
+- 0.05
+- 0.1
+- 0.2
+protocols:
+- protocol: ltp_ltd
+  relative_protocol_factor: 1.0
+- protocol: calibrated_multi_pulse_to_ltp_ltd
+  relative_protocol_factor: 0.75
+observation_count: 16
+noise:
+- 0.0
+- 0.02
+- 0.05
+seeds:
+- 2026
+- 2027
+- 2028
+- 2029
+- 2030
+success_thresholds:
+- 0.1
+- 0.15
+- 0.2
+claim_boundary: Synthetic response-surface tolerance audit; estimates only gamma_sub
+  after T_sw calibration/constraint.

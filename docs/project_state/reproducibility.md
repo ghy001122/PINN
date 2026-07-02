@@ -420,3 +420,15 @@ python scripts/build_submission_ready_gamma_sub_figures.py
 
 These commands regenerate the lightweight JSON/CSV evidence and ignored figure drafts. They do not modify frozen Ground Truth data. External curve fitting remains blocked unless provenance-backed digitized curve CSV files are added under `data/literature/curves/`.
 
+## Calibration tolerance, protocol disentanglement, and submission lock reproduction
+
+```powershell
+python scripts/audit_gamma_sub_tsw_calibration_tolerance_sweep.py
+python scripts/audit_gamma_sub_calibration_protocol_disentanglement.py
+python scripts/audit_gamma_sub_calibrated_protocol_robustness_final.py
+python scripts/attempt_literature_curve_extraction_from_sources.py
+python scripts/build_final_submission_figures.py
+```
+
+These commands regenerate the lightweight JSON/CSV evidence and final manuscript planning docs. They do not modify frozen Ground Truth data and do not fabricate external curve points.
+

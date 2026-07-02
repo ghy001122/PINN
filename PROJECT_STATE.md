@@ -104,3 +104,17 @@ Key results:
 
 Claim boundary: this strengthens a constrained reduced `gamma_sub` manuscript under fixed or tightly bounded priors. It does not prove experimental validation, sparse-port full hidden-field recovery, or F-SPS-PINN superiority.
 
+## Calibration Tolerance, Protocol Disentanglement, And Submission Lock Pack
+
+This pack adds reviewer-defense evidence for the constrained `gamma_sub` manuscript line. All outputs are synthetic numerical digital-twin benchmark evidence, not experimental data.
+
+Key results:
+
+- T_sw calibration tolerance sweep: maximum median-error-compatible calibration error is `0.1` K and maximum compatible post-calibration prior width is `0.05` under the <=15% criterion.
+- Calibration-vs-protocol disentanglement: total gain `1.1381068369066785`, calibration gain `1.1216748794829614`, protocol gain `0.014955665059772812`, interaction gain `0.0014762923639442468`. Protocol advantage survives equal-prior control: `True`, but the previous protocol claim needs qualification: `True`.
+- ODE-backed calibrated protocol robustness: `2400` simulator-backed cases. Best protocol is `calibrated_short_pulse_to_ltp_ltd` with success rate `0.9604166666666667` and worst-case error `0.4444444444444444`. Ready as main figure without qualification: `False`.
+- Targeted external curve extraction found `0` valid digitized curve tables and queued `6` manual digitization candidates. External curve fitting remains blocked: `no_provenance_backed_digitized_curve_tables_found`.
+- Final figure/table/claim lock: `7` figures, `7` tables, claim matrix locked `True`.
+
+Claim boundary: the paper can claim calibration-gated constrained `gamma_sub` recovery under fixed or tightly bounded priors. It cannot claim experimental protocol validation, public-curve fitting, unconditional identifiability, or sparse-port full hidden-field recovery.
+

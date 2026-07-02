@@ -36,3 +36,13 @@ The manuscript should be framed as a one-dimensional synthetic numerical digital
 ## Literature-Anchored Revision Notes
 
 The manuscript should add a short paragraph in Methods stating that Lee et al. (2024) and Jurj (2026) support compact/physics-regularized memristor surrogate framing and order-of-magnitude parameter sanity, but no measured curve is used as calibration in the current repository. Results should add a T_sw calibration-necessity panel and describe simulator-backed sequential protocol validation as a preflight result.
+
+## Calibration-Gated Submission Lock Addendum
+
+| Evidence block | Script/config | Summary file | Proposed figure/table | Allowed claim | Forbidden overclaim |
+| --- | --- | --- | --- | --- | --- |
+| T_sw calibration tolerance sweep | `scripts/audit_gamma_sub_tsw_calibration_tolerance_sweep.py`, `configs/gamma_sub_tsw_calibration_tolerance_sweep.yaml` | `outputs/tables/gamma_sub_tsw_calibration_tolerance_sweep_summary.json` | Figure 3 / Table 4 | Residual T_sw error must be about `0.1` K or tighter in this synthetic audit | Real calibration accuracy requirement |
+| Calibration-vs-protocol disentanglement | `scripts/audit_gamma_sub_calibration_protocol_disentanglement.py` | `outputs/tables/gamma_sub_calibration_protocol_disentanglement_summary.json` | Figure 4 / Table 5 | Calibration dominates total gain; protocol gain is smaller and qualified | Protocol identity alone solves ambiguity |
+| Calibrated protocol robustness final | `scripts/audit_gamma_sub_calibrated_protocol_robustness_final.py` | `outputs/tables/gamma_sub_calibrated_protocol_robustness_final_summary.json` | Figure 5 / Table 6 | `calibrated_short_pulse_to_ltp_ltd` is best in the tested ODE-backed synthetic grid | Experimental protocol validation |
+| Targeted external curve extraction | `scripts/attempt_literature_curve_extraction_from_sources.py` | `outputs/tables/literature_targeted_curve_extraction_attempt_summary.json` | Figure 7 / Supplement | No provenance-backed digitized curves were found; no curve data were fabricated | Literature curve fit success |
+

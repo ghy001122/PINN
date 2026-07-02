@@ -1,0 +1,22 @@
+{
+  "all_finite_results": true,
+  "baseline_error": 1.17508796898215,
+  "benchmark": "gamma_sub_calibration_protocol_disentanglement",
+  "best_equal_prior_error": 0.03845742443941581,
+  "best_overall_error": 0.0369811320754717,
+  "best_protocol_under_equal_prior": "multi_pulse_to_ltp_ltd",
+  "calibration_gain": 1.1216748794829614,
+  "interaction_gain": 0.0014762923639442468,
+  "limitation": "The decomposition uses response-surface evidence and equal-prior controls; it is not an experimental protocol proof.",
+  "manuscript_claim_update": "Protocol advantage survives equal-prior control but most improvement is still driven by T_sw calibration.",
+  "note": "Synthetic response-surface calibration-vs-protocol disentanglement audit; not experimental data.",
+  "num_cases": 1125,
+  "outputs": {
+    "cases_csv": "outputs/tables/gamma_sub_calibration_protocol_disentanglement_cases.csv",
+    "summary_json": "outputs/tables/gamma_sub_calibration_protocol_disentanglement_summary.json"
+  },
+  "protocol_gain": 0.014955665059772812,
+  "total_gain": 1.1381068369066785,
+  "whether_previous_protocol_claim_needs_qualification": true,
+  "whether_protocol_advantage_survives_equal_prior_control": true
+}

@@ -1,0 +1,96 @@
+{
+  "IQR_error_by_protocol": {
+    "calibrated_ltp_ltd_only": 0.0,
+    "calibrated_multi_pulse_to_ltp_ltd": 1.0,
+    "calibrated_short_pulse_to_ltp_ltd": 0.1111111111111111,
+    "no_calibration_ltp_ltd_only": 1.0555555555555556,
+    "wrong_calibration_multi_pulse_to_ltp_ltd": 1.0
+  },
+  "all_cases_simulator_backed": true,
+  "all_finite_results": true,
+  "benchmark": "gamma_sub_calibrated_protocol_robustness_final",
+  "best_protocol": "calibrated_short_pulse_to_ltp_ltd",
+  "by_protocol": {
+    "calibrated_ltp_ltd_only": {
+      "IQR_error": 0.0,
+      "mean_error": 1.2134259259259257,
+      "median_error": 1.2222222222222223,
+      "num_cases": 480,
+      "success_rate": 0.0,
+      "worst_case": 1.2222222222222223
+    },
+    "calibrated_multi_pulse_to_ltp_ltd": {
+      "IQR_error": 1.0,
+      "mean_error": 0.6083333333333333,
+      "median_error": 0.2222222222222222,
+      "num_cases": 480,
+      "success_rate": 0.11458333333333333,
+      "worst_case": 1.2222222222222223
+    },
+    "calibrated_short_pulse_to_ltp_ltd": {
+      "IQR_error": 0.1111111111111111,
+      "mean_error": 0.07303240740740741,
+      "median_error": 0.1111111111111111,
+      "num_cases": 480,
+      "success_rate": 0.9604166666666667,
+      "worst_case": 0.4444444444444444
+    },
+    "no_calibration_ltp_ltd_only": {
+      "IQR_error": 1.0555555555555556,
+      "mean_error": 0.8697916666666665,
+      "median_error": 1.2222222222222223,
+      "num_cases": 480,
+      "success_rate": 0.004166666666666667,
+      "worst_case": 1.2222222222222223
+    },
+    "wrong_calibration_multi_pulse_to_ltp_ltd": {
+      "IQR_error": 1.0,
+      "mean_error": 0.9614583333333331,
+      "median_error": 1.2222222222222223,
+      "num_cases": 480,
+      "success_rate": 0.04375,
+      "worst_case": 1.2222222222222223
+    }
+  },
+  "calibrated_multi_pulse_gain_over_uncalibrated": 1.0,
+  "calibrated_multi_pulse_success_gain_over_uncalibrated": 0.11041666666666666,
+  "frozen_gt_hashes_after": {
+    "data\\processed\\gt_v1_acceptance\\gt_triangle.npz": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8",
+    "data\\processed\\gt_v1_acceptance\\obs_triangle_sparse.npz": "f45daf53136a255b3666ebeb56e6298ce148a613c46fa596b795e7ade68ea602"
+  },
+  "frozen_gt_hashes_before": {
+    "data\\processed\\gt_v1_acceptance\\gt_triangle.npz": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8",
+    "data\\processed\\gt_v1_acceptance\\obs_triangle_sparse.npz": "f45daf53136a255b3666ebeb56e6298ce148a613c46fa596b795e7ade68ea602"
+  },
+  "frozen_gt_unchanged": true,
+  "median_error_by_protocol": {
+    "calibrated_ltp_ltd_only": 1.2222222222222223,
+    "calibrated_multi_pulse_to_ltp_ltd": 0.2222222222222222,
+    "calibrated_short_pulse_to_ltp_ltd": 0.1111111111111111,
+    "no_calibration_ltp_ltd_only": 1.2222222222222223,
+    "wrong_calibration_multi_pulse_to_ltp_ltd": 1.2222222222222223
+  },
+  "note": "Synthetic ODE-backed calibrated protocol robustness audit; not experimental data.",
+  "num_simulator_backed_cases": 2400,
+  "outputs": {
+    "cases_csv": "outputs/tables/gamma_sub_calibrated_protocol_robustness_final_cases.csv",
+    "summary_json": "outputs/tables/gamma_sub_calibrated_protocol_robustness_final_summary.json"
+  },
+  "required_claim_qualification": "Use as a synthetic ODE-backed main-figure candidate only under calibrated or tightly bounded T_sw priors; not an experimental protocol claim.",
+  "success_rate_by_protocol": {
+    "calibrated_ltp_ltd_only": 0.0,
+    "calibrated_multi_pulse_to_ltp_ltd": 0.11458333333333333,
+    "calibrated_short_pulse_to_ltp_ltd": 0.9604166666666667,
+    "no_calibration_ltp_ltd_only": 0.004166666666666667,
+    "wrong_calibration_multi_pulse_to_ltp_ltd": 0.04375
+  },
+  "whether_ready_as_main_figure": false,
+  "worst_case_by_protocol": {
+    "calibrated_ltp_ltd_only": 1.2222222222222223,
+    "calibrated_multi_pulse_to_ltp_ltd": 1.2222222222222223,
+    "calibrated_short_pulse_to_ltp_ltd": 0.4444444444444444,
+    "no_calibration_ltp_ltd_only": 1.2222222222222223,
+    "wrong_calibration_multi_pulse_to_ltp_ltd": 1.2222222222222223
+  },
+  "wrong_calibration_penalty": 0.3531249999999998
+}

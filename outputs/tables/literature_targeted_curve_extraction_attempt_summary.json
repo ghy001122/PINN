@@ -1,0 +1,21 @@
+{
+  "benchmark": "literature_targeted_curve_extraction_attempt",
+  "blocked_reason_if_any": "no_provenance_backed_digitized_curve_tables_found",
+  "note": "Targeted external curve extraction attempt; no points are fabricated and PDF-only candidates are queued.",
+  "num_accepted_points": 0,
+  "num_manual_digitization_queue_items": 6,
+  "num_sources_scanned": 15,
+  "num_valid_digitized_curve_tables": 0,
+  "outputs": {
+    "cases_csv": "outputs/tables/literature_targeted_curve_extraction_attempt_cases.csv",
+    "manual_queue_csv": "data/literature/manual_digitization_queue.csv",
+    "protocol_md": "docs/literature/manual_digitization_protocol.md",
+    "summary_json": "outputs/tables/literature_targeted_curve_extraction_attempt_summary.json"
+  },
+  "status_counts": {
+    "candidate_not_digitized": 4,
+    "not_curve_relevant": 9,
+    "text_candidate_not_digitized": 2
+  },
+  "whether_ready_for_literature_curve_ingestion_rerun": false
+}

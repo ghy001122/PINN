@@ -1,0 +1,89 @@
+benchmark: gamma_sub_calibrated_protocol_robustness_final
+target_npz: data/processed/gt_v1_acceptance/gt_triangle.npz
+sparse_obs_npz: data/processed/gt_v1_acceptance/obs_triangle_sparse.npz
+summary_json: outputs/tables/gamma_sub_calibrated_protocol_robustness_final_summary.json
+cases_csv: outputs/tables/gamma_sub_calibrated_protocol_robustness_final_cases.csv
+simulation:
+  nx: 5
+  nt: 32
+  method: Radau
+  rtol: 0.001
+  atol: 1.0e-05
+inverse:
+  primary_parameter: gamma_sub
+  gamma_candidates:
+  - 375000000.0
+  - 425000000.0
+  - 450000000.0
+  - 500000000.0
+  - 550000000.0
+  - 650000000.0
+  - 1000000000.0
+  success_relative_error_threshold: 0.15
+loss:
+  w_g: 1.0
+  w_i: 0.5
+  w_heat: 0.01
+noise:
+- 0.0
+- 0.01
+- 0.02
+- 0.05
+observation_count:
+- 8
+- 16
+- 32
+- 64
+seeds:
+- 2026
+- 2027
+- 2028
+- 2029
+- 2030
+- 2031
+- 2032
+- 2033
+- 2034
+- 2035
+T_sw_delta_K:
+- 0.4
+- 1.0
+- 2.0
+protocol_candidates:
+- candidate_name: no_calibration_ltp_ltd_only
+  simulator_protocol: ltp_ltd
+  t_max: 0.015
+  calibration_error_factor: 1.0
+  protocol_cost_proxy: 1.0
+  ltp_v_pos: 0.08
+  ltp_v_neg: -0.02
+- candidate_name: calibrated_ltp_ltd_only
+  simulator_protocol: ltp_ltd
+  t_max: 0.015
+  calibration_error_factor: 0.1
+  protocol_cost_proxy: 1.8
+  ltp_v_pos: 0.08
+  ltp_v_neg: -0.02
+- candidate_name: calibrated_multi_pulse_to_ltp_ltd
+  simulator_protocol: ltp_ltd
+  t_max: 0.015
+  calibration_error_factor: 0.045
+  protocol_cost_proxy: 3.6
+  ltp_v_pos: 0.1
+  ltp_v_neg: -0.03
+- candidate_name: calibrated_short_pulse_to_ltp_ltd
+  simulator_protocol: ltp_ltd
+  t_max: 0.012
+  calibration_error_factor: 0.07
+  protocol_cost_proxy: 2.4
+  ltp_v_pos: 0.08
+  ltp_v_neg: -0.02
+- candidate_name: wrong_calibration_multi_pulse_to_ltp_ltd
+  simulator_protocol: ltp_ltd
+  t_max: 0.015
+  calibration_error_factor: 0.2
+  protocol_cost_proxy: 3.6
+  ltp_v_pos: 0.1
+  ltp_v_neg: -0.03
+claim_boundary: Synthetic ODE-backed protocol robustness audit; not experimental protocol
+  validation.
