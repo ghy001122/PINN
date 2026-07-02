@@ -1,0 +1,7 @@
+workflow,estimated_T_sw_offset,T_sw_prior_width_after_calibration,gamma_true,gamma_est,relative_error,recoverable_le_0p1,recoverable_le_0p2,calibration_error_K,calibration_cost_proxy,total_protocol_cost_proxy,finite_result
+no_calibration_direct_gamma,0.0,1.0,450000000.0,823939412.5112559,0.8309764722472351,False,False,2.0,0.0,1.0,True
+literature_prior_only,1.8,0.1,450000000.0,517988984.0929556,0.1510866313176791,False,True,0.2,0.3,1.3,True
+synthetic_probe_calibrated_T_sw,1.96,0.02,450000000.0,466997246.0232389,0.037771657829419776,True,True,0.04,0.8,1.8,True
+sequential_probe_then_gamma,1.91,0.045,450000000.0,483994492.04647785,0.07554331565883955,True,True,0.09,1.2,3.8,True
+oracle_T_sw,2.0,0.0,450000000.0,462238017.136732,0.027195593637182238,True,True,0.0,0.0,1.0,True
+wrong_calibration_control,1.6,0.02,450000000.0,585977968.1859112,0.3021732626353582,False,False,0.4,0.8,1.8,True

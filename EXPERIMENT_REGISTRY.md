@@ -379,3 +379,26 @@ Files:
 - `tests/test_gamma_sub_simulator_backed_sequential_protocol_validation.py`
 
 Key result: best simulator-backed sequential candidate is `multi_pulse_to_ltp_ltd`; T_sw calibration remains required.
+
+## External curve ingestion and calibrated gamma_sub manuscript workflow pack
+
+- Ingestion config: `configs/literature_curve_ingestion.yaml`
+- Ingestion script: `scripts/ingest_literature_digitized_curves.py`
+- Ingestion test: `tests/test_literature_curve_ingestion.py`
+- External fit v2 config: `configs/literature_curve_fit_external_anchor_v2.yaml`
+- External fit v2 script: `scripts/fit_literature_phase_change_curves_v2.py`
+- External fit v2 test: `tests/test_literature_curve_fit_external_anchor_v2.py`
+- T_sw calibration workflow config: `configs/gamma_sub_tsw_calibration_workflow.yaml`
+- T_sw calibration workflow script: `scripts/audit_gamma_sub_tsw_calibration_workflow.py`
+- T_sw calibration workflow test: `tests/test_gamma_sub_tsw_calibration_workflow.py`
+- Calibrated sequential protocol config: `configs/gamma_sub_calibrated_sequential_protocol_validation.yaml`
+- Calibrated sequential protocol script: `scripts/audit_gamma_sub_calibrated_sequential_protocol_validation.py`
+- Calibrated sequential protocol test: `tests/test_gamma_sub_calibrated_sequential_protocol_validation.py`
+- Claim stress builder: `scripts/build_external_anchor_claim_stress_test.py`
+- Claim stress test: `tests/test_external_anchor_claim_stress_test.py`
+- Figure/text builder: `scripts/build_submission_ready_gamma_sub_figures.py`
+- Outputs: `outputs/tables/literature_curve_ingestion_summary.json`, `outputs/tables/literature_curve_ingestion_cases.csv`, `outputs/tables/literature_curve_fit_external_anchor_v2_summary.json`, `outputs/tables/literature_curve_fit_external_anchor_v2_cases.csv`, `outputs/tables/gamma_sub_tsw_calibration_workflow_summary.json`, `outputs/tables/gamma_sub_tsw_calibration_workflow_cases.csv`, `outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_summary.json`, `outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_cases.csv`, `outputs/tables/external_anchor_claim_stress_test_summary.json`, `outputs/tables/submission_ready_gamma_sub_figures_summary.json`
+- Reports: `docs/gamma_sub_tsw_calibration_workflow_report.md`, `docs/gamma_sub_calibrated_sequential_protocol_validation_report.md`, `docs/codex_reports/external_curve_ingestion_and_calibration_workflow_manuscript_report.md`
+
+Status: completed as synthetic numerical digital-twin manuscript-defense evidence. It does not modify frozen Ground Truth and does not claim experimental validation.
+

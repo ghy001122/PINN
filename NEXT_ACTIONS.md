@@ -2,11 +2,11 @@
 
 ## Immediate next step
 
-The immediate step is `manuscript drafting with literature-anchored gamma_sub evidence`.
+The immediate step is `main-manuscript drafting and final figure/table assembly from calibrated gamma_sub evidence`.
 
-The latest pack adds literature/engineering-prior sanity checks, a no-fabrication external-curve template, T_sw calibration-necessity evidence, simulator-backed sequential protocol validation, and manuscript-style figure/caption scaffolding. The next work should convert this verified synthetic numerical digital-twin evidence into manuscript text and final figure panels, not start a new large experiment.
+The latest v2 pack confirms that external literature curve fitting is ethically blocked until provenance-backed digitized CSV/Sheet data are added, while the T_sw calibration-before-inversion workflow and ODE-backed calibrated sequential protocol validation strengthen the constrained `gamma_sub` manuscript line. The next work should assemble final main figures, tables, and prose from existing synthetic numerical digital-twin evidence, not start a new large experiment.
 
-The constrained `gamma_sub` inversion remains the most stable paper mainline. F-SPS-PINN v2 remains appendix, discussion, or future-work material because the current evidence still does not support a performance-superiority claim.
+The constrained `gamma_sub` inversion remains the most stable paper mainline. F-SPS-PINN v2 remains appendix, discussion, or future-work material because current evidence still does not support a performance-superiority claim.
 
 ## Main manuscript line
 

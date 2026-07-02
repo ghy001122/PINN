@@ -1,0 +1,49 @@
+﻿benchmark: gamma_sub_tsw_calibration_workflow
+summary_json: outputs/tables/gamma_sub_tsw_calibration_workflow_summary.json
+cases_csv: outputs/tables/gamma_sub_tsw_calibration_workflow_cases.csv
+true_gamma_sub: 4.5e8
+protocol: ltp_ltd
+observation_count: 32
+noise: 0.02
+T_sw_delta_K: 2.0
+success_relative_error_threshold: 0.15
+workflows:
+  - workflow: no_calibration_direct_gamma
+    estimated_T_sw_offset: 0.0
+    T_sw_prior_width_after_calibration: 1.0
+    calibration_error_K: 2.0
+    calibration_cost_proxy: 0.0
+    protocol_cost_proxy: 1.0
+  - workflow: literature_prior_only
+    estimated_T_sw_offset: 1.8
+    T_sw_prior_width_after_calibration: 0.1
+    calibration_error_K: 0.2
+    calibration_cost_proxy: 0.3
+    protocol_cost_proxy: 1.0
+  - workflow: synthetic_probe_calibrated_T_sw
+    estimated_T_sw_offset: 1.96
+    T_sw_prior_width_after_calibration: 0.02
+    calibration_error_K: 0.04
+    calibration_cost_proxy: 0.8
+    protocol_cost_proxy: 1.0
+  - workflow: sequential_probe_then_gamma
+    estimated_T_sw_offset: 1.91
+    T_sw_prior_width_after_calibration: 0.045
+    calibration_error_K: 0.09
+    calibration_cost_proxy: 1.2
+    protocol_cost_proxy: 2.6
+  - workflow: oracle_T_sw
+    estimated_T_sw_offset: 2.0
+    T_sw_prior_width_after_calibration: 0.0
+    calibration_error_K: 0.0
+    calibration_cost_proxy: 0.0
+    protocol_cost_proxy: 1.0
+  - workflow: wrong_calibration_control
+    estimated_T_sw_offset: 1.6
+    T_sw_prior_width_after_calibration: 0.02
+    calibration_error_K: 0.4
+    calibration_cost_proxy: 0.8
+    protocol_cost_proxy: 1.0
+claim_boundary: >
+  The workflow estimates only gamma_sub after T_sw calibration/constraint. It
+  does not prove unconstrained joint identifiability.

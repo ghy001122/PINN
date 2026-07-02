@@ -560,3 +560,17 @@ experimental measurements.
 ## Literature-Anchored Calibration And Simulator-Backed Protocol Validation
 
 Added a reviewer-defense pack for the constrained `gamma_sub` manuscript line. The pack confirmed that missing digitized literature curves are handled as a blocked/template state, not fabricated data; T_sw calibration is required; and ODE-backed sequential validation supports `multi_pulse_to_ltp_ltd` as the strongest tested preflight candidate. All evidence remains synthetic numerical digital-twin benchmark evidence.
+
+## External Curve Ingestion And Calibrated Gamma_Sub Manuscript Workflow Pack
+
+This pack adds provenance-backed literature-curve ingestion infrastructure, external curve-fit v2 blocked handling, T_sw calibration-before-inversion workflow evidence, ODE-backed calibrated sequential protocol validation, external-anchor claim stress testing, and manuscript draft scaffolding.
+
+Key results:
+
+- Literature curve ingestion found `0` valid provenance-backed digitized CSV curves from `0` scanned files; blocked reason: `no_provenance_backed_digitized_curve_csv_found`.
+- External curve fitting v2 fit `0` curves and remains blocked because `blocked: no provenance-backed digitized curves available`.
+- T_sw calibration workflow: no-calibration relative error `0.8309764722472351`, best workflow `synthetic_probe_calibrated_T_sw` relative error `0.037771657829419776`, wrong-calibration control relative error `0.3021732626353582`.
+- Calibrated sequential validation: `720` ODE-backed cases; best protocol `calibrated_multi_pulse_to_ltp_ltd`; success-rate gain over no calibration `0.4833333333333333`; frozen GT unchanged `True`.
+
+Claim boundary: this strengthens a constrained reduced `gamma_sub` manuscript under fixed or tightly bounded priors. It does not prove experimental validation, sparse-port full hidden-field recovery, or F-SPS-PINN superiority.
+

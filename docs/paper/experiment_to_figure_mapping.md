@@ -65,3 +65,13 @@ Do not map these synthetic numerical results to an experimental validation figur
 | Literature sanity and no-fabrication curve template | `data/literature/literature_parameter_sanity_table.csv`, `data/literature/literature_curve_registry.csv`, `docs/literature/` | Method / limitations | Table 3 / Supplementary Table | Anchor priors and document the absence of usable digitized curve data |
 | T_sw calibration necessity | `outputs/tables/gamma_sub_tsw_calibration_necessity_summary.json` | Main result / limitations | Figure 5 | Quantify why T_sw calibration is required |
 | Simulator-backed sequential validation | `outputs/tables/gamma_sub_simulator_backed_sequential_protocol_validation_summary.json` | Discussion / protocol design | Figure 5 / Supplementary Table | Validate the response-surface protocol ranking with ODE-backed cases |
+
+## External Curve And Calibrated Workflow Mapping
+
+| Evidence block | Primary files | Manuscript location | Candidate figure/table | Purpose |
+| --- | --- | --- | --- | --- |
+| Literature curve ingestion v2 | `outputs/tables/literature_curve_ingestion_summary.json`, `docs/literature/literature_curve_provenance_notes.md` | Methods / data provenance | Supplementary note | Document that no external curve points were fabricated |
+| External curve fit v2 | `outputs/tables/literature_curve_fit_external_anchor_v2_summary.json` | Limitations / future data | Supplementary status | Show external curve fitting is ready but blocked by missing digitized curves |
+| T_sw calibration workflow | `outputs/tables/gamma_sub_tsw_calibration_workflow_summary.json` | Main result | Figure 2 / Table 4 | Demonstrate calibration-before-inversion reduces error |
+| Calibrated sequential protocol validation | `outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_summary.json` | Main result / discussion | Figure 5 / Table 5 | Support protocol-design evidence under bounded priors |
+

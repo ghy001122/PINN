@@ -1,0 +1,18 @@
+{
+  "benchmark": "literature_curve_ingestion",
+  "blocked_reason_if_any": "no_provenance_backed_digitized_curve_csv_found",
+  "curve_types_available": [],
+  "normalized_rows": [],
+  "note": "Synthetic numerical digital-twin manuscript support; no literature curve data are fabricated.",
+  "num_curve_files_found": 0,
+  "num_total_points": 0,
+  "num_valid_curve_files": 0,
+  "outputs": {
+    "cases_csv": "outputs/tables/literature_curve_ingestion_cases.csv",
+    "notes_md": "docs/literature/literature_curve_provenance_notes.md",
+    "registry_csv": "data/literature/literature_curve_ingestion_registry.csv",
+    "summary_json": "outputs/tables/literature_curve_ingestion_summary.json"
+  },
+  "sources_available": [],
+  "whether_ready_for_external_curve_fit": false
+}

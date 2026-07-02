@@ -205,3 +205,22 @@ New lightweight committed data/table artifacts:
 - `outputs/tables/gamma_sub_simulator_backed_sequential_protocol_validation_cases.csv`
 
 No frozen Ground Truth data were modified. No digitized external curve data were fabricated.
+
+## External curve ingestion and calibrated gamma_sub evidence
+
+These lightweight CSV/JSON files are synthetic numerical digital-twin manuscript evidence, not experimental data:
+
+- `data/literature/literature_curve_ingestion_registry.csv`
+- `outputs/tables/literature_curve_ingestion_summary.json`
+- `outputs/tables/literature_curve_ingestion_cases.csv`
+- `outputs/tables/literature_curve_fit_external_anchor_v2_summary.json`
+- `outputs/tables/literature_curve_fit_external_anchor_v2_cases.csv`
+- `outputs/tables/gamma_sub_tsw_calibration_workflow_summary.json`
+- `outputs/tables/gamma_sub_tsw_calibration_workflow_cases.csv`
+- `outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_summary.json`
+- `outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_cases.csv`
+- `outputs/tables/external_anchor_claim_stress_test_summary.json`
+- `outputs/tables/submission_ready_gamma_sub_figures_summary.json`
+
+No frozen Ground Truth file was modified. No digitized external curve data were fabricated.
+

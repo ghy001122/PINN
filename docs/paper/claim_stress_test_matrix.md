@@ -23,3 +23,12 @@ Use this file to decide which results belong in the main manuscript and which be
 | External curve fitting is not yet complete | `outputs/tables/literature_curve_fit_external_anchor_summary.json` | No digitized curve CSV exists in the repo | fitted public curves without data |
 | T_sw calibration is necessary | `outputs/tables/gamma_sub_tsw_calibration_necessity_summary.json` | Tested in synthetic response-surface setting | unconditional gamma_sub identifiability |
 | Sequential protocol design is promising | `outputs/tables/gamma_sub_simulator_backed_sequential_protocol_validation_summary.json` | Still a synthetic preflight with prior-narrowing assumption | experimental protocol validation |
+
+## External Curve Ingestion And Calibration Workflow Claims
+
+| Claim | Supporting evidence | Limitation | Forbidden overclaim |
+| --- | --- | --- | --- |
+| External curve fitting is blocked until provenance-backed digitized CSV/Sheet data exist. | `outputs/tables/literature_curve_ingestion_summary.json`, `docs/literature/literature_curve_provenance_notes.md` | Google Drive currently supplies PDFs, not curve tables | Fitted public curves without numeric data |
+| T_sw calibration before inversion is required. | `outputs/tables/gamma_sub_tsw_calibration_workflow_summary.json` | Response-surface workflow evidence | Unconditional joint `T_sw`/`gamma_sub` identifiability |
+| Calibrated multi-pulse-to-LTP/LTD is the best current synthetic sequential candidate. | `outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_summary.json` | ODE-backed synthetic preflight only | Experimentally validated pulse protocol |
+

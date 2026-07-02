@@ -178,3 +178,27 @@ New top-level additions in this pack:
 - `scripts/build_manuscript_style_gamma_sub_figures.py`
 - `docs/literature/`
 - `data/literature/`
+
+## External Curve And Calibrated Gamma_Sub Workflow Additions
+
+- `configs/literature_curve_ingestion.yaml`
+- `configs/literature_curve_fit_external_anchor_v2.yaml`
+- `configs/gamma_sub_tsw_calibration_workflow.yaml`
+- `configs/gamma_sub_calibrated_sequential_protocol_validation.yaml`
+- `scripts/ingest_literature_digitized_curves.py`
+- `scripts/fit_literature_phase_change_curves_v2.py`
+- `scripts/audit_gamma_sub_tsw_calibration_workflow.py`
+- `scripts/audit_gamma_sub_calibrated_sequential_protocol_validation.py`
+- `scripts/build_external_anchor_claim_stress_test.py`
+- `scripts/build_submission_ready_gamma_sub_figures.py`
+- `tests/test_literature_curve_ingestion.py`
+- `tests/test_literature_curve_fit_external_anchor_v2.py`
+- `tests/test_gamma_sub_tsw_calibration_workflow.py`
+- `tests/test_gamma_sub_calibrated_sequential_protocol_validation.py`
+- `tests/test_external_anchor_claim_stress_test.py`
+- `docs/paper/main_text_results_v1.md`
+- `docs/paper/methods_v1.md`
+- `docs/paper/limitations_v1.md`
+- `docs/paper/abstract_v1.md`
+- `docs/paper/title_candidates.md`
+

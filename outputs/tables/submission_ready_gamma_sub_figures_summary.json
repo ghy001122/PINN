@@ -1,0 +1,10 @@
+{
+  "benchmark": "submission_ready_gamma_sub_figures",
+  "figure_dir": "outputs\\figures\\submission_ready_gamma_sub",
+  "figures": [
+    "outputs\\figures\\submission_ready_gamma_sub\\figure_2_calibration_workflow.png",
+    "outputs\\figures\\submission_ready_gamma_sub\\figure_5_calibrated_protocol_validation.png",
+    "outputs\\figures\\submission_ready_gamma_sub\\figure_4_external_anchor_status.png"
+  ],
+  "note": "Figure drafts are synthetic numerical digital-twin evidence and are ignored by Git."
+}

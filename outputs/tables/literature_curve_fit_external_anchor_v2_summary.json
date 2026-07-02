@@ -1,0 +1,15 @@
+{
+  "benchmark": "literature_curve_fit_external_anchor_v2",
+  "best_fit_by_curve_type": {},
+  "fitted_parameter_ranges": {},
+  "limitation": "blocked: no provenance-backed digitized curves available",
+  "median_normalized_rmse": null,
+  "note": "Literature curves are normalized external anchors for a synthetic numerical digital-twin benchmark; no experimental validation is claimed.",
+  "num_curves_fit": 0,
+  "outputs": {
+    "cases_csv": "outputs/tables/literature_curve_fit_external_anchor_v2_cases.csv",
+    "overlay_png": "outputs/figures/manuscript_style_gamma_sub/literature_curve_fit_overlay.png",
+    "summary_json": "outputs/tables/literature_curve_fit_external_anchor_v2_summary.json"
+  },
+  "whether_literature_curves_support_model_plausibility": false
+}

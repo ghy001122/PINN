@@ -406,3 +406,17 @@ Run:
 ```
 
 Then validate with the dedicated tests and full `pytest`. Frozen Ground Truth v1.1 must remain unchanged.
+
+## External curve ingestion and calibrated gamma_sub manuscript workflow reproduction
+
+```powershell
+python scripts/ingest_literature_digitized_curves.py
+python scripts/fit_literature_phase_change_curves_v2.py
+python scripts/audit_gamma_sub_tsw_calibration_workflow.py
+python scripts/audit_gamma_sub_calibrated_sequential_protocol_validation.py
+python scripts/build_external_anchor_claim_stress_test.py
+python scripts/build_submission_ready_gamma_sub_figures.py
+```
+
+These commands regenerate the lightweight JSON/CSV evidence and ignored figure drafts. They do not modify frozen Ground Truth data. External curve fitting remains blocked unless provenance-backed digitized curve CSV files are added under `data/literature/curves/`.
+

@@ -275,3 +275,15 @@ Generated ignored figures under `outputs/figures/manuscript_style_gamma_sub/`:
 - `figure_literature_parameter_sanity.png`
 
 These figures are reproducible via `scripts/build_manuscript_style_gamma_sub_figures.py` and are not committed because `outputs/figures/` is ignored.
+
+## External curve ingestion and calibrated gamma_sub manuscript figures
+
+Generated ignored figures under `outputs/figures/submission_ready_gamma_sub/` and `outputs/figures/manuscript_style_gamma_sub/`:
+
+- `outputs/figures/submission_ready_gamma_sub/figure_2_calibration_workflow.png`
+- `outputs/figures/submission_ready_gamma_sub/figure_5_calibrated_protocol_validation.png`
+- `outputs/figures/submission_ready_gamma_sub/figure_4_external_anchor_status.png`
+- `outputs/figures/manuscript_style_gamma_sub/literature_curve_fit_overlay.png`
+
+The committed figure evidence is the lightweight summary `outputs/tables/submission_ready_gamma_sub_figures_summary.json`; PNG files remain ignored by Git.
+

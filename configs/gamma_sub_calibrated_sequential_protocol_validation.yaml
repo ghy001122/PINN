@@ -1,0 +1,84 @@
+﻿benchmark: gamma_sub_calibrated_sequential_protocol_validation
+target_npz: data/processed/gt_v1_acceptance/gt_triangle.npz
+sparse_obs_npz: data/processed/gt_v1_acceptance/obs_triangle_sparse.npz
+summary_json: outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_summary.json
+cases_csv: outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_cases.csv
+simulation:
+  nx: 7
+  nt: 48
+  method: Radau
+  rtol: 1.0e-4
+  atol: 1.0e-6
+inverse:
+  primary_parameter: gamma_sub
+  gamma_candidates: [3.75e8, 4.25e8, 4.5e8, 5.0e8, 5.5e8, 6.5e8, 1.0e9]
+  success_relative_error_threshold: 0.15
+loss:
+  w_g: 1.0
+  w_i: 0.5
+  w_heat: 0.01
+scenarios:
+  - scenario: narrow_T_sw_prior
+    T_sw_delta_K: 2.0
+    T_sw_prior_width: 0.1
+  - scenario: literature_bounded_T_sw_prior
+    T_sw_delta_K: 2.0
+    T_sw_prior_width: 0.05
+  - scenario: wide_T_sw_mismatch
+    T_sw_delta_K: 2.0
+    T_sw_prior_width: 1.0
+noise_levels: [0.0, 0.01, 0.02, 0.05]
+seeds: [2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035]
+observation_count: 16
+protocol_candidates:
+  - candidate_name: no_calibration_ltp_ltd_only
+    simulator_protocol: ltp_ltd
+    t_max: 0.015
+    prior_width_factor: 1.0
+    calibration_error_factor: 1.0
+    protocol_cost_proxy: 1.0
+    ltp_v_pos: 0.08
+    ltp_v_neg: -0.02
+  - candidate_name: calibrated_ltp_ltd_only
+    simulator_protocol: ltp_ltd
+    t_max: 0.015
+    prior_width_factor: 0.1
+    calibration_error_factor: 0.1
+    protocol_cost_proxy: 1.8
+    ltp_v_pos: 0.08
+    ltp_v_neg: -0.02
+  - candidate_name: calibrated_multi_pulse_to_ltp_ltd
+    simulator_protocol: ltp_ltd
+    t_max: 0.015
+    prior_width_factor: 0.045
+    calibration_error_factor: 0.045
+    protocol_cost_proxy: 3.6
+    ltp_v_pos: 0.10
+    ltp_v_neg: -0.03
+  - candidate_name: calibrated_short_pulse_to_ltp_ltd
+    simulator_protocol: ltp_ltd
+    t_max: 0.012
+    prior_width_factor: 0.07
+    calibration_error_factor: 0.07
+    protocol_cost_proxy: 2.4
+    ltp_v_pos: 0.08
+    ltp_v_neg: -0.02
+  - candidate_name: calibrated_best_single
+    simulator_protocol: ltp_ltd
+    t_max: 0.006
+    prior_width_factor: 0.1
+    calibration_error_factor: 0.1
+    protocol_cost_proxy: 1.8
+    ltp_v_pos: 0.08
+    ltp_v_neg: -0.02
+  - candidate_name: wrong_calibration_multi_pulse_to_ltp_ltd
+    simulator_protocol: ltp_ltd
+    t_max: 0.015
+    prior_width_factor: 0.2
+    calibration_error_factor: 0.2
+    protocol_cost_proxy: 3.6
+    ltp_v_pos: 0.10
+    ltp_v_neg: -0.03
+claim_boundary: >
+  Calibrated sequential protocol validation is synthetic simulator-backed
+  evidence only. It does not validate a real device protocol.

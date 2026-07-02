@@ -1,0 +1,102 @@
+{
+  "all_finite_results": true,
+  "benchmark": "gamma_sub_tsw_calibration_workflow",
+  "best_workflow": "synthetic_probe_calibrated_T_sw",
+  "improvement_over_no_calibration": 0.7932048144178153,
+  "limitation": "Workflow evidence is synthetic response-surface evidence and estimates only gamma_sub after T_sw constraint.",
+  "manuscript_method_sentence": "A low-disturbance T_sw calibration/probe step should precede gamma_sub inversion; otherwise switching-temperature mismatch dominates the terminal response.",
+  "minimum_calibration_accuracy_needed": 0.04,
+  "note": "Synthetic numerical digital-twin calibration-before-inversion workflow; not experimental data.",
+  "oracle_relative_error": 0.027195593637182238,
+  "outputs": {
+    "cases_csv": "outputs/tables/gamma_sub_tsw_calibration_workflow_cases.csv",
+    "summary_json": "outputs/tables/gamma_sub_tsw_calibration_workflow_summary.json"
+  },
+  "rows": [
+    {
+      "T_sw_prior_width_after_calibration": 1.0,
+      "calibration_cost_proxy": 0.0,
+      "calibration_error_K": 2.0,
+      "estimated_T_sw_offset": 0.0,
+      "finite_result": true,
+      "gamma_est": 823939412.5112559,
+      "gamma_true": 450000000.0,
+      "recoverable_le_0p1": false,
+      "recoverable_le_0p2": false,
+      "relative_error": 0.8309764722472351,
+      "total_protocol_cost_proxy": 1.0,
+      "workflow": "no_calibration_direct_gamma"
+    },
+    {
+      "T_sw_prior_width_after_calibration": 0.1,
+      "calibration_cost_proxy": 0.3,
+      "calibration_error_K": 0.2,
+      "estimated_T_sw_offset": 1.8,
+      "finite_result": true,
+      "gamma_est": 517988984.0929556,
+      "gamma_true": 450000000.0,
+      "recoverable_le_0p1": false,
+      "recoverable_le_0p2": true,
+      "relative_error": 0.1510866313176791,
+      "total_protocol_cost_proxy": 1.3,
+      "workflow": "literature_prior_only"
+    },
+    {
+      "T_sw_prior_width_after_calibration": 0.02,
+      "calibration_cost_proxy": 0.8,
+      "calibration_error_K": 0.04,
+      "estimated_T_sw_offset": 1.96,
+      "finite_result": true,
+      "gamma_est": 466997246.0232389,
+      "gamma_true": 450000000.0,
+      "recoverable_le_0p1": true,
+      "recoverable_le_0p2": true,
+      "relative_error": 0.037771657829419776,
+      "total_protocol_cost_proxy": 1.8,
+      "workflow": "synthetic_probe_calibrated_T_sw"
+    },
+    {
+      "T_sw_prior_width_after_calibration": 0.045,
+      "calibration_cost_proxy": 1.2,
+      "calibration_error_K": 0.09,
+      "estimated_T_sw_offset": 1.91,
+      "finite_result": true,
+      "gamma_est": 483994492.04647785,
+      "gamma_true": 450000000.0,
+      "recoverable_le_0p1": true,
+      "recoverable_le_0p2": true,
+      "relative_error": 0.07554331565883955,
+      "total_protocol_cost_proxy": 3.8,
+      "workflow": "sequential_probe_then_gamma"
+    },
+    {
+      "T_sw_prior_width_after_calibration": 0.0,
+      "calibration_cost_proxy": 0.0,
+      "calibration_error_K": 0.0,
+      "estimated_T_sw_offset": 2.0,
+      "finite_result": true,
+      "gamma_est": 462238017.136732,
+      "gamma_true": 450000000.0,
+      "recoverable_le_0p1": true,
+      "recoverable_le_0p2": true,
+      "relative_error": 0.027195593637182238,
+      "total_protocol_cost_proxy": 1.0,
+      "workflow": "oracle_T_sw"
+    },
+    {
+      "T_sw_prior_width_after_calibration": 0.02,
+      "calibration_cost_proxy": 0.8,
+      "calibration_error_K": 0.4,
+      "estimated_T_sw_offset": 1.6,
+      "finite_result": true,
+      "gamma_est": 585977968.1859112,
+      "gamma_true": 450000000.0,
+      "recoverable_le_0p1": false,
+      "recoverable_le_0p2": false,
+      "relative_error": 0.3021732626353582,
+      "total_protocol_cost_proxy": 1.8,
+      "workflow": "wrong_calibration_control"
+    }
+  ],
+  "whether_calibration_before_inversion_improves_recovery": true
+}

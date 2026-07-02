@@ -1,0 +1,20 @@
+{
+  "all_claims_have_forbidden_overclaims": true,
+  "all_claims_have_limitations": true,
+  "benchmark": "external_anchor_claim_stress_test",
+  "claims": [
+    "Literature parameter sanity supports order-of-magnitude plausibility",
+    "Digitized curve fitting, if available, supports normalized shape plausibility only",
+    "External curves do not validate gamma_sub inversion",
+    "T_sw calibration is necessary for reliable gamma_sub recovery",
+    "Calibrated sequential protocol improves synthetic ODE-backed recovery, if supported",
+    "F-SPS remains appendix or negative evidence",
+    "All results remain synthetic numerical digital-twin benchmark"
+  ],
+  "note": "Synthetic numerical digital-twin claim guardrail; not experimental evidence.",
+  "num_claims": 7,
+  "outputs": {
+    "matrix_md": "docs\\paper\\external_anchor_claim_stress_test_matrix.md",
+    "summary_json": "outputs\\tables\\external_anchor_claim_stress_test_summary.json"
+  }
+}

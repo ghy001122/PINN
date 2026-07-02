@@ -1,0 +1,28 @@
+﻿# Provenance-backed literature curve ingestion.
+benchmark: literature_curve_ingestion
+curve_data_dir: data/literature/curves
+registry_csv: data/literature/literature_curve_ingestion_registry.csv
+summary_json: outputs/tables/literature_curve_ingestion_summary.json
+cases_csv: outputs/tables/literature_curve_ingestion_cases.csv
+notes_md: docs/literature/literature_curve_provenance_notes.md
+required_columns:
+  - source_id
+  - source_title
+  - source_year
+  - material_family
+  - curve_type
+  - x_raw
+  - y_raw
+  - x_unit
+  - y_unit
+  - provenance
+  - extraction_method
+  - figure_or_table_id
+  - notes
+optional_columns:
+  - x_normalized
+  - y_normalized
+allowed_curve_types: [R_T, sigma_T, I_V, pulse_conductance, retention]
+claim_boundary: >
+  Use only provenance-backed digitized CSV curves. If none are present, emit a
+  blocked report and do not fabricate data.

@@ -1,0 +1,9 @@
+﻿benchmark: literature_curve_fit_external_anchor_v2
+ingestion_summary_json: outputs/tables/literature_curve_ingestion_summary.json
+ingestion_cases_csv: outputs/tables/literature_curve_ingestion_cases.csv
+summary_json: outputs/tables/literature_curve_fit_external_anchor_v2_summary.json
+cases_csv: outputs/tables/literature_curve_fit_external_anchor_v2_cases.csv
+overlay_png: outputs/figures/manuscript_style_gamma_sub/literature_curve_fit_overlay.png
+claim_boundary: >
+  Literature curves are normalized external shape anchors only. They do not
+  directly validate gamma_sub inversion or the synthetic device parameters.
