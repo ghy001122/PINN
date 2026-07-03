@@ -604,3 +604,7 @@ Boundary: synthetic numerical digital-twin evidence only. Main manuscript claim 
 ## Stiffness Continuation And Phase-Field Alignment
 
 Added supplementary reviewer-defense evidence for phase-transition residual stiffness and phase-field inverse-PINN alignment. Stiffness audit: `180` finite cases, cliff ratio `11.894639315460832`. Phase-field smoke: `27` finite cases, median relative M error `0.04331110242687686`. These results support manuscript positioning only and do not change the constrained `gamma_sub` main claim.
+
+## Final Figure Literature Lock And Stiffness 2D Story
+
+Locked Drive/web/repo-local literature evidence and generated supplementary stiffness/phase-field figure manifest. Stiffness cliff ratio remains `11.894639315460832`; phase-field median M relative error remains `0.04331110242687686`. These results improve reviewer defense and story depth but do not change the main `gamma_sub` claim.

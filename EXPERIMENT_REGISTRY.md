@@ -437,15 +437,27 @@ Boundary: synthetic numerical digital-twin evidence only. Main manuscript claim 
 ## Stiffness continuation and phase-field alignment evidence
 
 - Stiffness config: `configs\phase_transition_stiffness_continuation_audit.yaml`
-- Stiffness script: `scriptsudit_phase_transition_stiffness_continuation.py`
-- Stiffness test: `tests	est_phase_transition_stiffness_continuation.py`
-- Stiffness outputs: `outputs	ables\phase_transition_stiffness_continuation_audit_summary.json`, `outputs	ables\phase_transition_stiffness_continuation_audit_cases.csv`
+- Stiffness script: `scripts/audit_phase_transition_stiffness_continuation.py`
+- Stiffness test: `tests/test_phase_transition_stiffness_continuation.py`
+- Stiffness outputs: `outputs/tables\phase_transition_stiffness_continuation_audit_summary.json`, `outputs/tables\phase_transition_stiffness_continuation_audit_cases.csv`
 - Phase-field config: `configs\phase_field_inverse_alignment_smoke.yaml`
-- Phase-field script: `scriptsudit_phase_field_inverse_alignment_smoke.py`
-- Phase-field test: `tests	est_phase_field_inverse_alignment_smoke.py`
-- Phase-field outputs: `outputs	ables\phase_field_inverse_alignment_smoke_summary.json`, `outputs	ables\phase_field_inverse_alignment_smoke_cases.csv`
+- Phase-field script: `scripts/audit_phase_field_inverse_alignment_smoke.py`
+- Phase-field test: `tests/test_phase_field_inverse_alignment_smoke.py`
+- Phase-field outputs: `outputs/tables\phase_field_inverse_alignment_smoke_summary.json`, `outputs/tables\phase_field_inverse_alignment_smoke_cases.csv`
 - Positioning docs: `docs\paper\journal_positioning_matrix.md`, `docs\paper
 ovelty_gap_map.md`, `docs\paper\sci_two_three_zone_gap_assessment.md`
 - Report: `docs\codex_reports\stiffness_continuation_phasefield_alignment_and_submission_positioning_report.md`
 
 Status: completed as supplementary synthetic numerical digital-twin reviewer-defense evidence. Not a main-text core experiment and not experimental validation.
+
+## Final figure literature lock and stiffness 2D story pack
+
+- Literature lock: `docs/literature/drive_and_web_literature_evidence_lock.md`
+- Figure builder: `scripts/build_stiffness_2d_story_figures.py`
+- Figure-builder test: `tests/test_stiffness_2d_story_figures.py`
+- Figure manifest: `outputs/tables/stiffness_2d_story_figure_manifest.json`
+- Generated ignored figures: `outputs/figures/stiffness_residual_vs_transition_width.png`, `outputs/figures/stiffness_continuation_gain_vs_width.png`, `outputs/figures/stiffness_fourier_gain_caution.png`, `outputs/figures/phase_field_m_true_vs_estimated.png`, `outputs/figures/phase_field_noise_sensitivity.png`
+- Story docs: `docs/paper/final_submission_figure_table_claim_lock_v2.md`, `docs/paper/stiffness_and_quasi_2d_storyboard.md`, `docs/manuscript/abstract_final_candidate.md`, `docs/manuscript/cover_letter_draft.md`, `docs/manuscript/submission_checklist.md`
+- Report: `docs/codex_reports/final_figure_literature_lock_and_stiffness_2d_story_report.md`
+
+Status: completed as final supplementary figure/story lock. It does not modify frozen Ground Truth and does not claim F-SPS/Fourier superiority or solved 2D inverse diagnosis.

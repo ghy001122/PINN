@@ -70,3 +70,7 @@ Recommended follow-up:
 1. Assemble the paper figures and tables from the locked evidence chain.
 2. Put stiffness-continuation and phase-field alignment in supplementary/discussion sections.
 3. Do not start full STL, F-Pyramid expansion, NeuroSPICE/NeuroPINN, or full 2D inverse training unless a specific reviewer-defense gap is identified after drafting.
+
+## Immediate Next After Final Figure Literature Lock
+
+The immediate next step is final manuscript assembly and human editing. Use the generated stiffness/phase-field/quasi-2D figures as supplementary evidence only. Do not open a new training branch unless a specific reviewer-defense gap remains after the manuscript draft is assembled.

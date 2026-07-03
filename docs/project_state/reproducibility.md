@@ -460,3 +460,20 @@ These commands regenerate:
 - `outputs	ables\phase_field_inverse_alignment_smoke_cases.csv`
 
 They do not read or modify frozen Ground Truth v1.1 and do not create experimental evidence.
+
+## Final stiffness and 2D story figure reproduction
+
+```powershell
+python scripts/build_stiffness_2d_story_figures.py
+```
+
+This regenerates:
+
+- `outputs/figures/stiffness_residual_vs_transition_width.png`
+- `outputs/figures/stiffness_continuation_gain_vs_width.png`
+- `outputs/figures/stiffness_fourier_gain_caution.png`
+- `outputs/figures/phase_field_m_true_vs_estimated.png`
+- `outputs/figures/phase_field_noise_sensitivity.png`
+- `outputs/tables/stiffness_2d_story_figure_manifest.json`
+
+The command reads existing lightweight tables only. It does not modify frozen Ground Truth v1.1 and does not run new training.

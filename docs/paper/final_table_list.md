@@ -13,3 +13,6 @@ All tables report synthetic numerical digital-twin evidence unless explicitly ma
 | Supplementary Table | Reviewer-defense matrix | `docs/manuscript/reviewer_defense_matrix.md` |
 | Supplementary Table | Quasi-2D literature-source registry and residual preflight | `outputs/tables/quasi_2d_literature_source_registry.json`; `outputs/tables/pinn_quasi_2d_residual_preflight_summary.json` |
 | Supplementary Table | F-SPS negative/small-run benchmark | `outputs/tables/f_sps_balanced_medium_budget_benchmark_summary.json` |
+
+| Supplementary Table | Stiffness and phase-field story manifest | `outputs/tables/stiffness_2d_story_figure_manifest.json` |
+| Supplementary Table | Literature evidence lock for stiffness and 2D positioning | `docs/literature/drive_and_web_literature_evidence_lock.md` |

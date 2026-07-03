@@ -13,3 +13,10 @@
 8. The stiffness-continuation audit is a residual preflight, not a full stiff-transfer-learning reproduction.
 9. The phase-field inverse smoke benchmark uses synthetic full-field anchors and does not prove sparse-port phase-field parameter recovery.
 10. Literature references are used for positioning and prior motivation only; they are not experimental validation of this repository's outputs.
+
+## Final Submission Boundary Addendum
+
+11. The new stiffness figures are supplementary residual-preflight plots, not evidence that continuation fully solves stiff PINN training.
+12. Fourier features are shown with explicit caution because the gain is not uniform across transition widths.
+13. Quasi-2D and phase-field materials are physics-consistent extension stories; they do not prove 2D sparse-port inverse diagnosis.
+14. The Drive and web literature sources support positioning only and do not validate the synthetic outputs as experiments.

@@ -141,3 +141,20 @@ Key results:
 - Phase-field smoke cases: `27`; all finite: `True`; median M relative error: `0.04331110242687686`; success rate <= 0.1: `0.8148148148148148`.
 
 Boundary: these are supplementary synthetic numerical digital-twin defense results. They do not prove F-SPS-PINN superiority, full STL-PINN reproduction, sparse-port phase-field recovery, or experimental validation.
+
+## Final Figure Literature Lock And Stiffness 2D Story Pack
+
+This pack locks Drive/web/repo-local literature evidence and builds supplementary stiffness/phase-field figures from existing lightweight tables. It also adds final submission storyboards and checklist documents. Frozen Ground Truth v1.1 remains unchanged.
+
+Key outputs:
+
+- `docs/literature/drive_and_web_literature_evidence_lock.md`
+- `scripts/build_stiffness_2d_story_figures.py`
+- `outputs/tables/stiffness_2d_story_figure_manifest.json`
+- `docs/paper/final_submission_figure_table_claim_lock_v2.md`
+- `docs/paper/stiffness_and_quasi_2d_storyboard.md`
+- `docs/manuscript/abstract_final_candidate.md`
+- `docs/manuscript/cover_letter_draft.md`
+- `docs/manuscript/submission_checklist.md`
+
+Boundary: stiffness and phase-field evidence are supplementary. The main manuscript claim remains calibration-gated constrained `gamma_sub` inversion.

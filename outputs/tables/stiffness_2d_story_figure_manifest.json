@@ -1,0 +1,90 @@
+{
+  "benchmark": "stiffness and 2D supplementary story figures",
+  "figures": [
+    {
+      "label": "synthetic / supplementary / not experimental",
+      "name": "stiffness_residual_vs_transition_width",
+      "path": "outputs/figures/stiffness_residual_vs_transition_width.png",
+      "source_tables": [
+        "outputs/tables/phase_transition_stiffness_continuation_audit_summary.json",
+        "outputs/tables/phase_transition_stiffness_continuation_audit_cases.csv"
+      ]
+    },
+    {
+      "label": "synthetic / supplementary / not experimental",
+      "name": "stiffness_continuation_gain_vs_width",
+      "path": "outputs/figures/stiffness_continuation_gain_vs_width.png",
+      "source_tables": [
+        "outputs/tables/phase_transition_stiffness_continuation_audit_summary.json",
+        "outputs/tables/phase_transition_stiffness_continuation_audit_cases.csv"
+      ]
+    },
+    {
+      "label": "synthetic / supplementary / not experimental",
+      "name": "stiffness_fourier_gain_caution",
+      "path": "outputs/figures/stiffness_fourier_gain_caution.png",
+      "source_tables": [
+        "outputs/tables/phase_transition_stiffness_continuation_audit_summary.json",
+        "outputs/tables/phase_transition_stiffness_continuation_audit_cases.csv"
+      ]
+    },
+    {
+      "label": "synthetic / supplementary / not experimental",
+      "name": "phase_field_m_true_vs_estimated",
+      "path": "outputs/figures/phase_field_m_true_vs_estimated.png",
+      "source_tables": [
+        "outputs/tables/phase_field_inverse_alignment_smoke_summary.json",
+        "outputs/tables/phase_field_inverse_alignment_smoke_cases.csv"
+      ]
+    },
+    {
+      "label": "synthetic / supplementary / not experimental",
+      "name": "phase_field_noise_sensitivity",
+      "path": "outputs/figures/phase_field_noise_sensitivity.png",
+      "source_tables": [
+        "outputs/tables/phase_field_inverse_alignment_smoke_summary.json",
+        "outputs/tables/phase_field_inverse_alignment_smoke_cases.csv"
+      ]
+    }
+  ],
+  "forbidden_claims": [
+    "experimental validation",
+    "F-SPS or Fourier superiority",
+    "continuation fully solves stiffness cliff",
+    "2D inverse diagnosis is solved",
+    "phase-field smoke is sparse-port inversion"
+  ],
+  "note": "All figures are synthetic numerical digital-twin supplementary evidence, not experimental data.",
+  "outputs": {
+    "manifest_json": "outputs/tables/stiffness_2d_story_figure_manifest.json"
+  },
+  "phase_field_key_results": {
+    "all_finite_results": true,
+    "full_field_anchor_not_sparse_port": true,
+    "median_relative_error_M": 0.04331110242687686,
+    "num_cases": 27,
+    "success_rate_le_0p1": 0.8148148148148148
+  },
+  "quasi_2d_existing_figure_references": [
+    "outputs/figures/gt_quasi_2d_phase_transition_preflight/uniform_strip_temperature_sigma_snapshot.png",
+    "outputs/figures/gt_quasi_2d_phase_transition_preflight/localized_hotspot_temperature_sigma_snapshot.png",
+    "outputs/figures/gt_quasi_2d_phase_transition_preflight/defect_seeded_filament_temperature_sigma_snapshot.png",
+    "outputs/figures/gt_quasi_2d_phase_transition_preflight/lateral_cooling_gradient_temperature_sigma_snapshot.png"
+  ],
+  "quasi_2d_key_results": {
+    "all_fields_finite": true,
+    "all_observables_finite": true,
+    "all_residuals_finite": true,
+    "num_cases": 4,
+    "whether_2d_inverse_claim_allowed": false
+  },
+  "quasi_2d_residual_summary": "outputs/tables/pinn_quasi_2d_residual_preflight_summary.json",
+  "quasi_2d_summary": "outputs/tables/gt_quasi_2d_phase_transition_preflight_summary.json",
+  "stiffness_key_results": {
+    "all_finite_results": true,
+    "fourier_gain_not_uniform": true,
+    "num_cases": 180,
+    "stiffness_cliff_ratio_sharpest_to_widest": 11.894639315460832,
+    "whether_stiffness_cliff_claim_supported": true
+  }
+}

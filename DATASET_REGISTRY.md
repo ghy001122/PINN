@@ -258,9 +258,17 @@ Boundary: synthetic numerical digital-twin evidence only. Main manuscript claim 
 
 These lightweight JSON/CSV files are synthetic numerical digital-twin supplementary evidence, not experimental data:
 
-- `outputs	ables\phase_transition_stiffness_continuation_audit_summary.json`
-- `outputs	ables\phase_transition_stiffness_continuation_audit_cases.csv`
-- `outputs	ables\phase_field_inverse_alignment_smoke_summary.json`
-- `outputs	ables\phase_field_inverse_alignment_smoke_cases.csv`
+- `outputs/tables\phase_transition_stiffness_continuation_audit_summary.json`
+- `outputs/tables\phase_transition_stiffness_continuation_audit_cases.csv`
+- `outputs/tables\phase_field_inverse_alignment_smoke_summary.json`
+- `outputs/tables\phase_field_inverse_alignment_smoke_cases.csv`
 
 No frozen Ground Truth v1.1 file was modified.
+
+## Final Figure Literature Lock And Stiffness 2D Story Evidence
+
+This lightweight manifest is synthetic numerical digital-twin supplementary evidence, not experimental data:
+
+- `outputs/tables/stiffness_2d_story_figure_manifest.json`
+
+The generated PNG files under `outputs/figures/` are reproducible and ignored by Git. No frozen Ground Truth v1.1 file was modified.

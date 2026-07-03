@@ -131,3 +131,4 @@ outputs/pinn_inverse_v1_1_smoke/*
 !outputs/tables/phase_transition_stiffness_continuation_audit_cases.csv
 !outputs/tables/phase_field_inverse_alignment_smoke_summary.json
 !outputs/tables/phase_field_inverse_alignment_smoke_cases.csv
+!outputs/tables/stiffness_2d_story_figure_manifest.json

@@ -428,3 +428,16 @@ Scope:
 Result:
 
 The stiffness audit produces `180` finite cases and supports a residual-cliff defense with sharpest/widest ratio `11.894639315460832`. The phase-field smoke benchmark produces `27` finite cases with median M relative error `0.04331110242687686`. Both are supplementary synthetic numerical evidence only.
+
+## Final figure literature lock and stiffness 2D story pack
+
+Scope:
+
+- Lock Drive/web/repo-local literature evidence for stiffness, phase-field inverse alignment, diffuse-interface/enthalpy phase-change background, VO2 phase-field motivation, compact memristor PINN, and physics-regularized surrogate framing.
+- Generate five supplementary stiffness/phase-field figures from existing lightweight JSON/CSV tables.
+- Add final submission storyboards, abstract candidate, cover letter draft, and checklist.
+- Keep frozen Ground Truth v1.1 unchanged and keep the main `gamma_sub` claim unchanged.
+
+Result:
+
+The project now has a clearer third-zone SCI submission package: main text around calibration-gated constrained `gamma_sub`, supplementary stiffness/phase-field/quasi-2D defense, and explicit second-zone risk boundaries.

@@ -351,3 +351,16 @@ Boundary: synthetic numerical digital-twin evidence only. Main manuscript claim 
 ovelty_gap_map.md`: novelty axis and remaining-gap map.
 - `docs\paper\sci_two_three_zone_gap_assessment.md`: third-zone/second-zone readiness assessment.
 - `docs\codex_reports\stiffness_continuation_phasefield_alignment_and_submission_positioning_report.md`: final task report.
+
+## Final Figure Literature Lock And Stiffness 2D Story Files
+
+- `docs/literature/drive_and_web_literature_evidence_lock.md`: literature evidence lock and claim boundary.
+- `scripts/build_stiffness_2d_story_figures.py`: builds supplementary stiffness and phase-field figures from existing tables.
+- `tests/test_stiffness_2d_story_figures.py`: manifest and generated-figure smoke test.
+- `outputs/tables/stiffness_2d_story_figure_manifest.json`: committed lightweight manifest for generated figures.
+- `docs/paper/final_submission_figure_table_claim_lock_v2.md`: final claim/figure/table lock.
+- `docs/paper/stiffness_and_quasi_2d_storyboard.md`: supplementary story routing.
+- `docs/manuscript/abstract_final_candidate.md`: bounded abstract draft.
+- `docs/manuscript/cover_letter_draft.md`: computational-method cover letter draft.
+- `docs/manuscript/submission_checklist.md`: submission guardrail checklist.
+- `docs/codex_reports/final_figure_literature_lock_and_stiffness_2d_story_report.md`: final task report.
