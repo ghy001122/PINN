@@ -312,3 +312,12 @@ No new large figure files are committed. All figure claims are restricted to syn
 - Residual preflight finite: `True`; 2D inverse claim allowed: `False`.
 
 Boundary: synthetic numerical digital-twin evidence only. Main manuscript claim remains unchanged: calibration-gated sparse-port reduced inversion of `gamma_sub` under fixed or tightly bounded `T_sw` priors.
+
+## Stiffness Continuation And Phase-Field Alignment Figures
+
+No figures were generated or committed for this lightweight supplementary pack. Evidence is stored in lightweight tables:
+
+- `outputs	ables\phase_transition_stiffness_continuation_audit_summary.json`
+- `outputs	ables\phase_transition_stiffness_continuation_audit_cases.csv`
+- `outputs	ables\phase_field_inverse_alignment_smoke_summary.json`
+- `outputs	ables\phase_field_inverse_alignment_smoke_cases.csv`

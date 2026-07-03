@@ -127,3 +127,7 @@ outputs/pinn_inverse_v1_1_smoke/*
 !outputs/tables/quasi_2d_literature_source_registry.json
 !outputs/tables/gt_quasi_2d_phase_transition_preflight_summary.json
 !outputs/tables/pinn_quasi_2d_residual_preflight_summary.json
+!outputs/tables/phase_transition_stiffness_continuation_audit_summary.json
+!outputs/tables/phase_transition_stiffness_continuation_audit_cases.csv
+!outputs/tables/phase_field_inverse_alignment_smoke_summary.json
+!outputs/tables/phase_field_inverse_alignment_smoke_cases.csv

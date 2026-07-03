@@ -1,0 +1,28 @@
+{
+  "all_finite_results": true,
+  "allowed_claims": [
+    "the project aligns with phase-field inverse PINN literature at the parameter-inversion paradigm level",
+    "the phase-field smoke benchmark is supplementary sanity evidence"
+  ],
+  "benchmark": "synthetic numerical digital-twin phase-field inverse alignment smoke",
+  "forbidden_claims": [
+    "phase-field smoke is a main-text core experiment",
+    "sparse-port current recovers phase-field mobility",
+    "experimental validation"
+  ],
+  "manuscript_sentence_for_related_work_alignment": "A small synthetic Allen-Cahn mobility inversion with full-field anchors supports related-work alignment with phase-field inverse PINN literature, while the main paper claim remains sparse-port gamma_sub target reduction.",
+  "median_relative_error_M": 0.04331110242687686,
+  "noise_sensitivity": {
+    "0.0": 0.04309131312689707,
+    "0.01": 0.03330068362918848,
+    "0.03": 0.11477521232942389
+  },
+  "note": "Synthetic numerical digital-twin phase-field inverse alignment smoke; not sparse-port current inversion and not experimental data.",
+  "num_cases": 27,
+  "outputs": {
+    "cases_csv": "outputs/tables/phase_field_inverse_alignment_smoke_cases.csv",
+    "summary_json": "outputs/tables/phase_field_inverse_alignment_smoke_summary.json"
+  },
+  "success_rate_le_0p1": 0.8148148148148148,
+  "whether_phase_field_inverse_alignment_supported": true
+}

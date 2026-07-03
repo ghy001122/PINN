@@ -1,0 +1,12 @@
+benchmark: synthetic numerical digital-twin phase-field inverse alignment smoke
+note: Supplementary Allen-Cahn inverse-parameter sanity check; not sparse-port current inversion.
+grid:
+  nx: 32
+  ny: 32
+  nt: 16
+  dt: 0.025
+M_true: [0.5, 1.0, 2.0]
+noise: [0.0, 0.01, 0.03]
+seeds: [2026, 2027, 2028]
+summary_json: outputs/tables/phase_field_inverse_alignment_smoke_summary.json
+cases_csv: outputs/tables/phase_field_inverse_alignment_smoke_cases.csv

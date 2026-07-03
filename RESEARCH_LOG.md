@@ -600,3 +600,7 @@ Claim boundary: the paper can claim calibration-gated constrained `gamma_sub` re
 - Residual preflight finite: `True`; 2D inverse claim allowed: `False`.
 
 Boundary: synthetic numerical digital-twin evidence only. Main manuscript claim remains unchanged: calibration-gated sparse-port reduced inversion of `gamma_sub` under fixed or tightly bounded `T_sw` priors.
+
+## Stiffness Continuation And Phase-Field Alignment
+
+Added supplementary reviewer-defense evidence for phase-transition residual stiffness and phase-field inverse-PINN alignment. Stiffness audit: `180` finite cases, cliff ratio `11.894639315460832`. Phase-field smoke: `27` finite cases, median relative M error `0.04331110242687686`. These results support manuscript positioning only and do not change the constrained `gamma_sub` main claim.

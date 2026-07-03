@@ -433,3 +433,19 @@ Status: completed as synthetic numerical digital-twin manuscript-defense evidenc
 - Residual preflight finite: `True`; 2D inverse claim allowed: `False`.
 
 Boundary: synthetic numerical digital-twin evidence only. Main manuscript claim remains unchanged: calibration-gated sparse-port reduced inversion of `gamma_sub` under fixed or tightly bounded `T_sw` priors.
+
+## Stiffness continuation and phase-field alignment evidence
+
+- Stiffness config: `configs\phase_transition_stiffness_continuation_audit.yaml`
+- Stiffness script: `scriptsudit_phase_transition_stiffness_continuation.py`
+- Stiffness test: `tests	est_phase_transition_stiffness_continuation.py`
+- Stiffness outputs: `outputs	ables\phase_transition_stiffness_continuation_audit_summary.json`, `outputs	ables\phase_transition_stiffness_continuation_audit_cases.csv`
+- Phase-field config: `configs\phase_field_inverse_alignment_smoke.yaml`
+- Phase-field script: `scriptsudit_phase_field_inverse_alignment_smoke.py`
+- Phase-field test: `tests	est_phase_field_inverse_alignment_smoke.py`
+- Phase-field outputs: `outputs	ables\phase_field_inverse_alignment_smoke_summary.json`, `outputs	ables\phase_field_inverse_alignment_smoke_cases.csv`
+- Positioning docs: `docs\paper\journal_positioning_matrix.md`, `docs\paper
+ovelty_gap_map.md`, `docs\paper\sci_two_three_zone_gap_assessment.md`
+- Report: `docs\codex_reports\stiffness_continuation_phasefield_alignment_and_submission_positioning_report.md`
+
+Status: completed as supplementary synthetic numerical digital-twin reviewer-defense evidence. Not a main-text core experiment and not experimental validation.

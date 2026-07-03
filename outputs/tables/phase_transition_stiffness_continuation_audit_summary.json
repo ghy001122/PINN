@@ -1,0 +1,53 @@
+{
+  "all_finite_results": true,
+  "allowed_claims": [
+    "phase-transition cliff region constitutes a PINN residual-stiffness stress test",
+    "continuation and Fourier features are stability aids in supplementary evidence"
+  ],
+  "benchmark": "synthetic numerical digital-twin phase-transition stiffness continuation audit",
+  "config": "configs/phase_transition_stiffness_continuation_audit.yaml",
+  "continuation_gain_by_width": {
+    "0.5": 1.5904571276210493,
+    "1.0": 1.568627480776724,
+    "2.0": 1.5267176767546673,
+    "3.0": 1.4869888295639653,
+    "4.0": 1.4492753201697213
+  },
+  "finite_rate_by_width": {
+    "0.5": 1.0,
+    "1.0": 1.0,
+    "2.0": 1.0,
+    "3.0": 1.0,
+    "4.0": 1.0
+  },
+  "forbidden_claims": [
+    "stiff transfer learning is fully reproduced",
+    "phase-transition stiffness is solved",
+    "F-SPS-PINN performance superiority is proven",
+    "experimental validation"
+  ],
+  "fourier_feature_gain_by_width": {
+    "0.5": 1.0576589823818656,
+    "1.0": 0.8970262191798665,
+    "2.0": 0.6772014520659121,
+    "3.0": 0.579581392810794,
+    "4.0": 0.5418687144650373
+  },
+  "manuscript_sentence_for_stiffness_defense": "A lightweight synthetic residual preflight shows that narrowing the phase-transition width increases autograd residual stress; continuation and Fourier features act as stability aids, not as the main manuscript innovation.",
+  "note": "Synthetic numerical digital-twin residual-stiffness preflight; not experimental data and not full STL-PINN reproduction.",
+  "num_cases": 180,
+  "outputs": {
+    "cases_csv": "outputs/tables/phase_transition_stiffness_continuation_audit_cases.csv",
+    "summary_json": "outputs/tables/phase_transition_stiffness_continuation_audit_summary.json"
+  },
+  "residual_median_by_width": {
+    "0.5": 0.24733241647481918,
+    "1.0": 0.071906678378582,
+    "2.0": 0.028638378717005253,
+    "3.0": 0.023035665974020958,
+    "4.0": 0.020793603733181953
+  },
+  "sharpest_width_with_finite_residuals": 0.5,
+  "stiffness_cliff_ratio_sharpest_to_widest": 11.894639315460832,
+  "whether_stiffness_cliff_claim_supported": true
+}

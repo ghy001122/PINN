@@ -60,3 +60,13 @@ Record these as future options, not current manuscript-critical work:
 The immediate next step is manuscript assembly and figure/table drafting from the locked evidence package. Do not open another large method branch unless a reviewer-specific gap appears after drafting.
 
 Keep the main claim narrow: calibration-gated sparse-port reduced inversion of `gamma_sub` under fixed or tightly bounded `T_sw` priors in a one-dimensional synthetic numerical digital-twin benchmark. Quasi-2D remains supplementary extension feasibility, not solved 2D inverse diagnosis.
+
+## Immediate Next After Stiffness And Phase-Field Alignment
+
+The immediate next step is manuscript assembly, not another method branch. Use the stiffness-continuation and phase-field smoke outputs as supplementary reviewer-defense evidence. Keep the main result on calibration-gated constrained `gamma_sub` inversion.
+
+Recommended follow-up:
+
+1. Assemble the paper figures and tables from the locked evidence chain.
+2. Put stiffness-continuation and phase-field alignment in supplementary/discussion sections.
+3. Do not start full STL, F-Pyramid expansion, NeuroSPICE/NeuroPINN, or full 2D inverse training unless a specific reviewer-defense gap is identified after drafting.

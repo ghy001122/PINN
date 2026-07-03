@@ -444,3 +444,19 @@ These commands regenerate the lightweight JSON/CSV evidence and final manuscript
 - Residual preflight finite: `True`; 2D inverse claim allowed: `False`.
 
 Boundary: synthetic numerical digital-twin evidence only. Main manuscript claim remains unchanged: calibration-gated sparse-port reduced inversion of `gamma_sub` under fixed or tightly bounded `T_sw` priors.
+
+## Stiffness continuation and phase-field alignment reproduction
+
+```powershell
+python scripts/audit_phase_transition_stiffness_continuation.py --config configs/phase_transition_stiffness_continuation_audit.yaml
+python scripts/audit_phase_field_inverse_alignment_smoke.py --config configs/phase_field_inverse_alignment_smoke.yaml
+```
+
+These commands regenerate:
+
+- `outputs	ables\phase_transition_stiffness_continuation_audit_summary.json`
+- `outputs	ables\phase_transition_stiffness_continuation_audit_cases.csv`
+- `outputs	ables\phase_field_inverse_alignment_smoke_summary.json`
+- `outputs	ables\phase_field_inverse_alignment_smoke_cases.csv`
+
+They do not read or modify frozen Ground Truth v1.1 and do not create experimental evidence.

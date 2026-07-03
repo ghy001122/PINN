@@ -130,3 +130,14 @@ Claim boundary: the paper can claim calibration-gated constrained `gamma_sub` re
 - Residual preflight finite: `True`; 2D inverse claim allowed: `False`.
 
 Boundary: synthetic numerical digital-twin evidence only. Main manuscript claim remains unchanged: calibration-gated sparse-port reduced inversion of `gamma_sub` under fixed or tightly bounded `T_sw` priors.
+
+## Stiffness Continuation And Phase-Field Alignment Pack
+
+This supplementary defense pack adds a phase-transition stiffness-continuation residual audit and a phase-field inverse alignment smoke benchmark. It does not modify frozen Ground Truth v1.1 and does not change the main claim: calibration-gated sparse-port reduced inversion of `gamma_sub` under fixed or tightly bounded priors.
+
+Key results:
+
+- Stiffness audit cases: `180`; all finite: `True`; cliff ratio sharpest/widest: `11.894639315460832`; sharpest finite width: `0.5`.
+- Phase-field smoke cases: `27`; all finite: `True`; median M relative error: `0.04331110242687686`; success rate <= 0.1: `0.8148148148148148`.
+
+Boundary: these are supplementary synthetic numerical digital-twin defense results. They do not prove F-SPS-PINN superiority, full STL-PINN reproduction, sparse-port phase-field recovery, or experimental validation.

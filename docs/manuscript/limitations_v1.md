@@ -7,3 +7,9 @@
 5. Protocol design is secondary and qualified because calibration gain dominates protocol gain.
 6. External curve fitting is blocked until provenance-backed digitized numerical curves exist.
 7. Quasi-2D is extension feasibility only; two-dimensional inverse diagnosis is not solved.
+
+## Added Supplementary Limitations
+
+8. The stiffness-continuation audit is a residual preflight, not a full stiff-transfer-learning reproduction.
+9. The phase-field inverse smoke benchmark uses synthetic full-field anchors and does not prove sparse-port phase-field parameter recovery.
+10. Literature references are used for positioning and prior motivation only; they are not experimental validation of this repository's outputs.

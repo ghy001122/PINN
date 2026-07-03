@@ -253,3 +253,14 @@ No frozen Ground Truth data were modified. No external curve points were fabrica
 - Residual preflight finite: `True`; 2D inverse claim allowed: `False`.
 
 Boundary: synthetic numerical digital-twin evidence only. Main manuscript claim remains unchanged: calibration-gated sparse-port reduced inversion of `gamma_sub` under fixed or tightly bounded `T_sw` priors.
+
+## Stiffness Continuation And Phase-Field Alignment Evidence
+
+These lightweight JSON/CSV files are synthetic numerical digital-twin supplementary evidence, not experimental data:
+
+- `outputs	ables\phase_transition_stiffness_continuation_audit_summary.json`
+- `outputs	ables\phase_transition_stiffness_continuation_audit_cases.csv`
+- `outputs	ables\phase_field_inverse_alignment_smoke_summary.json`
+- `outputs	ables\phase_field_inverse_alignment_smoke_cases.csv`
+
+No frozen Ground Truth v1.1 file was modified.

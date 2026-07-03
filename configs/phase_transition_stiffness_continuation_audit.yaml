@@ -1,0 +1,15 @@
+benchmark: synthetic numerical digital-twin phase-transition stiffness continuation audit
+note: Supplementary residual-stiffness defense only; not a full STL-PINN reproduction.
+transition_width: [4.0, 3.0, 2.0, 1.0, 0.5]
+T_sw_delta_K: [0.4, 1.0, 2.0]
+models: [vanilla_mlp, fourier_feature_mlp]
+strategies: [direct_stiff_residual, low_to_high_width_continuation]
+seeds: [2026, 2027, 2028]
+num_points: 96
+hidden_dim: 24
+hidden_layers: 2
+T_sw: 313.0
+tau_norm: 0.45
+scales: [1.0, 2.0, 4.0, 8.0]
+summary_json: outputs/tables/phase_transition_stiffness_continuation_audit_summary.json
+cases_csv: outputs/tables/phase_transition_stiffness_continuation_audit_cases.csv

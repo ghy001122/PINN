@@ -415,3 +415,16 @@ Claim boundary: the paper can claim calibration-gated constrained `gamma_sub` re
 - Residual preflight finite: `True`; 2D inverse claim allowed: `False`.
 
 Boundary: synthetic numerical digital-twin evidence only. Main manuscript claim remains unchanged: calibration-gated sparse-port reduced inversion of `gamma_sub` under fixed or tightly bounded `T_sw` priors.
+
+## Stiffness continuation and phase-field alignment pack
+
+Scope:
+
+- Add a lightweight phase-transition residual-stiffness audit over transition width, T_sw offset, model type, continuation strategy, and seed.
+- Add a lightweight Allen-Cahn phase-field mobility inverse smoke benchmark for related-work alignment.
+- Add journal-positioning, novelty-gap, and SCI two/three-zone gap documents.
+- Keep frozen Ground Truth v1.1 and all prior main results unchanged.
+
+Result:
+
+The stiffness audit produces `180` finite cases and supports a residual-cliff defense with sharpest/widest ratio `11.894639315460832`. The phase-field smoke benchmark produces `27` finite cases with median M relative error `0.04331110242687686`. Both are supplementary synthetic numerical evidence only.
