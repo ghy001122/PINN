@@ -461,3 +461,23 @@ Status: completed as supplementary synthetic numerical digital-twin reviewer-def
 - Report: `docs/codex_reports/final_figure_literature_lock_and_stiffness_2d_story_report.md`
 
 Status: completed as final supplementary figure/story lock. It does not modify frozen Ground Truth and does not claim F-SPS/Fourier superiority or solved 2D inverse diagnosis.
+
+## Claim-Gate Experimental Resolution: 2D Observability And Stiffness Algorithms
+
+- Reduced 2D forward config: `configs
+educed_2d_phase_transition_forward.yaml`
+- Reduced 2D forward script: `scriptsudit_reduced_2d_phase_transition_forward.py`
+- Reduced 2D forward test: `tests	est_reduced_2d_phase_transition_forward.py`
+- Observability config: `configs
+educed_2d_observability_limited_inverse.yaml`
+- Observability script: `scriptsudit_reduced_2d_observability_limited_inverse.py`
+- Observability test: `tests	est_reduced_2d_observability_limited_inverse.py`
+- Stiffness algorithm config: `configs\stiffness_aware_algorithm_benchmark.yaml`
+- Stiffness algorithm script: `scriptsudit_stiffness_aware_algorithm_benchmark.py`
+- Stiffness algorithm test: `tests	est_stiffness_aware_algorithm_benchmark.py`
+- Claim gate builder: `scriptsuild_claim_gate_resolution_matrix.py`
+- Claim gate test: `tests	est_claim_gate_resolution_matrix.py`
+- Claim gate matrix: `docs\paper\claim_gate_resolution_matrix.md`
+- Report: `docs\codex_reports\claim_gate_experimental_resolution_2d_observability_and_stiffness_algorithms_report.md`
+
+Status: completed as synthetic numerical digital-twin supplementary claim-gate evidence. It supports reduced 2D forward behavior, qualified low-dimensional 2D inverse under augmented observations, and stiffness-mitigation wording. It does not support terminal-only 2D inverse recovery, full 2D hidden-field recovery, full STL-PINN reproduction, or F-SPS superiority.

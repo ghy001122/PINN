@@ -608,3 +608,9 @@ Added supplementary reviewer-defense evidence for phase-transition residual stif
 ## Final Figure Literature Lock And Stiffness 2D Story
 
 Locked Drive/web/repo-local literature evidence and generated supplementary stiffness/phase-field figure manifest. Stiffness cliff ratio remains `11.894639315460832`; phase-field median M relative error remains `0.04331110242687686`. These results improve reviewer defense and story depth but do not change the main `gamma_sub` claim.
+
+## Claim-Gate Experimental Resolution Pack
+
+Date: 2026-07-03.
+
+Added reduced 2D forward, reduced 2D observability ladder, and stiffness-aware algorithm residual-proxy audits. The pack supports reduced 2D forward behavior, qualified low-dimensional 2D inverse under augmented observations, and stiffness-mitigation wording. Terminal-only 2D inverse, full 2D hidden-field recovery, full STL-PINN reproduction, F-SPS superiority, and experimental validation remain forbidden. Frozen Ground Truth v1.1 was not modified.

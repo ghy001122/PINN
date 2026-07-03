@@ -1,0 +1,32 @@
+﻿benchmark: reduced_2d_phase_transition_forward
+nx: 28
+ny: 18
+nt: 30
+dt: 0.06
+T0: 0.0
+T_sw: 1.0
+cooling: 0.08
+sigma_off: 1.0
+sigma_on: 24.0
+base_drive: 0.95
+geometries:
+  - uniform_strip
+  - localized_hotspot
+  - defect_seeded_filament
+  - lateral_cooling_gradient
+transition_width:
+  - 0.05
+  - 0.1
+  - 0.2
+lateral_coupling:
+  - 0.0
+  - 0.25
+  - 0.5
+seeds:
+  - 2026
+  - 2027
+  - 2028
+summary_json: outputs/tables/reduced_2d_phase_transition_forward_summary.json
+cases_csv: outputs/tables/reduced_2d_phase_transition_forward_cases.csv
+snapshot_figure: outputs/figures/reduced_2d_forward_snapshots.png
+port_figure: outputs/figures/reduced_2d_port_traces.png

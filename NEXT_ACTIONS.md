@@ -74,3 +74,17 @@ Recommended follow-up:
 ## Immediate Next After Final Figure Literature Lock
 
 The immediate next step is final manuscript assembly and human editing. Use the generated stiffness/phase-field/quasi-2D figures as supplementary evidence only. Do not open a new training branch unless a specific reviewer-defense gap remains after the manuscript draft is assembled.
+
+## Immediate Next After Claim-Gate Experimental Resolution
+
+Do not open another broad experiment branch before manuscript assembly. The next practical step is to integrate `docs/paper/claim_gate_resolution_matrix.md` into the manuscript and supplementary material.
+
+Use the new evidence as follows:
+
+1. Main claim remains calibration-gated constrained `gamma_sub` inversion.
+2. Supplementary claim: reduced 2D forward benchmark is finite and geometry-sensitive.
+3. Qualified supplementary claim: low-dimensional 2D inverse diagnosis is feasible under augmented sparse observations.
+4. Honest negative: terminal-only 2D inverse diagnosis fails.
+5. Stiffness claim: continuation plus scale-aware weighting and mini-STL-style transfer mitigate residual-proxy degradation; do not claim full STL-PINN reproduction.
+
+Still do not claim experimental validation, full hidden-field recovery, full FEM/device simulation, F-SPS superiority, or full STL.

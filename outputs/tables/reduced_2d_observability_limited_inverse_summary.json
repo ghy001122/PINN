@@ -1,0 +1,39 @@
+{
+  "all_finite_results": true,
+  "allowed_claim": "qualified low-dimensional 2D parameter recovery under augmented sparse observations",
+  "augmented_observation_2d_low_dim_inverse_allowed": true,
+  "benchmark": "reduced_2d_observability_limited_inverse",
+  "forbidden_overclaim": "terminal-only or full-field 2D inverse recovery is solved",
+  "full_2d_field_recovery_allowed": false,
+  "manuscript_sentence_for_2d_inverse_claim": "Low-dimensional reduced 2D inverse diagnosis is feasible only under augmented sparse observations in this synthetic benchmark; terminal-only sparse data fail and full 2D hidden-field recovery remains forbidden.",
+  "median_error_by_observation_protocol": {
+    "multi_contact_ports": 0.0,
+    "terminal_multi_pulse": 0.0,
+    "terminal_only_sparse": 0.37142857142857144,
+    "terminal_plus_one_proxy_temperature_point": 0.0,
+    "terminal_plus_two_proxy_temperature_points": 0.0
+  },
+  "minimal_observation_protocol_for_reliable_2d_low_dim_inverse": "terminal_multi_pulse",
+  "note": "Synthetic numerical digital-twin reduced 2D observability audit; not experimental data and not full-field recovery.",
+  "num_cases": 675,
+  "outputs": {
+    "cases_csv": "outputs/tables/reduced_2d_observability_limited_inverse_cases.csv",
+    "claim_gate_figure": "outputs/figures/reduced_2d_observability_claim_gate.png",
+    "summary_json": "outputs/tables/reduced_2d_observability_limited_inverse_summary.json"
+  },
+  "success_rate_by_observation_protocol": {
+    "multi_contact_ports": 0.6592592592592592,
+    "terminal_multi_pulse": 0.7851851851851852,
+    "terminal_only_sparse": 0.08888888888888889,
+    "terminal_plus_one_proxy_temperature_point": 0.7111111111111111,
+    "terminal_plus_two_proxy_temperature_points": 0.7407407407407407
+  },
+  "terminal_only_failure_confirmed": true,
+  "worst_case_by_observation_protocol": {
+    "multi_contact_ports": 0.37142857142857155,
+    "terminal_multi_pulse": 0.37142857142857155,
+    "terminal_only_sparse": 0.37142857142857144,
+    "terminal_plus_one_proxy_temperature_point": 0.37142857142857155,
+    "terminal_plus_two_proxy_temperature_points": 0.37142857142857155
+  }
+}

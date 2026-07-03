@@ -477,3 +477,22 @@ This regenerates:
 - `outputs/tables/stiffness_2d_story_figure_manifest.json`
 
 The command reads existing lightweight tables only. It does not modify frozen Ground Truth v1.1 and does not run new training.
+
+## Claim-Gate Experimental Resolution Reproduction
+
+Run:
+
+```powershell
+.\.venv\Scripts\python.exe scriptsudit_reduced_2d_phase_transition_forward.py
+.\.venv\Scripts\python.exe scriptsudit_reduced_2d_observability_limited_inverse.py
+.\.venv\Scripts\python.exe scriptsudit_stiffness_aware_algorithm_benchmark.py
+.\.venv\Scripts\python.exe scriptsuild_claim_gate_resolution_matrix.py
+```
+
+Validation:
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest tests	est_reduced_2d_phase_transition_forward.py tests	est_reduced_2d_observability_limited_inverse.py tests	est_stiffness_aware_algorithm_benchmark.py tests	est_claim_gate_resolution_matrix.py
+```
+
+Generated figures are ignored by Git; lightweight JSON/CSV tables are committed evidence.

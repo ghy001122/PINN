@@ -21,3 +21,11 @@ This phase does not revise frozen Ground Truth v1.1, does not create experimenta
 Allowed: calibration-gated sparse-port reduced inversion of `gamma_sub` in a one-dimensional synthetic numerical digital-twin benchmark under fixed or tightly bounded priors.
 
 Forbidden: real experimental validation, direct device replication, unique sparse-port full hidden-field recovery, unconditional joint identifiability, fabricated literature curves, or F-SPS-PINN superiority.
+
+## Claim-Gate Experimental Resolution Pack
+
+Current supplementary task: `claim_gate_experimental_resolution_2d_observability_and_stiffness_algorithms`.
+
+This pack adds small, reproducible synthetic numerical benchmark audits for reduced 2D forward behavior, reduced 2D observability, and stiffness-aware residual-proxy algorithms. It does not revise frozen Ground Truth v1.1 and does not change the main manuscript claim: calibration-gated sparse-port reduced inversion of `gamma_sub` under fixed or tightly bounded priors.
+
+Allowed upgrades: reduced 2D forward support, low-dimensional 2D inverse under augmented observations, and stiffness-mitigation wording. Still forbidden: terminal-only 2D inverse recovery, full 2D hidden-field recovery, full STL-PINN reproduction, and F-SPS superiority.

@@ -1,0 +1,30 @@
+﻿benchmark: stiffness_aware_algorithm_benchmark
+transition_width:
+  - 0.4
+  - 0.2
+  - 0.1
+  - 0.05
+noise:
+  - 0.0
+  - 0.02
+  - 0.05
+seeds:
+  - 2026
+  - 2027
+  - 2028
+  - 2029
+  - 2030
+protocols:
+  - ltp_ltd
+  - calibrated_short_pulse_to_ltp_ltd
+algorithms:
+  - direct_baseline
+  - transition_width_continuation
+  - scale_aware_residual_weighting
+  - continuation_plus_scale_aware
+  - mini_STL_style_transfer
+success_error_threshold: 0.2
+summary_json: outputs/tables/stiffness_aware_algorithm_benchmark_summary.json
+cases_csv: outputs/tables/stiffness_aware_algorithm_benchmark_cases.csv
+claim_gate_figure: outputs/figures/stiffness_algorithm_claim_gate.png
+error_width_figure: outputs/figures/stiffness_algorithm_error_vs_width.png

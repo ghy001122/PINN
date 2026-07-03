@@ -18,3 +18,15 @@ Allowed claims are restricted to synthetic numerical digital-twin evidence.
 | Phase-field inverse literature alignment | Supported as supplementary smoke | Allen-Cahn full-field-anchor mobility inversion; not sparse-port current | phase-field smoke is main-text core experiment |
 | Third-zone SCI computational submission | Plausible with narrow scope | synthetic benchmark and reviewer-defense evidence only | experimental or full-device validation |
 | Second-zone edge submission | Qualified and riskier | needs careful method-oriented framing | real-device or external-curve validation without data |
+
+## Claim-Gate Resolution Update
+
+All results remain synthetic numerical digital-twin benchmark evidence, not experimental data.
+
+| Claim | Updated status | Evidence | Boundary |
+| --- | --- | --- | --- |
+| Reduced 2D forward benchmark | Supported | `outputs/tables/reduced_2d_phase_transition_forward_summary.json` | Reduced thin-film synthetic benchmark, not full FEM. |
+| Terminal-only 2D inverse | Failed | `outputs/tables/reduced_2d_observability_limited_inverse_summary.json` | Use as honest negative result. |
+| Augmented low-dimensional 2D inverse | Qualified supported | `outputs/tables/reduced_2d_observability_limited_inverse_summary.json` | Low-dimensional parameters only; no full-field recovery. |
+| Stiffness-aware mitigation | Supported as residual-proxy benchmark | `outputs/tables/stiffness_aware_algorithm_benchmark_summary.json` | Not full STL-PINN reproduction. |
+| Full STL-PINN and F-SPS superiority | Forbidden | `docs/paper/claim_gate_resolution_matrix.md` | Future work unless separately demonstrated. |

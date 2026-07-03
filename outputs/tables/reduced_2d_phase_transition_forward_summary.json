@@ -1,0 +1,31 @@
+{
+  "all_fields_finite": true,
+  "all_residuals_finite": true,
+  "allowed_claim": "A reduced 2D synthetic phase-transition forward benchmark is finite and sensitive to geometry/lateral coupling, supporting supplementary extensibility discussion.",
+  "benchmark": "reduced_2d_phase_transition_forward",
+  "forbidden_overclaim": "This does not prove full 2D inverse recovery, full multiphysics FEM fidelity, or experimental validation.",
+  "geometry_effect_detected": true,
+  "geometry_effect_range": 10.454533031762768,
+  "lateral_coupling_effect_detected": true,
+  "lateral_coupling_effect_range": 0.04565722007337314,
+  "mean_final_conductance_by_geometry": {
+    "defect_seeded_filament": 6.134501093262835,
+    "lateral_cooling_gradient": 12.840834925587176,
+    "localized_hotspot": 3.7670715883015085,
+    "uniform_strip": 14.221604620064277
+  },
+  "mean_final_conductance_by_lateral_coupling": {
+    "0.0": 9.215839323429256,
+    "0.25": 9.245673303479965,
+    "0.5": 9.261496543502629
+  },
+  "note": "Synthetic numerical digital-twin reduced 2D forward benchmark; not experimental data and not full FEM.",
+  "num_cases": 108,
+  "outputs": {
+    "cases_csv": "outputs/tables/reduced_2d_phase_transition_forward_cases.csv",
+    "port_figure": "outputs/figures/reduced_2d_port_traces.png",
+    "snapshot_figure": "outputs/figures/reduced_2d_forward_snapshots.png",
+    "summary_json": "outputs/tables/reduced_2d_phase_transition_forward_summary.json"
+  },
+  "whether_reduced_2d_forward_supported": true
+}

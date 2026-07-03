@@ -364,3 +364,27 @@ ovelty_gap_map.md`: novelty axis and remaining-gap map.
 - `docs/manuscript/cover_letter_draft.md`: computational-method cover letter draft.
 - `docs/manuscript/submission_checklist.md`: submission guardrail checklist.
 - `docs/codex_reports/final_figure_literature_lock_and_stiffness_2d_story_report.md`: final task report.
+
+## Claim-Gate Experimental Resolution Files
+
+- `configs
+educed_2d_phase_transition_forward.yaml`: reduced 2D forward scan config.
+- `scriptsudit_reduced_2d_phase_transition_forward.py`: reduced thin-film phase-transition forward benchmark.
+- `tests	est_reduced_2d_phase_transition_forward.py`: smoke/schema test.
+- `configs
+educed_2d_observability_limited_inverse.yaml`: low-dimensional 2D observability config.
+- `scriptsudit_reduced_2d_observability_limited_inverse.py`: terminal-only vs augmented sparse observation inverse audit.
+- `tests	est_reduced_2d_observability_limited_inverse.py`: smoke/schema test.
+- `configs\stiffness_aware_algorithm_benchmark.yaml`: stiffness-aware algorithm benchmark config.
+- `scriptsudit_stiffness_aware_algorithm_benchmark.py`: residual-proxy comparison for direct, continuation, scale-aware, combined, and mini-STL-style strategies.
+- `tests	est_stiffness_aware_algorithm_benchmark.py`: smoke/schema test.
+- `scriptsuild_claim_gate_resolution_matrix.py`: generates `docs\paper\claim_gate_resolution_matrix.md`.
+- `tests	est_claim_gate_resolution_matrix.py`: claim matrix schema/content test.
+- `docs\paper\claim_gate_resolution_matrix.md`: supported/failed/forbidden claim matrix.
+- `outputs	ables
+educed_2d_phase_transition_forward_summary.json`, `outputs	ables
+educed_2d_phase_transition_forward_cases.csv`: reduced 2D forward evidence.
+- `outputs	ables
+educed_2d_observability_limited_inverse_summary.json`, `outputs	ables
+educed_2d_observability_limited_inverse_cases.csv`: observability ladder evidence.
+- `outputs	ables\stiffness_aware_algorithm_benchmark_summary.json`, `outputs	ables\stiffness_aware_algorithm_benchmark_cases.csv`: stiffness algorithm evidence.

@@ -441,3 +441,11 @@ Scope:
 Result:
 
 The project now has a clearer third-zone SCI submission package: main text around calibration-gated constrained `gamma_sub`, supplementary stiffness/phase-field/quasi-2D defense, and explicit second-zone risk boundaries.
+
+## Claim-Gate Experimental Resolution Pack
+
+- Added reduced 2D forward benchmark script/config/test and generated lightweight summary/cases tables.
+- Added reduced 2D observability ladder for terminal-only, multi-pulse, proxy-temperature, and multi-contact observations.
+- Added stiffness-aware algorithm residual-proxy benchmark with direct, continuation, scale-aware, combined, and mini-STL-style transfer strategies.
+- Added `docs/paper/claim_gate_resolution_matrix.md` and updated manuscript/reviewer-defense docs.
+- Frozen Ground Truth v1.1 was not modified; outputs are synthetic numerical digital-twin evidence only.

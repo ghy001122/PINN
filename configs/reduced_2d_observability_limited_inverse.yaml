@@ -1,0 +1,44 @@
+﻿benchmark: reduced_2d_observability_limited_inverse
+forward_config: configs/reduced_2d_phase_transition_forward.yaml
+nx: 24
+ny: 16
+nt: 28
+true_transition_width: 0.1
+true_lateral_coupling: 0.35
+true_amplitude: 1.05
+candidate_lateral_coupling:
+  - 0.15
+  - 0.35
+  - 0.55
+candidate_amplitude:
+  - 0.85
+  - 1.05
+  - 1.25
+noise:
+  - 0.0
+  - 0.02
+  - 0.05
+observation_count:
+  - 8
+  - 16
+  - 32
+seeds:
+  - 2026
+  - 2027
+  - 2028
+  - 2029
+  - 2030
+geometries:
+  - uniform_strip
+  - localized_hotspot
+  - defect_seeded_filament
+observation_protocols:
+  - terminal_only_sparse
+  - terminal_multi_pulse
+  - terminal_plus_one_proxy_temperature_point
+  - terminal_plus_two_proxy_temperature_points
+  - multi_contact_ports
+success_error_threshold: 0.2
+summary_json: outputs/tables/reduced_2d_observability_limited_inverse_summary.json
+cases_csv: outputs/tables/reduced_2d_observability_limited_inverse_cases.csv
+claim_gate_figure: outputs/figures/reduced_2d_observability_claim_gate.png

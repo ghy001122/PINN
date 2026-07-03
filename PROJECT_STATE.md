@@ -158,3 +158,13 @@ Key outputs:
 - `docs/manuscript/submission_checklist.md`
 
 Boundary: stiffness and phase-field evidence are supplementary. The main manuscript claim remains calibration-gated constrained `gamma_sub` inversion.
+
+## Claim-Gate Experimental Resolution Pack
+
+This pack adds reproducible supplementary claim-gate experiments without modifying frozen Ground Truth v1.1.
+
+- Reduced 2D forward benchmark: `108` cases, finite fields/residuals, geometry effect `True`, lateral-coupling effect `True`.
+- 2D observability ladder: terminal-only failure `True`, minimal reliable protocol `terminal_multi_pulse`, augmented low-dimensional inverse allowed `True`, full field recovery allowed `False`.
+- Stiffness-aware algorithm benchmark: continuation-plus-scale-aware gain `0.4890181621870298`, mini-STL-style gain `0.4334945926584622`, full STL claim allowed `False`.
+
+The main manuscript line remains constrained `gamma_sub`. These results are supplementary synthetic numerical digital-twin evidence for reviewer defense and claim boundaries.

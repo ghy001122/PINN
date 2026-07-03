@@ -17,3 +17,9 @@ The phase-field alignment smoke benchmark passes as a full-field-anchor Allen-Ca
 The stiffness and quasi-2D results increase reviewer-defense depth without changing the core contribution. The paper should present them as physics-consistent extensibility and observability-boundary evidence. The main story remains one-dimensional sparse-port calibration-gated `gamma_sub` inversion.
 
 The correct interpretation is: calibration gain dominates protocol gain; protocol gain is secondary; 2D inverse diagnosis requires additional observability; continuation helps residual stiffness in a preflight but is not a full STL-PINN result.
+
+## Discussion Addendum: Claim-Gated 2D And Stiffness Evidence
+
+The new audits convert prior narrative gaps into bounded evidence. Reduced 2D forward computability is now supported by a finite benchmark, but this does not alter the main one-dimensional `gamma_sub` claim. The observability ladder is especially important: terminal-only 2D inverse diagnosis fails, while augmented port/proxy observations support only low-dimensional parameter diagnosis. This gives the manuscript a defensible path to discuss 2D extensibility without overclaiming full-field recovery.
+
+The stiffness-aware algorithm benchmark supports the weaker statement that continuation, scale-aware weighting, and mini-STL-style transfer mitigate stiffness-induced degradation in a synthetic residual-proxy setting. It does not support full STL-PINN reproduction or F-SPS superiority.

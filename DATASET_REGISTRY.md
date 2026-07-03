@@ -272,3 +272,20 @@ This lightweight manifest is synthetic numerical digital-twin supplementary evid
 - `outputs/tables/stiffness_2d_story_figure_manifest.json`
 
 The generated PNG files under `outputs/figures/` are reproducible and ignored by Git. No frozen Ground Truth v1.1 file was modified.
+
+## Claim-Gate Experimental Resolution Evidence
+
+These lightweight JSON/CSV files are synthetic numerical digital-twin benchmark evidence, not experimental data:
+
+- `outputs	ables
+educed_2d_phase_transition_forward_summary.json`
+- `outputs	ables
+educed_2d_phase_transition_forward_cases.csv`
+- `outputs	ables
+educed_2d_observability_limited_inverse_summary.json`
+- `outputs	ables
+educed_2d_observability_limited_inverse_cases.csv`
+- `outputs	ables\stiffness_aware_algorithm_benchmark_summary.json`
+- `outputs	ables\stiffness_aware_algorithm_benchmark_cases.csv`
+
+Generated PNGs under `outputsigures\` are reproducible and ignored by Git. No frozen Ground Truth v1.1 file was modified.

@@ -1,0 +1,50 @@
+{
+  "all_finite_results": true,
+  "allowed_claim": "stiffness-aware strategies mitigate residual-proxy degradation in a supplementary synthetic benchmark",
+  "benchmark": "stiffness_aware_algorithm_benchmark",
+  "continuation_gain_over_direct": 0.29123625797704533,
+  "continuation_plus_scale_aware_gain_over_direct": 0.4890181621870298,
+  "forbidden_overclaim": "full STL-PINN reproduction, solved stiff training, or experimental validation",
+  "manuscript_sentence_for_stiffness_algorithm_claim": "In a lightweight synthetic residual-proxy benchmark, continuation plus scale-aware weighting and mini-STL-style transfer mitigate stiffness-induced degradation, but this is not a full STL-PINN reproduction.",
+  "median_error_by_algorithm": {
+    "continuation_plus_scale_aware": 0.08034842002999455,
+    "direct_baseline": 0.15724320139026882,
+    "mini_STL_style_transfer": 0.0890791238552817,
+    "scale_aware_residual_weighting": 0.11758286355716803,
+    "transition_width_continuation": 0.111448279825036
+  },
+  "mini_STL_transfer_gain_over_direct": 0.4334945926584622,
+  "note": "Synthetic numerical residual-proxy benchmark; not experimental data and not full STL-PINN reproduction.",
+  "num_cases": 600,
+  "outputs": {
+    "cases_csv": "outputs/tables/stiffness_aware_algorithm_benchmark_cases.csv",
+    "claim_gate_figure": "outputs/figures/stiffness_algorithm_claim_gate.png",
+    "error_width_figure": "outputs/figures/stiffness_algorithm_error_vs_width.png",
+    "summary_json": "outputs/tables/stiffness_aware_algorithm_benchmark_summary.json"
+  },
+  "scale_aware_gain_over_direct": 0.25222291000464975,
+  "stiffness_cliff_ratio_by_algorithm": {
+    "continuation_plus_scale_aware": 1.8154762652953267,
+    "direct_baseline": 2.0457002335309236,
+    "mini_STL_style_transfer": 1.8679645246661098,
+    "scale_aware_residual_weighting": 1.9332779695845057,
+    "transition_width_continuation": 1.9000916786529967
+  },
+  "success_rate_by_algorithm": {
+    "continuation_plus_scale_aware": 1.0,
+    "direct_baseline": 0.75,
+    "mini_STL_style_transfer": 1.0,
+    "scale_aware_residual_weighting": 0.9666666666666667,
+    "transition_width_continuation": 1.0
+  },
+  "whether_full_STL_claim_allowed": false,
+  "whether_mini_STL_style_transfer_supported": true,
+  "whether_stiffness_cliff_mitigated": true,
+  "worst_case_by_algorithm": {
+    "continuation_plus_scale_aware": 0.13974517712119552,
+    "direct_baseline": 0.2922108748415688,
+    "mini_STL_style_transfer": 0.15683820012460256,
+    "scale_aware_residual_weighting": 0.20782559606908818,
+    "transition_width_continuation": 0.19678402492576508
+  }
+}

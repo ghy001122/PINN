@@ -20,3 +20,11 @@
 12. Fourier features are shown with explicit caution because the gain is not uniform across transition widths.
 13. Quasi-2D and phase-field materials are physics-consistent extension stories; they do not prove 2D sparse-port inverse diagnosis.
 14. The Drive and web literature sources support positioning only and do not validate the synthetic outputs as experiments.
+
+## Claim-Gate Resolution Limitations
+
+15. Reduced 2D forward support is not full FEM, not experimental validation, and not full 2D inverse recovery.
+16. The 2D inverse upgrade is limited to low-dimensional parameters under augmented sparse observations; terminal-only 2D inverse diagnosis failed.
+17. Full 2D hidden-field recovery remains forbidden.
+18. The stiffness-aware benchmark is a residual-proxy audit. It supports mitigation wording only, not full STL-PINN reproduction or solved stiff training.
+19. Mini-STL-style transfer is an initialization/continuation audit and must not be described as full stiff transfer learning.
