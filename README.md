@@ -14,24 +14,41 @@ Hardware anchor: **Nb/NbOx/V2O5/Ni**.
 
 The software model is inspired by this interface-engineered oxide memristor stack, but the generated data is a synthetic benchmark. It is not measured experimental data and does not claim to reproduce every microscopic detail of a real device.
 
+## Critical Research Mode
+
+All subsequent research, Codex tasks, manuscript planning, and claim reviews must follow the global critical research mode in `AGENTS.md` and `docs/project_prompts/critical_research_mode.md`.
+
+This is a standing project style rule, not a task-specific instruction. The project should be reviewed as a skeptical SCI workflow: claims must be evidence-gated, negative results must be preserved when informative, and sophisticated-looking modules must be downgraded or removed when they do not support a method claim, result figure, ablation, reviewer defense, or limitation.
+
+The global posture is **exploration-first and claim-gated**. High-risk directions should not be prematurely abandoned when they can improve paper quality, workload, novelty, reviewer defense, or generalization. They should be converted into bounded, reproducible audits with explicit success thresholds and failure interpretations. The `forbidden` label blocks unsupported manuscript claims; it does not block controlled exploratory experiments.
+
+Use the claim statuses `supported`, `qualified_supported`, `failed_but_informative`, and `forbidden` consistently. Do not describe synthetic numerical digital-twin evidence as experimental validation.
+
 ## Current Project Phase
 
 The current active phase is documented in
-`docs/research_strategy/active_phase.md`:
-
-**literature-backed constrained gamma_sub inversion preparation**.
+`docs/research_strategy/active_phase.md` and `PROJECT_STATE.md`.
 
 The completed v0/v1/v1.1 PINN audits and identifiability audits show that
-port-only full hidden-field inversion is ill-posed. The current research route
-therefore focuses on constrained reduced inversion of `gamma_sub` under
-literature-guided priors for confounding parameters.
+port-only full hidden-field inversion is ill-posed. The constrained `gamma_sub`
+line remains the safest main manuscript path, while later claim-gate packs add
+supplementary reduced 2D observability and stiffness-aware algorithm evidence.
+
+The current repository state should therefore be interpreted through claim gates:
+
+- main line: calibration-gated constrained `gamma_sub` inversion under fixed or tightly bounded priors;
+- supplementary 2D line: reduced 2D forward and low-dimensional 2D inverse under augmented sparse observations;
+- stiffness line: stiffness-aware continuation/scale-aware and mini-STL-style synthetic benchmark evidence;
+- not yet claimable unless directly proven, but still valid as bounded exploration targets: experimental validation, sparse-port full hidden-field recovery, terminal-only 2D inverse solved, full STL-PINN reproduction, full FEM/device-grade simulation, and universal F-SPS/Fourier superiority.
 
 ## Codex Low-Token Context Workflow
 
 For non-trivial Codex work, first read:
 
-1. `CODEX_CONTEXT.md`
-2. `docs/research_strategy/active_phase.md`
+1. `AGENTS.md`
+2. `CODEX_CONTEXT.md`
+3. `docs/research_strategy/active_phase.md`
+4. `docs/project_prompts/critical_research_mode.md`
 
 Then follow `docs/research_strategy/context_loading_policy.md`. Long reports,
 reference packs, papers, and code should be loaded only when the task requires
@@ -44,6 +61,7 @@ them.
 3. PINN-based multiphysics inverse identification.
 4. Black-box MLP/LSTM and non-physics baselines.
 5. Noise robustness, ablation, and cross-voltage-protocol generalization.
+6. Claim-gated supplementary exploration of reduced 2D observability and stiffness-aware training boundaries.
 
 ## Environment
 

@@ -11,6 +11,23 @@ The most defensible paper line remains the constrained reduced `gamma_sub` inver
 The high-throughput gamma_sub pack adds dense response-surface profile likelihood, recoverability phase diagram, protocol actual-validation, weighted protocol objective, bootstrap/noise/seed robustness, and F-SPS medium-budget planning evidence. The dense profile uses IDW interpolation from the prior simulator-backed profile grid rather than thousands of new ODE solves; this is explicitly response-surface evidence.
 
 The response-surface verification and manuscript claim consolidation pack adds `configs\gamma_sub_response_surface_anchor_verification.yaml`, `scripts\audit_gamma_sub_response_surface_anchor_verification.py`, `configs\gamma_sub_sequential_protocol_design.yaml`, `scripts\audit_gamma_sub_sequential_protocol_design.py`, `configs\f_sps_balanced_medium_budget_benchmark.yaml`, `scripts\train_f_sps_balanced_medium_budget_benchmark.py`, `scripts\build_manuscript_claim_stress_test.py`, and `scripts\build_manuscript_ready_gamma_sub_figures.py`. Official outputs contain 60 anchor-verification cases with classification agreement rate `0.8833333333333333`, 8 sequential protocol candidates with `multi_pulse_to_ltp_ltd` best by response-surface gamma error, and 12 balanced F-SPS medium-budget executed cases across all four model labels and all three epoch budgets. The response-surface evidence is acceptable only with explicit qualification, sequential design remains a preflight hypothesis, and balanced F-SPS still does not support superiority over free-log-sigma or white-box Fourier baselines.
+
+## Standing Critical Research Mode
+
+All future research planning, Codex task design, Codex result review, manuscript drafting, and claim consolidation must follow Critical Research Mode. This is a standing project governance rule, not a temporary instruction for one task.
+
+Authoritative files:
+
+- `AGENTS.md`
+- `docs/project_prompts/critical_research_mode.md`
+- `docs/templates/codex_critical_preamble.md`
+
+The project must preserve a skeptical SCI-review posture. Do not inflate weak results, do not hide negative results, and do not use vague language to avoid downgrading claims. Every research conclusion should be assigned one of: `supported`, `qualified_supported`, `failed_but_informative`, or `forbidden`.
+
+The project is also exploration-first. Claim caution must not become experiment avoidance. High-risk directions remain valid exploration targets when they may improve paper quality, workload, novelty, reviewer defense, applicability, or generalization. They should be scoped as bounded, reproducible audits with explicit success thresholds, failure interpretations, allowed wording, and forbidden overclaim wording.
+
+High-risk claims remain forbidden unless direct repository evidence upgrades them through claim gates: full 2D hidden-field recovery, terminal-only 2D inverse solved, full STL-PINN reproduction, Seiler-style multi-head STL, F-SPS/Fourier superiority, full FEM/device-grade simulation, and experimental validation. This restricts manuscript claims, not controlled exploration of the underlying directions.
+
 ## Research line
 
 The only active research line is mesh-free, fully differentiable, multi-physics digital twin modeling plus PINN inverse identification for phase-change or memristive defect diagnosis and SCI paper preparation.
@@ -167,4 +184,4 @@ This pack adds reproducible supplementary claim-gate experiments without modifyi
 - 2D observability ladder: terminal-only failure `True`, minimal reliable protocol `terminal_multi_pulse`, augmented low-dimensional inverse allowed `True`, full field recovery allowed `False`.
 - Stiffness-aware algorithm benchmark: continuation-plus-scale-aware gain `0.4890181621870298`, mini-STL-style gain `0.4334945926584622`, full STL claim allowed `False`.
 
-The main manuscript line remains constrained `gamma_sub`. These results are supplementary synthetic numerical digital-twin evidence for reviewer defense and claim boundaries.
+The main manuscript line remains constrained `gamma_sub`. These results are supplementary synthetic numerical digital-twin evidence for reviewer defense and claim boundaries. They also identify follow-up exploration targets: dense/full-field 2D recovery ladders, terminal-only rescue under stronger priors, true Seiler-style multi-head STL, actual PINN stiffness training, and Fourier/F-SPS conditional superiority audits. Those topics are not positive manuscript claims yet, but they remain valid bounded exploration opportunities.
