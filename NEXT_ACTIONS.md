@@ -125,3 +125,14 @@ Use the new evidence as follows:
 5. Stiffness claim: continuation plus scale-aware weighting and mini-STL-style transfer mitigate residual-proxy degradation; do not claim full STL-PINN reproduction.
 
 Still do not claim experimental validation, full hidden-field recovery, full FEM/device simulation, F-SPS superiority, or full STL unless direct repository evidence upgrades those claim gates. Those topics may still be investigated through bounded, reproducible exploration-first audits.
+
+## Immediate Next After Integrated High-Risk Claim Ladder
+
+Use the integrated quick-profile results as supplementary claim-gate evidence, not as the main paper claim.
+
+Recommended next actions:
+
+1. Keep the main manuscript centered on calibration-gated constrained `gamma_sub` inversion.
+2. Route the 2D low-rank dense-anchor result, terminal-only failure, actual reduced stiffness training, Seiler-style transfer, and Fourier/F-SPS conditional benefit to supplementary or discussion sections.
+3. If expanding this branch, run the extended high-risk ladder profile before making stronger 2D or Fourier claims.
+4. Do not claim sparse terminal full hidden-field recovery, full STL-PINN reproduction, universal Fourier/F-SPS superiority, or experimental validation.

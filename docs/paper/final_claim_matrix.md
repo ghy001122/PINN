@@ -30,3 +30,15 @@ All results remain synthetic numerical digital-twin benchmark evidence, not expe
 | Augmented low-dimensional 2D inverse | Qualified supported | `outputs/tables/reduced_2d_observability_limited_inverse_summary.json` | Low-dimensional parameters only; no full-field recovery. |
 | Stiffness-aware mitigation | Supported as residual-proxy benchmark | `outputs/tables/stiffness_aware_algorithm_benchmark_summary.json` | Not full STL-PINN reproduction. |
 | Full STL-PINN and F-SPS superiority | Forbidden | `docs/paper/claim_gate_resolution_matrix.md` | Future work unless separately demonstrated. |
+
+## Integrated High-Risk Claim Ladder Update
+
+All statuses below are synthetic numerical digital-twin benchmark evidence.
+
+| Claim | Updated status | Evidence | Boundary |
+| --- | --- | --- | --- |
+| Low-rank 2D hidden-field recovery with augmented dense anchors | Qualified supported | `outputs/tables/high_risk_claim_ladder_summary.json`; best protocol `terminal_plus_dense_anchors_5pct` median field error `0.08653171328673807` | Protocol-limited reduced benchmark, not sparse-port full 2D recovery. |
+| Terminal-only full-field 2D rescue | Failed but informative | `outputs/tables/high_risk_claim_ladder_summary.json` | Defines observability boundary; do not claim solved terminal-only 2D inverse. |
+| Actual reduced PINN stiffness mitigation | Qualified supported | `outputs/tables/integrated_stiffness_stl_summary.json`; continuation/adaptive gain `0.4845205762225727` | Reduced autograd PINN audit only. |
+| Seiler-style multi-head STL transfer | Qualified supported | `outputs/tables/integrated_stiffness_stl_summary.json`; frozen-trunk gain `0.36685026479233396` | Seiler-style mechanics implemented; full literature reproduction still forbidden. |
+| Fourier/F-SPS universal superiority | Forbidden | `outputs/tables/fourier_fsps_conditional_superiority_summary.json` | Only conditional sharp/front-regime benefit is supported. |

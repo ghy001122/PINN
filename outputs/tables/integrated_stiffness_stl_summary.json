@@ -1,0 +1,42 @@
+{
+  "actual_stiffness_pinn_training_completed": true,
+  "all_finite_results": true,
+  "allowed_claim": "Reduced actual PINN training supports only condition-limited stiffness-mitigation wording if gains clear the gate.",
+  "benchmark": "integrated_stiffness_stl",
+  "continuation_asinh_adaptive_status": "qualified_supported",
+  "forbidden_claims": [
+    "full STL-PINN reproduction",
+    "stiff PINN training is solved generally",
+    "experimental validation"
+  ],
+  "full_stl_pinn_reproduction_status": "forbidden",
+  "gain_over_direct_by_algorithm": {
+    "Seiler_style_multi_head_STL_frozen_trunk": 0.36685026479233396,
+    "Seiler_style_multi_head_STL_unfrozen_tail": 0.360867065801938,
+    "continuation_plus_asinh": 0.6164113195598022,
+    "continuation_plus_asinh_plus_adaptive": 0.4845205762225727,
+    "direct_sharp_training": 0.0
+  },
+  "median_error_by_algorithm": {
+    "Seiler_style_multi_head_STL_frozen_trunk": 6.04443359375,
+    "Seiler_style_multi_head_STL_unfrozen_tail": 6.136213064193726,
+    "continuation_plus_asinh": 3.9682157039642334,
+    "continuation_plus_asinh_plus_adaptive": 4.673842549324036,
+    "direct_sharp_training": 9.257782459259033
+  },
+  "note": "Synthetic numerical reduced PINN autograd-residual audit; not experimental data and not a full STL-PINN reproduction.",
+  "num_cases": 20,
+  "outputs": {
+    "cases_csv": "outputs/tables/integrated_stiffness_stl_cases.csv",
+    "convergence_figure": "outputs/figures/integrated_stiffness_convergence.png",
+    "error_figure": "outputs/figures/integrated_stiffness_error_by_algorithm.png",
+    "summary_json": "outputs/tables/integrated_stiffness_stl_summary.json",
+    "transfer_figure": "outputs/figures/integrated_stl_transfer_gain.png"
+  },
+  "residuals": {
+    "R_T": "C_T dT/dt - k_x d2T/dx2 - k_y d2T/dy2 - Q_Joule + gamma_sub(T-T0)",
+    "R_m": "dm/dt - (s(T;T_sw,w)-m)/tau_m"
+  },
+  "seiler_style_multi_head_stl_status": "qualified_supported",
+  "seiler_style_multi_head_transfer_implemented": true
+}

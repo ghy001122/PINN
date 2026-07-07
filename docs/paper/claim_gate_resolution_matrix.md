@@ -23,3 +23,16 @@ All entries are synthetic numerical digital-twin benchmark evidence, not experim
 - Full 2D field recovery allowed: `False`.
 - Stiffness cliff mitigated: `True`.
 - Full STL claim allowed: `False`.
+
+## Integrated High-Risk Claim Ladder Quick Profile
+
+All entries remain synthetic numerical digital-twin benchmark evidence, not experimental data.
+
+| Claim | Status | Supporting table | Supporting figure | Allowed manuscript sentence | Forbidden overclaim | Required qualification |
+| --- | --- | --- | --- | --- | --- | --- |
+| Reduced 2D low-rank hidden-field recovery with dense anchors | qualified_supported | outputs/tables/high_risk_claim_ladder_summary.json | outputs/figures/high_risk_2d_hidden_field_ladder_error.png | Protocol-limited low-rank 2D hidden-field reconstruction is supported only with augmented dense/sensitivity observations. | Sparse terminal data uniquely recover full 2D hidden fields. | Reduced low-rank benchmark; best protocol `terminal_plus_dense_anchors_5pct`; not full-grid device recovery. |
+| Terminal-only full 2D hidden-field recovery | failed_but_informative | outputs/tables/high_risk_claim_ladder_summary.json | outputs/figures/high_risk_2d_observability_protocols.png | Terminal-only full-field rescue fails and defines an observability boundary. | Terminal-only 2D inverse is solved. | Negative result should be used as reviewer-defense boundary. |
+| Terminal-only low-dimensional 2D inverse under strong priors | qualified_supported | outputs/tables/high_risk_claim_ladder_summary.json | outputs/figures/high_risk_2d_observability_protocols.png | Multi-pulse terminal data can support low-dimensional inverse wording under strong priors. | Terminal-only full hidden-field recovery. | Low-dimensional target only. |
+| Actual reduced PINN stiffness mitigation | qualified_supported | outputs/tables/integrated_stiffness_stl_summary.json | outputs/figures/integrated_stiffness_error_by_algorithm.png; outputs/figures/integrated_stiffness_convergence.png | Continuation/asinh/adaptive residual handling mitigates stiffness-induced degradation in an actual reduced autograd PINN audit. | Stiff PINN training is solved generally. | Reduced synthetic benchmark; not experimental. |
+| Seiler-style multi-head transfer | qualified_supported | outputs/tables/integrated_stiffness_stl_summary.json | outputs/figures/integrated_stl_transfer_gain.png | A Seiler-style shared-trunk, multi-head, frozen-trunk transfer audit improves the reduced benchmark. | Full Seiler et al. STL-PINN reproduction is complete. | Reduced benchmark only; not full reproduction. |
+| Fourier/F-SPS conditional benefit | qualified_supported | outputs/tables/fourier_fsps_conditional_superiority_summary.json | outputs/figures/fourier_fsps_gain_heatmap.png; outputs/figures/fourier_fsps_failure_modes.png | Fourier/F-SPS-style choices are conditionally beneficial in sharp/front regimes. | Fourier/F-SPS is universally superior. | Residual-proxy condition sweep; no actual training superiority claim. |

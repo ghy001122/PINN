@@ -1,0 +1,50 @@
+benchmark: integrated_high_risk_claim_ladder
+nx: 24
+ny: 16
+nt: 24
+profiles:
+  quick:
+    geometry:
+      - uniform_strip
+      - localized_hotspot
+    rank:
+      - 2
+      - 4
+    transition_width:
+      - 0.2
+      - 0.05
+    noise:
+      - 0.0
+      - 0.02
+    seeds:
+      - 2026
+      - 2027
+  extended:
+    geometry:
+      - uniform_strip
+      - localized_hotspot
+      - defect_seeded_filament
+      - lateral_gradient
+    rank:
+      - 2
+      - 4
+      - 8
+    transition_width:
+      - 0.4
+      - 0.2
+      - 0.1
+      - 0.05
+    noise:
+      - 0.0
+      - 0.02
+      - 0.05
+    seeds:
+      - 2026
+      - 2027
+      - 2028
+outputs:
+  summary_json: outputs/tables/high_risk_claim_ladder_summary.json
+  cases_csv: outputs/tables/high_risk_claim_ladder_cases.csv
+  hidden_field_ladder_figure: outputs/figures/high_risk_2d_hidden_field_ladder_error.png
+  observability_protocols_figure: outputs/figures/high_risk_2d_observability_protocols.png
+  sensitivity_anchor_map_figure: outputs/figures/high_risk_2d_sensitivity_anchor_map.png

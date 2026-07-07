@@ -449,3 +449,16 @@ The project now has a clearer third-zone SCI submission package: main text aroun
 - Added stiffness-aware algorithm residual-proxy benchmark with direct, continuation, scale-aware, combined, and mini-STL-style transfer strategies.
 - Added `docs/paper/claim_gate_resolution_matrix.md` and updated manuscript/reviewer-defense docs.
 - Frozen Ground Truth v1.1 was not modified; outputs are synthetic numerical digital-twin evidence only.
+
+## Integrated high-risk claim ladder quick profile
+
+Scope:
+
+- Add a unified reduced 2D high-risk claim ladder with quick and extended profiles.
+- Add actual reduced autograd PINN stiffness training and Seiler-style shared-trunk multi-head transfer audit.
+- Add Fourier/F-SPS conditional superiority residual-proxy sweep.
+- Keep frozen Ground Truth v1.1, v0/v1/v1.1, constrained `gamma_sub`, and prior claim-gate results unchanged.
+
+Result:
+
+The official quick outputs are finite. Dense augmented anchors support only protocol-limited low-rank 2D hidden-field wording; terminal-only full-field recovery remains failed_but_informative. Actual reduced PINN training clears the stiffness-mitigation gate, and Seiler-style multi-head transfer clears the reduced benchmark transfer gate. Fourier/F-SPS-style methods are conditionally useful in sharp/front regimes, while universal superiority remains forbidden.

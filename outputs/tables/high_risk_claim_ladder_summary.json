@@ -1,0 +1,117 @@
+{
+  "2d_hidden_field_recovery_supported_level": "qualified_supported",
+  "all_finite_results": true,
+  "allowed_claim": "Reduced 2D low-rank hidden-field reconstruction is only protocol-limited and qualified under augmented observations.",
+  "benchmark": "integrated_high_risk_claim_ladder",
+  "best_augmented_protocol": "terminal_plus_dense_anchors_5pct",
+  "by_observation_protocol": {
+    "terminal_only_multi_pulse": {
+      "claim_status": "qualified_supported",
+      "finite_rate": 1.0,
+      "gain_over_baseline": 0.25829570100660054,
+      "is_actual_pinn_training": false,
+      "median_field_error": 0.8593934931554585,
+      "median_param_error": 0.1477083133835424,
+      "observability_proxy": 0.28,
+      "success_rate": 0.0,
+      "training_mode": "deterministic_low_rank_observability_audit",
+      "worst_case_error": 1.5254175420774305
+    },
+    "terminal_only_single_pulse": {
+      "claim_status": "failed_but_informative",
+      "finite_rate": 1.0,
+      "gain_over_baseline": 0.0,
+      "is_actual_pinn_training": false,
+      "median_field_error": 1.1586740083909186,
+      "median_param_error": 0.42998625865665896,
+      "observability_proxy": 0.12,
+      "success_rate": 0.0,
+      "training_mode": "deterministic_low_rank_observability_audit",
+      "worst_case_error": 1.9986955810076084
+    },
+    "terminal_plus_dense_anchors_5pct": {
+      "claim_status": "qualified_supported",
+      "finite_rate": 1.0,
+      "gain_over_baseline": 0.9253183271048714,
+      "is_actual_pinn_training": false,
+      "median_field_error": 0.08653171328673807,
+      "median_param_error": 0.04413280306958797,
+      "observability_proxy": 0.9,
+      "success_rate": 1.0,
+      "training_mode": "deterministic_low_rank_observability_audit",
+      "worst_case_error": 0.1485037717787211
+    },
+    "terminal_plus_low_rank_prior": {
+      "claim_status": "forbidden",
+      "finite_rate": 1.0,
+      "gain_over_baseline": 0.6616538007186834,
+      "is_actual_pinn_training": false,
+      "median_field_error": 0.3920329469451157,
+      "median_param_error": 0.10174554290180146,
+      "observability_proxy": 0.52,
+      "success_rate": 0.21875,
+      "training_mode": "deterministic_low_rank_observability_audit",
+      "worst_case_error": 0.6988481395904259
+    },
+    "terminal_plus_sensitivity_anchors": {
+      "claim_status": "forbidden",
+      "finite_rate": 1.0,
+      "gain_over_baseline": 0.9048953309063477,
+      "is_actual_pinn_training": false,
+      "median_field_error": 0.1101953081554341,
+      "median_param_error": 0.05299606110594128,
+      "observability_proxy": 0.82,
+      "success_rate": 0.625,
+      "training_mode": "deterministic_low_rank_observability_audit",
+      "worst_case_error": 0.18920900701406201
+    },
+    "terminal_plus_sparse_anchors_1pct": {
+      "claim_status": "forbidden",
+      "finite_rate": 1.0,
+      "gain_over_baseline": 0.7350655646676827,
+      "is_actual_pinn_training": false,
+      "median_field_error": 0.3069726441472807,
+      "median_param_error": 0.07949409165891191,
+      "observability_proxy": 0.64,
+      "success_rate": 0.375,
+      "training_mode": "deterministic_low_rank_observability_audit",
+      "worst_case_error": 0.5270822338248871
+    },
+    "terminal_plus_sparse_anchors_2pct": {
+      "claim_status": "forbidden",
+      "finite_rate": 1.0,
+      "gain_over_baseline": 0.8233770431117884,
+      "is_actual_pinn_training": false,
+      "median_field_error": 0.20464842943152045,
+      "median_param_error": 0.06359527332712954,
+      "observability_proxy": 0.74,
+      "success_rate": 0.5,
+      "training_mode": "deterministic_low_rank_observability_audit",
+      "worst_case_error": 0.351388155883258
+    }
+  },
+  "extended_profile_configured_only": true,
+  "failed_but_informative_claims": [
+    "terminal-only full 2D hidden-field recovery fails this observability ladder"
+  ],
+  "forbidden_claims": [
+    "sparse terminal data uniquely recover full 2D hidden fields",
+    "full-grid 2D inverse recovery is solved"
+  ],
+  "low_rank_equations": {
+    "T": "T(x,y,t)=T0+sum_r a_r(t) phi_r(x,y)",
+    "m": "m(x,y,t)=sum_r b_r(t) psi_r(x,y)"
+  },
+  "note": "Synthetic numerical digital-twin high-risk claim ladder; not experimental data and not full 2D recovery.",
+  "num_cases": 224,
+  "outputs": {
+    "cases_csv": "outputs/tables/high_risk_claim_ladder_cases.csv",
+    "hidden_field_ladder_figure": "outputs/figures/high_risk_2d_hidden_field_ladder_error.png",
+    "observability_protocols_figure": "outputs/figures/high_risk_2d_observability_protocols.png",
+    "sensitivity_anchor_map_figure": "outputs/figures/high_risk_2d_sensitivity_anchor_map.png",
+    "summary_json": "outputs/tables/high_risk_claim_ladder_summary.json"
+  },
+  "profile": "quick",
+  "terminal_only_full_field_status": "failed_but_informative",
+  "terminal_only_low_dimensional_status": "qualified_supported"
+}

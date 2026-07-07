@@ -1,0 +1,46 @@
+{
+  "all_finite_results": true,
+  "allowed_claim": "Fourier/F-SPS-style features are conditionally beneficial only in sharp/front regimes if the gain gate is met.",
+  "benchmark": "fourier_fsps_conditional_superiority",
+  "best_sharp_method": "fourier_plus_continuation_asinh",
+  "conditional_benefit_status": "qualified_supported",
+  "forbidden_claims": [
+    "universal F-SPS/Fourier superiority",
+    "actual PINN training superiority from this proxy",
+    "experimental validation"
+  ],
+  "is_actual_pinn_training": false,
+  "median_error_by_method": {
+    "f_sps_sampling": 0.1971009228974941,
+    "fourier_features": 0.218529997018227,
+    "fourier_plus_adaptive_collocation": 0.19185511972621258,
+    "fourier_plus_continuation_asinh": 0.1840504868363696,
+    "multiscale_fourier_features": 0.2029906926504647,
+    "vanilla_mlp": 0.23066643247379218
+  },
+  "note": "Synthetic numerical residual-proxy benchmark; not experimental data and not actual training evidence.",
+  "num_cases": 96,
+  "outputs": {
+    "cases_csv": "outputs/tables/fourier_fsps_conditional_superiority_cases.csv",
+    "failure_modes_figure": "outputs/figures/fourier_fsps_failure_modes.png",
+    "gain_heatmap": "outputs/figures/fourier_fsps_gain_heatmap.png",
+    "summary_json": "outputs/tables/fourier_fsps_conditional_superiority_summary.json"
+  },
+  "sharp_regime_gain_over_vanilla": {
+    "f_sps_sampling": 0.2552,
+    "fourier_features": 0.12000000000000001,
+    "fourier_plus_adaptive_collocation": 0.29440000000000005,
+    "fourier_plus_continuation_asinh": 0.33703,
+    "multiscale_fourier_features": 0.19999999999999996,
+    "vanilla_mlp": 0.0
+  },
+  "smooth_regime_max_degradation": {
+    "f_sps_sampling": 0.020000000000000018,
+    "fourier_features": 0.030000000000000027,
+    "fourier_plus_adaptive_collocation": 0.0,
+    "fourier_plus_continuation_asinh": 0.0,
+    "multiscale_fourier_features": 0.0,
+    "vanilla_mlp": 0.0
+  },
+  "universal_superiority_status": "forbidden"
+}

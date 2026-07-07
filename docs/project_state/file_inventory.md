@@ -388,3 +388,14 @@ educed_2d_phase_transition_forward_cases.csv`: reduced 2D forward evidence.
 educed_2d_observability_limited_inverse_summary.json`, `outputs	ables
 educed_2d_observability_limited_inverse_cases.csv`: observability ladder evidence.
 - `outputs	ables\stiffness_aware_algorithm_benchmark_summary.json`, `outputs	ables\stiffness_aware_algorithm_benchmark_cases.csv`: stiffness algorithm evidence.
+
+## Integrated high-risk claim ladder files
+
+- `configs/high_risk_claim_ladder.yaml`: quick and extended profile definition for the high-risk claim ladder.
+- `src/pinnpcm/experiments/__init__.py`: experiment utility package marker.
+- `src/pinnpcm/experiments/high_risk_claim_ladder.py`: case generation, reduced low-rank field representation, observation protocols, metrics, claim gates, tables, and figures.
+- `scripts/audit_high_risk_claim_ladder.py`: CLI for quick/extended high-risk ladder profiles.
+- `scripts/audit_integrated_stiffness_stl.py`: actual reduced autograd PINN stiffness and Seiler-style multi-head transfer audit.
+- `scripts/audit_fourier_fsps_conditional_superiority.py`: residual-proxy Fourier/F-SPS conditional benefit audit.
+- `tests/test_high_risk_claim_ladder.py`, `tests/test_integrated_stiffness_stl.py`, `tests/test_fourier_fsps_conditional_superiority.py`: smoke/schema/finite-output tests.
+- `docs/codex_reports/integrated_high_risk_claim_ladder_report.md`: final task report.

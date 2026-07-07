@@ -139,3 +139,9 @@ outputs/pinn_inverse_v1_1_smoke/*
 !outputs/tables/reduced_2d_observability_limited_inverse_cases.csv
 !outputs/tables/stiffness_aware_algorithm_benchmark_summary.json
 !outputs/tables/stiffness_aware_algorithm_benchmark_cases.csv
+!outputs/tables/high_risk_claim_ladder_summary.json
+!outputs/tables/high_risk_claim_ladder_cases.csv
+!outputs/tables/integrated_stiffness_stl_summary.json
+!outputs/tables/integrated_stiffness_stl_cases.csv
+!outputs/tables/fourier_fsps_conditional_superiority_summary.json
+!outputs/tables/fourier_fsps_conditional_superiority_cases.csv

@@ -289,3 +289,16 @@ educed_2d_observability_limited_inverse_cases.csv`
 - `outputs	ables\stiffness_aware_algorithm_benchmark_cases.csv`
 
 Generated PNGs under `outputsigures\` are reproducible and ignored by Git. No frozen Ground Truth v1.1 file was modified.
+
+## Integrated high-risk claim ladder quick-profile evidence
+
+These lightweight tables are synthetic numerical digital-twin benchmark evidence, not experimental data. Generated figures remain ignored by Git.
+
+- `outputs/tables/high_risk_claim_ladder_summary.json`
+- `outputs/tables/high_risk_claim_ladder_cases.csv`
+- `outputs/tables/integrated_stiffness_stl_summary.json`
+- `outputs/tables/integrated_stiffness_stl_cases.csv`
+- `outputs/tables/fourier_fsps_conditional_superiority_summary.json`
+- `outputs/tables/fourier_fsps_conditional_superiority_cases.csv`
+
+Frozen Ground Truth v1.1 files were not modified.

@@ -185,3 +185,15 @@ This pack adds reproducible supplementary claim-gate experiments without modifyi
 - Stiffness-aware algorithm benchmark: continuation-plus-scale-aware gain `0.4890181621870298`, mini-STL-style gain `0.4334945926584622`, full STL claim allowed `False`.
 
 The main manuscript line remains constrained `gamma_sub`. These results are supplementary synthetic numerical digital-twin evidence for reviewer defense and claim boundaries. They also identify follow-up exploration targets: dense/full-field 2D recovery ladders, terminal-only rescue under stronger priors, true Seiler-style multi-head STL, actual PINN stiffness training, and Fourier/F-SPS conditional superiority audits. Those topics are not positive manuscript claims yet, but they remain valid bounded exploration opportunities.
+
+## Integrated high-risk claim ladder quick profile pack
+
+This pack was added after governance commit `461909d483c718747b25858852179493e70a40f7` as bounded exploration-first, claim-gated evidence. It does not modify frozen Ground Truth v1.1 and does not change the main manuscript line: calibration-gated constrained `gamma_sub` inversion remains the safest paper core.
+
+Key results:
+
+- High-risk 2D ladder: `224` quick-profile cases; all finite; best augmented protocol `terminal_plus_dense_anchors_5pct`; low-rank hidden-field status `qualified_supported`; terminal-only full-field status `failed_but_informative`; terminal-only low-dimensional status `qualified_supported`.
+- Actual stiffness/STL audit: `20` small autograd PINN cases; actual training completed `True`; Seiler-style multi-head transfer implemented `True`; continuation/adaptive and Seiler-style statuses `qualified_supported` / `qualified_supported`.
+- Fourier/F-SPS condition sweep: `96` residual-proxy cases; best sharp method `fourier_plus_continuation_asinh`; conditional status `qualified_supported`; universal superiority status `forbidden`.
+
+Claim boundary: these results strengthen supplementary workload, novelty, and reviewer-defense breadth. They do not prove experimental validation, full 2D field recovery from sparse terminal data, full STL-PINN reproduction, or universal F-SPS/Fourier superiority.

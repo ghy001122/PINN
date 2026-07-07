@@ -481,3 +481,17 @@ educed_2d_observability_limited_inverse.yaml`
 - Report: `docs\codex_reports\claim_gate_experimental_resolution_2d_observability_and_stiffness_algorithms_report.md`
 
 Status: completed as synthetic numerical digital-twin supplementary claim-gate evidence. It supports reduced 2D forward behavior, qualified low-dimensional 2D inverse under augmented observations, and stiffness-mitigation wording. It does not support terminal-only 2D inverse recovery, full 2D hidden-field recovery, full STL-PINN reproduction, or F-SPS superiority.
+
+## Integrated high-risk claim ladder quick profile
+
+- Config: `configs/high_risk_claim_ladder.yaml`
+- Unified module: `src/pinnpcm/experiments/high_risk_claim_ladder.py`
+- High-risk ladder runner: `scripts/audit_high_risk_claim_ladder.py`
+- Actual stiffness/STL runner: `scripts/audit_integrated_stiffness_stl.py`
+- Fourier/F-SPS conditional runner: `scripts/audit_fourier_fsps_conditional_superiority.py`
+- Tests: `tests/test_high_risk_claim_ladder.py`, `tests/test_integrated_stiffness_stl.py`, `tests/test_fourier_fsps_conditional_superiority.py`
+- Tables: `outputs/tables/high_risk_claim_ladder_summary.json`, `outputs/tables/high_risk_claim_ladder_cases.csv`, `outputs/tables/integrated_stiffness_stl_summary.json`, `outputs/tables/integrated_stiffness_stl_cases.csv`, `outputs/tables/fourier_fsps_conditional_superiority_summary.json`, `outputs/tables/fourier_fsps_conditional_superiority_cases.csv`
+- Figures: `outputs/figures/high_risk_2d_hidden_field_ladder_error.png`, `outputs/figures/high_risk_2d_observability_protocols.png`, `outputs/figures/high_risk_2d_sensitivity_anchor_map.png`, `outputs/figures/integrated_stiffness_error_by_algorithm.png`, `outputs/figures/integrated_stiffness_convergence.png`, `outputs/figures/integrated_stl_transfer_gain.png`, `outputs/figures/fourier_fsps_gain_heatmap.png`, `outputs/figures/fourier_fsps_failure_modes.png`
+- Report: `docs/codex_reports/integrated_high_risk_claim_ladder_report.md`
+
+Status: completed as bounded synthetic numerical claim-gate exploration. It upgrades only protocol-limited or condition-limited supplementary claims and preserves forbidden overclaims for terminal-only full 2D recovery, full STL-PINN reproduction, and universal Fourier/F-SPS superiority.
