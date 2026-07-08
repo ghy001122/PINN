@@ -1,0 +1,34 @@
+{
+  "all_finite_results": true,
+  "benchmark": "stiffness_gated_fourier_fsps_v3",
+  "chi_c": 2.0,
+  "forbidden_claims": [
+    "universal F-SPS/Fourier superiority",
+    "experimental validation",
+    "full inverse recovery"
+  ],
+  "is_actual_pinn_training": true,
+  "note": "Synthetic numerical actual-training benchmark; not experimental data and not universal superiority evidence.",
+  "num_cases": 96,
+  "outputs": {
+    "cases_csv": "outputs/tables/stiffness_gated_fourier_fsps_cases.csv",
+    "gain_figure": "outputs/figures/stiffness_gated_gain_vs_chi.png",
+    "summary_json": "outputs/tables/stiffness_gated_fourier_fsps_summary.json"
+  },
+  "sharp_gain_by_method": {
+    "f_sps_sampling": 0.1408821871898222,
+    "fourier_plus_continuation_asinh": -0.017582437533735073,
+    "stiffness_gated_hybrid": 0.17299439024092061,
+    "vanilla_mlp": 0.0
+  },
+  "smooth_degradation_by_method": {
+    "f_sps_sampling": 0.34896849156480036,
+    "fourier_plus_continuation_asinh": 0.23601521572147366,
+    "stiffness_gated_hybrid": 0.0,
+    "vanilla_mlp": 0.0
+  },
+  "smooth_negative_control_cleared": true,
+  "stiffness_gated_hybrid_status": "qualified_supported",
+  "stiffness_indicator": "chi=max(s*(1-s)/w)=0.25/w",
+  "universal_superiority_status": "forbidden"
+}

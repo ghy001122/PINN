@@ -1,4 +1,4 @@
-# Claim-Gate Resolution Matrix
+﻿# Claim-Gate Resolution Matrix
 
 All entries are synthetic numerical digital-twin benchmark evidence, not experimental data.
 
@@ -50,3 +50,14 @@ All entries remain synthetic numerical digital-twin benchmark evidence, not expe
 | Seiler-style multi-head STL expanded audit | failed_but_informative | outputs/tables/integrated_stiffness_stl_summary.json | outputs/figures/integrated_stl_transfer_gain.png | Shared-trunk multi-head transfer was implemented, but the expanded 90-case quick profile did not clear the gain gate. | Full STL-PINN reproduction is complete. | Use as negative/boundary evidence unless future full reproduction succeeds. |
 | Actual Fourier/F-SPS conditional benefit | failed_but_informative | outputs/tables/fourier_fsps_actual_training_summary.json | outputs/figures/fourier_fsps_actual_gain_heatmap.png | Actual training shows sharp-regime gains for `f_sps_sampling` but smooth-regime degradation prevents a positive conditional-benefit claim in this run. | Fourier/F-SPS is universally superior. | Actual small training benchmark; not performance proof. |
 | Fourier/F-SPS universal superiority | forbidden | outputs/tables/fourier_fsps_actual_training_summary.json | outputs/figures/fourier_fsps_actual_gain_heatmap.png | Universal superiority remains unsupported. | F-SPS/Fourier generally improves all regimes. | Requires cross-regime improvement without smooth degradation. |
+## Port-Physical 2D Inverse And Stiffness-Gated Training v3
+
+All entries remain synthetic numerical digital-twin benchmark evidence, not experimental data. This section supersedes any interpretation that phase-mean terminal proxies or residual-proxy multipliers prove hidden-field recovery or method superiority.
+
+| Claim | Status | Supporting table | Supporting figure | Allowed manuscript sentence | Forbidden overclaim | Required qualification |
+| --- | --- | --- | --- | --- | --- | --- |
+| Port-physical 2D inverse improves hidden-field recovery | forbidden | outputs/tables/port_physical_2d_inverse_summary.json | outputs/figures/port_physical_2d_inverse_error_by_protocol.png | A physically defined sheet-conductance observation was tested, but it did not improve over the v2 actual low-rank inverse. | Port-physical observations solve 2D hidden-field recovery. | Uses white-box sigma and port G, but field recovery remains below the gate. |
+| POD/SVD basis improves 2D inverse | failed_but_informative | outputs/tables/port_physical_2d_inverse_summary.json | outputs/figures/port_physical_2d_inverse_error_by_protocol.png | In this quick profile, the analytic basis outperformed the POD basis, so POD is not yet a positive claim. | Learned POD basis guarantees field recovery. | POD was ensemble-derived and synthetic. |
+| Fisher anchor placement improves 2D inverse | failed_but_informative | outputs/tables/port_physical_2d_inverse_summary.json | outputs/figures/port_physical_2d_anchor_placement_comparison.png | Fisher-style anchors were tested but did not clear the recovery gate. | Fisher anchors make sparse 2D recovery solved. | Anchor placement remains an optimization target. |
+| Stiffness-gated Fourier/F-SPS hybrid | qualified_supported | outputs/tables/stiffness_gated_fourier_fsps_summary.json | outputs/figures/stiffness_gated_gain_vs_chi.png | A stiffness-indicator gate reduced smooth-regime degradation while preserving sharp/front gain in this small actual-training audit. | F-SPS/Fourier is universally superior. | Reduced synthetic quick profile; no experimental or universal claim. |
+| STL repair audit | failed_but_informative | outputs/tables/integrated_stiffness_stl_summary.json | outputs/figures/integrated_stl_transfer_gain.png | Matched-budget STL repair was implemented but did not clear the gain/success gate. | Full STL-PINN reproduction is complete. | Use as negative evidence and repair target. |

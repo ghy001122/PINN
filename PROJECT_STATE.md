@@ -1,4 +1,4 @@
-# Project state
+﻿# Project state
 
 ## Current phase
 
@@ -209,3 +209,17 @@ Key results:
 - Actual Fourier/F-SPS training: `80` cases; all finite; actual training flag `True`; best sharp method `f_sps_sampling` has sharp gain `0.4391566795808073` but smooth degradation `0.8471974813135894`, so conditional benefit status is `failed_but_informative` and universal superiority remains `forbidden`.
 
 Claim boundary: actualized evidence strengthens reviewer defense by downgrading unsupported proxy conclusions. It improves scientific credibility, but it does not create experimental validation, full 2D recovery, full STL-PINN reproduction, or F-SPS/Fourier superiority.
+## Port-Physical 2D Inverse And Stiffness-Gated Training v3 Pack
+
+This pack adds port-physical reduced 2D inverse evidence, stiffness-gated Fourier/F-SPS actual-training evidence, and a matched-budget STL repair audit. All outputs remain synthetic numerical digital-twin benchmark evidence, not experimental data.
+
+Key results:
+
+- Port-physical 2D inverse: `320` finite cases, `uses_port_physical_observation = true`, `uses_phase_mean_as_terminal_observation = false`.
+- Port-physical best protocol is `port_only`, but median field error is `0.7692662179470062`, worse than the v2 actual low-rank inverse reference `0.544268189851365`; field recovery remains `forbidden`.
+- Analytic basis outperforms POD in this quick profile; POD is `failed_but_informative`, not a positive basis-learning claim.
+- Fisher anchors do not clear the recovery gate; anchor placement remains an optimization target.
+- Stiffness-gated hybrid: `96` finite actual-training cases, sharp/front gain `0.17299439024092061`, smooth degradation `0.0`, status `qualified_supported` as condition-limited method-development evidence.
+- STL repair: integrated stiffness/STL audit expanded to `162` cases; best repair is `STL_repair_head_only` with gain `-0.14315251294108938`, status `failed_but_informative`.
+
+Claim boundary: this improves physical realism and reviewer defense, but does not change the main manuscript line. Full 2D hidden-field recovery, full STL-PINN reproduction, universal Fourier/F-SPS superiority, and experimental validation remain forbidden.

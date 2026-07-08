@@ -1,4 +1,4 @@
-# Next actions
+﻿# Next actions
 
 ## Standing critical research protocol
 
@@ -154,3 +154,13 @@ Potential next bounded improvements:
 - test a learned low-rank basis from a synthetic training ensemble;
 - improve STL with matched-budget pretraining and explicit trunk/tail ablation;
 - test Fourier/F-SPS only on a predeclared sharp-front subset, while keeping smooth-regime degradation explicit.
+## Immediate Next After Port-Physical 2D Inverse And Stiffness-Gated Training v3
+
+The next high-feasibility research step is not to claim 2D recovery. The evidence says port-physical conductance alone is still under-observed for fields. Practical next steps:
+
+- For 2D inverse: improve observability before increasing model complexity, e.g. independent sparse temperature/state probes, better POD ensemble design, and predeclared sensor placement optimization.
+- For stiffness/F-SPS: keep the stiffness-gated hybrid as a candidate method-development result and run a larger matched-budget ablation only if it remains CPU-feasible.
+- For STL: treat matched-budget STL repair as failed_but_informative; attempt full STL only with clearer transfer targets, stronger representation diagnostics, and a literature-faithful schedule.
+- For the manuscript: keep constrained `gamma_sub` as the main claim and use v3 results as supplementary reviewer-defense evidence.
+
+Do not claim experimental validation, full sparse-port hidden-field recovery, universal Fourier/F-SPS superiority, or full STL-PINN reproduction.

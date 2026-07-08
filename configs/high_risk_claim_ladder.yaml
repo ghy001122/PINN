@@ -1,7 +1,8 @@
-benchmark: integrated_high_risk_claim_ladder
+﻿benchmark: integrated_high_risk_claim_ladder
 nx: 24
 ny: 16
 nt: 24
+port_physical_2d_steps: 8
 profiles:
   quick:
     geometry:
@@ -52,3 +53,8 @@ actual_inverse_outputs:
   summary_json: outputs/tables/high_risk_claim_ladder_actual_inverse_summary.json
   cases_csv: outputs/tables/high_risk_claim_ladder_actual_inverse_cases.csv
   error_by_protocol_figure: outputs/figures/high_risk_actual_inverse_error_by_protocol.png
+port_physical_2d_outputs:
+  summary_json: outputs/tables/port_physical_2d_inverse_summary.json
+  cases_csv: outputs/tables/port_physical_2d_inverse_cases.csv
+  error_by_protocol_figure: outputs/figures/port_physical_2d_inverse_error_by_protocol.png
+  anchor_placement_figure: outputs/figures/port_physical_2d_anchor_placement_comparison.png

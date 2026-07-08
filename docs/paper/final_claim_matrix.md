@@ -1,4 +1,4 @@
-# Final Claim Matrix
+﻿# Final Claim Matrix
 
 Allowed claims are restricted to synthetic numerical digital-twin evidence.
 
@@ -54,3 +54,14 @@ All statuses below are synthetic numerical digital-twin benchmark evidence.
 | Actual stiffness continuation | qualified_supported | `outputs/tables/integrated_stiffness_stl_summary.json`; adaptive gain `0.37795297711408815` | Reduced actual-training audit only. |
 | Seiler-style multi-head STL | failed_but_informative | `outputs/tables/integrated_stiffness_stl_summary.json`; frozen-trunk gain `-0.12675208187398518` | Implemented but not positive in expanded grid; full reproduction forbidden. |
 | Actual Fourier/F-SPS conditional benefit | failed_but_informative | `outputs/tables/fourier_fsps_actual_training_summary.json`; best sharp method `f_sps_sampling` sharp gain `0.4391566795808073`, smooth degradation `0.8471974813135894` | Sharp gain is offset by smooth degradation; universal superiority forbidden. |
+## Port-Physical 2D Inverse And Stiffness-Gated Training v3 Update
+
+All statuses below are synthetic numerical digital-twin benchmark evidence.
+
+| Claim | Updated status | Evidence | Boundary |
+| --- | --- | --- | --- |
+| Port-physical 2D field inverse | forbidden | `outputs/tables/port_physical_2d_inverse_summary.json`; best protocol `port_only` median field error `0.7692662179470062`; v2 reference `0.544268189851365` | White-box port conductance is more physical than phase-mean proxy, but it does not recover full fields. |
+| POD/SVD basis | failed_but_informative | Analytic median field error `0.5118682682514191`; POD median field error `1.1138866245746613` | POD did not help in the quick profile; basis learning needs better ensemble design. |
+| Fisher anchors | failed_but_informative | Fisher median field error `0.7785263955593109`; sensitivity median field error `0.7783682346343994` | Fisher-style anchors are not yet a positive observability claim. |
+| Stiffness-gated hybrid | qualified_supported | `outputs/tables/stiffness_gated_fourier_fsps_summary.json`; sharp gain `0.17299439024092061`; smooth degradation `0.0` | Condition-limited method-development evidence only; universal superiority remains forbidden. |
+| STL repair | failed_but_informative | `outputs/tables/integrated_stiffness_stl_summary.json`; best repair `STL_repair_head_only`; gain `-0.14315251294108938` | Repair did not turn STL into a positive claim; full STL-PINN reproduction remains forbidden. |

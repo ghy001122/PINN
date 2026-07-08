@@ -1,4 +1,4 @@
-# Dataset registry
+﻿# Dataset registry
 
 ## Response-surface verification and manuscript claim consolidation evidence
 
@@ -315,3 +315,15 @@ These lightweight tables are synthetic numerical digital-twin benchmark evidence
 - Updated: `outputs/tables/integrated_stiffness_stl_cases.csv`
 
 Frozen Ground Truth v1.1 files were not modified.
+## Port-Physical 2D Inverse And Stiffness-Gated Training v3 Evidence
+
+These lightweight tables are synthetic numerical digital-twin benchmark evidence, not experimental data:
+
+- `outputs/tables/port_physical_2d_inverse_summary.json`
+- `outputs/tables/port_physical_2d_inverse_cases.csv`
+- `outputs/tables/stiffness_gated_fourier_fsps_summary.json`
+- `outputs/tables/stiffness_gated_fourier_fsps_cases.csv`
+- Updated: `outputs/tables/integrated_stiffness_stl_summary.json`
+- Updated: `outputs/tables/integrated_stiffness_stl_cases.csv`
+
+No frozen Ground Truth v1.1 files were modified.

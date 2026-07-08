@@ -1,4 +1,4 @@
-# File inventory
+﻿# File inventory
 
 ## Response-surface verification and manuscript claim consolidation files
 
@@ -407,3 +407,11 @@ educed_2d_observability_limited_inverse_cases.csv`: observability ladder evidenc
 - `scripts/audit_integrated_stiffness_stl.py`: expanded actual stiffness/STL grid with gradient spike, residual imbalance, and convergence proxy metrics.
 - `scripts/audit_fourier_fsps_conditional_superiority.py`: actual autograd training comparison for Fourier/F-SPS variants.
 - `docs/codex_reports/actualize_high_risk_claim_ladder_v2_report.md`: final task report.
+## Port-Physical 2D Inverse And Stiffness-Gated Training v3 Files
+
+- `src/pinnpcm/experiments/port_physical_2d_inverse.py`: port-physical low-rank T/m inverse with white-box sheet-conductance observation, POD/analytic basis comparison, Fisher/sensitivity/random/dense anchors, and physics regularization terms.
+- `scripts/audit_port_physical_2d_inverse.py`: CLI runner for the v3 port-physical 2D inverse audit.
+- `scripts/audit_stiffness_gated_fourier_fsps.py`: actual-training stiffness-gated Fourier/F-SPS audit using `chi=max(s(1-s)/w)`.
+- `tests/test_port_physical_2d_inverse.py`: smoke test for port-physical inverse outputs and schema.
+- `tests/test_stiffness_gated_fourier_fsps.py`: smoke test for stiffness-gated actual-training outputs and schema.
+- Updated `scripts/audit_integrated_stiffness_stl.py` and `tests/test_integrated_stiffness_stl.py` with matched-budget STL repair and representation drift metrics.

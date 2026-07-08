@@ -1,4 +1,4 @@
-# Experiment registry
+﻿# Experiment registry
 
 ## Response-surface verification and manuscript claim consolidation pack
 
@@ -508,3 +508,27 @@ Status: completed as bounded synthetic numerical claim-gate exploration. It upgr
 - Report: `docs/codex_reports/actualize_high_risk_claim_ladder_v2_report.md`
 
 Status: completed as stricter synthetic numerical actual-inverse/training evidence. It actualizes and downgrades prior heuristic/proxy conclusions where thresholds are not met.
+## Port-Physical 2D Inverse And Stiffness-Gated Training v3
+
+Status: completed as synthetic numerical claim-gate evidence.
+
+Code and tests:
+
+- `src/pinnpcm/experiments/port_physical_2d_inverse.py`
+- `scripts/audit_port_physical_2d_inverse.py`
+- `scripts/audit_stiffness_gated_fourier_fsps.py`
+- Updated: `scripts/audit_integrated_stiffness_stl.py`
+- `tests/test_port_physical_2d_inverse.py`
+- `tests/test_stiffness_gated_fourier_fsps.py`
+- Updated: `tests/test_integrated_stiffness_stl.py`
+
+Evidence:
+
+- `outputs/tables/port_physical_2d_inverse_summary.json`
+- `outputs/tables/port_physical_2d_inverse_cases.csv`
+- `outputs/tables/stiffness_gated_fourier_fsps_summary.json`
+- `outputs/tables/stiffness_gated_fourier_fsps_cases.csv`
+- Updated: `outputs/tables/integrated_stiffness_stl_summary.json`
+- Updated: `outputs/tables/integrated_stiffness_stl_cases.csv`
+
+Claim result: port-physical 2D field recovery remains forbidden; stiffness-gated hybrid is qualified_supported as a condition-limited method-development audit; STL repair remains failed_but_informative.

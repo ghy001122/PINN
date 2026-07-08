@@ -11,42 +11,73 @@
   ],
   "full_stl_pinn_reproduction_status": "forbidden",
   "gain_over_direct_by_algorithm": {
-    "Seiler_style_multi_head_STL_frozen_trunk": -0.12675208187398518,
-    "Seiler_style_multi_head_STL_unfrozen_tail": -0.05954255207671333,
+    "STL_repair_head_only": -0.14315251294108938,
+    "STL_repair_unfrozen_tail": -0.15721786474815802,
+    "Seiler_style_multi_head_STL_frozen_trunk": -0.19498799895813734,
+    "Seiler_style_multi_head_STL_unfrozen_tail": -0.19065398827072125,
+    "continuation_asinh_matched_budget": 0.39040650185681314,
     "continuation_plus_asinh": 0.36308047799714416,
     "continuation_plus_asinh_plus_adaptive": 0.37795297711408815,
-    "direct_sharp_training": 0.0
+    "direct_sharp_training": 0.0,
+    "matched_budget_direct_sharp": 0.20771766154845775
   },
   "median_convergence_epoch_proxy_by_algorithm": {
-    "Seiler_style_multi_head_STL_frozen_trunk": 2.0,
-    "Seiler_style_multi_head_STL_unfrozen_tail": 4.0,
+    "STL_repair_head_only": 15.0,
+    "STL_repair_unfrozen_tail": 21.0,
+    "Seiler_style_multi_head_STL_frozen_trunk": 4.0,
+    "Seiler_style_multi_head_STL_unfrozen_tail": 1.0,
+    "continuation_asinh_matched_budget": 4.0,
     "continuation_plus_asinh": 1.0,
     "continuation_plus_asinh_plus_adaptive": 15.0,
-    "direct_sharp_training": 4.0
+    "direct_sharp_training": 4.0,
+    "matched_budget_direct_sharp": 4.0
   },
   "median_error_by_algorithm": {
-    "Seiler_style_multi_head_STL_frozen_trunk": 6.573012828826904,
-    "Seiler_style_multi_head_STL_unfrozen_tail": 6.4044671058654785,
+    "STL_repair_head_only": 5.0434112548828125,
+    "STL_repair_unfrozen_tail": 4.831972599029541,
+    "Seiler_style_multi_head_STL_frozen_trunk": 4.514893531799316,
+    "Seiler_style_multi_head_STL_unfrozen_tail": 4.619602918624878,
+    "continuation_asinh_matched_budget": 2.0793206691741943,
     "continuation_plus_asinh": 1.8057297468185425,
     "continuation_plus_asinh_plus_adaptive": 2.2035704851150513,
-    "direct_sharp_training": 3.853463292121887
+    "direct_sharp_training": 3.853463292121887,
+    "matched_budget_direct_sharp": 3.827265977859497
   },
   "median_gradient_spike_by_algorithm": {
-    "Seiler_style_multi_head_STL_frozen_trunk": 1.9118185640902958,
-    "Seiler_style_multi_head_STL_unfrozen_tail": 2.212301443921654,
+    "STL_repair_head_only": 2.7120296474612404,
+    "STL_repair_unfrozen_tail": 2.656554766008174,
+    "Seiler_style_multi_head_STL_frozen_trunk": 2.228468457544425,
+    "Seiler_style_multi_head_STL_unfrozen_tail": 2.6994311309521124,
+    "continuation_asinh_matched_budget": 2.7729372227514273,
     "continuation_plus_asinh": 1.9850869464120988,
     "continuation_plus_asinh_plus_adaptive": 2.434616918862752,
-    "direct_sharp_training": 2.748517596817823
+    "direct_sharp_training": 2.748517596817823,
+    "matched_budget_direct_sharp": 5.665535164323844
+  },
+  "median_representation_drift_by_algorithm": {
+    "STL_repair_head_only": 0.0,
+    "STL_repair_unfrozen_tail": 0.035091523081064224,
+    "Seiler_style_multi_head_STL_frozen_trunk": 0.0,
+    "Seiler_style_multi_head_STL_unfrozen_tail": 0.06400695070624352,
+    "continuation_asinh_matched_budget": 0.0,
+    "continuation_plus_asinh": 0.0,
+    "continuation_plus_asinh_plus_adaptive": 0.0,
+    "direct_sharp_training": 0.0,
+    "matched_budget_direct_sharp": 0.0
   },
   "median_residual_imbalance_by_algorithm": {
-    "Seiler_style_multi_head_STL_frozen_trunk": 0.9385976401674443,
-    "Seiler_style_multi_head_STL_unfrozen_tail": 0.7319846553461582,
+    "STL_repair_head_only": 0.40723411962611283,
+    "STL_repair_unfrozen_tail": 0.4504181071412592,
+    "Seiler_style_multi_head_STL_frozen_trunk": 0.39129569544198006,
+    "Seiler_style_multi_head_STL_unfrozen_tail": 0.7181214010494632,
+    "continuation_asinh_matched_budget": 0.8369281003819982,
     "continuation_plus_asinh": 1.022058444624281,
     "continuation_plus_asinh_plus_adaptive": 0.7564955878962998,
-    "direct_sharp_training": 0.7856267160916522
+    "direct_sharp_training": 0.7856267160916522,
+    "matched_budget_direct_sharp": 0.4255541489178961
   },
   "note": "Synthetic numerical reduced PINN autograd-residual audit; not experimental data and not a full STL-PINN reproduction.",
-  "num_cases": 90,
+  "num_cases": 162,
   "outputs": {
     "cases_csv": "outputs/tables/integrated_stiffness_stl_cases.csv",
     "convergence_figure": "outputs/figures/integrated_stiffness_convergence.png",
@@ -62,11 +93,26 @@
   },
   "seiler_style_multi_head_stl_status": "failed_but_informative",
   "seiler_style_multi_head_transfer_implemented": true,
+  "stl_repair_best_algorithm": "STL_repair_head_only",
+  "stl_repair_gain_over_matched_direct": -0.14315251294108938,
+  "stl_repair_low_width_heads": [
+    0.3,
+    0.2,
+    0.1,
+    0.075
+  ],
+  "stl_repair_mode_implemented": true,
+  "stl_repair_status": "failed_but_informative",
+  "stl_repair_success_rate_improves_over_matched_direct": false,
   "success_rate_by_algorithm": {
+    "STL_repair_head_only": 0.0,
+    "STL_repair_unfrozen_tail": 0.0,
     "Seiler_style_multi_head_STL_frozen_trunk": 0.0,
     "Seiler_style_multi_head_STL_unfrozen_tail": 0.0,
+    "continuation_asinh_matched_budget": 0.0,
     "continuation_plus_asinh": 0.0,
     "continuation_plus_asinh_plus_adaptive": 0.0,
-    "direct_sharp_training": 0.0
+    "direct_sharp_training": 0.0,
+    "matched_budget_direct_sharp": 0.0
   }
 }

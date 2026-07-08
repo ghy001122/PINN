@@ -43,12 +43,19 @@ ALGORITHMS = [
     "continuation_plus_asinh_plus_adaptive",
     "Seiler_style_multi_head_STL_frozen_trunk",
     "Seiler_style_multi_head_STL_unfrozen_tail",
+    "matched_budget_direct_sharp",
+    "continuation_asinh_matched_budget",
+    "STL_repair_head_only",
+    "STL_repair_unfrozen_tail",
 ]
+REPAIR_ALGORITHMS = ["STL_repair_head_only", "STL_repair_unfrozen_tail"]
 CSV_FIELDS = [
     "algorithm", "seed", "noise", "target_transition_width", "relative_error", "success",
     "finite_result", "final_loss", "initial_loss", "gain_over_direct", "training_mode",
     "is_actual_pinn_training", "heads_used", "trunk_frozen_during_transfer", "transfer_protocol",
-    "gradient_spike", "residual_imbalance", "convergence_epoch_proxy", "claim_status", "allowed_claim", "forbidden_claim",
+    "gradient_spike", "residual_imbalance", "convergence_epoch_proxy",
+    "matched_budget_repair_mode", "representation_drift_metric",
+    "claim_status", "allowed_claim", "forbidden_claim",
 ]
 
 class MultiHeadPINN(nn.Module):
@@ -168,44 +175,84 @@ def _run_algorithm(algorithm: str, seed: int, noise: float, target_width: float,
     torch.manual_seed(int(seed))
     coords = _coords(seed, int(cfg.get("collocation_points", 128)))
     eval_coords = _coords(seed + 103, int(cfg.get("eval_points", 128)))
-    low_widths = [0.4, 0.2, 0.1]
+    low_widths = [float(v) for v in cfg.get("low_width_heads", [0.3, 0.2, 0.1, 0.075])]
     target_head = "w005"
     lr = float(cfg.get("lr", 0.025))
     hist: list[float] = []
     grad_hist: list[float] = []
     trunk_frozen = False
     transfer_protocol = "none"
+    matched_budget_repair_mode = bool(algorithm in {"matched_budget_direct_sharp", "continuation_asinh_matched_budget", "STL_repair_head_only", "STL_repair_unfrozen_tail"})
+    representation_drift_metric = 0.0
 
     def run_train(model: MultiHeadPINN, head: str, width: float, epochs: int, *, asinh: bool, adaptive: bool, lr_value: float = lr) -> None:
         h, g = _train_steps(model, coords, head, width, int(epochs), lr=lr_value, asinh=asinh, adaptive=adaptive, noise=noise)
         hist.extend(h)
         grad_hist.extend(g)
 
+    def trunk_vector(model: MultiHeadPINN) -> torch.Tensor:
+        return torch.cat([p.detach().flatten().cpu() for p in model.trunk.parameters()])
+
+    repair_low_epochs = int(cfg.get("repair_low_epochs", cfg.get("stl_low_epochs", 4)))
+    repair_head_epochs = int(cfg.get("repair_head_epochs", cfg.get("stl_transfer_epochs", 8)))
+    repair_tail_epochs = int(cfg.get("repair_tail_epochs", cfg.get("stl_unfreeze_epochs", 4)))
+    matched_budget_epochs = max(2, len(low_widths) * repair_low_epochs + repair_head_epochs + repair_tail_epochs)
+
     if algorithm.startswith("Seiler_style"):
-        heads = ["w04", "w02", "w01"] + [target_head]
+        heads = [f"w{idx}" for idx in range(len(low_widths))] + [target_head]
         model = MultiHeadPINN(heads, hidden_dim=int(cfg.get("hidden_dim", 18)))
-        for head_key, width in zip(["w04", "w02", "w01"], low_widths):
+        for head_key, width in zip(heads[:-1], low_widths):
             run_train(model, head_key, width, int(cfg.get("stl_low_epochs", 6)), asinh=True, adaptive=True)
-        model.heads[target_head].load_state_dict(model.heads["w01"].state_dict())
-        for p in model.trunk.parameters():
-            p.requires_grad_(False)
+        model.heads[target_head].load_state_dict(model.heads[heads[-2]].state_dict())
+        before_transfer = trunk_vector(model)
+        for p_param in model.trunk.parameters():
+            p_param.requires_grad_(False)
         trunk_frozen = True
         transfer_protocol = "low_width_multi_head_pretrain_then_high_width_head_transfer"
         run_train(model, target_head, target_width, int(cfg.get("stl_transfer_epochs", 10)), asinh=True, adaptive=True)
         if algorithm.endswith("unfrozen_tail"):
-            for p in model.trunk.parameters():
-                p.requires_grad_(True)
+            for p_param in model.trunk.parameters():
+                p_param.requires_grad_(True)
             run_train(model, target_head, target_width, int(cfg.get("stl_unfreeze_epochs", 6)), asinh=True, adaptive=True, lr_value=lr * 0.35)
+            after_transfer = trunk_vector(model)
+            representation_drift_metric = float(torch.norm(after_transfer - before_transfer) / torch.clamp(torch.norm(before_transfer), min=1.0e-8))
+    elif algorithm in {"STL_repair_head_only", "STL_repair_unfrozen_tail"}:
+        heads = [f"r{idx}" for idx in range(len(low_widths))] + [target_head]
+        model = MultiHeadPINN(heads, hidden_dim=int(cfg.get("hidden_dim", 18)))
+        transfer_protocol = "matched_budget_low_width_heads_then_target_repair"
+        for head_key, width in zip(heads[:-1], low_widths):
+            run_train(model, head_key, width, repair_low_epochs, asinh=True, adaptive=True)
+        model.heads[target_head].load_state_dict(model.heads[heads[-2]].state_dict())
+        before_transfer = trunk_vector(model)
+        for p_param in model.trunk.parameters():
+            p_param.requires_grad_(False)
+        trunk_frozen = True
+        run_train(model, target_head, target_width, repair_head_epochs, asinh=True, adaptive=True, lr_value=lr * 0.7)
+        if algorithm == "STL_repair_unfrozen_tail":
+            for p_param in model.trunk.parameters():
+                p_param.requires_grad_(True)
+            run_train(model, target_head, target_width, repair_tail_epochs, asinh=True, adaptive=True, lr_value=lr * 0.25)
+            after_transfer = trunk_vector(model)
+            representation_drift_metric = float(torch.norm(after_transfer - before_transfer) / torch.clamp(torch.norm(before_transfer), min=1.0e-8))
+        else:
+            representation_drift_metric = 0.0
     else:
         model = MultiHeadPINN([target_head], hidden_dim=int(cfg.get("hidden_dim", 18)))
         if algorithm == "direct_sharp_training":
             run_train(model, target_head, target_width, int(cfg.get("direct_epochs", 10)), asinh=False, adaptive=False)
+        elif algorithm == "matched_budget_direct_sharp":
+            run_train(model, target_head, target_width, matched_budget_epochs, asinh=False, adaptive=False)
         elif algorithm == "continuation_plus_asinh":
             for width in [0.2, 0.1, target_width]:
                 run_train(model, target_head, width, int(cfg.get("continuation_epochs", 6)), asinh=True, adaptive=False)
         elif algorithm == "continuation_plus_asinh_plus_adaptive":
             for width in [0.2, 0.1, target_width]:
                 run_train(model, target_head, width, int(cfg.get("continuation_epochs", 6)), asinh=True, adaptive=True)
+        elif algorithm == "continuation_asinh_matched_budget":
+            schedule = low_widths + [target_width]
+            epochs_each = max(1, matched_budget_epochs // len(schedule))
+            for width in schedule:
+                run_train(model, target_head, width, epochs_each, asinh=True, adaptive=True)
         else:
             raise ValueError(f"Unknown algorithm: {algorithm}")
     rel_error = _eval_error(model, eval_coords, target_head, target_width, noise)
@@ -213,8 +260,13 @@ def _run_algorithm(algorithm: str, seed: int, noise: float, target_width: float,
     grad_arr = np.asarray(grad_hist if grad_hist else [0.0], dtype=float)
     gradient_spike = float(np.max(grad_arr) / max(float(np.median(grad_arr)), 1.0e-12))
     residual_imbalance = float(abs(np.log10((heat_res + 1.0e-12) / (state_res + 1.0e-12))))
-    finite = bool(np.isfinite([rel_error, hist[0], hist[-1], gradient_spike, residual_imbalance]).all())
-    heads_used = ";".join(["w04", "w02", "w01", target_head]) if algorithm.startswith("Seiler_style") else target_head
+    finite = bool(np.isfinite([rel_error, hist[0], hist[-1], gradient_spike, residual_imbalance, representation_drift_metric]).all())
+    if algorithm.startswith("Seiler_style"):
+        heads_used = ";".join([f"w{idx}" for idx in range(len(low_widths))] + [target_head])
+    elif algorithm in REPAIR_ALGORITHMS:
+        heads_used = ";".join([f"r{idx}" for idx in range(len(low_widths))] + [target_head])
+    else:
+        heads_used = target_head
     return {
         "algorithm": algorithm,
         "seed": int(seed),
@@ -234,6 +286,8 @@ def _run_algorithm(algorithm: str, seed: int, noise: float, target_width: float,
         "gradient_spike": gradient_spike,
         "residual_imbalance": residual_imbalance,
         "convergence_epoch_proxy": _convergence_epoch_proxy(hist),
+        "matched_budget_repair_mode": matched_budget_repair_mode,
+        "representation_drift_metric": float(representation_drift_metric),
         "claim_status": "forbidden",
         "allowed_claim": "pending aggregate claim gate",
         "forbidden_claim": "full STL-PINN reproduction or solved stiff PINN training",
@@ -336,11 +390,20 @@ def run_integrated_stiffness_stl(config_path: Path | None = None) -> dict[str, A
     gradient_spike = {a: float(np.median([float(r["gradient_spike"]) for r in rows if r["algorithm"] == a])) for a in ALGORITHMS}
     residual_imbalance = {a: float(np.median([float(r["residual_imbalance"]) for r in rows if r["algorithm"] == a])) for a in ALGORITHMS}
     convergence_epoch = {a: float(np.median([float(r["convergence_epoch_proxy"]) for r in rows if r["algorithm"] == a])) for a in ALGORITHMS}
+    representation_drift = {a: float(np.median([float(r["representation_drift_metric"]) for r in rows if r["algorithm"] == a])) for a in ALGORITHMS}
+    repair_gains = {a: gains[a] for a in REPAIR_ALGORITHMS}
+    best_repair_algorithm = max(REPAIR_ALGORITHMS, key=lambda a: repair_gains[a])
+    repair_direct = "matched_budget_direct_sharp"
+    repair_success_improves = success_rate[best_repair_algorithm] > success_rate[repair_direct]
+    stl_repair_status = "qualified_supported" if repair_gains[best_repair_algorithm] >= 0.20 and repair_success_improves else "failed_but_informative"
     for row in rows:
         gain = gains[row["algorithm"]]
         if row["algorithm"] == "direct_sharp_training":
             status = "failed_but_informative"
             allowed = "direct sharp training provides the stiffness baseline"
+        elif row["algorithm"] in REPAIR_ALGORITHMS:
+            status = stl_repair_status if row["algorithm"] == best_repair_algorithm else "failed_but_informative"
+            allowed = "matched-budget STL repair is supported only if repair gain and success-rate gates clear"
         elif "Seiler_style" in row["algorithm"] and gain >= 0.20:
             status = "qualified_supported"
             allowed = "Seiler-style multi-head transfer is supported in a reduced synthetic benchmark"
@@ -376,6 +439,13 @@ def run_integrated_stiffness_stl(config_path: Path | None = None) -> dict[str, A
         "median_gradient_spike_by_algorithm": gradient_spike,
         "median_residual_imbalance_by_algorithm": residual_imbalance,
         "median_convergence_epoch_proxy_by_algorithm": convergence_epoch,
+        "median_representation_drift_by_algorithm": representation_drift,
+        "stl_repair_mode_implemented": True,
+        "stl_repair_low_width_heads": [float(v) for v in cfg.get("low_width_heads", [0.3, 0.2, 0.1, 0.075])],
+        "stl_repair_best_algorithm": best_repair_algorithm,
+        "stl_repair_gain_over_matched_direct": repair_gains[best_repair_algorithm],
+        "stl_repair_success_rate_improves_over_matched_direct": bool(repair_success_improves),
+        "stl_repair_status": stl_repair_status,
         "continuation_asinh_adaptive_status": "qualified_supported" if gains["continuation_plus_asinh_plus_adaptive"] >= 0.20 else "failed_but_informative",
         "seiler_style_multi_head_stl_status": "qualified_supported" if max(gains["Seiler_style_multi_head_STL_frozen_trunk"], gains["Seiler_style_multi_head_STL_unfrozen_tail"]) >= 0.20 else "failed_but_informative",
         "full_stl_pinn_reproduction_status": "forbidden",

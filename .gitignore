@@ -149,3 +149,8 @@ outputs/pinn_inverse_v1_1_smoke/*
 !outputs/tables/high_risk_claim_ladder_actual_inverse_cases.csv
 !outputs/tables/fourier_fsps_actual_training_summary.json
 !outputs/tables/fourier_fsps_actual_training_cases.csv
+
+!outputs/tables/port_physical_2d_inverse_summary.json
+!outputs/tables/port_physical_2d_inverse_cases.csv
+!outputs/tables/stiffness_gated_fourier_fsps_summary.json
+!outputs/tables/stiffness_gated_fourier_fsps_cases.csv

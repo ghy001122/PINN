@@ -1,0 +1,114 @@
+{
+  "actual_inverse_mode": true,
+  "all_finite_results": true,
+  "anchor_comparison": {
+    "port_plus_dense_5pct": {
+      "field_recovery_status": "forbidden",
+      "median_condition_number": 22.496201963391243,
+      "median_field_error": 0.7811321914196014,
+      "median_param_error": 0.41023676097393036,
+      "median_port_error": 0.4146500527858734,
+      "parameter_recovery_status": "failed_but_informative",
+      "success_rate": 0.25
+    },
+    "port_plus_fisher_2pct": {
+      "field_recovery_status": "forbidden",
+      "median_condition_number": 114.17394151507624,
+      "median_field_error": 0.7785263955593109,
+      "median_param_error": 0.38476063311100006,
+      "median_port_error": 0.3844538927078247,
+      "parameter_recovery_status": "failed_but_informative",
+      "success_rate": 0.25
+    },
+    "port_plus_random_2pct": {
+      "field_recovery_status": "forbidden",
+      "median_condition_number": 9.300148330005108,
+      "median_field_error": 0.7815821766853333,
+      "median_param_error": 0.3830611854791641,
+      "median_port_error": 0.38166652619838715,
+      "parameter_recovery_status": "failed_but_informative",
+      "success_rate": 0.21875
+    },
+    "port_plus_sensitivity_2pct": {
+      "field_recovery_status": "forbidden",
+      "median_condition_number": 15.595562443393671,
+      "median_field_error": 0.7783682346343994,
+      "median_param_error": 0.41501305997371674,
+      "median_port_error": 0.41716520488262177,
+      "parameter_recovery_status": "failed_but_informative",
+      "success_rate": 0.25
+    }
+  },
+  "basis_comparison": {
+    "analytic": {
+      "median_field_error": 0.5118682682514191,
+      "median_port_error": 0.11503064259886742,
+      "success_rate": 0.4875
+    },
+    "pod": {
+      "median_field_error": 1.1138866245746613,
+      "median_port_error": 0.6981028616428375,
+      "success_rate": 0.0
+    }
+  },
+  "benchmark": "port_physical_2d_inverse_v3",
+  "best_protocol": "port_only",
+  "condition_number_by_protocol": {
+    "port_only": 2.446746880476777,
+    "port_plus_dense_5pct": 22.496201963391243,
+    "port_plus_fisher_2pct": 114.17394151507624,
+    "port_plus_random_2pct": 9.300148330005108,
+    "port_plus_sensitivity_2pct": 15.595562443393671
+  },
+  "field_recovery_status": "forbidden",
+  "forbidden_claims": [
+    "full arbitrary 2D hidden-field recovery",
+    "terminal-only/port-only full-field recovery",
+    "experimental validation"
+  ],
+  "improves_over_v2_best_actual_inverse": false,
+  "loss_terms": [
+    "L_port_G",
+    "L_sparse_anchor",
+    "L_pde_T",
+    "L_pde_m",
+    "L_bounds",
+    "L_smooth_time"
+  ],
+  "median_field_error_by_protocol": {
+    "port_only": 0.7692662179470062,
+    "port_plus_dense_5pct": 0.7811321914196014,
+    "port_plus_fisher_2pct": 0.7785263955593109,
+    "port_plus_random_2pct": 0.7815821766853333,
+    "port_plus_sensitivity_2pct": 0.7783682346343994
+  },
+  "median_port_error_by_protocol": {
+    "port_only": 0.05106087028980255,
+    "port_plus_dense_5pct": 0.4146500527858734,
+    "port_plus_fisher_2pct": 0.3844538927078247,
+    "port_plus_random_2pct": 0.38166652619838715,
+    "port_plus_sensitivity_2pct": 0.41716520488262177
+  },
+  "note": "Synthetic numerical digital-twin benchmark; not experimental data and not full arbitrary 2D hidden-field recovery.",
+  "num_cases": 320,
+  "outputs": {
+    "anchor_placement_figure": "outputs/figures/port_physical_2d_anchor_placement_comparison.png",
+    "cases_csv": "outputs/tables/port_physical_2d_inverse_cases.csv",
+    "error_by_protocol_figure": "outputs/figures/port_physical_2d_inverse_error_by_protocol.png",
+    "summary_json": "outputs/tables/port_physical_2d_inverse_summary.json"
+  },
+  "parameter_recovery_status": "qualified_supported",
+  "port_relation": "G(t)=mean_{x,y}(sigma(x,y,t))/L_x sheet-conductance surrogate",
+  "sigma_relation": "sigma(T,m)=sigma_ins+(sigma_met-sigma_ins)*clamp(m,eps,1-eps)",
+  "success_rate_by_protocol": {
+    "port_only": 0.25,
+    "port_plus_dense_5pct": 0.25,
+    "port_plus_fisher_2pct": 0.25,
+    "port_plus_random_2pct": 0.21875,
+    "port_plus_sensitivity_2pct": 0.25
+  },
+  "terminal_only_field_status": "forbidden",
+  "uses_phase_mean_as_terminal_observation": false,
+  "uses_port_physical_observation": true,
+  "v2_best_field_error_reference": 0.544268189851365
+}
