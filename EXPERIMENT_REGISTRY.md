@@ -495,3 +495,16 @@ Status: completed as synthetic numerical digital-twin supplementary claim-gate e
 - Report: `docs/codex_reports/integrated_high_risk_claim_ladder_report.md`
 
 Status: completed as bounded synthetic numerical claim-gate exploration. It upgrades only protocol-limited or condition-limited supplementary claims and preserves forbidden overclaims for terminal-only full 2D recovery, full STL-PINN reproduction, and universal Fourier/F-SPS superiority.
+
+## Actualized high-risk claim ladder v2
+
+- Actual low-rank inverse module: `src/pinnpcm/experiments/high_risk_actual_inverse.py`
+- Updated high-risk runner: `scripts/audit_high_risk_claim_ladder.py`
+- Updated stiffness/STL runner: `scripts/audit_integrated_stiffness_stl.py`
+- Updated actual Fourier/F-SPS runner: `scripts/audit_fourier_fsps_conditional_superiority.py`
+- Tests: `tests/test_high_risk_claim_ladder.py`, `tests/test_integrated_stiffness_stl.py`, `tests/test_fourier_fsps_conditional_superiority.py`
+- Tables: `outputs/tables/high_risk_claim_ladder_actual_inverse_summary.json`, `outputs/tables/high_risk_claim_ladder_actual_inverse_cases.csv`, `outputs/tables/integrated_stiffness_stl_summary.json`, `outputs/tables/integrated_stiffness_stl_cases.csv`, `outputs/tables/fourier_fsps_actual_training_summary.json`, `outputs/tables/fourier_fsps_actual_training_cases.csv`
+- Figures: `outputs/figures/high_risk_actual_inverse_error_by_protocol.png`, `outputs/figures/integrated_stiffness_gradient_spike.png`, `outputs/figures/integrated_stiffness_residual_imbalance.png`, `outputs/figures/fourier_fsps_actual_gain_heatmap.png`
+- Report: `docs/codex_reports/actualize_high_risk_claim_ladder_v2_report.md`
+
+Status: completed as stricter synthetic numerical actual-inverse/training evidence. It actualizes and downgrades prior heuristic/proxy conclusions where thresholds are not met.

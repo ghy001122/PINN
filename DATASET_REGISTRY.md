@@ -302,3 +302,16 @@ These lightweight tables are synthetic numerical digital-twin benchmark evidence
 - `outputs/tables/fourier_fsps_conditional_superiority_cases.csv`
 
 Frozen Ground Truth v1.1 files were not modified.
+
+## Actualized high-risk claim ladder v2 evidence
+
+These lightweight tables are synthetic numerical digital-twin benchmark evidence, not experimental data.
+
+- `outputs/tables/high_risk_claim_ladder_actual_inverse_summary.json`
+- `outputs/tables/high_risk_claim_ladder_actual_inverse_cases.csv`
+- `outputs/tables/fourier_fsps_actual_training_summary.json`
+- `outputs/tables/fourier_fsps_actual_training_cases.csv`
+- Updated: `outputs/tables/integrated_stiffness_stl_summary.json`
+- Updated: `outputs/tables/integrated_stiffness_stl_cases.csv`
+
+Frozen Ground Truth v1.1 files were not modified.

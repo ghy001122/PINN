@@ -48,3 +48,7 @@ outputs:
   hidden_field_ladder_figure: outputs/figures/high_risk_2d_hidden_field_ladder_error.png
   observability_protocols_figure: outputs/figures/high_risk_2d_observability_protocols.png
   sensitivity_anchor_map_figure: outputs/figures/high_risk_2d_sensitivity_anchor_map.png
+actual_inverse_outputs:
+  summary_json: outputs/tables/high_risk_claim_ladder_actual_inverse_summary.json
+  cases_csv: outputs/tables/high_risk_claim_ladder_actual_inverse_cases.csv
+  error_by_protocol_figure: outputs/figures/high_risk_actual_inverse_error_by_protocol.png

@@ -197,3 +197,15 @@ Key results:
 - Fourier/F-SPS condition sweep: `96` residual-proxy cases; best sharp method `fourier_plus_continuation_asinh`; conditional status `qualified_supported`; universal superiority status `forbidden`.
 
 Claim boundary: these results strengthen supplementary workload, novelty, and reviewer-defense breadth. They do not prove experimental validation, full 2D field recovery from sparse terminal data, full STL-PINN reproduction, or universal F-SPS/Fourier superiority.
+
+## Actualized high-risk claim ladder v2 pack
+
+This pack converts two previous weak points into stricter evidence: the 2D ladder now includes actual low-rank coefficient inversion, and Fourier/F-SPS now uses actual autograd training rather than residual-proxy multipliers. Frozen Ground Truth v1.1 remains unchanged.
+
+Key results:
+
+- Actual 2D inverse: `128` cases; all finite; field recovery status `forbidden`; terminal-only field status `failed_but_informative`; terminal-only parameter status `qualified_supported`. The best augmented protocol `terminal_plus_sparse_anchors_2pct` has median field error `0.544268189851365` and field success rate `0.4375`.
+- Expanded stiffness/STL: `90` cases; all finite; continuation/asinh/adaptive status `qualified_supported` with gain `0.37795297711408815`. Seiler-style multi-head transfer status `failed_but_informative` with frozen-trunk gain `-0.12675208187398518`.
+- Actual Fourier/F-SPS training: `80` cases; all finite; actual training flag `True`; best sharp method `f_sps_sampling` has sharp gain `0.4391566795808073` but smooth degradation `0.8471974813135894`, so conditional benefit status is `failed_but_informative` and universal superiority remains `forbidden`.
+
+Claim boundary: actualized evidence strengthens reviewer defense by downgrading unsupported proxy conclusions. It improves scientific credibility, but it does not create experimental validation, full 2D recovery, full STL-PINN reproduction, or F-SPS/Fourier superiority.

@@ -462,3 +462,15 @@ Scope:
 Result:
 
 The official quick outputs are finite. Dense augmented anchors support only protocol-limited low-rank 2D hidden-field wording; terminal-only full-field recovery remains failed_but_informative. Actual reduced PINN training clears the stiffness-mitigation gate, and Seiler-style multi-head transfer clears the reduced benchmark transfer gate. Fourier/F-SPS-style methods are conditionally useful in sharp/front regimes, while universal superiority remains forbidden.
+
+## Actualized high-risk claim ladder v2
+
+Scope:
+
+- Replace the 2D heuristic field claim with actual low-rank coefficient inversion evidence.
+- Expand actual stiffness PINN/STL quick audit from 20 to 90 cases and add gradient/residual diagnostics.
+- Replace Fourier/F-SPS residual-proxy multipliers with actual reduced autograd training.
+
+Result:
+
+The actualized evidence is stricter than the previous quick profile. Actual 2D field recovery remains `forbidden`, terminal-only field recovery remains `failed_but_informative`, and only terminal low-dimensional parameter recovery is `qualified_supported`. Continuation/asinh/adaptive stiffness handling remains `qualified_supported`, but Seiler-style multi-head transfer is `failed_but_informative` after the expanded grid. Fourier/F-SPS actual training is `failed_but_informative` for conditional benefit and `forbidden` for universal superiority.

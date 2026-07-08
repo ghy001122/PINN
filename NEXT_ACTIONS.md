@@ -136,3 +136,21 @@ Recommended next actions:
 2. Route the 2D low-rank dense-anchor result, terminal-only failure, actual reduced stiffness training, Seiler-style transfer, and Fourier/F-SPS conditional benefit to supplementary or discussion sections.
 3. If expanding this branch, run the extended high-risk ladder profile before making stronger 2D or Fourier claims.
 4. Do not claim sparse terminal full hidden-field recovery, full STL-PINN reproduction, universal Fourier/F-SPS superiority, or experimental validation.
+
+## Immediate Next After Actualized High-Risk Claim Ladder v2
+
+Use the actualized v2 results to correct the manuscript claim ladder:
+
+1. Keep the main claim on calibration-gated constrained `gamma_sub` inversion.
+2. Downgrade 2D low-rank field recovery from heuristic support to actual-inverse negative evidence unless stronger observations or a better low-rank basis are tested.
+3. Keep terminal-only 2D field recovery as failed_but_informative; allow only low-dimensional terminal parameter wording under strong priors.
+4. Keep continuation/asinh/adaptive stiffness handling as qualified supported in the reduced actual-training audit.
+5. Downgrade Seiler-style multi-head STL to failed_but_informative for the expanded grid; future upgrade requires stronger transfer protocol and direct baseline ablations.
+6. Downgrade Fourier/F-SPS conditional benefit to failed_but_informative for actual training because sharp gains are offset by smooth-regime degradation.
+
+Potential next bounded improvements:
+
+- add optimized sensor/anchor placement for low-rank inverse;
+- test a learned low-rank basis from a synthetic training ensemble;
+- improve STL with matched-budget pretraining and explicit trunk/tail ablation;
+- test Fourier/F-SPS only on a predeclared sharp-front subset, while keeping smooth-regime degradation explicit.

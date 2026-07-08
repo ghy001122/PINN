@@ -12,6 +12,8 @@ def test_integrated_stiffness_stl_smoke(tmp_path: Path, monkeypatch) -> None:
     monkeypatch.setattr(audit, "ERROR_FIGURE", tmp_path / "error.png")
     monkeypatch.setattr(audit, "CONVERGENCE_FIGURE", tmp_path / "conv.png")
     monkeypatch.setattr(audit, "TRANSFER_FIGURE", tmp_path / "transfer.png")
+    monkeypatch.setattr(audit, "GRADIENT_FIGURE", tmp_path / "gradient.png")
+    monkeypatch.setattr(audit, "IMBALANCE_FIGURE", tmp_path / "imbalance.png")
     cfg = {
         "seeds": [2026],
         "noise": [0.0],
@@ -36,6 +38,12 @@ def test_integrated_stiffness_stl_smoke(tmp_path: Path, monkeypatch) -> None:
     assert "R_T" in summary["residuals"] and "R_m" in summary["residuals"]
     for value in summary["median_error_by_algorithm"].values():
         assert math.isfinite(float(value))
+    for key in ["success_rate_by_algorithm", "median_gradient_spike_by_algorithm", "median_residual_imbalance_by_algorithm", "median_convergence_epoch_proxy_by_algorithm"]:
+        assert key in summary
+        for value in summary[key].values():
+            assert math.isfinite(float(value))
     assert (tmp_path / "summary.json").exists()
     assert (tmp_path / "cases.csv").exists()
     assert (tmp_path / "transfer.png").exists()
+    assert (tmp_path / "gradient.png").exists()
+    assert (tmp_path / "imbalance.png").exists()

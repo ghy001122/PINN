@@ -399,3 +399,11 @@ educed_2d_observability_limited_inverse_cases.csv`: observability ladder evidenc
 - `scripts/audit_fourier_fsps_conditional_superiority.py`: residual-proxy Fourier/F-SPS conditional benefit audit.
 - `tests/test_high_risk_claim_ladder.py`, `tests/test_integrated_stiffness_stl.py`, `tests/test_fourier_fsps_conditional_superiority.py`: smoke/schema/finite-output tests.
 - `docs/codex_reports/integrated_high_risk_claim_ladder_report.md`: final task report.
+
+## Actualized high-risk claim ladder v2 files
+
+- `src/pinnpcm/experiments/high_risk_actual_inverse.py`: actual weighted low-rank inverse solver and claim-gated summary writer.
+- `scripts/audit_high_risk_claim_ladder.py`: now writes both heuristic and actual low-rank inverse evidence.
+- `scripts/audit_integrated_stiffness_stl.py`: expanded actual stiffness/STL grid with gradient spike, residual imbalance, and convergence proxy metrics.
+- `scripts/audit_fourier_fsps_conditional_superiority.py`: actual autograd training comparison for Fourier/F-SPS variants.
+- `docs/codex_reports/actualize_high_risk_claim_ladder_v2_report.md`: final task report.

@@ -1,0 +1,81 @@
+{
+  "actual_inverse_mode": true,
+  "all_finite_results": true,
+  "allowed_claim": "Actual low-rank 2D inverse is only protocol-limited and qualified when augmented observations clear the claim gate.",
+  "benchmark": "high_risk_claim_ladder_actual_inverse",
+  "best_augmented_protocol": "terminal_plus_sparse_anchors_2pct",
+  "by_observation_protocol": {
+    "terminal_only_multi_pulse": {
+      "actual_inverse_mode": true,
+      "field_recovery_status": "failed_but_informative",
+      "field_success_rate": 0.0,
+      "finite_rate": 1.0,
+      "low_dim_parameter_status": "qualified_supported",
+      "median_field_error": 1.052589310958675,
+      "median_param_error": 0.029775671121156505,
+      "param_success_rate": 1.0,
+      "training_mode": "actual_weighted_low_rank_inverse",
+      "worst_case_field_error": 1.264184131453368
+    },
+    "terminal_plus_dense_anchors_5pct": {
+      "actual_inverse_mode": true,
+      "field_recovery_status": "forbidden",
+      "field_success_rate": 0.25,
+      "finite_rate": 1.0,
+      "low_dim_parameter_status": "failed_but_informative",
+      "median_field_error": 1.432615723257805,
+      "median_param_error": 1.2416604132071714,
+      "param_success_rate": 0.5,
+      "training_mode": "actual_weighted_low_rank_inverse",
+      "worst_case_field_error": 3.454786714607762
+    },
+    "terminal_plus_sensitivity_anchors": {
+      "actual_inverse_mode": true,
+      "field_recovery_status": "forbidden",
+      "field_success_rate": 0.25,
+      "finite_rate": 1.0,
+      "low_dim_parameter_status": "failed_but_informative",
+      "median_field_error": 1.6013335599206369,
+      "median_param_error": 1.2383890708541248,
+      "param_success_rate": 0.5,
+      "training_mode": "actual_weighted_low_rank_inverse",
+      "worst_case_field_error": 3.3057732455800335
+    },
+    "terminal_plus_sparse_anchors_2pct": {
+      "actual_inverse_mode": true,
+      "field_recovery_status": "forbidden",
+      "field_success_rate": 0.4375,
+      "finite_rate": 1.0,
+      "low_dim_parameter_status": "failed_but_informative",
+      "median_field_error": 0.544268189851365,
+      "median_param_error": 0.6490401987662066,
+      "param_success_rate": 0.5,
+      "training_mode": "actual_weighted_low_rank_inverse",
+      "worst_case_field_error": 2.910381607334079
+    }
+  },
+  "field_recovery_status": "forbidden",
+  "forbidden_claims": [
+    "full-grid arbitrary 2D recovery",
+    "terminal-only full hidden-field recovery",
+    "experimental validation"
+  ],
+  "full_grid_arbitrary_recovery_status": "forbidden",
+  "loss_terms": [
+    "L_terminal",
+    "L_anchor",
+    "L_rank_prior",
+    "L_smooth_time"
+  ],
+  "low_dim_parameter_status": "failed_but_informative",
+  "note": "Synthetic numerical digital-twin actual low-rank inverse audit; not experimental data and not full arbitrary 2D recovery.",
+  "num_cases": 128,
+  "outputs": {
+    "cases_csv": "outputs/tables/high_risk_claim_ladder_actual_inverse_cases.csv",
+    "error_by_protocol_figure": "outputs/figures/high_risk_actual_inverse_error_by_protocol.png",
+    "summary_json": "outputs/tables/high_risk_claim_ladder_actual_inverse_summary.json"
+  },
+  "profile": "quick",
+  "terminal_only_field_status": "failed_but_informative",
+  "terminal_only_parameter_status": "qualified_supported"
+}

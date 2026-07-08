@@ -1,0 +1,42 @@
+{
+  "all_finite_results": true,
+  "allowed_claim": "Fourier/F-SPS-style methods can be written only as condition-limited actual-training evidence when the gain gate is met.",
+  "benchmark": "fourier_fsps_actual_training",
+  "best_sharp_method": "f_sps_sampling",
+  "conditional_benefit_status": "failed_but_informative",
+  "forbidden_claims": [
+    "universal F-SPS/Fourier superiority",
+    "experimental validation",
+    "full inverse recovery"
+  ],
+  "is_actual_pinn_training": true,
+  "median_error_by_method": {
+    "f_sps_sampling": 1.2449039220809937,
+    "fourier_features": 2.452176570892334,
+    "fourier_plus_continuation_asinh": 2.266183853149414,
+    "multiscale_fourier_features": 2.6246272325515747,
+    "vanilla_mlp": 1.951572060585022
+  },
+  "note": "Synthetic numerical actual-training benchmark; not experimental data and not universal superiority evidence.",
+  "num_cases": 80,
+  "outputs": {
+    "cases_csv": "outputs/tables/fourier_fsps_actual_training_cases.csv",
+    "gain_heatmap": "outputs/figures/fourier_fsps_actual_gain_heatmap.png",
+    "summary_json": "outputs/tables/fourier_fsps_actual_training_summary.json"
+  },
+  "sharp_regime_gain_over_vanilla": {
+    "f_sps_sampling": 0.4391566795808073,
+    "fourier_features": -0.2443274178080464,
+    "fourier_plus_continuation_asinh": 0.30614567612459503,
+    "multiscale_fourier_features": -0.017677455798450342,
+    "vanilla_mlp": 0.0
+  },
+  "smooth_regime_degradation": {
+    "f_sps_sampling": 0.8471974813135894,
+    "fourier_features": 0.5997748530687699,
+    "fourier_plus_continuation_asinh": 1.5303623589379236,
+    "multiscale_fourier_features": 1.5883182648066967,
+    "vanilla_mlp": 0.0
+  },
+  "universal_superiority_status": "forbidden"
+}

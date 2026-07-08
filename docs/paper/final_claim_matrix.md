@@ -42,3 +42,15 @@ All statuses below are synthetic numerical digital-twin benchmark evidence.
 | Actual reduced PINN stiffness mitigation | Qualified supported | `outputs/tables/integrated_stiffness_stl_summary.json`; continuation/adaptive gain `0.4845205762225727` | Reduced autograd PINN audit only. |
 | Seiler-style multi-head STL transfer | Qualified supported | `outputs/tables/integrated_stiffness_stl_summary.json`; frozen-trunk gain `0.36685026479233396` | Seiler-style mechanics implemented; full literature reproduction still forbidden. |
 | Fourier/F-SPS universal superiority | Forbidden | `outputs/tables/fourier_fsps_conditional_superiority_summary.json` | Only conditional sharp/front-regime benefit is supported. |
+
+## Actualized High-Risk Claim Ladder v2 Update
+
+All statuses below are synthetic numerical digital-twin benchmark evidence.
+
+| Claim | Updated status | Evidence | Boundary |
+| --- | --- | --- | --- |
+| Actual low-rank 2D field inverse | forbidden | `outputs/tables/high_risk_claim_ladder_actual_inverse_summary.json`; best protocol `terminal_plus_sparse_anchors_2pct` median field error `0.544268189851365` | Heuristic support is not enough; actual coefficient inverse did not clear field gate. |
+| Terminal-only low-dimensional parameter inverse | qualified_supported | `outputs/tables/high_risk_claim_ladder_actual_inverse_summary.json`; terminal median parameter error `0.029775671121156505` | Parameter-only under strong priors; field recovery forbidden. |
+| Actual stiffness continuation | qualified_supported | `outputs/tables/integrated_stiffness_stl_summary.json`; adaptive gain `0.37795297711408815` | Reduced actual-training audit only. |
+| Seiler-style multi-head STL | failed_but_informative | `outputs/tables/integrated_stiffness_stl_summary.json`; frozen-trunk gain `-0.12675208187398518` | Implemented but not positive in expanded grid; full reproduction forbidden. |
+| Actual Fourier/F-SPS conditional benefit | failed_but_informative | `outputs/tables/fourier_fsps_actual_training_summary.json`; best sharp method `f_sps_sampling` sharp gain `0.4391566795808073`, smooth degradation `0.8471974813135894` | Sharp gain is offset by smooth degradation; universal superiority forbidden. |
