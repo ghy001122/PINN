@@ -532,3 +532,35 @@ Evidence:
 - Updated: `outputs/tables/integrated_stiffness_stl_cases.csv`
 
 Claim result: port-physical 2D field recovery remains forbidden; stiffness-gated hybrid is qualified_supported as a condition-limited method-development audit; STL repair remains failed_but_informative.
+
+## OASIS-PINN Multilayer Sandwich And High-Risk Resolution v6
+
+Status: completed as supplementary synthetic numerical claim-gate evidence, not main manuscript proof.
+
+Scripts:
+
+- `scripts/audit_literature_prior_consistency.py`
+- `scripts/audit_multilayer_sandwich_device.py`
+- `scripts/audit_claim_resolution_2d_field.py`
+- `scripts/audit_terminal_only_active_protocol_rescue.py`
+- `scripts/audit_phase_aware_stl_repair.py`
+- `scripts/audit_adaptive_fourier_fsps_superiority.py`
+- `scripts/audit_multilayer_sandwich_low_dim_inverse.py`
+
+Core modules:
+
+- `src/pinnpcm/physics/multilayer_sandwich.py`
+- `src/pinnpcm/pinn/oasis_components.py`
+- `src/pinnpcm/experiments/claim_resolution_2d_field.py`
+
+Outputs:
+
+- `outputs/tables/literature_prior_consistency_summary.json`
+- `outputs/tables/multilayer_sandwich_device_summary.json`
+- `outputs/tables/claim_resolution_2d_field_summary.json`
+- `outputs/tables/terminal_only_active_protocol_rescue_summary.json`
+- `outputs/tables/phase_aware_stl_repair_summary.json`
+- `outputs/tables/adaptive_fourier_fsps_superiority_summary.json`
+- `outputs/tables/multilayer_sandwich_low_dim_inverse_summary.json`
+
+Claim routing: multilayer forward, augmented Fisher-anchor structured recovery, active low-dimensional terminal diagnosis, and low-dimensional sandwich inverse get qualified support. STL repair and adaptive F-SPS remain failed-but-informative. Experimental validation, terminal-only arbitrary full-field recovery, full STL reproduction, full FEM/device-grade reproduction, and universal F-SPS superiority remain forbidden.

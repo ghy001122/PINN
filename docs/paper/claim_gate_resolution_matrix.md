@@ -61,3 +61,17 @@ All entries remain synthetic numerical digital-twin benchmark evidence, not expe
 | Fisher anchor placement improves 2D inverse | failed_but_informative | outputs/tables/port_physical_2d_inverse_summary.json | outputs/figures/port_physical_2d_anchor_placement_comparison.png | Fisher-style anchors were tested but did not clear the recovery gate. | Fisher anchors make sparse 2D recovery solved. | Anchor placement remains an optimization target. |
 | Stiffness-gated Fourier/F-SPS hybrid | qualified_supported | outputs/tables/stiffness_gated_fourier_fsps_summary.json | outputs/figures/stiffness_gated_gain_vs_chi.png | A stiffness-indicator gate reduced smooth-regime degradation while preserving sharp/front gain in this small actual-training audit. | F-SPS/Fourier is universally superior. | Reduced synthetic quick profile; no experimental or universal claim. |
 | STL repair audit | failed_but_informative | outputs/tables/integrated_stiffness_stl_summary.json | outputs/figures/integrated_stl_transfer_gain.png | Matched-budget STL repair was implemented but did not clear the gain/success gate. | Full STL-PINN reproduction is complete. | Use as negative evidence and repair target. |
+
+## OASIS-PINN Multilayer Sandwich And High-Risk Resolution v6
+
+Synthetic numerical digital-twin evidence only. Frozen Ground Truth v1.1 remains unchanged.
+
+| Claim | Status | Evidence | Boundary |
+|---|---|---|---|
+| Literature prior registry complete | qualified_supported | `outputs/tables/literature_prior_consistency_summary.json` | Priors only, not measured parameters |
+| Boundary-aware multilayer sandwich forward | qualified_supported | `outputs/tables/multilayer_sandwich_device_summary.json` | Not full FEM or device-grade |
+| Augmented structured 2D field recovery | qualified_supported | `multi_terminal_plus_fisher_anchors` median error 0.19897395319670247 | Requires augmented Fisher anchors; terminal-only remains forbidden |
+| Active terminal-only low-dimensional inverse | qualified_supported | `combined_terminal_protocol` median error 0.056375606896068575 | Low-dimensional parameters only |
+| Phase-aware STL repair | failed_but_informative | Best gain 0.09389518340983438 | Full STL-PINN reproduction remains forbidden |
+| Adaptive Fourier/F-SPS superiority | failed_but_informative | Pareto 0.6666666666666666; smooth degradation 0.1821856000041686 | Universal superiority remains forbidden |
+| Low-dimensional sandwich inverse | qualified_supported | `combined` median error 0.04044092905036974 | Not arbitrary field inversion |

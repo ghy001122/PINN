@@ -65,3 +65,17 @@ All statuses below are synthetic numerical digital-twin benchmark evidence.
 | Fisher anchors | failed_but_informative | Fisher median field error `0.7785263955593109`; sensitivity median field error `0.7783682346343994` | Fisher-style anchors are not yet a positive observability claim. |
 | Stiffness-gated hybrid | qualified_supported | `outputs/tables/stiffness_gated_fourier_fsps_summary.json`; sharp gain `0.17299439024092061`; smooth degradation `0.0` | Condition-limited method-development evidence only; universal superiority remains forbidden. |
 | STL repair | failed_but_informative | `outputs/tables/integrated_stiffness_stl_summary.json`; best repair `STL_repair_head_only`; gain `-0.14315251294108938` | Repair did not turn STL into a positive claim; full STL-PINN reproduction remains forbidden. |
+
+## OASIS-PINN Multilayer Sandwich And High-Risk Resolution v6
+
+Synthetic numerical digital-twin evidence only. Frozen Ground Truth v1.1 remains unchanged.
+
+| Claim | Status | Evidence | Boundary |
+|---|---|---|---|
+| Literature prior registry complete | qualified_supported | `outputs/tables/literature_prior_consistency_summary.json` | Priors only, not measured parameters |
+| Boundary-aware multilayer sandwich forward | qualified_supported | `outputs/tables/multilayer_sandwich_device_summary.json` | Not full FEM or device-grade |
+| Augmented structured 2D field recovery | qualified_supported | `multi_terminal_plus_fisher_anchors` median error 0.19897395319670247 | Requires augmented Fisher anchors; terminal-only remains forbidden |
+| Active terminal-only low-dimensional inverse | qualified_supported | `combined_terminal_protocol` median error 0.056375606896068575 | Low-dimensional parameters only |
+| Phase-aware STL repair | failed_but_informative | Best gain 0.09389518340983438 | Full STL-PINN reproduction remains forbidden |
+| Adaptive Fourier/F-SPS superiority | failed_but_informative | Pareto 0.6666666666666666; smooth degradation 0.1821856000041686 | Universal superiority remains forbidden |
+| Low-dimensional sandwich inverse | qualified_supported | `combined` median error 0.04044092905036974 | Not arbitrary field inversion |

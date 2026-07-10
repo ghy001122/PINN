@@ -154,3 +154,17 @@ outputs/pinn_inverse_v1_1_smoke/*
 !outputs/tables/port_physical_2d_inverse_cases.csv
 !outputs/tables/stiffness_gated_fourier_fsps_summary.json
 !outputs/tables/stiffness_gated_fourier_fsps_cases.csv
+
+!outputs/tables/literature_prior_consistency_summary.json
+!outputs/tables/multilayer_sandwich_device_summary.json
+!outputs/tables/multilayer_sandwich_device_cases.csv
+!outputs/tables/claim_resolution_2d_field_summary.json
+!outputs/tables/claim_resolution_2d_field_cases.csv
+!outputs/tables/terminal_only_active_protocol_rescue_summary.json
+!outputs/tables/terminal_only_active_protocol_rescue_cases.csv
+!outputs/tables/phase_aware_stl_repair_summary.json
+!outputs/tables/phase_aware_stl_repair_cases.csv
+!outputs/tables/adaptive_fourier_fsps_superiority_summary.json
+!outputs/tables/adaptive_fourier_fsps_superiority_cases.csv
+!outputs/tables/multilayer_sandwich_low_dim_inverse_summary.json
+!outputs/tables/multilayer_sandwich_low_dim_inverse_cases.csv

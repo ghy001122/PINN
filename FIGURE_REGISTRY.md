@@ -387,3 +387,17 @@ Generated PNG files are reproducible and remain ignored by Git:
 - `outputs/figures/stiffness_gated_gain_vs_chi.png`
 
 These are synthetic numerical benchmark figures, not experimental figures.
+
+## OASIS-PINN Multilayer Sandwich And High-Risk Resolution v6
+
+Generated reproducible figures, not committed by default:
+
+- `outputs/figures/multilayer_temperature_stack.png`
+- `outputs/figures/multilayer_current_density_map.png`
+- `outputs/figures/multilayer_boundary_residuals.png`
+- `outputs/figures/multilayer_structure_ablation.png`
+- `outputs/figures/claim_resolution_2d_field_error_ladder.png`
+- `outputs/figures/claim_resolution_observability_rank.png`
+- `outputs/figures/terminal_only_active_protocol_gain.png`
+- `outputs/figures/phase_aware_stl_gain.png`
+- `outputs/figures/adaptive_fourier_fsps_pareto.png`

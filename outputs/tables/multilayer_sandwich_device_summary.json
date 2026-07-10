@@ -1,0 +1,27 @@
+{
+  "benchmark": "multilayer_sandwich_device",
+  "boundary_aware_multilayer_forward_status": "qualified_supported",
+  "current_continuity_error_median": 0.0,
+  "current_continuity_threshold": 0.05,
+  "energy_balance_error_median": 24223582685.28379,
+  "finite_rate": 1.0,
+  "forbidden_claims": [
+    "full FEM",
+    "device-grade reproduction",
+    "experimental validation"
+  ],
+  "interface_bc_residual_median": 0.0,
+  "interface_bc_residual_threshold": 0.35,
+  "note": "Synthetic numerical digital-twin reduced boundary-aware benchmark; not FEM, not device-grade reproduction, not experimental validation.",
+  "num_cases": 216,
+  "outputs": {
+    "cases_csv": "outputs/tables/multilayer_sandwich_device_cases.csv",
+    "figures": [
+      "outputs/figures/multilayer_temperature_stack.png",
+      "outputs/figures/multilayer_current_density_map.png",
+      "outputs/figures/multilayer_boundary_residuals.png",
+      "outputs/figures/multilayer_structure_ablation.png"
+    ],
+    "summary_json": "outputs/tables/multilayer_sandwich_device_summary.json"
+  }
+}

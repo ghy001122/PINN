@@ -1,0 +1,75 @@
+﻿metadata:
+  scope: synthetic_numerical_digital_twin
+  exploration_first_claim_gated: true
+  frozen_ground_truth_must_remain_unchanged: true
+claims:
+  full_2d_hidden_field_recovery:
+    current_status: forbidden
+    resolution_hypothesis: augmented observations plus low-rank priors may recover structured T and m fields, while terminal-only data remains insufficient
+    model_upgrade: boundary-aware multilayer sandwich fields and explicit observation operator H_p
+    observation_protocol: multi-terminal plus sparse anchors plus active protocol design
+    success_threshold: median field error <= 0.25 and success_rate >= 0.60
+    partial_success_threshold: field error improves >= 30 percent over v3 best 0.7692662179470062
+    failure_interpretation: observability, not network capacity, is the binding limitation
+    allowed_wording: structured 2D field recovery is qualified under augmented observations if the gate clears
+    forbidden_wording: sparse terminal data uniquely recovers arbitrary full 2D hidden fields
+  terminal_only_2d_inverse:
+    current_status: forbidden
+    resolution_hypothesis: richer terminal protocols may recover low-dimensional parameters but not arbitrary latent fields
+    model_upgrade: multi-protocol terminal operator with threshold, holding, and frequency features
+    observation_protocol: combined multi-amplitude, multi-width, minor-loop, and oscillation readout
+    success_threshold: parameter median error <= 0.20 and success_rate >= 0.70
+    partial_success_threshold: latent-field median error <= 0.30 and success_rate >= 0.60
+    failure_interpretation: terminal-only single traces are underdetermined
+    allowed_wording: active terminal protocols can support low-dimensional diagnosis under priors if the gate clears
+    forbidden_wording: terminal-only sparse traces solve arbitrary 2D inverse recovery
+  full_stl_pinn_reproduction:
+    current_status: forbidden
+    resolution_hypothesis: domain-adapted transfer may help stiff fronts but current evidence is not a canonical reproduction
+    model_upgrade: phase-aware schedule and front-position diagnostics
+    observation_protocol: reduced PINN synthetic residual benchmark
+    success_threshold: gain >= 0.20 and success rate improves over continuation baseline
+    partial_success_threshold: positive gain below 0.20
+    failure_interpretation: transfer mismatch or representation drift dominates
+    allowed_wording: phase-aware transfer is a reduced synthetic stress test if gate clears
+    forbidden_wording: full STL-PINN reproduction or general stiff-PINN solution
+  seiler_style_phase_aware_stl:
+    current_status: failed_but_informative
+    resolution_hypothesis: Seiler-inspired multi-head ideas may need phase-front adapters and matched budgets
+    model_upgrade: front-position STL, adapter STL, residual-distilled STL, progressive-width STL
+    observation_protocol: width schedule [0.3,0.2,0.1,0.075,0.05]
+    success_threshold: transfer gain >= 0.20 versus continuation and higher success rate
+    partial_success_threshold: positive gain but below 0.20
+    failure_interpretation: the method is not yet transferable to this phase-transition benchmark
+    allowed_wording: reduced phase-aware STL repair attempt
+    forbidden_wording: Seiler-style STL has been reproduced or validated on devices
+  adaptive_fourier_fsps_superiority:
+    current_status: forbidden
+    resolution_hypothesis: stiffness-gated Fourier/F-SPS may help sharp fronts while avoiding smooth-regime harm
+    model_upgrade: adaptive branch selected by chi=max(s(1-s)/w)
+    observation_protocol: actual autograd training across width, geometry, and noise
+    success_threshold: pareto_win_rate >= 0.70, sharp_gain >= 0.15, smooth_degradation <= 0.10
+    partial_success_threshold: sharp gain positive but Pareto gate fails
+    failure_interpretation: benefits are regime-specific and should stay supplementary
+    allowed_wording: adaptive stiffness-gated benefit under specified regimes if gate clears
+    forbidden_wording: universal Fourier/F-SPS superiority
+  full_device_grade_simulation:
+    current_status: forbidden
+    resolution_hypothesis: boundary-aware multilayer reductions improve physics credibility but are not FEM/device-grade
+    model_upgrade: TE/PCM/barrier/BE/substrate with interface residual audits
+    observation_protocol: structure ablation and boundary residual profile
+    success_threshold: finite_rate=1.0 and interface/current residual gates clear
+    partial_success_threshold: finite and residuals reported but not below thresholds
+    failure_interpretation: boundary model needs refinement
+    allowed_wording: boundary-aware reduced multilayer sandwich forward benchmark
+    forbidden_wording: full FEM, device-grade reproduction, or experimental validation
+  experimental_validation:
+    current_status: forbidden
+    resolution_hypothesis: only provenance-backed measured curves can change this status
+    model_upgrade: data provenance and digitization workflow
+    observation_protocol: external measured data with documented source and digitization method
+    success_threshold: real measured data added with provenance
+    partial_success_threshold: none
+    failure_interpretation: synthetic evidence remains synthetic
+    allowed_wording: synthetic numerical digital-twin benchmark
+    forbidden_wording: measured experimental validation

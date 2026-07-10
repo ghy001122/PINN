@@ -488,3 +488,7 @@ Key results:
 - STL repair: integrated stiffness/STL audit expanded to `162` cases; best repair is `STL_repair_head_only` with gain `-0.14315251294108938`, status `failed_but_informative`.
 
 Claim boundary: this improves physical realism and reviewer defense, but does not change the main manuscript line. Full 2D hidden-field recovery, full STL-PINN reproduction, universal Fourier/F-SPS superiority, and experimental validation remain forbidden.
+
+## OASIS-PINN Multilayer Sandwich And High-Risk Resolution v6
+
+Added literature-prior consistency audit, boundary-aware multilayer sandwich forward benchmark, OASIS-PINN components, 2D field resolution ladder, active terminal-only low-dimensional rescue, phase-aware STL repair audit, adaptive Fourier/F-SPS actual-training audit, and low-dimensional sandwich inverse smoke. All outputs are synthetic numerical digital-twin evidence and are claim-gated.

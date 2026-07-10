@@ -1,0 +1,41 @@
+{
+  "benchmark": "terminal_only_active_protocol_rescue",
+  "best_protocol": "combined_terminal_protocol",
+  "forbidden_claims": [
+    "single-trace arbitrary full-field recovery",
+    "experimental validation"
+  ],
+  "median_latent_field_error_by_protocol": {
+    "combined_terminal_protocol": 0.05473452271625371,
+    "hysteresis_minor_loop": 1.0,
+    "multi_amplitude": 1.0,
+    "multi_width": 1.0,
+    "oscillation_frequency_readout": 0.34404198566685945,
+    "single_pulse": 1.0
+  },
+  "median_parameter_error_by_protocol": {
+    "combined_terminal_protocol": 0.056375606896068575,
+    "hysteresis_minor_loop": 0.23273915468139136,
+    "multi_amplitude": 0.3134324810866982,
+    "multi_width": 0.2515578012661032,
+    "oscillation_frequency_readout": 0.3684568135183305,
+    "single_pulse": 0.304953838553787
+  },
+  "note": "Synthetic numerical terminal-protocol audit; supports only low-dimensional diagnosis if gates clear.",
+  "num_cases": 36,
+  "outputs": {
+    "cases_csv": "outputs/tables/terminal_only_active_protocol_rescue_cases.csv",
+    "gain_figure": "outputs/figures/terminal_only_active_protocol_gain.png",
+    "summary_json": "outputs/tables/terminal_only_active_protocol_rescue_summary.json"
+  },
+  "parameter_recovery_status": "qualified_supported",
+  "single_trace_arbitrary_full_field_status": "forbidden",
+  "success_rate_by_protocol": {
+    "combined_terminal_protocol": 1.0,
+    "hysteresis_minor_loop": 0.0,
+    "multi_amplitude": 0.0,
+    "multi_width": 0.0,
+    "oscillation_frequency_readout": 0.0,
+    "single_pulse": 0.0
+  }
+}

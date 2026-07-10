@@ -1,0 +1,49 @@
+{
+  "adaptive_f_sps_status": "failed_but_informative",
+  "benchmark": "adaptive_fourier_fsps_superiority",
+  "failure_rate_by_method": {
+    "adaptive_f_sps": 0.0,
+    "f_sps_always_on": 0.0,
+    "fourier_always_on": 0.0,
+    "fourier_off": 0.0,
+    "front_local_fourier": 0.0,
+    "stiffness_gated_fourier": 0.0
+  },
+  "forbidden_claims": [
+    "universal Fourier/F-SPS superiority",
+    "experimental validation"
+  ],
+  "is_actual_autograd_training": true,
+  "note": "Synthetic numerical actual-autograd-training audit; not universal F-SPS superiority and not experimental data.",
+  "num_cases": 144,
+  "outputs": {
+    "cases_csv": "outputs/tables/adaptive_fourier_fsps_superiority_cases.csv",
+    "pareto_figure": "outputs/figures/adaptive_fourier_fsps_pareto.png",
+    "summary_json": "outputs/tables/adaptive_fourier_fsps_superiority_summary.json"
+  },
+  "pareto_win_rate_by_method": {
+    "adaptive_f_sps": 0.6666666666666666,
+    "f_sps_always_on": 0.8333333333333334,
+    "fourier_always_on": 0.5833333333333334,
+    "fourier_off": 1.0,
+    "front_local_fourier": 0.75,
+    "stiffness_gated_fourier": 0.8333333333333334
+  },
+  "sharp_gain_by_method": {
+    "adaptive_f_sps": 0.4079553978360986,
+    "f_sps_always_on": 0.39504073792135214,
+    "fourier_always_on": 0.006510358399310599,
+    "fourier_off": 0.0,
+    "front_local_fourier": 0.28658229154962045,
+    "stiffness_gated_fourier": 0.1686999303294938
+  },
+  "smooth_degradation_by_method": {
+    "adaptive_f_sps": 0.1821856000041686,
+    "f_sps_always_on": 0.0,
+    "fourier_always_on": 0.12256663197429751,
+    "fourier_off": 0.0,
+    "front_local_fourier": 0.07744607679369331,
+    "stiffness_gated_fourier": 0.09558177200975959
+  },
+  "universal_superiority_status": "forbidden"
+}

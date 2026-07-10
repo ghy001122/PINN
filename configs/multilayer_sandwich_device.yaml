@@ -1,0 +1,25 @@
+﻿benchmark: multilayer_sandwich_device
+scope: synthetic_numerical_digital_twin
+claim_gate:
+  interface_bc_residual_threshold: 0.35
+  current_continuity_threshold: 0.05
+  energy_balance_report_only: true
+quick_profile:
+  structures: [pcm_only, pcm_plus_electrodes, pcm_plus_electrodes_substrate, full_stack_with_contact_resistance, full_stack_with_thermal_boundary_resistance, full_stack_with_SnSe_barrier]
+  geometry: [uniform_crossbar, localized_filament, edge_hotspot]
+  transition_width: [0.2, 0.1, 0.05]
+  pulse: [short_pulse, ltp_ltd]
+  seeds: [2026, 2027]
+numerics:
+  ny: 24
+  nt: 26
+  dt: 2.0e-7
+  area_m2: 1.0e-12
+  width_m: 1.0e-6
+  V_short: 0.18
+  V_ltp: 0.15
+  V_ltd: -0.08
+  R_load_ohm: 1.0e5
+  T0_K: 300.0
+  tau_m_s: 1.6e-6
+  D_m: 2.0e-4

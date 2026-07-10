@@ -327,3 +327,7 @@ These lightweight tables are synthetic numerical digital-twin benchmark evidence
 - Updated: `outputs/tables/integrated_stiffness_stl_cases.csv`
 
 No frozen Ground Truth v1.1 files were modified.
+
+## OASIS-PINN Multilayer Sandwich And High-Risk Resolution v6
+
+No new large dataset was added. The pack generated lightweight synthetic numerical CSV/JSON tables under `outputs/tables/`. Generated figures under `outputs/figures/` are reproducible and not committed by default. Frozen Ground Truth v1.1 data were not modified.

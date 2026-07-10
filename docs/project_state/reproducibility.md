@@ -496,3 +496,28 @@ Validation:
 ```
 
 Generated figures are ignored by Git; lightweight JSON/CSV tables are committed evidence.
+
+## Reproduce OASIS-PINN Multilayer Sandwich And High-Risk Resolution v6
+
+Run:
+
+```powershell
+.\.venv\Scripts\python.exe scriptsudit_literature_prior_consistency.py
+.\.venv\Scripts\python.exe scriptsudit_multilayer_sandwich_device.py
+.\.venv\Scripts\python.exe scriptsudit_claim_resolution_2d_field.py
+.\.venv\Scripts\python.exe scriptsudit_terminal_only_active_protocol_rescue.py
+.\.venv\Scripts\python.exe scriptsudit_phase_aware_stl_repair.py
+.\.venv\Scripts\python.exe scriptsudit_adaptive_fourier_fsps_superiority.py
+.\.venv\Scripts\python.exe scriptsudit_multilayer_sandwich_low_dim_inverse.py
+```
+
+Validation:
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest tests/test_literature_prior_consistency.py tests/test_multilayer_sandwich_device.py tests/test_oasis_components.py
+.\.venv\Scripts\python.exe -m pytest tests/test_claim_resolution_2d_field.py tests/test_terminal_only_active_protocol_rescue.py tests/test_phase_aware_stl_repair.py tests/test_adaptive_fourier_fsps_superiority.py
+.\.venv\Scripts\python.exe -m pytest tests/test_multilayer_sandwich_low_dim_inverse.py tests/test_port_physical_2d_inverse.py tests/test_stiffness_gated_fourier_fsps.py tests/test_claim_gate_resolution_matrix.py
+.\.venv\Scripts\python.exe -m pytest
+```
+
+Frozen Ground Truth v1.1 is not regenerated or modified by these commands.

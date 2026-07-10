@@ -24,3 +24,15 @@ All entries refer to a synthetic numerical digital-twin benchmark, not experimen
 | Was actual stiffness PINN training tested rather than only a proxy? | Yes. The expanded actual-training audit now includes matched-budget STL repair; continuation/asinh remains positive, while Seiler-style and repair modes fail their gates. | outputs/tables/integrated_stiffness_stl_summary.json | Continuation/asinh/adaptive reduced PINN training mitigates stiffness; Seiler-style and STL repair are failed_but_informative. | General stiff PINN training is solved. | Supplementary; Methods |
 | Does Seiler-style STL now have direct evidence? | A reduced shared-trunk, multi-head transfer and a matched-budget repair audit are implemented, but neither clears the positive gate; full STL-PINN reproduction remains forbidden. | outputs/tables/integrated_stiffness_stl_summary.json | Seiler-style and STL repair evidence define a repair target rather than a positive result. | Full Seiler et al. reproduction. | Supplementary; Future Work |
 | Does Fourier/F-SPS become a main superiority claim? | No universal claim is allowed. A stiffness-gated hybrid now clears the small sharp/front and smooth negative-control gate, but only as condition-limited synthetic method-development evidence. | outputs/tables/stiffness_gated_fourier_fsps_summary.json | stiffness-gated sharp/front use is qualified_supported in this audit; universal F-SPS/Fourier superiority remains forbidden. | F-SPS/Fourier universally superior. | Discussion; Supplementary |
+
+## OASIS-PINN Multilayer Sandwich And High-Risk Resolution v6
+
+Synthetic numerical digital-twin evidence only; not experimental validation.
+
+| Reviewer risk | Current evidence | Defense wording | Forbidden wording |
+|---|---|---|---|
+| Literature priors look fabricated | `outputs/tables/literature_prior_consistency_summary.json` has 3 families and provenance fields | Literature-guided shape/parameter plausibility priors | Measured material parameters |
+| Device model too mean-field | `outputs/tables/multilayer_sandwich_device_summary.json` passes boundary/current residual gates | Reduced boundary-aware multilayer sandwich benchmark | Full FEM or device-grade reproduction |
+| 2D full-field recovery overclaimed | `outputs/tables/claim_resolution_2d_field_summary.json` supports only Fisher-anchor augmented recovery | Structured recovery under augmented observations | Terminal-only arbitrary full-field recovery |
+| Terminal-only inverse too weak | `outputs/tables/terminal_only_active_protocol_rescue_summary.json` supports only low-dimensional parameter diagnosis | Active terminal protocols can diagnose low-dimensional parameters under priors | Single-trace full-field recovery |
+| STL/F-SPS claims too strong | `phase_aware_stl_repair` and `adaptive_fourier_fsps_superiority` remain failed-but-informative | Algorithmic stress evidence only | Full STL reproduction or universal F-SPS superiority |

@@ -223,3 +223,19 @@ Key results:
 - STL repair: integrated stiffness/STL audit expanded to `162` cases; best repair is `STL_repair_head_only` with gain `-0.14315251294108938`, status `failed_but_informative`.
 
 Claim boundary: this improves physical realism and reviewer defense, but does not change the main manuscript line. Full 2D hidden-field recovery, full STL-PINN reproduction, universal Fourier/F-SPS superiority, and experimental validation remain forbidden.
+
+## OASIS-PINN Multilayer Sandwich And High-Risk Resolution v6
+
+This pack upgrades the supplementary high-risk claim-gate branch from reduced mean-sigma/proxy evidence toward boundary-aware multilayer sandwich and observability-aware method scaffolding. It does not change the main manuscript line: calibration-gated constrained `gamma_sub` inversion remains the most defensible SCI claim.
+
+New evidence is synthetic numerical digital-twin benchmark evidence only. Frozen Ground Truth v1.1 remains unchanged.
+
+Key results:
+
+- Literature-prior registry covers NbO2/SnSe sandwich thermal engineering, VO2 thermal neuristor, and NbOx/AlN coplanar Mott memristor as shape/parameter plausibility priors only.
+- Boundary-aware multilayer sandwich forward benchmark passes the configured finite/current/interface residual gate: finite rate `1.0`, interface residual median `0.0`, current continuity median `0.0`.
+- Structured 2D field recovery is qualified only under augmented Fisher-anchor observations: best median field error `0.19897395319670247`, success rate `0.75`; terminal-only full-field recovery remains forbidden.
+- Active terminal-only multi-protocol rescue supports only low-dimensional parameter diagnosis under combined protocols: median parameter error `0.056375606896068575`, success rate `1.0`; arbitrary full-field recovery remains forbidden.
+- Phase-aware STL repair remains `failed_but_informative`; full STL-PINN reproduction remains forbidden.
+- Adaptive Fourier/F-SPS actual autograd audit remains `failed_but_informative`; sharp gain exists but Pareto and smooth-regime gates do not clear.
+- Low-dimensional sandwich inverse is qualified under combined protocol, but arbitrary field inversion remains forbidden.

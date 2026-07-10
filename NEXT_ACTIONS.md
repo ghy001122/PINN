@@ -164,3 +164,16 @@ The next high-feasibility research step is not to claim 2D recovery. The evidenc
 - For the manuscript: keep constrained `gamma_sub` as the main claim and use v3 results as supplementary reviewer-defense evidence.
 
 Do not claim experimental validation, full sparse-port hidden-field recovery, universal Fourier/F-SPS superiority, or full STL-PINN reproduction.
+
+## Immediate Next After OASIS-PINN Multilayer Sandwich And High-Risk Resolution v6
+
+Use the new evidence as supplementary claim-gate material, not as a replacement for the constrained `gamma_sub` main paper line.
+
+Recommended next steps:
+
+1. Keep the main SCI manuscript centered on calibration-gated constrained `gamma_sub` inversion.
+2. Route the multilayer sandwich benchmark and OASIS-PINN scaffold to methods/supplementary material as bounded digital-twin extensions.
+3. Use the Fisher-anchor 2D recovery result only as an augmented-observation claim; keep terminal-only full-field recovery forbidden.
+4. Use active terminal protocols only for low-dimensional diagnosis wording.
+5. Treat phase-aware STL and adaptive F-SPS as failed-but-informative algorithm evidence; do not claim full STL reproduction or universal superiority.
+6. If continuing high-risk exploration, prioritize sensor/anchor design and calibrated multi-protocol validation over larger networks.

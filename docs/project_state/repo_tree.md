@@ -202,3 +202,34 @@ New top-level additions in this pack:
 - `docs/paper/abstract_v1.md`
 - `docs/paper/title_candidates.md`
 
+## OASIS-PINN v6 Additions
+
+```text
+configs/
+  literature_priors_phase_change.yaml
+  multilayer_sandwich_device.yaml
+  high_risk_claim_resolution_v6.yaml
+src/pinnpcm/physics/
+  multilayer_sandwich.py
+src/pinnpcm/pinn/
+  oasis_components.py
+src/pinnpcm/experiments/
+  claim_resolution_2d_field.py
+scripts/
+  audit_literature_prior_consistency.py
+  audit_multilayer_sandwich_device.py
+  audit_claim_resolution_2d_field.py
+  audit_terminal_only_active_protocol_rescue.py
+  audit_phase_aware_stl_repair.py
+  audit_adaptive_fourier_fsps_superiority.py
+  audit_multilayer_sandwich_low_dim_inverse.py
+tests/
+  test_literature_prior_consistency.py
+  test_multilayer_sandwich_device.py
+  test_oasis_components.py
+  test_claim_resolution_2d_field.py
+  test_terminal_only_active_protocol_rescue.py
+  test_phase_aware_stl_repair.py
+  test_adaptive_fourier_fsps_superiority.py
+  test_multilayer_sandwich_low_dim_inverse.py
+```

@@ -1,0 +1,33 @@
+{
+  "benchmark": "multilayer_sandwich_low_dim_inverse",
+  "best_protocol": "combined",
+  "forbidden_claims": [
+    "full arbitrary hidden-field inverse",
+    "experimental validation"
+  ],
+  "low_dim_sandwich_inverse_status": "qualified_supported",
+  "median_parameter_error_by_protocol": {
+    "combined": 0.04044092905036974,
+    "ltp_ltd": 0.24507963588780948,
+    "short_pulse": 0.24639043358933516
+  },
+  "note": "Synthetic numerical low-dimensional sandwich inverse smoke; not arbitrary full-field recovery.",
+  "num_cases": 18,
+  "outputs": {
+    "cases_csv": "outputs/tables/multilayer_sandwich_low_dim_inverse_cases.csv",
+    "summary_json": "outputs/tables/multilayer_sandwich_low_dim_inverse_summary.json"
+  },
+  "parameters": [
+    "Rth_pcm_sub",
+    "Rth_barrier",
+    "Rc_te_pcm",
+    "h_sub",
+    "Tsw",
+    "Ea"
+  ],
+  "success_rate_by_protocol": {
+    "combined": 1.0,
+    "ltp_ltd": 0.0,
+    "short_pulse": 0.0
+  }
+}

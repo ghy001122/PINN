@@ -614,3 +614,7 @@ Locked Drive/web/repo-local literature evidence and generated supplementary stif
 Date: 2026-07-03.
 
 Added reduced 2D forward, reduced 2D observability ladder, and stiffness-aware algorithm residual-proxy audits. The pack supports reduced 2D forward behavior, qualified low-dimensional 2D inverse under augmented observations, and stiffness-mitigation wording. Terminal-only 2D inverse, full 2D hidden-field recovery, full STL-PINN reproduction, F-SPS superiority, and experimental validation remain forbidden. Frozen Ground Truth v1.1 was not modified.
+
+## OASIS-PINN Multilayer Sandwich And High-Risk Resolution v6
+
+Added a literature-prior registry, boundary-aware multilayer sandwich forward benchmark, OASIS-PINN component scaffold, 2D field resolution ladder, active terminal-only low-dimensional rescue, phase-aware STL repair audit, adaptive Fourier/F-SPS actual-training audit, and low-dimensional sandwich inverse smoke. Results remain synthetic numerical digital-twin evidence and are routed through claim gates.

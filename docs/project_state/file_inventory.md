@@ -415,3 +415,32 @@ educed_2d_observability_limited_inverse_cases.csv`: observability ladder evidenc
 - `tests/test_port_physical_2d_inverse.py`: smoke test for port-physical inverse outputs and schema.
 - `tests/test_stiffness_gated_fourier_fsps.py`: smoke test for stiffness-gated actual-training outputs and schema.
 - Updated `scripts/audit_integrated_stiffness_stl.py` and `tests/test_integrated_stiffness_stl.py` with matched-budget STL repair and representation drift metrics.
+
+## OASIS-PINN Multilayer Sandwich And High-Risk Resolution v6 Files
+
+- `configs/literature_priors_phase_change.yaml`
+- `configs/multilayer_sandwich_device.yaml`
+- `configs/high_risk_claim_resolution_v6.yaml`
+- `src/pinnpcm/physics/multilayer_sandwich.py`
+- `src/pinnpcm/pinn/oasis_components.py`
+- `src/pinnpcm/experiments/claim_resolution_2d_field.py`
+- `scripts/audit_literature_prior_consistency.py`
+- `scripts/audit_multilayer_sandwich_device.py`
+- `scripts/audit_claim_resolution_2d_field.py`
+- `scripts/audit_terminal_only_active_protocol_rescue.py`
+- `scripts/audit_phase_aware_stl_repair.py`
+- `scripts/audit_adaptive_fourier_fsps_superiority.py`
+- `scripts/audit_multilayer_sandwich_low_dim_inverse.py`
+- `tests/test_literature_prior_consistency.py`
+- `tests/test_multilayer_sandwich_device.py`
+- `tests/test_oasis_components.py`
+- `tests/test_claim_resolution_2d_field.py`
+- `tests/test_terminal_only_active_protocol_rescue.py`
+- `tests/test_phase_aware_stl_repair.py`
+- `tests/test_adaptive_fourier_fsps_superiority.py`
+- `tests/test_multilayer_sandwich_low_dim_inverse.py`
+- `docs/physics/literature_prior_registry.md`
+- `docs/physics/multilayer_sandwich_device_model.md`
+- `docs/methods/oasis_pinn_architecture.md`
+- `docs/paper/high_risk_claim_resolution_plan.md`
+- `docs/codex_reports/oasis_pinn_multilayer_sandwich_and_high_risk_resolution_v6_report.md`

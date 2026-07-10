@@ -127,3 +127,16 @@ The fastest route to a high-quality SCI manuscript is to stop expanding F-SPS-PI
 | Calibrated protocol robustness final | `scripts/audit_gamma_sub_calibrated_protocol_robustness_final.py` | `outputs/tables/gamma_sub_calibrated_protocol_robustness_final_summary.json` | Figure 5 / Table 6 | `calibrated_short_pulse_to_ltp_ltd` is best in the tested ODE-backed synthetic grid | Experimental protocol validation |
 | Targeted external curve extraction | `scripts/attempt_literature_curve_extraction_from_sources.py` | `outputs/tables/literature_targeted_curve_extraction_attempt_summary.json` | Figure 7 / Supplement | No provenance-backed digitized curves were found; no curve data were fabricated | Literature curve fit success |
 
+## OASIS-PINN Multilayer Sandwich And High-Risk Resolution v6
+
+Synthetic numerical digital-twin evidence only. Frozen Ground Truth v1.1 remains unchanged.
+
+| Claim | Status | Evidence | Boundary |
+|---|---|---|---|
+| Literature prior registry complete | qualified_supported | `outputs/tables/literature_prior_consistency_summary.json` | Priors only, not measured parameters |
+| Boundary-aware multilayer sandwich forward | qualified_supported | `outputs/tables/multilayer_sandwich_device_summary.json` | Not full FEM or device-grade |
+| Augmented structured 2D field recovery | qualified_supported | `multi_terminal_plus_fisher_anchors` median error 0.19897395319670247 | Requires augmented Fisher anchors; terminal-only remains forbidden |
+| Active terminal-only low-dimensional inverse | qualified_supported | `combined_terminal_protocol` median error 0.056375606896068575 | Low-dimensional parameters only |
+| Phase-aware STL repair | failed_but_informative | Best gain 0.09389518340983438 | Full STL-PINN reproduction remains forbidden |
+| Adaptive Fourier/F-SPS superiority | failed_but_informative | Pareto 0.6666666666666666; smooth degradation 0.1821856000041686 | Universal superiority remains forbidden |
+| Low-dimensional sandwich inverse | qualified_supported | `combined` median error 0.04044092905036974 | Not arbitrary field inversion |

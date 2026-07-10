@@ -1,0 +1,61 @@
+﻿metadata:
+  benchmark_scope: synthetic_numerical_digital_twin
+  synthetic_not_experimental: true
+  allowed_use: shape/parameter plausibility prior only
+  forbidden_use: experimental validation
+  curve_digitization_status: not_digitized_repo_registry_only
+  provenance_required_fields:
+    - family
+    - stack
+    - prior_name
+    - quantity_type
+    - units
+    - value_or_range
+    - provenance_note
+    - allowed_use
+    - forbidden_use
+
+device_families:
+  - family: NbO2_SnSe_sandwich_thermal_engineering
+    stack: [TE, NbO2, SnSe thermal barrier, BE, substrate]
+    role: main_structure_and_thermal_boundary_prior
+    allowed_use: shape/parameter plausibility prior only
+    forbidden_use: experimental validation
+    curve_digitization_status: not_digitized_repo_registry_only
+    priors:
+      Rth: {quantity_type: effective thermal resistance trend, units: K/W or K m^2/W, value_or_range: barrier increases effective Rth, provenance_note: sandwich thermal-barrier reports motivate boundary engineering only}
+      Cth: {quantity_type: effective thermal capacitance trend, units: J/K or J/(m^3 K), value_or_range: finite thermal inertia, provenance_note: plausible oscillator/delay scaling only}
+      Ea: {quantity_type: activation energy prior, units: eV, value_or_range: positive thermally activated conduction scale, provenance_note: reduced NbO2-like switching kernel prior}
+      R0: {quantity_type: reference resistance scale, units: ohm, value_or_range: positive reference scale, provenance_note: shape prior only}
+      d: {quantity_type: active film thickness, units: m, value_or_range: nanometer-scale active layer, provenance_note: stack geometry prior only}
+      eps_r: {quantity_type: relative permittivity, units: dimensionless, value_or_range: positive dielectric scale, provenance_note: field-scale plausibility prior}
+      T_amb: {quantity_type: ambient temperature, units: K, value_or_range: near room temperature, provenance_note: boundary condition prior}
+      Vth_Vhold_DeltaV_trends: {quantity_type: threshold and holding trends, units: V, value_or_range: barrier and thermal resistance shift threshold and hysteresis width, provenance_note: trend prior for claim-gated synthetic sweeps}
+      oscillator_frequency_trends: {quantity_type: thermal relaxation and oscillator frequency trend, units: Hz, value_or_range: drive and thermal time constants shape oscillation frequency, provenance_note: qualitative oscillator trend prior only}
+  - family: VO2_thermal_neuristor
+    stack: [Ti/Au electrode, VO2, Al2O3 substrate]
+    role: delay_spiking_thermal_coupling_prior
+    allowed_use: shape/parameter plausibility prior only
+    forbidden_use: experimental validation
+    curve_digitization_status: not_digitized_repo_registry_only
+    priors:
+      R_T_hysteresis_major_minor: {quantity_type: resistance-temperature hysteresis shape, units: ohm vs K, value_or_range: major/minor hysteresis loops with thermal memory, provenance_note: reduced hysteretic R(T) shape only}
+      R0: {quantity_type: insulating reference resistance, units: ohm, value_or_range: positive high-resistance branch, provenance_note: branch-scale prior only}
+      Rm: {quantity_type: metallic reference resistance, units: ohm, value_or_range: lower-resistance branch, provenance_note: contrast prior only}
+      Ea: {quantity_type: thermal activation energy, units: eV, value_or_range: positive activation scale, provenance_note: reduced Arrhenius branch prior}
+      beta: {quantity_type: conductivity contrast coefficient, units: dimensionless, value_or_range: positive contrast coefficient, provenance_note: engineering prior}
+      w: {quantity_type: transition width, units: K, value_or_range: positive finite width; small width creates stiffness, provenance_note: stiffness-sweep prior}
+      Tc: {quantity_type: transition temperature, units: K, value_or_range: VO2-like transition neighborhood, provenance_note: not a measured value for this benchmark}
+      C: {quantity_type: circuit capacitance proxy, units: F, value_or_range: finite delay/spiking scale, provenance_note: neuristor circuit shape prior only}
+      Cth: {quantity_type: thermal capacitance, units: J/K, value_or_range: finite thermal inertia, provenance_note: thermal delay prior}
+      Sth: {quantity_type: thermal conductance or sink coefficient, units: W/K, value_or_range: positive heat-sink scale, provenance_note: reduced thermal coupling prior}
+  - family: NbOx_AlN_coplanar_Mott_memristor
+    stack: [Ti/Pt coplanar electrodes, NbOx, AlN passivation, SiO2, p++Si]
+    role: lateral_2d_multiterminal_coplanar_control_prior
+    allowed_use: shape/parameter plausibility prior only
+    forbidden_use: experimental validation
+    curve_digitization_status: not_digitized_repo_registry_only
+    priors:
+      electrode_gap: {quantity_type: lateral electrode gap, units: m, value_or_range: micron/nanometer-scale lateral gap depending device, provenance_note: geometry motivation for lateral field maps}
+      passivation_bare_Vth_Vhold_variability: {quantity_type: threshold and holding voltage variability trend, units: V, value_or_range: passivation changes heat spreading and switching thresholds, provenance_note: passivated-vs-bare control trend only}
+      lateral_thermal_distribution: {quantity_type: 2D heat-spreading motivation, units: K field, value_or_range: lateral thermal gradients expected near coplanar electrodes, provenance_note: motivates reduced 2D observability tests, not full FEM validation}

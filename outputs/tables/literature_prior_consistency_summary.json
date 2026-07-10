@@ -1,0 +1,18 @@
+{
+  "allowed_use": "shape/parameter plausibility prior only",
+  "benchmark": "literature_prior_consistency",
+  "curve_digitization_status": "not_digitized_repo_registry_only",
+  "family_count": 3,
+  "family_prior_counts": {
+    "NbO2_SnSe_sandwich_thermal_engineering": 9,
+    "NbOx_AlN_coplanar_Mott_memristor": 3,
+    "VO2_thermal_neuristor": 10
+  },
+  "forbidden_use": "experimental validation",
+  "has_provenance_fields": true,
+  "missing_fields": [],
+  "note": "Synthetic numerical digital-twin prior registry audit; not experimental validation.",
+  "required_families_present": true,
+  "status": "qualified_supported",
+  "synthetic_not_experimental": true
+}
