@@ -564,3 +564,36 @@ Outputs:
 - `outputs/tables/multilayer_sandwich_low_dim_inverse_summary.json`
 
 Claim routing: multilayer forward, augmented Fisher-anchor structured recovery, active low-dimensional terminal diagnosis, and low-dimensional sandwich inverse get qualified support. STL repair and adaptive F-SPS remain failed-but-informative. Experimental validation, terminal-only arbitrary full-field recovery, full STL reproduction, full FEM/device-grade reproduction, and universal F-SPS superiority remain forbidden.
+
+## OASIS-PINN Simulator-Backed Evidence Actualization v7
+
+Status: completed as stricter synthetic numerical claim-gate evidence. This pack supersedes the proxy-positive interpretation of selected v6 results.
+
+Updated code and tests:
+
+- `src/pinnpcm/physics/multilayer_sandwich.py`: computed multilayer interface residuals and energy-balance gate; added simulator parameter knobs used by inverse audits.
+- `src/pinnpcm/pinn/oasis_components.py`: `series_stack` is the default physical port solver; `mean_sigma_ablation` is explicit ablation-only; `resistor_network` remains optional.
+- `src/pinnpcm/experiments/claim_resolution_2d_field.py`: simulator-ensemble POD basis with a holdout target and no target leakage.
+- `scripts/audit_multilayer_sandwich_device.py`: writes computed residual and energy-balance columns.
+- `scripts/audit_terminal_only_active_protocol_rescue.py`: simulator-backed terminal-only protocol audit; writes new simulator summary/cases outputs.
+- `scripts/audit_multilayer_sandwich_low_dim_inverse.py`: simulator-backed low-dimensional sandwich inverse with finite condition-number reporting.
+- `scripts/audit_phase_aware_stl_repair.py`: actual torch STL smoke audit.
+- `scripts/audit_adaptive_fourier_fsps_superiority.py`: chi_c sweep and separate best-gated versus adaptive_f_sps statuses.
+- Tests updated: `tests/test_multilayer_sandwich_device.py`, `tests/test_oasis_components.py`, `tests/test_terminal_only_active_protocol_rescue.py`, `tests/test_multilayer_sandwich_low_dim_inverse.py`, `tests/test_claim_resolution_2d_field.py`, `tests/test_phase_aware_stl_repair.py`, `tests/test_adaptive_fourier_fsps_superiority.py`.
+
+Lightweight outputs:
+
+- `outputs/tables/multilayer_sandwich_device_summary.json`
+- `outputs/tables/multilayer_sandwich_device_cases.csv`
+- `outputs/tables/terminal_only_active_protocol_rescue_simulator_summary.json`
+- `outputs/tables/terminal_only_active_protocol_rescue_simulator_cases.csv`
+- `outputs/tables/multilayer_sandwich_low_dim_inverse_summary.json`
+- `outputs/tables/multilayer_sandwich_low_dim_inverse_cases.csv`
+- `outputs/tables/claim_resolution_2d_field_summary.json`
+- `outputs/tables/claim_resolution_2d_field_cases.csv`
+- `outputs/tables/phase_aware_stl_repair_summary.json`
+- `outputs/tables/phase_aware_stl_repair_cases.csv`
+- `outputs/tables/adaptive_fourier_fsps_superiority_summary.json`
+- `outputs/tables/adaptive_fourier_fsps_superiority_cases.csv`
+
+Claim result: multilayer forward, terminal-only rescue, low-dimensional sandwich inverse, holdout POD field recovery, and phase-aware STL are downgraded or remain negative/informative. Only `stiffness_gated_fourier` receives condition-limited qualified support; universal F-SPS/Fourier superiority remains forbidden.

@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import math
 from pathlib import Path
@@ -14,7 +14,11 @@ def test_claim_resolution_2d_field_smoke(tmp_path: Path, monkeypatch) -> None:
     monkeypatch.setattr(audit, "FIG_RANK", tmp_path / "rank.png")
     rows, summary = run_claim_resolution_2d_field(noise_values=[0.0], seeds=[2026])
     assert len(rows) == len(PROTOCOLS)
+    assert summary["uses_holdout_target"] is True
+    assert summary["no_target_leakage"] is True
+    assert summary["terminal_only_status"] == "forbidden"
     assert summary["terminal_only_full_field_status"] == "forbidden"
+    assert set(summary["basis_mode_results"]) == set(PROTOCOLS)
     for value in summary["median_field_error_by_protocol"].values():
         assert math.isfinite(float(value))
     full = audit.run_audit()

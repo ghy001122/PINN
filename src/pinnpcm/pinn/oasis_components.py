@@ -62,20 +62,83 @@ def nb_o2_pf_ndr_current(E: torch.Tensor, T: torch.Tensor, A: float = 1.0e-9, be
 
 
 class DifferentiablePortCircuit(nn.Module):
-    """Map layer conductivities to port current with a load-line circuit."""
+    """Map layer conductivities to port current with a load-line circuit.
 
-    def __init__(self, area_m2: float = 1.0e-12, thickness_m: float = 100e-9, R_load_ohm: float = 1.0e5) -> None:
+    `series_stack` is the default physical port layer. `mean_sigma_ablation`
+    preserves the old shortcut only for explicit ablation use.
+    """
+
+    def __init__(
+        self,
+        area_m2: float = 1.0e-12,
+        thickness_m: float = 100e-9,
+        R_load_ohm: float = 1.0e5,
+        port_solver: str = "series_stack",
+        layer_thickness_m: torch.Tensor | None = None,
+    ) -> None:
         super().__init__()
         self.area_m2 = float(area_m2)
         self.thickness_m = float(thickness_m)
         self.R_load_ohm = float(R_load_ohm)
+        self.port_solver = str(port_solver)
+        if layer_thickness_m is None:
+            self.register_buffer("layer_thickness_m", torch.empty(0))
+        else:
+            self.register_buffer("layer_thickness_m", torch.as_tensor(layer_thickness_m, dtype=torch.float32))
 
-    def forward(self, sigma: torch.Tensor, V_app: torch.Tensor) -> dict[str, torch.Tensor]:
+    def _thickness(self, sigma: torch.Tensor) -> torch.Tensor:
+        layers = sigma.shape[-1]
+        if self.layer_thickness_m.numel() == layers:
+            return self.layer_thickness_m.to(dtype=sigma.dtype, device=sigma.device)
+        return torch.full((layers,), self.thickness_m / max(layers, 1), dtype=sigma.dtype, device=sigma.device)
+
+    def _mean_sigma_ablation(self, sigma: torch.Tensor, V_app: torch.Tensor) -> dict[str, torch.Tensor]:
         sigma_eff = torch.mean(torch.clamp(sigma, min=1.0e-12), dim=-1)
         G = sigma_eff * self.area_m2 / self.thickness_m
         V_dev = V_app / (1.0 + self.R_load_ohm * G)
         I = G * V_dev
-        return {"G": G, "I": I, "V_dev": V_dev}
+        J = I / self.area_m2
+        E = J.unsqueeze(-1) / torch.clamp(sigma, min=1.0e-12)
+        Q_J = torch.clamp(sigma, min=1.0e-12) * E.square()
+        return {"G": G, "I": I, "V_dev": V_dev, "J": J, "Q_J": Q_J, "port_solver": "mean_sigma_ablation"}
+
+    def _series_stack(self, sigma: torch.Tensor, V_app: torch.Tensor) -> dict[str, torch.Tensor]:
+        safe_sigma = torch.clamp(sigma, min=1.0e-12)
+        thickness = self._thickness(safe_sigma)
+        R_area = torch.sum(thickness / safe_sigma, dim=-1)
+        G = self.area_m2 / torch.clamp(R_area, min=1.0e-30)
+        V_dev = V_app / (1.0 + self.R_load_ohm * G)
+        J = V_dev / torch.clamp(R_area, min=1.0e-30)
+        I = J * self.area_m2
+        E = J.unsqueeze(-1) / safe_sigma
+        Q_J = safe_sigma * E.square()
+        return {"G": G, "I": I, "V_dev": V_dev, "J": J, "Q_J": Q_J, "port_solver": "series_stack"}
+
+    def _resistor_network(self, sigma: torch.Tensor, V_app: torch.Tensor) -> dict[str, torch.Tensor]:
+        # Optional reduced network: lateral cells are parallel columns, each
+        # column is a series stack. Expected shape can be (batch, cells, layers).
+        if sigma.ndim < 3:
+            return self._series_stack(sigma, V_app)
+        safe_sigma = torch.clamp(sigma, min=1.0e-12)
+        thickness = self._thickness(safe_sigma)
+        R_area = torch.sum(thickness / safe_sigma, dim=-1)
+        G_cols = (self.area_m2 / safe_sigma.shape[-2]) / torch.clamp(R_area, min=1.0e-30)
+        G = torch.sum(G_cols, dim=-1)
+        V_dev = V_app / (1.0 + self.R_load_ohm * G)
+        J_cols = V_dev.unsqueeze(-1) / torch.clamp(R_area, min=1.0e-30)
+        I = G * V_dev
+        E = J_cols.unsqueeze(-1) / safe_sigma
+        Q_J = safe_sigma * E.square()
+        return {"G": G, "I": I, "V_dev": V_dev, "J": J_cols, "Q_J": Q_J, "port_solver": "resistor_network"}
+
+    def forward(self, sigma: torch.Tensor, V_app: torch.Tensor) -> dict[str, torch.Tensor]:
+        if self.port_solver == "mean_sigma_ablation":
+            return self._mean_sigma_ablation(sigma, V_app)
+        if self.port_solver == "series_stack":
+            return self._series_stack(sigma, V_app)
+        if self.port_solver == "resistor_network":
+            return self._resistor_network(sigma, V_app)
+        raise ValueError(f"Unknown port_solver: {self.port_solver}")
 
 
 class ObservationOperator(nn.Module):

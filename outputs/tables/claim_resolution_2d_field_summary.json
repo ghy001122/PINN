@@ -1,40 +1,42 @@
 {
-  "benchmark": "claim_resolution_2d_field",
-  "best_median_field_error": 0.19897395319670247,
-  "best_protocol": "multi_terminal_plus_fisher_anchors",
-  "best_success_rate": 0.75,
-  "condition_number_by_protocol": {
-    "multi_terminal": 954055316.1741416,
-    "multi_terminal_plus_active_protocol_design": 246.69923170953308,
-    "multi_terminal_plus_fisher_anchors": 851.535482339947,
-    "multi_terminal_plus_latent_field_prior": 46.01209633718444,
-    "multi_terminal_plus_random_anchors": 74.11029724669031,
-    "single_terminal": 13754204310391.312
+  "basis_mode_results": {
+    "analytic_basis_legacy": 0.97366932164266,
+    "ensemble_pod_basis": 0.81502806421846,
+    "ensemble_pod_plus_fisher_anchors": 0.7805643071194288,
+    "ensemble_pod_plus_multi_terminal": 0.7853627793803426
   },
-  "field_recovery_status": "qualified_supported",
+  "benchmark": "claim_resolution_2d_field",
+  "best_median_field_error": 0.7805643071194288,
+  "best_protocol": "ensemble_pod_plus_fisher_anchors",
+  "best_success_rate": 0.0,
+  "condition_number_by_protocol": {
+    "analytic_basis_legacy": 462.5115365022129,
+    "ensemble_pod_basis": 910.1516993422712,
+    "ensemble_pod_plus_fisher_anchors": 455.44280072094693,
+    "ensemble_pod_plus_multi_terminal": 114557.86328226923
+  },
+  "field_recovery_status": "forbidden",
+  "fisher_gain_over_random": 0.04228536244586726,
   "fisher_rank_by_protocol": {
-    "multi_terminal": 5,
-    "multi_terminal_plus_active_protocol_design": 5,
-    "multi_terminal_plus_fisher_anchors": 5,
-    "multi_terminal_plus_latent_field_prior": 5,
-    "multi_terminal_plus_random_anchors": 5,
-    "single_terminal": 2
+    "analytic_basis_legacy": 5,
+    "ensemble_pod_basis": 4,
+    "ensemble_pod_plus_fisher_anchors": 5,
+    "ensemble_pod_plus_multi_terminal": 5
   },
   "forbidden_claims": [
     "terminal-only arbitrary full 2D hidden-field recovery",
     "experimental validation"
   ],
-  "improvement_over_v3_best": 0.7413457804923268,
+  "improvement_over_v3_best": -0.014686839105679925,
   "median_field_error_by_protocol": {
-    "multi_terminal": 0.4258568632413293,
-    "multi_terminal_plus_active_protocol_design": 1.7216766159483374,
-    "multi_terminal_plus_fisher_anchors": 0.19897395319670247,
-    "multi_terminal_plus_latent_field_prior": 0.2888707717203942,
-    "multi_terminal_plus_random_anchors": 0.22665534204716553,
-    "single_terminal": 0.740298292454667
+    "analytic_basis_legacy": 0.97366932164266,
+    "ensemble_pod_basis": 0.81502806421846,
+    "ensemble_pod_plus_fisher_anchors": 0.7805643071194288,
+    "ensemble_pod_plus_multi_terminal": 0.7853627793803426
   },
-  "note": "Synthetic numerical digital-twin reduced field recovery audit; not terminal-only full-field recovery and not experimental data.",
-  "num_cases": 24,
+  "no_target_leakage": true,
+  "note": "Synthetic numerical digital-twin holdout POD field recovery audit; not terminal-only full-field recovery and not experimental data.",
+  "num_cases": 16,
   "outputs": {
     "cases_csv": "outputs/tables/claim_resolution_2d_field_cases.csv",
     "figures": [
@@ -44,12 +46,12 @@
     "summary_json": "outputs/tables/claim_resolution_2d_field_summary.json"
   },
   "success_rate_by_protocol": {
-    "multi_terminal": 0.0,
-    "multi_terminal_plus_active_protocol_design": 0.0,
-    "multi_terminal_plus_fisher_anchors": 0.75,
-    "multi_terminal_plus_latent_field_prior": 0.0,
-    "multi_terminal_plus_random_anchors": 0.5,
-    "single_terminal": 0.0
+    "analytic_basis_legacy": 0.0,
+    "ensemble_pod_basis": 0.0,
+    "ensemble_pod_plus_fisher_anchors": 0.0,
+    "ensemble_pod_plus_multi_terminal": 0.0
   },
-  "terminal_only_full_field_status": "forbidden"
+  "terminal_only_full_field_status": "forbidden",
+  "terminal_only_status": "forbidden",
+  "uses_holdout_target": true
 }

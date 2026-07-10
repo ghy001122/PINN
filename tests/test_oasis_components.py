@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import torch
 
@@ -28,11 +28,30 @@ def test_oasis_components_forward_and_backward() -> None:
     assert torch.isfinite(sigma).all()
     assert torch.all(sigma > 0)
     port = DifferentiablePortCircuit()(sigma, torch.ones(6))
+    assert port["port_solver"] == "series_stack"
+    assert torch.isfinite(port["J"]).all()
+    assert torch.isfinite(port["Q_J"]).all()
     obs = ObservationOperator()(port)
-    loss = obs.square().mean() + sigma.mean()
+    loss = obs.square().mean() + sigma.mean() + port["Q_J"].mean()
     loss.backward()
     assert coords.grad is not None
     assert torch.isfinite(coords.grad).all()
+
+
+def test_port_solver_modes_are_explicit() -> None:
+    sigma = torch.full((3, 4), 0.02)
+    V = torch.ones(3) * 0.1
+    series = DifferentiablePortCircuit(port_solver="series_stack")(sigma, V)
+    mean = DifferentiablePortCircuit(port_solver="mean_sigma_ablation")(sigma, V)
+    network_sigma = torch.full((2, 3, 4), 0.02)
+    network = DifferentiablePortCircuit(port_solver="resistor_network")(network_sigma, torch.ones(2) * 0.1)
+    assert series["port_solver"] == "series_stack"
+    assert mean["port_solver"] == "mean_sigma_ablation"
+    assert network["port_solver"] == "resistor_network"
+    for port in [series, mean, network]:
+        for key in ["G", "I", "V_dev", "J", "Q_J"]:
+            assert key in port
+            assert torch.isfinite(port[key]).all()
 
 
 def test_oasis_kernels_and_gate() -> None:

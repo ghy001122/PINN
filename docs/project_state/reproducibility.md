@@ -521,3 +521,26 @@ Validation:
 ```
 
 Frozen Ground Truth v1.1 is not regenerated or modified by these commands.
+
+## Reproduce OASIS-PINN Evidence Actualization v7
+
+Run:
+
+```powershell
+.\.venv\Scripts\python.exe scripts/audit_multilayer_sandwich_device.py
+.\.venv\Scripts\python.exe scripts/audit_terminal_only_active_protocol_rescue.py
+.\.venv\Scripts\python.exe scripts/audit_multilayer_sandwich_low_dim_inverse.py
+.\.venv\Scripts\python.exe scripts/audit_claim_resolution_2d_field.py
+.\.venv\Scripts\python.exe scripts/audit_phase_aware_stl_repair.py
+.\.venv\Scripts\python.exe scripts/audit_adaptive_fourier_fsps_superiority.py
+```
+
+Validation:
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest tests/test_multilayer_sandwich_device.py tests/test_oasis_components.py tests/test_terminal_only_active_protocol_rescue.py tests/test_multilayer_sandwich_low_dim_inverse.py tests/test_claim_resolution_2d_field.py tests/test_phase_aware_stl_repair.py tests/test_adaptive_fourier_fsps_superiority.py
+.\.venv\Scripts\python.exe -m pytest tests/test_port_physical_2d_inverse.py tests/test_stiffness_gated_fourier_fsps.py tests/test_claim_gate_resolution_matrix.py
+.\.venv\Scripts\python.exe -m pytest
+```
+
+Frozen Ground Truth v1.1 is not regenerated or modified by these commands.

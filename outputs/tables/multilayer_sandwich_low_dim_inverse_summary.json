@@ -1,18 +1,27 @@
 {
   "benchmark": "multilayer_sandwich_low_dim_inverse",
-  "best_protocol": "combined",
+  "best_protocol": "ltp_ltd",
+  "condition_number_by_protocol": {
+    "combined": 1e+300,
+    "combined_plus_structure_ablation": 1e+300,
+    "ltp_ltd": 3.955078175985413e+25,
+    "short_pulse": 1.1249999999999986e+77
+  },
   "forbidden_claims": [
     "full arbitrary hidden-field inverse",
     "experimental validation"
   ],
-  "low_dim_sandwich_inverse_status": "qualified_supported",
+  "is_simulator_backed": true,
+  "legacy_A_matrix_only": false,
+  "low_dim_sandwich_inverse_status": "failed_but_informative",
   "median_parameter_error_by_protocol": {
-    "combined": 0.04044092905036974,
-    "ltp_ltd": 0.24507963588780948,
-    "short_pulse": 0.24639043358933516
+    "combined": 0.4646640435835351,
+    "combined_plus_structure_ablation": 0.3489984591679507,
+    "ltp_ltd": 0.11173275566932658,
+    "short_pulse": 0.12984261501210656
   },
-  "note": "Synthetic numerical low-dimensional sandwich inverse smoke; not arbitrary full-field recovery.",
-  "num_cases": 18,
+  "note": "Synthetic numerical simulator-backed low-dimensional sandwich inverse; not arbitrary full-field recovery.",
+  "num_cases": 24,
   "outputs": {
     "cases_csv": "outputs/tables/multilayer_sandwich_low_dim_inverse_cases.csv",
     "summary_json": "outputs/tables/multilayer_sandwich_low_dim_inverse_summary.json"
@@ -25,8 +34,21 @@
     "Tsw",
     "Ea"
   ],
+  "profile_ridge_by_protocol": {
+    "combined": 3.220696987349436,
+    "combined_plus_structure_ablation": 3.1753384426904874,
+    "ltp_ltd": 3.2831314571776335,
+    "short_pulse": 3.2399999999999998
+  },
+  "sensitivity_norm_by_protocol": {
+    "combined": 1.4999999999999992e+37,
+    "combined_plus_structure_ablation": 2.1213203435596414e+37,
+    "ltp_ltd": 281250001812.8108,
+    "short_pulse": 1.4999999999999992e+37
+  },
   "success_rate_by_protocol": {
-    "combined": 1.0,
+    "combined": 0.0,
+    "combined_plus_structure_ablation": 0.0,
     "ltp_ltd": 0.0,
     "short_pulse": 0.0
   }

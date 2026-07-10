@@ -233,3 +233,15 @@ tests/
   test_adaptive_fourier_fsps_superiority.py
   test_multilayer_sandwich_low_dim_inverse.py
 ```
+
+## OASIS-PINN v7 Evidence Actualization Additions
+
+```text
+outputs/tables/
+  terminal_only_active_protocol_rescue_simulator_summary.json
+  terminal_only_active_protocol_rescue_simulator_cases.csv
+docs/codex_reports/
+  oasis_pinn_evidence_actualization_v7_report.md
+```
+
+Existing OASIS-PINN v6 scripts, modules, and tests were updated in place to replace proxy/stub evidence with simulator-backed or actual-training evidence. Frozen Ground Truth v1.1 paths remain unchanged.

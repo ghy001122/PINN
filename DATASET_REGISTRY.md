@@ -331,3 +331,22 @@ No frozen Ground Truth v1.1 files were modified.
 ## OASIS-PINN Multilayer Sandwich And High-Risk Resolution v6
 
 No new large dataset was added. The pack generated lightweight synthetic numerical CSV/JSON tables under `outputs/tables/`. Generated figures under `outputs/figures/` are reproducible and not committed by default. Frozen Ground Truth v1.1 data were not modified.
+
+## OASIS-PINN Evidence Actualization v7 Tables
+
+These lightweight tables are synthetic numerical digital-twin benchmark evidence, not experimental data:
+
+- `outputs/tables/multilayer_sandwich_device_summary.json`
+- `outputs/tables/multilayer_sandwich_device_cases.csv`
+- `outputs/tables/terminal_only_active_protocol_rescue_simulator_summary.json`
+- `outputs/tables/terminal_only_active_protocol_rescue_simulator_cases.csv`
+- `outputs/tables/multilayer_sandwich_low_dim_inverse_summary.json`
+- `outputs/tables/multilayer_sandwich_low_dim_inverse_cases.csv`
+- `outputs/tables/claim_resolution_2d_field_summary.json`
+- `outputs/tables/claim_resolution_2d_field_cases.csv`
+- `outputs/tables/phase_aware_stl_repair_summary.json`
+- `outputs/tables/phase_aware_stl_repair_cases.csv`
+- `outputs/tables/adaptive_fourier_fsps_superiority_summary.json`
+- `outputs/tables/adaptive_fourier_fsps_superiority_cases.csv`
+
+No frozen Ground Truth v1.1 files were modified.

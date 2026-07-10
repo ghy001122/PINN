@@ -1,13 +1,17 @@
 {
+  "actual_torch_stl_smoke": true,
   "benchmark": "phase_aware_stl_repair",
   "best_algorithm": "progressive_width_stl",
+  "factor_model_only": false,
   "forbidden_claims": [
     "full STL-PINN reproduction",
     "experimental validation"
   ],
+  "full_stl_claim": "forbidden",
   "full_stl_pinn_reproduction_status": "forbidden",
-  "note": "Synthetic numerical reduced transfer diagnostic; not full STL-PINN reproduction.",
-  "num_cases": 70,
+  "is_actual_stl_training": true,
+  "note": "Synthetic numerical actual torch reduced transfer diagnostic; not full STL-PINN reproduction.",
+  "num_cases": 12,
   "outputs": {
     "cases_csv": "outputs/tables/phase_aware_stl_repair_cases.csv",
     "gain_figure": "outputs/figures/phase_aware_stl_gain.png",
@@ -15,21 +19,13 @@
   },
   "phase_aware_stl_status": "failed_but_informative",
   "success_rate_by_algorithm": {
-    "adapter_stl": 1.0,
-    "continuation_asinh": 1.0,
-    "direct": 0.8,
-    "front_position_stl": 1.0,
-    "generic_seiler_stl": 0.7,
-    "progressive_width_stl": 1.0,
-    "residual_distilled_stl": 1.0
+    "adapter_stl": 0.0,
+    "continuation_asinh": 0.0,
+    "progressive_width_stl": 0.0
   },
   "transfer_gain_by_algorithm": {
-    "adapter_stl": -0.037481017655707105,
+    "adapter_stl": -0.004363961344681654,
     "continuation_asinh": 0.0,
-    "direct": -0.35491137049636706,
-    "front_position_stl": 0.04164322899514179,
-    "generic_seiler_stl": -0.48538379803188547,
-    "progressive_width_stl": 0.09389518340983438,
-    "residual_distilled_stl": 0.06585019697216343
+    "progressive_width_stl": 0.01678575282349345
   }
 }

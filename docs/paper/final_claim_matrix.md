@@ -79,3 +79,18 @@ Synthetic numerical digital-twin evidence only. Frozen Ground Truth v1.1 remains
 | Phase-aware STL repair | failed_but_informative | Best gain 0.09389518340983438 | Full STL-PINN reproduction remains forbidden |
 | Adaptive Fourier/F-SPS superiority | failed_but_informative | Pareto 0.6666666666666666; smooth degradation 0.1821856000041686 | Universal superiority remains forbidden |
 | Low-dimensional sandwich inverse | qualified_supported | `combined` median error 0.04044092905036974 | Not arbitrary field inversion |
+
+## OASIS-PINN Evidence Actualization v7 Update
+
+All entries remain synthetic numerical digital-twin benchmark evidence, not experimental data. This section supersedes the v6 interpretation where v7 uses stricter simulator-backed or actual-training evidence.
+
+| Claim | Updated status | Evidence | Boundary |
+|---|---|---|---|
+| Boundary-aware multilayer sandwich forward | failed_but_informative | `outputs/tables/multilayer_sandwich_device_summary.json`; `energy_balance_gate_passed = false`, median interface residual `1.0` | Residuals are computed, not stubbed; no full FEM/device-grade claim. |
+| OASIS main port solver | qualified_supported as implementation | `src/pinnpcm/pinn/oasis_components.py` | `series_stack` is the physical default; `mean_sigma_ablation` is ablation only. |
+| Active terminal-only low-dimensional rescue | failed_but_informative | `outputs/tables/terminal_only_active_protocol_rescue_simulator_summary.json`; success rates `0.0` | Simulator-backed terminal observables do not support the prior hand-crafted feature-matrix claim. |
+| Low-dimensional sandwich inverse | failed_but_informative | `outputs/tables/multilayer_sandwich_low_dim_inverse_summary.json`; condition numbers up to finite sentinel `1e300` | Severe ill-conditioning; not arbitrary field inversion. |
+| Structured 2D field recovery | forbidden | `outputs/tables/claim_resolution_2d_field_summary.json`; best median field error `0.7805643071194288`, holdout target, no leakage | Ensemble POD and Fisher anchors did not clear the recovery gate. |
+| Phase-aware STL repair | failed_but_informative | `outputs/tables/phase_aware_stl_repair_summary.json`; actual torch smoke, best gain `0.01678575282349345` | Actualized but not a full STL-PINN reproduction. |
+| Best stiffness-gated Fourier method | qualified_supported | `outputs/tables/adaptive_fourier_fsps_superiority_summary.json`; best gated method `stiffness_gated_fourier` | Condition-limited method-development evidence only. |
+| Adaptive F-SPS itself | failed_but_informative | `outputs/tables/adaptive_fourier_fsps_superiority_summary.json`; `adaptive_f_sps_status = failed_but_informative` | Universal F-SPS/Fourier superiority remains forbidden. |

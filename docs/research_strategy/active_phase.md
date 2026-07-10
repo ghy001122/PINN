@@ -2,30 +2,22 @@
 
 ## Current Phase
 
-`calibration tolerance, protocol disentanglement, and submission lock`
+`OASIS-PINN evidence actualization v7`
 
-The current phase locks the constrained `gamma_sub` manuscript evidence chain: T_sw calibration tolerance, calibration-vs-protocol disentanglement, ODE-backed calibrated protocol robustness, targeted external-curve extraction attempt, and final figure/table/claim routing.
+The current phase actualizes the OASIS-PINN supplementary evidence chain by replacing proxy or hand-crafted evidence with simulator-backed, residual-computed, and claim-gated evidence. It does not revise frozen Ground Truth v1.1 and does not change the main manuscript line: calibration-gated constrained `gamma_sub` inversion remains the safest SCI core claim.
 
-This phase does not revise frozen Ground Truth v1.1, does not create experimental evidence, does not claim sparse-port full hidden-field recovery, does not claim unconditional `gamma_sub` identifiability, and does not claim F-SPS-PINN performance superiority.
+## Evidence Added Or Corrected
 
-## Evidence Added
-
-- T_sw calibration tolerance: `0.1` K residual calibration error and `0.05` prior width under the <=15% median-error criterion.
-- Disentanglement: calibration gain `1.1216748794829614` dominates protocol gain `0.014955665059772812`; protocol advantage survives equal-prior control but needs qualification.
-- Final ODE robustness: `calibrated_short_pulse_to_ltp_ltd` is the best tested protocol, but `whether_ready_as_main_figure` is `False` because worst-case errors remain non-negligible.
-- External curves: targeted extraction found no valid provenance-backed digitized curve table; external curve fitting remains blocked.
-- Submission lock: `7` figures and `7` tables are mapped with claim boundaries.
+- Multilayer sandwich forward residuals are computed explicitly rather than stubbed: potential jump, normal-current mismatch, temperature jump, heat-flux mismatch, substrate Robin residual, and an energy-balance gate.
+- The multilayer forward benchmark is downgraded to `failed_but_informative` because the official reduced energy-balance gate does not pass.
+- OASIS-PINN port reconstruction now uses `series_stack` as the main physical port solver. `mean_sigma_ablation` remains available only as an explicit ablation path.
+- Terminal-only active protocol rescue and low-dimensional sandwich inverse are now simulator-backed rather than hand-crafted feature-matrix evidence; both are `failed_but_informative` in the official v7 outputs.
+- Structured 2D field recovery now uses a simulator-generated ensemble POD basis and a holdout target with no target leakage. The official v7 field-recovery status is `forbidden`.
+- Phase-aware STL repair is an actual torch smoke audit, but remains `failed_but_informative`.
+- Adaptive Fourier/F-SPS evidence remains actual autograd training. The best gated method is `stiffness_gated_fourier` with `qualified_supported` status, while `adaptive_f_sps` itself remains `failed_but_informative`; universal superiority remains forbidden.
 
 ## Claim Boundary
 
-Allowed: calibration-gated sparse-port reduced inversion of `gamma_sub` in a one-dimensional synthetic numerical digital-twin benchmark under fixed or tightly bounded priors.
+Allowed: synthetic numerical digital-twin supplementary evidence for model-structure checks, observability limits, simulator-backed negative results, and condition-limited stiffness-gated Fourier method development.
 
-Forbidden: real experimental validation, direct device replication, unique sparse-port full hidden-field recovery, unconditional joint identifiability, fabricated literature curves, or F-SPS-PINN superiority.
-
-## Claim-Gate Experimental Resolution Pack
-
-Current supplementary task: `claim_gate_experimental_resolution_2d_observability_and_stiffness_algorithms`.
-
-This pack adds small, reproducible synthetic numerical benchmark audits for reduced 2D forward behavior, reduced 2D observability, and stiffness-aware residual-proxy algorithms. It does not revise frozen Ground Truth v1.1 and does not change the main manuscript claim: calibration-gated sparse-port reduced inversion of `gamma_sub` under fixed or tightly bounded priors.
-
-Allowed upgrades: reduced 2D forward support, low-dimensional 2D inverse under augmented observations, and stiffness-mitigation wording. Still forbidden: terminal-only 2D inverse recovery, full 2D hidden-field recovery, full STL-PINN reproduction, and F-SPS superiority.
+Forbidden: experimental validation, full FEM/device-grade reproduction, terminal-only arbitrary full-field recovery, full STL-PINN reproduction, universal Fourier/F-SPS superiority, or replacing the constrained `gamma_sub` manuscript core with OASIS-PINN claims.

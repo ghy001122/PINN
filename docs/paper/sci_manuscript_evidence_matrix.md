@@ -140,3 +140,14 @@ Synthetic numerical digital-twin evidence only. Frozen Ground Truth v1.1 remains
 | Phase-aware STL repair | failed_but_informative | Best gain 0.09389518340983438 | Full STL-PINN reproduction remains forbidden |
 | Adaptive Fourier/F-SPS superiority | failed_but_informative | Pareto 0.6666666666666666; smooth degradation 0.1821856000041686 | Universal superiority remains forbidden |
 | Low-dimensional sandwich inverse | qualified_supported | `combined` median error 0.04044092905036974 | Not arbitrary field inversion |
+
+## OASIS-PINN v7 Supplementary Evidence Addendum
+
+| Evidence block | Script/config | Summary file | Proposed placement | Allowed claim | Forbidden overclaim |
+| --- | --- | --- | --- | --- | --- |
+| Computed multilayer residual and energy gate | `scripts/audit_multilayer_sandwich_device.py`, `configs/multilayer_sandwich_device.yaml` | `outputs/tables/multilayer_sandwich_device_summary.json` | Supplementary negative/boundary evidence | Reduced sandwich simulator residuals are now audited explicitly | Full FEM/device-grade benchmark |
+| Simulator-backed terminal protocol rescue | `scripts/audit_terminal_only_active_protocol_rescue.py` | `outputs/tables/terminal_only_active_protocol_rescue_simulator_summary.json` | Supplementary negative observability evidence | Terminal-only protocols remain too insensitive in this reduced simulator-backed audit | Hand-crafted feature matrices prove terminal inverse recovery |
+| Simulator-backed low-dimensional sandwich inverse | `scripts/audit_multilayer_sandwich_low_dim_inverse.py` | `outputs/tables/multilayer_sandwich_low_dim_inverse_summary.json` | Supplementary conditioning evidence | Low-dimensional sandwich inversion is currently ill-conditioned | General parameter or field recovery |
+| Holdout ensemble POD field recovery | `scripts/audit_claim_resolution_2d_field.py` | `outputs/tables/claim_resolution_2d_field_summary.json` | Supplementary negative field-recovery evidence | Ensemble POD/Fisher anchors need stronger observability | Sparse terminal full-field recovery |
+| Actual torch STL smoke | `scripts/audit_phase_aware_stl_repair.py` | `outputs/tables/phase_aware_stl_repair_summary.json` | Appendix method-development evidence | STL smoke is implemented but weak | Full STL-PINN reproduction |
+| Adaptive Fourier/F-SPS gate sweep | `scripts/audit_adaptive_fourier_fsps_superiority.py` | `outputs/tables/adaptive_fourier_fsps_superiority_summary.json` | Appendix method-development evidence | `stiffness_gated_fourier` is condition-limited qualified support | Universal F-SPS/Fourier superiority |

@@ -30,7 +30,7 @@ FIG_TEMP = Path("outputs/figures/multilayer_temperature_stack.png")
 FIG_J = Path("outputs/figures/multilayer_current_density_map.png")
 FIG_BC = Path("outputs/figures/multilayer_boundary_residuals.png")
 FIG_ABL = Path("outputs/figures/multilayer_structure_ablation.png")
-CSV_FIELDS = ["structure", "geometry", "transition_width", "pulse", "seed", "finite_result", "interface_bc_residual", "current_continuity_error", "energy_balance_error", "max_delta_T", "max_m", "conductance_ratio", "mean_abs_power"]
+CSV_FIELDS = ["structure", "geometry", "transition_width", "pulse", "seed", "finite_result", "interface_bc_residual", "potential_jump_residual", "normal_current_mismatch", "temperature_jump_residual", "heat_flux_mismatch", "substrate_robin_residual", "current_continuity_error", "energy_balance_error", "joule_input_energy", "thermal_storage_energy", "sink_loss_energy", "boundary_loss_energy", "max_delta_T", "max_m", "conductance_ratio", "mean_abs_power"]
 
 
 def _write_cases(path: Path, rows: list[dict[str, Any]]) -> None:
@@ -94,7 +94,7 @@ def run_multilayer_sandwich_device(config_path: Path = DEFAULT_CONFIG) -> dict[s
                         if sample is None and structure == "full_stack_with_SnSe_barrier" and geometry == "localized_filament":
                             sample = result
     gate = cfg.get("claim_gate", {})
-    summary = summarize_cases(rows, interface_threshold=float(gate.get("interface_bc_residual_threshold", 0.35)), current_threshold=float(gate.get("current_continuity_threshold", 0.05)))
+    summary = summarize_cases(rows, interface_threshold=float(gate.get("interface_bc_residual_threshold", 0.35)), current_threshold=float(gate.get("current_continuity_threshold", 0.05)), energy_threshold=float(gate.get("energy_balance_threshold", 0.35)))
     summary["outputs"] = {"summary_json": str(SUMMARY_JSON).replace("\\", "/"), "cases_csv": str(CASES_CSV).replace("\\", "/"), "figures": [str(FIG_TEMP).replace("\\", "/"), str(FIG_J).replace("\\", "/"), str(FIG_BC).replace("\\", "/"), str(FIG_ABL).replace("\\", "/")]}
     _write_cases(ROOT / CASES_CSV, rows)
     _plots(rows, sample or rows[0])

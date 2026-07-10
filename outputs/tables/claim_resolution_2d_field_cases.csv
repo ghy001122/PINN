@@ -1,25 +1,17 @@
-protocol,noise,seed,field_error,T_error,m_error,success,fisher_rank,fisher_condition_number,observation_count,actual_recovery_method,uses_multilayer_sandwich_fields,finite_result
-single_terminal,0.0,2026,0.740298292454667,0.5762111039392416,0.9043854809700925,False,2,13754204310391.312,3,linearized observation operator ridge least squares over reduced field basis,True,True
-single_terminal,0.0,2027,0.740298292454667,0.5762111039392416,0.9043854809700925,False,2,13754204310391.312,3,linearized observation operator ridge least squares over reduced field basis,True,True
-single_terminal,0.02,2026,0.3995582938616881,0.43095504324716766,0.3681615444762086,False,2,13754204310391.312,3,linearized observation operator ridge least squares over reduced field basis,True,True
-single_terminal,0.02,2027,0.9145515079744118,0.716236262863665,1.1128667530851586,False,2,13754204310391.312,3,linearized observation operator ridge least squares over reduced field basis,True,True
-multi_terminal,0.0,2026,0.4258568632413293,0.3784199369228852,0.4732937895597734,False,5,954055316.1741416,8,linearized observation operator ridge least squares over reduced field basis,True,True
-multi_terminal,0.0,2027,0.4258568632413293,0.3784199369228852,0.4732937895597734,False,5,954055316.1741416,8,linearized observation operator ridge least squares over reduced field basis,True,True
-multi_terminal,0.02,2026,0.4074070199936895,0.38199918258866883,0.4328148573987102,False,5,954055316.1741416,8,linearized observation operator ridge least squares over reduced field basis,True,True
-multi_terminal,0.02,2027,0.5386757377819948,0.4332204961874517,0.644130979376538,False,5,954055316.1741416,8,linearized observation operator ridge least squares over reduced field basis,True,True
-multi_terminal_plus_random_anchors,0.0,2026,0.201817707235321,0.17572390715163647,0.22791150731900556,True,5,74.11029724669031,44,linearized observation operator ridge least squares over reduced field basis,True,True
-multi_terminal_plus_random_anchors,0.0,2027,0.201817707235321,0.17572390715163647,0.22791150731900556,True,5,74.11029724669031,44,linearized observation operator ridge least squares over reduced field basis,True,True
-multi_terminal_plus_random_anchors,0.02,2026,0.25149297685901006,0.1994104447367418,0.30357550898127833,False,5,74.11029724669031,44,linearized observation operator ridge least squares over reduced field basis,True,True
-multi_terminal_plus_random_anchors,0.02,2027,0.2604219646243384,0.20441304786718545,0.3164308813814914,False,5,74.11029724669031,44,linearized observation operator ridge least squares over reduced field basis,True,True
-multi_terminal_plus_fisher_anchors,0.0,2026,0.19119387332800306,0.1913585819941545,0.1910291646618516,True,5,851.535482339947,56,linearized observation operator ridge least squares over reduced field basis,True,True
-multi_terminal_plus_fisher_anchors,0.0,2027,0.19119387332800306,0.1913585819941545,0.1910291646618516,True,5,851.535482339947,56,linearized observation operator ridge least squares over reduced field basis,True,True
-multi_terminal_plus_fisher_anchors,0.02,2026,0.2067540330654019,0.1989680656022623,0.21454000052854155,True,5,851.535482339947,56,linearized observation operator ridge least squares over reduced field basis,True,True
-multi_terminal_plus_fisher_anchors,0.02,2027,0.5077873491637452,0.5568572655390894,0.4587174327884011,False,5,851.535482339947,56,linearized observation operator ridge least squares over reduced field basis,True,True
-multi_terminal_plus_latent_field_prior,0.0,2026,0.2736667040888932,0.2591922214609145,0.28814118671687194,False,5,46.01209633718444,31,linearized observation operator ridge least squares over reduced field basis,True,True
-multi_terminal_plus_latent_field_prior,0.0,2027,0.2736667040888932,0.2591922214609145,0.28814118671687194,False,5,46.01209633718444,31,linearized observation operator ridge least squares over reduced field basis,True,True
-multi_terminal_plus_latent_field_prior,0.02,2026,0.32918009688981986,0.32077138820941764,0.33758880557022203,False,5,46.01209633718444,31,linearized observation operator ridge least squares over reduced field basis,True,True
-multi_terminal_plus_latent_field_prior,0.02,2027,0.3040748393518952,0.2873074246058109,0.32084225409797956,False,5,46.01209633718444,31,linearized observation operator ridge least squares over reduced field basis,True,True
-multi_terminal_plus_active_protocol_design,0.0,2026,1.7216766159483374,2.304395405884767,1.1389578260119078,False,5,246.69923170953308,73,linearized observation operator ridge least squares over reduced field basis,True,True
-multi_terminal_plus_active_protocol_design,0.0,2027,1.7216766159483374,2.304395405884767,1.1389578260119078,False,5,246.69923170953308,73,linearized observation operator ridge least squares over reduced field basis,True,True
-multi_terminal_plus_active_protocol_design,0.02,2026,1.6366963673570694,2.1611327907721547,1.1122599439419838,False,5,246.69923170953308,73,linearized observation operator ridge least squares over reduced field basis,True,True
-multi_terminal_plus_active_protocol_design,0.02,2027,1.7323720177131858,2.3187229034936157,1.1460211319327558,False,5,246.69923170953308,73,linearized observation operator ridge least squares over reduced field basis,True,True
+protocol,basis_mode,noise,seed,field_error,T_error,m_error,success,fisher_rank,fisher_condition_number,observation_count,uses_holdout_target,no_target_leakage,uses_multilayer_sandwich_fields,finite_result
+analytic_basis_legacy,analytic_basis_legacy,0.0,2026,0.9700655392916255,1.4026303411534102,0.5375007374298408,False,5,462.5115365022129,22,True,True,True,True
+analytic_basis_legacy,analytic_basis_legacy,0.0,2027,0.9700655392916255,1.4026303411534102,0.5375007374298408,False,5,462.5115365022129,22,True,True,True,True
+analytic_basis_legacy,analytic_basis_legacy,0.02,2026,0.9824708208938995,1.4016214010000883,0.5633202407877108,False,5,462.5115365022129,22,True,True,True,True
+analytic_basis_legacy,analytic_basis_legacy,0.02,2027,0.9772731039936944,1.4033308052323095,0.5512154027550793,False,5,462.5115365022129,22,True,True,True,True
+ensemble_pod_basis,ensemble_pod_basis,0.0,2026,0.8165132936096694,1.161377104917434,0.4716494823019048,False,4,910.1516993422712,4,True,True,True,True
+ensemble_pod_basis,ensemble_pod_basis,0.0,2027,0.8165132936096694,1.161377104917434,0.4716494823019048,False,4,910.1516993422712,4,True,True,True,True
+ensemble_pod_basis,ensemble_pod_basis,0.02,2026,0.8135428348272506,1.1614306721216996,0.4656549975328018,False,4,910.1516993422712,4,True,True,True,True
+ensemble_pod_basis,ensemble_pod_basis,0.02,2027,0.8056855958975944,1.1613542490290765,0.45001694276611226,False,4,910.1516993422712,4,True,True,True,True
+ensemble_pod_plus_fisher_anchors,ensemble_pod_plus_fisher_anchors,0.0,2026,0.7805643071194288,1.163876326944213,0.39725228729464457,False,5,455.44280072094693,36,True,True,True,True
+ensemble_pod_plus_fisher_anchors,ensemble_pod_plus_fisher_anchors,0.0,2027,0.7805643071194288,1.163876326944213,0.39725228729464457,False,5,455.44280072094693,36,True,True,True,True
+ensemble_pod_plus_fisher_anchors,ensemble_pod_plus_fisher_anchors,0.02,2026,0.7764911648745919,1.1643825449255951,0.3885997848235887,False,5,455.44280072094693,36,True,True,True,True
+ensemble_pod_plus_fisher_anchors,ensemble_pod_plus_fisher_anchors,0.02,2027,0.7832617401501633,1.1642531693709164,0.40227031092941007,False,5,455.44280072094693,36,True,True,True,True
+ensemble_pod_plus_multi_terminal,ensemble_pod_plus_multi_terminal,0.0,2026,0.7858214036411177,1.1610357885053064,0.41060701877692896,False,5,114557.86328226923,8,True,True,True,True
+ensemble_pod_plus_multi_terminal,ensemble_pod_plus_multi_terminal,0.0,2027,0.7858214036411177,1.1610357885053064,0.41060701877692896,False,5,114557.86328226923,8,True,True,True,True
+ensemble_pod_plus_multi_terminal,ensemble_pod_plus_multi_terminal,0.02,2026,0.7727656646251473,1.1611015548200538,0.3844297744302408,False,5,114557.86328226923,8,True,True,True,True
+ensemble_pod_plus_multi_terminal,ensemble_pod_plus_multi_terminal,0.02,2027,0.7849041551195675,1.1610255441132804,0.4087827661258546,False,5,114557.86328226923,8,True,True,True,True

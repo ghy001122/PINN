@@ -29,3 +29,18 @@ If `chi > chi_c`, the controller selects Fourier/front-focused/asinh branches. O
 ## Claim Boundary
 
 OASIS-PINN is a structured architecture proposal and testable implementation scaffold. It does not by itself prove full hidden-field recovery, terminal-only inverse uniqueness, F-SPS superiority, or experimental validation.
+
+## v7 Port Solver Clarification
+
+The main OASIS port layer is the `series_stack` solver:
+
+```text
+R_area = sum_l d_l / sigma_l
+G = A / R_area
+V_dev = V_app / (1 + R_load G)
+I = G V_dev
+J = I / A
+Q_J,l = sigma_l (J / sigma_l)^2
+```
+
+The previous mean-conductivity shortcut is preserved only as `port_solver = "mean_sigma_ablation"`. It must not be described as the main physical port model.

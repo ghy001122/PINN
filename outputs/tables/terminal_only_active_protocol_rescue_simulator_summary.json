@@ -1,0 +1,54 @@
+{
+  "benchmark": "terminal_only_active_protocol_rescue_simulator",
+  "best_protocol": "single_pulse",
+  "condition_number_by_protocol": {
+    "combined_terminal_protocol": 1.0,
+    "hysteresis_minor_loop": 1.0,
+    "multi_amplitude": 1.0,
+    "multi_width": 1.0,
+    "oscillation_frequency_readout": 1.0,
+    "single_pulse": 1.0
+  },
+  "forbidden_claims": [
+    "single-trace arbitrary full-field recovery",
+    "experimental validation"
+  ],
+  "is_simulator_backed": true,
+  "legacy_ablation_available": "outputs/tables/terminal_only_active_protocol_rescue_summary.json",
+  "legacy_feature_matrix_only": false,
+  "note": "Synthetic numerical simulator-backed terminal protocol audit; supports only low-dimensional diagnosis if gates clear.",
+  "num_cases": 36,
+  "outputs": {
+    "cases_csv": "outputs/tables/terminal_only_active_protocol_rescue_simulator_cases.csv",
+    "gain_figure": "outputs/figures/terminal_only_active_protocol_gain.png",
+    "legacy_cases_csv": "outputs/tables/terminal_only_active_protocol_rescue_cases.csv",
+    "legacy_summary_json": "outputs/tables/terminal_only_active_protocol_rescue_summary.json",
+    "summary_json": "outputs/tables/terminal_only_active_protocol_rescue_simulator_summary.json"
+  },
+  "parameter_error_by_protocol": {
+    "combined_terminal_protocol": 0.16643512086690743,
+    "hysteresis_minor_loop": 0.16643512086690743,
+    "multi_amplitude": 0.16643512086690743,
+    "multi_width": 0.16643512086690743,
+    "oscillation_frequency_readout": 0.16643512086690743,
+    "single_pulse": 0.16643512086690743
+  },
+  "parameter_recovery_status": "failed_but_informative",
+  "sensitivity_norm_by_protocol": {
+    "combined_terminal_protocol": 8.8903115047229e-13,
+    "hysteresis_minor_loop": 2.9025006955718206e-13,
+    "multi_amplitude": 4.967750546211505e-13,
+    "multi_width": 4.910245297577953e-13,
+    "oscillation_frequency_readout": 3.698430604851078e-13,
+    "single_pulse": 2.87880490038485e-13
+  },
+  "single_trace_arbitrary_full_field_status": "forbidden",
+  "success_rate_by_protocol": {
+    "combined_terminal_protocol": 0.0,
+    "hysteresis_minor_loop": 0.0,
+    "multi_amplitude": 0.0,
+    "multi_width": 0.0,
+    "oscillation_frequency_readout": 0.0,
+    "single_pulse": 0.0
+  }
+}

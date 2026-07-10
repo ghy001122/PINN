@@ -26,7 +26,7 @@ SUMMARY_JSON = Path("outputs/tables/claim_resolution_2d_field_summary.json")
 CASES_CSV = Path("outputs/tables/claim_resolution_2d_field_cases.csv")
 FIG_ERROR = Path("outputs/figures/claim_resolution_2d_field_error_ladder.png")
 FIG_RANK = Path("outputs/figures/claim_resolution_observability_rank.png")
-CSV_FIELDS = ["protocol", "noise", "seed", "field_error", "T_error", "m_error", "success", "fisher_rank", "fisher_condition_number", "observation_count", "actual_recovery_method", "uses_multilayer_sandwich_fields", "finite_result"]
+CSV_FIELDS = ["protocol", "basis_mode", "noise", "seed", "field_error", "T_error", "m_error", "success", "fisher_rank", "fisher_condition_number", "observation_count", "uses_holdout_target", "no_target_leakage", "uses_multilayer_sandwich_fields", "finite_result"]
 
 
 def _write_cases(path: Path, rows: list[dict[str, Any]]) -> None:

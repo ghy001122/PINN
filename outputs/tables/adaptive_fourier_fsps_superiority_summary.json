@@ -1,6 +1,34 @@
 {
   "adaptive_f_sps_status": "failed_but_informative",
   "benchmark": "adaptive_fourier_fsps_superiority",
+  "best_gated_method_under_pareto_rule": "stiffness_gated_fourier",
+  "best_gated_status": "qualified_supported",
+  "chi_c_results": {
+    "1.5": {
+      "adaptive_f_sps": 0.6666666666666666,
+      "f_sps_always_on": 0.8333333333333334,
+      "fourier_always_on": 0.5833333333333334,
+      "fourier_off": 1.0,
+      "front_local_fourier": 0.75,
+      "stiffness_gated_fourier": 0.8333333333333334
+    },
+    "2.0": {
+      "adaptive_f_sps": 0.6666666666666666,
+      "f_sps_always_on": 0.8333333333333334,
+      "fourier_always_on": 0.5833333333333334,
+      "fourier_off": 1.0,
+      "front_local_fourier": 0.75,
+      "stiffness_gated_fourier": 0.8333333333333334
+    },
+    "3.0": {
+      "adaptive_f_sps": 0.3333333333333333,
+      "f_sps_always_on": 0.8333333333333334,
+      "fourier_always_on": 0.5833333333333334,
+      "fourier_off": 1.0,
+      "front_local_fourier": 0.75,
+      "stiffness_gated_fourier": 0.6666666666666666
+    }
+  },
   "failure_rate_by_method": {
     "adaptive_f_sps": 0.0,
     "f_sps_always_on": 0.0,
@@ -15,19 +43,19 @@
   ],
   "is_actual_autograd_training": true,
   "note": "Synthetic numerical actual-autograd-training audit; not universal F-SPS superiority and not experimental data.",
-  "num_cases": 144,
+  "num_cases": 432,
   "outputs": {
     "cases_csv": "outputs/tables/adaptive_fourier_fsps_superiority_cases.csv",
     "pareto_figure": "outputs/figures/adaptive_fourier_fsps_pareto.png",
     "summary_json": "outputs/tables/adaptive_fourier_fsps_superiority_summary.json"
   },
   "pareto_win_rate_by_method": {
-    "adaptive_f_sps": 0.6666666666666666,
+    "adaptive_f_sps": 0.5555555555555556,
     "f_sps_always_on": 0.8333333333333334,
     "fourier_always_on": 0.5833333333333334,
     "fourier_off": 1.0,
     "front_local_fourier": 0.75,
-    "stiffness_gated_fourier": 0.8333333333333334
+    "stiffness_gated_fourier": 0.7777777777777778
   },
   "sharp_gain_by_method": {
     "adaptive_f_sps": 0.4079553978360986,

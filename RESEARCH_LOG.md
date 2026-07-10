@@ -618,3 +618,15 @@ Added reduced 2D forward, reduced 2D observability ladder, and stiffness-aware a
 ## OASIS-PINN Multilayer Sandwich And High-Risk Resolution v6
 
 Added a literature-prior registry, boundary-aware multilayer sandwich forward benchmark, OASIS-PINN component scaffold, 2D field resolution ladder, active terminal-only low-dimensional rescue, phase-aware STL repair audit, adaptive Fourier/F-SPS actual-training audit, and low-dimensional sandwich inverse smoke. Results remain synthetic numerical digital-twin evidence and are routed through claim gates.
+
+## OASIS-PINN Evidence Actualization v7
+
+Scope:
+
+- Replace v6 proxy-positive evidence with simulator-backed or actual-training audits.
+- Compute multilayer residuals and energy balance explicitly rather than using stub values.
+- Keep frozen Ground Truth v1.1 unchanged and keep the main `gamma_sub` manuscript line unchanged.
+
+Result:
+
+The stricter evidence downgrades several high-risk supplementary claims. Multilayer forward fails the energy-balance gate, terminal-only and low-dimensional sandwich inverse audits are failed-but-informative, holdout POD 2D field recovery is forbidden, and phase-aware STL remains weak. The only positive method-development result is condition-limited `stiffness_gated_fourier`; `adaptive_f_sps` and universal superiority remain unsupported.

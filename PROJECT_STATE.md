@@ -239,3 +239,19 @@ Key results:
 - Phase-aware STL repair remains `failed_but_informative`; full STL-PINN reproduction remains forbidden.
 - Adaptive Fourier/F-SPS actual autograd audit remains `failed_but_informative`; sharp gain exists but Pareto and smooth-regime gates do not clear.
 - Low-dimensional sandwich inverse is qualified under combined protocol, but arbitrary field inversion remains forbidden.
+
+## OASIS-PINN Simulator-Backed Evidence Actualization v7
+
+This pack supersedes the positive interpretation of several v6 supplementary claims. It preserves the OASIS-PINN scaffold but replaces proxy evidence with stricter simulator-backed or actual-training evidence. Frozen Ground Truth v1.1 remains unchanged.
+
+Key results:
+
+- Multilayer sandwich forward residuals are now computed, not stubbed. The official summary reports `residuals_are_computed_not_stubbed = true`, `energy_balance_gate_passed = false`, median interface residual `1.0`, and `boundary_aware_multilayer_forward_status = failed_but_informative`.
+- The main OASIS port layer is now `series_stack`; `mean_sigma_ablation` is explicitly marked as an ablation path.
+- Simulator-backed active terminal-only protocol rescue writes `outputs/tables/terminal_only_active_protocol_rescue_simulator_summary.json` and is `failed_but_informative`; the previous hand-crafted feature-matrix result is no longer the main evidence.
+- Simulator-backed low-dimensional sandwich inverse remains `failed_but_informative`; the condition numbers expose severe ill-conditioning.
+- Simulator-ensemble POD 2D field recovery uses a holdout target with `no_target_leakage = true`; field recovery is `forbidden` with best median field error `0.7805643071194288`.
+- Phase-aware STL is now an actual torch smoke audit but remains `failed_but_informative`.
+- Adaptive/F-SPS actual-training evidence supports only the best gated method `stiffness_gated_fourier` as `qualified_supported`; `adaptive_f_sps` itself remains `failed_but_informative`, and universal superiority remains forbidden.
+
+Claim boundary: these results strengthen scientific credibility by downgrading unsupported v6 claims. They are supplementary synthetic numerical digital-twin evidence only and do not change the main calibration-gated constrained `gamma_sub` manuscript line.

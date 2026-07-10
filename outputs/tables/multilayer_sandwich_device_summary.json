@@ -1,16 +1,20 @@
 {
   "benchmark": "multilayer_sandwich_device",
-  "boundary_aware_multilayer_forward_status": "qualified_supported",
+  "boundary_aware_multilayer_forward_status": "failed_but_informative",
   "current_continuity_error_median": 0.0,
   "current_continuity_threshold": 0.05,
-  "energy_balance_error_median": 24223582685.28379,
+  "downgraded_if_energy_failed": true,
+  "energy_balance_error_median": 0.9999999999988243,
+  "energy_balance_gate_passed": false,
+  "energy_balance_threshold": 0.35,
   "finite_rate": 1.0,
   "forbidden_claims": [
     "full FEM",
     "device-grade reproduction",
     "experimental validation"
   ],
-  "interface_bc_residual_median": 0.0,
+  "heat_flux_mismatch_median": 1.448277801160186e-16,
+  "interface_bc_residual_median": 1.0,
   "interface_bc_residual_threshold": 0.35,
   "note": "Synthetic numerical digital-twin reduced boundary-aware benchmark; not FEM, not device-grade reproduction, not experimental validation.",
   "num_cases": 216,
@@ -23,5 +27,9 @@
       "outputs/figures/multilayer_structure_ablation.png"
     ],
     "summary_json": "outputs/tables/multilayer_sandwich_device_summary.json"
-  }
+  },
+  "potential_jump_residual_median": 0.0,
+  "residuals_are_computed_not_stubbed": true,
+  "substrate_robin_residual_median": 7.499999999999999e+36,
+  "temperature_jump_residual_median": 1.0277777777777777
 }

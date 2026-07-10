@@ -177,3 +177,14 @@ Recommended next steps:
 4. Use active terminal protocols only for low-dimensional diagnosis wording.
 5. Treat phase-aware STL and adaptive F-SPS as failed-but-informative algorithm evidence; do not claim full STL reproduction or universal superiority.
 6. If continuing high-risk exploration, prioritize sensor/anchor design and calibrated multi-protocol validation over larger networks.
+
+## Immediate Next After OASIS-PINN Evidence Actualization v7
+
+Use v7 as a conservative correction to the supplementary OASIS-PINN branch:
+
+1. Keep the main SCI manuscript centered on calibration-gated constrained `gamma_sub` inversion under fixed or tightly bounded priors.
+2. Treat the multilayer sandwich model as a useful reduced digital-twin scaffold, but do not claim full FEM/device-grade validity until the energy-balance gate is improved.
+3. Treat terminal-only and low-dimensional sandwich inverse attempts as negative observability/conditioning evidence unless stronger priors or observations are introduced.
+4. Treat simulator-ensemble POD field recovery as a failed field-recovery claim; future work should improve the training ensemble, observability, and anchor design before upgrading wording.
+5. Treat phase-aware STL as a real but currently weak smoke result; do not claim full STL-PINN reproduction.
+6. Treat `stiffness_gated_fourier` as condition-limited method-development evidence and keep `adaptive_f_sps`/universal superiority claims forbidden.
