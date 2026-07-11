@@ -1,0 +1,50 @@
+{
+  "P0_gate_passed": true,
+  "adaptive_substeps_enabled": true,
+  "all_conservation_tests_passed": true,
+  "benchmark": "conservative_multilayer_forward",
+  "conservative_multilayer_forward_status": "qualified_supported",
+  "energy_balance_error_median": 0.0,
+  "energy_balance_gate_passed": true,
+  "energy_balance_threshold": 0.05,
+  "finite_rate": 1.0,
+  "forbidden_claims": [
+    "full FEM",
+    "device-grade reproduction",
+    "experimental validation"
+  ],
+  "interface_bc_residual_median": 6.620044358862851e-17,
+  "manufactured_solution_energy_test": {
+    "energy_balance_error": 8.709350610569311e-08,
+    "passed": true,
+    "test": "manufactured_energy_conservation"
+  },
+  "material_families": [
+    "generic",
+    "nbo2",
+    "vo2"
+  ],
+  "normal_current_mismatch_median": 0.0,
+  "note": "Synthetic numerical conservative finite-volume 2.5D stack audit; not FEM, not device-grade reproduction, not experimental validation.",
+  "num_cases": 72,
+  "outputs": {
+    "cases_csv": "outputs/tables/conservative_multilayer_forward_cases.csv",
+    "summary_json": "outputs/tables/conservative_multilayer_forward_summary.json"
+  },
+  "per_interface_Rc_Rth": true,
+  "potential_jump_residual_median": 6.298599155984937e-17,
+  "removed_artificial_lateral_factor": true,
+  "removed_global_sink": true,
+  "removed_temperature_clip": true,
+  "residual_gate_passed": true,
+  "residual_threshold": 0.05,
+  "residuals_are_computed_not_stubbed": true,
+  "semi_implicit_thermal_boundary": true,
+  "substrate_robin_residual_median": 0.0,
+  "temperature_jump_residual_median": 0.0,
+  "zero_source_conservation": {
+    "max_temperature_drift_K": 9.663381206337363e-13,
+    "passed": true,
+    "test": "zero_source_conservation"
+  }
+}

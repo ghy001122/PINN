@@ -1,0 +1,29 @@
+{
+  "benchmark": "multidomain_oasis_pinn_smoke",
+  "finite_loss": true,
+  "forbidden_claims": [
+    "performance superiority",
+    "experimental validation",
+    "full hidden-field recovery"
+  ],
+  "loss_value": 610.0768432617188,
+  "mortar_losses": {
+    "current_mortar_loss": 0.0,
+    "heat_flux_mortar_loss": 0.0,
+    "potential_mortar_loss": 0.009869320318102837,
+    "tbr_mortar_loss": 0.0
+  },
+  "note": "Synthetic numerical actual-autograd smoke for ordered multidomain OASIS-PINN components; not performance evidence.",
+  "outputs": {
+    "summary_json": "outputs/tables/multidomain_oasis_pinn_summary.json"
+  },
+  "sigma_max": 34.02320861816406,
+  "sigma_min": 10.0,
+  "status": "qualified_supported",
+  "used_hard_dirichlet_transform": true,
+  "used_interface_mortar_loss": true,
+  "used_layer_experts": true,
+  "used_mean_pooling_main_path": false,
+  "used_ordered_stack_encoder": true,
+  "used_series_stack_port": true
+}

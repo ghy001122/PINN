@@ -15,6 +15,8 @@ def test_adaptive_fourier_fsps_superiority_smoke(tmp_path: Path, monkeypatch) ->
     assert summary["universal_superiority_status"] == "forbidden"
     assert summary["adaptive_f_sps_status"] in {"qualified_supported", "failed_but_informative"}
     assert summary["best_gated_status"] in {"qualified_supported", "failed_but_informative"}
+    assert summary["true_pareto_dominance_used"] is True
+    assert summary["legacy_gain_tolerance_is_not_claim_gate"] is True
     assert summary["best_gated_method_under_pareto_rule"] in {"stiffness_gated_fourier", "front_local_fourier", "adaptive_f_sps"}
     assert summary["chi_c_results"]
     for group in [summary["sharp_gain_by_method"], summary["smooth_degradation_by_method"], summary["pareto_win_rate_by_method"]]:

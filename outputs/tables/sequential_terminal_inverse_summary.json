@@ -1,0 +1,43 @@
+{
+  "benchmark": "sequential_terminal_inverse",
+  "best_protocol": "near_threshold_amplitude_width_sweep",
+  "blocks": [
+    "Rc_Ea",
+    "Rth_h_sub",
+    "Tsw_width"
+  ],
+  "is_simulator_backed": true,
+  "note": "Synthetic numerical sequential block inverse using terminal observables only; not arbitrary full-field recovery.",
+  "outputs": {
+    "summary_json": "outputs/tables/sequential_terminal_inverse_summary.json"
+  },
+  "sequential_inverse_status": "failed_but_informative",
+  "sequential_result": {
+    "block_error": {
+      "Rc_Ea": 0.12172573189522343,
+      "Rth_h_sub": 0.2676508344030809,
+      "Tsw_width": 0.11636789955374029
+    },
+    "blocked_by_identifiability_gate": true,
+    "estimated": {
+      "Ea": 1.0,
+      "Rc": 1.0,
+      "Rth": 1.0,
+      "Tsw": 304.5,
+      "h_sub": 1.0,
+      "width": 0.08
+    },
+    "median_relative_error": 0.18602728400165358,
+    "protocol": "near_threshold_amplitude_width_sweep",
+    "success": false,
+    "true": {
+      "Ea": 1.1,
+      "Rc": 1.18,
+      "Rth": 0.82,
+      "Tsw": 305.1,
+      "h_sub": 0.76,
+      "width": 0.065
+    }
+  },
+  "uses_only_terminal_features": true
+}

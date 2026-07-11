@@ -1,0 +1,84 @@
+{
+  "all_parameters_pass_best_protocol_gate": false,
+  "benchmark": "active_protocol_identifiability",
+  "best_d_optimal_protocol": "near_threshold_amplitude_width_sweep",
+  "is_simulator_backed": true,
+  "note": "Synthetic numerical terminal-observable normalized-Jacobian audit; no hidden T/energy features are used as terminal-only observations.",
+  "outputs": {
+    "cases_csv": "outputs/tables/active_protocol_identifiability_cases.csv",
+    "summary_json": "outputs/tables/active_protocol_identifiability_summary.json"
+  },
+  "parameter_order": [
+    "Rc",
+    "Ea",
+    "Rth",
+    "h_sub",
+    "Tsw",
+    "width"
+  ],
+  "protocol_metrics": {
+    "branch_memory_minor_loop": {
+      "all_parameter_gates_passed": false,
+      "column_norms": {
+        "Ea": 2.0055106010685587e-14,
+        "Rc": 5.592380134667248e-25,
+        "Rth": 0.0,
+        "Tsw": 0.0,
+        "h_sub": 0.0,
+        "width": 0.0
+      },
+      "condition_number": 1e+300,
+      "logdet": -165.78612669557128,
+      "rank": 0
+    },
+    "combined_d_optimal_candidate": {
+      "all_parameter_gates_passed": false,
+      "column_norms": {
+        "Ea": 6.457907045185176e-14,
+        "Rc": 8.220519957858946e-15,
+        "Rth": 0.0,
+        "Tsw": 0.0,
+        "h_sub": 0.0,
+        "width": 0.0
+      },
+      "condition_number": 1e+300,
+      "logdet": -165.78612669557128,
+      "rank": 0
+    },
+    "near_threshold_amplitude_width_sweep": {
+      "all_parameter_gates_passed": false,
+      "column_norms": {
+        "Ea": 3.878775687163078e-14,
+        "Rc": 7.401034446680314e-15,
+        "Rth": 0.0,
+        "Tsw": 0.0,
+        "h_sub": 0.0,
+        "width": 0.0
+      },
+      "condition_number": 1e+300,
+      "logdet": -165.78612669557128,
+      "rank": 0
+    },
+    "rc_oscillator_frequency_readout": {
+      "all_parameter_gates_passed": false,
+      "column_norms": {
+        "Ea": 4.821553547288559e-14,
+        "Rc": 0.0,
+        "Rth": 0.0,
+        "Tsw": 0.0,
+        "h_sub": 0.0,
+        "width": 0.0
+      },
+      "condition_number": 1e+300,
+      "logdet": -165.78612669557128,
+      "rank": 0
+    }
+  },
+  "protocols": [
+    "near_threshold_amplitude_width_sweep",
+    "branch_memory_minor_loop",
+    "rc_oscillator_frequency_readout",
+    "combined_d_optimal_candidate"
+  ],
+  "uses_only_terminal_features": true
+}

@@ -170,3 +170,10 @@ outputs/pinn_inverse_v1_1_smoke/*
 !outputs/tables/adaptive_fourier_fsps_superiority_cases.csv
 !outputs/tables/multilayer_sandwich_low_dim_inverse_summary.json
 !outputs/tables/multilayer_sandwich_low_dim_inverse_cases.csv
+!outputs/tables/conservative_multilayer_forward_summary.json
+!outputs/tables/conservative_multilayer_forward_cases.csv
+!outputs/tables/multidomain_oasis_pinn_summary.json
+!outputs/tables/active_protocol_identifiability_summary.json
+!outputs/tables/active_protocol_identifiability_cases.csv
+!outputs/tables/sequential_terminal_inverse_summary.json
+!outputs/tables/oasis_2d_field_resolution_summary.json

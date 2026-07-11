@@ -166,3 +166,25 @@ epsilon_E = |E_J - E_store - E_sink - E_boundary| /
 ```
 
 If `epsilon_E` exceeds the configured gate, the forward benchmark is downgraded even when fields remain finite. The official v7 run fails this gate, so multilayer forward wording is limited to failed-but-informative reduced-model evidence.
+
+
+## Conservative Multilayer v8 Residuals
+
+The v8 conservative multilayer audit is a reduced finite-volume 2.5D stack diagnostic, not full FEM or experimental validation. For layer interface `i,j`, the implemented interface diagnostics use:
+
+```text
+R_TBR = q_n - (T_i - T_j) / Rth_ij
+R_Robin = -k dT/dn - h_sub (T - T0)
+R_J = Jn_i - Jn_j
+R_phi = phi_i - phi_j - Rc_ij Jn
+```
+
+The thermal update uses per-column implicit vertical diffusion/storage and boundary exchange. The official audit removes the earlier artificial lateral factor, global sink shortcut, and temperature clipping from the v8 conservative path.
+
+The energy ledger records accumulated Joule input, thermal storage, boundary loss, and interface-transfer magnitude:
+
+```text
+epsilon_E = |E_J - E_store - E_boundary| / max(|E_J| + |E_store| + |E_boundary|, eps)
+```
+
+For zero-source cases with only roundoff-level energies, `epsilon_E` is reported as zero to avoid a meaningless tiny-denominator ratio.

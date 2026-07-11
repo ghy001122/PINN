@@ -1,3 +1,20 @@
+
+## Conservative multidomain OASIS-PINN v8
+
+- Conservative forward script: `scripts\audit_conservative_multilayer_forward.py`
+- Multidomain OASIS smoke script: `scripts\audit_multidomain_oasis_pinn.py`
+- Active protocol identifiability script: `scripts\audit_active_protocol_identifiability.py`
+- 2D field-resolution gate script: `scripts\audit_oasis_2d_field_resolution.py`
+- Updated phase-aware STL audit: `scripts\audit_phase_aware_stl_repair.py`
+- Updated Fourier/F-SPS audit: `scripts\audit_adaptive_fourier_fsps_superiority.py`
+- Physics implementation: `src\pinnpcm\physics\multilayer_sandwich.py`
+- OASIS components: `src\pinnpcm\pinn\oasis_components.py`
+- Tests: `tests\test_conservative_multilayer_forward.py`, `tests\test_multidomain_oasis_pinn.py`, `tests\test_active_protocol_identifiability.py`, `tests\test_oasis_2d_field_resolution.py`, plus updated STL/Fourier tests.
+- Report: `docs\codex_reports\conservative_multidomain_oasis_pinn_v8_report.md`
+
+Status: completed as bounded synthetic numerical supplementary evidence. Conservative P0 passes; multidomain component smoke passes; active terminal protocol rescue, 2D field recovery, full STL-PINN reproduction, LoRA-STL, and universal Fourier/F-SPS superiority are not supported.
+
+
 ﻿# Experiment registry
 
 ## Response-surface verification and manuscript claim consolidation pack

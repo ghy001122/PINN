@@ -1,3 +1,16 @@
+
+## Conservative multidomain OASIS-PINN v8 files
+
+- `scripts\audit_conservative_multilayer_forward.py`: conservative P0 forward audit and conservation tests.
+- `scripts\audit_multidomain_oasis_pinn.py`: actual-autograd ordered-stack OASIS-PINN component smoke.
+- `scripts\audit_active_protocol_identifiability.py`: terminal-only normalized-Jacobian active protocol and sequential inverse gate.
+- `scripts\audit_oasis_2d_field_resolution.py`: 2D field-resolution claim gate.
+- `src\pinnpcm\physics\multilayer_sandwich.py`: conservative multilayer simulator helpers and material-family kernels.
+- `src\pinnpcm\pinn\oasis_components.py`: ordered stack encoder, layer experts, and interface mortar loss.
+- `tests\test_conservative_multilayer_forward.py`, `tests\test_multidomain_oasis_pinn.py`, `tests\test_active_protocol_identifiability.py`, `tests\test_oasis_2d_field_resolution.py`: v8 smoke/schema tests.
+- `docs\codex_reports\conservative_multidomain_oasis_pinn_v8_report.md`: final task report.
+
+
 ﻿# File inventory
 
 ## Response-surface verification and manuscript claim consolidation files

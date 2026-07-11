@@ -1,3 +1,14 @@
+
+## Conservative multidomain OASIS-PINN v8 figures
+
+Generated figures remain ignored by Git. Committed evidence is stored in lightweight tables listed in `DATASET_REGISTRY.md`. The relevant generated figures are:
+
+- `outputs\figures\phase_aware_stl_gain.png`
+- `outputs\figures\adaptive_fourier_fsps_pareto.png`
+
+No figure is experimental data.
+
+
 ﻿# Figure registry
 
 ## Manuscript-ready gamma_sub planning figures

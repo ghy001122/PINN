@@ -1,3 +1,23 @@
+
+## Conservative multidomain OASIS-PINN v8 evidence
+
+These lightweight JSON/CSV files are synthetic numerical digital-twin benchmark evidence, not experimental data:
+
+- `outputs\tables\conservative_multilayer_forward_summary.json`
+- `outputs\tables\conservative_multilayer_forward_cases.csv`
+- `outputs\tables\multidomain_oasis_pinn_summary.json`
+- `outputs\tables\active_protocol_identifiability_summary.json`
+- `outputs\tables\active_protocol_identifiability_cases.csv`
+- `outputs\tables\sequential_terminal_inverse_summary.json`
+- `outputs\tables\oasis_2d_field_resolution_summary.json`
+- `outputs\tables\phase_aware_stl_repair_summary.json`
+- `outputs\tables\phase_aware_stl_repair_cases.csv`
+- `outputs\tables\adaptive_fourier_fsps_superiority_summary.json`
+- `outputs\tables\adaptive_fourier_fsps_superiority_cases.csv`
+
+Frozen Ground Truth v1.1 input arrays remain ignored by Git and were not modified.
+
+
 ﻿# Dataset registry
 
 ## Response-surface verification and manuscript claim consolidation evidence

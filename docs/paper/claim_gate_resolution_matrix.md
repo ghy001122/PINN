@@ -90,3 +90,17 @@ All entries remain synthetic numerical digital-twin benchmark evidence, not expe
 | Phase-aware STL repair | failed_but_informative | `outputs/tables/phase_aware_stl_repair_summary.json`; actual torch smoke, best gain `0.01678575282349345` | Actualized but not a full STL-PINN reproduction. |
 | Best stiffness-gated Fourier method | qualified_supported | `outputs/tables/adaptive_fourier_fsps_superiority_summary.json`; best gated method `stiffness_gated_fourier` | Condition-limited method-development evidence only. |
 | Adaptive F-SPS itself | failed_but_informative | `outputs/tables/adaptive_fourier_fsps_superiority_summary.json`; `adaptive_f_sps_status = failed_but_informative` | Universal F-SPS/Fourier superiority remains forbidden. |
+
+## Conservative Multidomain OASIS-PINN v8 Claim Gate
+
+All entries are synthetic numerical digital-twin benchmark evidence, not experimental data.
+
+| Claim | Status | Evidence | Boundary |
+| --- | --- | --- | --- |
+| Conservative multilayer P0 forward | qualified_supported | `outputs/tables/conservative_multilayer_forward_summary.json`; P0 gate `True`; energy median `0.0` | Reduced 2.5D finite-volume diagnostic only; not full FEM or device-grade. |
+| Multidomain OASIS-PINN components | qualified_supported as implementation smoke | `outputs/tables/multidomain_oasis_pinn_summary.json` | Finite autograd smoke, not performance evidence. |
+| Active terminal-only multidomain inverse | failed_but_informative | `outputs/tables/active_protocol_identifiability_summary.json`; best rank `0` | Terminal observables do not identify all tested parameters in this audit. |
+| 2D field-resolution recovery | blocked | `outputs/tables/oasis_2d_field_resolution_summary.json`; `blocked_until_actual_electrode_BC_multi_terminal_solver_is_implemented` | Requires actual electrode-BC multi-terminal solver before any positive claim. |
+| Phase-aware STL repair | failed_but_informative | `outputs/tables/phase_aware_stl_repair_summary.json`; best gain `0.10802334582762174` | Full STL-PINN and LoRA-STL remain forbidden. |
+| Adaptive Fourier/F-SPS superiority | forbidden | `outputs/tables/adaptive_fourier_fsps_superiority_summary.json`; true Pareto used | No universal or adaptive-F-SPS superiority claim. |
+

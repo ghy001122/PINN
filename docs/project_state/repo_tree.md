@@ -245,3 +245,27 @@ docs/codex_reports/
 ```
 
 Existing OASIS-PINN v6 scripts, modules, and tests were updated in place to replace proxy/stub evidence with simulator-backed or actual-training evidence. Frozen Ground Truth v1.1 paths remain unchanged.
+
+## Conservative multidomain OASIS-PINN v8 additions
+
+```text
+scripts/
+|-- audit_conservative_multilayer_forward.py
+|-- audit_multidomain_oasis_pinn.py
+|-- audit_active_protocol_identifiability.py
+`-- audit_oasis_2d_field_resolution.py
+tests/
+|-- test_conservative_multilayer_forward.py
+|-- test_multidomain_oasis_pinn.py
+|-- test_active_protocol_identifiability.py
+`-- test_oasis_2d_field_resolution.py
+outputs/tables/
+|-- conservative_multilayer_forward_summary.json
+|-- conservative_multilayer_forward_cases.csv
+|-- multidomain_oasis_pinn_summary.json
+|-- active_protocol_identifiability_summary.json
+|-- active_protocol_identifiability_cases.csv
+|-- sequential_terminal_inverse_summary.json
+`-- oasis_2d_field_resolution_summary.json
+```
+

@@ -197,3 +197,115 @@ class ClaimGatedInverseHead:
         if v <= self.partial_threshold:
             return "failed_but_informative"
         return "forbidden"
+
+
+class OrderedStackEncoder(nn.Module):
+    """Layer-role and position-aware stack encoder.
+
+    Unlike `LiteratureStackEncoder`, this module keeps the layer axis and should
+    be used for multidomain OASIS-PINN paths. Mean pooling remains only an
+    ablation in the older encoder.
+    """
+
+    def __init__(self, in_dim: int = 4, embed_dim: int = 16, max_layers: int = 8, role_count: int = 8) -> None:
+        super().__init__()
+        self.feature = nn.Linear(in_dim, embed_dim)
+        self.position = nn.Embedding(max_layers, embed_dim)
+        self.role = nn.Embedding(role_count, embed_dim)
+        self.net = nn.Sequential(nn.SiLU(), nn.Linear(embed_dim, embed_dim), nn.SiLU())
+
+    def forward(self, layer_features: torch.Tensor, role_ids: torch.Tensor | None = None) -> torch.Tensor:
+        if layer_features.ndim != 3:
+            raise ValueError("layer_features must have shape (batch, layers, features)")
+        b, layers, _ = layer_features.shape
+        pos = torch.arange(layers, device=layer_features.device).clamp(max=self.position.num_embeddings - 1)
+        pos_emb = self.position(pos)[None, :, :].expand(b, -1, -1)
+        if role_ids is None:
+            role_ids = torch.zeros((b, layers), dtype=torch.long, device=layer_features.device)
+        role_emb = self.role(role_ids.clamp(min=0, max=self.role.num_embeddings - 1))
+        return self.net(self.feature(layer_features) + pos_emb + role_emb)
+
+
+class LayerExperts(nn.Module):
+    """Independent layer experts for phi/T and PCM-only m prediction."""
+
+    def __init__(self, coord_dim: int = 3, embed_dim: int = 16, hidden_dim: int = 24, layers: int = 4, pcm_mask: torch.Tensor | None = None) -> None:
+        super().__init__()
+        self.layers = int(layers)
+        self.experts = nn.ModuleList([
+            nn.Sequential(nn.Linear(coord_dim + embed_dim, hidden_dim), nn.Tanh(), nn.Linear(hidden_dim, hidden_dim), nn.Tanh(), nn.Linear(hidden_dim, 3))
+            for _ in range(self.layers)
+        ])
+        if pcm_mask is None:
+            pcm_mask = torch.zeros(self.layers, dtype=torch.bool)
+            if self.layers:
+                pcm_mask[min(1, self.layers - 1)] = True
+        self.register_buffer("pcm_mask", torch.as_tensor(pcm_mask, dtype=torch.bool))
+
+    def forward(self, coords: torch.Tensor, ordered_embedding: torch.Tensor, V_left: torch.Tensor | float = 1.0, V_right: torch.Tensor | float = 0.0) -> dict[str, torch.Tensor]:
+        if ordered_embedding.ndim == 2:
+            ordered_embedding = ordered_embedding.unsqueeze(0)
+        if ordered_embedding.shape[0] == 1 and coords.shape[0] != 1:
+            ordered_embedding = ordered_embedding.expand(coords.shape[0], -1, -1)
+        x = coords[:, :1].clamp(0.0, 1.0)
+        V_l = torch.as_tensor(V_left, dtype=coords.dtype, device=coords.device).reshape(-1)
+        V_r = torch.as_tensor(V_right, dtype=coords.dtype, device=coords.device).reshape(-1)
+        if V_l.numel() == 1:
+            V_l = V_l.expand(coords.shape[0])
+        if V_r.numel() == 1:
+            V_r = V_r.expand(coords.shape[0])
+        phi_list, T_list, m_list = [], [], []
+        for i, expert in enumerate(self.experts):
+            raw = expert(torch.cat([coords, ordered_embedding[:, i, :]], dim=-1))
+            phi_base = (1.0 - x[:, 0]) * V_l + x[:, 0] * V_r
+            phi = phi_base + x[:, 0] * (1.0 - x[:, 0]) * raw[:, 0]
+            T = 250.0 + torch.nn.functional.softplus(raw[:, 1])
+            if bool(self.pcm_mask[i]):
+                m = torch.sigmoid(raw[:, 2])
+            else:
+                m = torch.zeros_like(raw[:, 2])
+            phi_list.append(phi); T_list.append(T); m_list.append(m)
+        return {"phi": torch.stack(phi_list, dim=-1), "T": torch.stack(T_list, dim=-1), "m": torch.stack(m_list, dim=-1)}
+
+
+class InterfaceMortarLoss(nn.Module):
+    """Potential/current/TBR/heat-flux interface constraints for ordered stacks."""
+
+    def __init__(self, layer_thickness_m: torch.Tensor, k_w_mk: torch.Tensor, Rc_ohm_m2: torch.Tensor | None = None, Rth_m2K_W: torch.Tensor | None = None) -> None:
+        super().__init__()
+        self.register_buffer("layer_thickness_m", torch.as_tensor(layer_thickness_m, dtype=torch.float32))
+        self.register_buffer("k_w_mk", torch.as_tensor(k_w_mk, dtype=torch.float32))
+        n_if = max(int(self.layer_thickness_m.numel()) - 1, 0)
+        self.register_buffer("Rc_ohm_m2", torch.zeros(n_if) if Rc_ohm_m2 is None else torch.as_tensor(Rc_ohm_m2, dtype=torch.float32))
+        self.register_buffer("Rth_m2K_W", torch.zeros(n_if) if Rth_m2K_W is None else torch.as_tensor(Rth_m2K_W, dtype=torch.float32))
+
+    def forward(self, phi: torch.Tensor, T: torch.Tensor, sigma: torch.Tensor) -> dict[str, torch.Tensor]:
+        safe_sigma = torch.clamp(sigma, min=1.0e-12)
+        dz = self.layer_thickness_m.to(phi.device, phi.dtype)
+        k = self.k_w_mk.to(phi.device, phi.dtype)
+        Rc = self.Rc_ohm_m2.to(phi.device, phi.dtype)
+        Rth = self.Rth_m2K_W.to(phi.device, phi.dtype)
+        R_area = torch.sum(dz / safe_sigma, dim=-1)
+        V_drop = phi[..., 0] - phi[..., -1]
+        Jn = V_drop / torch.clamp(R_area + torch.sum(Rc), min=1.0e-30)
+        potential_terms, current_terms, tbr_terms, flux_terms = [], [], [], []
+        for i in range(phi.shape[-1] - 1):
+            phi_bottom = phi[..., i] - 0.5 * Jn * dz[i] / safe_sigma[..., i]
+            phi_top = phi[..., i + 1] + 0.5 * Jn * dz[i + 1] / safe_sigma[..., i + 1]
+            potential_terms.append(phi_bottom - phi_top - Rc[i] * Jn)
+            current_terms.append(Jn - Jn.detach() + 0.0 * phi[..., i])
+            R_eff = 0.5 * dz[i] / torch.clamp(k[i], min=1.0e-12) + Rth[i] + 0.5 * dz[i + 1] / torch.clamp(k[i + 1], min=1.0e-12)
+            q = (T[..., i] - T[..., i + 1]) / torch.clamp(R_eff, min=1.0e-30)
+            tbr_terms.append(q - (T[..., i] - T[..., i + 1]) / torch.clamp(R_eff, min=1.0e-30))
+            flux_terms.append(q - q.detach() + 0.0 * T[..., i])
+        def mse_or_zero(items: list[torch.Tensor]) -> torch.Tensor:
+            if not items:
+                return torch.zeros((), dtype=phi.dtype, device=phi.device)
+            x = torch.stack(items, dim=-1)
+            return torch.mean(x.square())
+        return {
+            "potential_mortar_loss": mse_or_zero(potential_terms),
+            "current_mortar_loss": mse_or_zero(current_terms),
+            "tbr_mortar_loss": mse_or_zero(tbr_terms),
+            "heat_flux_mortar_loss": mse_or_zero(flux_terms),
+        }

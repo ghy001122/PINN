@@ -105,8 +105,19 @@ def run_adaptive_fourier_fsps_superiority(geometries: list[str] | None = None, w
             r["smooth_degradation"] = float(max(0.0, r["relative_error"] / max(b, 1.0e-12) - 1.0))
     sharp_gain = {m: float(np.median([r["gain_over_fourier_off"] for r in rows if r["method"] == m and r["transition_width"] <= 0.05])) for m in METHODS}
     smooth_deg = {m: float(np.max([r["smooth_degradation"] for r in rows if r["method"] == m])) for m in METHODS}
-    pareto = {m: float(np.mean([r["gain_over_fourier_off"] >= -0.02 for r in rows if r["method"] == m])) for m in METHODS}
-    chi_c_results = {str(c): {m: float(np.mean([r["gain_over_fourier_off"] >= -0.02 for r in rows if r["method"] == m and abs(r["chi_c"] - c) < 1.0e-12])) for m in METHODS} for c in sorted({float(r["chi_c"]) for r in rows})}
+    pseudo_pareto = {m: float(np.mean([r["gain_over_fourier_off"] >= -0.02 for r in rows if r["method"] == m])) for m in METHODS}
+    true_flags: dict[tuple[float, str, float, float, int, str], bool] = {}
+    groups = sorted({(r["chi_c"], r["geometry"], r["transition_width"], r["noise"], r["seed"]) for r in rows})
+    for group in groups:
+        sub = [r for r in rows if (r["chi_c"], r["geometry"], r["transition_width"], r["noise"], r["seed"]) == group]
+        for r in sub:
+            dominated = any(
+                (o["relative_error"] <= r["relative_error"] and o["runtime_cost"] <= r["runtime_cost"] and (o["relative_error"] < r["relative_error"] or o["runtime_cost"] < r["runtime_cost"]))
+                for o in sub if o is not r
+            )
+            true_flags[(r["chi_c"], r["geometry"], r["transition_width"], r["noise"], r["seed"], r["method"])] = not dominated
+    pareto = {m: float(np.mean([true_flags[(r["chi_c"], r["geometry"], r["transition_width"], r["noise"], r["seed"], r["method"])] for r in rows if r["method"] == m])) for m in METHODS}
+    chi_c_results = {str(c): {m: float(np.mean([true_flags[(r["chi_c"], r["geometry"], r["transition_width"], r["noise"], r["seed"], r["method"])] for r in rows if r["method"] == m and abs(r["chi_c"] - c) < 1.0e-12])) for m in METHODS} for c in sorted({float(r["chi_c"]) for r in rows})}
     failure_rate = {m: float(np.mean([r["failure"] or not r["finite_result"] for r in rows if r["method"] == m])) for m in METHODS}
     gated_methods = ["stiffness_gated_fourier", "front_local_fourier", "adaptive_f_sps"]
     best_gated = max(gated_methods, key=lambda m: (pareto[m], sharp_gain[m] - smooth_deg[m]))
@@ -121,7 +132,10 @@ def run_adaptive_fourier_fsps_superiority(geometries: list[str] | None = None, w
         "is_actual_autograd_training": True,
         "sharp_gain_by_method": sharp_gain,
         "smooth_degradation_by_method": smooth_deg,
+        "pseudo_pareto_gain_tolerance_rate_by_method": pseudo_pareto,
         "pareto_win_rate_by_method": pareto,
+        "true_pareto_dominance_used": True,
+        "legacy_gain_tolerance_is_not_claim_gate": True,
         "chi_c_results": chi_c_results,
         "best_gated_method_under_pareto_rule": best_gated,
         "best_gated_status": best_gated_status,

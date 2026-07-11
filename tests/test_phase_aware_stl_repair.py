@@ -17,6 +17,14 @@ def test_phase_aware_stl_repair_smoke(tmp_path: Path, monkeypatch) -> None:
     assert summary["full_stl_claim"] == "forbidden"
     assert summary["full_stl_pinn_reproduction_status"] == "forbidden"
     assert summary["phase_aware_stl_status"] in {"qualified_supported", "failed_but_informative"}
+    assert summary["canonical_100_step_matched_budget_run"] is True
+    assert summary["matched_budget_epochs"] == 100
+    assert summary["compare_continuation_asinh"] is True
+    assert summary["front_aligned_coordinate_requested"] is True
+    assert summary["front_aligned_coordinate_implemented"] is False
+    assert summary["adapter_stl_implemented"] is True
+    assert summary["lora_adapter_stl_requested"] is True
+    assert summary["lora_adapter_stl_implemented"] is False
     for value in summary["transfer_gain_by_algorithm"].values():
         assert math.isfinite(float(value))
     assert (tmp_path / "summary.json").exists()

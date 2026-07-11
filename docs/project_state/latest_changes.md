@@ -1,3 +1,19 @@
+
+## Conservative multidomain OASIS-PINN v8
+
+Scope:
+
+- Add a conservative finite-volume 2.5D multilayer forward audit with per-interface contact and thermal-boundary terms.
+- Add actual-autograd multidomain OASIS-PINN component smoke.
+- Add terminal-only active protocol normalized-Jacobian and sequential inverse gate.
+- Add a 2D field-resolution block gate that refuses positive claims without actual electrode-BC multi-terminal support.
+- Tighten phase-aware STL repair and Fourier/F-SPS evidence under matched-budget and true-Pareto rules.
+
+Result:
+
+Conservative P0 and component smoke pass; active terminal rescue, 2D field recovery, full STL-PINN reproduction, LoRA-STL, and universal Fourier/F-SPS superiority remain unsupported.
+
+
 ﻿# Latest changes
 
 ## Response-surface verification and manuscript claim consolidation pack

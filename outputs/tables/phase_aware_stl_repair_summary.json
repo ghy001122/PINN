@@ -1,17 +1,35 @@
 {
   "actual_torch_stl_smoke": true,
+  "adapter_stl_implemented": true,
   "benchmark": "phase_aware_stl_repair",
-  "best_algorithm": "progressive_width_stl",
+  "best_algorithm": "adapter_stl",
+  "canonical_100_step_matched_budget_run": true,
+  "compare_continuation_asinh": true,
   "factor_model_only": false,
   "forbidden_claims": [
     "full STL-PINN reproduction",
+    "LoRA-STL implementation",
     "experimental validation"
   ],
+  "front_aligned_coordinate_implemented": false,
+  "front_aligned_coordinate_requested": true,
+  "front_aligned_coordinate_status": "blocked_until_model_input_is_extended_without_corrupting_physical_coordinates",
   "full_stl_claim": "forbidden",
   "full_stl_pinn_reproduction_status": "forbidden",
+  "gain_over_matched_continuation_for_best": 0.12687121920220237,
   "is_actual_stl_training": true,
+  "lora_adapter_stl_implemented": false,
+  "lora_adapter_stl_requested": true,
+  "lora_adapter_stl_status": "blocked_not_implemented_no_positive_claim",
+  "matched_budget_epochs": 100,
+  "median_error_by_algorithm": {
+    "adapter_stl": 4.797558307647705,
+    "continuation_asinh": 5.4456565380096436,
+    "continuation_asinh_matched_budget": 5.53251838684082,
+    "progressive_width_stl": 4.924892902374268
+  },
   "note": "Synthetic numerical actual torch reduced transfer diagnostic; not full STL-PINN reproduction.",
-  "num_cases": 12,
+  "num_cases": 16,
   "outputs": {
     "cases_csv": "outputs/tables/phase_aware_stl_repair_cases.csv",
     "gain_figure": "outputs/figures/phase_aware_stl_gain.png",
@@ -21,11 +39,13 @@
   "success_rate_by_algorithm": {
     "adapter_stl": 0.0,
     "continuation_asinh": 0.0,
+    "continuation_asinh_matched_budget": 0.0,
     "progressive_width_stl": 0.0
   },
   "transfer_gain_by_algorithm": {
-    "adapter_stl": -0.004363961344681654,
+    "adapter_stl": 0.10802334582762174,
     "continuation_asinh": 0.0,
-    "progressive_width_stl": 0.01678575282349345
+    "continuation_asinh_matched_budget": -0.03943259953831077,
+    "progressive_width_stl": 0.08233442505774259
   }
 }

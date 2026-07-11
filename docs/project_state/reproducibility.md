@@ -1,5 +1,19 @@
 # Reproducibility
 
+## Conservative multidomain OASIS-PINN v8 reproduction
+
+```powershell
+python scripts/audit_conservative_multilayer_forward.py
+python scripts/audit_multidomain_oasis_pinn.py
+python scripts/audit_active_protocol_identifiability.py
+python scripts/audit_oasis_2d_field_resolution.py
+python scripts/audit_phase_aware_stl_repair.py
+python scripts/audit_adaptive_fourier_fsps_superiority.py
+```
+
+These commands regenerate the lightweight v8 JSON/CSV evidence under `outputs\tables\`. Generated figures remain ignored by Git. They do not regenerate or modify frozen Ground Truth v1.1 data.
+
+
 ## Response-surface verification and manuscript claim consolidation reproduction
 
 ```powershell

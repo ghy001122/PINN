@@ -1,0 +1,22 @@
+{
+  "P0_gate_passed": true,
+  "actual_electrode_bc_multi_terminal_supported": false,
+  "benchmark": "oasis_2d_field_resolution",
+  "blocked_reason": "blocked_until_actual_electrode_BC_multi_terminal_solver_is_implemented",
+  "fisher_d_optimal_anchors_run": false,
+  "forbidden_claims": [
+    "terminal-only full 2D field recovery",
+    "multi-terminal field recovery without electrode-BC solver",
+    "experimental validation"
+  ],
+  "nonlinear_autoencoder_prior_run": false,
+  "note": "Synthetic numerical claim gate; no positive field-recovery result is produced without P0 and actual electrode-BC support.",
+  "outputs": {
+    "summary_json": "outputs/tables/oasis_2d_field_resolution_summary.json"
+  },
+  "pde_constrained_latent_optimization_run": false,
+  "pod_rank_sweep_run": false,
+  "status": "blocked",
+  "uses_holdout_targets": false,
+  "uses_sigma_half_means": false
+}

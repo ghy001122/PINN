@@ -1,5 +1,22 @@
 # Research log
 
+## Conservative Multidomain OASIS-PINN v8
+
+All results in this section are synthetic numerical digital-twin benchmark evidence, not experimental data. Frozen Ground Truth v1.1 remains unchanged.
+
+Key results:
+
+- Conservative multilayer P0 gate: `True`; energy-balance median `0.0`; interface residual median `6.620044358862851e-17`; zero-source and manufactured conservation tests passed `True`.
+- Multidomain OASIS-PINN implementation smoke: finite loss `True`, ordered stack encoder `True`, layer experts `True`, hard Dirichlet transform `True`, interface mortar loss `True`.
+- Active terminal protocol identifiability: best protocol `near_threshold_amplitude_width_sweep`, all-parameter gate `False`, rank `0`.
+- Sequential terminal inverse status: `failed_but_informative`; median relative error `0.18602728400165358`; blocked by identifiability gate `True`.
+- 2D field-resolution gate: status `blocked` because `blocked_until_actual_electrode_BC_multi_terminal_solver_is_implemented`; no sigma half-mean shortcut is used.
+- Phase-aware STL repair: status `failed_but_informative`; 100-step matched-budget diagnostic `True`; best algorithm `adapter_stl`; front-coordinate and LoRA-STL remain blocked, not positive claims.
+- Adaptive Fourier/F-SPS: true Pareto dominance is used `True`; best gated method `adaptive_f_sps` has status `failed_but_informative`; universal superiority remains `forbidden`.
+
+Claim impact: v8 upgrades the conservative multilayer forward implementation and OASIS-PINN component smoke evidence, but it also downgrades or blocks active terminal protocol rescue, 2D full-field recovery, full STL-PINN reproduction, and universal Fourier/F-SPS superiority. The main SCI manuscript line remains calibration-gated constrained `gamma_sub` inversion under fixed or tightly bounded priors.
+
+
 ## Response-surface verification and manuscript claim consolidation pack
 
 Date: 2026-07-01

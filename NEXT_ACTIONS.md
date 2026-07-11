@@ -1,3 +1,17 @@
+
+## Immediate Next After Conservative Multidomain OASIS-PINN v8
+
+Use v8 as supplementary claim-gate evidence, not as a replacement for the main `gamma_sub` manuscript line.
+
+Recommended next actions:
+
+1. Keep manuscript assembly centered on calibration-gated constrained `gamma_sub` inversion.
+2. Use the conservative multilayer P0 pass as implementation credibility for supplementary OASIS-PINN discussion.
+3. Treat active terminal protocol failure, 2D field-resolution block, STL repair failure, and true-Pareto F-SPS failure as honest reviewer-defense boundaries.
+4. If OASIS-PINN is pursued further, implement an actual electrode-BC multi-terminal solver before any 2D field-recovery claim.
+5. Do not claim experimental validation, full FEM/device-grade reproduction, full STL-PINN reproduction, LoRA-STL implementation, terminal-only full-field recovery, or universal F-SPS/Fourier superiority.
+
+
 ﻿# Next actions
 
 ## Standing critical research protocol
