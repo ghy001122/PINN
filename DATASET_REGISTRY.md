@@ -1,4 +1,19 @@
 
+
+## Phase-activated multidomain OASIS-PINN v9 evidence
+
+These lightweight JSON/CSV files are synthetic numerical digital-twin benchmark evidence, not experimental data:
+
+- `outputs\tables\phase_activated_multilayer_forward_summary.json`
+- `outputs\tables\phase_activated_multilayer_forward_cases.csv`
+- `outputs\tables\multidomain_oasis_training_summary.json`
+- `outputs\tables\active_protocol_identifiability_v2_summary.json`
+- `outputs\tables\sequential_terminal_inverse_v2_summary.json`
+- `outputs\tables\oasis_2d_field_resolution_v2_summary.json`
+- `outputs\tables\phase_activated_algorithm_summary.json`
+
+Frozen Ground Truth v1.1 input arrays remain ignored by Git and were not modified.
+
 ## Conservative multidomain OASIS-PINN v8 evidence
 
 These lightweight JSON/CSV files are synthetic numerical digital-twin benchmark evidence, not experimental data:

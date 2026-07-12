@@ -1,5 +1,18 @@
 # Reproducibility
 
+## Phase-activated multidomain OASIS-PINN v9 reproduction
+
+```powershell
+python scripts/audit_phase_activated_multilayer_forward.py
+python scripts/train_multidomain_oasis_v9.py --epochs 10
+python scripts/audit_active_protocol_identifiability_v2.py
+python scripts/audit_oasis_2d_field_resolution_v2.py
+python scripts/audit_phase_activated_algorithms_v9.py
+```
+
+These commands regenerate v9 lightweight evidence under `outputs\tables\`. They do not regenerate or modify frozen Ground Truth v1.1.
+
+
 ## Conservative multidomain OASIS-PINN v8 reproduction
 
 ```powershell

@@ -177,3 +177,10 @@ outputs/pinn_inverse_v1_1_smoke/*
 !outputs/tables/active_protocol_identifiability_cases.csv
 !outputs/tables/sequential_terminal_inverse_summary.json
 !outputs/tables/oasis_2d_field_resolution_summary.json
+!outputs/tables/phase_activated_multilayer_forward_summary.json
+!outputs/tables/phase_activated_multilayer_forward_cases.csv
+!outputs/tables/multidomain_oasis_training_summary.json
+!outputs/tables/active_protocol_identifiability_v2_summary.json
+!outputs/tables/sequential_terminal_inverse_v2_summary.json
+!outputs/tables/oasis_2d_field_resolution_v2_summary.json
+!outputs/tables/phase_activated_algorithm_summary.json

@@ -269,3 +269,28 @@ outputs/tables/
 `-- oasis_2d_field_resolution_summary.json
 ```
 
+
+
+## Phase-activated multidomain OASIS-PINN v9 additions
+
+```text
+scripts/
+|-- audit_phase_activated_multilayer_forward.py
+|-- train_multidomain_oasis_v9.py
+|-- audit_active_protocol_identifiability_v2.py
+|-- audit_oasis_2d_field_resolution_v2.py
+`-- audit_phase_activated_algorithms_v9.py
+tests/
+|-- test_phase_activated_multilayer_forward.py
+|-- test_multidomain_oasis_training_v9.py
+|-- test_active_protocol_identifiability_v2.py
+`-- test_oasis_v9_gates.py
+outputs/tables/
+|-- phase_activated_multilayer_forward_summary.json
+|-- phase_activated_multilayer_forward_cases.csv
+|-- multidomain_oasis_training_summary.json
+|-- active_protocol_identifiability_v2_summary.json
+|-- sequential_terminal_inverse_v2_summary.json
+|-- oasis_2d_field_resolution_v2_summary.json
+`-- phase_activated_algorithm_summary.json
+```

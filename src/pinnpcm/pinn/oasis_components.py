@@ -53,12 +53,20 @@ def vo2_hysteretic_rt_kernel(T: torch.Tensor, branch: torch.Tensor | None = None
     return torch.clamp(R, min=1.0e-9)
 
 
-def nb_o2_pf_ndr_current(E: torch.Tensor, T: torch.Tensor, A: float = 1.0e-9, beta: float = 2.0e-5, Ea_eV: float = 0.18) -> torch.Tensor:
-    kB = 8.617333262145e-5
-    thermal = torch.exp(torch.clamp(-Ea_eV / (kB * torch.clamp(T, min=1.0)), -80.0, 20.0))
-    pf = torch.sinh(torch.clamp(beta * E / torch.sqrt(torch.clamp(T, min=1.0)), -30.0, 30.0))
-    ndr = 1.0 / (1.0 + torch.square(E / 2.0e7))
-    return A * thermal * pf * ndr
+def nb_o2_pf_ndr_current(E: torch.Tensor, T: torch.Tensor, A: float = 1.0e-9, beta: float = 1.0, Ea_eV: float = 0.18, epsr: float = 35.0) -> torch.Tensor:
+    """Legacy API for monotonic NbO2 Poole-Frenkel current.
+
+    The name is preserved for old imports, but the implementation intentionally
+    contains no local ad-hoc NDR term. Any NDR-like behavior must arise from
+    electrothermal feedback and the external circuit.
+    """
+    q = torch.as_tensor(1.602176634e-19, dtype=E.dtype, device=E.device)
+    eps0 = torch.as_tensor(8.8541878128e-12, dtype=E.dtype, device=E.device)
+    kB = torch.as_tensor(8.617333262145e-5, dtype=E.dtype, device=E.device)
+    E_abs = torch.clamp(torch.abs(E), min=1.0)
+    lowering_eV = torch.sqrt(torch.clamp(q ** 3 * E_abs / (torch.pi * eps0 * float(epsr)), min=0.0)) / q
+    exponent = torch.clamp(-(float(Ea_eV) - lowering_eV) / (kB * torch.clamp(T, min=1.0)), -80.0, 25.0)
+    return A * E * torch.exp(exponent) * float(beta)
 
 
 class DifferentiablePortCircuit(nn.Module):
@@ -285,27 +293,37 @@ class InterfaceMortarLoss(nn.Module):
         k = self.k_w_mk.to(phi.device, phi.dtype)
         Rc = self.Rc_ohm_m2.to(phi.device, phi.dtype)
         Rth = self.Rth_m2K_W.to(phi.device, phi.dtype)
-        R_area = torch.sum(dz / safe_sigma, dim=-1)
-        V_drop = phi[..., 0] - phi[..., -1]
-        Jn = V_drop / torch.clamp(R_area + torch.sum(Rc), min=1.0e-30)
         potential_terms, current_terms, tbr_terms, flux_terms = [], [], [], []
         for i in range(phi.shape[-1] - 1):
-            phi_bottom = phi[..., i] - 0.5 * Jn * dz[i] / safe_sigma[..., i]
-            phi_top = phi[..., i + 1] + 0.5 * Jn * dz[i + 1] / safe_sigma[..., i + 1]
-            potential_terms.append(phi_bottom - phi_top - Rc[i] * Jn)
-            current_terms.append(Jn - Jn.detach() + 0.0 * phi[..., i])
-            R_eff = 0.5 * dz[i] / torch.clamp(k[i], min=1.0e-12) + Rth[i] + 0.5 * dz[i + 1] / torch.clamp(k[i + 1], min=1.0e-12)
-            q = (T[..., i] - T[..., i + 1]) / torch.clamp(R_eff, min=1.0e-30)
-            tbr_terms.append(q - (T[..., i] - T[..., i + 1]) / torch.clamp(R_eff, min=1.0e-30))
-            flux_terms.append(q - q.detach() + 0.0 * T[..., i])
-        def mse_or_zero(items: list[torch.Tensor]) -> torch.Tensor:
+            gap = torch.clamp(0.5 * (dz[i] + dz[i + 1]), min=1.0e-30)
+            dphi = phi[..., i] - phi[..., i + 1]
+            dT = T[..., i] - T[..., i + 1]
+            # Independent one-sided layer fluxes. These are not detached and do
+            # not cancel by construction; they penalize interface inconsistency
+            # between neighboring layer experts.
+            Jn_i = safe_sigma[..., i] * dphi / gap
+            Jn_j = safe_sigma[..., i + 1] * dphi / gap
+            J_avg = 0.5 * (Jn_i + Jn_j)
+            qn_i = k[i] * dT / gap
+            qn_j = k[i + 1] * dT / gap
+            q_avg = 0.5 * (qn_i + qn_j)
+            potential_terms.append(dphi - Rc[i] * J_avg)
+            current_terms.append(Jn_i - Jn_j)
+            tbr_terms.append(dT - Rth[i] * q_avg)
+            flux_terms.append(qn_i - qn_j)
+        def normalized_mse(items: list[torch.Tensor], scale: torch.Tensor | float) -> torch.Tensor:
             if not items:
                 return torch.zeros((), dtype=phi.dtype, device=phi.device)
             x = torch.stack(items, dim=-1)
-            return torch.mean(x.square())
+            s = torch.as_tensor(scale, dtype=phi.dtype, device=phi.device)
+            return torch.mean((x / torch.clamp(torch.abs(s), min=1.0e-12)).square())
+        phi_scale = torch.clamp(torch.max(torch.abs(phi.detach())), min=1.0e-6)
+        T_scale = torch.clamp(torch.max(torch.abs(T.detach() - torch.mean(T.detach()))), min=1.0)
+        J_scale = torch.clamp(torch.max(torch.abs(safe_sigma.detach())) * phi_scale / torch.clamp(torch.min(dz), min=1.0e-12), min=1.0)
+        q_scale = torch.clamp(torch.max(torch.abs(k.detach())) * T_scale / torch.clamp(torch.min(dz), min=1.0e-12), min=1.0)
         return {
-            "potential_mortar_loss": mse_or_zero(potential_terms),
-            "current_mortar_loss": mse_or_zero(current_terms),
-            "tbr_mortar_loss": mse_or_zero(tbr_terms),
-            "heat_flux_mortar_loss": mse_or_zero(flux_terms),
+            "potential_mortar_loss": normalized_mse(potential_terms, phi_scale),
+            "current_mortar_loss": normalized_mse(current_terms, J_scale),
+            "tbr_mortar_loss": normalized_mse(tbr_terms, T_scale),
+            "heat_flux_mortar_loss": normalized_mse(flux_terms, q_scale),
         }

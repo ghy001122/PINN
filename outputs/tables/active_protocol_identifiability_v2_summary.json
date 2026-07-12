@@ -1,0 +1,164 @@
+{
+  "all_blocks_pass_best_protocol_gate": true,
+  "benchmark": "active_protocol_identifiability_v2",
+  "best_d_optimal_protocol": "combined_d_optimal",
+  "note": "Synthetic numerical activated-case full terminal-trace Jacobian audit; no hidden fields used.",
+  "outputs": {
+    "summary_json": "outputs/tables/active_protocol_identifiability_v2_summary.json"
+  },
+  "profile_likelihood": {
+    "median_error_max": 0.021286031042128555,
+    "noise_rows": [
+      {
+        "median_error": 0.021286031042128555,
+        "noise": 0.0,
+        "success_rate": 1.0
+      },
+      {
+        "median_error": 0.021286031042128555,
+        "noise": 0.02,
+        "success_rate": 1.0
+      },
+      {
+        "median_error": 0.021286031042128555,
+        "noise": 0.05,
+        "success_rate": 1.0
+      }
+    ],
+    "success_rate_min": 1.0
+  },
+  "protocol_metrics": {
+    "combined_d_optimal": {
+      "all_block_gates_passed": true,
+      "block_metrics": {
+        "Rc_Ea": {
+          "condition_number": 113.12903467990526,
+          "gate_passed": true,
+          "rank": 2
+        },
+        "Rth_h_sub": {
+          "condition_number": 10.976561293173397,
+          "gate_passed": true,
+          "rank": 2
+        },
+        "Tc_width": {
+          "condition_number": 136.42696388192203,
+          "gate_passed": true,
+          "rank": 2
+        }
+      },
+      "column_norms": {
+        "Ea": 17.545186764299533,
+        "Rc": 0.36254793264787644,
+        "Rth": 0.06141895363195611,
+        "Tc": 11.784326122521001,
+        "h_sub": 0.562290015576724,
+        "width": 0.11751387045811691
+      },
+      "condition_number": 1365.2650940966219,
+      "logdet": -10.069378657109311,
+      "rank": 6
+    },
+    "minor_loop": {
+      "all_block_gates_passed": true,
+      "block_metrics": {
+        "Rc_Ea": {
+          "condition_number": 213.70365477606538,
+          "gate_passed": true,
+          "rank": 2
+        },
+        "Rth_h_sub": {
+          "condition_number": 13.483092880890043,
+          "gate_passed": true,
+          "rank": 2
+        },
+        "Tc_width": {
+          "condition_number": 162.54694522843533,
+          "gate_passed": true,
+          "rank": 2
+        }
+      },
+      "column_norms": {
+        "Ea": 10.242980479254282,
+        "Rc": 0.16247705626229608,
+        "Rth": 0.03546596901649214,
+        "Tc": 10.140263482408916,
+        "h_sub": 0.39587018186007045,
+        "width": 0.1158771384200277
+      },
+      "condition_number": 2010.0005850647206,
+      "logdet": -20.379192897946773,
+      "rank": 6
+    },
+    "near_threshold_amplitude_width_sweep": {
+      "all_block_gates_passed": true,
+      "block_metrics": {
+        "Rc_Ea": {
+          "condition_number": 125.5307114387409,
+          "gate_passed": true,
+          "rank": 2
+        },
+        "Rth_h_sub": {
+          "condition_number": 8.365862310158994,
+          "gate_passed": true,
+          "rank": 2
+        },
+        "Tc_width": {
+          "condition_number": 288.89116579956277,
+          "gate_passed": true,
+          "rank": 2
+        }
+      },
+      "column_norms": {
+        "Ea": 10.042311450558081,
+        "Rc": 0.16093547452523196,
+        "Rth": 0.0319325902356954,
+        "Tc": 5.354525643135679,
+        "h_sub": 0.21648067011138475,
+        "width": 0.0193359791220781
+      },
+      "condition_number": 6475.150686368151,
+      "logdet": -26.361106143307378,
+      "rank": 6
+    },
+    "rc_oscillator": {
+      "all_block_gates_passed": true,
+      "block_metrics": {
+        "Rc_Ea": {
+          "condition_number": 134.2960005304208,
+          "gate_passed": true,
+          "rank": 2
+        },
+        "Rth_h_sub": {
+          "condition_number": 10.568746417231386,
+          "gate_passed": true,
+          "rank": 2
+        },
+        "Tc_width": {
+          "condition_number": 172.13969149150748,
+          "gate_passed": true,
+          "rank": 2
+        }
+      },
+      "column_norms": {
+        "Ea": 10.267672441972937,
+        "Rc": 0.28181352284436023,
+        "Rth": 0.038825716669225976,
+        "Tc": 3.099894080824192,
+        "h_sub": 0.34371000516870814,
+        "width": 0.01836035487752732
+      },
+      "condition_number": 1935.3518951617948,
+      "logdet": -24.503097592242895,
+      "rank": 6
+    }
+  },
+  "protocols": [
+    "near_threshold_amplitude_width_sweep",
+    "minor_loop",
+    "rc_oscillator",
+    "combined_d_optimal"
+  ],
+  "uses_activated_cases_only": true,
+  "uses_only_terminal_traces": true
+}

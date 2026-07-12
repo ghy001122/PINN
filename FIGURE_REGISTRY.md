@@ -1,4 +1,9 @@
 
+
+## Phase-activated multidomain OASIS-PINN v9 figures
+
+No committed figures were generated for v9. Evidence is stored in lightweight JSON/CSV tables listed in `DATASET_REGISTRY.md`. Future figures should be generated from those tables and kept ignored unless explicitly approved.
+
 ## Conservative multidomain OASIS-PINN v8 figures
 
 Generated figures remain ignored by Git. Committed evidence is stored in lightweight tables listed in `DATASET_REGISTRY.md`. The relevant generated figures are:

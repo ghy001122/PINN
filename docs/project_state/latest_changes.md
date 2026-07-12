@@ -1,4 +1,16 @@
 
+
+## Phase-activated multidomain OASIS-PINN v9
+
+Scope:
+
+- Activate real reduced-device physics after v8 showed nearly zero heating/phase change.
+- Add material-family-specific kernels, independent interface maps, coupled y-z lateral conduction, activation gates, manufactured/refinement checks, multidomain training, activated terminal inverse, and blocked 2D/STL/Fourier gates.
+
+Result:
+
+P0 and P1 pass. P2 improves substantially but strict block-wise sequential inverse remains failed-but-informative. P3 and P4 remain blocked.
+
 ## Conservative multidomain OASIS-PINN v8
 
 Scope:

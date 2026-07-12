@@ -1,4 +1,15 @@
 
+
+## Phase-activated multidomain OASIS-PINN v9 files
+
+- `scripts\audit_phase_activated_multilayer_forward.py`: P0 phase-activated forward audit.
+- `scripts\train_multidomain_oasis_v9.py`: P1 small-budget multidomain training audit.
+- `scripts\audit_active_protocol_identifiability_v2.py`: P2 activated terminal trace inverse audit.
+- `scripts\audit_oasis_2d_field_resolution_v2.py`: P3 2D recovery claim gate.
+- `scripts\audit_phase_activated_algorithms_v9.py`: P4 STL/Fourier claim gate.
+- `tests\test_phase_activated_multilayer_forward.py`, `tests\test_multidomain_oasis_training_v9.py`, `tests\test_active_protocol_identifiability_v2.py`, `tests\test_oasis_v9_gates.py`: v9 tests.
+- `docs\codex_reports\phase_activated_multidomain_oasis_v9_report.md`: final v9 report.
+
 ## Conservative multidomain OASIS-PINN v8 files
 
 - `scripts\audit_conservative_multilayer_forward.py`: conservative P0 forward audit and conservation tests.

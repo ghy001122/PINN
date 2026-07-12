@@ -1,4 +1,21 @@
 
+
+## Phase-Activated Multidomain OASIS-PINN v9
+
+All results in this section are synthetic numerical digital-twin benchmark evidence, not experimental data. Frozen Ground Truth v1.1 remains unchanged.
+
+Key results:
+
+- P0 activation: VO2 activation rate `0.8888888888888888`, NbO2 activation rate `0.8888888888888888`, activated finite cases `50`, P0 gate `True`.
+- P0 response medians: max delta T `15.140535460408756`, delta m `0.7834880687603829`, conductance ratio `2.561625048607053`, energy-balance error `1.2158644865974921e-13`.
+- P0 validation: manufactured lateral Laplacian relative error `0.0001317775483549986`, mesh/time delta-T change `0.0009102884494205883`, conductance-ratio change `0.000812468857103493`.
+- P1 multidomain training: full mortar success `True`, P1 gate `True`, best final-loss variant `ordered_multidomain`.
+- P2 active terminal inverse: best protocol `combined_d_optimal`, all block Jacobian gates `True`, strict sequential block-error gate `False`, status `failed_but_informative`, median error `0.021286031042128555`.
+- P3 2D recovery: `blocked` because `blocked_until_actual_electrode_BC_multi_terminal_yz_solver_is_implemented`.
+- P4 STL/Fourier: blocked; no canonical Seiler, LoRA-STL, or matched-budget activated-PDE Fourier/F-SPS positive claim.
+
+Claim impact: v9 is a real improvement over v8 for activation and multidomain training. It increases project workload, physical plausibility, and extension potential. It does not yet justify full-field 2D recovery, full STL-PINN reproduction, or F-SPS/Fourier superiority. The main SCI line remains calibration-gated constrained `gamma_sub` inversion, with v9 routed to supplementary method-development and future OASIS extension evidence.
+
 ## Conservative Multidomain OASIS-PINN v8
 
 All results in this section are synthetic numerical digital-twin benchmark evidence, not experimental data. Frozen Ground Truth v1.1 remains unchanged.

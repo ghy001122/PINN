@@ -1,4 +1,14 @@
 
+
+## Immediate Next After Phase-Activated Multidomain OASIS-PINN v9
+
+Use v9 as supplementary OASIS-PINN method-development evidence. The next high-value research tasks are narrowly scoped:
+
+1. Improve the P2 sequential inverse block-wise gate, especially `Rth/h_sub` and `Tc/width`, without using hidden fields.
+2. Implement an actual electrode-BC multi-terminal y-z solver before reopening 2D field recovery.
+3. If STL/Fourier is pursued, first implement canonical Seiler reproduction and front-aligned `xi=(x-xf)/w` transfer on the activated PDE with matched budgets.
+4. Keep the main manuscript line on calibration-gated constrained `gamma_sub`; do not upgrade OASIS/F-SPS/STL to main claims until their claim gates pass.
+
 ## Immediate Next After Conservative Multidomain OASIS-PINN v8
 
 Use v8 as supplementary claim-gate evidence, not as a replacement for the main `gamma_sub` manuscript line.

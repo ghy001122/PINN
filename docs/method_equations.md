@@ -188,3 +188,38 @@ epsilon_E = |E_J - E_store - E_boundary| / max(|E_J| + |E_store| + |E_boundary|,
 ```
 
 For zero-source cases with only roundoff-level energies, `epsilon_E` is reported as zero to avoid a meaningless tiny-denominator ratio.
+
+
+## Phase-Activated Multidomain v9 Equations
+
+The v9 forward audit is a reduced synthetic y-z finite-volume digital-twin benchmark. It is not full FEM and not experimental validation.
+
+For NbO2, the local conduction kernel uses a monotonic Poole-Frenkel form:
+
+```text
+J = J0 E exp[-(Ea - sqrt(q^3 |E| / (pi eps0 epsr)) / q) / (kB T)]
+```
+
+No local ad-hoc NDR term is used; any NDR-like behavior must arise from electrothermal coupling and the external load line.
+
+For VO2, the switching target uses branch memory with independent heating and cooling thresholds:
+
+```text
+Tc = Tc_up on heating, Tc_down on cooling
+s_eq = sigmoid((T - Tc) / width)
+dm/dt = (s_eq - m) / tau_m
+```
+
+The generic family uses a reduced Allen-Cahn/free-energy inspired target:
+
+```text
+s_eq = clip(sigmoid((T - Tc)/width) - 0.25 m(1-m)(m-0.5), 0, 1)
+```
+
+The v9 stack uses independent interface maps:
+
+```text
+{TE/PCM, PCM/barrier, barrier/BE, BE/substrate} -> {Rc_ij, Rth_ij}
+```
+
+The y-z thermal update includes vertical finite-volume coupling, top/substrate Robin exchange, and conservative no-flux lateral conduction. The activation gate records `max_delta_T`, `delta_m`, `conductance_ratio`, `Vth`, `Vhold`, and hysteresis area. Cases that do not activate are excluded from inverse/positive claim routing.

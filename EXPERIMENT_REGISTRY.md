@@ -1,4 +1,19 @@
 
+
+## Phase-activated multidomain OASIS-PINN v9
+
+- Forward script: `scripts\audit_phase_activated_multilayer_forward.py`
+- Multidomain training script: `scripts\train_multidomain_oasis_v9.py`
+- Active inverse script: `scripts\audit_active_protocol_identifiability_v2.py`
+- 2D gate script: `scripts\audit_oasis_2d_field_resolution_v2.py`
+- Algorithm gate script: `scripts\audit_phase_activated_algorithms_v9.py`
+- Physics implementation: `src\pinnpcm\physics\multilayer_sandwich.py`
+- OASIS component implementation: `src\pinnpcm\pinn\oasis_components.py`
+- Tests: `tests\test_phase_activated_multilayer_forward.py`, `tests\test_multidomain_oasis_training_v9.py`, `tests\test_active_protocol_identifiability_v2.py`, `tests\test_oasis_v9_gates.py`
+- Report: `docs\codex_reports\phase_activated_multidomain_oasis_v9_report.md`
+
+Status: P0 and P1 pass; P2 is improved but remains failed-but-informative under strict block-error gate; P3 and P4 are blocked.
+
 ## Conservative multidomain OASIS-PINN v8
 
 - Conservative forward script: `scripts\audit_conservative_multilayer_forward.py`

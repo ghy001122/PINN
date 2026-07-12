@@ -1,0 +1,42 @@
+{
+  "benchmark": "sequential_terminal_inverse_v2",
+  "best_protocol": "combined_d_optimal",
+  "block_error_gate_passed": false,
+  "blocks": [
+    "Rc_Ea",
+    "Rth_h_sub",
+    "Tc_width"
+  ],
+  "gate_passed": false,
+  "note": "Synthetic numerical activated-case sequential terminal inverse; not full-field recovery.",
+  "outputs": {
+    "summary_json": "outputs/tables/sequential_terminal_inverse_v2_summary.json"
+  },
+  "sequential_inverse_status": "failed_but_informative",
+  "sequential_result": {
+    "block_error": {
+      "Rc_Ea": 0.017565485362095547,
+      "Rth_h_sub": 0.33886178861788613,
+      "Tc_width": 0.22916666666666669
+    },
+    "estimated": {
+      "Ea": 1.08,
+      "Rc": 1.16,
+      "Rth": 0.8,
+      "Tc": 331.2,
+      "h_sub": 1.24,
+      "width": 3.5
+    },
+    "median_relative_error": 0.021286031042128555,
+    "protocol": "combined_d_optimal",
+    "success": true,
+    "true": {
+      "Ea": 1.1,
+      "Rc": 1.18,
+      "Rth": 0.82,
+      "Tc": 331.2,
+      "h_sub": 0.75,
+      "width": 2.4
+    }
+  }
+}

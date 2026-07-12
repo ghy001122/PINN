@@ -6,7 +6,7 @@ This file is the first-read context for non-trivial Codex work in this repositor
 
 Current phase:
 
-`conservative multidomain OASIS-PINN v8 evidence actualization`
+`phase-activated multidomain OASIS-PINN v9 evidence actualization`
 
 The constrained reduced `gamma_sub` manuscript line is now locked around calibration-gated sparse-port inversion: T_sw calibration tolerance, calibration-vs-protocol disentanglement, ODE-backed calibrated protocol robustness, external-curve no-fabrication handling, and final figure/table/claim routing. The strongest claim remains conditional `gamma_sub` recovery under fixed or tightly bounded priors in a one-dimensional synthetic numerical digital-twin benchmark.
 
@@ -41,6 +41,7 @@ Do not modify frozen Ground Truth v1.1 files unless the user explicitly opens a 
 - F-SPS-PINN architecture MVP, v2 smoke training, v2 small-run baseline, v2 phase-transition stress preflight, and v2 Fourier ablation are complete as method-development evidence, not main performance conclusions.
 - The literature-anchored calibration and simulator-backed protocol validation pack adds parameter sanity checks, a no-fabrication external-curve template, T_sw calibration-necessity evidence, and ODE-backed sequential protocol validation; it keeps T_sw as the dominant claim boundary.
 - Conservative multidomain OASIS-PINN v8 adds a conservative multilayer P0 pass and finite multidomain component smoke, but active terminal rescue, 2D full-field recovery, full STL-PINN reproduction, LoRA-STL, and universal F-SPS/Fourier superiority remain unsupported.
+- Phase-activated multidomain OASIS-PINN v9 fixes the non-degenerate forward gap: VO2/NbO2 activation rates exceed 70%, P1 multidomain training runs on activated cases, P2 terminal-trace Jacobian improves, while P3/P4 remain blocked or failed under strict claim gates.
 
 ## Current Claim Boundary
 

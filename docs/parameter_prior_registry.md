@@ -20,3 +20,16 @@ numerical digital-twin benchmark. They are not measured material parameters.
   and Ground Truth v1.1 default equations.
 - Bounded confounders: `T_sw`, `tau_m`, `sigma_on0`, and `eta_A`.
 - No unconstrained joint inversion is claimed in this stage.
+
+
+## V9 Multidomain OASIS Priors
+
+These entries are literature-guided / engineering priors for synthetic numerical digital-twin benchmarks, not measured parameters.
+
+| Parameter | Current v9 nominal | Unit | Meaning | Frozen? | Inverted? | Basis | Claim boundary |
+| --- | ---: | --- | --- | --- | --- | --- | --- |
+| `SnSe_k_th` | `0.35` | W m^-1 K^-1 | SnSe thermal-barrier conductivity | Yes in v9 audit | No | Low-k chalcogenide engineering prior | Not measured; only supports reduced thermal-barrier modeling |
+| `SnSe_sigma` | `1.0e4` | S m^-1 | Electrically conducting SnSe barrier prior | Yes in v9 audit | No | Engineering prior to prevent substrate/barrier from replacing PCM as switching bottleneck | Not measured; no device calibration claim |
+| `Rc_TE_PCM`, `Rc_PCM_barrier`, `Rc_barrier_BE`, `Rc_BE_substrate` | independent map | ohm m^2 | Interface electrical contact map | Yes in v9 audit | P2 perturbs grouped `Rc` | Interface-specific engineering prior | No shared PCM-neighbor shortcut claim |
+| `Rth_TE_PCM`, `Rth_PCM_barrier`, `Rth_barrier_BE`, `Rth_BE_substrate` | independent map | m^2 K W^-1 | Interface thermal-boundary map | Yes in v9 audit | P2 perturbs grouped `Rth` | Interface-specific thermal-boundary prior | Reduced stack only, not TBR measurement |
+| `Tc`, `width` | family-specific | K | VO2/NbO2/generic switching thresholds and widths | Yes in P0; P2 synthetic target | P2 sequential inverse target | Phase-transition shape prior | Synthetic activation gate only |

@@ -1,0 +1,21 @@
+{
+  "Fourier_FSPS_status": "blocked",
+  "STL_status": "blocked",
+  "activated_PDE_available": true,
+  "benchmark": "phase_activated_algorithms_v9",
+  "blocked_reason": "canonical Seiler reproduction, front-aligned LoRA transfer, and matched-budget activated-PDE Fourier/F-SPS are not yet implemented",
+  "canonical_seiler_reproduction_run": false,
+  "forbidden_claims": [
+    "full STL-PINN reproduction",
+    "LoRA-STL implementation",
+    "Fourier/F-SPS superiority",
+    "experimental validation"
+  ],
+  "fourier_fsps_matched_budget_on_activated_pde_run": false,
+  "front_aligned_xi_adapter_lora_run": false,
+  "note": "Synthetic numerical algorithm claim gate on activated PDE evidence; blocked items are not positive claims.",
+  "outputs": {
+    "summary_json": "outputs/tables/phase_activated_algorithm_summary.json"
+  },
+  "true_pareto_dominance_required": true
+}

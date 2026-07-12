@@ -1,0 +1,67 @@
+{
+  "P1_gate_passed": true,
+  "benchmark": "multidomain_oasis_training_v9",
+  "best_variant_by_final_loss": "ordered_multidomain",
+  "epochs": 10,
+  "forbidden_claims": [
+    "performance superiority",
+    "experimental validation",
+    "full hidden-field recovery"
+  ],
+  "full_mortar_success": true,
+  "note": "Synthetic numerical small-budget actual training; not performance superiority and not experimental validation.",
+  "outputs": {
+    "summary_json": "outputs/tables/multidomain_oasis_training_summary.json"
+  },
+  "uses_activated_case": true,
+  "variants": [
+    {
+      "PDE_residual": 2.6196576072834432e-05,
+      "field_error": 0.756831705570221,
+      "final_loss": 32.430519104003906,
+      "finite_loss": true,
+      "initial_loss": 15531.8505859375,
+      "interface_residual": 48.796913146972656,
+      "loss_decreased": true,
+      "success": true,
+      "variant": "monolithic_pinn",
+      "wall_time_s": 0.2409046001266688
+    },
+    {
+      "PDE_residual": 1.448724061721418e-12,
+      "field_error": 2.7008211612701416,
+      "final_loss": 26.586078643798828,
+      "finite_loss": true,
+      "initial_loss": 15515.404296875,
+      "interface_residual": 5.028365612030029,
+      "loss_decreased": true,
+      "success": true,
+      "variant": "ordered_multidomain",
+      "wall_time_s": 0.20309520000591874
+    },
+    {
+      "PDE_residual": 1.448724061721418e-12,
+      "field_error": 2.7008211612701416,
+      "final_loss": 26.586078643798828,
+      "finite_loss": true,
+      "initial_loss": 15515.404296875,
+      "interface_residual": 5.028365612030029,
+      "loss_decreased": true,
+      "success": true,
+      "variant": "multidomain_hard_bc",
+      "wall_time_s": 0.17364110006019473
+    },
+    {
+      "PDE_residual": 4.1392115429639276e-12,
+      "field_error": 2.820470094680786,
+      "final_loss": 9767.009765625,
+      "finite_loss": true,
+      "initial_loss": 20347.95703125,
+      "interface_residual": 5.736727237701416,
+      "loss_decreased": true,
+      "success": true,
+      "variant": "full_mortar",
+      "wall_time_s": 0.19808870018459857
+    }
+  ]
+}

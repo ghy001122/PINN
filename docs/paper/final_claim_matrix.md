@@ -108,3 +108,15 @@ All entries are synthetic numerical digital-twin benchmark evidence, not experim
 | Phase-aware STL repair | failed_but_informative | `outputs/tables/phase_aware_stl_repair_summary.json`; best gain `0.10802334582762174` | Full STL-PINN and LoRA-STL remain forbidden. |
 | Adaptive Fourier/F-SPS superiority | forbidden | `outputs/tables/adaptive_fourier_fsps_superiority_summary.json`; true Pareto used | No universal or adaptive-F-SPS superiority claim. |
 
+## Phase-Activated Multidomain OASIS-PINN v9 Claim Gate
+
+All entries are synthetic numerical digital-twin benchmark evidence, not experimental data.
+
+| Claim | Status | Evidence | Boundary |
+| --- | --- | --- | --- |
+| Phase-activated multilayer forward | qualified_supported | `outputs/tables/phase_activated_multilayer_forward_summary.json`; VO2 `0.8888888888888888`, NbO2 `0.8888888888888888` activation rates | Reduced y-z finite-volume benchmark only. |
+| Multidomain OASIS small training | qualified_supported as smoke/training gate | `outputs/tables/multidomain_oasis_training_summary.json`; full mortar success `True` | Not performance superiority. |
+| Activated terminal trace inverse | failed_but_informative | `outputs/tables/active_protocol_identifiability_v2_summary.json`; `outputs/tables/sequential_terminal_inverse_v2_summary.json` | Jacobian gates pass, but strict block-error gate `False`; no full-field recovery claim. |
+| 2D field recovery | blocked | `outputs/tables/oasis_2d_field_resolution_v2_summary.json` | Needs actual electrode-BC multi-terminal y-z solver. |
+| STL/Fourier on activated PDE | blocked | `outputs/tables/phase_activated_algorithm_summary.json` | Needs canonical Seiler reproduction, front-aligned LoRA, and matched-budget Pareto audit. |
+

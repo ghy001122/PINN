@@ -1,0 +1,48 @@
+{
+  "P0_activation_gate_passed": true,
+  "activated_cases_used_for_inverse": 50,
+  "activation_rate_by_family": {
+    "generic": 1.0,
+    "nbo2": 0.8888888888888888,
+    "vo2": 0.8888888888888888
+  },
+  "analytic_manufactured_solution": {
+    "passed": true,
+    "relative_error": 0.0001317775483549986,
+    "test": "analytic_manufactured_lateral_laplacian"
+  },
+  "benchmark": "phase_activated_multilayer_forward",
+  "conductance_ratio_median": 2.561625048607053,
+  "delta_m_median": 0.7834880687603829,
+  "energy_balance_error_median": 1.2158644865974921e-13,
+  "energy_current_convergence_passed": true,
+  "finite_rate": 1.0,
+  "finite_rate_by_family": {
+    "generic": 1.0,
+    "nbo2": 1.0,
+    "vo2": 1.0
+  },
+  "forbidden_claims": [
+    "experimental validation",
+    "full FEM",
+    "device-grade reproduction"
+  ],
+  "max_delta_T_median": 15.140535460408756,
+  "mesh_time_refinement": {
+    "passed": true,
+    "relative_conductance_ratio_change": 0.000812468857103493,
+    "relative_max_delta_T_change": 0.0009102884494205883,
+    "test": "mesh_time_refinement"
+  },
+  "nbo2_activation_gate_passed": true,
+  "note": "Synthetic numerical phase-activated y-z finite-volume stack benchmark; not full FEM, not device-grade reproduction, not experimental validation.",
+  "num_cases": 54,
+  "outputs": {
+    "cases_csv": "outputs/tables/phase_activated_multilayer_forward_cases.csv",
+    "summary_json": "outputs/tables/phase_activated_multilayer_forward_summary.json"
+  },
+  "used_coupled_yz_lateral_conduction": true,
+  "used_independent_interface_map": true,
+  "used_snse_low_k_high_sigma_prior": true,
+  "vo2_activation_gate_passed": true
+}
