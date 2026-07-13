@@ -1,73 +1,41 @@
 # Context Loading Policy
 
-This repository uses a low-token context workflow. Codex should load only the
-minimum context needed for the active task.
+Load the minimum context required by the task.
 
 ## Tier 0: Every Non-Trivial Task
-
-Read these first:
 
 - `CODEX_CONTEXT.md`
 - `docs/research_strategy/active_phase.md`
 
-## Tier 1: Task-Relevant Context
+## Tier 1: Governance Or Goal Work
 
-Read only when directly relevant:
+- `AGENTS.md` and applicable nested `AGENTS.md`
+- `PROJECT_GOAL.md`
+- `docs/research_strategy/goal_status.md`
+- `docs/research_strategy/durable_project_memory.md`
+- `docs/research_strategy/memory_policy.md`
 
-- `docs/research_strategy/next_task_*.md`
-- the most recent matching file under `docs/codex_reports/`
-- necessary lightweight summary JSON or CSV files under `outputs/tables/`
-
-Examples:
-
-- For constrained `gamma_sub` work, read
-  `docs/research_strategy/next_task_literature_backed_constrained_gamma_sub.md`.
-- For v1/v1.1 comparisons, read the relevant Codex report and summary JSON.
-
-## Tier 2: Phase Changes Or State Updates
-
-Read when updating project state, registries, or handoff documents:
+## Tier 2: Current State Or Handoff
 
 - `PROJECT_STATE.md`
 - `NEXT_ACTIONS.md`
-- `RESEARCH_LOG.md`
-- `EXPERIMENT_REGISTRY.md`
-- `DATASET_REGISTRY.md`
-- `FIGURE_REGISTRY.md`
-- `docs/project_state/*`
+- task-relevant registries and latest report
+- canonical full handoff only when full history is necessary
+- archived files only for provenance or conflict resolution
 
-## Tier 3: Literature, Parameters, Paper, Or Review Tasks
+## Tier 3: Literature, Paper, Or Review
 
-Read when literature evidence, parameter priors, paper strategy, or reviewer
-defense is needed:
-
-- `docs/literature_notes/*`
-- `references/project_sources/README.md`
+- task-relevant digests and primary sources
 - `references/papers/PAPER_REGISTRY.md`
-- Google Drive literature only if the local digest is insufficient or the user
-  explicitly asks for a literature check.
+- task-relevant `docs/paper/` or `docs/manuscript/` files
+- external search only when local evidence is insufficient or the user requests current verification
 
-Do not default to reading complete papers or all external reference text.
+## Tier 4: Code And Experiments
 
-## Tier 4: Code Tasks
+Read only relevant configs, source, scripts, tests, and lightweight outputs. Do not load the entire repository or every historical report.
 
-Read only the related code when implementation or debugging is required:
+## Authority And Conflict Rule
 
-- relevant files under `src/`
-- relevant scripts under `scripts/`
-- relevant configs under `configs/`
-- relevant tests under `tests/`
+Current Git/code/outputs and the applicable AGENTS chain override local memory and archived prose. `active_phase.md` authorizes research scope; `PROJECT_STATE.md` records the current snapshot; `NEXT_ACTIONS.md` orders work.
 
-## Rule
-
-Never load all long context by default. Future long-context reads must be
-justified by the active task.
-
-## Known Environment Noise
-
-Do not load long history just to re-evaluate these known local issues:
-
-- `matplotlib`/`pyparsing` deprecation warnings under the pinned dependency set
-  are filtered in `pyproject.toml` and are not project failures if pytest passes.
-- The Windows `apply_patch` path can trigger the Codex sandbox helper popup;
-  use workspace-scoped scripted edits instead.
+Known filtered dependency warnings and the Windows `apply_patch` issue do not justify loading long history.

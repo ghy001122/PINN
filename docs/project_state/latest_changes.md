@@ -1,5 +1,17 @@
 ## Control-volume multidomain OASIS and inverse repair v10
 
+## Workspace governance, memory, and goal hierarchy
+
+Scope:
+
+- Consolidate root and subtree AGENTS without changing research evidence.
+- Create a stable project goal, compact dashboard, durable-memory policy, and project-local command-safety rules.
+- Replace conflicting root current-state prose with single v10 snapshot/queue files while preserving old content under `docs/archive/`.
+- Add an automated governance and frozen-GT integrity audit.
+
+Result:
+
+Governance-only change. No experiment was run, no historical metric was rewritten, and frozen GT v1.1 was not modified.
 Scope:
 
 - Correct v9 evidence semantics by separating electrical and thermal topology, removing the substrate-conductance bypass, adding actual control-volume residuals, repairing noisy-target re-inversion, and adding segmented-electrode y-z forward checks.

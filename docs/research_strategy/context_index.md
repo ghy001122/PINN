@@ -1,46 +1,35 @@
 # Context Index
 
-Use this index to decide where to look before reading long files.
+## First Read
 
-## First-Read Files
+1. `CODEX_CONTEXT.md`
+2. `docs/research_strategy/active_phase.md`
+3. `docs/research_strategy/context_loading_policy.md`
 
-- `CODEX_CONTEXT.md`: compact project status, frozen boundaries, active claim
-  boundary, deferred extensions.
-- `docs/research_strategy/active_phase.md`: the current authorized research
-  phase.
-- `docs/research_strategy/context_loading_policy.md`: when additional context
-  may be loaded.
+## Goal And Governance
 
-## Current Research Handoff
+- `PROJECT_GOAL.md`: stable delivery goal and Definition of Done.
+- `docs/research_strategy/goal_status.md`: current compact dashboard.
+- `AGENTS.md`: repository-wide behavior and claim rules.
+- nested `AGENTS.md`: subtree-specific constraints.
+- `docs/research_strategy/durable_project_memory.md`: stable facts and recurring pitfalls.
+- `docs/research_strategy/memory_policy.md`: authority and privacy rules.
 
-- `docs/research_strategy/current_research_handoff.md`: concise handoff from
-  GT v1.1 through v0/v1/v1.1, identifiability, and `gamma_sub` audits.
-- `docs/research_strategy/next_task_literature_backed_constrained_gamma_sub.md`:
-  prepared next task for literature-backed constrained `gamma_sub` inversion.
+## Handoff
 
-## Literature Digests
+- Canonical complete handoff: `docs/research_strategy/codex_new_dialog_handoff_d23a576.md`.
+- Short pointer: `docs/research_strategy/current_research_handoff.md`.
+- Archived handoffs are historical only.
 
-- `docs/literature_notes/pinn_phase_change_literature_digest.md`: compressed
-  notes on phase-change, memristor, and PINN-related references from the local
-  reference pack.
-- `docs/literature_notes/gamma_sub_evidence_digest.md`: compressed rationale
-  for reduced `gamma_sub` inversion and its confounding limits.
-- `references/papers/PAPER_REGISTRY.md`: paper-level index with direct project
-  relevance.
+## State And Evidence
 
-## Project State
+- `PROJECT_STATE.md`: single current snapshot.
+- `NEXT_ACTIONS.md`: single active queue.
+- `RESEARCH_LOG.md`: chronology.
+- `EXPERIMENT_REGISTRY.md`, `DATASET_REGISTRY.md`, `FIGURE_REGISTRY.md`: evidence indexes.
+- `docs/project_state/`: tree, inventory, latest changes, reproducibility.
+- `docs/codex_reports/`: task reports; read only the latest task-relevant report.
 
-- `PROJECT_STATE.md`: current phase and high-level evidence.
-- `NEXT_ACTIONS.md`: near-term work and deferred extensions.
-- `RESEARCH_LOG.md`: chronological research actions and findings.
-- `EXPERIMENT_REGISTRY.md`: scripts, reports, and outputs for each audit.
-- `DATASET_REGISTRY.md`: frozen datasets and lightweight committed evidence.
-- `FIGURE_REGISTRY.md`: reproducible figure paths.
-- `docs/project_state/*`: repo tree, file inventory, latest changes, and
-  reproduction commands.
+## Literature And Manuscript
 
-## External Reference Pack
-
-The local source pack at `E:/pinn_codex_reference_pack` was read once during the
-context-integration task. Its useful long-term content was compressed into this
-repository. The raw pack was not copied wholesale.
+Use `docs/literature_notes/`, `references/papers/PAPER_REGISTRY.md`, `docs/paper/`, and `docs/manuscript/` only when the task requires literature, claims, figures, or reviewer defense. Do not load complete papers by default.

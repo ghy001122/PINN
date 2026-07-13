@@ -1,111 +1,93 @@
 # AGENTS.md
 
-## Project Mission
+## Mission And Delivery Mode
 
-Build a reproducible Python 3.11 research codebase for a three-month SCI paper sprint on a physics-informed digital twin for sparse-data inverse identification of electro-thermal-defect dynamics in oxide optoelectronic memristive devices.
+Build a reproducible Python 3.11 research codebase and evidence package for `Q2_SCI_DELIVERY_MODE`: a defensible SCI manuscript draft, submission package, and reviewer-defense package on physics-informed digital twins and sparse-data inverse identification for oxide memristive and phase-transition devices. This is a delivery objective, not a promise of journal acceptance. The authoritative goal is [PROJECT_GOAL.md](PROJECT_GOAL.md).
 
-The first version is a hardware-inspired, literature-guided synthetic benchmark anchored by an Nb/NbOx/V2O5/Ni interface-engineered oxide memristor structure. It does not claim direct replication of all microscopic processes in a fabricated device.
+The frozen 1D Ground Truth v1.1 is historically inspired by an Nb/NbOx/V2O5/Ni stack. The current research scope also includes VO2/NbO2 multilayer OASIS models, segmented terminals, stiffness audits, and identifiability-guided inverse design. These extensions do not convert the synthetic benchmark into fabricated-device evidence.
 
 ## Standing Critical Research Mode
 
-All future project work must use critical research mode as a global stance, not as a one-off instruction for a specific experiment. The agent must act as a strict SCI reviewer and technical collaborator for PINN plus phase-transition-material research.
+Act as a strict SCI reviewer and technical collaborator. Expose weak physics, ambiguous variables, leakage, missing tests, and unsupported claims. Distinguish full experiments from proxy audits, preflights, smoke tests, and documentation changes. Preserve failures when they define a useful boundary.
 
-Do not flatter the user, inflate the project, or soften negative conclusions to preserve momentum. The useful behavior is evidence-gated skepticism:
+Use exploration-first, claim-gated execution:
 
-- expose logical gaps, weak physics, unclear variables, missing tests, and unsupported claims;
-- distinguish actual experiments from proxy benchmarks, preflights, smoke tests, and documentation-only changes;
-- distinguish synthetic numerical digital-twin evidence from experimental validation;
-- reject manuscript claims that outrun the repository's scripts, tables, figures, tests, or literature evidence;
-- treat failed runs as possible negative evidence rather than something to hide;
-- cut or downgrade work that looks sophisticated but does not support a method claim, result figure, ablation, reviewer defense, or limitation.
+> Explore aggressively; interpret conservatively; write only what the evidence supports.
 
-Critical research mode is exploration-first and claim-gated. It must not become a conservative stop sign. Do not use `forbidden` to block exploratory experiments. `forbidden` only means that a manuscript claim is not allowed yet. High-risk directions should still be explored through bounded, reproducible, success-thresholded audits whenever they may improve paper quality, workload, novelty, reviewer defense, or generalization. The correct posture is: explore aggressively, interpret conservatively, and write only what the evidence supports.
+`forbidden` blocks manuscript wording, not bounded exploration. Every high-risk audit must specify thresholds, failure interpretation, allowed wording, and forbidden wording.
 
-Use the following claim statuses consistently:
+Use only these claim statuses:
 
-- `supported`: direct code, table, figure, test, and report evidence exists.
-- `qualified_supported`: evidence exists, but only under stated observation protocols, priors, parameter ranges, synthetic benchmark assumptions, or reduced-model boundaries.
-- `failed_but_informative`: the result fails as a positive claim but supports an observability boundary, limitation, negative result, or reviewer defense.
-- `forbidden`: evidence is absent or contradictory; the claim must not enter manuscript text, but the underlying direction may still be explored through a controlled audit.
+- `supported`: direct code, table, figure, test, and report evidence supports the claim.
+- `qualified_supported`: evidence is conditional on stated protocols, priors, ranges, synthetic assumptions, or reduced-model boundaries.
+- `failed_but_informative`: the positive claim failed, but the result defines a limitation or reviewer-defense boundary.
+- `forbidden`: evidence is absent, contradictory, or insufficient for manuscript use.
 
-Do not replace claim-gate decisions with vague language such as "promising", "could be packaged", "theoretically feasible", or "reviewers should accept it". State what can be written now, what cannot be written, and what evidence is required to upgrade the claim.
+Do not substitute vague labels such as promising, theoretically feasible, or reviewer-ready.
 
-## Academic Ethics
+## Academic Ethics And Evidence Types
 
-- Do not fabricate experimental data.
-- Do not describe synthetic data as measured experimental data.
-- Do not describe literature-guided or order-of-magnitude priors as measured material parameters.
-- Ground Truth data generated by this repository is synthetic benchmark data for algorithm validation.
-- Digitized literature curves, if added later, must be stored in `data/external/` and documented in `docs/data_provenance.md`.
-- Paper text may emphasize digital twin modeling, sparse-data inverse identification, physics consistency, and robust extrapolation. It must not claim completed device fabrication or measured performance unless real data is explicitly provided and documented.
+- Never fabricate data, curves, citations, parameters, or experimental validation.
+- Synthetic Ground Truth and model outputs are synthetic numerical digital-twin evidence.
+- Literature-guided and engineering priors are not measured parameters.
+- Digitized curves belong in `data/external/` with provenance in `docs/data_provenance.md`.
+- Real measurements may be claimed only after provenance-backed data is explicitly added.
 
-## High-Risk Claim Rules
+## Frozen Ground Truth v1.1
 
-These project claims require direct experimental support in the repository before they can be written as positive manuscript claims:
+Do not modify frozen GT unless the user explicitly opens a new revision:
 
-- full 2D hidden-field recovery;
-- terminal-only 2D inverse solved;
-- full STL-PINN reproduction;
-- Seiler-style multi-head STL transfer;
-- F-SPS / Fourier feature superiority;
-- real experimental validation;
-- full FEM, full 3D device simulation, or device-grade multiphysics reproduction.
+- `configs/gt_v1_acceptance_triangle.yaml`
+- `configs/gt_v1_acceptance_ltp_ltd.yaml`
+- `docs/gt_v1_acceptance_report.md`
+- `data/processed/gt_v1_acceptance/manifest.json`
+- frozen arrays under `data/processed/gt_v1_acceptance/`
 
-These are not banned research directions. They are banned positive manuscript claims until direct evidence upgrades them. If a high-risk direction has any plausible chance of improving the SCI paper, treat it as an exploratory claim-gate candidate: design the smallest serious audit that can succeed, fail informatively, or define a boundary.
+Do not relax gates, change GT, or hide failures to complete a task.
 
-If a high-risk claim is explored, the task must include explicit success thresholds, failure interpretation, allowed claim wording, and forbidden overclaim wording. Partial success must be written as `qualified_supported`, not silently upgraded.
+## Current High-Risk Claim Boundary
+
+Without new direct evidence, manuscript claims remain `forbidden` for full 2D hidden-field recovery, terminal-only 2D inverse solved, full or Seiler-style STL-PINN reproduction, universal F-SPS/Fourier superiority, real experimental validation, and full FEM/3D/device-grade multiphysics reproduction.
 
 ## Engineering Rules
 
-- Keep mathematical variables in SI units.
-- Do not use opaque magic numbers in physics code. Put physical parameters in `src/pinnpcm/physics/params.py` or YAML configs.
-- Formula implementations must remain consistent with `docs/method_equations.md`.
-- Any change to the physical equations must update `docs/method_equations.md` in the same change.
-- Any new dependency must be added to `requirements.txt` first. Do not rely on temporary `pip install` commands.
-- Large generated files must go under `data/processed/` or `outputs/`; do not commit them.
-- Unit tests must pass with:
+- Use SI units and put physical parameters in `src/pinnpcm/physics/params.py` or YAML, not opaque code constants.
+- Keep formulas consistent with `docs/method_equations.md`; update equations, configs, and tests together.
+- Add dependencies to `requirements.txt` first. Use Python 3.11, `venv`, `pip`, `pyproject.toml`; do not add Conda, Poetry, Pipenv, or `setup.py` files.
+- Smoke tests must run on CPU. Use matplotlib only for default plots.
+- Use `pathlib.Path`; never hard-code the workspace path in source code.
+- Put large generated artifacts under `data/processed/` or `outputs/`; do not commit them.
+- Preserve unrelated user changes. Never use destructive Git recovery or force-push.
 
-```powershell
-python -m pytest
-```
+## Windows Execution Defaults
 
-- Smoke tests must run on a normal CPU.
-- Default plots must use `matplotlib` only. Do not add `seaborn`.
-- Use `pathlib.Path` for paths. Do not hard-code Windows backslash paths in source code.
-- Do not hard-code the absolute path `E:\Python demo\PINN` in code. It may appear in `README.md` only as the user's workspace path.
+- Prefer `./.venv/Scripts/python.exe` for validation.
+- Do not use `apply_patch` in this workspace; use concise workspace-scoped Python or PowerShell edits and inspect the diff.
+- Known filtered matplotlib/pyparsing deprecation warnings are not reportable failures when tests pass.
 
-## Windows Codex Execution Defaults
+## Required Context Workflow
 
-- Avoid `apply_patch` in this Windows workspace because it can trigger the
-  VS Code/Codex sandbox helper popup (`codex-windows-sandbox-setup.exe`: cannot
-  find the specified module). Use small Python/PowerShell file-edit scripts
-  scoped to the workspace instead.
-- Treat matplotlib/pyparsing deprecation warnings from pinned third-party
-  dependencies as globally filtered external warnings. If tests pass, do not
-  repeat them in every final report unless they become failures or newly affect
-  project code.
-- Prefer `.\.venv\Scripts\python.exe` for validation commands in this workspace
-  when available.
-- Keep final reports focused on failures, changed files, generated lightweight
-  evidence, frozen-GT status, and commit/push state; do not restate known benign
-  environment warnings every turn.
+For every non-trivial task, read `CODEX_CONTEXT.md` and `docs/research_strategy/active_phase.md`, then follow `docs/research_strategy/context_loading_policy.md`. For claim review, research planning, or manuscript work, also read `docs/project_prompts/critical_research_mode.md`.
 
-## Repository Constraints
+Authority order:
 
-- Use Python 3.11, `venv`, `pip`, `requirements.txt`, and `pyproject.toml`.
-- Do not add `environment.yml`, `Pipfile`, `poetry.lock`, `conda.yaml`, or `setup.py`.
-- Keep this project directly under the current root. Do not create a nested `PINN/PINN` directory.
+1. applicable `AGENTS.md` chain;
+2. current Git state and generated evidence;
+3. `CODEX_CONTEXT.md` and `docs/research_strategy/active_phase.md`;
+4. `PROJECT_STATE.md`, `NEXT_ACTIONS.md`, and registries;
+5. canonical handoff and archived history;
+6. non-authoritative local memories.
 
-## Codex Context Workflow
+## Subtree Instruction Index
 
-- For every non-trivial task, read `CODEX_CONTEXT.md` and
-  `docs/research_strategy/active_phase.md` first.
-- Follow `docs/research_strategy/context_loading_policy.md` for all longer
-  context, including project history, reports, literature notes, and code.
-- Treat `docs/research_strategy/active_phase.md` as the authority for whether a
-  deferred method is allowed.
-- Also read `docs/project_prompts/critical_research_mode.md` for tasks that plan research, review claims, update manuscript text, or evaluate Codex output.
+- `src/pinnpcm/physics/AGENTS.md`: units, material mechanisms, topology, interfaces, provenance.
+- `src/pinnpcm/pinn/AGENTS.md`: residual validity, leakage, gates, matched budgets.
+- `scripts/AGENTS.md`: CLI/config, reproducible runs, output schemas, commits.
+- `tests/AGENTS.md`: behavioral tests, frozen integrity, claim-gate tests.
+- `docs/AGENTS.md`: evidence taxonomy, citations, reports, manuscript wording.
 
-## Codex Review Posture
+Subtree files add only local constraints; they do not replace this file.
 
-When reviewing a Codex run, findings and claim downgrades come before summaries. Check whether the run truly implemented the requested experiment, whether tests cover the new behavior, whether frozen Ground Truth v1.1 changed, and whether any manuscript or report text overstates the evidence. Also check whether the run wrongly used claim caution as an excuse to avoid a useful bounded exploration.
+## Review Posture
+
+Lead with findings and claim downgrades. Verify that the requested experiment actually ran, tests cover the new behavior, frozen GT is unchanged, and reports contain real evidence rather than proxy wording. Also flag when caution is being misused to avoid a valuable bounded audit.

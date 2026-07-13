@@ -1,52 +1,39 @@
 # Codex Workflow Rules
 
-## Context Discipline
+## Start
 
-- Read `CODEX_CONTEXT.md` and `docs/research_strategy/active_phase.md` first
-  for every non-trivial task.
-- Follow `docs/research_strategy/context_loading_policy.md` before loading
-  longer context.
-- Do not read all historical reports, raw reference packs, or long literature
-  notes unless the task justifies it.
+1. Read `CODEX_CONTEXT.md` and `docs/research_strategy/active_phase.md`.
+2. Inspect `git status -sb` and preserve unrelated changes.
+3. Load only task-relevant context through `context_loading_policy.md`.
+4. State whether the task is documentation, smoke/preflight, actual experiment, review, or publication.
 
-## Research Discipline
+## Research Execution
 
-- Keep the single research line: multiphysics digital twin plus PINN inverse
-  identification for memristive or phase-change defect diagnosis.
-- Treat current outputs as synthetic numerical digital-twin benchmark data.
-- Use `data/external/` and `docs/data_provenance.md` for any future digitized
-  literature curves.
-- Keep deferred method enhancements out of active code until explicitly
-  authorized by `docs/research_strategy/active_phase.md`.
+- Every task must serve a claim, equation, figure/table, ablation, generalization result, reviewer defense, limitation, reproducibility item, or submission artifact.
+- High-risk exploration requires thresholds, failure interpretation, and allowed/forbidden wording.
+- Keep synthetic, external-literature, and experimental evidence separate.
+- Do not modify frozen GT v1.1 outside an explicit revision.
 
-## Engineering Discipline
+## Engineering And Outputs
 
-- Do not modify frozen Ground Truth v1.1 files during PINN or context tasks.
-- Do not commit large generated data, images, caches, or virtual environments.
-- Prefer lightweight JSON/CSV evidence under `outputs/tables/` for cloud review.
-- Keep Markdown and YAML files multi-line and readable.
-- Use project-relative paths in reports and user-facing summaries.
+- Put parameters, seeds, budgets, noise, and gates in YAML.
+- Prefer lightweight JSON/CSV evidence under `outputs/tables/`.
+- Reports use repository-relative paths and the final-report YAML schema.
+- Use the project virtual environment. On Windows, use workspace-scoped scripted edits rather than `apply_patch`.
 
-## Verification Discipline
+## Validation
 
-For documentation-only changes, run:
+Documentation/governance changes:
 
 ```powershell
-python -m pytest
-git status --short
-git diff --name-only
+.\.venv\Scripts\python.exe scripts\audit_project_governance.py
+.\.venv\Scripts\python.exe -m pytest tests\test_project_governance.py
 ```
 
-For experiment changes, run the task-specific smoke or full reproduction command
-requested by the user.
+Code/experiment changes require task-specific tests plus full pytest when feasible. Always run `git diff --check` and inspect `git status --short` before commit.
 
-## Windows Execution Rules
+## Commit And Report
 
-- Do not use `apply_patch` in this repository unless the user explicitly asks to
-  test it again. The known Windows sandbox helper popup costs time and tokens.
-- For file edits, use small workspace-scoped Python/PowerShell scripts and then
-  inspect `git diff --name-only`.
-- Treat filtered matplotlib/pyparsing deprecation warnings as known external
-  dependency noise. Do not mention them in final answers when pytest passes.
-- If a warning becomes an error, appears from project source, or blocks a test,
-  investigate and report it normally.
+Prefer one task and one final commit. Stage only intended files. Do not make a second report-only commit. A self-contained commit cannot contain its own final SHA; provide the actual final SHA in the final user report and use the report template field to reference the publication step explicitly.
+
+Never reset hard, clean recursively, force-push, or discard user changes to obtain a clean tree.

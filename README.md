@@ -1,160 +1,84 @@
-# Physics-Informed Digital Twin for Oxide Optoelectronic Memristive Devices
+# Physics-Informed Digital Twin for Oxide Memristive and Phase-Transition Devices
 
-This repository supports the SCI paper sprint topic:
+A reproducible Python 3.11 research codebase for sparse-observation inverse identification, identifiability audits, and physics-informed digital twins of oxide memristive and phase-transition devices.
 
-**Physics-informed digital twin for sparse-data inverse identification of electro-thermal-defect dynamics in oxide optoelectronic memristive devices**
+The project contains two connected lines:
 
-Internal Chinese title: **面向氧化物光电忆阻器的物理信息数字孪生与稀疏数据多物理参数反演**
+- main manuscript: calibration-gated constrained `gamma_sub` inversion on a frozen 1D synthetic benchmark;
+- extension: VO2/NbO2 multilayer OASIS models, segmented terminals, stiffness audits, and strict neural-solver claim gates.
 
-## Research Goal
+The historical frozen benchmark is Nb/NbOx/V2O5/Ni-inspired. It is not the whole current scope, and it is not a fabricated-device replica.
 
-The project builds a reproducible, CPU-runnable Python codebase for a literature-guided synthetic digital twin and inverse-identification workflow. The first version focuses on a stable one-dimensional electro-thermal-defect-conductive-state model instead of high-risk full 3D Maxwell, full phase-field, or unverified fabrication claims.
+## Evidence Boundary
 
-Hardware anchor: **Nb/NbOx/V2O5/Ni**.
+All repository Ground Truth and model outputs are synthetic numerical digital-twin evidence unless a provenance-backed external or experimental dataset is explicitly identified. Experimental validation is currently absent. Literature-guided and engineering priors are not measured material parameters.
 
-The software model is inspired by this interface-engineered oxide memristor stack, but the generated data is a synthetic benchmark. It is not measured experimental data and does not claim to reproduce every microscopic detail of a real device.
+Current high-risk claims such as full 2D hidden-field recovery, terminal-only 2D inverse solved, full STL reproduction, universal F-SPS/Fourier superiority, and device-grade FEM/3D reproduction are not established.
 
-## Critical Research Mode
+## Goal And Context
 
-All subsequent research, Codex tasks, manuscript planning, and claim reviews must follow the global critical research mode in `AGENTS.md` and `docs/project_prompts/critical_research_mode.md`.
+- Delivery goal: [PROJECT_GOAL.md](PROJECT_GOAL.md)
+- Low-token Codex entry: [CODEX_CONTEXT.md](CODEX_CONTEXT.md)
+- Current phase: [active_phase.md](docs/research_strategy/active_phase.md)
+- Canonical full handoff: [codex_new_dialog_handoff_d23a576.md](docs/research_strategy/codex_new_dialog_handoff_d23a576.md)
+- Governance: [AGENTS.md](AGENTS.md)
 
-This is a standing project style rule, not a task-specific instruction. The project should be reviewed as a skeptical SCI workflow: claims must be evidence-gated, negative results must be preserved when informative, and sophisticated-looking modules must be downgraded or removed when they do not support a method claim, result figure, ablation, reviewer defense, or limitation.
-
-The global posture is **exploration-first and claim-gated**. High-risk directions should not be prematurely abandoned when they can improve paper quality, workload, novelty, reviewer defense, or generalization. They should be converted into bounded, reproducible audits with explicit success thresholds and failure interpretations. The `forbidden` label blocks unsupported manuscript claims; it does not block controlled exploratory experiments.
-
-Use the claim statuses `supported`, `qualified_supported`, `failed_but_informative`, and `forbidden` consistently. Do not describe synthetic numerical digital-twin evidence as experimental validation.
-
-## Current Project Phase
-
-The current active phase is documented in
-`docs/research_strategy/active_phase.md` and `PROJECT_STATE.md`.
-
-The completed v0/v1/v1.1 PINN audits and identifiability audits show that
-port-only full hidden-field inversion is ill-posed. The constrained `gamma_sub`
-line remains the safest main manuscript path, while later claim-gate packs add
-supplementary reduced 2D observability and stiffness-aware algorithm evidence.
-
-The current repository state should therefore be interpreted through claim gates:
-
-- main line: calibration-gated constrained `gamma_sub` inversion under fixed or tightly bounded priors;
-- supplementary 2D line: reduced 2D forward and low-dimensional 2D inverse under augmented sparse observations;
-- stiffness line: stiffness-aware continuation/scale-aware and mini-STL-style synthetic benchmark evidence;
-- not yet claimable unless directly proven, but still valid as bounded exploration targets: experimental validation, sparse-port full hidden-field recovery, terminal-only 2D inverse solved, full STL-PINN reproduction, full FEM/device-grade simulation, and universal F-SPS/Fourier superiority.
-
-## Codex Low-Token Context Workflow
-
-For non-trivial Codex work, first read:
-
-1. `AGENTS.md`
-2. `CODEX_CONTEXT.md`
-3. `docs/research_strategy/active_phase.md`
-4. `docs/project_prompts/critical_research_mode.md`
-
-Then follow `docs/research_strategy/context_loading_policy.md`. Long reports,
-reference packs, papers, and code should be loaded only when the task requires
-them.
-
-## Paper Thread
-
-1. One-dimensional coupled Ground Truth solver for electro-thermal-defect-conductive-state dynamics.
-2. Sparse port-level observations from synthetic I-V and G(t) traces.
-3. PINN-based multiphysics inverse identification.
-4. Black-box MLP/LSTM and non-physics baselines.
-5. Noise robustness, ablation, and cross-voltage-protocol generalization.
-6. Claim-gated supplementary exploration of reduced 2D observability and stiffness-aware training boundaries.
+Workspace path used by the project owner: `E:\Python demo\PINN`.
 
 ## Environment
 
-Use a single Python 3.11 virtual environment. From Windows PowerShell:
-
 ```powershell
-cd "E:\Python demo\PINN"
 py -3.11 -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip setuptools wheel
-pip install -r requirements.txt
-pip install -e .
+python -m pip install -r requirements.txt
+python -m pip install -e .
 ```
 
-If PowerShell blocks activation:
+The supported runtime is Python `>=3.11,<3.12` with pinned dependencies in `requirements.txt`.
+
+## Validation
 
 ```powershell
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+.\.venv\Scripts\python.exe -m pytest
 ```
 
-## Quick Test
+Governance-only validation:
 
 ```powershell
-python -m pytest
+.\.venv\Scripts\python.exe scripts\audit_project_governance.py
+.\.venv\Scripts\python.exe -m pytest tests\test_project_governance.py
 ```
 
-## Generate Ground Truth
+## Core Reproduction Entrypoints
 
-Quick CPU smoke run:
+Frozen GT smoke generation, only for a new non-frozen output directory:
 
 ```powershell
-python scripts/run_gt_v1.py --protocol triangle --nx 11 --nt 80 --outdir data/processed/gt_v1_quick
-python scripts/plot_gt_v1.py --input data/processed/gt_v1_quick/gt_triangle.npz --outdir outputs/figures/gt_v1_quick
+.\.venv\Scripts\python.exe scripts\run_gt_v1.py --protocol triangle --nx 11 --nt 80 --outdir data/processed/gt_v1_quick
 ```
 
-Longer first-pass runs:
+Current v10 evidence entrypoints are indexed in `EXPERIMENT_REGISTRY.md`; do not rerun or overwrite frozen GT v1.1 during ordinary work. Lightweight committed results live under `outputs/tables/`.
 
-```powershell
-python scripts/run_gt_v1.py --protocol triangle --nx 31 --nt 400 --outdir data/processed/gt_v1
-python scripts/run_gt_v1.py --protocol ltp_ltd --nx 31 --nt 500 --outdir data/processed/gt_v1
-python scripts/plot_gt_v1.py --input data/processed/gt_v1/gt_triangle.npz --outdir outputs/figures/gt_v1
-```
-
-## Outputs
-
-- Ground Truth arrays: `data/processed/**/gt_<protocol>.npz`
-- Sparse noisy observations: `data/processed/**/obs_<protocol>_sparse.npz`
-- Ground Truth parameter snapshot: `data/processed/**/params_gt_v1.json`
-- Figures: `outputs/figures/**`
-- Logs, checkpoints, and tables: `outputs/logs/`, `outputs/checkpoints/`, and `outputs/tables/`
-
-Generated data and outputs are ignored by Git. Keep only code, configs, docs, and tests under version control.
-
-## Ground Truth Data
-
-The Ground Truth solver uses finite-volume spatial discretization and `scipy.integrate.solve_ivp(method="Radau")`. It returns synthetic fields and port observables:
-
-- `x`, `t`
-- `V`, `I`, `G`
-- `c_v`, `T`, `m`, `E`, `phi`, `sigma`
-- `params_json`
-
-All default parameters are literature-guided synthetic priors or order-of-magnitude priors, not measured material parameters.
-
-## PINN Status
-
-The repository now includes runnable PINN inverse v0/v1/v1.1 audit workflows
-and a reduced `gamma_sub` identifiability path. Earlier skeleton components are
-kept for continuity:
-
-- Fourier-feature MLP in `src/pinnpcm/pinn/network.py`
-- Physical variable transforms in `src/pinnpcm/pinn/transforms.py`
-- Autograd residual interface in `src/pinnpcm/pinn/residuals.py`
-- Loss aggregation in `src/pinnpcm/pinn/losses.py`
-- Training script placeholder in `scripts/train_pinn_v1.py`
-
-Do not report inverse-identification results as experimental validation. Current
-results are synthetic numerical digital-twin benchmark evidence.
-
-## Directory Map
+## Directory Guide
 
 ```text
-configs/                 YAML configs for Ground Truth and PINN experiments
-data/raw/                User-provided or lab raw data
-data/external/           Digitized literature curves with provenance records
-data/processed/          Generated synthetic benchmark data
-docs/                    Device anchor, equations, provenance, plans, reviewer defense
-outputs/                 Figures, logs, checkpoints, and tables
-scripts/                 CLI entrypoints
-src/pinnpcm/             Python package
-tests/                   Pytest suite
+configs/                 versioned experiment and physics configuration
+src/pinnpcm/physics/     physical models, solvers, parameters, topology
+src/pinnpcm/pinn/        neural fields, transforms, residuals, losses
+scripts/                 config-driven CLI and audit entrypoints
+tests/                   unit, behavior, integrity, and claim-gate tests
+data/external/           provenance-backed literature curves, if added
+data/processed/          generated synthetic data; frozen GT is read-only
+outputs/tables/          lightweight committed evidence
+outputs/figures/         generated figures
+docs/                    equations, strategy, reports, manuscript evidence
 ```
 
-## Academic Ethics Statement
+## Current Scientific Interpretation
 
-This repository does not fabricate experimental data. The default workflow generates a literature-guided synthetic benchmark for algorithm validation. Synthetic data must not be described as measured experimental data, and order-of-magnitude priors must not be described as measured material parameters. Any later use of real lab data or digitized literature data must be documented before analysis.
+Sparse terminal observations constrain integrated conductance strongly but do not uniquely determine all hidden thermal, defect, phase, and conductivity fields. The most defensible result is therefore reduced-target inverse identification under calibrated or tightly bounded priors. OASIS v10 adds a credible multilayer and segmented-terminal scaffold, but strict CV neural training and thermal inverse blocks remain failed or incomplete.
+
+## Academic Ethics
+
+Do not describe synthetic data as measured data, priors as measurements, a smoke test as a method result, or a local observability rank gain as full field recovery. Any future digitized literature curves must be stored with provenance in `data/external/` and documented in `docs/data_provenance.md`.

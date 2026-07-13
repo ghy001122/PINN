@@ -1,5 +1,6 @@
 # Active Phase
 
+Governance links: `PROJECT_GOAL.md`, `docs/research_strategy/goal_status.md`, and `docs/research_strategy/codex_new_dialog_handoff_d23a576.md`. Governance consolidation does not authorize a new research experiment or change the v10 gates below.
 ## Current Phase
 
 `control-volume multidomain OASIS and inverse repair v10`

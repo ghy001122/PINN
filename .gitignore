@@ -184,3 +184,5 @@ outputs/pinn_inverse_v1_1_smoke/*
 !outputs/tables/sequential_terminal_inverse_v2_summary.json
 !outputs/tables/oasis_2d_field_resolution_v2_summary.json
 !outputs/tables/phase_activated_algorithm_summary.json
+
+!outputs/tables/project_governance_summary.json

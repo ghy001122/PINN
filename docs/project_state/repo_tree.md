@@ -1,296 +1,39 @@
-# Repository tree
-
-Current high-level structure:
+# Repository Tree
 
 ```text
 .
 |-- AGENTS.md
+|-- PROJECT_GOAL.md
 |-- CODEX_CONTEXT.md
-|-- configs/
-|   |-- gt_v1.yaml
-|   |-- gt_v1_acceptance_ltp_ltd.yaml
-|   |-- gt_v1_acceptance_triangle.yaml
-|   |-- gamma_sub_constrained_inversion.yaml
-|   |-- pinn_inverse_v0_triangle.yaml
-|   |-- pinn_inverse_v0_triangle_full_anchor.yaml
-|   |-- pinn_inverse_v0_triangle_weak_anchor.yaml
-|   |-- pinn_inverse_v0_triangle_port_only.yaml
-|   |-- pinn_inverse_v1_triangle_physics.yaml
-|   |-- pinn_inverse_v1_triangle_weak_anchor.yaml
-|   |-- pinn_inverse_v1_triangle_port_physics.yaml
-|   |-- pinn_inverse_v1_1_triangle_physics_balanced.yaml
-|   |-- pinn_inverse_v1_1_triangle_port_physics_balanced.yaml
-|   `-- pinn_v1.yaml
-|-- data/
-|   |-- README.md
-|   `-- processed/
-|       `-- .gitkeep
-|-- docs/
-|   |-- codex_reports/
-|   |   |-- gamma_sub_confounding_audit_report.md
-|   |   |-- gamma_sub_identifiability_audit_report.md
-|   |   |-- gamma_sub_constrained_inversion_report.md
-|   |   |-- evidence_chain_patch_report.md
-|   |   |-- documentation_structure_cleanup_report.md
-|   |   |-- local_codex_context_integration_report.md
-|   |   |-- pinn_inverse_v0_ablation_audit_report.md
-|   |   |-- pinn_inverse_v1_physics_report.md
-|   |   |-- pinn_inverse_v1_1_report.md
-|   |   `-- pinn_identifiability_audit_report.md
-|   |-- literature_notes/
-|   |   |-- gamma_sub_evidence_digest.md
-|   |   `-- pinn_phase_change_literature_digest.md
-|   |-- project_state/
-|   |   |-- file_inventory.md
-|   |   |-- latest_changes.md
-|   |   |-- repo_tree.md
-|   |   `-- reproducibility.md
-|   |-- research_strategy/
-|   |   |-- active_phase.md
-|   |   |-- codex_workflow_rules.md
-|   |   |-- context_index.md
-|   |   |-- context_loading_policy.md
-|   |   |-- current_research_handoff.md
-|   |   `-- next_task_literature_backed_constrained_gamma_sub.md
-|   |-- data_provenance.md
-|   |-- device_anchor.md
-|   |-- experiment_plan.md
-|   |-- gamma_sub_confounding_report.md
-|   |-- gamma_sub_constrained_inversion_report.md
-|   |-- literature_gamma_sub_evidence_chain.md
-|   |-- gamma_sub_identifiability_report.md
-|   |-- gt_v1_acceptance_report.md
-|   |-- method_equations.md
-|   |-- parameter_prior_registry.md
-|   |-- pinn_inverse_v0_ablation_report.md
-|   |-- pinn_inverse_v1_physics_design.md
-|   |-- pinn_inverse_v1_report.md
-|   |-- pinn_inverse_v1_1_report.md
-|   |-- pinn_identifiability_audit_report.md
-|   `-- reviewer_defense.md
-|-- outputs/
-|   |-- checkpoints/
-|   |   `-- .gitkeep
-|   |-- figures/
-|   |   `-- .gitkeep
-|   |-- logs/
-|   |   `-- .gitkeep
-|   |-- tables/
-|   |   |-- .gitkeep
-|   |   |-- gamma_sub_confounding_summary.json
-|   |   |-- gamma_sub_identifiability_summary.json
-|   |   |-- gamma_sub_sensitivity_ranking.csv
-|   |   |-- gamma_sub_constrained_inversion_summary.json
-|   |   |-- gamma_sub_prior_width_sweep.csv
-|   |   |-- pinn_identifiability_correlation.csv
-|   |   |-- pinn_identifiability_summary.json
-|   |   |-- pinn_inverse_v0_ablation_summary.json
-|   |   |-- pinn_inverse_v1_summary.json
-|   |   `-- pinn_inverse_v1_1_summary.json
-|   |-- pinn_inverse_v0/
-|   |   `-- ignored generated training artifacts
-|   |-- pinn_inverse_v1/
-|   |   `-- ignored generated training artifacts
-|   `-- pinn_inverse_v1_1/
-|       `-- ignored generated training artifacts
-|-- references/
-|   |-- papers/
-|   |   `-- PAPER_REGISTRY.md
-|   `-- project_sources/
-|       `-- README.md
-|-- scripts/
-|   |-- analyze_gt_v1.py
-|   |-- analyze_pinn_identifiability.py
-|   |-- audit_gamma_sub_confounding.py
-|   |-- evaluate_v1.py
-|   |-- invert_gamma_sub_v0.py
-|   |-- invert_gamma_sub_with_mismatch.py
-|   |-- invert_gamma_sub_constrained.py
-|   |-- plot_gt_v1.py
-|   |-- run_gt_v1.py
-|   |-- run_gt_v1_acceptance.py
-|   |-- run_pinn_inverse_v0_ablation.py
-|   |-- run_pinn_inverse_v1_experiments.py
-|   |-- run_pinn_inverse_v1_1_experiments.py
-|   |-- scan_gt_v1.py
-|   |-- scan_gamma_sub_identifiability.py
-|   |-- train_pinn_inverse_v0.py
-|   |-- train_pinn_inverse_v1.py
-|   `-- train_pinn_v1.py
-|-- src/
-|   `-- pinnpcm/
-|       |-- baselines/
-|       |-- physics/
-|       |-- pinn/
-|       |-- utils/
-|       `-- visualization/
-|-- tests/
-|   |-- test_conductivity.py
-|   |-- test_data_shapes.py
-|   |-- test_electrostatics.py
-|   |-- test_gt_profiles.py
-|   |-- test_gt_solver_smoke.py
-|   |-- test_imports.py
-|   |-- test_gamma_sub_identifiability.py
-|   |-- test_gamma_sub_constrained.py
-|   |-- test_pinn_identifiability.py
-|   |-- test_pinn_inverse_v0.py
-|   |-- test_pinn_inverse_v1.py
-|   `-- test_voltage_protocols.py
-|-- DATASET_REGISTRY.md
-|-- EXPERIMENT_REGISTRY.md
-|-- FIGURE_REGISTRY.md
-|-- NEXT_ACTIONS.md
 |-- PROJECT_STATE.md
-|-- RESEARCH_LOG.md
+|-- NEXT_ACTIONS.md
 |-- README.md
-|-- pyproject.toml
-`-- requirements.txt
+|-- .codex/
+|   |-- README.md
+|   `-- rules/project_safety.rules
+|-- configs/
+|-- data/
+|   |-- external/
+|   `-- processed/gt_v1_acceptance/   # frozen synthetic GT v1.1
+|-- docs/
+|   |-- AGENTS.md
+|   |-- archive/
+|   |-- codex_reports/
+|   |-- manuscript/
+|   |-- paper/
+|   |-- project_state/
+|   |-- research_strategy/
+|   `-- templates/
+|-- outputs/
+|   |-- figures/
+|   `-- tables/
+|-- scripts/
+|   `-- AGENTS.md
+|-- src/pinnpcm/
+|   |-- physics/AGENTS.md
+|   `-- pinn/AGENTS.md
+`-- tests/
+    `-- AGENTS.md
 ```
 
-Generated large outputs remain under `data\processed\` and `outputs\` and are
-not intended for normal Git commits. Committed output artifacts are limited to
-lightweight summary JSON files such as
-`outputs\tables\pinn_inverse_v0_ablation_summary.json` and
-`outputs\tables\pinn_inverse_v1_summary.json`, and
-`outputs\tables\pinn_inverse_v1_1_summary.json`,
-`outputs\tables\pinn_identifiability_summary.json`, and
-`outputs\tables\pinn_identifiability_correlation.csv`, and
-`outputs\tables\gamma_sub_identifiability_summary.json`,
-`outputs\tables\gamma_sub_confounding_summary.json`, and
-`outputs\tables\gamma_sub_sensitivity_ranking.csv`.
-
-The local reference pack itself is not copied into the repository. Only compact
-context, literature digest, and routing files are tracked.
-
-## Literature-Anchored Gamma_Sub Pack Addendum
-
-New top-level additions in this pack:
-
-- `configs/literature_phase_change_parameter_sanity.yaml`
-- `configs/literature_curve_fit_external_anchor.yaml`
-- `configs/gamma_sub_tsw_calibration_necessity.yaml`
-- `configs/gamma_sub_simulator_backed_sequential_protocol_validation.yaml`
-- `scripts/audit_literature_phase_change_parameter_sanity.py`
-- `scripts/fit_literature_phase_change_curves.py`
-- `scripts/audit_gamma_sub_tsw_calibration_necessity.py`
-- `scripts/audit_gamma_sub_simulator_backed_sequential_protocol_validation.py`
-- `scripts/build_manuscript_style_gamma_sub_figures.py`
-- `docs/literature/`
-- `data/literature/`
-
-## External Curve And Calibrated Gamma_Sub Workflow Additions
-
-- `configs/literature_curve_ingestion.yaml`
-- `configs/literature_curve_fit_external_anchor_v2.yaml`
-- `configs/gamma_sub_tsw_calibration_workflow.yaml`
-- `configs/gamma_sub_calibrated_sequential_protocol_validation.yaml`
-- `scripts/ingest_literature_digitized_curves.py`
-- `scripts/fit_literature_phase_change_curves_v2.py`
-- `scripts/audit_gamma_sub_tsw_calibration_workflow.py`
-- `scripts/audit_gamma_sub_calibrated_sequential_protocol_validation.py`
-- `scripts/build_external_anchor_claim_stress_test.py`
-- `scripts/build_submission_ready_gamma_sub_figures.py`
-- `tests/test_literature_curve_ingestion.py`
-- `tests/test_literature_curve_fit_external_anchor_v2.py`
-- `tests/test_gamma_sub_tsw_calibration_workflow.py`
-- `tests/test_gamma_sub_calibrated_sequential_protocol_validation.py`
-- `tests/test_external_anchor_claim_stress_test.py`
-- `docs/paper/main_text_results_v1.md`
-- `docs/paper/methods_v1.md`
-- `docs/paper/limitations_v1.md`
-- `docs/paper/abstract_v1.md`
-- `docs/paper/title_candidates.md`
-
-## OASIS-PINN v6 Additions
-
-```text
-configs/
-  literature_priors_phase_change.yaml
-  multilayer_sandwich_device.yaml
-  high_risk_claim_resolution_v6.yaml
-src/pinnpcm/physics/
-  multilayer_sandwich.py
-src/pinnpcm/pinn/
-  oasis_components.py
-src/pinnpcm/experiments/
-  claim_resolution_2d_field.py
-scripts/
-  audit_literature_prior_consistency.py
-  audit_multilayer_sandwich_device.py
-  audit_claim_resolution_2d_field.py
-  audit_terminal_only_active_protocol_rescue.py
-  audit_phase_aware_stl_repair.py
-  audit_adaptive_fourier_fsps_superiority.py
-  audit_multilayer_sandwich_low_dim_inverse.py
-tests/
-  test_literature_prior_consistency.py
-  test_multilayer_sandwich_device.py
-  test_oasis_components.py
-  test_claim_resolution_2d_field.py
-  test_terminal_only_active_protocol_rescue.py
-  test_phase_aware_stl_repair.py
-  test_adaptive_fourier_fsps_superiority.py
-  test_multilayer_sandwich_low_dim_inverse.py
-```
-
-## OASIS-PINN v7 Evidence Actualization Additions
-
-```text
-outputs/tables/
-  terminal_only_active_protocol_rescue_simulator_summary.json
-  terminal_only_active_protocol_rescue_simulator_cases.csv
-docs/codex_reports/
-  oasis_pinn_evidence_actualization_v7_report.md
-```
-
-Existing OASIS-PINN v6 scripts, modules, and tests were updated in place to replace proxy/stub evidence with simulator-backed or actual-training evidence. Frozen Ground Truth v1.1 paths remain unchanged.
-
-## Conservative multidomain OASIS-PINN v8 additions
-
-```text
-scripts/
-|-- audit_conservative_multilayer_forward.py
-|-- audit_multidomain_oasis_pinn.py
-|-- audit_active_protocol_identifiability.py
-`-- audit_oasis_2d_field_resolution.py
-tests/
-|-- test_conservative_multilayer_forward.py
-|-- test_multidomain_oasis_pinn.py
-|-- test_active_protocol_identifiability.py
-`-- test_oasis_2d_field_resolution.py
-outputs/tables/
-|-- conservative_multilayer_forward_summary.json
-|-- conservative_multilayer_forward_cases.csv
-|-- multidomain_oasis_pinn_summary.json
-|-- active_protocol_identifiability_summary.json
-|-- active_protocol_identifiability_cases.csv
-|-- sequential_terminal_inverse_summary.json
-`-- oasis_2d_field_resolution_summary.json
-```
-
-
-
-## Phase-activated multidomain OASIS-PINN v9 additions
-
-```text
-scripts/
-|-- audit_phase_activated_multilayer_forward.py
-|-- train_multidomain_oasis_v9.py
-|-- audit_active_protocol_identifiability_v2.py
-|-- audit_oasis_2d_field_resolution_v2.py
-`-- audit_phase_activated_algorithms_v9.py
-tests/
-|-- test_phase_activated_multilayer_forward.py
-|-- test_multidomain_oasis_training_v9.py
-|-- test_active_protocol_identifiability_v2.py
-`-- test_oasis_v9_gates.py
-outputs/tables/
-|-- phase_activated_multilayer_forward_summary.json
-|-- phase_activated_multilayer_forward_cases.csv
-|-- multidomain_oasis_training_summary.json
-|-- active_protocol_identifiability_v2_summary.json
-|-- sequential_terminal_inverse_v2_summary.json
-|-- oasis_2d_field_resolution_v2_summary.json
-`-- phase_activated_algorithm_summary.json
-```
+Large generated artifacts remain under `data/processed/` or `outputs/`. The governance entrypoint is `AGENTS.md`; the low-token research entrypoint is `CODEX_CONTEXT.md`; the canonical full handoff is `docs/research_strategy/codex_new_dialog_handoff_d23a576.md`.

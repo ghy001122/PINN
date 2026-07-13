@@ -1,5 +1,6 @@
 # PINN 相变材料项目：Codex 新对话完整交接说明
 
+> Governance overlay: current authority and low-token routing are defined by `AGENTS.md`, `PROJECT_GOAL.md`, `CODEX_CONTEXT.md`, `docs/research_strategy/active_phase.md`, and `docs/research_strategy/context_loading_policy.md`. This document remains the single complete historical handoff; its embedded HEAD is the v10 handoff anchor, not a live status field.
 > **建议放置路径**：`docs/research_strategy/codex_new_dialog_handoff_d23a576.md`  
 > **本地工作区**：`E:\Python demo\PINN`  
 > **GitHub 仓库**：`ghy001122/PINN`  

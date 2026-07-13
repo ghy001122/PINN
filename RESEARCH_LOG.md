@@ -1,5 +1,10 @@
 # Research log
 
+## Workspace Governance, Memory, And Goal Hierarchy
+
+Date: 2026-07-13
+
+Consolidated the versioned instruction hierarchy, project goal, durable-memory policy, context routing, project-local command safety, and governance audit. Historical state and next-action documents were archived rather than deleted. This was a governance-only task: no new research experiment, result upgrade, or frozen-GT modification occurred.
 ## Control-Volume Multidomain OASIS v10
 
 V10 corrected v9 evidence semantics. P0 physical topology/mechanism routing and P3 segmented-electrode forward implementation pass. Strict P1 CV training fails (`E_T=0.3756`, interface residual `106.15`, success rate `0`); repaired P2 noisy inversion remains `failed_but_informative`; P4 is blocked. Formal OOD preflight shows acceptable geometry interpolation relative to severe stack, pulse, interface, and cross-material failure. Frozen GT v1.1 is unchanged.
