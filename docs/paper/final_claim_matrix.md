@@ -6,28 +6,28 @@ Allowed claims are restricted to synthetic numerical digital-twin evidence.
 
 | Claim | Status | Required qualifier | Forbidden wording |
 | --- | --- | --- | --- |
-| Electrical/thermal domain separation and segmented-electrode forward implementation | Qualified supported | reduced synthetic implementation with uniform-limit/current-balance checks | full device solver or experimental validation |
-| Control-volume multidomain neural field recovery | Failed but informative | 300 epochs, three seeds, strict field/interface gate failed | OASIS-PINN field recovery solved |
-| Repaired noisy terminal inverse | Failed but informative | mechanism-routed local inverse; only selected blocks recover | robust multi-parameter inverse solved |
-| Cross-stack/material generalization | Failed but informative | ridge response preflight only | neural operator generalization |
-| STL/Fourier/F-SPS v10 superiority | Forbidden | not run because P1 failed | superiority, full STL, or Pareto win |
+| Electrical/thermal domain separation and segmented-electrode forward implementation | `qualified_supported` | reduced synthetic implementation with uniform-limit/current-balance checks | full device solver or experimental validation |
+| Control-volume multidomain neural field recovery | `failed_but_informative` | 300 epochs, three seeds, strict field/interface gate failed | OASIS-PINN field recovery solved |
+| Repaired noisy terminal inverse | `failed_but_informative` | mechanism-routed local inverse; only selected blocks recover | robust multi-parameter inverse solved |
+| Cross-stack/material generalization | `failed_but_informative` | ridge response preflight only | neural operator generalization |
+| STL/Fourier/F-SPS v10 superiority | `forbidden` | not run because P1 failed | superiority, full STL, or Pareto win |
 
 | Claim | Status | Required qualifier | Forbidden wording |
 | --- | --- | --- | --- |
-| Sparse-port full hidden-field recovery is ill-posed in the current benchmark | Supported | one-dimensional synthetic benchmark | unique full-field recovery |
-| `gamma_sub` is a reduced inverse target | Supported conditionally | fixed or tightly bounded priors | unconditional identifiability |
-| `T_sw` calibration is required before `gamma_sub` inversion | Supported | response-surface and ODE-backed synthetic audits | measured calibration result |
-| 0.1 K residual `T_sw` tolerance is usable as a paper threshold | Supported as benchmark-specific | synthetic <=15% median-error criterion plus ODE spot-check | real experimental calibration capability requirement |
-| Calibration gain dominates protocol gain | Supported | protocol gain is secondary and qualified | protocol identity alone solves inverse recovery |
-| Calibrated protocol robustness can be shown | Qualified | synthetic ODE-backed, calibrated priors; worst-case errors remain non-negligible | experimentally validated stimulation protocol |
-| Literature curve fitting validates model curves | Blocked | requires provenance-backed CSV/JSON data | fitted public curves without data |
-| Quasi-2D extension improves physical-depth discussion | Supported as preflight only | forward/residual feasibility; supplementary/discussion placement | 2D inverse diagnosis is solved |
-| F-SPS-PINN is superior | Not supported | appendix/future work only | performance superiority |
+| Sparse-port full hidden-field recovery is ill-posed in the current benchmark | `supported` | one-dimensional synthetic benchmark | unique full-field recovery |
+| `gamma_sub` is a reduced inverse target | `qualified_supported` | fixed or tightly bounded priors | unconditional identifiability |
+| `T_sw` calibration is required before `gamma_sub` inversion | `supported` | response-surface and ODE-backed synthetic audits | measured calibration result |
+| 0.1 K residual `T_sw` tolerance is usable as a paper threshold | `qualified_supported` | synthetic <=15% median-error criterion plus ODE spot-check | real experimental calibration capability requirement |
+| Calibration gain dominates protocol gain | `supported` | protocol gain is secondary and qualified | protocol identity alone solves inverse recovery |
+| Calibrated protocol robustness can be shown | `qualified_supported` | synthetic ODE-backed, calibrated priors; worst-case errors remain non-negligible | experimentally validated stimulation protocol |
+| Literature curve fitting validates model curves | `forbidden` | requires provenance-backed CSV/JSON data | fitted public curves without data |
+| Quasi-2D extension improves physical-depth discussion | `qualified_supported` | forward/residual feasibility; supplementary/discussion placement | 2D inverse diagnosis is solved |
+| F-SPS-PINN is superior | `forbidden` | appendix/future work only | performance superiority |
 
-| Phase-transition stiffness residual cliff is a valid stress test | Supported as supplementary preflight | synthetic residual proxy; continuation/Fourier are stability aids only | full STL-PINN reproduction or stiffness solved |
-| Phase-field inverse literature alignment | Supported as supplementary smoke | Allen-Cahn full-field-anchor mobility inversion; not sparse-port current | phase-field smoke is main-text core experiment |
-| Third-zone SCI computational submission | Plausible with narrow scope | synthetic benchmark and reviewer-defense evidence only | experimental or full-device validation |
-| Second-zone edge submission | Qualified and riskier | needs careful method-oriented framing | real-device or external-curve validation without data |
+| Phase-transition stiffness residual cliff is a valid stress test | `qualified_supported` | synthetic residual proxy; continuation/Fourier are stability aids only | full STL-PINN reproduction or stiffness solved |
+| Phase-field inverse literature alignment | `qualified_supported` | Allen-Cahn full-field-anchor mobility inversion; not sparse-port current | phase-field smoke is main-text core experiment |
+| Third-zone SCI computational submission | `qualified_supported` | synthetic benchmark and reviewer-defense evidence only; journal outcome is not an evidence claim | experimental or full-device validation |
+| Q2 SCI delivery target | `forbidden` as an acceptance claim | project target only; acceptance is not guaranteed | guaranteed Q2 acceptance |
 
 ## Claim-Gate Resolution Update
 
@@ -35,11 +35,11 @@ All results remain synthetic numerical digital-twin benchmark evidence, not expe
 
 | Claim | Updated status | Evidence | Boundary |
 | --- | --- | --- | --- |
-| Reduced 2D forward benchmark | Supported | `outputs/tables/reduced_2d_phase_transition_forward_summary.json` | Reduced thin-film synthetic benchmark, not full FEM. |
-| Terminal-only 2D inverse | Failed | `outputs/tables/reduced_2d_observability_limited_inverse_summary.json` | Use as honest negative result. |
-| Augmented low-dimensional 2D inverse | Qualified supported | `outputs/tables/reduced_2d_observability_limited_inverse_summary.json` | Low-dimensional parameters only; no full-field recovery. |
-| Stiffness-aware mitigation | Supported as residual-proxy benchmark | `outputs/tables/stiffness_aware_algorithm_benchmark_summary.json` | Not full STL-PINN reproduction. |
-| Full STL-PINN and F-SPS superiority | Forbidden | `docs/paper/claim_gate_resolution_matrix.md` | Future work unless separately demonstrated. |
+| Reduced 2D forward benchmark | `supported` | `outputs/tables/reduced_2d_phase_transition_forward_summary.json` | Reduced thin-film synthetic benchmark, not full FEM. |
+| Terminal-only 2D inverse | `failed_but_informative` | `outputs/tables/reduced_2d_observability_limited_inverse_summary.json` | Use as honest negative result. |
+| Augmented low-dimensional 2D inverse | `qualified_supported` | `outputs/tables/reduced_2d_observability_limited_inverse_summary.json` | Low-dimensional parameters only; no full-field recovery. |
+| Stiffness-aware mitigation | `qualified_supported` | `outputs/tables/stiffness_aware_algorithm_benchmark_summary.json` | Residual-proxy benchmark, not full STL-PINN reproduction. |
+| Full STL-PINN and F-SPS superiority | `forbidden` | `docs/paper/claim_gate_resolution_matrix.md` | Future work unless separately demonstrated. |
 
 ## Integrated High-Risk Claim Ladder Update
 
@@ -47,11 +47,11 @@ All statuses below are synthetic numerical digital-twin benchmark evidence.
 
 | Claim | Updated status | Evidence | Boundary |
 | --- | --- | --- | --- |
-| Low-rank 2D hidden-field recovery with augmented dense anchors | Qualified supported | `outputs/tables/high_risk_claim_ladder_summary.json`; best protocol `terminal_plus_dense_anchors_5pct` median field error `0.08653171328673807` | Protocol-limited reduced benchmark, not sparse-port full 2D recovery. |
-| Terminal-only full-field 2D rescue | Failed but informative | `outputs/tables/high_risk_claim_ladder_summary.json` | Defines observability boundary; do not claim solved terminal-only 2D inverse. |
-| Actual reduced PINN stiffness mitigation | Qualified supported | `outputs/tables/integrated_stiffness_stl_summary.json`; continuation/adaptive gain `0.4845205762225727` | Reduced autograd PINN audit only. |
-| Seiler-style multi-head STL transfer | Qualified supported | `outputs/tables/integrated_stiffness_stl_summary.json`; frozen-trunk gain `0.36685026479233396` | Seiler-style mechanics implemented; full literature reproduction still forbidden. |
-| Fourier/F-SPS universal superiority | Forbidden | `outputs/tables/fourier_fsps_conditional_superiority_summary.json` | Only conditional sharp/front-regime benefit is supported. |
+| Low-rank 2D hidden-field recovery with augmented dense anchors | `qualified_supported` | `outputs/tables/high_risk_claim_ladder_summary.json`; best protocol `terminal_plus_dense_anchors_5pct` median field error `0.08653171328673807` | Protocol-limited reduced benchmark, not sparse-port full 2D recovery. |
+| Terminal-only full-field 2D rescue | `failed_but_informative` | `outputs/tables/high_risk_claim_ladder_summary.json` | Defines observability boundary; do not claim solved terminal-only 2D inverse. |
+| Actual reduced PINN stiffness mitigation | `qualified_supported` | `outputs/tables/integrated_stiffness_stl_summary.json`; continuation/adaptive gain `0.4845205762225727` | Reduced autograd PINN audit only. |
+| Seiler-style multi-head STL transfer | `qualified_supported` | `outputs/tables/integrated_stiffness_stl_summary.json`; frozen-trunk gain `0.36685026479233396` | Historical reduced mechanics audit; full literature reproduction remains `forbidden`. |
+| Fourier/F-SPS universal superiority | `forbidden` | `outputs/tables/fourier_fsps_conditional_superiority_summary.json` | Only conditional sharp/front-regime benefit is supported. |
 
 ## Actualized High-Risk Claim Ladder v2 Update
 
@@ -114,7 +114,7 @@ All entries are synthetic numerical digital-twin benchmark evidence, not experim
 | Conservative multilayer P0 forward | qualified_supported | `outputs/tables/conservative_multilayer_forward_summary.json`; P0 gate `True`; energy median `0.0` | Reduced 2.5D finite-volume diagnostic only; not full FEM or device-grade. |
 | Multidomain OASIS-PINN components | qualified_supported as implementation smoke | `outputs/tables/multidomain_oasis_pinn_summary.json` | Finite autograd smoke, not performance evidence. |
 | Active terminal-only multidomain inverse | failed_but_informative | `outputs/tables/active_protocol_identifiability_summary.json`; best rank `0` | Terminal observables do not identify all tested parameters in this audit. |
-| 2D field-resolution recovery | blocked | `outputs/tables/oasis_2d_field_resolution_summary.json`; `blocked_until_actual_electrode_BC_multi_terminal_solver_is_implemented` | Requires actual electrode-BC multi-terminal solver before any positive claim. |
+| 2D field-resolution recovery | `forbidden` | `outputs/tables/oasis_2d_field_resolution_summary.json`; `blocked_until_actual_electrode_BC_multi_terminal_solver_is_implemented` | Requires actual electrode-BC multi-terminal solver before any positive claim. |
 | Phase-aware STL repair | failed_but_informative | `outputs/tables/phase_aware_stl_repair_summary.json`; best gain `0.10802334582762174` | Full STL-PINN and LoRA-STL remain forbidden. |
 | Adaptive Fourier/F-SPS superiority | forbidden | `outputs/tables/adaptive_fourier_fsps_superiority_summary.json`; true Pareto used | No universal or adaptive-F-SPS superiority claim. |
 
@@ -127,6 +127,6 @@ All entries are synthetic numerical digital-twin benchmark evidence, not experim
 | Phase-activated multilayer forward | qualified_supported | `outputs/tables/phase_activated_multilayer_forward_summary.json`; VO2 `0.8888888888888888`, NbO2 `0.8888888888888888` activation rates | Reduced y-z finite-volume benchmark only. |
 | Multidomain OASIS small training | qualified_supported as smoke/training gate | `outputs/tables/multidomain_oasis_training_summary.json`; full mortar success `True` | Not performance superiority. |
 | Activated terminal trace inverse | failed_but_informative | `outputs/tables/active_protocol_identifiability_v2_summary.json`; `outputs/tables/sequential_terminal_inverse_v2_summary.json` | Jacobian gates pass, but strict block-error gate `False`; no full-field recovery claim. |
-| 2D field recovery | blocked | `outputs/tables/oasis_2d_field_resolution_v2_summary.json` | Needs actual electrode-BC multi-terminal y-z solver. |
-| STL/Fourier on activated PDE | blocked | `outputs/tables/phase_activated_algorithm_summary.json` | Needs canonical Seiler reproduction, front-aligned LoRA, and matched-budget Pareto audit. |
+| 2D field recovery | `forbidden` | `outputs/tables/oasis_2d_field_resolution_v2_summary.json` | Needs actual electrode-BC multi-terminal y-z solver. |
+| STL/Fourier on activated PDE | `forbidden` | `outputs/tables/phase_activated_algorithm_summary.json` | Needs canonical Seiler reproduction, front-aligned LoRA, and matched-budget Pareto audit. |
 

@@ -25,6 +25,14 @@
       "status": "pass",
       "missing": []
     },
+    "delivery_contract": {
+      "status": "pass",
+      "missing": []
+    },
+    "claim_matrix_vocabulary": {
+      "status": "pass",
+      "obsolete": []
+    },
     "critical_markdown_links": {
       "status": "pass",
       "checked": 6,
@@ -42,11 +50,11 @@
     "agents_chain_size": {
       "status": "pass",
       "bytes": {
-        "src/pinnpcm/physics/AGENTS.md": 6744,
-        "src/pinnpcm/pinn/AGENTS.md": 6876,
-        "scripts/AGENTS.md": 6639,
-        "tests/AGENTS.md": 6581,
-        "docs/AGENTS.md": 6711
+        "src/pinnpcm/physics/AGENTS.md": 7810,
+        "src/pinnpcm/pinn/AGENTS.md": 7942,
+        "scripts/AGENTS.md": 7705,
+        "tests/AGENTS.md": 7647,
+        "docs/AGENTS.md": 7777
       },
       "oversized": {}
     },

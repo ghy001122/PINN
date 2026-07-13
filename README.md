@@ -17,6 +17,8 @@ Current high-risk claims such as full 2D hidden-field recovery, terminal-only 2D
 
 ## Goal And Context
 
+The persistent delivery target is a complete, reproducible, ethically bounded Q2 SCI manuscript and submission package; this is not a guarantee of journal acceptance. Exactly one highest-value research bottleneck is active per round.
+
 - Delivery goal: [PROJECT_GOAL.md](PROJECT_GOAL.md)
 - Low-token Codex entry: [CODEX_CONTEXT.md](CODEX_CONTEXT.md)
 - Current phase: [active_phase.md](docs/research_strategy/active_phase.md)

@@ -1,5 +1,12 @@
 # Research log
 
+## Q2 SCI Delivery Contract Alignment
+
+Date: 2026-07-13
+
+Aligned the repository's persistent goal with the Q2 SCI delivery contract, North-star claim, single-bottleneck value rule, hard Definition of Done, stretch-goal boundary, stopping rules, evidence lifecycle, and limited user-confirmation boundary. This round changed governance and publication planning only; it did not modify scientific evidence, success thresholds, or frozen GT.
+
+
 ## Workspace Governance, Memory, And Goal Hierarchy
 
 Date: 2026-07-13

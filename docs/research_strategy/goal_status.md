@@ -1,23 +1,25 @@
 # Goal Status Dashboard
 
 - Goal: `Q2_SCI_DELIVERY_MODE`
-- Milestone: governance consolidation around v10 evidence and P1 repair readiness
+- Milestone: constrained `gamma_sub` mainline evidence lock and manuscript assembly
 - Updated: 2026-07-13
-- Source SHA: `4a0b649b9b33d8df6c345787b61db2d1fbea0a09`
+- Source SHA: `5646a3d164cd111390bb9fe4544a4e1ba7685dcc`
+- Active bottleneck: Priority A - assemble and lock the constrained `gamma_sub` mainline
 
-| Workstream | Status | Note |
+| Workstream | Status | Distance to goal |
 |---|---|---|
-| Mainline readiness | `qualified_supported` | Constrained `gamma_sub` evidence chain is the manuscript core. |
-| P0 physical semantics | `qualified_supported` | Reduced synthetic implementation, not device validation. |
-| P1 neural training | `failed_but_informative` | Scaling, boundary coordinates, interface residuals, and optimization remain unresolved. |
-| P2 active inverse | `failed_but_informative` | Thermal blocks, protocol rank, and coverage fail. |
+| Frozen GT and reproducibility | `supported` | Core benchmark and broad tests exist; final command lock still needs assembly. |
+| Mainline `gamma_sub` evidence | `qualified_supported` | Confounding/calibration/noise/off-grid/protocol evidence exists; one-to-one manuscript assembly is not locked. |
+| External quantitative anchor | `forbidden` as completed claim | Infrastructure exists, but no provenance-backed quantitative curve has been completed. |
+| Manuscript and supplementary | partial | Draft artifacts exist; final coherent manuscript and supplement are not complete. |
+| Reviewer defense | partial | Strong identifiability boundary; final matrix must align with locked claims. |
+| P0 physical semantics | `qualified_supported` | Reduced synthetic implementation only. |
+| P1 neural training | `failed_but_informative` | Strict scaling/interface gate fails. |
+| P2 active inverse | `failed_but_informative` | Thermal, rank, and coverage gates fail. |
 | P3 segmented forward | `qualified_supported` | Forward/local observability only. |
-| P4 STL/Fourier/F-SPS | `forbidden` as positive claim | Blocked pending P1 repair. |
-| External validation | `forbidden` | No provenance-backed quantitative curve or measured dataset is active. |
-| Manuscript | partial | Mainline drafts/evidence exist; final logical and claim lock remains. |
-| Reproducibility | partial | Tests and registries exist; governance audit added in this milestone. |
-| Reviewer defense | partial | Strong identifiability/confounding boundary; OASIS neural value remains unresolved. |
+| P4 STL/Fourier/F-SPS | `forbidden` as positive v10 claim | Blocked until P1 passes. |
+| Within-family OOD | `failed_but_informative` as current preflight | Formal geometry/stack/interface/pulse OOD result remains incomplete. |
 
-Highest priority: repair P1 residual scaling, boundary-face/local-coordinate semantics, and staged optimization.
+Current blockers: mainline evidence-to-manuscript mapping is not locked; no external quantitative anchor; strict P1 failure; thermal inverse ambiguity; rank-deficient protocol selection; weak non-geometric OOD transfer.
 
-Blockers: strict P1 failure, thermal inverse ambiguity, rank-deficient protocol selection, weak non-geometric OOD transfer, and absent external quantitative validation.
+Next task after Priority A is locked: Priority B - P1 CV/mortar scaling, boundary-face, and staged-optimization repair.

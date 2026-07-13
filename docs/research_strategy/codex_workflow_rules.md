@@ -7,6 +7,15 @@
 3. Load only task-relevant context through `context_loading_policy.md`.
 4. State whether the task is documentation, smoke/preflight, actual experiment, review, or publication.
 
+## Bottleneck Selection And Round Contract
+
+- Activate exactly one bottleneck from the ordered queue in `PROJECT_GOAL.md`; do not bundle unrelated research tracks.
+- Rank candidates by manuscript value x probability of useful evidence x reviewer-defense value / time-compute-risk.
+- Before execution, state the target claim/artifact, budget, success threshold, failure interpretation, and allowed/forbidden wording.
+- Use the complete evidence lifecycle: config -> implementation -> test -> JSON/CSV -> figure/table -> report -> claim matrix -> manuscript sentence.
+- At closeout update the authoritative goal/phase/state/queue plus registries, latest changes, research log, and claim matrix without mechanically duplicating prose.
+- Report goal-distance change, claim changes, blockers, next single priority, and disposition: continue / stop / downgrade / manuscript.
+
 ## Research Execution
 
 - Every task must serve a claim, equation, figure/table, ablation, generalization result, reviewer defense, limitation, reproducibility item, or submission artifact.

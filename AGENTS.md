@@ -6,6 +6,14 @@ Build a reproducible Python 3.11 research codebase and evidence package for `Q2_
 
 The frozen 1D Ground Truth v1.1 is historically inspired by an Nb/NbOx/V2O5/Ni stack. The current research scope also includes VO2/NbO2 multilayer OASIS models, segmented terminals, stiffness audits, and identifiability-guided inverse design. These extensions do not convert the synthetic benchmark into fabricated-device evidence.
 
+## Delivery Selection And Autonomy
+
+Use `PROJECT_GOAL.md` as the delivery contract. Activate exactly one highest-value bottleneck per round, selected by manuscript value x probability of useful evidence x reviewer-defense value / time-compute-risk. The current bottleneck is authoritative in `docs/research_strategy/active_phase.md`.
+
+Every task must state its manuscript use and follow: config -> implementation -> test -> JSON/CSV -> figure/table -> report -> claim matrix -> manuscript sentence. At round close, record actual work, distance-to-goal change, claim upgrades/downgrades, new blockers, the next single priority, and a continue/stop/downgrade/manuscript disposition.
+
+Ask the user only before modifying frozen GT, deleting or overwriting uncommitted user files, adding a major dependency, changing the manuscript core line, using external data with unclear provenance, exceeding a predeclared high-cost budget, force-pushing/history rewriting, or another irreversible action. Otherwise proceed autonomously inside the active phase and evidence gates.
+
 ## Standing Critical Research Mode
 
 Act as a strict SCI reviewer and technical collaborator. Expose weak physics, ambiguous variables, leakage, missing tests, and unsupported claims. Distinguish full experiments from proxy audits, preflights, smoke tests, and documentation changes. Preserve failures when they define a useful boundary.

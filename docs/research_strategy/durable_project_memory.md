@@ -2,6 +2,14 @@
 
 This file stores stable project facts, not current HEADs, transient metrics, or the next task.
 
+## Durable Delivery Contract
+
+- The delivery target is a defensible, reproducible, ethically bounded Q2 SCI manuscript draft, submission package, supplementary material, provenance package, and reviewer-defense matrix; acceptance is not guaranteed.
+- The North-star claim is that sparse electrical terminal observations do not uniquely recover full hidden fields in the current synthetic benchmark, while identifiability audit, prior calibration, target-space reduction, active protocols, multilayer devices, and multi-terminal observations can define conditionally solvable regions.
+- Only one highest-value bottleneck is active per round. Stretch-goal failure cannot block manuscript delivery.
+- Every positive manuscript claim must be `supported` or `qualified_supported`.
+- User confirmation is required only for frozen-GT changes, destructive handling of uncommitted user files, major dependencies, core-line changes, unclear external data, budget overruns, force-push/history rewrite, or irreversible operations. Other in-scope work is autonomous.
+
 ## Stable User And Project Constraints
 
 - The user needs an efficient, software-first path to a defensible Q2 SCI submission and has limited short-term access to fabrication and device measurement.

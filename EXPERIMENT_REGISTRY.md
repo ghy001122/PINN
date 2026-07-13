@@ -1,6 +1,12 @@
 
 
 ## Control-volume multidomain OASIS and inverse repair v10
+## Q2 SCI delivery-contract alignment (governance only)
+
+- Scope: synchronize the persistent delivery target, single-bottleneck policy, Definition of Done, stop rules, and round closeout contract.
+- Experiment status: no experiment, config, metric, threshold, or historical result changed.
+- Evidence impact: none; the current constrained `gamma_sub` evidence remains the manuscript mainline.
+- Report: `docs/codex_reports/q2_sci_delivery_contract_alignment_report.md`.
 
 - Physical semantics: `scripts/audit_physical_semantics_v10.py`
 - CV training: `scripts/train_cv_multidomain_oasis_v10.py`

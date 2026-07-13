@@ -1,4 +1,9 @@
 ## Control-volume multidomain OASIS and inverse repair v10
+## Q2 SCI delivery contract and single-bottleneck alignment
+
+Scope: align authoritative goals, phase, queue, workflow rules, report templates, registries, and claim vocabulary with the persistent Q2 SCI delivery target. This is governance-only: no experiment, threshold, scientific metric, or frozen GT content changed.
+
+Result: the sole active bottleneck is constrained `gamma_sub` evidence locking and manuscript assembly. The next research bottleneck remains P1 CV/mortar repair after that lock is complete.
 
 ## Workspace governance, memory, and goal hierarchy
 

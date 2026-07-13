@@ -14,6 +14,8 @@ def test_claim_gate_resolution_matrix_builds(tmp_path) -> None:
     build_claim_gate_matrix(out_path=out)
     text = out.read_text(encoding="utf-8")
     assert "synthetic numerical digital-twin benchmark" in text
+    assert "Authoritative V10 Claim Gate" in text
+    assert "CV multidomain OASIS solves the activated fields" in text
     assert text.count("\n| ") >= 10
     for item in [
         "2D reduced forward supported?",
@@ -25,6 +27,8 @@ def test_claim_gate_resolution_matrix_builds(tmp_path) -> None:
     ]:
         assert item in text
     assert "forbidden" in text
-    assert "partially_supported" in text
+    assert "qualified_supported" in text
+    assert "failed_but_informative" in text
+    assert "partially_supported" not in text
     assert "Terminal-only sparse observations fail" in text
     assert "Full 2D hidden-field recovery remains unsupported" in text

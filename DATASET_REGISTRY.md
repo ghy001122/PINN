@@ -1,6 +1,9 @@
 
 
 ## Control-volume multidomain OASIS v10 evidence
+## Q2 SCI delivery-contract alignment
+
+No dataset or external curve was added or modified. Frozen GT v1.1 remains unchanged; the required provenance-backed external quantitative anchor is still an open Definition-of-Done item.
 
 - `outputs/tables/physical_semantics_v10_summary.json`
 - `outputs/tables/physical_semantics_v10_cases.csv`

@@ -2,37 +2,42 @@
 
 ## Authoritative Current Queue
 
-This is the only active execution queue in this file. Historical queues are archived and are not current authorization.
+Activate exactly one highest-value bottleneck per round. Current active item: A.
 
-### 1. P1 repair: highest priority
+The active scientific mainline is constrained `gamma_sub` recovery under calibrated or tightly bounded priors.
 
-Repair residual nondimensionalization, local/global boundary-coordinate semantics, independent interface face fluxes, and staged optimization. Preserve the strict success gate: field errors, interface residual, and multi-seed success must pass; loss decrease or finite backward alone is insufficient.
+### Priority A: lock constrained gamma_sub mainline - active
 
-Required claim outcome: upgrade only if strict training evidence passes. Otherwise retain `failed_but_informative` and document the remaining failure mechanism.
+Assemble existing evidence into a manuscript-ready chain covering identifiability, confounding, calibration, noise, off-grid recovery, observation count, protocol effects, limitations, baselines, and reproducibility.
 
-### 2. P2 protocol and inverse repair
+Required outputs: final claim list, Methods equation mapping, main figure/table mapping, evidence-source paths, reproduction commands, limitation text, reviewer-defense entries, and manuscript sentences. Do not run a new experiment unless assembly exposes a concrete evidence gap that blocks a Must-have claim.
 
-After P1 diagnostics are stable, reject rank-deficient protocols before inversion, compose protocols by target parameter block, and distinguish local linearized recoverability from nonlinear prior-domain recovery. Thermal blocks and interval coverage must be reported separately.
+Disposition: lock and move to manuscript when all main positive claims are `supported` or `qualified_supported`; otherwise identify one blocking evidence gap.
 
-### 3. P3 observability extension
+### B. P1 CV/mortar repair - queued
 
-Use the segmented-terminal solver for actual multi-terminal forward/observability studies. Do not claim field recovery until holdout field targets, PDE-constrained recovery, error metrics, and identifiability gates exist.
+Repair nondimensional scaling, boundary-face/local-coordinate semantics, and staged optimization. Strict gate remains `E_T,E_m <= 0.25`, interface residual `<= 0.05`, success rate `>= 0.70`.
 
-### 4. P4 conditional algorithm audits
+### C. Material-specific full-rank protocol - queued
 
-Only after P1 passes, run matched-budget STL/Fourier/F-SPS comparisons. Universal superiority, full STL reproduction, and Seiler-style transfer remain `forbidden` until directly demonstrated.
+Reject rank-deficient protocols before inverse and target the thermal block using nonlinear noisy inversion and predeclared coverage/error gates.
 
-### 5. Manuscript delivery
+### D. External quantitative anchor - queued Must-have
 
-Continue the main constrained `gamma_sub` manuscript package in parallel only when changes are evidence-preserving. OASIS remains supplementary unless a strict gate creates a stronger result. External validation remains a separate provenance-gated workstream.
+Complete at least one provenance-backed quantitative literature curve. Unknown provenance requires user confirmation; synthetic fitting must not be called experimental validation.
+
+### E. Dynamic multi-terminal y-z-t - queued
+
+Build dynamic forward/observability evidence before attempting any positive field-inverse claim.
+
+### F. Canonical STL and matched-budget Fourier/F-SPS - blocked
+
+Run only after P1 passes. Failure affects stretch claims, not paper delivery.
+
+## Round Closeout
+
+Every round records: completed work, distance change, claim changes, blockers, next single priority, and one disposition: continue, stop, downgrade, or move to manuscript. Update only the relevant status/registry sections; do not duplicate full prose.
 
 ## Non-Negotiable Boundaries
 
-- Do not modify frozen GT v1.1.
-- Do not describe synthetic results as experimental.
-- Do not hide P1/P2 failures or aggregate them away.
-- Do not let older “write now” or method-expansion queues override the priorities above.
-
-## Historical Queue
-
-The previous cumulative queue is preserved at `docs/archive/project_state/next_actions_pre_v10.md`.
+No GT edits, hidden failed seeds, post-hoc gates, synthetic-as-experimental wording, or old queue may override this order. Historical queues remain archived at `docs/archive/project_state/next_actions_pre_v10.md`.

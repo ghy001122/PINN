@@ -1,6 +1,9 @@
 
 
 ## Control-volume multidomain OASIS v10 figures
+## Q2 SCI delivery-contract alignment
+
+No figure was generated or changed. Main figures must be assembled only from locked evidence after the constrained `gamma_sub` evidence map is complete.
 
 No committed figures were generated. V10 evidence is routed through the lightweight tables in `DATASET_REGISTRY.md`; P1/P2 failures do not justify a positive main-text figure.
 

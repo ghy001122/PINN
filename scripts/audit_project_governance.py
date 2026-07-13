@@ -107,6 +107,48 @@ def check_phase_consistency() -> dict:
     return {"status": "pass" if not missing else "fail", "missing": sorted(set(missing))}
 
 
+def check_delivery_contract() -> dict:
+    goal = (ROOT / "PROJECT_GOAL.md").read_text(encoding="utf-8")
+    active = (ROOT / "docs/research_strategy/active_phase.md").read_text(encoding="utf-8")
+    context = (ROOT / "CODEX_CONTEXT.md").read_text(encoding="utf-8")
+    state = (ROOT / "PROJECT_STATE.md").read_text(encoding="utf-8")
+    queue = (ROOT / "NEXT_ACTIONS.md").read_text(encoding="utf-8")
+    required_goal_markers = [
+        "Q2_SCI_DELIVERY_MODE",
+        "North-Star Scientific Claim",
+        "Mandatory Research Filter",
+        "Ordered Research Priorities",
+        "Must-Have Definition Of Done",
+        "provenance-backed external quantitative anchor",
+        "User Confirmation Boundary",
+        "Stretch failure cannot block paper delivery",
+    ]
+    missing = [f"PROJECT_GOAL.md:{marker}" for marker in required_goal_markers if marker not in goal]
+    active_markers = ["constrained `gamma_sub`", "Priority A"]
+    for name, text in {
+        "active_phase": active,
+        "context": context,
+        "project_state": state,
+        "next_actions": queue,
+    }.items():
+        for marker in active_markers:
+            if marker not in text:
+                missing.append(f"{name}:{marker}")
+    return {"status": "pass" if not missing else "fail", "missing": missing}
+
+
+def check_claim_matrix_vocabulary() -> dict:
+    paths = [ROOT / "docs/paper/claim_gate_resolution_matrix.md", ROOT / "docs/paper/final_claim_matrix.md"]
+    obsolete_terms = ["partially_supported", "| failed |", "| Blocked |", "| Not supported |"]
+    found: list[str] = []
+    for path in paths:
+        text = path.read_text(encoding="utf-8")
+        for term in obsolete_terms:
+            if term in text:
+                found.append(f"{path.relative_to(ROOT)}:{term}")
+    return {"status": "pass" if not found else "fail", "obsolete": found}
+
+
 def run_audit(write_output: bool = True) -> dict:
     checks: dict[str, dict] = {}
 
@@ -132,6 +174,8 @@ def run_audit(write_output: bool = True) -> dict:
     }
 
     checks["phase_consistency"] = check_phase_consistency()
+    checks["delivery_contract"] = check_delivery_contract()
+    checks["claim_matrix_vocabulary"] = check_claim_matrix_vocabulary()
     checks["critical_markdown_links"] = check_markdown_links()
 
     critical_text = "\n".join((ROOT / rel).read_text(encoding="utf-8") for rel in ["AGENTS.md", "PROJECT_GOAL.md", "PROJECT_STATE.md", "NEXT_ACTIONS.md"])
@@ -140,7 +184,12 @@ def run_audit(write_output: bool = True) -> dict:
     checks["claim_vocabulary"] = {"status": "pass" if all_present and not obsolete else "fail", "obsolete": obsolete, "all_four_present": all_present}
 
     template = (ROOT / "docs/templates/codex_final_report.md").read_text(encoding="utf-8")
-    template_fields = ["task_name", "base_sha", "final_sha", "branch", "tests", "reproduction_commands", "frozen_gt_modified", "evidence_type", "claim_status", "supported_claims", "forbidden_claims"]
+    template_fields = [
+        "task_name", "base_sha", "final_sha", "branch", "tests", "reproduction_commands",
+        "frozen_gt_modified", "evidence_type", "claim_status", "supported_claims",
+        "forbidden_claims", "goal_distance_change", "claim_changes", "new_blockers",
+        "next_single_priority", "disposition",
+    ]
     missing_fields = [field for field in template_fields if re.search(rf"^{re.escape(field)}:", template, re.MULTILINE) is None]
     checks["final_report_template"] = {"status": "pass" if not missing_fields else "fail", "missing_fields": missing_fields}
 

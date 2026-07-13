@@ -28,3 +28,10 @@ def test_handoff_snapshot_and_agents_hierarchy() -> None:
     assert summary["checks"]["single_current_snapshot"]["status"] == "pass"
     assert summary["checks"]["agents_chain_size"]["status"] == "pass"
     assert summary["checks"]["no_authoritative_memorys_directory"]["status"] == "pass"
+
+
+def test_delivery_contract_and_claim_matrices_are_consistent() -> None:
+    summary = MODULE.run_audit(write_output=False)
+    assert summary["checks"]["delivery_contract"]["status"] == "pass"
+    assert summary["checks"]["claim_matrix_vocabulary"]["status"] == "pass"
+    assert summary["checks"]["final_report_template"]["status"] == "pass"
