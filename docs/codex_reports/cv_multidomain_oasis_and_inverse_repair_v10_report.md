@@ -4,9 +4,9 @@ Branch: `main`
 
 Base commit: `8a4f07ed7c506ccaad2d00b0f10225e0f157553e`
 
-Implementation commit: `this squashed commit; see git log for final hash`
+Implementation anchor commit: `d23a576b2d8bb17a1d1f72a0cf81cc457d42e048`
 
-Publish status: squashed v10 implementation commit is ready for remote push; remote push status is reported in the final Codex response.
+Publish status: v10 implementation was pushed to `main` at `d23a576b2d8bb17a1d1f72a0cf81cc457d42e048`; later handoff/status cleanup commits may follow it in git history.
 
 All results are synthetic numerical digital-twin benchmark evidence, not experimental data. Frozen Ground Truth v1.1 was not modified.
 

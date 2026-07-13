@@ -18,8 +18,8 @@ The current phase actualizes control-volume physics and valid noisy-target inver
 ## Evidence Added Or Corrected
 
 - P0 phase-activated multilayer forward now uses SnSe as a low-`k`, high-`sigma` barrier prior, material-family-specific VO2/NbO2/generic kernels, independent per-interface `Rc/Rth`, coupled y-z lateral conduction, and activation gates.
-- Official P0 activation rates: VO2 `0.8888888888888888`, NbO2 `0.8888888888888888`; P0 activation gate `True`.
-- P0 median response: max delta T `15.140535460408756`, delta m `0.7834880687603829`, conductance ratio `2.561625048607053`; manufactured/refinement checks pass `True` / `True`.
+- Official P0 activation rates: VO2 normalized `1.0`, VO2 literature anchored `1.0`, NbO2 PF/electrothermal `0.6666666666666666`; P0 activation gate `True`.
+- P0 v10 topology checks: electrical/thermal domains are separated, substrate sigma bypass is removed, autonomous RC ODE is used, and the NbO2 phase-fraction shortcut is disabled on the primary path.
 - P1 control-volume multidomain training now uses actual CV residuals, one-sided interface losses, and monolithic/ordered/CV/hard-BC/mortar variants. The strict full-mortar gate fails: median `E_T=0.37563055753707886`, median `E_m=0.06811526417732239`, interface residual `106.15460205078125`, success rate `0.0`.
 - P2 active terminal inverse v3 re-inverts noisy targets and routes VO2/NbO2 through material-specific parameter blocks. It remains `failed_but_informative`: selected protocols are rank deficient for full family vectors, thermal blocks fail, and interval coverage is below gate.
 - P3 segmented-electrode y-z forward is implemented and passes the uniform-series/current-balance implementation gate, but it is only forward/observability support. It does not establish 2D hidden-field recovery.

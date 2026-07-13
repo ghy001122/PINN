@@ -1,3 +1,19 @@
+## Control-volume multidomain OASIS and inverse repair v10
+
+Scope:
+
+- Correct v9 evidence semantics by separating electrical and thermal topology, removing the substrate-conductance bypass, adding actual control-volume residuals, repairing noisy-target re-inversion, and adding segmented-electrode y-z forward checks.
+- Keep all evidence synthetic numerical digital-twin benchmark evidence; frozen Ground Truth v1.1 remains unchanged.
+
+Changed:
+
+- Added v10 physical-semantics, CV training, active-protocol inverse, segmented-forward, generalization, and algorithm-gate scripts/tests/evidence tables.
+- Added `docs/codex_reports/cv_multidomain_oasis_and_inverse_repair_v10_report.md` and the v10 lightweight JSON/CSV tables listed in `DATASET_REGISTRY.md`.
+- Added `docs/research_strategy/codex_new_dialog_handoff_d23a576.md` as the new-dialog handoff anchored to `d23a576b2d8bb17a1d1f72a0cf81cc457d42e048`.
+
+Result:
+
+P0 physical semantics are `qualified_supported`; P1 CV/mortar training is `failed_but_informative`; P2 repaired noisy inverse is `failed_but_informative`; P3 segmented-electrode y-z forward is `qualified_supported` for forward/observability only; P4 remains `not_run_blocked`. The constrained `gamma_sub` line remains the SCI core claim, and OASIS v10 is supplementary implementation/negative-result evidence.
 
 
 ## Phase-activated multidomain OASIS-PINN v9
