@@ -1,0 +1,280 @@
+{
+  "benchmark": "active_protocol_design_v3",
+  "families": {
+    "nbo2": {
+      "candidate_count": 6,
+      "candidates": [
+        {
+          "activated": true,
+          "condition_number": 15879114.429421896,
+          "e_optimal": 3.59722670853181e-08,
+          "energy_proxy": 7.63053790169995e-12,
+          "logdet": -70.1723705124945,
+          "max_delta_T": 32.164717084360916,
+          "protocol": {
+            "C_circuit_F": 1.45e-10,
+            "R_load_ohm": 40000.0,
+            "V_peak": 1.8,
+            "name": "triangle_V1.8_f0.55",
+            "pulse": "activation_triangle",
+            "pulse_active_fraction": 0.55
+          },
+          "rank": 2,
+          "safe": true
+        },
+        {
+          "activated": true,
+          "condition_number": 7097376.693894314,
+          "e_optimal": 6.375025397363203e-08,
+          "energy_proxy": 1.1104550439658215e-11,
+          "logdet": -70.49945444657028,
+          "max_delta_T": 39.85981776459829,
+          "protocol": {
+            "C_circuit_F": 1.45e-10,
+            "R_load_ohm": 40000.0,
+            "V_peak": 1.8,
+            "name": "triangle_V1.8_f0.75",
+            "pulse": "activation_triangle",
+            "pulse_active_fraction": 0.75
+          },
+          "rank": 2,
+          "safe": true
+        },
+        {
+          "activated": true,
+          "condition_number": 10069788.691627081,
+          "e_optimal": 5.2343631409919597e-08,
+          "energy_proxy": 1.1221687082379099e-11,
+          "logdet": -70.26410414227003,
+          "max_delta_T": 47.73707446311414,
+          "protocol": {
+            "C_circuit_F": 1.45e-10,
+            "R_load_ohm": 40000.0,
+            "V_peak": 2.1,
+            "name": "triangle_V2.1_f0.55",
+            "pulse": "activation_triangle",
+            "pulse_active_fraction": 0.55
+          },
+          "rank": 2,
+          "safe": true
+        },
+        {
+          "activated": true,
+          "condition_number": 5481575.752264843,
+          "e_optimal": 7.666682731870494e-08,
+          "energy_proxy": 1.6316411366228362e-11,
+          "logdet": -70.29576625900124,
+          "max_delta_T": 59.09742865621746,
+          "protocol": {
+            "C_circuit_F": 1.45e-10,
+            "R_load_ohm": 40000.0,
+            "V_peak": 2.1,
+            "name": "triangle_V2.1_f0.75",
+            "pulse": "activation_triangle",
+            "pulse_active_fraction": 0.75
+          },
+          "rank": 3,
+          "safe": true
+        },
+        {
+          "activated": false,
+          "condition_number": 857346.9850037218,
+          "e_optimal": 4.2352295856788435e-07,
+          "energy_proxy": 2.143567247532951e-11,
+          "logdet": -70.85658125021001,
+          "max_delta_T": 86.21924760596767,
+          "protocol": {
+            "C_circuit_F": 1.45e-10,
+            "R_load_ohm": 40000.0,
+            "V_neg": -0.9450000000000001,
+            "V_pos": 2.1,
+            "name": "minor_loop",
+            "pulse": "minor_loop"
+          },
+          "rank": 3,
+          "safe": true
+        },
+        {
+          "activated": true,
+          "condition_number": 2880005.184939944,
+          "e_optimal": 4.728506441869042e-07,
+          "energy_proxy": 2.083931680048261e-10,
+          "logdet": -65.91919090655013,
+          "max_delta_T": 457.02580078115375,
+          "protocol": {
+            "C_circuit_F": 1.45e-10,
+            "R_load_ohm": 12000.0,
+            "V_bias": 2.1,
+            "name": "autonomous_rc",
+            "pulse": "rc_oscillator"
+          },
+          "rank": 3,
+          "safe": false
+        }
+      ],
+      "design_gate_passed": false,
+      "family": "nbo2",
+      "searches_protocol_parameters": true,
+      "selected": {
+        "activated": true,
+        "condition_number": 15879114.429421896,
+        "e_optimal": 3.59722670853181e-08,
+        "energy_proxy": 7.63053790169995e-12,
+        "logdet": -70.1723705124945,
+        "max_delta_T": 32.164717084360916,
+        "protocol": {
+          "C_circuit_F": 1.45e-10,
+          "R_load_ohm": 40000.0,
+          "V_peak": 1.8,
+          "name": "triangle_V1.8_f0.55",
+          "pulse": "activation_triangle",
+          "pulse_active_fraction": 0.55
+        },
+        "rank": 2,
+        "safe": true
+      },
+      "selected_full_rank": false
+    },
+    "vo2": {
+      "candidate_count": 6,
+      "candidates": [
+        {
+          "activated": true,
+          "condition_number": 172385.3007521795,
+          "e_optimal": 9.973287412504206e-11,
+          "energy_proxy": 3.8689402751417653e-10,
+          "logdet": -113.75396523809722,
+          "max_delta_T": 9.155840400486511,
+          "protocol": {
+            "C_circuit_F": 1.45e-10,
+            "R_load_ohm": 8000.0,
+            "V_peak": 10.0,
+            "name": "triangle_V10_f0.55",
+            "pulse": "activation_triangle",
+            "pulse_active_fraction": 0.55
+          },
+          "rank": 1,
+          "safe": true
+        },
+        {
+          "activated": true,
+          "condition_number": 502232.31141960365,
+          "e_optimal": 2.6370878604213013e-11,
+          "energy_proxy": 5.489337739415023e-10,
+          "logdet": -114.11607762505676,
+          "max_delta_T": 10.356980087364661,
+          "protocol": {
+            "C_circuit_F": 1.45e-10,
+            "R_load_ohm": 8000.0,
+            "V_peak": 10.0,
+            "name": "triangle_V10_f0.75",
+            "pulse": "activation_triangle",
+            "pulse_active_fraction": 0.75
+          },
+          "rank": 1,
+          "safe": true
+        },
+        {
+          "activated": true,
+          "condition_number": 1117421.580457191,
+          "e_optimal": 2.0656229491513063e-11,
+          "energy_proxy": 5.566468041408209e-10,
+          "logdet": -113.28423818147378,
+          "max_delta_T": 12.246533696811696,
+          "protocol": {
+            "C_circuit_F": 1.45e-10,
+            "R_load_ohm": 8000.0,
+            "V_peak": 12.0,
+            "name": "triangle_V12_f0.55",
+            "pulse": "activation_triangle",
+            "pulse_active_fraction": 0.55
+          },
+          "rank": 1,
+          "safe": true
+        },
+        {
+          "activated": true,
+          "condition_number": 294825.4046657927,
+          "e_optimal": 4.7970329677839376e-11,
+          "energy_proxy": 7.898471618179739e-10,
+          "logdet": -114.03046378249103,
+          "max_delta_T": 13.793450122113654,
+          "protocol": {
+            "C_circuit_F": 1.45e-10,
+            "R_load_ohm": 8000.0,
+            "V_peak": 12.0,
+            "name": "triangle_V12_f0.75",
+            "pulse": "activation_triangle",
+            "pulse_active_fraction": 0.75
+          },
+          "rank": 1,
+          "safe": true
+        },
+        {
+          "activated": true,
+          "condition_number": 649639.2793362818,
+          "e_optimal": 3.4179094135490775e-11,
+          "energy_proxy": 9.366321337591253e-10,
+          "logdet": -113.34919430307968,
+          "max_delta_T": 32.21664150315837,
+          "protocol": {
+            "C_circuit_F": 1.45e-10,
+            "R_load_ohm": 8000.0,
+            "V_neg": -5.4,
+            "V_pos": 12.0,
+            "name": "minor_loop",
+            "pulse": "minor_loop"
+          },
+          "rank": 1,
+          "safe": true
+        },
+        {
+          "activated": true,
+          "condition_number": 224434327.70881882,
+          "e_optimal": 3.1965137326256956e-11,
+          "energy_proxy": 1.479206929890859e-09,
+          "logdet": -101.9779644605937,
+          "max_delta_T": 15.585393958621125,
+          "protocol": {
+            "C_circuit_F": 1.45e-10,
+            "R_load_ohm": 12000.0,
+            "V_bias": 12.0,
+            "name": "autonomous_rc",
+            "pulse": "rc_oscillator"
+          },
+          "rank": 1,
+          "safe": true
+        }
+      ],
+      "design_gate_passed": false,
+      "family": "vo2",
+      "searches_protocol_parameters": true,
+      "selected": {
+        "activated": true,
+        "condition_number": 224434327.70881882,
+        "e_optimal": 3.1965137326256956e-11,
+        "energy_proxy": 1.479206929890859e-09,
+        "logdet": -101.9779644605937,
+        "max_delta_T": 15.585393958621125,
+        "protocol": {
+          "C_circuit_F": 1.45e-10,
+          "R_load_ohm": 12000.0,
+          "V_bias": 12.0,
+          "name": "autonomous_rc",
+          "pulse": "rc_oscillator"
+        },
+        "rank": 1,
+        "safe": true
+      },
+      "selected_full_rank": false
+    }
+  },
+  "optimization": "finite candidate D/E-optimal search under Tmax and energy reporting; not continuous global optimum",
+  "outputs": {
+    "summary_json": "outputs/tables/active_protocol_design_v3_summary.json"
+  },
+  "synthetic_not_experimental": true,
+  "uses_actual_rc_ode": true,
+  "uses_cooling_tail": true,
+  "uses_full_terminal_traces": true
+}

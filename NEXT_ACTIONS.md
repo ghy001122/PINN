@@ -1,5 +1,16 @@
 
 
+## Immediate Next After Control-Volume Multidomain OASIS v10
+
+Do not open STL/Fourier/F-SPS experiments yet. The next bounded task should repair P1 optimization and interface scaling on the existing v10 physics, with fixed forward data and predeclared gates.
+
+1. Non-dimensionalize CV and mortar residuals with per-equation characteristic scales; the current interface residual dominates at `O(10^2)`.
+2. Replace the cell-center hard-BC approximation with boundary-face evaluations and staged optimization: anchors/port pretrain, CV continuation, then interface mortar.
+3. Re-run three seeds and require `E_T,E_m<=0.25`, interface residual `<=0.05`, success rate `>=0.70` before P4.
+4. For P2, redesign protocols separately by material family and reject rank-deficient selected candidates before inversion. Improve thermal-block excitation rather than widening the inverse parameter set.
+5. Keep P3 at forward/observability level until an actual PDE-constrained field inverse is implemented.
+6. Treat cross-material transfer as exploratory only; prioritize within-family leave-one-stack/pulse/interface generalization.
+
 ## Immediate Next After Phase-Activated Multidomain OASIS-PINN v9
 
 Use v9 as supplementary OASIS-PINN method-development evidence. The next high-value research tasks are narrowly scoped:

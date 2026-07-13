@@ -1,0 +1,12 @@
+{
+  "Fourier_FSPS_true_pareto_status": "not_run_blocked",
+  "P1_gate_passed": false,
+  "benchmark": "oasis_algorithm_gate_v10",
+  "blocked_reason": "P1 strict field/interface/success-rate gate failed",
+  "canonical_seiler_STL_status": "not_run_blocked",
+  "front_aligned_adapter_LoRA_status": "not_run_blocked",
+  "outputs": {
+    "summary_json": "outputs/tables/oasis_algorithm_gate_v10_summary.json"
+  },
+  "positive_algorithm_claim_allowed": false
+}

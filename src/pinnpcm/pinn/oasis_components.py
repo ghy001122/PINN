@@ -327,3 +327,121 @@ class InterfaceMortarLoss(nn.Module):
             "tbr_mortar_loss": normalized_mse(tbr_terms, T_scale),
             "heat_flux_mortar_loss": normalized_mse(flux_terms, q_scale),
         }
+
+
+def one_sided_interface_mortar(
+    phi_left: torch.Tensor,
+    phi_right: torch.Tensor,
+    T_left: torch.Tensor,
+    T_right: torch.Tensor,
+    dphi_dn_left: torch.Tensor,
+    dphi_dn_right: torch.Tensor,
+    dT_dn_left: torch.Tensor,
+    dT_dn_right: torch.Tensor,
+    sigma_left: torch.Tensor,
+    sigma_right: torch.Tensor,
+    k_left: torch.Tensor,
+    k_right: torch.Tensor,
+    Rc_ohm_m2: torch.Tensor,
+    Rth_m2K_W: torch.Tensor,
+) -> dict[str, torch.Tensor]:
+    """Independent one-sided interface laws for adjacent domain experts."""
+    J_left = -sigma_left * dphi_dn_left
+    J_right = -sigma_right * dphi_dn_right
+    q_left = -k_left * dT_dn_left
+    q_right = -k_right * dT_dn_right
+    J_scale = torch.clamp(0.5 * (J_left.detach().abs() + J_right.detach().abs()), min=1.0)
+    q_scale = torch.clamp(0.5 * (q_left.detach().abs() + q_right.detach().abs()), min=1.0)
+    phi_scale = torch.clamp(torch.maximum(phi_left.detach().abs(), phi_right.detach().abs()), min=1.0e-3)
+    T_scale = torch.clamp(torch.maximum(T_left.detach().abs(), T_right.detach().abs()), min=1.0)
+    return {
+        "current_continuity": torch.mean(((J_left + J_right) / J_scale).square()),
+        "contact_potential": torch.mean(((phi_left - phi_right - Rc_ohm_m2 * J_left) / phi_scale).square()),
+        "heat_flux_continuity": torch.mean(((q_left + q_right) / q_scale).square()),
+        "thermal_boundary_resistance": torch.mean(((T_left - T_right - Rth_m2K_W * q_left) / T_scale).square()),
+    }
+
+
+def control_volume_residuals(
+    phi: torch.Tensor,
+    T: torch.Tensor,
+    m: torch.Tensor,
+    sigma: torch.Tensor,
+    voltage_device: torch.Tensor,
+    current_target: torch.Tensor,
+    *,
+    dt_s: float,
+    dy_m: float,
+    dz_m: torch.Tensor,
+    k_w_mk: torch.Tensor,
+    rho_c_j_m3k: torch.Tensor,
+    Rc_ohm_m2: torch.Tensor,
+    Rth_m2K_W: torch.Tensor,
+    electrical_layers: int,
+    area_m2: float,
+    T0_K: float,
+    h_top_w_m2k: float,
+    h_sub_w_m2k: float,
+    tau_m_s: float,
+    Tc_up_K: float,
+    Tc_down_K: float,
+    transition_width_K: float,
+) -> dict[str, torch.Tensor]:
+    """Cell-centered electric, thermal, state, and port CV residuals.
+
+    Inputs have shape ``[time, layer, lateral]``. Interface conductances use
+    half-cell distances plus explicit electrical/thermal boundary resistance.
+    """
+    eps = torch.as_tensor(1.0e-20, dtype=T.dtype, device=T.device)
+    dz = dz_m.to(T.device, T.dtype)
+    k = k_w_mk.to(T.device, T.dtype)
+    rho_c = rho_c_j_m3k.to(T.device, T.dtype)
+    Rc = Rc_ohm_m2.to(T.device, T.dtype)
+    Rth = Rth_m2K_W.to(T.device, T.dtype)
+    nt, nl, ny = T.shape
+    ne = min(int(electrical_layers), nl)
+
+    J_faces = torch.zeros((nt, ne + 1, ny), dtype=T.dtype, device=T.device)
+    J_faces[:, 0] = (voltage_device[:, None] - phi[:, 0]) / torch.clamp(0.5 * dz[0] / sigma[:, 0], min=eps)
+    for i in range(ne - 1):
+        ra = 0.5 * dz[i] / sigma[:, i] + Rc[i] + 0.5 * dz[i + 1] / sigma[:, i + 1]
+        J_faces[:, i + 1] = (phi[:, i] - phi[:, i + 1]) / torch.clamp(ra, min=eps)
+    J_faces[:, ne] = phi[:, ne - 1] / torch.clamp(0.5 * dz[ne - 1] / sigma[:, ne - 1], min=eps)
+    electric_scale = torch.clamp(J_faces.detach().abs().amax(), min=1.0)
+    electric = torch.mean(((J_faces[:, :-1] - J_faces[:, 1:]) / electric_scale).square())
+
+    E = torch.zeros_like(sigma)
+    E[:, :ne] = 0.5 * (J_faces[:, :-1] + J_faces[:, 1:]) / torch.clamp(sigma[:, :ne], min=eps)
+    Q = sigma * E.square()
+    q_faces = torch.zeros((nt, nl + 1, ny), dtype=T.dtype, device=T.device)
+    q_faces[:, 0] = h_top_w_m2k * (T0_K - T[:, 0])
+    for i in range(nl - 1):
+        ra = 0.5 * dz[i] / k[i] + Rth[i] + 0.5 * dz[i + 1] / k[i + 1]
+        q_faces[:, i + 1] = (T[:, i] - T[:, i + 1]) / torch.clamp(ra, min=eps)
+    q_faces[:, nl] = h_sub_w_m2k * (T[:, nl - 1] - T0_K)
+    lateral = torch.zeros_like(T)
+    if ny > 1:
+        left = torch.cat([T[:, :, :1], T[:, :, :-1]], dim=2)
+        right = torch.cat([T[:, :, 1:], T[:, :, -1:]], dim=2)
+        lateral = k[None, :, None] * (left - 2.0 * T + right) / max(float(dy_m) ** 2, 1.0e-30)
+    storage = rho_c[None, :, None] * dz[None, :, None] * (T[1:] - T[:-1]) / max(float(dt_s), 1.0e-30)
+    net_heat = q_faces[:-1, :-1] - q_faces[:-1, 1:] + (Q[:-1] + lateral[:-1]) * dz[None, :, None]
+    thermal_scale = torch.clamp(torch.maximum(storage.detach().abs().amax(), net_heat.detach().abs().amax()), min=1.0)
+    thermal = torch.mean(((storage - net_heat) / thermal_scale).square())
+
+    pcm = 1 if nl > 1 else 0
+    dT = T[1:, pcm] - T[:-1, pcm]
+    threshold = torch.where(dT >= 0.0, torch.as_tensor(Tc_up_K, dtype=T.dtype, device=T.device), torch.as_tensor(Tc_down_K, dtype=T.dtype, device=T.device))
+    target_m = torch.sigmoid((T[1:, pcm] - threshold) / max(float(transition_width_K), 1.0e-6))
+    state = torch.mean((((m[1:, pcm] - m[:-1, pcm]) / max(float(dt_s), 1.0e-30) - (target_m - m[1:, pcm]) / max(float(tau_m_s), 1.0e-30)) * float(dt_s)).square())
+
+    predicted_current = torch.mean(J_faces[:, 0], dim=1) * float(area_m2)
+    port_scale = torch.clamp(current_target.detach().abs().amax(), min=1.0e-12)
+    port = torch.mean(((predicted_current - current_target) / port_scale).square())
+    return {
+        "electric_cv_loss": electric,
+        "thermal_cv_loss": thermal,
+        "state_cv_loss": state,
+        "port_circuit_loss": port,
+        "predicted_current": predicted_current,
+    }

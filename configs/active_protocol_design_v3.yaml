@@ -1,0 +1,16 @@
+scope: synthetic_numerical_digital_twin
+families:
+  nbo2:
+    blocks: [[Rc_scale, Ea_scale], [Rth_eff_scale, tau_th_scale]]
+    mechanism: field-dependent Poole-Frenkel plus electrothermal feedback
+  vo2:
+    blocks: [[Rth_eff_scale, tau_th_scale], [Tc_up_K, Tc_down_K, width_K]]
+    mechanism: branch-memory hysteretic thermal transition
+protocol_search: [Vpeak, pulse_active_fraction, wait, Rload, C]
+noise_levels: [0.0, 0.02, 0.05]
+noise_seeds: 10
+gate:
+  block_median_error_max: 0.20
+  block_success_rate_min: 0.70
+  interval_coverage_90_min: 0.80
+claim_boundary: local simulator-backed inverse; not full-field or experimental validation

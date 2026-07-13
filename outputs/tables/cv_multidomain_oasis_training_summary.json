@@ -1,0 +1,29 @@
+{
+  "P1_gate_passed": false,
+  "benchmark": "cv_multidomain_oasis_v10",
+  "epochs": 300,
+  "median_E_T_full": 0.37563055753707886,
+  "median_E_m_full": 0.06811526417732239,
+  "median_interface_residual_full": 106.15460205078125,
+  "outputs": {
+    "cases_csv": "outputs/tables/cv_multidomain_oasis_cases.csv",
+    "summary_json": "outputs/tables/cv_multidomain_oasis_training_summary.json"
+  },
+  "seeds": [
+    2026,
+    2027,
+    2028
+  ],
+  "success_definition": "E_T<=0.25 and E_m<=0.25 and interface_residual<=0.05; loss decrease alone is insufficient",
+  "success_rate_full": 0.0,
+  "synthetic_not_experimental": true,
+  "uses_actual_cv_residuals": true,
+  "uses_target_non_pcm_sigma": false,
+  "variants": [
+    "monolithic",
+    "ordered_surrogate",
+    "cv_multidomain",
+    "cv_hard_bc",
+    "cv_interface_mortar"
+  ]
+}

@@ -2,6 +2,17 @@
 
 All entries are synthetic numerical digital-twin benchmark evidence, not experimental data.
 
+## Control-Volume Multidomain OASIS v10
+
+| Claim | Status | Evidence | Allowed wording | Forbidden wording |
+| --- | --- | --- | --- | --- |
+| Electrical/thermal topology and mechanism routing are implemented | qualified_supported | `physical_semantics_v10_summary.json` | A reduced synthetic multilayer model separates electronic and thermal domains and routes VO2/NbO2 mechanisms explicitly. | Device-grade or experimentally calibrated model. |
+| CV multidomain OASIS solves the activated fields | failed_but_informative | `cv_multidomain_oasis_training_summary.json` | Strict CV/interface training exposes unresolved thermal and interface optimization. | P1 passed or OASIS field solver validated. |
+| Active terminal inverse is noise robust | failed_but_informative | `sequential_terminal_inverse_v3_summary.json` | Re-inverting noisy targets identifies block-specific failures. | Robust terminal inverse solved. |
+| Segmented-electrode y-z forward is implemented | qualified_supported | `multiterminal_yz_forward_summary.json` | The finite-volume forward solver passes current balance and uniform-limit regression and increases local observability rank. | Full 2D hidden-field recovery. |
+| STL/Fourier/F-SPS on v10 | forbidden | `oasis_algorithm_gate_v10_summary.json` | Experiments remain blocked by the failed P1 gate. | Algorithm superiority or full STL reproduction. |
+| OASIS generalizes across stacks/materials | failed_but_informative | `oasis_generalization_v10_summary.json` | Leave-one-factor preflight exposes severe stack, pulse, interface, and cross-family gaps. | Cross-material generalization. |
+
 | Claim | Status | Supporting table | Supporting figure | Allowed manuscript sentence | Forbidden overclaim | Required qualification |
 | --- | --- | --- | --- | --- | --- | --- |
 | 2D reduced forward supported? | supported | outputs/tables/reduced_2d_phase_transition_forward_summary.json | outputs/figures/reduced_2d_forward_snapshots.png; outputs/figures/reduced_2d_port_traces.png | A reduced 2D synthetic phase-transition forward benchmark is finite and geometry-sensitive. | This is full 2D FEM or experimental validation. | Reduced thin-film model only; supplementary evidence. |

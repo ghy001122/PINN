@@ -1,0 +1,51 @@
+{
+  "P0_gate_passed": true,
+  "activation_rate_by_profile": {
+    "nbo2:pf_electrothermal": 0.6666666666666666,
+    "vo2:literature_anchored": 1.0,
+    "vo2:normalized_activated": 1.0
+  },
+  "autonomous_rc_ode_used": true,
+  "benchmark": "physical_semantics_v10",
+  "electrical_thermal_domains_separated": true,
+  "literature_shape_plausibility": {
+    "barrier_k_sigma_range_checked": true,
+    "barrier_position_presence_checked": true,
+    "barrier_thickness_trend_checked": true,
+    "quantitative_experimental_validation": false,
+    "status": "shape_prior_check_only",
+    "threshold_holding_branches_checked": true
+  },
+  "nbo2_phase_fraction_primary": false,
+  "nbo2_primary_path": "field-dependent Poole-Frenkel plus electrothermal feedback",
+  "outputs": {
+    "cases_csv": "outputs/tables/physical_semantics_v10_cases.csv",
+    "summary_json": "outputs/tables/physical_semantics_v10_summary.json"
+  },
+  "snse_conductance_ratio_range": [
+    32.81854774631877,
+    32.86993143128772
+  ],
+  "snse_range_sensitivity_finite_rate": 1.0,
+  "substrate_sigma_bypass_removed": true,
+  "synthetic_not_experimental": true,
+  "threshold_zero_cannot_pass": true,
+  "vo2_profiles": {
+    "literature_anchored": {
+      "ambient_K": 325.0,
+      "claim_boundary": "literature-shape prior, not repository experimental validation",
+      "provenance": "Qiu et al. thermal-neuristor model: Tc=332.8 K and w=7.19 K; split thresholds are a symmetric reduced hysteresis mapping",
+      "vo2_Tc_down_K": 329.2,
+      "vo2_Tc_up_K": 336.4,
+      "vo2_width_K": 7.19
+    },
+    "normalized_activated": {
+      "ambient_K": 300.0,
+      "claim_boundary": "not a quantitatively calibrated VO2 device",
+      "provenance": "normalized synthetic stiffness benchmark",
+      "vo2_Tc_down_K": 304.0,
+      "vo2_Tc_up_K": 308.0,
+      "vo2_width_K": 1.2
+    }
+  }
+}

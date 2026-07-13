@@ -1,0 +1,17 @@
+scope: synthetic_numerical_digital_twin
+epochs: 300
+seeds: [2026, 2027, 2028]
+variants: [monolithic, ordered_surrogate, cv_multidomain, cv_hard_bc, cv_interface_mortar]
+physics:
+  electrical_domain: [TE, PCM, SnSe_barrier, BE]
+  thermal_domain: [TE, PCM, SnSe_barrier, BE, substrate]
+  T0_K: 300.0
+  h_top_W_m2K: 5.0e4
+  h_sub_W_m2K: 2.0e5
+  tau_m_s: 4.0e-7
+gate:
+  median_E_T_max: 0.25
+  median_E_m_max: 0.25
+  interface_residual_max: 0.05
+  success_rate_min: 0.70
+claim_boundary: loss decrease alone is not success; synthetic benchmark only

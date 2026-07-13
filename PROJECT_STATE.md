@@ -1,5 +1,18 @@
 
 
+## Control-Volume Multidomain OASIS And Inverse Repair v10
+
+All v10 results are synthetic numerical digital-twin benchmark evidence. Frozen Ground Truth v1.1 is unchanged.
+
+- Physical semantics gate: passed. Electrical and thermal domains are separated; substrate electrical bypass is removed; VO2 profiles are not mixed; NbO2 primary conduction is field-dependent Poole-Frenkel plus electrothermal feedback; RC excitation integrates the circuit ODE.
+- P1 strict training gate: failed (`E_T=0.37563055753707886`, `E_m=0.06811526417732239`, interface residual `106.15460205078125`, success rate `0.0`). This supersedes the v9 loss-decrease smoke interpretation.
+- P2 noisy inverse: `failed_but_informative`. NbO2 `Rc/Ea` is the only stable block; thermal and coverage gates fail. VO2 thermal success rate is below `0.70`.
+- P3 multi-terminal forward: uniform-limit and current-balance checks pass; segmented terminals raise the local synthetic observability rank from `1` to `3`. This is forward/observability evidence, not 2D field recovery.
+- P4 algorithms: blocked by the failed P1 gate.
+- OOD: geometry interpolation preflight is moderate, while stack, interface, pulse, and cross-material transfer fail or remain weak. Cross-material errors confirm that shared framework plus material-specific kernels is required.
+
+Claim impact: OASIS v10 now has a more defensible physical and numerical scaffold, but no new main-paper inverse or neural-algorithm claim. The constrained `gamma_sub` line remains the SCI core; v10 is supplementary negative/implementation evidence.
+
 ## Phase-Activated Multidomain OASIS-PINN v9
 
 All results in this section are synthetic numerical digital-twin benchmark evidence, not experimental data. Frozen Ground Truth v1.1 remains unchanged.

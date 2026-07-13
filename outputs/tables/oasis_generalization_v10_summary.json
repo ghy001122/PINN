@@ -1,0 +1,108 @@
+{
+  "P1_dependency": "full neural generalization remains blocked because P1 gate failed",
+  "benchmark": "oasis_generalization_v10",
+  "claim_boundary": "reduced forward-response ridge preflight; not OASIS neural-operator generalization evidence",
+  "finite_rate": 1.0,
+  "formal_splits": {
+    "family": "cross-material exploratory transfer",
+    "geometry": "leave-one-geometry-out",
+    "interface_scale": "leave-one-interface-BC-range-out",
+    "pulse": "leave-one-pulse-family-out",
+    "structure": "leave-one-stack-configuration-out"
+  },
+  "outputs": {
+    "summary_json": "outputs/tables/oasis_generalization_v10_summary.json"
+  },
+  "results": {
+    "family": [
+      {
+        "coverage_90": 0.0,
+        "held_out": "nbo2",
+        "median_normalized_error": 59.158109276573015,
+        "n_test": 24,
+        "n_train": 24
+      },
+      {
+        "coverage_90": 0.0,
+        "held_out": "vo2",
+        "median_normalized_error": 439.5853231572888,
+        "n_test": 24,
+        "n_train": 24
+      }
+    ],
+    "geometry": [
+      {
+        "coverage_90": 0.9583333333333334,
+        "held_out": "edge_hotspot",
+        "median_normalized_error": 0.2995321833607776,
+        "n_test": 16,
+        "n_train": 32
+      },
+      {
+        "coverage_90": 1.0,
+        "held_out": "localized_filament",
+        "median_normalized_error": 0.25103589306827,
+        "n_test": 16,
+        "n_train": 32
+      },
+      {
+        "coverage_90": 0.9166666666666666,
+        "held_out": "uniform_crossbar",
+        "median_normalized_error": 0.312115849862299,
+        "n_test": 16,
+        "n_train": 32
+      }
+    ],
+    "interface_scale": [
+      {
+        "coverage_90": 0.4583333333333333,
+        "held_out": "0.75",
+        "median_normalized_error": 0.8946348245626539,
+        "n_test": 24,
+        "n_train": 24
+      },
+      {
+        "coverage_90": 0.4305555555555556,
+        "held_out": "1.25",
+        "median_normalized_error": 0.8362842780345199,
+        "n_test": 24,
+        "n_train": 24
+      }
+    ],
+    "pulse": [
+      {
+        "coverage_90": 0.0,
+        "held_out": "activation_triangle",
+        "median_normalized_error": 2.779405740365475,
+        "n_test": 24,
+        "n_train": 24
+      },
+      {
+        "coverage_90": 0.4722222222222222,
+        "held_out": "minor_loop",
+        "median_normalized_error": 0.6868410657503372,
+        "n_test": 24,
+        "n_train": 24
+      }
+    ],
+    "structure": [
+      {
+        "coverage_90": 0.6944444444444444,
+        "held_out": "full_stack_with_SnSe_barrier",
+        "median_normalized_error": 0.3716297598763645,
+        "n_test": 24,
+        "n_train": 24
+      },
+      {
+        "coverage_90": 0.08333333333333333,
+        "held_out": "pcm_plus_electrodes",
+        "median_normalized_error": 2.706073207835312,
+        "n_test": 24,
+        "n_train": 24
+      }
+    ]
+  },
+  "status": "preflight_only",
+  "synthetic_not_experimental": true,
+  "within_family_and_cross_family_reported_separately": true
+}

@@ -1,5 +1,16 @@
 
 
+## Control-volume multidomain OASIS v10 files
+
+- `src/pinnpcm/physics/multiterminal_yz.py`: segmented-electrode y-z finite-volume electrical forward solver.
+- `scripts/audit_physical_semantics_v10.py`: material/topology/activation prior audit.
+- `scripts/train_cv_multidomain_oasis_v10.py`: three-seed, 300-epoch strict CV training audit.
+- `scripts/audit_active_protocol_design_v3.py`: D/E candidate search and valid noisy-target inverse.
+- `scripts/audit_multiterminal_yz_forward_v10.py`: uniform-limit, current-balance, and observability audit.
+- `scripts/audit_oasis_generalization_v10.py`: formal leave-one-factor response preflight.
+- `scripts/audit_oasis_algorithms_v10.py`: conditional P4 gate.
+- `tests/test_*v10.py` and `tests/test_active_protocol_design_v3.py`: v10 coverage.
+
 ## Phase-activated multidomain OASIS-PINN v9 files
 
 - `scripts\audit_phase_activated_multilayer_forward.py`: P0 phase-activated forward audit.

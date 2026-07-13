@@ -1,5 +1,19 @@
 
 
+## Control-volume multidomain OASIS v10 evidence
+
+- `outputs/tables/physical_semantics_v10_summary.json`
+- `outputs/tables/physical_semantics_v10_cases.csv`
+- `outputs/tables/cv_multidomain_oasis_training_summary.json`
+- `outputs/tables/cv_multidomain_oasis_cases.csv`
+- `outputs/tables/active_protocol_design_v3_summary.json`
+- `outputs/tables/sequential_terminal_inverse_v3_summary.json`
+- `outputs/tables/multiterminal_yz_forward_summary.json`
+- `outputs/tables/oasis_generalization_v10_summary.json`
+- `outputs/tables/oasis_algorithm_gate_v10_summary.json`
+
+All are lightweight synthetic numerical evidence. They are not measured data.
+
 ## Phase-activated multidomain OASIS-PINN v9 evidence
 
 These lightweight JSON/CSV files are synthetic numerical digital-twin benchmark evidence, not experimental data:

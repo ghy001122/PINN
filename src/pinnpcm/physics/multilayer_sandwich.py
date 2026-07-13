@@ -393,6 +393,9 @@ def simulate_conservative_multilayer_case(
     profile = _geometry_profile(geometry, ny, rng)
     dz = np.maximum(np.asarray([layer.thickness_m for layer in layers], dtype=float), 1.0e-12)
     k = np.asarray([layer.k_w_mk for layer in layers], dtype=float)
+    for index, layer in enumerate(layers):
+        if layer.is_barrier:
+            k[index] = float(c.get("snse_k_w_mk", snse_literature_prior()["k_w_mk"]))
     rho_c = np.asarray([layer.rho_c_j_m3k for layer in layers], dtype=float)
     Rc, Rth = _interface_arrays(layers, structure, c)
     T = np.full((nl, ny), T0, dtype=float)
@@ -636,6 +639,79 @@ def snse_literature_prior() -> dict[str, Any]:
     }
 
 
+def electrical_layer_indices(layers: list[SandwichLayer]) -> list[int]:
+    """Return the vertical electronic path; the substrate is thermal-only."""
+    indices: list[int] = []
+    for index, layer in enumerate(layers):
+        if layer.name == "substrate":
+            break
+        indices.append(index)
+    return indices
+
+
+def vo2_benchmark_profile(name: str) -> dict[str, Any]:
+    """Separate normalized activation settings from literature-anchored VO2."""
+    profiles = {
+        "normalized_activated": {
+            "vo2_Tc_up_K": 308.0,
+            "vo2_Tc_down_K": 304.0,
+            "vo2_width_K": 1.2,
+            "ambient_K": 300.0,
+            "provenance": "normalized synthetic stiffness benchmark",
+            "claim_boundary": "not a quantitatively calibrated VO2 device",
+        },
+        "literature_anchored": {
+            "vo2_Tc_up_K": 336.4,
+            "vo2_Tc_down_K": 329.2,
+            "vo2_width_K": 7.19,
+            "ambient_K": 325.0,
+            "provenance": "Qiu et al. thermal-neuristor model: Tc=332.8 K and w=7.19 K; split thresholds are a symmetric reduced hysteresis mapping",
+            "claim_boundary": "literature-shape prior, not repository experimental validation",
+        },
+    }
+    if name not in profiles:
+        raise ValueError(f"Unknown VO2 benchmark profile: {name}")
+    return dict(profiles[name])
+
+
+def extract_switching_thresholds(
+    voltage: np.ndarray,
+    conductance: np.ndarray,
+    *,
+    branch_voltage: np.ndarray | None = None,
+    fraction: float = 0.55,
+    holding_fraction: float = 0.20,
+    margin_v: float = 1.0e-3,
+) -> dict[str, Any]:
+    """Extract threshold/holding voltages on distinct rising/falling branches."""
+    v = np.asarray(voltage, dtype=float)
+    g = np.abs(np.asarray(conductance, dtype=float))
+    if v.size < 4 or not np.isfinite(v).all() or not np.isfinite(g).all() or np.max(g) <= 0.0:
+        return {"Vth": 0.0, "Vhold": 0.0, "valid": False, "margin_v": float(margin_v)}
+    g_min = float(np.min(g))
+    g_span = float(np.max(g) - g_min)
+    if g_span <= max(abs(g_min), 1.0e-30) * 1.0e-8:
+        return {"Vth": 0.0, "Vhold": 0.0, "valid": False, "margin_v": float(margin_v)}
+    level = g_min + float(fraction) * g_span
+    holding_level = g_min + float(holding_fraction) * g_span
+    branch = v if branch_voltage is None else np.asarray(branch_voltage, dtype=float)
+    if branch.shape != v.shape:
+        raise ValueError("branch_voltage must match voltage")
+    dv = np.gradient(np.abs(branch))
+    rising = np.flatnonzero((dv > 0.0) & (g >= level))
+    falling = np.flatnonzero((dv < 0.0) & (g >= holding_level))
+    if rising.size == 0 or falling.size == 0:
+        return {"Vth": 0.0, "Vhold": 0.0, "valid": False, "margin_v": float(margin_v)}
+    Vth = float(abs(v[rising[0]]))
+    Vhold = float(abs(v[falling[-1]]))
+    return {
+        "Vth": Vth,
+        "Vhold": Vhold,
+        "valid": bool(Vth - Vhold > float(margin_v)),
+        "margin_v": float(margin_v),
+    }
+
+
 def phase_interface_map(layers: list[SandwichLayer], cfg: dict[str, Any] | None = None) -> dict[str, Any]:
     """Independent per-interface electrical and thermal contact map."""
     c = dict(cfg or {})
@@ -687,7 +763,9 @@ def phase_pcm_sigma(material_family: str, T: np.ndarray, m: np.ndarray, E: np.nd
         Ea = float(c.get("nbo2_Ea_eV", 0.16)) * float(c.get("Ea_scale", 1.0))
         lowering_eV = np.sqrt(np.maximum(q**3 * E_abs / (np.pi * eps0 * epsr), 0.0)) / q
         exponent = np.clip(-(Ea - lowering_eV) / (kB_eV * T_safe), -80.0, 25.0)
-        sigma = J0 * np.exp(exponent) * (0.75 + 0.5 * m_safe)
+        sigma = J0 * np.exp(exponent)
+        if bool(c.get("nbo2_effective_fraction_ablation", False)):
+            sigma = sigma * (0.75 + 0.5 * m_safe)
         return np.clip(sigma * profile_safe, 1.0e-10, 1.0e8)
     if family == "vo2":
         sigma_ins = float(c.get("vo2_sigma_ins", 25.0))
@@ -713,9 +791,13 @@ def phase_state_target(material_family: str, T: np.ndarray, m: np.ndarray, cfg: 
         Tc = np.where(heating, Tc_up, Tc_down)
         return switch_fraction(T_arr, Tc, width)
     if family == "nbo2":
-        Tc = float(cfg.get("nbo2_Tc_K", 330.0))
-        width = max(float(cfg.get("nbo2_width_K", 3.0)), 1.0e-6)
-        return switch_fraction(T_arr, Tc, width)
+        # The primary NbO2 path is Poole-Frenkel plus electrothermal feedback.
+        # A phase-fraction state is retained only as an explicit legacy ablation.
+        if bool(cfg.get("nbo2_effective_fraction_ablation", False)):
+            Tc = float(cfg.get("nbo2_Tc_K", 330.0))
+            width = max(float(cfg.get("nbo2_width_K", 3.0)), 1.0e-6)
+            return switch_fraction(T_arr, Tc, width)
+        return m_arr
     # Generic reduced Allen-Cahn double-well bias.
     Tc = float(cfg.get("generic_Tc_K", 315.0))
     width = max(float(cfg.get("generic_width_K", 4.0)), 1.0e-6)
@@ -727,9 +809,12 @@ def phase_state_target(material_family: str, T: np.ndarray, m: np.ndarray, cfg: 
 def _phase_pulse_value(kind: str, step: int, nt: int, cfg: dict[str, Any]) -> float:
     if kind == "activation_triangle":
         peak = float(cfg.get("V_peak", 2.4))
-        if nt <= 1:
+        active_nt = max(2, min(nt, int(round(nt * float(cfg.get("pulse_active_fraction", 1.0))))))
+        if step >= active_nt:
+            return 0.0
+        if active_nt <= 1:
             return peak
-        half = max((nt - 1) / 2.0, 1.0)
+        half = max((active_nt - 1) / 2.0, 1.0)
         return peak * (1.0 - abs(step - half) / half)
     if kind == "minor_loop":
         if step < nt // 4:
@@ -740,8 +825,9 @@ def _phase_pulse_value(kind: str, step: int, nt: int, cfg: dict[str, Any]) -> fl
             return float(cfg.get("V_neg", -1.4))
         return float(cfg.get("V_hold", 0.35))
     if kind == "rc_oscillator":
-        base = float(cfg.get("V_bias", 2.1))
-        return base + 0.35 * np.sin(2.0 * np.pi * step / max(nt, 1))
+        # The simulator integrates the capacitor ODE. This is the DC source,
+        # not an externally imposed sinusoid.
+        return float(cfg.get("V_bias", 2.1))
     return _pulse_value("short_pulse", step, nt, {"V_short": float(cfg.get("V_peak", 2.0))})
 
 
@@ -755,13 +841,20 @@ def simulate_phase_activated_multilayer_case(
 ) -> dict[str, Any]:
     """Phase-activated conservative y-z finite-volume stack simulator."""
     c = dict(cfg or {})
+    family = str(material_family).lower()
+    vo2_profile_name = str(c.get("vo2_profile", "normalized_activated"))
+    if family == "vo2":
+        profile_cfg = vo2_benchmark_profile(vo2_profile_name)
+        for key, value in profile_cfg.items():
+            if key.startswith("vo2_") or key == "ambient_K":
+                c.setdefault(key, value)
     ny = int(c.get("ny", 14))
     nt = int(c.get("nt", 34))
     dt = float(c.get("dt", 8.0e-8))
     area = float(c.get("area_m2", 7.5e-13))
     width_m = float(c.get("width_m", 8.0e-7))
     R_load = float(c.get("R_load_ohm", 1.8e4))
-    T0 = float(c.get("T0_K", 300.0))
+    T0 = float(c.get("T0_K", c.get("ambient_K", 300.0)))
     h_sub = float(c.get("h_sub_W_m2K", 2.0e5))
     h_top = float(c.get("h_top_W_m2K", 5.0e4))
     tau_m = float(c.get("tau_m_s", 4.0e-7))
@@ -770,13 +863,17 @@ def simulate_phase_activated_multilayer_case(
     rng = np.random.default_rng(int(seed))
     profile = _geometry_profile(geometry, ny, rng)
     dz = np.asarray([layer.thickness_m for layer in layers], dtype=float)
+    for index, layer in enumerate(layers):
+        if layer.is_barrier:
+            dz[index] *= float(c.get("snse_thickness_scale", 1.0))
     k = np.asarray([layer.k_w_mk for layer in layers], dtype=float)
-    rho_c = np.asarray([layer.rho_c_j_m3k for layer in layers], dtype=float)
+    rho_c = np.asarray([layer.rho_c_j_m3k for layer in layers], dtype=float) * float(c.get("thermal_capacitance_scale", 1.0))
     imap = phase_interface_map(layers, c)
     Rc = imap["Rc_ohm_m2"]
     Rth = imap["Rth_m2K_W"]
     T = np.full((nl, ny), T0, dtype=float)
-    m = np.full(ny, float(c.get("m0", 0.02)), dtype=float)
+    default_m0 = 0.0 if family == "nbo2" and not bool(c.get("nbo2_effective_fraction_ablation", False)) else 0.02
+    m = np.full(ny, float(c.get("m0", default_m0)), dtype=float)
     E_pcm = np.full(ny, 1.0e6, dtype=float)
     dy = width_m / max(ny - 1, 1)
     cell_area = area / ny
@@ -788,6 +885,9 @@ def simulate_phase_activated_multilayer_case(
     G_hist: list[float] = []
     Vdev_hist: list[float] = []
     Vapp_hist: list[float] = []
+    phi_hist: list[np.ndarray] = []
+    J_hist: list[np.ndarray] = []
+    Q_hist: list[np.ndarray] = []
     joule_energy = 0.0
     boundary_loss = 0.0
     storage_energy = 0.0
@@ -796,6 +896,9 @@ def simulate_phase_activated_multilayer_case(
     J_last = np.zeros((nl, ny), dtype=float)
     Q_last = np.zeros((nl, ny), dtype=float)
     pcm_idx = next((idx for idx, layer in enumerate(layers) if layer.is_pcm), 0)
+    electrical_idx = electrical_layer_indices(layers)
+    Rc_electrical = Rc[: max(len(electrical_idx) - 1, 0)]
+    V_cap = float(c.get("V_cap_initial", 0.0))
     for step in range(nt):
         V_app = _phase_pulse_value(pulse, step, nt, c)
         sigma = np.zeros((nl, ny), dtype=float)
@@ -805,23 +908,32 @@ def simulate_phase_activated_multilayer_case(
                     local_cfg = {**c, "previous_pcm_temperature_mean_K": float(np.mean(previous_pcm_T))}
                     sigma[i] = phase_pcm_sigma(material_family, T[i], m, E_pcm, profile, local_cfg)
                 elif layer.is_barrier:
-                    sigma[i] = snse_literature_prior()["sigma_s_m"] * (1.0 + 0.03 * profile)
+                    sigma[i] = float(c.get("snse_sigma_s_m", snse_literature_prior()["sigma_s_m"])) * (1.0 + 0.03 * profile)
                 elif layer.name == "substrate":
-                    # Substrate participates thermally but is not the active
-                    # vertical electronic switching path between TE and BE.
-                    sigma[i] = float(c.get("substrate_electrical_bypass_sigma_s_m", 1.0e9))
+                    sigma[i] = 0.0
                 else:
                     sigma[i] = layer.sigma_s_m
-            r_layers = dz[:, None] / np.maximum(sigma, 1.0e-30)
-            total_ra = np.sum(r_layers, axis=0) + np.sum(Rc)
+            r_layers_electrical = dz[electrical_idx, None] / np.maximum(sigma[electrical_idx], 1.0e-30)
+            total_ra = np.sum(r_layers_electrical, axis=0) + np.sum(Rc_electrical)
             G_cols = cell_area / np.maximum(total_ra, 1.0e-30)
             G_total = float(np.sum(G_cols))
-            V_dev = float(V_app / (1.0 + R_load * G_total)) if abs(V_app) > 0.0 else 0.0
+            if pulse == "rc_oscillator":
+                C = max(float(c.get("C_circuit_F", 145.0e-12)), 1.0e-18)
+                rate = 1.0 / max(R_load, 1.0e-30) + G_total
+                tau = C / max(rate, 1.0e-30)
+                steady = (V_app / max(R_load, 1.0e-30)) / max(rate, 1.0e-30)
+                V_cap = float(steady + (V_cap - steady) * np.exp(-dt / max(tau, 1.0e-30)))
+                V_dev = V_cap
+            else:
+                V_dev = float(V_app / (1.0 + R_load * G_total)) if abs(V_app) > 0.0 else 0.0
             J_col = V_dev / np.maximum(total_ra, 1.0e-30)
             E_pcm = np.abs(J_col / np.maximum(sigma[pcm_idx], 1.0e-30))
-        J = np.repeat(J_col[None, :], nl, axis=0)
-        phi = _column_potential(V_dev, J_col, r_layers, Rc)
-        E = J / np.maximum(sigma, 1.0e-30)
+        J = np.zeros((nl, ny), dtype=float)
+        J[electrical_idx] = np.repeat(J_col[None, :], len(electrical_idx), axis=0)
+        phi = np.zeros((nl, ny), dtype=float)
+        phi[electrical_idx] = _column_potential(V_dev, J_col, r_layers_electrical, Rc_electrical)
+        E = np.zeros_like(J)
+        E[electrical_idx] = J[electrical_idx] / np.maximum(sigma[electrical_idx], 1.0e-30)
         Q = sigma * E * E
         # Mild current crowding heating for localized geometries; still driven by
         # the finite-volume cell current and profile, not an arbitrary state jump.
@@ -869,6 +981,9 @@ def simulate_phase_activated_multilayer_case(
         G_hist.append(float(np.sum(G_cols)))
         Vdev_hist.append(float(V_dev))
         Vapp_hist.append(float(V_app))
+        phi_hist.append(phi.copy())
+        J_hist.append(J.copy())
+        Q_hist.append(Q.copy())
         phi_last = phi.copy(); J_last = J.copy(); Q_last = Q.copy()
     T_arr = np.asarray(T_hist)
     m_arr = np.asarray(m_hist)
@@ -877,20 +992,26 @@ def simulate_phase_activated_multilayer_case(
     G_arr = np.asarray(G_hist)
     Vdev_arr = np.asarray(Vdev_hist)
     Vapp_arr = np.asarray(Vapp_hist)
+    phi_arr = np.asarray(phi_hist)
+    J_arr = np.asarray(J_hist)
+    Q_arr = np.asarray(Q_hist)
     max_delta_T = float(np.max(T_arr - T0))
-    delta_m = float(np.max(m_arr) - float(c.get("m0", 0.02)))
+    delta_m = float(np.max(m_arr) - float(c.get("m0", default_m0)))
     conductance_ratio = float(np.max(np.abs(G_arr)) / max(np.min(np.abs(G_arr)) + 1.0e-30, 1.0e-30))
     hyst_area = float(abs(np.trapz(I_arr, Vdev_arr))) if len(I_arr) > 2 else 0.0
-    v_abs = np.abs(Vdev_arr)
-    g_norm = np.abs(G_arr) / max(float(np.max(np.abs(G_arr))), 1.0e-30)
-    above = np.where(g_norm >= 0.55)[0]
-    Vth = float(v_abs[above[0]]) if above.size else float(np.max(v_abs))
-    Vhold = float(np.min(v_abs[above])) if above.size else 0.0
-    activated = bool(max_delta_T >= float(c.get("activation_min_delta_T_K", 3.0)) and delta_m >= float(c.get("activation_min_delta_m", 0.04)) and conductance_ratio >= float(c.get("activation_min_G_ratio", 1.05)) and hyst_area >= float(c.get("activation_min_hysteresis_area", 1.0e-15)) and Vth >= Vhold)
+    thresholds = extract_switching_thresholds(Vdev_arr, G_arr, branch_voltage=Vapp_arr, margin_v=float(c.get("threshold_margin_V", 1.0e-3)))
+    Vth = float(thresholds["Vth"])
+    Vhold = float(thresholds["Vhold"])
+    state_gate = True if family == "nbo2" and not bool(c.get("nbo2_effective_fraction_ablation", False)) else delta_m >= float(c.get("activation_min_delta_m", 0.04))
+    threshold_gate = bool(thresholds["valid"])
+    if pulse == "rc_oscillator":
+        threshold_gate = bool(np.ptp(Vdev_arr) > float(c.get("oscillator_min_amplitude_V", 1.0e-4)))
+    activated = bool(max_delta_T >= float(c.get("activation_min_delta_T_K", 3.0)) and state_gate and conductance_ratio >= float(c.get("activation_min_G_ratio", 1.05)) and hyst_area >= float(c.get("activation_min_hysteresis_area", 1.0e-15)) and threshold_gate)
     energy_numer = abs(joule_energy - storage_energy - boundary_loss)
     energy_denom = max(abs(joule_energy) + abs(storage_energy) + abs(boundary_loss), 1.0e-30)
     energy_error = float(energy_numer / energy_denom)
-    current_continuity = float(np.max(np.std(J_last, axis=0) / np.maximum(np.mean(np.abs(J_last), axis=0), 1.0e-30))) if nl > 1 else 0.0
+    J_electrical = J_last[electrical_idx]
+    current_continuity = float(np.max(np.std(J_electrical, axis=0) / np.maximum(np.mean(np.abs(J_electrical), axis=0), 1.0e-30))) if len(electrical_idx) > 1 else 0.0
     return {
         "structure": structure,
         "geometry": geometry,
@@ -910,6 +1031,9 @@ def simulate_phase_activated_multilayer_case(
         "conductance": G_arr,
         "voltage_device": Vdev_arr,
         "voltage_app": Vapp_arr,
+        "phi": phi_arr,
+        "current_density": J_arr,
+        "joule_heating": Q_arr,
         "phi_last": phi_last,
         "current_density_last": J_last,
         "Q_last": Q_last,
@@ -920,7 +1044,8 @@ def simulate_phase_activated_multilayer_case(
         "hysteresis_area": hyst_area,
         "Vth": Vth,
         "Vhold": Vhold,
-        "Vth_gt_Vhold": bool(Vth >= Vhold),
+        "Vth_gt_Vhold": bool(thresholds["valid"]),
+        "threshold_extraction_valid": bool(thresholds["valid"]),
         "activated": activated,
         "energy_balance_error": energy_error,
         "current_convergence_error": current_continuity,
@@ -928,6 +1053,12 @@ def simulate_phase_activated_multilayer_case(
         "used_snse_low_k_high_sigma_prior": True,
         "used_material_family_specific_kernel": True,
         "used_independent_interface_map": True,
+        "electrical_domain_layers": [layers[i].name for i in electrical_idx],
+        "thermal_domain_layers": [layer.name for layer in layers],
+        "substrate_is_thermal_only": True,
+        "used_autonomous_rc_circuit": bool(pulse == "rc_oscillator"),
+        "vo2_profile": vo2_profile_name if family == "vo2" else None,
+        "nbo2_phase_fraction_ablation": bool(c.get("nbo2_effective_fraction_ablation", False)),
         "snse_prior": snse_literature_prior(),
     }
 

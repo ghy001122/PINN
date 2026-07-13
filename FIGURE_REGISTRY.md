@@ -1,5 +1,9 @@
 
 
+## Control-volume multidomain OASIS v10 figures
+
+No committed figures were generated. V10 evidence is routed through the lightweight tables in `DATASET_REGISTRY.md`; P1/P2 failures do not justify a positive main-text figure.
+
 ## Phase-activated multidomain OASIS-PINN v9 figures
 
 No committed figures were generated for v9. Evidence is stored in lightweight JSON/CSV tables listed in `DATASET_REGISTRY.md`. Future figures should be generated from those tables and kept ignored unless explicitly approved.

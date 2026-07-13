@@ -1,0 +1,40 @@
+{
+  "benchmark": "multiterminal_yz_forward_v10",
+  "bottom_ground": true,
+  "claim_boundary": "forward/observability implementation only; no positive hidden-field recovery claim",
+  "insulating_unassigned_boundaries": true,
+  "observability": {
+    "segmented": {
+      "condition_number": 482.14436982648056,
+      "current_balance_error": 1.3983358724192969e-15,
+      "rank": 3,
+      "terminal_currents_a": {
+        "bottom": -0.0005010793983838571,
+        "side": 0.00012814243102730785,
+        "top_center": 0.00022087413341337347,
+        "top_left": 0.03543346691975794,
+        "top_right": -0.035281404085814864
+      }
+    },
+    "single_terminal": {
+      "condition_number": 158023942427.55212,
+      "current_balance_error": 7.646109568895557e-14,
+      "rank": 1,
+      "terminal_currents_a": {
+        "bottom": -0.0005920061737724315,
+        "top": 0.000592006173772522
+      }
+    }
+  },
+  "outputs": {
+    "summary_json": "outputs/tables/multiterminal_yz_forward_summary.json"
+  },
+  "segmented_rank_gain": 2,
+  "segmented_top_and_side_electrodes": true,
+  "solves_div_sigma_grad_phi": true,
+  "status": "qualified_supported",
+  "synthetic_not_experimental": true,
+  "terminal_currents_from_boundary_flux": true,
+  "uniform_limit_gate_passed": true,
+  "uniform_limit_relative_error": 7.666968074108158e-12
+}

@@ -32,3 +32,16 @@ All values below are literature-guided / engineering priors for synthetic numeri
 | NbO2 Poole-Frenkel kernel | `J=J0 E exp[-(Ea-sqrt(q^3|E|/(pi eps0 epsr)))/(kBT)]` | A m^-2 | Standard monotonic Poole-Frenkel form used as synthetic shape prior | NbO2 electrothermal activation; NDR only through circuit/thermal feedback | Local ad-hoc NDR current law |
 | VO2 branch-memory kernel | independent `Tc_up`, `Tc_down`, and width | K | Hysteretic thermal transition shape prior | Synthetic branch-memory switching | Claiming direct fitted VO2 experiment |
 | Generic phase kernel | reduced Allen-Cahn/free-energy target | dimensionless | Phase-field-inspired switching prior | Generic ablation family | Claiming material-specific kinetics |
+
+## V10 Source Anchors
+
+- NbO2 primary mechanism: Slesazeck et al., *RSC Advances* 5 (2015),
+  DOI `10.1039/C5RA19300A`. The repository uses its temperature-activated
+  Frenkel-Poole plus Joule-heating mechanism as a shape and parameter prior.
+- VO2 literature profile: Qiu et al., *Collective dynamics and long-range order
+  in thermal neuristor networks* (2024), using the published reduced-model
+  values `Tc=332.8 K`, hysteresis width `w=7.19 K`, `C=145 pF`, and
+  `Rload=12 kOhm` as literature-shape priors. The v10 split thresholds are a
+  symmetric reduced mapping around `Tc`, not measured repository data.
+
+These sources do not upgrade any synthetic result to experimental validation.

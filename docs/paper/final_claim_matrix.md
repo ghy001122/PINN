@@ -2,6 +2,16 @@
 
 Allowed claims are restricted to synthetic numerical digital-twin evidence.
 
+## V10 Claim Correction
+
+| Claim | Status | Required qualifier | Forbidden wording |
+| --- | --- | --- | --- |
+| Electrical/thermal domain separation and segmented-electrode forward implementation | Qualified supported | reduced synthetic implementation with uniform-limit/current-balance checks | full device solver or experimental validation |
+| Control-volume multidomain neural field recovery | Failed but informative | 300 epochs, three seeds, strict field/interface gate failed | OASIS-PINN field recovery solved |
+| Repaired noisy terminal inverse | Failed but informative | mechanism-routed local inverse; only selected blocks recover | robust multi-parameter inverse solved |
+| Cross-stack/material generalization | Failed but informative | ridge response preflight only | neural operator generalization |
+| STL/Fourier/F-SPS v10 superiority | Forbidden | not run because P1 failed | superiority, full STL, or Pareto win |
+
 | Claim | Status | Required qualifier | Forbidden wording |
 | --- | --- | --- | --- |
 | Sparse-port full hidden-field recovery is ill-posed in the current benchmark | Supported | one-dimensional synthetic benchmark | unique full-field recovery |

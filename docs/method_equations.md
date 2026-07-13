@@ -223,3 +223,57 @@ The v9 stack uses independent interface maps:
 ```
 
 The y-z thermal update includes vertical finite-volume coupling, top/substrate Robin exchange, and conservative no-flux lateral conduction. The activation gate records `max_delta_T`, `delta_m`, `conductance_ratio`, `Vth`, `Vhold`, and hysteresis area. Cases that do not activate are excluded from inverse/positive claim routing.
+
+## Control-Volume Multidomain OASIS v10 Equations
+
+The v10 branch separates the electrical and thermal topology:
+
+```text
+Omega_e = TE union PCM union optional barrier union BE
+Omega_T = Omega_e union substrate
+```
+
+The substrate is not assigned an artificial high electrical conductivity. The
+vertical current terminates at the bottom electrode, while heat continues into
+the substrate. NbO2 uses the field-dependent Poole-Frenkel kernel above without
+the v9 effective phase-fraction multiplier on the primary path. VO2 has separate
+`normalized_activated` and literature-shape-anchored parameter profiles.
+
+The autonomous RC circuit is integrated as
+
+```text
+C dVdev/dt = (Vin - Vdev)/RL - Idev(Vdev,T,m).
+```
+
+The cell-centered control-volume residuals are
+
+```text
+R_phi,K = sum_faces J_f A_f,
+J_f = -(phi_R - phi_L) / (0.5 dz_L/sigma_L + Rc_f + 0.5 dz_R/sigma_R),
+
+R_T,K = rho c V_K (T_K^(n+1)-T_K^n)/dt
+        - sum_faces q_f A_f - Q_J,K V_K,
+q_f = -(T_R - T_L) / (0.5 dz_L/k_L + Rth_f + 0.5 dz_R/k_R),
+Q_J = sigma |E|^2.
+```
+
+For adjacent independent layer experts, the interface laws are evaluated from
+separate one-sided face derivatives:
+
+```text
+Jn_i + Jn_j = 0,
+phi_i - phi_j - Rc_ij Jn_i = 0,
+qn_i + qn_j = 0,
+T_i - T_j - Rth_ij qn_i = 0.
+```
+
+The segmented-electrode y-z solver independently discretizes
+
+```text
+div(sigma grad(phi)) = 0,
+I_k = integral_Gamma_k (-sigma grad(phi)) dot n dGamma,
+```
+
+with assigned Dirichlet electrode faces and insulating unassigned boundaries.
+Its current-balance and uniform-series limits are implementation gates, not
+evidence of hidden-field inversion.

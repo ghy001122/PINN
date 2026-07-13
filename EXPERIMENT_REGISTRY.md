@@ -1,5 +1,17 @@
 
 
+## Control-volume multidomain OASIS and inverse repair v10
+
+- Physical semantics: `scripts/audit_physical_semantics_v10.py`
+- CV training: `scripts/train_cv_multidomain_oasis_v10.py`
+- Active protocol/noisy inverse: `scripts/audit_active_protocol_design_v3.py`
+- Multi-terminal forward: `scripts/audit_multiterminal_yz_forward_v10.py`
+- Generalization preflight: `scripts/audit_oasis_generalization_v10.py`
+- Conditional algorithm gate: `scripts/audit_oasis_algorithms_v10.py`
+- Core implementation: `src/pinnpcm/physics/multilayer_sandwich.py`, `src/pinnpcm/physics/multiterminal_yz.py`, `src/pinnpcm/pinn/oasis_components.py`
+- Tests: `tests/test_physical_semantics_v10.py`, `tests/test_cv_multidomain_oasis_v10.py`, `tests/test_active_protocol_design_v3.py`, `tests/test_multiterminal_yz_v10.py`
+- Status: P0 and P3 implementation gates pass; P1/P2 fail strict scientific gates; P4 blocked; generalization preflight only.
+
 ## Phase-activated multidomain OASIS-PINN v9
 
 - Forward script: `scripts\audit_phase_activated_multilayer_forward.py`

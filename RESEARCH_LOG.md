@@ -1,5 +1,9 @@
 # Research log
 
+## Control-Volume Multidomain OASIS v10
+
+V10 corrected v9 evidence semantics. P0 physical topology/mechanism routing and P3 segmented-electrode forward implementation pass. Strict P1 CV training fails (`E_T=0.3756`, interface residual `106.15`, success rate `0`); repaired P2 noisy inversion remains `failed_but_informative`; P4 is blocked. Formal OOD preflight shows acceptable geometry interpolation relative to severe stack, pulse, interface, and cross-material failure. Frozen GT v1.1 is unchanged.
+
 ## Phase-Activated Multidomain OASIS-PINN v9
 
 All results in this section are synthetic numerical digital-twin benchmark evidence, not experimental data. Frozen Ground Truth v1.1 remains unchanged.

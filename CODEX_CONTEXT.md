@@ -6,7 +6,7 @@ This file is the first-read context for non-trivial Codex work in this repositor
 
 Current phase:
 
-`phase-activated multidomain OASIS-PINN v9 evidence actualization`
+`control-volume multidomain OASIS and inverse repair v10`
 
 The constrained reduced `gamma_sub` manuscript line is now locked around calibration-gated sparse-port inversion: T_sw calibration tolerance, calibration-vs-protocol disentanglement, ODE-backed calibrated protocol robustness, external-curve no-fabrication handling, and final figure/table/claim routing. The strongest claim remains conditional `gamma_sub` recovery under fixed or tightly bounded priors in a one-dimensional synthetic numerical digital-twin benchmark.
 
@@ -42,6 +42,7 @@ Do not modify frozen Ground Truth v1.1 files unless the user explicitly opens a 
 - The literature-anchored calibration and simulator-backed protocol validation pack adds parameter sanity checks, a no-fabrication external-curve template, T_sw calibration-necessity evidence, and ODE-backed sequential protocol validation; it keeps T_sw as the dominant claim boundary.
 - Conservative multidomain OASIS-PINN v8 adds a conservative multilayer P0 pass and finite multidomain component smoke, but active terminal rescue, 2D full-field recovery, full STL-PINN reproduction, LoRA-STL, and universal F-SPS/Fourier superiority remain unsupported.
 - Phase-activated multidomain OASIS-PINN v9 fixes the non-degenerate forward gap: VO2/NbO2 activation rates exceed 70%, P1 multidomain training runs on activated cases, P2 terminal-trace Jacobian improves, while P3/P4 remain blocked or failed under strict claim gates.
+- Control-volume multidomain OASIS v10 separates electrical and thermal topology, removes the NbO2 phase-fraction shortcut from the primary path, adds actual CV residuals and segmented-electrode y-z forward solves, and repairs noisy-target inversion. P1 and P2 fail strict gates; P4 remains blocked. P3 forward/observability implementation passes its uniform-limit gate but does not establish field recovery.
 
 ## Current Claim Boundary
 

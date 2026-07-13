@@ -2,6 +2,16 @@
 
 All entries refer to a synthetic numerical digital-twin benchmark, not experimental data.
 
+## V10 OASIS Reviewer Defense
+
+| Reviewer question | Short answer | Evidence | Allowed claim | Forbidden claim |
+| --- | --- | --- | --- | --- |
+| Is the substrate still an artificial electrical bypass? | No. V10 terminates current at BE and includes substrate only in the thermal graph. | `physical_semantics_v10_summary.json` | Reduced topology correction implemented. | Quantitative device calibration. |
+| Is P1 now a true PINN success? | No. Actual CV residuals are implemented, but the strict field/interface gate fails for all three seeds. | `cv_multidomain_oasis_training_summary.json` | Negative optimization evidence. | P1 success based on loss decrease. |
+| Was noise robustness actually tested? | V10 regenerates and re-inverts each noisy target; thermal blocks and coverage fail. | `sequential_terminal_inverse_v3_summary.json` | Block-specific failed_but_informative result. | Robustness through 5% noise. |
+| Is multi-terminal physics still a sigma-mean proxy? | No. V10 solves `div(sigma grad phi)=0` with segmented electrode faces and integrates terminal flux. | `multiterminal_yz_forward_summary.json` | Forward/observability implementation. | Full-field inversion solved. |
+| Does the framework generalize across materials? | No. Cross-family preflight errors are very large; material-specific kernels must remain separate. | `oasis_generalization_v10_summary.json` | Shared framework, mechanism-specific kernels. | Universal cross-material model. |
+
 | Reviewer question | Short answer | Supporting result table | Allowed claim | Forbidden overclaim | Manuscript section |
 | --- | --- | --- | --- | --- | --- |
 | Why is this not black-box fitting? | The inverse target is selected after identifiability audits and constrained by port physics, prior registries, and simulator-backed confounding checks. | outputs/tables/pinn_identifiability_summary.json; outputs/tables/gamma_sub_constrained_inversion_summary.json | Reduced scalar gamma_sub inversion is physics-constrained by the digital-twin model. | A purely data-driven black-box fit solves device physics. | Methods; Discussion |
