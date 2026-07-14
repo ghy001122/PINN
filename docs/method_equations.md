@@ -126,6 +126,43 @@ m_{\mathrm{eq}} =
 \frac{1}{1+\exp\left[-\frac{T-T_{\mathrm{sw}}+\alpha_c(c_v-c_{v0})}{\Delta T_{\mathrm{sw}}}\right]}.
 $$
 
+## Constrained gamma_sub Inverse Objective
+
+The main inverse releases only the effective substrate-dissipation parameter
+\(\gamma_{\mathrm{sub}}\). The nuisance vector
+\(\boldsymbol\psi=(T_{\mathrm{sw}},\tau_m,\sigma_{\mathrm{on0}},\eta_A,\ldots)\)
+is fixed or restricted to a declared narrow prior. For an observed series \(y\)
+and simulated series \(\hat y\), the relative root-mean-square error is
+
+$$
+\operatorname{rRMSE}(\hat y,y)=
+\frac{\sqrt{N^{-1}\sum_{j=1}^{N}(\hat y_j-y_j)^2}}
+{\max\!\left(\sqrt{N^{-1}\sum_{j=1}^{N}y_j^2},10^{-30}\right)}.
+$$
+
+The configured reduced objective is
+
+$$
+\mathcal J(\gamma_{\mathrm{sub}};\boldsymbol\psi)=
+w_G\operatorname{rRMSE}(\hat G,G)^2
++w_I\operatorname{rRMSE}(\hat I,I)^2
++w_H\mathcal R_H,
+$$
+
+where the locked configuration uses \(w_G=1\), \(w_I=0.5\), and
+\(w_H=0.01\), and \(\mathcal R_H\) is the reduced heat-residual loss used by
+the audit scripts. The discrete estimate is
+
+$$
+\hat\gamma_{\mathrm{sub}}=
+\underset{\gamma\in\Gamma_{\mathrm{declared}}}{\operatorname{argmin}}
+\;\mathcal J(\gamma;\boldsymbol\psi),
+$$
+
+followed, only in the continuous-refinement audit, by a local off-grid
+refinement around the best declared candidates. This is a constrained scalar
+profile search in a synthetic benchmark, not a proof of joint global
+identifiability and not a neural full-field inverse.
 ## Temperature Dependence
 
 Arrhenius-type temperature-dependent parameters use:

@@ -1,5 +1,15 @@
 # Research log
 
+## Post-d23a576 Decision Audit And Priority A Evidence Lock
+
+Date: 2026-07-14
+
+Absorbed the external stage review and prior Codex task context, then checked its P0-P4/OOD conclusions against the current code and raw JSON/CSV artifacts. Locked the constrained `gamma_sub` claim-to-equation-to-source-to-figure-to-limitation-to-reviewer-defense chain, corrected Figure 5 to use the 720-case calibrated sequential validation, preserved the 2400-case stress audit as supplementary `failed_but_informative` evidence, and removed the reviewer-defense test's tracked-file side effect. No new scientific experiment or claim upgrade occurred.
+
+Validation: targeted `8 passed`; full CPU suite `187 passed`; generators idempotent; visual QA completed; `git diff --check` clean; frozen GT hashes and mtimes unchanged.
+
+Distance and disposition: Priority A's evidence-lock gap is closed and moves to manuscript. Remaining blockers are the external quantitative anchor and the P1/P2/OOD limitations. The next single active bottleneck is Priority B P1 coordinate/face semantics, nondimensional residual scaling, and staged optimization under the unchanged strict gate.
+
 ## Q2 SCI Delivery Contract Alignment
 
 Date: 2026-07-13

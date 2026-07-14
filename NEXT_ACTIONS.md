@@ -2,37 +2,45 @@
 
 ## Authoritative Current Queue
 
-Activate exactly one highest-value bottleneck per round. Current active item: A.
+Activate exactly one highest-value bottleneck per round. Current active item: B.
 
-The active scientific mainline is constrained `gamma_sub` recovery under calibrated or tightly bounded priors.
+The manuscript mainline remains constrained `gamma_sub` recovery under calibrated or tightly bounded priors.
 
-### Priority A: lock constrained gamma_sub mainline - active
+### Priority A: lock constrained gamma_sub mainline - completed
 
-Assemble existing evidence into a manuscript-ready chain covering identifiability, confounding, calibration, noise, off-grid recovery, observation count, protocol effects, limitations, baselines, and reproducibility.
+The evidence chain is locked through `configs/gamma_sub_evidence_lock.yaml`, `outputs/tables/gamma_sub_evidence_lock_summary.json`, `docs/paper/gamma_sub_evidence_lock.md`, the current claim/figure matrices, manuscript methods/results/limitations, and the generated reviewer-defense matrix.
 
-Required outputs: final claim list, Methods equation mapping, main figure/table mapping, evidence-source paths, reproduction commands, limitation text, reviewer-defense entries, and manuscript sentences. Do not run a new experiment unless assembly exposes a concrete evidence gap that blocks a Must-have claim.
+Disposition: move this evidence to manuscript. No new experiment and no scientific claim-status upgrade occurred during assembly.
 
-Disposition: lock and move to manuscript when all main positive claims are `supported` or `qualified_supported`; otherwise identify one blocking evidence gap.
+### Priority B: P1 CV/mortar validity repair - active
 
-### B. P1 CV/mortar repair - queued
+Manuscript use: either a qualified neural-method result or a precise numerical-method limitation.
 
-Repair nondimensional scaling, boundary-face/local-coordinate semantics, and staged optimization. Strict gate remains `E_T,E_m <= 0.25`, interface residual `<= 0.05`, success rate `>= 0.70`.
+Execute in this order:
 
-### C. Material-specific full-rank protocol - queued
+1. declare named feature/coordinate semantics;
+2. repair physical boundary-face and one-sided interface evaluation;
+3. introduce auditable dimensionless residual scales;
+4. add CPU behavioral and manufactured diagnostics;
+5. run staged continuation and then the gate-complete three-seed audit only if steps 1-4 pass.
+
+Strict positive gate remains `E_T,E_m <= 0.25`, interface residual `<= 0.05`, and success rate `>= 0.70`. Failure keeps P1 `failed_but_informative`; field-anchor dependence forbids sparse-port-only wording. Do not spend a high-cost budget or add epochs before the semantic/scaling ladder passes.
+
+### Priority C: Material-specific full-rank protocol - queued
 
 Reject rank-deficient protocols before inverse and target the thermal block using nonlinear noisy inversion and predeclared coverage/error gates.
 
-### D. External quantitative anchor - queued Must-have
+### Priority D: External quantitative anchor - queued Must-have
 
 Complete at least one provenance-backed quantitative literature curve. Unknown provenance requires user confirmation; synthetic fitting must not be called experimental validation.
 
-### E. Dynamic multi-terminal y-z-t - queued
+### Priority E: Dynamic multi-terminal y-z-t - queued
 
 Build dynamic forward/observability evidence before attempting any positive field-inverse claim.
 
-### F. Canonical STL and matched-budget Fourier/F-SPS - blocked
+### Priority F: Canonical STL and matched-budget Fourier/F-SPS - blocked
 
-Run only after P1 passes. Failure affects stretch claims, not paper delivery.
+Run only after P1 passes. Positive claims remain `forbidden`; failure affects stretch claims, not paper delivery.
 
 ## Round Closeout
 

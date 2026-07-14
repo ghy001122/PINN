@@ -1,5 +1,9 @@
+## Constrained gamma_sub evidence-lock artifact (2026-07-14)
 
-
+- `outputs/tables/gamma_sub_evidence_lock_summary.json`
+- Built from existing lightweight JSON/CSV evidence by `scripts/build_gamma_sub_evidence_lock.py` using `configs/gamma_sub_evidence_lock.yaml`.
+- Type: documentation/evidence-index artifact; no new simulation or measurement.
+- Claim boundary: synthetic numerical digital-twin evidence only; external quantitative validation remains absent.
 ## Control-volume multidomain OASIS v10 evidence
 ## Q2 SCI delivery-contract alignment
 

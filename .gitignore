@@ -1,4 +1,4 @@
-﻿.venv/
+.venv/
 .vscode/
 __pycache__/
 *.pyc
@@ -186,3 +186,4 @@ outputs/pinn_inverse_v1_1_smoke/*
 !outputs/tables/phase_activated_algorithm_summary.json
 
 !outputs/tables/project_governance_summary.json
+!outputs/tables/gamma_sub_evidence_lock_summary.json

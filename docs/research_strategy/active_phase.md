@@ -2,39 +2,56 @@
 
 ## Current Phase
 
-`Q2 SCI delivery - constrained gamma_sub evidence lock and manuscript assembly`
+`Q2 SCI delivery - Priority B P1 CV/mortar validity repair`
 
-This is a documentation/evidence-assembly phase. It does not authorize new experiments, change frozen GT v1.1, revise historical metrics, or upgrade any v10 claim.
+This is a bounded implementation-and-audit phase. It does not authorize changes to frozen GT v1.1, gate relaxation, a new manuscript core line, or a high-cost training campaign before the CPU diagnostic ladder passes.
+
+## Manuscript Use
+
+Produce either one valid neural-method result under the locked strict P1 gate or a precise limitation showing why the present control-volume/mortar formulation fails. The numerical forward solver remains authoritative; the neural model is an inverse/surrogate extension and cannot redefine the synthetic Ground Truth.
 
 ## Single Active Bottleneck
 
-Priority A: bind the constrained `gamma_sub` evidence into a one-to-one chain:
+Priority B: repair P1 coordinate and face semantics, nondimensional residual scaling, and staged optimization in this order:
+
+1. replace positional feature assumptions with a declared feature layout;
+2. evaluate Dirichlet conditions and interface one-sided derivatives at physical boundary faces with consistent local/global coordinates;
+3. define dimensionless PDE, interface, data, and phase residuals with auditable reference scales;
+4. add CPU smoke and manufactured/behavioral tests before training;
+5. run staged continuation only after the semantic and scaling diagnostics pass.
+
+Required evidence chain:
 
 ```text
-claim -> Methods equation -> config/script/test -> JSON/CSV -> figure/table -> limitation -> reviewer defense -> manuscript sentence -> reproduction command
+config -> implementation -> behavioral test -> JSON/CSV diagnostics -> figure/table -> report -> claim matrix -> manuscript sentence
 ```
 
-Completion threshold for this phase:
+## Locked P1 Gate
 
-- every main positive claim is `supported` or `qualified_supported`;
-- every main figure/table has an evidence source and reproduction command;
-- confounding, calibration, noise, off-grid, observation count, protocol, and limitations are present;
-- contradictions and duplicate current-state wording are resolved;
-- missing external quantitative validation remains explicit rather than implied complete.
+A positive P1 result requires all predeclared conditions:
 
-## Locked V10 Gates
+- median `E_T <= 0.25`;
+- median `E_m <= 0.25`;
+- median interface residual `<= 0.05`;
+- three-seed success rate `>= 0.70`;
+- no direct field-anchor leakage may be described as sparse-port-only recovery;
+- frozen GT hashes and mtimes remain unchanged.
 
+Current baseline remains `failed_but_informative`: median `E_T=0.37563055753707886`, median `E_m=0.06811526417732239`, interface residual `106.15460205078125`, success rate `0.0`.
+
+## Interpretation Boundary
+
+If the full gate passes, allowed wording is limited to a qualified, field-anchored CV/mortar neural surrogate under the declared synthetic protocol. If any gate fails, allowed wording is a numerical-method limitation or diagnostic boundary. Forbidden wording includes sparse-port-only multidomain PINN solved, arbitrary hidden-field recovery, terminal-only 2D inverse solved, experimental validation, and device-grade multiphysics reproduction.
+
+## Locked Cross-Gate Context
+
+- Priority A constrained `gamma_sub` evidence lock: completed; main positive claims are `supported` or `qualified_supported` and remain the manuscript mainline.
 - P0: `qualified_supported` reduced physical semantics.
-- P1: `failed_but_informative`; median `E_T=0.37563055753707886`, `E_m=0.06811526417732239`, interface residual `106.15460205078125`, success rate `0.0`.
+- P1: `failed_but_informative` baseline under repair.
 - P2: `failed_but_informative`; thermal blocks, full-rank protocol selection, and coverage fail.
 - P3: `qualified_supported` segmented-electrode y-z forward/local observability only; no field recovery.
 - P4: blocked; positive STL/Fourier/F-SPS claims remain `forbidden` until P1 passes.
-- Generalization: preflight/negative evidence only outside limited geometry behavior.
 
-## Next Bottleneck After Lock
+## Stop And Next Decision
 
-Priority B: repair P1 CV/mortar nondimensionalization, boundary-face/local-coordinate semantics, and staged optimization under the existing strict gate. Priority C follows only after B is dispositioned.
-
-## Absolute Claim Boundary
-
-No experimental validation, full FEM/device-grade reproduction, terminal-only arbitrary full-field recovery, full STL-PINN reproduction, LoRA-STL, or universal Fourier/F-SPS superiority may be written as a positive result.
+Stop this phase after one gate-complete three-seed run or after the predeclared diagnostic ladder shows that the formulation remains invalid. The disposition is then one of: move the qualified result to manuscript, preserve a `failed_but_informative` boundary and continue once with a concrete repair, or stop P1 and activate Priority C. Do not add epochs merely to hide a semantic or scaling failure.

@@ -1,5 +1,12 @@
+## Priority A constrained gamma_sub evidence lock (2026-07-14)
 
-
+- Config: `configs/gamma_sub_evidence_lock.yaml`
+- Builder: `scripts/build_gamma_sub_evidence_lock.py`
+- Regression test: `tests/test_gamma_sub_evidence_lock.py`
+- Machine-readable output: `outputs/tables/gamma_sub_evidence_lock_summary.json`
+- Report: `docs/codex_reports/post_d23a576_research_decision_audit.md`
+- Status: `supported` as evidence assembly; no new experiment and no scientific claim upgrade.
+- Disposition: move the locked mainline to manuscript; Priority B P1 validity repair is now active.
 ## Control-volume multidomain OASIS and inverse repair v10
 ## Q2 SCI delivery-contract alignment (governance only)
 

@@ -1,25 +1,37 @@
 # Results V1
 
-The locked evidence supports a narrow result chain.
+All results are synthetic numerical digital-twin evidence, not measured experimental data.
 
-First, terminal data constrain integrated conductance but do not uniquely recover all hidden fields. Second, constrained \(\gamma_{\mathrm{sub}}\) inversion works when micro-kinetic parameters are fixed and \(T_{\mathrm{sw}}\) is calibrated or tightly bounded. Third, confounding audits identify \(T_{\mathrm{sw}}\) as the dominant limitation.
+## R1. Sparse-Port Hidden-Field Recovery Boundary
 
-The response-surface tolerance sweep finds a synthetic audit threshold near \(0.1\,\mathrm{K}\) residual \(T_{\mathrm{sw}}\) error and prior width near \(0.05\). The ODE-backed spot-check adds 270 simulator-backed cases and supports the \(0.1\,\mathrm{K}\) threshold under the configured \(\leq 15\%\) median-error criterion. This is not an experimental calibration requirement.
+Status: `supported` for the configured benchmark boundary. Terminal conductance is nearly perfectly correlated with mean conductivity (`0.9999966`), yet port-only ablations do not uniquely recover the complete thermal, defect, phase, and conductivity fields. The result supports target reduction, not a universal impossibility theorem.
 
-Calibration-vs-protocol disentanglement shows calibration gain dominates protocol gain. The best ODE-backed protocol remains qualified because worst-case errors are non-negligible.
+## R2. Constrained gamma_sub Recovery
 
-## Supplementary Stiffness And 2D Story Results
+Status: `qualified_supported`. With fixed microphysics and nominal confounders, the constrained profile returns \(\hat\gamma_{\mathrm{sub}}=4.5\times10^8\) for the synthetic truth \(4.5\times10^8\). The continuous off-grid audit contains 36 resimulated cases across noise levels `0`, `0.02`, and `0.05` and observation counts `8`, `16`, `32`, and `64`; its maximum refined relative error is `0.05565`.
 
-Supplementary stiffness figures show that the residual proxy increases as transition width narrows. The sharpest-to-widest residual ratio is `11.894639315460832`, all `180` cases are finite, and continuation reduces the residual proxy in this preflight. Fourier-feature gains are not uniform, so the result is not a Fourier or F-SPS superiority claim.
+## R3. T_sw Calibration Gate
 
-The phase-field alignment smoke benchmark estimates Allen-Cahn mobility `M` from synthetic full-field anchors. It contains `27` finite cases with median relative error `0.04331110242687686` and success rate `0.8148148148148148` at relative error <= 0.1. This is related-work alignment only, not sparse-port phase-field inversion.
+Status: `qualified_supported`. The 42-case confounding phase map identifies \(T_{\mathrm{sw}}\) as the dominant nuisance parameter. The response-surface tolerance audit and 270-case ODE spot-check support a benchmark-specific residual-error marker near `0.1 K` under the configured `<=15%` median-error criterion. This is not a real-device calibration requirement.
 
-Quasi-2D forward/preflight evidence remains supplementary: `4` forward cases have finite fields and observables, the residual preflight is finite, and `whether_2d_inverse_claim_allowed` remains `False`.
+## R4. Conditional Robustness And Failure Region
 
-## Claim-Gate Experimental Resolution Results
+Status: `qualified_supported`. Under nominal fixed priors, the seeded robustness audit reports median relative errors near `0.020` for the best/`ltp_ltd` protocol group. Narrow-prior cases remain within the configured `<=20%` boundary, whereas wide \(T_{\mathrm{sw}}\) mismatch fails systematically with median error about `0.816` in the same group. Observation-count and off-grid checks pass within the calibrated region; aggregate averages are not used to hide the failed prior region.
 
-The reduced 2D forward benchmark contains `108` synthetic cases across geometry, transition width, lateral coupling, and seed. Fields and residuals are finite, geometry effects are detected, and lateral-coupling effects are detected. This supports reduced 2D forward extensibility only.
+## R5. Protocol Gain After Calibration
 
-The reduced 2D observability ladder contains `675` synthetic limited-inverse cases. Terminal-only sparse observations fail the claim gate with success rate `0.08888888888888889` and median relative error `0.37142857142857144`. Enhanced observations pass at the low-dimensional level: `terminal_multi_pulse` success rate `0.7851851851851852`, one temperature proxy `0.7111111111111111`, and two temperature proxies `0.7407407407407407`. Full 2D field recovery remains forbidden.
+Status: `qualified_supported`. Equal-prior disentanglement gives calibration gain `1.1217` and protocol gain `0.0150`, so calibration dominates. The 720-case ODE-backed sequential validation selects `calibrated_multi_pulse_to_ltp_ltd`; it has success rate `1.0` and maximum relative error `0.1111` under calibrated priors. This is the locked Figure 5 result.
 
-The stiffness-aware algorithm benchmark contains `600` residual-proxy cases. Relative to direct baseline, continuation plus scale-aware weighting improves the median error by `0.4890181621870298`, and mini-STL-style transfer improves it by `0.4334945926584622`. This supports a stiffness-mitigation statement, not a full STL-PINN reproduction.
+A separate 2400-case calibrated-protocol stress audit identifies `calibrated_short_pulse_to_ltp_ltd` as its best candidate but reports worst-case error `0.4444` and explicitly sets `whether_ready_as_main_figure = false`. It is retained as `failed_but_informative` supplementary stress evidence and does not replace Figure 5.
+
+## R6. V10 Extension Gates
+
+- P0: `qualified_supported` reduced electrical/thermal topology separation and mechanism routing.
+- P1: `failed_but_informative`; median \(E_T=0.37563\), median \(E_m=0.06812\), median interface residual `106.1546`, success rate `0`.
+- P2: `failed_but_informative`; selected NbO2 and VO2 protocols are rank `2/4` and `1/5`, respectively, and thermal blocks fail.
+- P3: `qualified_supported` for forward/local observability only; segmented terminals raise the local rank from `1` to `3` for a Gaussian conductivity-profile basis parameterized by center, width, and contrast.
+- P4: `forbidden` as a positive v10 claim because P1 fails.
+
+## R7. External Evidence Boundary
+
+Status: `forbidden` as a completed validation claim. No provenance-backed digitized external curve is available, and no measured dataset has been added. Literature values remain shape or engineering priors only.

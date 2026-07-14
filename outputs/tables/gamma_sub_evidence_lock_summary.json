@@ -1,0 +1,341 @@
+{
+  "all_declared_sources_exist": true,
+  "all_main_positive_claims_allowed": true,
+  "artifact_type": "documentation_evidence_lock",
+  "boundary_claim_count": 5,
+  "claim_boundary": "Constrained 1D gamma_sub recovery only; synthetic benchmark, calibrated/tight priors, no arbitrary full-field or experimental-validation claim.",
+  "claims": [
+    {
+      "claim": "Sparse terminal observations are insufficient for unique recovery of arbitrary complete hidden fields in the frozen 1D benchmark.",
+      "config_paths": [
+        "configs/gt_v1_acceptance_triangle.yaml"
+      ],
+      "evidence_paths": [
+        "outputs/tables/pinn_identifiability_summary.json",
+        "outputs/tables/pinn_inverse_v0_ablation_summary.json"
+      ],
+      "figure_ids": [
+        "Figure 1"
+      ],
+      "forbidden_wording": "Sparse-port observations uniquely recover all hidden fields, or the audit proves universal non-identifiability for every device model.",
+      "id": "C1_identifiability_boundary",
+      "implementation_paths": [
+        "scripts/analyze_pinn_identifiability.py",
+        "scripts/run_pinn_inverse_v0_ablation.py"
+      ],
+      "limitation": "Correlation and failed recovery in this configured synthetic benchmark do not prove a universal mathematical impossibility theorem.",
+      "manuscript_sentence": "In the frozen synthetic benchmark, sparse terminal signals constrain integrated conductance but do not uniquely recover the complete thermal, defect, phase, and conductivity fields, motivating inverse target reduction.",
+      "method_equations": [
+        "docs/method_equations.md#quasi-static-one-dimensional-electrical-relation",
+        "docs/method_equations.md#heat-equation"
+      ],
+      "reproduction_command": ".\\.venv\\Scripts\\python.exe -m pytest tests/test_pinn_identifiability.py tests/test_pinn_inverse_v0.py -q",
+      "status": "supported",
+      "test_paths": [
+        "tests/test_pinn_identifiability.py",
+        "tests/test_pinn_inverse_v0.py"
+      ]
+    },
+    {
+      "claim": "gamma_sub is recoverable as a reduced inverse target when microphysics is fixed and confounders are fixed or tightly bounded.",
+      "config_paths": [
+        "configs/gamma_sub_constrained_inversion.yaml"
+      ],
+      "evidence_paths": [
+        "outputs/tables/gamma_sub_constrained_inversion_summary.json",
+        "outputs/tables/gamma_sub_prior_width_sweep.csv",
+        "outputs/tables/gamma_sub_continuous_refinement_summary.json",
+        "outputs/tables/gamma_sub_continuous_refinement_cases.csv"
+      ],
+      "figure_ids": [
+        "Figure 2"
+      ],
+      "forbidden_wording": "gamma_sub is globally or unconditionally identifiable, or the result is a measured device parameter.",
+      "id": "C2_constrained_gamma_sub",
+      "implementation_paths": [
+        "scripts/invert_gamma_sub_constrained.py",
+        "scripts/refine_gamma_sub_continuous.py"
+      ],
+      "limitation": "The target is a lumped effective thermal-dissipation parameter in a 1D synthetic model, not an unconditional material constant.",
+      "manuscript_sentence": "With microphysical parameters fixed and nuisance priors tightly bounded, the reduced inverse recovers the effective substrate-dissipation parameter gamma_sub, including off-grid targets after continuous local refinement.",
+      "method_equations": [
+        "docs/method_equations.md#heat-equation",
+        "docs/method_equations.md#constrained-gamma-sub-inverse-objective"
+      ],
+      "reproduction_command": ".\\.venv\\Scripts\\python.exe -m pytest tests/test_gamma_sub_constrained.py tests/test_gamma_sub_continuous_refinement.py -q",
+      "status": "qualified_supported",
+      "test_paths": [
+        "tests/test_gamma_sub_constrained.py",
+        "tests/test_gamma_sub_continuous_refinement.py"
+      ]
+    },
+    {
+      "claim": "T_sw is the dominant audited confounder and must be calibrated or tightly bounded before gamma_sub inversion.",
+      "config_paths": [
+        "configs/gamma_sub_tsw_confounding_phase_map.yaml",
+        "configs/gamma_sub_tsw_calibration_tolerance_sweep.yaml",
+        "configs/gamma_sub_tsw_tolerance_ode_spotcheck.yaml"
+      ],
+      "evidence_paths": [
+        "outputs/tables/gamma_sub_tsw_confounding_phase_map_summary.json",
+        "outputs/tables/gamma_sub_tsw_calibration_tolerance_sweep_summary.json",
+        "outputs/tables/gamma_sub_tsw_tolerance_ode_spotcheck_summary.json"
+      ],
+      "figure_ids": [
+        "Figure 2",
+        "Figure 3"
+      ],
+      "forbidden_wording": "A real device requires or achieves 0.1 K calibration accuracy.",
+      "id": "C3_calibration_gate",
+      "implementation_paths": [
+        "scripts/audit_gamma_sub_tsw_confounding_phase_map.py",
+        "scripts/audit_gamma_sub_tsw_calibration_tolerance_sweep.py",
+        "scripts/audit_gamma_sub_tsw_tolerance_ode_spotcheck.py"
+      ],
+      "limitation": "The approximately 0.1 K marker is benchmark-specific under the configured 15 percent median-error criterion, not a real-device calibration specification.",
+      "manuscript_sentence": "The response-surface audit and 270-case ODE spot-check support a benchmark-specific residual T_sw tolerance near 0.1 K under the configured error criterion; larger mismatch sharply degrades gamma_sub recovery.",
+      "method_equations": [
+        "docs/method_equations.md#conductive-state-relaxation",
+        "docs/method_equations.md#constrained-gamma-sub-inverse-objective"
+      ],
+      "reproduction_command": ".\\.venv\\Scripts\\python.exe -m pytest tests/test_gamma_sub_tsw_confounding_phase_map.py tests/test_gamma_sub_tsw_calibration_tolerance_sweep.py tests/test_gamma_sub_tsw_tolerance_ode_spotcheck.py -q",
+      "status": "qualified_supported",
+      "test_paths": [
+        "tests/test_gamma_sub_tsw_confounding_phase_map.py",
+        "tests/test_gamma_sub_tsw_calibration_tolerance_sweep.py",
+        "tests/test_gamma_sub_tsw_tolerance_ode_spotcheck.py"
+      ]
+    },
+    {
+      "claim": "Noise, seed, observation-count, and off-grid audits support gamma_sub recovery only inside the calibrated or tightly bounded prior region.",
+      "config_paths": [
+        "configs/gamma_sub_statistical_robustness.yaml",
+        "configs/gamma_sub_constrained_inversion.yaml"
+      ],
+      "evidence_paths": [
+        "outputs/tables/gamma_sub_statistical_robustness_summary.json",
+        "outputs/tables/gamma_sub_paper_readiness_summary.json",
+        "outputs/tables/gamma_sub_observation_sensitivity.csv",
+        "outputs/tables/gamma_sub_offgrid_summary.csv",
+        "outputs/tables/gamma_sub_continuous_refinement_summary.json"
+      ],
+      "figure_ids": [
+        "Figure 3",
+        "Figure 6"
+      ],
+      "forbidden_wording": "The inverse is robust without calibration, or aggregate averages establish unconditional noise robustness.",
+      "id": "C4_conditional_robustness",
+      "implementation_paths": [
+        "scripts/audit_gamma_sub_statistical_robustness.py",
+        "scripts/audit_gamma_sub_paper_readiness.py",
+        "scripts/refine_gamma_sub_continuous.py"
+      ],
+      "limitation": "Wide T_sw mismatch fails systematically; aggregate robustness must not hide the failed prior region.",
+      "manuscript_sentence": "Across the audited noise, seed, observation-count, and off-grid cases, recovery remains stable only after prior control, whereas wide T_sw mismatch defines a reproducible failure region.",
+      "method_equations": [
+        "docs/method_equations.md#constrained-gamma-sub-inverse-objective"
+      ],
+      "reproduction_command": ".\\.venv\\Scripts\\python.exe -m pytest tests/test_gamma_sub_statistical_robustness.py tests/test_gamma_sub_paper_readiness.py tests/test_gamma_sub_continuous_refinement.py -q",
+      "status": "qualified_supported",
+      "test_paths": [
+        "tests/test_gamma_sub_statistical_robustness.py",
+        "tests/test_gamma_sub_paper_readiness.py",
+        "tests/test_gamma_sub_continuous_refinement.py"
+      ]
+    },
+    {
+      "claim": "Protocol selection is a secondary robustness enhancer after T_sw calibration, not a substitute for calibration.",
+      "config_paths": [
+        "configs/gamma_sub_calibration_protocol_disentanglement.yaml",
+        "configs/gamma_sub_calibrated_sequential_protocol_validation.yaml"
+      ],
+      "evidence_paths": [
+        "outputs/tables/gamma_sub_calibration_protocol_disentanglement_summary.json",
+        "outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_summary.json",
+        "outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_cases.csv"
+      ],
+      "figure_ids": [
+        "Figure 5"
+      ],
+      "forbidden_wording": "The protocol is experimentally validated, globally optimal, or sufficient without calibrated priors.",
+      "id": "C5_protocol_after_calibration",
+      "implementation_paths": [
+        "scripts/audit_gamma_sub_calibration_protocol_disentanglement.py",
+        "scripts/audit_gamma_sub_calibrated_sequential_protocol_validation.py"
+      ],
+      "limitation": "The main protocol result contains 720 synthetic ODE-backed cases under calibrated priors; a broader 2400-case stress audit is supplementary and not main-figure ready.",
+      "manuscript_sentence": "After T_sw calibration, the 720-case ODE-backed sequential validation identifies calibrated_multi_pulse_to_ltp_ltd as the best tested protocol, with success rate 1.0 and maximum relative error 0.1111; protocol gain remains secondary to calibration gain.",
+      "method_equations": [
+        "docs/method_equations.md#constrained-gamma-sub-inverse-objective"
+      ],
+      "reproduction_command": ".\\.venv\\Scripts\\python.exe -m pytest tests/test_gamma_sub_calibration_protocol_disentanglement.py tests/test_gamma_sub_calibrated_sequential_protocol_validation.py -q",
+      "status": "qualified_supported",
+      "test_paths": [
+        "tests/test_gamma_sub_calibration_protocol_disentanglement.py",
+        "tests/test_gamma_sub_calibrated_sequential_protocol_validation.py"
+      ]
+    },
+    {
+      "allowed_sentence": "No provenance-backed digitized external curve is currently available; no experimental-validation claim is made.",
+      "claim": "Provenance-backed external quantitative validation has not been completed.",
+      "evidence_paths": [
+        "outputs/tables/literature_targeted_curve_extraction_attempt_summary.json",
+        "outputs/tables/literature_curve_fit_external_anchor_v2_summary.json"
+      ],
+      "forbidden_wording": "Experimental validation or fitted public curves have been completed.",
+      "id": "B1_external_validation",
+      "status": "forbidden"
+    },
+    {
+      "allowed_sentence": "The strict CV/interface audit fails and exposes scaling, coordinate, and optimization repair targets.",
+      "claim": "The v10 CV multidomain neural solver passes its strict field/interface gate.",
+      "evidence_paths": [
+        "outputs/tables/cv_multidomain_oasis_training_summary.json",
+        "outputs/tables/cv_multidomain_oasis_cases.csv"
+      ],
+      "forbidden_wording": "OASIS-PINN field recovery is solved.",
+      "id": "B2_p1_neural_solver",
+      "status": "failed_but_informative"
+    },
+    {
+      "allowed_sentence": "Local block recovery is mixed, and rank-deficient protocol selection invalidates a solved multi-parameter inverse claim.",
+      "claim": "The v10 active terminal inverse solves all material-specific parameter blocks.",
+      "evidence_paths": [
+        "outputs/tables/active_protocol_design_v3_summary.json",
+        "outputs/tables/sequential_terminal_inverse_v3_summary.json"
+      ],
+      "forbidden_wording": "Full nonlinear multi-parameter inverse is solved.",
+      "id": "B3_p2_active_inverse",
+      "status": "failed_but_informative"
+    },
+    {
+      "allowed_sentence": "Segmented terminal currents increase the local Jacobian rank for a three-parameter conductivity-profile basis.",
+      "claim": "Segmented terminals improve low-dimensional local observability in the synthetic y-z forward model.",
+      "evidence_paths": [
+        "outputs/tables/multiterminal_yz_forward_summary.json"
+      ],
+      "forbidden_wording": "Segmented terminals recover arbitrary 2D hidden fields.",
+      "id": "B4_p3_segmented_forward",
+      "status": "qualified_supported"
+    },
+    {
+      "allowed_sentence": "The algorithm comparison remains blocked by the failed P1 gate.",
+      "claim": "Full STL or universal Fourier/F-SPS superiority is supported on v10.",
+      "evidence_paths": [
+        "outputs/tables/oasis_algorithm_gate_v10_summary.json"
+      ],
+      "forbidden_wording": "Full STL reproduction or universal Fourier/F-SPS superiority.",
+      "id": "B5_p4_algorithms",
+      "status": "forbidden"
+    }
+  ],
+  "config_path": "configs/gamma_sub_evidence_lock.yaml",
+  "evidence_type": "synthetic numerical digital-twin benchmark",
+  "external_quantitative_validation_completed": false,
+  "figure_5_decision": {
+    "primary_figure_5_best_protocol": "calibrated_multi_pulse_to_ltp_ltd",
+    "primary_figure_5_cases": 720,
+    "primary_figure_5_max_error": 0.1111111111111111,
+    "primary_figure_5_success_rate": 1.0,
+    "primary_source": "outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_summary.json",
+    "stress_figure_ready": false,
+    "supplementary_stress_source": "outputs/tables/gamma_sub_calibrated_protocol_robustness_final_summary.json"
+  },
+  "figures": [
+    {
+      "builder_path": "scripts/analyze_pinn_identifiability.py",
+      "caption": "Terminal correlations are high for integrated conductivity-related quantities, but port-only recovery of the complete hidden fields fails in the frozen synthetic benchmark.",
+      "evidence_paths": [
+        "outputs/tables/pinn_identifiability_summary.json",
+        "outputs/tables/pinn_inverse_v0_ablation_summary.json"
+      ],
+      "figure_path": "outputs/figures/pinn_identifiability/correlation_heatmap.png",
+      "id": "Figure 1",
+      "reproduction_command": ".\\.venv\\Scripts\\python.exe scripts\\analyze_pinn_identifiability.py",
+      "status": "supported",
+      "title": "Sparse-port identifiability boundary and target-space reduction"
+    },
+    {
+      "builder_path": "scripts/build_manuscript_ready_gamma_sub_figures.py",
+      "caption": "The synthetic objective contains a gamma_sub-T_sw ridge; calibration or tight prior control is required before reduced inversion.",
+      "evidence_paths": [
+        "outputs/tables/gamma_sub_tsw_dense_profile_likelihood_grid.csv",
+        "outputs/tables/gamma_sub_tsw_confounding_phase_map_summary.json"
+      ],
+      "figure_path": "outputs/figures/manuscript_ready_gamma_sub/main_figure_2_confounding_profile.png",
+      "id": "Figure 2",
+      "reproduction_command": ".\\.venv\\Scripts\\python.exe scripts\\build_manuscript_ready_gamma_sub_figures.py",
+      "status": "qualified_supported",
+      "title": "gamma_sub and T_sw confounding profile"
+    },
+    {
+      "builder_path": "scripts/build_manuscript_ready_gamma_sub_figures.py",
+      "caption": "Recoverable and failed regions are shown for the configured synthetic prior, noise, and observation protocols.",
+      "evidence_paths": [
+        "outputs/tables/gamma_sub_recoverability_phase_diagram_summary.json",
+        "outputs/tables/gamma_sub_recoverability_phase_diagram_cases.csv"
+      ],
+      "figure_path": "outputs/figures/manuscript_ready_gamma_sub/main_figure_3_recoverability_phase_diagram.png",
+      "id": "Figure 3",
+      "reproduction_command": ".\\.venv\\Scripts\\python.exe scripts\\build_manuscript_ready_gamma_sub_figures.py",
+      "status": "qualified_supported",
+      "title": "Recoverability phase diagram under prior width, noise, and observation count"
+    },
+    {
+      "builder_path": "scripts/build_manuscript_ready_gamma_sub_figures.py",
+      "caption": "Selected response-surface predictions are compared against fresh simulator-backed anchors; the dense surface is not represented as independent ODE solves.",
+      "evidence_paths": [
+        "outputs/tables/gamma_sub_response_surface_anchor_verification_summary.json",
+        "outputs/tables/gamma_sub_response_surface_anchor_verification_cases.csv"
+      ],
+      "figure_path": "outputs/figures/manuscript_ready_gamma_sub/main_figure_4_anchor_verification.png",
+      "id": "Figure 4",
+      "reproduction_command": ".\\.venv\\Scripts\\python.exe scripts\\build_manuscript_ready_gamma_sub_figures.py",
+      "status": "qualified_supported",
+      "title": "Response-surface anchor verification"
+    },
+    {
+      "builder_path": "scripts/build_submission_ready_gamma_sub_figures.py",
+      "caption": "In 720 synthetic ODE-backed cases under calibrated priors, the calibrated sequential protocol clears the configured error gate; it is not an experimentally validated protocol.",
+      "evidence_paths": [
+        "outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_summary.json",
+        "outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_cases.csv"
+      ],
+      "figure_path": "outputs/figures/submission_ready_gamma_sub/figure_5_calibrated_protocol_validation.png",
+      "id": "Figure 5",
+      "reproduction_command": ".\\.venv\\Scripts\\python.exe scripts\\build_submission_ready_gamma_sub_figures.py",
+      "status": "qualified_supported",
+      "title": "Calibrated sequential protocol validation"
+    },
+    {
+      "builder_path": "scripts/build_manuscript_ready_gamma_sub_figures.py",
+      "caption": "Seeded noise audits retain both the calibrated-prior success region and the wide-T_sw-mismatch failure region.",
+      "evidence_paths": [
+        "outputs/tables/gamma_sub_statistical_robustness_summary.json",
+        "outputs/tables/gamma_sub_statistical_robustness_cases.csv"
+      ],
+      "figure_path": "outputs/figures/manuscript_ready_gamma_sub/main_figure_6_statistical_robustness.png",
+      "id": "Figure 6",
+      "reproduction_command": ".\\.venv\\Scripts\\python.exe scripts\\build_manuscript_ready_gamma_sub_figures.py",
+      "status": "qualified_supported",
+      "title": "Conditional statistical robustness and failed wide-prior region"
+    }
+  ],
+  "main_claim_count": 5,
+  "main_figure_count": 6,
+  "outputs": {
+    "claim_matrix_md": "docs/paper/final_claim_matrix.md",
+    "evidence_lock_md": "docs/paper/gamma_sub_evidence_lock.md",
+    "figure_list_md": "docs/paper/final_figure_list.md",
+    "summary_json": "outputs/tables/gamma_sub_evidence_lock_summary.json"
+  },
+  "schema_version": 1,
+  "source_sha": "e2e2669adfd66aacefacfbfceafcdfc18eafbbee",
+  "status_counts": {
+    "failed_but_informative": 2,
+    "forbidden": 2,
+    "qualified_supported": 5,
+    "supported": 1
+  },
+  "status_vocabulary_valid": true
+}

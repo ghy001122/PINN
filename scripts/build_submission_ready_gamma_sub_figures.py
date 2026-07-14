@@ -1,4 +1,4 @@
-﻿"""Build submission-ready gamma_sub figure drafts from lightweight tables."""
+"""Build submission-ready gamma_sub figure drafts from lightweight tables."""
 
 from __future__ import annotations
 
@@ -58,16 +58,47 @@ def fig_calibration_workflow() -> str:
 
 def fig_calibrated_protocol() -> str:
     summary = _json("outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_summary.json")
-    items = sorted(summary["median_error_by_protocol"].items())
-    labels = [k.replace("_", "\n") for k, _ in items]
-    med = [float(v) for _, v in items]
-    fig, ax = plt.subplots(figsize=(8.8, 4.0))
-    ax.bar(np.arange(len(items)), med, color="#5d8f62")
-    ax.axhline(0.15, color="black", linestyle="--", linewidth=1)
-    ax.set_xticks(np.arange(len(items)), labels, rotation=35, ha="right")
-    _style(ax, "Figure 5 draft: calibrated sequential protocol validation", "protocol", "median relative gamma_sub error")
-    return _save(fig, "figure_5_calibrated_protocol_validation.png")
+    order = [
+        "calibrated_multi_pulse_to_ltp_ltd",
+        "calibrated_short_pulse_to_ltp_ltd",
+        "calibrated_ltp_ltd_only",
+        "calibrated_best_single",
+        "no_calibration_ltp_ltd_only",
+        "wrong_calibration_multi_pulse_to_ltp_ltd",
+    ]
+    labels = [
+        "calibrated\nmulti-pulse",
+        "calibrated\nshort-pulse",
+        "calibrated\nLTP/LTD",
+        "calibrated\nbest single",
+        "no calibration\nLTP/LTD",
+        "wrong calibration\nmulti-pulse",
+    ]
+    colors = ["#2f7d4a", "#609966", "#87ad7f", "#9ab995", "#c9825b", "#b24b4b"]
+    success = [float(summary["by_protocol"][name]["success_rate"]) for name in order]
+    max_error = [float(summary["by_protocol"][name]["max_error"]) for name in order]
+    x = np.arange(len(order))
+    fig, (ax_success, ax_error) = plt.subplots(
+        2,
+        1,
+        figsize=(9.2, 6.6),
+        sharex=True,
+        gridspec_kw={"height_ratios": [1.0, 1.15]},
+    )
+    ax_success.bar(x, success, color=colors)
+    ax_success.set_ylim(0.0, 1.08)
+    _style(ax_success, "Figure 5: calibrated sequential protocol validation", "", "success rate (error <= 0.15)")
+    for index, value in enumerate(success):
+        ax_success.text(index, value + 0.025, f"{value:.2f}", ha="center", va="bottom", fontsize=8)
 
+    ax_error.bar(x, max_error, color=colors)
+    ax_error.axhline(0.15, color="black", linestyle="--", linewidth=1.0, label="per-case error threshold")
+    _style(ax_error, "Worst-case control", "protocol", "maximum relative gamma_sub error")
+    for index, value in enumerate(max_error):
+        ax_error.text(index, value + 0.025, f"{value:.2f}", ha="center", va="bottom", fontsize=8)
+    ax_error.set_xticks(x, labels, rotation=18, ha="right")
+    ax_error.legend(fontsize=8, loc="upper left")
+    return _save(fig, "figure_5_calibrated_protocol_validation.png")
 
 def fig_external_anchor() -> str:
     sanity = _csv("data/literature/literature_parameter_sanity_table.csv")
