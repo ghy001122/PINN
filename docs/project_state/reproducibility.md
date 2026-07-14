@@ -1,4 +1,6 @@
-# Reproducibility
+# Reproducibility — Cumulative Historical Record
+
+> Not default context. Use `docs/project_state/reproduction_quickstart.md` for current commands and this file only to trace an older run.
 
 ## Phase-activated multidomain OASIS-PINN v9 reproduction
 

@@ -29,10 +29,10 @@ The manuscript should be framed as a one-dimensional synthetic numerical digital
 
 ## Minimum Submission Package
 
-- Main figures listed in `docs/paper/proposed_main_figures.md`.
-- Main tables listed in `docs/paper/proposed_tables.md`.
+- Main figures listed in `docs/paper/final_figure_list.md`.
+- Main tables listed in `docs/paper/final_table_list.md`.
 - Claim stress-test matrix in `docs/paper/claim_stress_test_matrix.md`.
-- Reproducibility commands and lightweight JSON/CSV evidence in `EXPERIMENT_REGISTRY.md`, `DATASET_REGISTRY.md`, and `FIGURE_REGISTRY.md`.
+- Reproducibility commands and lightweight JSON/CSV evidence routed by `docs/project_state/current_evidence_index.md`.
 ## Literature-Anchored Revision Notes
 
 The manuscript should add a short paragraph in Methods stating that Lee et al. (2024) and Jurj (2026) support compact/physics-regularized memristor surrogate framing and order-of-magnitude parameter sanity, but no measured curve is used as calibration in the current repository. Results should add a T_sw calibration-necessity panel and describe simulator-backed sequential protocol validation as a preflight result.

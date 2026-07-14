@@ -11,10 +11,10 @@
       "status": "pass",
       "missing": []
     },
-    "canonical_handoff": {
+    "current_handoff": {
       "status": "pass",
-      "canonical_count": 1,
-      "pointer_present": true
+      "bytes": 405,
+      "missing_markers": []
     },
     "single_current_snapshot": {
       "status": "pass",
@@ -23,6 +23,7 @@
     },
     "phase_consistency": {
       "status": "pass",
+      "active_phase_id": "D_EXTERNAL_ANCHOR",
       "missing": []
     },
     "delivery_contract": {
@@ -35,7 +36,7 @@
     },
     "critical_markdown_links": {
       "status": "pass",
-      "checked": 6,
+      "checked": 8,
       "missing": []
     },
     "claim_vocabulary": {
@@ -50,17 +51,37 @@
     "agents_chain_size": {
       "status": "pass",
       "bytes": {
-        "src/pinnpcm/physics/AGENTS.md": 7810,
-        "src/pinnpcm/pinn/AGENTS.md": 7942,
-        "scripts/AGENTS.md": 7705,
-        "tests/AGENTS.md": 7647,
-        "docs/AGENTS.md": 7777
+        "src/pinnpcm/physics/AGENTS.md": 7958,
+        "src/pinnpcm/pinn/AGENTS.md": 8090,
+        "scripts/AGENTS.md": 7853,
+        "tests/AGENTS.md": 7795,
+        "docs/AGENTS.md": 7925
       },
       "oversized": {}
     },
     "no_authoritative_memorys_directory": {
       "status": "pass",
       "paths": []
+    },
+    "low_token_context_budget": {
+      "status": "pass",
+      "limit_bytes": 24576,
+      "total_bytes": 18663,
+      "files": {
+        "CODEX_CONTEXT.md": 3239,
+        "docs/research_strategy/active_phase.md": 4643,
+        "PROJECT_STATE.md": 4089,
+        "NEXT_ACTIONS.md": 4104,
+        "docs/project_state/current_evidence_index.md": 2588
+      }
+    },
+    "retired_generator_guard": {
+      "status": "pass",
+      "path": "scripts/build_final_submission_figures.py"
+    },
+    "no_duplicate_active_markdown": {
+      "status": "pass",
+      "groups": []
     },
     "frozen_gt_integrity": {
       "status": "pass",

@@ -1,12 +1,11 @@
 # Current Research Handoff Entry
 
-The canonical complete handoff is `docs/research_strategy/codex_new_dialog_handoff_d23a576.md`.
+Resume from:
 
-Current low-token entry order:
+1. `CODEX_CONTEXT.md`;
+2. `docs/research_strategy/active_phase.md`;
+3. `PROJECT_STATE.md` and `NEXT_ACTIONS.md`;
+4. `docs/project_state/current_evidence_index.md`;
+5. the latest task-relevant report.
 
-1. `CODEX_CONTEXT.md`
-2. `docs/research_strategy/active_phase.md`
-3. this pointer only if a handoff is requested
-4. the canonical complete handoff only when the task needs full history
-
-The previous early-`gamma_sub` handoff is archived at `docs/archive/research_strategy/current_research_handoff_pre_v10.md`. It is historical and must not override v10 status.
+The old full handoff and archived snapshots are legacy provenance only. Their replacements are listed in `docs/research_strategy/legacy_document_index.md`.

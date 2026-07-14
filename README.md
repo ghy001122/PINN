@@ -22,10 +22,10 @@ The persistent delivery target is a complete, reproducible, ethically bounded Q2
 - Delivery goal: [PROJECT_GOAL.md](PROJECT_GOAL.md)
 - Low-token Codex entry: [CODEX_CONTEXT.md](CODEX_CONTEXT.md)
 - Current phase: [active_phase.md](docs/research_strategy/active_phase.md)
-- Canonical full handoff: [codex_new_dialog_handoff_d23a576.md](docs/research_strategy/codex_new_dialog_handoff_d23a576.md)
+- Current evidence: [current_evidence_index.md](docs/project_state/current_evidence_index.md)
+- SCI pipeline: [sci_delivery_pipeline.md](docs/research_strategy/sci_delivery_pipeline.md)
+- Innovation portfolio: [innovation_portfolio.md](docs/research_strategy/innovation_portfolio.md)
 - Governance: [AGENTS.md](AGENTS.md)
-
-Workspace path used by the project owner: `E:\Python demo\PINN`.
 
 ## Environment
 
@@ -60,7 +60,7 @@ Frozen GT smoke generation, only for a new non-frozen output directory:
 .\.venv\Scripts\python.exe scripts\run_gt_v1.py --protocol triangle --nx 11 --nt 80 --outdir data/processed/gt_v1_quick
 ```
 
-Current v10 evidence entrypoints are indexed in `EXPERIMENT_REGISTRY.md`; do not rerun or overwrite frozen GT v1.1 during ordinary work. Lightweight committed results live under `outputs/tables/`.
+Current evidence entrypoints are indexed in `docs/project_state/current_evidence_index.md`. The root registries are cumulative history and should be opened only to trace a specific older run. Do not rerun or overwrite frozen GT v1.1 during ordinary work.
 
 ## Directory Guide
 

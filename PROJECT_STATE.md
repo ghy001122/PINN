@@ -3,11 +3,13 @@
 ## Authoritative Current Snapshot
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
+- Active phase ID: `D_EXTERNAL_ANCHOR`.
 - Current phase: Priority D provenance-backed external quantitative anchor.
 - Mainline: identifiability-guided sparse-port target reduction and calibration-gated constrained `gamma_sub` inverse in a 1D synthetic numerical digital twin.
 - Evidence-lock commit: `d1121e16fa5015a297da468e3e6f0504b9e97d17`.
 - Frozen GT v1.1: unchanged and read-only.
 - Local validation at the evidence-lock commit: `187 passed`; no `.github` workflow exists, so no GitHub CI claim is allowed.
+- Current workflow-audit regression: `188 passed in 213.32 s`; governance audit has no failed checks.
 - Experimental validation by this project: absent.
 
 ## Distance To Delivery Goal
@@ -45,3 +47,5 @@ Only Priority D is active. Priority M complete manuscript/supplement assembly fo
 ## Historical Record
 
 Historical state, old priority labels, and cumulative claim matrices are provenance only. They cannot override this snapshot or `docs/research_strategy/active_phase.md`.
+
+Compact evidence routing is in `docs/project_state/current_evidence_index.md`; legacy document replacements are listed in `docs/research_strategy/legacy_document_index.md`.

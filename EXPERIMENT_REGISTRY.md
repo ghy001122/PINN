@@ -1,3 +1,15 @@
+# Experiment Registry — Cumulative Historical Index
+
+> Do not load by default. Current claim/evidence routing is `docs/project_state/current_evidence_index.md`; use this file only to trace a named historical run.
+
+## Project history/workflow/innovation audit (2026-07-14)
+
+- Type: documentation, governance, and primary-literature review; no new scientific experiment.
+- Output: `outputs/tables/project_history_workflow_innovation_audit_summary.json`.
+- Report: `docs/codex_reports/project_history_workflow_innovation_audit_f14c068.md`.
+- Validation: governance passed; full CPU suite `188 passed`.
+- Claim impact: no status change; external anchor narrowed to a VO2 literature-family comparison.
+
 ## Post-d1121e16 review integration (2026-07-14)
 
 - Type: documentation, provenance planning, and existing-evidence visualization; no new scientific experiment.

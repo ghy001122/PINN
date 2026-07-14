@@ -1,6 +1,6 @@
 # Project-Local Codex Policy
 
-`rules/project_safety.rules` contains command-safety policy only. Scientific claims and research behavior remain in `AGENTS.md` and the versioned status chain.
+`rules/project_safety.rules` contains command-safety policy only. Scientific claims and research behavior remain in `AGENTS.md`; the reusable research workflow is `docs/research_strategy/sci_delivery_pipeline.md`.
 
 The file uses the `prefix_rule(...)` syntax accepted by the installed Codex CLI and is tested directly with `codex execpolicy check`. Direct checks prove syntax and match behavior; they do not prove that every Codex client automatically trusts and loads project-local `.codex` policy. Automatic loading is therefore `manual_review_required` unless the client explicitly reports it.
 

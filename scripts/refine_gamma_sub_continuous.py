@@ -59,8 +59,7 @@ except ModuleNotFoundError:  # pragma: no cover - script-dir fallback.
 DEFAULT_CONFIG = Path("configs/gamma_sub_constrained_inversion.yaml")
 DEFAULT_SUMMARY = Path("outputs/tables/gamma_sub_continuous_refinement_summary.json")
 DEFAULT_CASES_CSV = Path("outputs/tables/gamma_sub_continuous_refinement_cases.csv")
-DEFAULT_REPORT = Path("docs/gamma_sub_continuous_refinement_report.md")
-DEFAULT_CODEX_REPORT = Path("docs/codex_reports/gamma_sub_continuous_refinement_report.md")
+DEFAULT_REPORT = Path("docs/codex_reports/gamma_sub_continuous_refinement_report.md")
 DEFAULT_TRUE_GAMMAS = (4.38e8, 4.62e8, 5.15e8)
 DEFAULT_OBSERVATION_COUNTS = (8, 16, 32, 64)
 DEFAULT_NOISE_LEVELS = (0.0, 0.02, 0.05)
@@ -449,7 +448,6 @@ def run_continuous_refinement(
     summary_path: Path = DEFAULT_SUMMARY,
     cases_csv_path: Path = DEFAULT_CASES_CSV,
     report_path: Path = DEFAULT_REPORT,
-    codex_report_path: Path = DEFAULT_CODEX_REPORT,
     true_gammas: list[float] | None = None,
     observation_counts: list[int] | None = None,
     noise_levels: list[float] | None = None,
@@ -463,7 +461,6 @@ def run_continuous_refinement(
     summary_path = _resolve(summary_path)
     cases_csv_path = _resolve(cases_csv_path)
     report_path = _resolve(report_path)
-    codex_report_path = _resolve(codex_report_path)
     config = _simulation_config(_load_yaml(config_path), nx, nt)
     target_path = _resolve(config["target_npz"])
     obs_path = _resolve(config["sparse_obs_npz"])
@@ -547,14 +544,12 @@ def run_continuous_refinement(
             "summary_json": _display_path(summary_path),
             "cases_csv": _display_path(cases_csv_path),
             "report_md": _display_path(report_path),
-            "codex_report_md": _display_path(codex_report_path),
         },
     }
     summary_path.parent.mkdir(parents=True, exist_ok=True)
     summary_path.write_text(json.dumps(summary, indent=2, sort_keys=True), encoding="utf-8")
     _write_cases_csv(cases_csv_path, rows)
     _write_report(report_path, summary)
-    _write_report(codex_report_path, summary)
     return summary
 
 
@@ -564,7 +559,6 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--summary", type=Path, default=DEFAULT_SUMMARY)
     parser.add_argument("--cases-csv", type=Path, default=DEFAULT_CASES_CSV)
     parser.add_argument("--report", type=Path, default=DEFAULT_REPORT)
-    parser.add_argument("--codex-report", type=Path, default=DEFAULT_CODEX_REPORT)
     parser.add_argument("--true-gammas", type=str, default=",".join(f"{value:.8e}" for value in DEFAULT_TRUE_GAMMAS))
     parser.add_argument("--observation-counts", type=str, default=",".join(str(value) for value in DEFAULT_OBSERVATION_COUNTS))
     parser.add_argument("--noise-levels", type=str, default=",".join(f"{value:g}" for value in DEFAULT_NOISE_LEVELS))
@@ -584,7 +578,6 @@ def main() -> None:
         summary_path=args.summary,
         cases_csv_path=args.cases_csv,
         report_path=args.report,
-        codex_report_path=args.codex_report,
         true_gammas=_parse_float_list(args.true_gammas),
         observation_counts=_parse_int_list(args.observation_counts),
         noise_levels=_parse_float_list(args.noise_levels),

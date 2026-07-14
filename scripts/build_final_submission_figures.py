@@ -1,8 +1,8 @@
-"""Build final manuscript figure/table/claim lock documents.
+"""RETIRED: legacy final manuscript figure/table/claim lock builder.
 
-The generated documents are planning artifacts for a synthetic numerical
-digital-twin manuscript. PNG figures remain generated/ignored unless a later
-submission task explicitly exports them.
+This entrypoint encoded pre-evidence-lock statuses and could overwrite current
+claim/figure artifacts. Use `scripts/build_gamma_sub_evidence_lock.py` and the
+builders named in `docs/paper/final_figure_list.md`.
 """
 
 from __future__ import annotations
@@ -21,6 +21,9 @@ def _json(rel: str) -> dict[str, Any]:
 
 
 def build_final_submission_lock() -> dict[str, Any]:
+    raise RuntimeError(
+        "RETIRED: use build_gamma_sub_evidence_lock.py and the builders in final_figure_list.md"
+    )
     tol = _json("outputs/tables/gamma_sub_tsw_calibration_tolerance_sweep_summary.json")
     dis = _json("outputs/tables/gamma_sub_calibration_protocol_disentanglement_summary.json")
     rob = _json("outputs/tables/gamma_sub_calibrated_protocol_robustness_final_summary.json")

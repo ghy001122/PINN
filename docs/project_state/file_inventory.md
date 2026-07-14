@@ -11,10 +11,12 @@
 | `PROJECT_STATE.md` | Single authoritative current snapshot. |
 | `NEXT_ACTIONS.md` | Single active execution queue. |
 | `docs/research_strategy/active_phase.md` | Authorized phase and P0-P4 gates. |
-| `docs/research_strategy/goal_status.md` | Compact milestone dashboard. |
+| `docs/research_strategy/sci_delivery_pipeline.md` | Reusable stage-gate execution workflow. |
+| `docs/project_state/current_evidence_index.md` | Compact evidence routing. |
+| `docs/research_strategy/innovation_portfolio.md` | Ranked claim-gated future research. |
 | `docs/research_strategy/durable_project_memory.md` | Stable facts and pitfalls, no transient state. |
 | `docs/research_strategy/memory_policy.md` | Memory authority and privacy. |
-| canonical handoff | Full history and transition context. |
+| `docs/research_strategy/legacy_document_index.md` | Retired document replacements. |
 
 ## Evidence Chain
 
@@ -46,4 +48,4 @@
 
 The frozen v1.1 configs, report, manifest, and arrays listed in root `AGENTS.md` are read-only outside an explicit GT revision.
 
-Historical inventories are available through Git history and archived status files; this inventory is a current routing document, not an exhaustive chronology.
+Historical inventories are available through Git history, cumulative registries, and retired documents. This inventory is a current routing document, not an exhaustive chronology.

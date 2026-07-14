@@ -1,5 +1,7 @@
 # Durable Project Memory
 
+This file stores stable invariants and recurring pitfalls only. Current phase, metrics, HEAD, and queue belong in `PROJECT_STATE.md`, `active_phase.md`, and `NEXT_ACTIONS.md`; retired surfaces are listed in `legacy_document_index.md`.
+
 This file stores stable project facts, not current HEADs, transient metrics, or the next task.
 
 ## Durable Delivery Contract

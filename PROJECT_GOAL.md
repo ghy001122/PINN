@@ -30,27 +30,27 @@ Do not execute tasks whose manuscript value cannot be stated. Select one active 
 {\text{time}\times\text{compute}\times\text{risk}}.
 \]
 
-## Ordered Research Priorities
+## Stable Delivery Lanes
 
-Only the first unfinished item in the delivery sequence is active. Historical letter IDs are retained for provenance; their execution order is explicitly reordered by submission value.
+Letter IDs are stable routing labels, not current status. `docs/research_strategy/active_phase.md` authorizes the one active lane and `NEXT_ACTIONS.md` records the current order.
 
-A. Lock and assemble the constrained `gamma_sub` mainline. `completed`
+A. Lock and assemble the constrained `gamma_sub` mainline.
 
-D. Complete at least one provenance-backed external quantitative curve anchor. `active Must-have`
+D. Complete at least one provenance-backed external quantitative curve anchor.
 
-M. Assemble the complete manuscript and supplementary package around the locked claim/figure/equation chain. `queued Must-have`
+M. Assemble the complete manuscript and supplementary package around the locked claim/figure/equation chain.
 
-B. Run one finite-budget P1 CV/mortar repair cycle covering coordinate semantics, physical boundary faces, nondimensional scaling, manufactured tests, and staged optimization. `queued upgrade`
+B. Run one finite-budget P1 CV/mortar repair cycle covering coordinate semantics, physical boundary faces, nondimensional scaling, manufactured tests, and staged optimization.
 
-C. Design full-rank, material-specific active protocols that resolve the thermal block. `queued upgrade`
+C. Design full-rank, material-specific active protocols that resolve the thermal block.
 
-E. Build dynamic multi-terminal y-z-t forward/observability evidence for an explicitly chosen topology and reduced target basis. `queued stretch`
+E. Build dynamic multi-terminal y-z-t forward/observability evidence for an explicitly chosen topology and reduced target basis.
 
-F. Run canonical STL and matched-budget Fourier/F-SPS only after P1 passes and only if an independent algorithm story remains manuscript-relevant. `blocked stretch`
+F. Run canonical STL and matched-budget Fourier/F-SPS only after P1 passes and only if an independent algorithm story remains manuscript-relevant.
 
-G. Consider compact-model/LUT/Verilog-A export only after the external anchor and complete manuscript exist. `deferred engineering extension`
+G. Consider compact-model/LUT/Verilog-A export only after the external anchor and complete manuscript exist.
 
-Priority D is allowed to precede B because external quantitative anchoring is a Definition-of-Done requirement while P1 is a high-risk optional upgrade. This is the documented delivery blocker that activates the exception above; it does not relax the P1 gate or change the manuscript core line.
+Must-have delivery gaps may precede high-risk upgrades when the active phase documents the value/risk decision. Scheduling never relaxes a scientific gate or changes the manuscript core line.
 
 ## Evidence Lifecycle
 
@@ -72,6 +72,8 @@ Every round must close with:
 - a disposition: continue, stop, downgrade, or move to manuscript assembly.
 
 Update the compact status chain and relevant registries without duplicating the same prose.
+
+The detailed reusable workflow, run classes, gate card, and failure routing live in `docs/research_strategy/sci_delivery_pipeline.md`.
 
 ## Must-Have Definition Of Done
 

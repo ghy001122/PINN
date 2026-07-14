@@ -36,4 +36,4 @@
     `-- AGENTS.md
 ```
 
-Large generated artifacts remain under `data/processed/` or `outputs/`. The governance entrypoint is `AGENTS.md`; the low-token research entrypoint is `CODEX_CONTEXT.md`; the canonical full handoff is `docs/research_strategy/codex_new_dialog_handoff_d23a576.md`.
+Large generated artifacts remain under `data/processed/` or `outputs/`. The governance entrypoint is `AGENTS.md`; the low-token research entrypoint is `CODEX_CONTEXT.md`; compact evidence routing is `docs/project_state/current_evidence_index.md`.

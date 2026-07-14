@@ -145,7 +145,7 @@ This round implements a declarative evidence chain in `configs/gamma_sub_evidenc
 - `docs/paper/final_claim_matrix.md`;
 - `docs/paper/final_figure_list.md`.
 
-The pre-lock cumulative claim matrix is preserved at `docs/archive/paper/final_claim_matrix_pre_gamma_lock_e2e2669.md`.
+The pre-lock cumulative claim matrix remains available through Git history as `git show e2e2669:docs/paper/final_claim_matrix.md`.
 
 Figure 5 is resolved unambiguously: the 720-case calibrated sequential validation is the primary result (`success_rate=1.0`, `max_error=0.1111`), while the 2400-case robustness stress audit is supplementary because its own JSON sets `whether_ready_as_main_figure=false`.
 

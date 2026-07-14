@@ -7,8 +7,8 @@ Authority order:
 1. applicable repository `AGENTS.md` files;
 2. current Git state, code, outputs, and tests;
 3. `CODEX_CONTEXT.md` and `docs/research_strategy/active_phase.md`;
-4. `PROJECT_STATE.md`, `NEXT_ACTIONS.md`, registries, and reports;
-5. canonical handoff and archived history;
+4. `PROJECT_STATE.md`, `NEXT_ACTIONS.md`, and `docs/project_state/current_evidence_index.md`;
+5. cumulative registries, legacy handoffs, and archived history;
 6. local memory.
 
 When memory conflicts with Git, outputs, or the active phase, verify current evidence and ignore the stale memory. Do not copy transient HEADs, metrics, or next actions into durable memory.

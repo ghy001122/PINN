@@ -1,3 +1,7 @@
+# Dataset Registry — Cumulative Historical Index
+
+> Do not load by default. Current evidence routing is `docs/project_state/current_evidence_index.md`.
+
 ## Priority D external-anchor planning (2026-07-14)
 
 No external dataset was added in this review-integration round. The Qiu-associated VO2 Nature Communications source-data package is the primary provenance candidate; it may enter `data/external/` only with DOI, figure/source-data identity, units, license, access date, extraction method, and SHA-256. External validation remains `forbidden` until a fit/holdout result passes.

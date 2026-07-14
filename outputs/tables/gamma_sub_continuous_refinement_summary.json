@@ -101,8 +101,7 @@
   "offgrid_truths_excluded_from_candidate_grid": true,
   "outputs": {
     "cases_csv": "outputs\\tables\\gamma_sub_continuous_refinement_cases.csv",
-    "codex_report_md": "docs\\codex_reports\\gamma_sub_continuous_refinement_report.md",
-    "report_md": "docs\\gamma_sub_continuous_refinement_report.md",
+    "report_md": "docs\\codex_reports\\gamma_sub_continuous_refinement_report.md",
     "summary_json": "outputs\\tables\\gamma_sub_continuous_refinement_summary.json"
   },
   "rows": [

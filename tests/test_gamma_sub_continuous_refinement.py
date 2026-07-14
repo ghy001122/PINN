@@ -31,7 +31,6 @@ def test_continuous_refinement_smoke_schema_and_resimulation(tmp_path: Path) -> 
         summary_path=tmp_path / "summary.json",
         cases_csv_path=tmp_path / "cases.csv",
         report_path=tmp_path / "report.md",
-        codex_report_path=tmp_path / "codex_report.md",
         true_gammas=true_gammas,
         observation_counts=[4, 8],
         noise_levels=[0.0, 0.02],

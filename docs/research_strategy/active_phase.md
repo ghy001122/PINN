@@ -1,5 +1,7 @@
 # Active Phase
 
+Active phase ID: `D_EXTERNAL_ANCHOR`
+
 ## Current Phase
 
 `Q2 SCI delivery - Priority D provenance-backed external quantitative anchor`
@@ -24,7 +26,7 @@ source identity/license -> immutable raw/source-data file + SHA-256 -> provenanc
 
 ## Predeclared Completion Gate
 
-A positive external-anchor result requires all conditions:
+A positive VO2 literature-family external-anchor result requires all conditions:
 
 - DOI/version, authors, material, device topology, figure or source-data identifier, units, access date, license/reuse terms, extraction method, and raw-file SHA-256 are recorded;
 - raw external data are stored under `data/external/` and are never overwritten by processed values;
@@ -40,9 +42,9 @@ These are manuscript gates, not claims about universal device accuracy.
 
 If provenance closes but the quantitative gate fails, the result is `failed_but_informative` and may support a model-family limitation. If provenance, units, license, or holdout isolation is incomplete, external validation remains `forbidden`.
 
-Allowed wording after a pass: the reduced synthetic model reproduces specified literature curves within the declared metric and holdout protocol.
+Allowed wording after a pass: the declared reduced VO2 model reproduces specified literature curves within the declared metric and holdout protocol.
 
-Forbidden wording: this project experimentally validates VO2/NbO2 devices; literature-fit parameters are universal material constants; a VO2/SnSe stack was reproduced; or a fit to one curve proves cross-material/general device validity.
+Forbidden wording: this project experimentally validates VO2/NbO2 devices; the anchor validates the frozen Nb/NbOx/V2O5/Ni-inspired benchmark; literature-fit parameters are universal material constants; a VO2/SnSe stack was reproduced; or a fit to one curve proves cross-material/general device validity.
 
 ## Locked Cross-Gate Context
 

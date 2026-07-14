@@ -2,7 +2,7 @@
 
 ## Authoritative Current Queue
 
-Activate exactly one highest-value bottleneck per round. Current active item: Priority D.
+Activate exactly one highest-value bottleneck per round. Current active phase ID: `D_EXTERNAL_ANCHOR` (Priority D).
 
 The manuscript core remains constrained `gamma_sub` recovery under calibrated or tightly bounded priors.
 
@@ -12,7 +12,7 @@ Commit `d1121e16fa5015a297da468e3e6f0504b9e97d17` contains the evidence lock. Fi
 
 ### Priority D: provenance-backed external quantitative anchor - active Must-have
 
-Primary source candidate: Zhang, Sipling, Qiu et al., Nature Communications 15, 6986 (2024), DOI `10.1038/s41467-024-51254-4`, using publisher source data and supplementary information. Require immutable raw data, SHA-256, figure/source-data identity, units, license, extraction method, fit/holdout isolation, predeclared metrics, tests, JSON/CSV, comparison figure, report, claim update, and manuscript sentence.
+Primary source candidate: Zhang, Sipling, Qiu et al., Nature Communications 15, 6986 (2024), DOI `10.1038/s41467-024-51254-4`, using publisher source data and supplementary information. Require immutable raw data, SHA-256, figure/source-data identity, units, license, extraction method, fit/holdout isolation, predeclared metrics, tests, JSON/CSV, comparison figure, report, claim update, and manuscript sentence. The maximum allowed positive claim is a VO2 literature-family external anchor, not validation of the frozen mainline stack.
 
 Completion requires normalized RMSE `<=0.20` on both fit and holdout traces plus `<=0.20` relative error for any reported threshold/holding/spike-frequency feature. Provenance failure keeps the claim `forbidden`; quantitative failure with complete provenance is `failed_but_informative`.
 
@@ -42,7 +42,7 @@ Consider only after Priority D and Priority M complete. Circuit-level smoke test
 
 ## Selective Innovation Routing
 
-Adopt now: recoverability-map narrative, numerical-forward/neural-inverse division, material-mechanism separation, literature-curve provenance gate. Retain for later bounded audits: rank-gated hierarchical inverse, time-window active design, one-cycle CV-cPINN repair. Defer: arbitrary 2D recovery, dual-graph emulator, compact export, and full STL/Fourier stories.
+Adopt now: recoverability-map narrative, numerical-forward/neural-inverse division, material-mechanism separation, literature-curve provenance gate. Retain for later bounded audits: rank-gated hierarchical inverse, amortized probabilistic `gamma_sub` inference, time-window active design, and one-cycle CV-cPINN repair. Defer: arbitrary 2D recovery, dual-graph emulator, compact export, and full STL/Fourier stories. The ranked gates are in `docs/research_strategy/innovation_portfolio.md`.
 
 ## Non-Negotiable Boundaries
 

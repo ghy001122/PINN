@@ -18,10 +18,13 @@ REQUIRED = [
     "README.md",
     "docs/AGENTS.md",
     "docs/research_strategy/active_phase.md",
-    "docs/research_strategy/codex_new_dialog_handoff_d23a576.md",
+    "docs/research_strategy/sci_delivery_pipeline.md",
+    "docs/research_strategy/innovation_portfolio.md",
+    "docs/research_strategy/legacy_document_index.md",
     "docs/research_strategy/durable_project_memory.md",
     "docs/research_strategy/memory_policy.md",
-    "docs/research_strategy/goal_status.md",
+    "docs/project_state/current_evidence_index.md",
+    "docs/project_state/reproduction_quickstart.md",
     "docs/templates/codex_final_report.md",
     "src/pinnpcm/physics/AGENTS.md",
     "src/pinnpcm/pinn/AGENTS.md",
@@ -38,6 +41,8 @@ CRITICAL_MARKDOWN = [
     "CODEX_CONTEXT.md",
     "PROJECT_STATE.md",
     "NEXT_ACTIONS.md",
+    "docs/project_state/current_evidence_index.md",
+    "docs/research_strategy/sci_delivery_pipeline.md",
     "docs/research_strategy/context_index.md",
     "docs/research_strategy/current_research_handoff.md",
     "docs/research_strategy/memory_policy.md",
@@ -82,29 +87,37 @@ def check_markdown_links() -> dict:
     return {"status": "pass" if not missing else "fail", "checked": checked, "missing": missing}
 
 
+def _phase_id(text: str) -> str | None:
+    match = re.search(r"Active phase ID:\s*`([A-Z0-9_]+)`", text)
+    return match.group(1) if match else None
+
+
 def check_phase_consistency() -> dict:
     active = (ROOT / "docs/research_strategy/active_phase.md").read_text(encoding="utf-8")
     context = (ROOT / "CODEX_CONTEXT.md").read_text(encoding="utf-8")
     state = (ROOT / "PROJECT_STATE.md").read_text(encoding="utf-8")
-    combined = {"active_phase": active, "context": context, "project_state": state}
-    required_markers = {
-        "P0": ["qualified_supported"],
-        "P1": ["failed", "0.37563055753707886"],
-        "P2": ["failed_but_informative"],
-        "P3": ["qualified", "forward"],
-        "P4": ["blocked"],
-    }
+    queue = (ROOT / "NEXT_ACTIONS.md").read_text(encoding="utf-8")
+    active_id = _phase_id(active)
     missing: list[str] = []
-    for name, text in combined.items():
-        for gate in required_markers:
-            if gate not in text:
-                missing.append(f"{name}:{gate}")
-    for marker in required_markers["P1"]:
-        if marker not in active or marker not in context or marker not in state:
-            missing.append(f"P1:{marker}")
+    if active_id is None:
+        missing.append("active_phase:Active phase ID")
+    else:
+        for name, text in {"context": context, "project_state": state, "next_actions": queue}.items():
+            if active_id not in text:
+                missing.append(f"{name}:{active_id}")
+    for gate in ["P0", "P1", "P2", "P3", "P4"]:
+        if gate not in state:
+            missing.append(f"project_state:{gate}")
+    for marker in ["0.37563055753707886", "106.15460205078125", "failed_but_informative"]:
+        if marker not in state:
+            missing.append(f"project_state:{marker}")
     if "P4" in state and "forbidden" not in state:
         missing.append("project_state:P4 claim boundary")
-    return {"status": "pass" if not missing else "fail", "missing": sorted(set(missing))}
+    return {
+        "status": "pass" if not missing else "fail",
+        "active_phase_id": active_id,
+        "missing": sorted(set(missing)),
+    }
 
 
 def check_delivery_contract() -> dict:
@@ -117,14 +130,15 @@ def check_delivery_contract() -> dict:
         "Q2_SCI_DELIVERY_MODE",
         "North-Star Scientific Claim",
         "Mandatory Research Filter",
-        "Ordered Research Priorities",
+        "Stable Delivery Lanes",
         "Must-Have Definition Of Done",
         "provenance-backed external quantitative anchor",
         "User Confirmation Boundary",
         "Stretch failure cannot block paper delivery",
     ]
     missing = [f"PROJECT_GOAL.md:{marker}" for marker in required_goal_markers if marker not in goal]
-    active_markers = ["constrained `gamma_sub`", "Priority D"]
+    active_id = _phase_id(active)
+    active_markers = ["constrained `gamma_sub`"] + ([active_id] if active_id else [])
     for name, text in {
         "active_phase": active,
         "context": context,
@@ -138,7 +152,7 @@ def check_delivery_contract() -> dict:
 
 
 def check_claim_matrix_vocabulary() -> dict:
-    paths = [ROOT / "docs/paper/claim_gate_resolution_matrix.md", ROOT / "docs/paper/final_claim_matrix.md"]
+    paths = [ROOT / "docs/paper/final_claim_matrix.md"]
     obsolete_terms = ["partially_supported", "| failed |", "| Blocked |", "| Not supported |"]
     found: list[str] = []
     for path in paths:
@@ -155,13 +169,13 @@ def run_audit(write_output: bool = True) -> dict:
     missing_required = [rel for rel in REQUIRED if not (ROOT / rel).exists()]
     checks["required_files"] = {"status": "pass" if not missing_required else "fail", "missing": missing_required}
 
-    canonical = list((ROOT / "docs/research_strategy").glob("codex_new_dialog_handoff*.md"))
     pointer = (ROOT / "docs/research_strategy/current_research_handoff.md").read_text(encoding="utf-8")
-    handoff_ok = len(canonical) == 1 and "codex_new_dialog_handoff_d23a576.md" in pointer
-    checks["canonical_handoff"] = {
+    handoff_markers = ["CODEX_CONTEXT.md", "active_phase.md", "PROJECT_STATE.md", "current_evidence_index.md"]
+    handoff_ok = all(marker in pointer for marker in handoff_markers) and len(pointer.encode("utf-8")) <= 2048
+    checks["current_handoff"] = {
         "status": "pass" if handoff_ok else "fail",
-        "canonical_count": len(canonical),
-        "pointer_present": "codex_new_dialog_handoff_d23a576.md" in pointer,
+        "bytes": len(pointer.encode("utf-8")),
+        "missing_markers": [marker for marker in handoff_markers if marker not in pointer],
     }
 
     state_text = (ROOT / "PROJECT_STATE.md").read_text(encoding="utf-8")
@@ -201,6 +215,41 @@ def run_audit(write_output: bool = True) -> dict:
 
     memorys = [str(path.relative_to(ROOT)).replace("\\", "/") for path in ROOT.rglob("memorys") if path.is_dir()]
     checks["no_authoritative_memorys_directory"] = {"status": "pass" if not memorys else "fail", "paths": memorys}
+
+    context_paths = [
+        ROOT / "CODEX_CONTEXT.md",
+        ROOT / "docs/research_strategy/active_phase.md",
+        ROOT / "PROJECT_STATE.md",
+        ROOT / "NEXT_ACTIONS.md",
+        ROOT / "docs/project_state/current_evidence_index.md",
+    ]
+    context_bytes = {str(path.relative_to(ROOT)).replace("\\", "/"): path.stat().st_size for path in context_paths}
+    context_total = sum(context_bytes.values())
+    checks["low_token_context_budget"] = {
+        "status": "pass" if context_total <= 24576 else "fail",
+        "limit_bytes": 24576,
+        "total_bytes": context_total,
+        "files": context_bytes,
+    }
+
+    retired_generator = (ROOT / "scripts/build_final_submission_figures.py").read_text(encoding="utf-8")
+    checks["retired_generator_guard"] = {
+        "status": "pass" if "RETIRED" in retired_generator and "raise RuntimeError" in retired_generator else "fail",
+        "path": "scripts/build_final_submission_figures.py",
+    }
+
+    duplicate_hashes: dict[str, list[str]] = {}
+    for path in ROOT.rglob("*.md"):
+        rel = str(path.relative_to(ROOT)).replace("\\", "/")
+        if rel.startswith("docs/archive/"):
+            continue
+        digest = sha256(path)
+        duplicate_hashes.setdefault(digest, []).append(rel)
+    duplicate_groups = [paths for paths in duplicate_hashes.values() if len(paths) > 1]
+    checks["no_duplicate_active_markdown"] = {
+        "status": "pass" if not duplicate_groups else "fail",
+        "groups": duplicate_groups,
+    }
 
     frozen_details: dict[str, dict] = {}
     frozen_ok = True

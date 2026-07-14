@@ -22,12 +22,15 @@ def test_frozen_gt_hashes_and_claim_vocabulary() -> None:
     assert summary["checks"]["claim_vocabulary"]["status"] == "pass"
 
 
-def test_handoff_snapshot_and_agents_hierarchy() -> None:
+def test_handoff_snapshot_context_budget_and_agents_hierarchy() -> None:
     summary = MODULE.run_audit(write_output=False)
-    assert summary["checks"]["canonical_handoff"]["status"] == "pass"
+    assert summary["checks"]["current_handoff"]["status"] == "pass"
     assert summary["checks"]["single_current_snapshot"]["status"] == "pass"
     assert summary["checks"]["agents_chain_size"]["status"] == "pass"
     assert summary["checks"]["no_authoritative_memorys_directory"]["status"] == "pass"
+    assert summary["checks"]["low_token_context_budget"]["status"] == "pass"
+    assert summary["checks"]["retired_generator_guard"]["status"] == "pass"
+    assert summary["checks"]["no_duplicate_active_markdown"]["status"] == "pass"
 
 
 def test_delivery_contract_and_claim_matrices_are_consistent() -> None:

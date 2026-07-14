@@ -8,7 +8,7 @@ The frozen 1D Ground Truth v1.1 is historically inspired by an Nb/NbOx/V2O5/Ni s
 
 ## Delivery Selection And Autonomy
 
-Use `PROJECT_GOAL.md` as the delivery contract. Activate exactly one highest-value bottleneck per round, selected by manuscript value x probability of useful evidence x reviewer-defense value / time-compute-risk. The current bottleneck is authoritative in `docs/research_strategy/active_phase.md`.
+Use `PROJECT_GOAL.md` as the delivery contract and `docs/research_strategy/sci_delivery_pipeline.md` as the reusable stage-gate workflow. Activate exactly one highest-value bottleneck per round, selected by manuscript value x probability of useful evidence x reviewer-defense value / time-compute-risk. The current bottleneck is authoritative in `docs/research_strategy/active_phase.md`.
 
 Every task must state its manuscript use and follow: config -> implementation -> test -> JSON/CSV -> figure/table -> report -> claim matrix -> manuscript sentence. At round close, record actual work, distance-to-goal change, claim upgrades/downgrades, new blockers, the next single priority, and a continue/stop/downgrade/manuscript disposition.
 
@@ -82,8 +82,8 @@ Authority order:
 1. applicable `AGENTS.md` chain;
 2. current Git state and generated evidence;
 3. `CODEX_CONTEXT.md` and `docs/research_strategy/active_phase.md`;
-4. `PROJECT_STATE.md`, `NEXT_ACTIONS.md`, and registries;
-5. canonical handoff and archived history;
+4. `PROJECT_STATE.md`, `NEXT_ACTIONS.md`, and `docs/project_state/current_evidence_index.md`;
+5. cumulative registries, legacy handoffs, and archived history;
 6. non-authoritative local memories.
 
 ## Subtree Instruction Index

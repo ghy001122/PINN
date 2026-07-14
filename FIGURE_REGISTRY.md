@@ -1,3 +1,7 @@
+# Figure Registry — Cumulative Historical Index
+
+> Do not load by default. The authoritative manuscript list is `docs/paper/final_figure_list.md`.
+
 ## Figure 1/2 evidence-map correction (2026-07-14)
 
 - Figure 1 is now titled `Sparse-port identifiability boundary`; its correlation heatmap is no longer described as directly showing target-space reduction.

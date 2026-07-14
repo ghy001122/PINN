@@ -5,9 +5,10 @@
 Read this file and `docs/research_strategy/active_phase.md` first. Load longer context through `docs/research_strategy/context_loading_policy.md`.
 
 - Authoritative goal: `PROJECT_GOAL.md`
-- Dashboard: `docs/research_strategy/goal_status.md`
+- Phase ID: `D_EXTERNAL_ANCHOR`
+- Current evidence: `docs/project_state/current_evidence_index.md`
 - Evidence-lock commit: `d1121e16fa5015a297da468e3e6f0504b9e97d17`
-- Review-integration report: `docs/codex_reports/post_d1121e16_review_integration_report.md`
+- Current review: `docs/codex_reports/project_history_workflow_innovation_audit_f14c068.md`
 
 ## North Star And Main Paper Line
 
@@ -18,6 +19,8 @@ The scientific mainline remains identifiability-guided target reduction and cali
 Priority D: complete one provenance-backed external quantitative curve anchor with a fit/holdout split. This Must-have now precedes the high-risk P1 repair because it directly blocks the Definition of Done.
 
 Priority A is complete. Priority M complete manuscript/supplement assembly follows D. Priority B P1 repair is retained as one finite-budget cycle after the delivery Must-haves; C, E, F, and compact-model export remain ordered extensions.
+
+The primary candidate is the public VO2 thermal-neuristor source-data package. A pass may support a VO2 literature-family external anchor only; it cannot validate the frozen Nb/NbOx/V2O5/Ni-inspired benchmark as a fabricated device.
 
 ## Evidence Snapshot
 
@@ -36,3 +39,5 @@ Figure 1 is the sparse-port identifiability boundary only. Figure 2 now combines
 ## Operating Rule
 
 Each round activates one bottleneck, predeclares gates, and closes with actual work, distance change, claim changes, blockers, next priority, and disposition. Exact literature parameters require primary-source, figure/table, unit, and provenance verification before use. Frozen GT v1.1 remains read-only.
+
+Use `docs/research_strategy/innovation_portfolio.md` for ranked future ideas; historical brainstorm documents are non-authoritative.

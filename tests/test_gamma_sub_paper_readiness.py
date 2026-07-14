@@ -12,7 +12,7 @@ from scripts.audit_gamma_sub_paper_readiness import run_paper_readiness_audit
 PAPER_DOCS = [
     Path("docs/paper/model_hierarchy_and_claim_boundary.md"),
     Path("docs/paper/equation_variable_registry.md"),
-    Path("docs/paper/experiment_to_figure_mapping.md"),
+    Path("docs/paper/final_figure_list.md"),
 ]
 FROZEN_FILES = [
     Path("data/processed/gt_v1_acceptance/gt_triangle.npz"),

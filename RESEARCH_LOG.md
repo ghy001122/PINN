@@ -1,4 +1,12 @@
-# Research log
+# Research Log — Cumulative Historical Chronology
+
+> Do not load by default. Use `PROJECT_STATE.md`, `NEXT_ACTIONS.md`, and the latest task report for current work.
+
+## Project History, Workflow, And Innovation Audit
+
+Date: 2026-07-14
+
+Audited the full research trajectory and manuscript logic; verified the user-provided phase-transition and PINN literature folders; added a reusable SCI stage-gate pipeline, compact evidence index, primary-source decision log, and claim-gated innovation portfolio. Removed superseded dashboards/handoffs/matrices/drafts and the exact duplicate continuous-refinement report while retaining Git provenance. Hard-disabled an obsolete generator that could overwrite current claim artifacts. No scientific claim status changed. Governance passed and the full CPU suite reported `188 passed in 213.32 s`. Priority D remains active with a VO2 literature-family fit/holdout boundary.
 
 ## Post-d1121e16 Review Integration And Delivery Reordering
 

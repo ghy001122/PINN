@@ -1,4 +1,6 @@
-# Codex Workflow Rules
+# Codex Workflow Checklist
+
+The full stage-gate contract is `docs/research_strategy/sci_delivery_pipeline.md`. This file is the short execution checklist.
 
 ## Start
 
@@ -13,7 +15,7 @@
 - Rank candidates by manuscript value x probability of useful evidence x reviewer-defense value / time-compute-risk.
 - Before execution, state the target claim/artifact, budget, success threshold, failure interpretation, and allowed/forbidden wording.
 - Use the complete evidence lifecycle: config -> implementation -> test -> JSON/CSV -> figure/table -> report -> claim matrix -> manuscript sentence.
-- At closeout update the authoritative goal/phase/state/queue plus registries, latest changes, research log, and claim matrix without mechanically duplicating prose.
+- At closeout update the active phase/state/queue, compact evidence index, task report, and claim matrix only where their responsibilities changed. Cumulative registries do not require mechanical prose duplication.
 - Report goal-distance change, claim changes, blockers, next single priority, and disposition: continue / stop / downgrade / manuscript.
 
 ## Research Execution
