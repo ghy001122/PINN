@@ -1,3 +1,10 @@
+## Post-d1121e16 review integration (2026-07-14)
+
+- Type: documentation, provenance planning, and existing-evidence visualization; no new scientific experiment.
+- Figure correction: Figure 1 title narrowed; Figure 2 adds existing 36-case off-grid recovery points.
+- Priority decision: external quantitative anchor is active; P1 is limited to one later repair cycle.
+- Report: `docs/codex_reports/post_d1121e16_review_integration_report.md`.
+- Claim impact: none; all scientific statuses are unchanged.
 ## Priority A constrained gamma_sub evidence lock (2026-07-14)
 
 - Config: `configs/gamma_sub_evidence_lock.yaml`

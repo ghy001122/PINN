@@ -1,3 +1,8 @@
+## Figure 1/2 evidence-map correction (2026-07-14)
+
+- Figure 1 is now titled `Sparse-port identifiability boundary`; its correlation heatmap is no longer described as directly showing target-space reduction.
+- Figure 2 now contains the gamma_sub/T_sw ridge and a direct true-versus-estimated panel from the existing 36-case off-grid continuous-refinement evidence.
+- This is regenerated visualization of existing synthetic evidence, not a new experiment.
 ## Locked constrained gamma_sub main-figure set (2026-07-14)
 
 Priority A is complete. The authoritative six-figure mapping, source artifacts, captions, builders, and reproduction commands are in `docs/paper/final_figure_list.md` and `outputs/tables/gamma_sub_evidence_lock_summary.json`.

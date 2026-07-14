@@ -12,7 +12,7 @@ Evidence type: synthetic numerical digital-twin code, tables, tests, and documen
 - Base HEAD before this round: `e2e2669adfd66aacefacfbfceafcdfc18eafbbee`.
 - Relation to review anchor: four documented governance/handoff commits after `d23a576b2d8bb17a1d1f72a0cf81cc457d42e048`; no later experimental-code advance before this round.
 - Worktree before this round: clean.
-- Final SHA: not applicable until the current working-tree changes are committed.
+- Final evidence-lock commit SHA: `d1121e16fa5015a297da468e3e6f0504b9e97d17`.
 - Frozen GT v1.1: read-only; pre-task SHA-256 hashes and mtimes were recorded and will be checked again at round close.
 
 ## 2. Key Files Introduced Or Changed At d23a576

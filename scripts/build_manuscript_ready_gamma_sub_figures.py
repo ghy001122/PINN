@@ -40,21 +40,51 @@ def _save(fig: plt.Figure, name: str) -> str:
 
 
 def _figure_confounding_profile() -> str:
-    rows = _read_csv("outputs/tables/gamma_sub_tsw_dense_profile_likelihood_grid.csv")
-    gammas = sorted({float(row["gamma_sub"]) for row in rows})
-    offsets = sorted({float(row["T_sw_offset_K"]) for row in rows})
+    profile_rows = _read_csv("outputs/tables/gamma_sub_tsw_dense_profile_likelihood_grid.csv")
+    gammas = sorted({float(row["gamma_sub"]) for row in profile_rows})
+    offsets = sorted({float(row["T_sw_offset_K"]) for row in profile_rows})
     z = np.full((len(offsets), len(gammas)), np.nan)
     gi = {value: idx for idx, value in enumerate(gammas)}
     oi = {value: idx for idx, value in enumerate(offsets)}
-    for row in rows:
+    for row in profile_rows:
         z[oi[float(row["T_sw_offset_K"])], gi[float(row["gamma_sub"])]] = float(row["objective"])
-    fig, ax = plt.subplots(figsize=(6.8, 4.4))
-    im = ax.imshow(z, origin="lower", aspect="auto", extent=[min(gammas), max(gammas), min(offsets), max(offsets)])
-    ax.set_xscale("log")
-    ax.set_xlabel("gamma_sub")
-    ax.set_ylabel("T_sw offset (K)")
-    ax.set_title("gamma_sub/T_sw response-surface ridge")
-    fig.colorbar(im, ax=ax, label="objective")
+
+    recovery_rows = _read_csv("outputs/tables/gamma_sub_continuous_refinement_cases.csv")
+    fig, axes = plt.subplots(1, 2, figsize=(11.0, 4.4))
+
+    im = axes[0].imshow(
+        z,
+        origin="lower",
+        aspect="auto",
+        extent=[min(gammas), max(gammas), min(offsets), max(offsets)],
+    )
+    axes[0].set_xscale("log")
+    axes[0].set_xlabel("gamma_sub (W m$^{-3}$ K$^{-1}$)")
+    axes[0].set_ylabel("T_sw offset (K)")
+    axes[0].set_title("(a) gamma_sub/T_sw objective ridge")
+    fig.colorbar(im, ax=axes[0], label="objective")
+
+    noise_levels = sorted({float(row["noise_level"]) for row in recovery_rows})
+    colors = plt.cm.viridis(np.linspace(0.15, 0.85, len(noise_levels)))
+    for noise, color in zip(noise_levels, colors):
+        subset = [row for row in recovery_rows if float(row["noise_level"]) == noise]
+        truth = np.asarray([float(row["true_gamma_sub"]) for row in subset]) / 1.0e8
+        estimate = np.asarray([float(row["continuous_refined_gamma_sub"]) for row in subset]) / 1.0e8
+        sizes = np.asarray([float(row["n_obs"]) for row in subset]) * 2.2
+        axes[1].scatter(truth, estimate, s=sizes, color=color, alpha=0.72, label=f"noise={noise:g}")
+    all_truth = np.asarray([float(row["true_gamma_sub"]) for row in recovery_rows]) / 1.0e8
+    all_estimate = np.asarray([float(row["continuous_refined_gamma_sub"]) for row in recovery_rows]) / 1.0e8
+    low = min(float(np.min(all_truth)), float(np.min(all_estimate))) * 0.98
+    high = max(float(np.max(all_truth)), float(np.max(all_estimate))) * 1.02
+    axes[1].plot([low, high], [low, high], color="black", linestyle="--", linewidth=1.0)
+    axes[1].set_xlim(low, high)
+    axes[1].set_ylim(low, high)
+    axes[1].set_xlabel("true off-grid gamma_sub ($10^8$ W m$^{-3}$ K$^{-1}$)")
+    axes[1].set_ylabel("continuous estimate ($10^8$ W m$^{-3}$ K$^{-1}$)")
+    axes[1].set_title("(b) constrained off-grid recovery (36 cases)")
+    axes[1].legend(fontsize=7, loc="best")
+    axes[1].text(0.98, 0.03, "marker size proportional to n_obs", transform=axes[1].transAxes, ha="right", fontsize=7)
+
     return _save(fig, "main_figure_2_confounding_profile.png")
 
 

@@ -2,50 +2,48 @@
 
 ## Authoritative Current Queue
 
-Activate exactly one highest-value bottleneck per round. Current active item: B.
+Activate exactly one highest-value bottleneck per round. Current active item: Priority D.
 
-The manuscript mainline remains constrained `gamma_sub` recovery under calibrated or tightly bounded priors.
+The manuscript core remains constrained `gamma_sub` recovery under calibrated or tightly bounded priors.
 
-### Priority A: lock constrained gamma_sub mainline - completed
+### Priority A: constrained gamma_sub evidence lock - completed
 
-The evidence chain is locked through `configs/gamma_sub_evidence_lock.yaml`, `outputs/tables/gamma_sub_evidence_lock_summary.json`, `docs/paper/gamma_sub_evidence_lock.md`, the current claim/figure matrices, manuscript methods/results/limitations, and the generated reviewer-defense matrix.
+Commit `d1121e16fa5015a297da468e3e6f0504b9e97d17` contains the evidence lock. Figure 1 wording is corrected to identifiability only; Figure 2 now adds direct true-versus-estimated off-grid recovery evidence without a new experiment.
 
-Disposition: move this evidence to manuscript. No new experiment and no scientific claim-status upgrade occurred during assembly.
+### Priority D: provenance-backed external quantitative anchor - active Must-have
 
-### Priority B: P1 CV/mortar validity repair - active
+Primary source candidate: Zhang, Sipling, Qiu et al., Nature Communications 15, 6986 (2024), DOI `10.1038/s41467-024-51254-4`, using publisher source data and supplementary information. Require immutable raw data, SHA-256, figure/source-data identity, units, license, extraction method, fit/holdout isolation, predeclared metrics, tests, JSON/CSV, comparison figure, report, claim update, and manuscript sentence.
 
-Manuscript use: either a qualified neural-method result or a precise numerical-method limitation.
+Completion requires normalized RMSE `<=0.20` on both fit and holdout traces plus `<=0.20` relative error for any reported threshold/holding/spike-frequency feature. Provenance failure keeps the claim `forbidden`; quantitative failure with complete provenance is `failed_but_informative`.
 
-Execute in this order:
+### Priority M: complete manuscript and supplement - queued Must-have
 
-1. declare named feature/coordinate semantics;
-2. repair physical boundary-face and one-sided interface evaluation;
-3. introduce auditable dimensionless residual scales;
-4. add CPU behavioral and manufactured diagnostics;
-5. run staged continuation and then the gate-complete three-seed audit only if steps 1-4 pass.
+Assemble Abstract, Introduction, Related Work, full Methods/Results, Discussion, Conclusion, supplementary negative evidence, code/data availability, captions, and reviewer-defense cross-links. Do not put OASIS-PINN, F-SPS-PINN, or full-field reconstruction in the title unless their gates later pass.
 
-Strict positive gate remains `E_T,E_m <= 0.25`, interface residual `<= 0.05`, and success rate `>= 0.70`. Failure keeps P1 `failed_but_informative`; field-anchor dependence forbids sparse-port-only wording. Do not spend a high-cost budget or add epochs before the semantic/scaling ladder passes.
+### Priority B: one bounded P1 CV/mortar repair - queued upgrade
 
-### Priority C: Material-specific full-rank protocol - queued
+One cycle only: named coordinate features, physical boundary/interface faces, dimensionless residuals, manufactured tests, gradient-scale/conflict reporting, warm start, CV continuation, then mortar. Strict gate remains `E_T,E_m <=0.25`, interface residual `<=0.05`, success rate `>=0.70`. The benchmark must be labeled field-anchored and synthetic cross-family; failure stops tuning and remains `failed_but_informative`.
 
-Reject rank-deficient protocols before inverse and target the thermal block using nonlinear noisy inversion and predeclared coverage/error gates.
+### Priority C: rank-first material-specific active protocol - queued upgrade
 
-### Priority D: External quantitative anchor - queued Must-have
+Reject rank-deficient parameter blocks before inverse. Combine time windows/protocols until the released block is full rank, then use nonlinear re-simulation and bootstrap/profile-likelihood coverage rather than a single local Gaussian approximation.
 
-Complete at least one provenance-backed quantitative literature curve. Unknown provenance requires user confirmation; synthetic fitting must not be called experimental validation.
+### Priority E: dynamic multi-terminal reduced-target evidence - queued stretch
 
-### Priority E: Dynamic multi-terminal y-z-t - queued
+Choose one explicit coplanar or vertical segmented topology first. Target low-rank heat-source or conductive-channel parameters before any arbitrary-field attempt.
 
-Build dynamic forward/observability evidence before attempting any positive field-inverse claim.
+### Priority F: canonical STL and matched-budget Fourier/F-SPS - blocked stretch
 
-### Priority F: Canonical STL and matched-budget Fourier/F-SPS - blocked
+Run only after P1 passes and only if an independent method story remains valuable. Positive claims remain `forbidden`.
 
-Run only after P1 passes. Positive claims remain `forbidden`; failure affects stretch claims, not paper delivery.
+### Priority G: compact model, LUT, or Verilog-A export - deferred engineering extension
 
-## Round Closeout
+Consider only after Priority D and Priority M complete. Circuit-level smoke tests cannot substitute for device validation.
 
-Every round records: completed work, distance change, claim changes, blockers, next single priority, and one disposition: continue, stop, downgrade, or move to manuscript. Update only the relevant status/registry sections; do not duplicate full prose.
+## Selective Innovation Routing
+
+Adopt now: recoverability-map narrative, numerical-forward/neural-inverse division, material-mechanism separation, literature-curve provenance gate. Retain for later bounded audits: rank-gated hierarchical inverse, time-window active design, one-cycle CV-cPINN repair. Defer: arbitrary 2D recovery, dual-graph emulator, compact export, and full STL/Fourier stories.
 
 ## Non-Negotiable Boundaries
 
-No GT edits, hidden failed seeds, post-hoc gates, synthetic-as-experimental wording, or old queue may override this order. Historical queues remain archived at `docs/archive/project_state/next_actions_pre_v10.md`.
+No GT edits, hidden failed seeds, post-hoc gates, synthetic-as-experimental wording, cross-family device-reproduction wording, or unverified exact literature parameters. Historical queues remain provenance only.

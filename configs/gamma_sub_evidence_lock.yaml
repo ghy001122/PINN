@@ -2,6 +2,7 @@ schema_version: 1
 artifact_type: documentation_evidence_lock
 evidence_type: synthetic numerical digital-twin benchmark
 source_sha: e2e2669adfd66aacefacfbfceafcdfc18eafbbee
+lock_commit_sha: d1121e16fa5015a297da468e3e6f0504b9e97d17
 allowed_statuses:
   - supported
   - qualified_supported
@@ -179,7 +180,7 @@ boundary_claims:
 
 figures:
   - id: Figure 1
-    title: Sparse-port identifiability boundary and target-space reduction
+    title: Sparse-port identifiability boundary
     status: supported
     figure_path: outputs/figures/pinn_identifiability/correlation_heatmap.png
     evidence_paths:
@@ -189,15 +190,17 @@ figures:
     reproduction_command: .\.venv\Scripts\python.exe scripts\analyze_pinn_identifiability.py
     caption: Terminal correlations are high for integrated conductivity-related quantities, but port-only recovery of the complete hidden fields fails in the frozen synthetic benchmark.
   - id: Figure 2
-    title: gamma_sub and T_sw confounding profile
+    title: Constrained gamma_sub recovery and T_sw confounding
     status: qualified_supported
     figure_path: outputs/figures/manuscript_ready_gamma_sub/main_figure_2_confounding_profile.png
     evidence_paths:
       - outputs/tables/gamma_sub_tsw_dense_profile_likelihood_grid.csv
       - outputs/tables/gamma_sub_tsw_confounding_phase_map_summary.json
+      - outputs/tables/gamma_sub_continuous_refinement_summary.json
+      - outputs/tables/gamma_sub_continuous_refinement_cases.csv
     builder_path: scripts/build_manuscript_ready_gamma_sub_figures.py
     reproduction_command: .\.venv\Scripts\python.exe scripts\build_manuscript_ready_gamma_sub_figures.py
-    caption: The synthetic objective contains a gamma_sub-T_sw ridge; calibration or tight prior control is required before reduced inversion.
+    caption: Panel a shows the synthetic gamma_sub-T_sw objective ridge; panel b directly compares true and continuously estimated off-grid gamma_sub in 36 calibrated synthetic cases. Calibration or tight prior control is required before reduced inversion.
   - id: Figure 3
     title: Recoverability phase diagram under prior width, noise, and observation count
     status: qualified_supported

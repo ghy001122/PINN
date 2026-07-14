@@ -32,19 +32,25 @@ Do not execute tasks whose manuscript value cannot be stated. Select one active 
 
 ## Ordered Research Priorities
 
-Only the first unfinished item is active unless a documented blocker forces a transition.
+Only the first unfinished item in the delivery sequence is active. Historical letter IDs are retained for provenance; their execution order is explicitly reordered by submission value.
 
-A. Lock and assemble the constrained `gamma_sub` mainline.
+A. Lock and assemble the constrained `gamma_sub` mainline. `completed`
 
-B. Repair P1 CV/mortar scaling, boundary-face semantics, and staged optimization.
+D. Complete at least one provenance-backed external quantitative curve anchor. `active Must-have`
 
-C. Design full-rank, material-specific active protocols that resolve the thermal block.
+M. Assemble the complete manuscript and supplementary package around the locked claim/figure/equation chain. `queued Must-have`
 
-D. Complete at least one provenance-backed external quantitative curve anchor.
+B. Run one finite-budget P1 CV/mortar repair cycle covering coordinate semantics, physical boundary faces, nondimensional scaling, manufactured tests, and staged optimization. `queued upgrade`
 
-E. Build dynamic multi-terminal y-z-t forward/inverse evidence.
+C. Design full-rank, material-specific active protocols that resolve the thermal block. `queued upgrade`
 
-F. Run canonical STL and matched-budget Fourier/F-SPS only after P1 passes.
+E. Build dynamic multi-terminal y-z-t forward/observability evidence for an explicitly chosen topology and reduced target basis. `queued stretch`
+
+F. Run canonical STL and matched-budget Fourier/F-SPS only after P1 passes and only if an independent algorithm story remains manuscript-relevant. `blocked stretch`
+
+G. Consider compact-model/LUT/Verilog-A export only after the external anchor and complete manuscript exist. `deferred engineering extension`
+
+Priority D is allowed to precede B because external quantitative anchoring is a Definition-of-Done requirement while P1 is a high-risk optional upgrade. This is the documented delivery blocker that activates the exception above; it does not relax the P1 gate or change the manuscript core line.
 
 ## Evidence Lifecycle
 

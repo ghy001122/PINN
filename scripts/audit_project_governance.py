@@ -124,7 +124,7 @@ def check_delivery_contract() -> dict:
         "Stretch failure cannot block paper delivery",
     ]
     missing = [f"PROJECT_GOAL.md:{marker}" for marker in required_goal_markers if marker not in goal]
-    active_markers = ["constrained `gamma_sub`", "Priority B"]
+    active_markers = ["constrained `gamma_sub`", "Priority D"]
     for name, text in {
         "active_phase": active,
         "context": context,

@@ -226,6 +226,7 @@ def build_gamma_sub_evidence_lock(
         "artifact_type": config["artifact_type"],
         "evidence_type": config["evidence_type"],
         "source_sha": config["source_sha"],
+        "lock_commit_sha": config["lock_commit_sha"],
         "config_path": str(config_path).replace("\\", "/"),
         "main_claim_count": len(config["main_claims"]),
         "boundary_claim_count": len(config["boundary_claims"]),

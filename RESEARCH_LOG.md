@@ -1,5 +1,17 @@
 # Research log
 
+## Post-d1121e16 Review Integration And Delivery Reordering
+
+Date: 2026-07-14
+
+Verified the external review against HEAD `d1121e16...`, the evidence-lock config, Figure 1/2 sources, P1 topology/kernel choices, P3 rank basis, and local literature registries. Corrected Figure 1's over-broad title and added a direct 36-case off-grid recovery panel to Figure 2 using existing evidence. Recorded the evidence-lock commit SHA and the absence of GitHub workflows.
+
+No new experiment or claim upgrade occurred. The core manuscript line remains constrained `gamma_sub` recovery under calibration. The delivery sequence now activates the provenance-backed external quantitative anchor before high-risk P1; complete manuscript assembly follows. P1 is limited to one later coordinate/face/scaling repair cycle and is explicitly a field-anchored synthetic cross-family benchmark.
+
+Exact VO2 and SnSe/NbO2 values quoted by the review were not imported because their primary table/figure and fitted-versus-measured provenance are not fully locked. The Qiu-associated open-access VO2 source-data package is the primary external-anchor candidate.
+
+Validation: targeted `12 passed`; full CPU suite `188 passed`; governance audit had no failed checks; generators were idempotent; Figure 2 received visual QA; frozen GT hashes and mtimes were unchanged.
+
 ## Post-d23a576 Decision Audit And Priority A Evidence Lock
 
 Date: 2026-07-14

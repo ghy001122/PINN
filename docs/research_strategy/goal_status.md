@@ -1,27 +1,25 @@
 # Goal Status Dashboard
 
 - Goal: `Q2_SCI_DELIVERY_MODE`
-- Milestone: Priority B P1 CV/mortar validity repair
 - Updated: 2026-07-14
 - Evidence-lock base SHA: `e2e2669adfd66aacefacfbfceafcdfc18eafbbee`
-- Working-tree round: not yet committed
-- Active bottleneck: Priority B - coordinate/face semantics, nondimensional scaling, and staged optimization
+- Evidence-lock commit SHA: `d1121e16fa5015a297da468e3e6f0504b9e97d17`
+- Current review-integration base SHA: `d1121e16fa5015a297da468e3e6f0504b9e97d17`
+- Active bottleneck: Priority D provenance-backed external quantitative anchor
 
 | Workstream | Status | Distance to goal |
 | --- | --- | --- |
-| Frozen GT and reproducibility | `supported` | Frozen hashes/mtimes unchanged; Priority A reproduction/evidence map is locked. |
-| Mainline constrained `gamma_sub` evidence | `qualified_supported` | One-to-one evidence chain is complete; integrate into the full manuscript. |
-| Priority A evidence assembly | `supported` | Completed without a new experiment or claim upgrade. |
-| External quantitative anchor | `forbidden` as completed claim | No provenance-backed quantitative curve has been completed. |
-| Manuscript and supplementary | not complete | Locked sections exist; full coherent manuscript and supplement remain. |
-| Reviewer defense | `supported` as generated documentation | Current 17-question matrix is source-backed and regression-tested. |
+| Frozen GT and reproducibility | `supported` | Evidence-lock commit recorded; frozen hashes/mtimes unchanged in that round. |
+| Mainline constrained `gamma_sub` evidence | `qualified_supported` | Locked; Figure 2 direct recovery visualization corrected. |
+| External quantitative anchor | `forbidden` as completed claim | Active; primary open-source-data candidate identified, no fit/holdout result yet. |
+| Complete manuscript and supplementary | not complete | Priority M follows the anchor. |
 | P0 physical semantics | `qualified_supported` | Reduced synthetic implementation only. |
-| P1 neural training | `failed_but_informative` | Active repair; strict scaling/interface gate currently fails. |
+| P1 neural training | `failed_but_informative` | Deferred to one bounded repair; cross-family field-anchored benchmark only. |
 | P2 active inverse | `failed_but_informative` | Thermal, rank, and coverage gates fail. |
-| P3 segmented forward | `qualified_supported` | Forward/local three-parameter observability only. |
-| P4 STL/Fourier/F-SPS | `forbidden` as positive v10 claim | Blocked until P1 passes. |
-| Within-family OOD | `failed_but_informative` | Ridge-response preflight only; cross-material transfer fails severely. |
+| P3 segmented forward | `qualified_supported` | Three-parameter local observability only; no device-level 2D inverse. |
+| P4 STL/Fourier/F-SPS | `forbidden` as positive claim | Blocked until P1 passes. |
+| GitHub CI | `forbidden` as a current claim | No `.github` workflow exists; only local test records are available. |
 
-Current blockers: strict P1 semantic/scaling/interface failure; no external quantitative anchor; thermal inverse ambiguity; rank-deficient protocol selection; weak non-geometric OOD transfer.
+Current blockers: no external quantitative fit/holdout anchor; incomplete manuscript/supplement; P1 semantic/scaling/interface failure; P2 rank/thermal ambiguity; weak non-geometric OOD transfer.
 
-Next decision: run the bounded Priority B diagnostic ladder. A positive neural claim requires the unchanged full gate; otherwise preserve the failure boundary and activate Priority C or stop P1 after one justified repair cycle.
+Next decision: disposition one provenance-complete Qiu VO2 external anchor under the predeclared fit/holdout gate, then activate Priority M.

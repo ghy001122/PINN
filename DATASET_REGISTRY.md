@@ -1,3 +1,6 @@
+## Priority D external-anchor planning (2026-07-14)
+
+No external dataset was added in this review-integration round. The Qiu-associated VO2 Nature Communications source-data package is the primary provenance candidate; it may enter `data/external/` only with DOI, figure/source-data identity, units, license, access date, extraction method, and SHA-256. External validation remains `forbidden` until a fit/holdout result passes.
 ## Constrained gamma_sub evidence-lock artifact (2026-07-14)
 
 - `outputs/tables/gamma_sub_evidence_lock_summary.json`

@@ -1,4 +1,6 @@
 scope: synthetic_numerical_digital_twin
+benchmark_role: synthetic_cross_family_method_benchmark
+material_topology_boundary: SnSe barrier is NbO2-inspired while the active normalized VO2 kernel is synthetic; this is not a literature device reproduction
 epochs: 300
 seeds: [2026, 2027, 2028]
 variants: [monolithic, ordered_surrogate, cv_multidomain, cv_hard_bc, cv_interface_mortar]
@@ -14,4 +16,4 @@ gate:
   median_E_m_max: 0.25
   interface_residual_max: 0.05
   success_rate_min: 0.70
-claim_boundary: loss decrease alone is not success; synthetic benchmark only
+claim_boundary: loss decrease alone is not success; field-anchored synthetic cross-family method benchmark only; not a VO2/SnSe device reproduction

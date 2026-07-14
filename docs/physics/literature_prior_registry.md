@@ -1,4 +1,4 @@
-﻿# Literature Prior Registry
+# Literature Prior Registry
 
 This registry records literature-guided and engineering priors for synthetic numerical digital-twin benchmarks. It is not an experimental database and does not contain measured parameters for the current repository benchmark.
 
@@ -45,3 +45,9 @@ All values below are literature-guided / engineering priors for synthetic numeri
   symmetric reduced mapping around `Tc`, not measured repository data.
 
 These sources do not upgrade any synthetic result to experimental validation.
+
+## P1 Cross-Family Benchmark Boundary
+
+The v10 P1 training case combines `full_stack_with_SnSe_barrier`, which is motivated by NbO2 thermal-barrier stacks, with the `vo2:normalized_activated` synthetic kernel. It is therefore a field-anchored synthetic cross-family method benchmark. It is not a reproduction of a VO2/SnSe device, a Qiu thermal-neuristor geometry, or an SnSe/NbO2 measured stack.
+
+Future positive device-family claims require a topology-consistent constitutive kernel and provenance-backed external data. The exact VO2 and SnSe/NbO2 parameter sets quoted in the post-d1121e16 external review remain candidate values only until their primary source, table/figure, units, and fitted-versus-measured status are locked.

@@ -14,6 +14,7 @@ def test_gamma_sub_evidence_lock_builds_without_touching_tracked_outputs(tmp_pat
         figure_list_md=tmp_path / "figures.md",
     )
     assert summary["all_declared_sources_exist"] is True
+    assert summary["lock_commit_sha"] == "d1121e16fa5015a297da468e3e6f0504b9e97d17"
     assert summary["status_vocabulary_valid"] is True
     assert summary["all_main_positive_claims_allowed"] is True
     assert summary["external_quantitative_validation_completed"] is False
@@ -53,3 +54,16 @@ def test_gamma_sub_evidence_lock_has_complete_mainline_chain(tmp_path: Path) -> 
         "B4_p3_segmented_forward",
         "B5_p4_algorithms",
     } == ids
+
+def test_gamma_sub_evidence_lock_maps_direct_recovery_visual(tmp_path: Path) -> None:
+    summary = build_gamma_sub_evidence_lock(
+        output_json=tmp_path / "summary.json",
+        lock_md=tmp_path / "lock.md",
+        claim_matrix_md=tmp_path / "claims.md",
+        figure_list_md=tmp_path / "figures.md",
+    )
+    figures = {item["id"]: item for item in summary["figures"]}
+    assert figures["Figure 1"]["title"] == "Sparse-port identifiability boundary"
+    assert figures["Figure 2"]["title"] == "Constrained gamma_sub recovery and T_sw confounding"
+    assert "outputs/tables/gamma_sub_continuous_refinement_cases.csv" in figures["Figure 2"]["evidence_paths"]
+    assert "directly compares true and continuously estimated off-grid gamma_sub" in figures["Figure 2"]["caption"]

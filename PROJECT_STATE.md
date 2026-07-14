@@ -3,45 +3,45 @@
 ## Authoritative Current Snapshot
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
-- Current phase: Priority B P1 CV/mortar validity repair.
+- Current phase: Priority D provenance-backed external quantitative anchor.
 - Mainline: identifiability-guided sparse-port target reduction and calibration-gated constrained `gamma_sub` inverse in a 1D synthetic numerical digital twin.
-- Priority A: evidence lock completed; no new experiment and no scientific claim upgrade.
-- Extension: OASIS multilayer physics, segmented terminals, active inverse, stiffness, and formal generalization audits.
+- Evidence-lock commit: `d1121e16fa5015a297da468e3e6f0504b9e97d17`.
 - Frozen GT v1.1: unchanged and read-only.
-- Experimental validation: absent.
+- Local validation at the evidence-lock commit: `187 passed`; no `.github` workflow exists, so no GitHub CI claim is allowed.
+- Experimental validation by this project: absent.
 
 ## Distance To Delivery Goal
 
 | Required deliverable | Current state | Remaining gap |
 | --- | --- | --- |
-| Reproducible frozen GT and main evidence | `supported`; evidence lock, commands, sources, tests, and six-figure map exist | final submission-bundle execution and archive |
+| Reproducible frozen GT and main evidence | `supported`; evidence lock and six-figure map exist | final submission-bundle execution and archive |
 | Closed constrained `gamma_sub` main claim | `qualified_supported` under calibrated/tight priors | integrate locked text into the complete manuscript |
-| External quantitative anchor | `forbidden` as completed evidence | obtain one provenance-backed curve and quantitative comparison |
-| Complete manuscript | not complete | assemble full coherent draft around the locked mainline |
-| Supplementary material | not complete | route P1/P2/OOD failures and robustness stress evidence |
-| Reviewer defense | current 17-question matrix generated and tested | synchronize after each later claim change |
-| Neural/OASIS upgrade | P1/P2 failed, P3 forward only | active P1 repair; optional upgrade cannot block main delivery |
+| Direct visual for reduced recovery | `supported` as evidence mapping | regenerated Figure 2 now includes 36-case true-versus-estimated off-grid recovery |
+| External quantitative anchor | `forbidden` as completed evidence | active Priority D fit/holdout anchor with complete provenance |
+| Complete manuscript and supplement | not complete | Priority M after the external anchor |
+| Neural/OASIS upgrade | P1/P2 failed, P3 forward only | one bounded P1 repair cycle; cannot block delivery |
 
 ## Locked Gate Ledger
 
 | Gate | Status | Evidence boundary |
 | --- | --- | --- |
-| Priority A evidence lock | `supported` as an evidence-assembly result | Declarative claim/equation/source/figure/limitation/defense/reproduction chain; no new scientific experiment. |
+| Priority A evidence lock | `supported` as evidence assembly | Commit `d1121e16...`; no new scientific experiment. |
 | P0 physical semantics | `qualified_supported` | Reduced synthetic topology/material implementation only. |
-| P1 CV multidomain training | `failed_but_informative` | `E_T=0.37563055753707886`, `E_m=0.06811526417732239`, interface residual `106.15460205078125`, success `0.0`; coordinate/face/scaling repair is active. |
-| P2 noisy active inverse | `failed_but_informative` | Local blocks only; thermal, rank, and coverage gates fail. |
-| P3 segmented-terminal y-z forward | `qualified_supported` | Forward/current integration and local rank gain `1` to `3`; no field recovery. |
+| P1 CV multidomain training | `failed_but_informative` | `E_T=0.37563055753707886`, `E_m=0.06811526417732239`, interface residual `106.15460205078125`, success `0.0`; field-anchored synthetic cross-family benchmark only. |
+| P2 noisy active inverse | `failed_but_informative` | Local linear blocks; thermal, rank, and coverage gates fail. |
+| P3 segmented-terminal y-z forward | `qualified_supported` | Forward/current integration and local rank gain `1` to `3` for center/width/contrast only; topology is not literature-device-locked. |
 | P4 STL/Fourier/F-SPS | `forbidden` as positive claim | Blocked until P1 passes. |
-| External experimental validation | `forbidden` | No measured dataset with provenance exists. |
+| External literature-curve validation | `forbidden` until gate completion | Primary Qiu source candidate verified; no source file or quantitative fit/holdout result has yet been added. |
+| Experimental validation by this project | `forbidden` | No project-generated measured dataset exists. |
 
-## Stable Scientific Result
+## Delivery-Critical Priority Decision
 
-Terminal conductance strongly constrains integrated conductivity but does not uniquely identify all hidden thermal, defect, phase, and conductivity fields. The strongest paper route is reduced-target recovery with calibration and explicit confounding boundaries. Protocols and added terminals define conditional recoverability; they do not erase non-identifiability.
+Priority D now precedes P1 because the external anchor and complete manuscript are Must-have deliverables, whereas P1 is a high-risk upgrade. This changes scheduling, not the core manuscript claim. Numerical forward plus neural inverse/surrogate division is adopted; mechanism-specific VO2 and NbO2 kernels remain separated; exact review-document parameters are not imported without primary-source verification.
 
 ## Active And Deferred Work
 
-Only Priority B is active. Its unchanged positive gate is `E_T,E_m <= 0.25`, interface residual `<= 0.05`, and three-seed success rate `>= 0.70`, after semantic/scaling tests pass. Priority C active protocol, D external anchor, E dynamic multi-terminal, and F STL/Fourier remain ordered future bottlenecks. Stretch failure cannot block paper delivery.
+Only Priority D is active. Priority M complete manuscript/supplement assembly follows. P1 receives one finite repair cycle later; failure remains a supplementary numerical limitation. Full-rank active design, dynamic multi-terminal reduced-target work, STL/Fourier, and compact-model export remain deferred or blocked as specified in `NEXT_ACTIONS.md`.
 
 ## Historical Record
 
-The pre-v10 cumulative state is preserved at `docs/archive/project_state/project_state_pre_v10.md`. The pre-lock cumulative claim matrix is preserved at `docs/archive/paper/final_claim_matrix_pre_gamma_lock_e2e2669.md`. Detailed chronology and original metrics remain in `RESEARCH_LOG.md`, registries, reports, and the canonical handoff. They cannot override this snapshot.
+Historical state, old priority labels, and cumulative claim matrices are provenance only. They cannot override this snapshot or `docs/research_strategy/active_phase.md`.
