@@ -8,7 +8,9 @@
 
 ## North-Star Scientific Claim
 
-In a phase-transition/memristor synthetic numerical digital twin, sparse electrical terminal observations are insufficient to uniquely recover arbitrary complete hidden fields. Identifiability audits, prior calibration, and target-space reduction can make effective thermal-dissipation recovery more stable under explicit boundaries; active protocols, multilayer devices, and multi-terminal observations then define how the recoverable region expands or fails.
+The current candidate claim is deliberately falsifiable: public phase-transition-device terminal observations may identify physical time-scale quotients or equivalence classes rather than unique raw parameters, and phase branch or drive protocol may change the observable quotient. A complete phase-transition PINN should infer only branch/protocol-conditioned coordinates supported by the data and refuse unsupported raw recovery. This claim is not established until public-data equivalence, independent-solver sensitivity, PINN sensitivity fidelity, and conditional inverse gates all pass.
+
+The already supported boundary remains part of the paper: sparse electrical terminal observations do not uniquely recover arbitrary complete hidden fields in the configured frozen synthetic benchmark. The calibration-gated constrained `gamma_sub` result remains a safe conditional inverse fallback.
 
 ## Mandatory Research Filter
 
@@ -34,13 +36,21 @@ Do not execute tasks whose manuscript value cannot be stated. Select one active 
 
 Letter IDs are stable routing labels, not current status. `docs/research_strategy/active_phase.md` authorizes the one active lane and `NEXT_ACTIONS.md` records the current order.
 
-A. Lock and assemble the constrained `gamma_sub` mainline.
+A. Preserve and assemble the constrained `gamma_sub` safe mainline.
 
-D. Complete at least one provenance-backed external quantitative curve anchor.
+D0. Build a provenance-backed VO2 source-reproduction and protocol-identifiability bridge. It is a realism anchor, not a substitute for PINN contribution or independent external validation.
+
+N0. Establish a versioned complete 1D phase-transition PINN contract and frozen-synthetic forward evidence.
+
+N1. Build a step/grid-converged independent-solver sensitivity reference.
+
+N2. Require PINN trajectory and sensitivity/Fisher geometry fidelity to the independent solver.
+
+N3. Run a branch/protocol-conditioned quotient inverse only after D0c/D0d and N1/N2 pass.
 
 M. Assemble the complete manuscript and supplementary package around the locked claim/figure/equation chain.
 
-B. Run one finite-budget P1 CV/mortar repair cycle covering coordinate semantics, physical boundary faces, nondimensional scaling, manufactured tests, and staged optimization.
+B. Run one finite-budget P1 CV/mortar repair only when a multidomain, two-dimensional, face-flux, or interface-innovation claim is activated.
 
 C. Design full-rank, material-specific active protocols that resolve the thermal block.
 
@@ -79,7 +89,8 @@ The detailed reusable workflow, run classes, gate card, and failure routing live
 
 - Frozen GT and all mainline evidence reproduce from documented commands.
 - The `gamma_sub` claim closes confounding, calibration, noise, off-grid, observation-count, protocol, and limitation loops.
-- At least one provenance-backed external quantitative anchor is completed.
+- The public-data source-reproduction/identifiability bridge is dispositioned with provenance and explicit source-paper/refit/cross-voltage/independent-validation semantics.
+- A complete 1D PINN scaffold is implemented and its positive/negative gate evidence is included; a failed gate must not be hidden or relabeled.
 - Main figures, main tables, Methods equations, claim matrix, and manuscript sentences map one-to-one.
 - A complete manuscript draft and supplementary material exist.
 - Code/data provenance and explicit reproduction commands exist.
@@ -89,6 +100,10 @@ The detailed reusable workflow, run classes, gate card, and failure routing live
 
 ## Upgrade Gates
 
+- D0a source semantics and numerical convergence must pass before calibration; a valid fit lock is mandatory before any 13 V numerical access.
+- N0 requires at least 2/3 fixed seeds with port NRMSE95 `<=0.10`, all normalized residual RMS values `<=0.01`, finite states, and unchanged frozen GT.
+- N1 requires step/grid-converged trajectories and sensitivity geometry.
+- N2 requires PINN/solver trajectory, Jacobian, singular-spectrum, subspace and protocol-ranking fidelity; trajectory agreement alone cannot open N3.
 - P1 strict gate: `E_T <= 0.25`, `E_m <= 0.25`, interface residual `<= 0.05`, multi-seed success rate `>= 0.70`.
 - P2 thermal block: a full-rank protocol must pass a nonlinear noisy-inverse gate with predeclared error, success, and coverage thresholds.
 - Generalization: formal within-family geometry, stack, interface, and pulse OOD results.
@@ -110,6 +125,7 @@ Stretch failure cannot block paper delivery; it only limits claim level.
 - Non-identifiability found: reduce the parameter space, add observations, or downgrade the claim.
 - Required real experiments are unavailable: use a provenance-backed public-data anchor or state the limitation.
 - Never obtain success by changing GT, altering true labels, deleting failed seeds, hiding failed blocks, or changing thresholds after results are known.
+- If quotient coordinates do not improve fixed cross-seed stability, normalized identifiability geometry or locked cross-voltage prediction, reject the candidate innovation and return to the constrained `gamma_sub` mainline.
 
 ## User Confirmation Boundary
 

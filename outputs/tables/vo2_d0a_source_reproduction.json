@@ -1,0 +1,123 @@
+{
+  "allowed_wording": "",
+  "base_sha": "73571ee7a6e69545b67d516654ccfbfa653323eb",
+  "benchmark": "vo2_d0a_exact_source_v2",
+  "claim_status": "failed_but_informative",
+  "config_path": "configs\\vo2_d0a_exact_source_v2.yaml",
+  "config_sha256": "F4EDA82DEF46CCBC031CCE6DB6AC4427DC1D376268A4A9A12EE48DFBE6667F28",
+  "data_manifest_sha256": "FAC763A49B0D8315A6E25C8CDB63C993451E41F66AF4AC375AE288BDB8E08EF5",
+  "ended_at_utc": "2026-07-15T15:56:06.554091+00:00",
+  "evidence_semantics": {
+    "independent_external_validation": false,
+    "repository_side_refit": false,
+    "repository_withheld_preregistered_cross_voltage_evaluation": false,
+    "source_paper_model_reproduction": true
+  },
+  "evidence_type": "public_external_and_solver_reproduction",
+  "failure_interpretation": "D0a failed; D0b-D0d remain stopped. N0 may continue independently.",
+  "forbidden_wording": "Independent external validation, project-generated experimental validation, unique raw-parameter recovery, or validation of the frozen synthetic GT.\n",
+  "forward_evaluation_budget": 60,
+  "forward_evaluations": 6,
+  "gate_passed": false,
+  "gate_results": {
+    "dynamic_event_count_exact": true,
+    "dynamic_event_time_within_dt": true,
+    "dynamic_source_si_nrmse": true,
+    "finest_time_step_convergence": false,
+    "license_separation": true,
+    "no_unexplained_parameter_mismatch": true,
+    "provenance_complete": true,
+    "rt_branch_exact": true,
+    "rt_event_count_exact": true,
+    "rt_source_si_nrmse": true,
+    "sealed_13v_untouched": true
+  },
+  "git_dirty": true,
+  "machine_summary": {
+    "device": "cpu",
+    "numpy": "1.26.4",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.9",
+    "torch": "2.3.1+cpu"
+  },
+  "measurement_semantics": {
+    "apply_baseline_subtraction": false,
+    "apply_phase_shift_or_dtw": false,
+    "current_channel": "CH3",
+    "current_channel_input_impedance_ohm": 50.0,
+    "primary_time_window_us": [
+      0.0,
+      60.0
+    ],
+    "voltage_channel": "CH4",
+    "voltage_channel_input_impedance_ohm": "1.0e6"
+  },
+  "outputs": {
+    "discrepancy_csv": "outputs/tables/vo2_d0a_source_discrepancies.csv",
+    "manifest_json": "data/external/vo2_zhang_2024/manifest.json",
+    "parity_npz": "data\\processed\\vo2_d0_v2\\d0a\\source_and_si_parity.npz",
+    "summary_json": "outputs/tables/vo2_d0a_source_reproduction.json"
+  },
+  "public_no_fit_metrics": {
+    "author_code_vs_experiment_11v_nrmse95": 0.4461139776522223,
+    "author_code_vs_publisher_theory_11v_nrmse95": 0.43123039464535096,
+    "note": "Reported without refitting; these errors are not relaxed or hidden.",
+    "publisher_theory_vs_experiment_11v_nrmse95": 0.45354733473669745,
+    "rt_author_no_fit_nrmse95": 0.059380958209442454
+  },
+  "run_class": "source_paper_model_reproduction",
+  "schema_version": "vo2_d0a_evidence_v2",
+  "sealed_member_content_read_prelock": false,
+  "sealed_member_count": 2,
+  "seed": 20260715,
+  "source_semantics": {
+    "algorithm": "explicit_euler_or_euler_maruyama",
+    "dt_ns": 10.0,
+    "initial_temperature_offset_K": -0.1,
+    "parameters": {
+      "C_F": 1.4534619293e-10,
+      "C_th_J_per_K": 4.962776831e-11,
+      "Cth_factor": 1.0,
+      "E_a_K": 5220.47417,
+      "R0_ohm": 0.00535882879,
+      "R_load_ohm": 12000.0,
+      "Rm0_ohm": 262.5,
+      "Rm_factor": 4.90025335,
+      "S_th_W_per_K": 0.00020558726,
+      "T_base_K": 325.0,
+      "T_c_K": 332.805839,
+      "beta_per_K": 0.252796285,
+      "couple_factor": 0.0,
+      "gamma_per_K": 0.956269682,
+      "noise_strength": 0.001,
+      "w_K": 7.19357064
+    },
+    "raw_units": {
+      "capacitance": "pF",
+      "power": "mW",
+      "resistance": "kOhm",
+      "temperature": "K",
+      "time": "ns",
+      "voltage": "V"
+    },
+    "reversal_delta_T_threshold_K": 0.01,
+    "temperature_clip_K": [
+      305.0,
+      370.0
+    ]
+  },
+  "source_si_metrics": {
+    "author_dynamic_event_count": 32,
+    "author_rt_event_count": 1,
+    "dynamic_current_nrmse95": 4.545851088410119e-14,
+    "dynamic_temperature_nrmse95": 1.4464237548447034e-14,
+    "dynamic_voltage_nrmse95": 9.364554487850005e-15,
+    "event_time_max_difference_dt": 6.932117640329194e-10,
+    "medium_vs_fine_dt_current_nrmse95": 0.1631480017203279,
+    "repository_dynamic_event_count": 32,
+    "repository_rt_event_count": 1,
+    "rt_nrmse95": 4.857921529349507e-16
+  },
+  "stage_id": "D0a_exact_source_reproduction",
+  "started_at_utc": "2026-07-15T15:56:00.018017+00:00"
+}

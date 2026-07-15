@@ -65,3 +65,9 @@ V10 multilayer OASIS evidence is supplementary. P1 is a field-anchored CV physic
 ## Reproduction And Artifact Mapping
 
 The one-to-one equation/config/script/test/JSON-CSV/figure/limitation/sentence mapping and commands are authoritative in `docs/paper/gamma_sub_evidence_lock.md`. Figure 5 uses the 720-case calibrated sequential validation; the broader 2400-case stress audit is supplementary because its source marks it not main-figure ready.
+
+## VO2 Reproduction And Complete-PINN Audit
+
+Public VO2 data, author code and Zenodo artifacts were acquired with separate license and SHA-256 records. The author implementation was run without fitting and compared with an SI rewrite that preserves the declared 10 ns explicit update, temperature clipping and reversal-history order. The exact 13 V ZIP members were quarantined before numerical access. Because the paper reports that constants were optimized against experimental results, any future 13 V result can only be called a repository-withheld preregistered cross-voltage evaluation, not an independent external validation.
+
+The versioned N0 model predicts \(\phi,c_v,T,m\), derives \(\sigma(c_v,T,m)\), and evaluates the electrostatic, defect, heat and phase residuals plus IC/BC and a series-resistance port operator. The frozen hidden fields and port traces are excluded from training and used only after optimization for scoring. The architecture is tested separately from the historical lightweight neural path.

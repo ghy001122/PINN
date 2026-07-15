@@ -314,3 +314,54 @@ I_k = integral_Gamma_k (-sigma grad(phi)) dot n dGamma,
 with assigned Dirichlet electrode faces and insulating unassigned boundaries.
 Its current-balance and uniform-series limits are implementation gates, not
 evidence of hidden-field inversion.
+
+## Versioned Complete 1D PINN Contract v1
+
+The N0 path is separate from historical lightweight PINNs. Its state network is
+
+```text
+u_theta(x,t) = [phi(x,t), c_v(x,t), T(x,t), m(x,t)].
+```
+
+Conductivity is not an independent network output. It is derived from the frozen synthetic closure:
+
+```text
+sigma_off = sigma_off0(x) A_T(T) exp[beta_off (c_v-c_v0)]
+sigma_on  = sigma_on0(x) exp[beta_on (c_v-c_v0)]
+sigma = exp[(1-m) log(sigma_off) + m log(sigma_on)].
+```
+
+The strong-form residuals are
+
+```text
+r_phi = d/dx [sigma dphi/dx],
+J_v = -D_v dc_v/dx + mu_v c_v(1-c_v) E,
+r_c = dc_v/dt + dJ_v/dx + k_r(c_v-c_v0),
+r_T = rho Cp dT/dt - d/dx(k dT/dx) - sigma E^2
+      + gamma_sub(T-T0),
+r_m = dm/dt - (m_eq(T,c_v)-m)/tau_m,
+E = -dphi/dx.
+```
+
+The versioned output transform exactly imposes
+
+```text
+phi(0,t)=0, phi(L,t)=V(t),
+c_v(x,0)=c_v0 + delta_c exp[-(x-x_d)^2/(2 w_d^2)],
+T(x,0)=T0,
+m(x,0)=m_eq(T0,c_v(x,0)).
+```
+
+The defect and thermal endpoints use zero normal flux. Bilayer one-sided current, defect and heat fluxes are included as a bounded loss/diagnostic, but no positive interface or P1 claim follows from their implementation.
+
+The cell-center terminal observation is
+
+```text
+R_area(t) = mean_x[1/sigma(x,t)] L_eff,
+I(t) = A_eff V(t) / R_area(t),
+G(t) = I(t) / [V(t)+eps_V].
+```
+
+For the frozen GT, history is represented by continuous `m`; the explicit VO2 event ledger `(branch,T_r,m_r)` is declared but inactive. No learned event head is used. Frozen full fields are score-only and never training labels in N0.
+
+The equations and contract preflight are implementation facts. The trained N0 MVE failed its port and residual gates, so these equations currently support no positive full-PINN accuracy or inverse claim.

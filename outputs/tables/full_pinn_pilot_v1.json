@@ -1,0 +1,129 @@
+{
+  "claim_status": "forbidden",
+  "config_path": "configs/full_pinn_architecture_v1.yaml",
+  "ended_at_utc": "2026-07-15T15:33:35.795020+00:00",
+  "git_commit": "73571ee7a6e69545b67d516654ccfbfa653323eb",
+  "git_dirty": true,
+  "machine_summary": {
+    "cuda_available": false,
+    "device": "cpu",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.9",
+    "torch": "2.3.1+cpu"
+  },
+  "minimum_passing_seeds": 1,
+  "passing_seeds": 0,
+  "results": [
+    {
+      "checkpoint": "outputs/checkpoints/full_pinn_v1/seed_20260715_epochs_160.pt",
+      "epochs": 160,
+      "frozen_full_fields_semantics": "post_training_score_only",
+      "metrics": {
+        "field_score_only_nrmse95": {
+          "T": 0.4914276461879407,
+          "c_v": 0.5319330264182544,
+          "m": 0.3147667063160562,
+          "phi": 0.3037024438921064,
+          "sigma": 0.27072641788081286
+        },
+        "finite_outputs": true,
+        "physical_state_bounds": true,
+        "port_full_trace_nrmse95": 0.10651709889741587,
+        "prediction_summary": {
+          "c_v_max": 0.10788781195878983,
+          "c_v_min": 0.05626780167222023,
+          "current_A_max": 7.475437630022341e-11,
+          "current_A_min": -9.079032664560671e-11,
+          "m_max": 0.16345229744911194,
+          "m_min": 0.062483418732881546,
+          "temperature_K_max": 311.99359130859375,
+          "temperature_K_min": 300.0
+        },
+        "residual_rms": {
+          "r_T": 0.06828092783689499,
+          "r_c": 0.02597055584192276,
+          "r_m": 0.10174346715211868,
+          "r_phi": 0.0028694302309304476
+        }
+      },
+      "seed": 20260715,
+      "status": "gate_fail",
+      "training_data_semantics": "PDE_IC_BC_only",
+      "training_history": [
+        {
+          "boundary_loss": 0.0003548136737663299,
+          "epoch": 1,
+          "interface_loss": 0.006325019057840109,
+          "loss": 3.5731027126312256,
+          "pde_loss": 3.5708119869232178
+        },
+        {
+          "boundary_loss": 0.0002997932315338403,
+          "epoch": 20,
+          "interface_loss": 0.0055862790904939175,
+          "loss": 0.18005865812301636,
+          "pde_loss": 0.17806249856948853
+        },
+        {
+          "boundary_loss": 0.00023562465503346175,
+          "epoch": 40,
+          "interface_loss": 0.005009838845580816,
+          "loss": 0.06094259396195412,
+          "pde_loss": 0.0592188835144043
+        },
+        {
+          "boundary_loss": 0.0002040678373305127,
+          "epoch": 60,
+          "interface_loss": 0.0042575206607580185,
+          "loss": 0.042109109461307526,
+          "pde_loss": 0.04063659533858299
+        },
+        {
+          "boundary_loss": 0.0002344252570765093,
+          "epoch": 80,
+          "interface_loss": 0.0039037070237100124,
+          "loss": 0.026943644508719444,
+          "pde_loss": 0.02549886703491211
+        },
+        {
+          "boundary_loss": 0.00019953057926613837,
+          "epoch": 100,
+          "interface_loss": 0.0036341070663183928,
+          "loss": 0.028985438868403435,
+          "pde_loss": 0.027677850797772408
+        },
+        {
+          "boundary_loss": 0.0002386948763160035,
+          "epoch": 120,
+          "interface_loss": 0.0034419686999171972,
+          "loss": 0.023124855011701584,
+          "pde_loss": 0.021786972880363464
+        },
+        {
+          "boundary_loss": 0.00017862457025330514,
+          "epoch": 140,
+          "interface_loss": 0.0027253390289843082,
+          "loss": 0.02175617590546608,
+          "pde_loss": 0.020717591047286987
+        },
+        {
+          "boundary_loss": 0.00015761630493216217,
+          "epoch": 160,
+          "interface_loss": 0.0028906092047691345,
+          "loss": 0.01640983857214451,
+          "pde_loss": 0.015371954068541527
+        }
+      ],
+      "wall_clock_s": 32.659092100002454
+    }
+  ],
+  "run_mode": "pilot",
+  "schema_version": "full_pinn_training_v1",
+  "seeds_requested": [
+    20260715
+  ],
+  "stage_id": "N0",
+  "started_at_utc": "2026-07-15T15:32:59.808498+00:00",
+  "status": "pilot_fail",
+  "stop_rule": "Do not expand seeds or enter N1 if the single-seed pilot fails."
+}

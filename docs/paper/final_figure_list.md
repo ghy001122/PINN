@@ -16,3 +16,5 @@ All figures are generated from synthetic numerical digital-twin evidence; none i
 | Figure | Status | Data | Reason |
 | --- | --- | --- | --- |
 | Figure S5 | `failed_but_informative` | `outputs/tables/gamma_sub_calibrated_protocol_robustness_final_summary.json`<br>`outputs/tables/gamma_sub_calibrated_protocol_robustness_final_cases.csv` | The source summary explicitly sets whether_ready_as_main_figure to false; it cannot replace Figure 5. |
+| Figure S-D0a-v2 | `failed_but_informative` | `outputs/tables/vo2_d0a_source_reproduction.json`<br>`outputs/figures/vo2_d0a_source_semantics_v2.png` | Source/SI parity passes but the preregistered time-step convergence gate fails; no 13 V result is shown. |
+| Figure S-N0-v1 | `failed_but_informative` | `outputs/tables/full_pinn_single_seed_mve_v1.json`<br>`outputs/figures/full_pinn_n0_mve_gate_v1.png` | The implemented full-PINN MVE is finite but misses the port and all residual gates; it cannot become a positive main figure. |

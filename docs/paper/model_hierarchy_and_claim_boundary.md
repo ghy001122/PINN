@@ -43,6 +43,14 @@ device simulation, and not a proof of sparse-port full-field recovery.
 The defensible manuscript framing is a method-oriented SCI small paper on a
 one-dimensional reduced-order digital-twin benchmark for sparse-port inverse
 identifiability and constrained effective thermal-parameter inversion.
+
+## Mandatory Full-PINN Scaffold And Current Boundary
+
+The latest project requirement makes a complete physics-informed neural network an indispensable architecture and manuscript scaffold. The versioned N0 path predicts `phi`, `c_v`, `T`, and `m`; derives conductivity from these states; evaluates electrostatic, defect, heat, and phase residuals; enforces IC/BC; and derives terminal current through the series-resistance observation operator.
+
+This architectural fact does not upgrade the scientific claim. The 1200-epoch single-seed MVE fails the frozen synthetic port and residual gates, so trained full-PINN evidence, sensitivity fidelity, and inverse recovery remain `forbidden`. Historical lightweight PINNs remain explicitly separate baselines. P1 remains a gate only for a newly activated multidomain, 2D, face-flux, or interface-innovation claim.
+
+The public VO2 compact model is a separate hierarchy layer and realism anchor. Its data and parameters do not become frozen-GT measurements, and solver-generated source reproduction is never labeled PINN output.
 ## F-SPS-PINN Placement
 
 F-SPS-PINN architecture MVP, v2 smoke training, v2 small-run baseline, v2 phase-transition stress preflight, and v2 Fourier on/off ablation are engineering evidence for possible future method development. They should be placed in appendix, discussion, or future-work material for the current manuscript.

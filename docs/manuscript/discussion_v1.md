@@ -23,3 +23,9 @@ The correct interpretation is: calibration gain dominates protocol gain; protoco
 The new audits convert prior narrative gaps into bounded evidence. Reduced 2D forward computability is now supported by a finite benchmark, but this does not alter the main one-dimensional `gamma_sub` claim. The observability ladder is especially important: terminal-only 2D inverse diagnosis fails, while augmented port/proxy observations support only low-dimensional parameter diagnosis. This gives the manuscript a defensible path to discuss 2D extensibility without overclaiming full-field recovery.
 
 The stiffness-aware algorithm benchmark supports the weaker statement that continuation, scale-aware weighting, and mini-STL-style transfer mitigate stiffness-induced degradation in a synthetic residual-proxy setting. It does not support full STL-PINN reproduction or F-SPS superiority.
+
+## Public-Data And Full-PINN Failure Boundary
+
+The VO2 audit shows why source-code agreement is weaker than numerical convergence. Matching the author implementation at its declared step does not establish a step-converged reference, and therefore cannot justify a repository refit or protocol-identifiability story. The source paper's parameter-optimization statement also prevents 13 V from being called strictly independent external validation.
+
+The N0 result similarly separates an architecture contract from learned evidence. Hard constraints and a manufactured solution can pass while out-of-sample residuals and terminal trajectories fail. This justifies the rule that trajectory fit alone cannot open an inverse claim and that solver/PINN sensitivity comparison must remain blocked until forward residual fidelity is demonstrated. The calibration-gated `gamma_sub` evidence remains the safe inverse mainline while the complete neural scaffold undergoes a bounded numerical repair.

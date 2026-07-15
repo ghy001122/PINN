@@ -1,0 +1,133 @@
+benchmark: vo2_d0a_exact_source_v2
+stage_id: D0a_exact_source_reproduction
+evidence_type: public_external
+claim_status_before: forbidden
+claim_status_pass: qualified_supported
+claim_status_fail: failed_but_informative
+
+sources:
+  nature_article:
+    source_role: paper
+    url: https://www.nature.com/articles/s41467-024-51254-4
+    doi: 10.1038/s41467-024-51254-4
+    version: published_2024-08-14
+    license_id: CC-BY-4.0
+    download: false
+  nature_source_data:
+    source_role: nature_source_data
+    url: https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-024-51254-4/MediaObjects/41467_2024_51254_MOESM8_ESM.zip
+    filename: nature_source_data.zip
+    license_id: CC-BY-4.0
+    download: true
+  github_tag:
+    source_role: github_tag
+    url: https://github.com/yuanhangzhang98/collective_dynamics_neuristor/archive/refs/tags/v1.0.0.zip
+    filename: collective_dynamics_neuristor_v1.0.0.zip
+    version: v1.0.0
+    license_id: MIT
+    download: true
+  zenodo_record:
+    source_role: zenodo_archive
+    record_url: https://zenodo.org/api/records/13119587
+    record_id: "13119587"
+    doi: 10.5281/zenodo.13119587
+    license_id: CC-BY-4.0
+    download_record_files: true
+
+paths:
+  external_root: data/external/vo2_zhang_2024
+  raw_dir: data/external/vo2_zhang_2024/raw
+  allowed_extract_dir: data/external/vo2_zhang_2024/raw/allowed_prelock
+  sealed_dir: data/external/vo2_zhang_2024/sealed/13v
+  author_code_dir: data/external/vo2_zhang_2024/raw/author_code_v1.0.0
+  manifest_json: data/external/vo2_zhang_2024/manifest.json
+  provenance_md: data/external/vo2_zhang_2024/PROVENANCE.md
+  licenses_md: data/external/vo2_zhang_2024/LICENSES.md
+  access_log_jsonl: data/external/vo2_zhang_2024/access_log.jsonl
+  discrepancy_csv: outputs/tables/vo2_d0a_source_discrepancies.csv
+  summary_json: outputs/tables/vo2_d0a_source_reproduction.json
+  processed_dir: data/processed/vo2_d0_v2/d0a
+
+quarantine:
+  sealed_member_patterns:
+    - experiment_13v
+    - 13v
+    - 13_v
+    - 13 v
+  author_code_extensions:
+    - .py
+    - .md
+    - .txt
+    - .yaml
+    - .yml
+  author_code_names:
+    - LICENSE
+    - README.md
+  never_extract_prelock:
+    - data.zip
+  fit_lock_path: outputs/tables/vo2_d0b_fit_lock.json
+
+source_semantics:
+  raw_units:
+    voltage: V
+    resistance: kOhm
+    capacitance: pF
+    time: ns
+    power: mW
+    temperature: K
+  algorithm: explicit_euler_or_euler_maruyama
+  dt_ns: 10.0
+  temperature_clip_K: [305.0, 370.0]
+  reversal_delta_T_threshold_K: 0.01
+  initial_temperature_offset_K: -0.1
+  parameters:
+    w_K: 7.19357064
+    T_c_K: 332.805839
+    beta_per_K: 0.252796285
+    R0_ohm: 0.00535882879
+    E_a_K: 5220.47417
+    gamma_per_K: 0.956269682
+    Rm0_ohm: 262.5
+    Rm_factor: 4.90025335
+    C_F: 1.4534619293e-10
+    C_th_J_per_K: 4.962776831e-11
+    S_th_W_per_K: 2.0558726e-4
+    T_base_K: 325.0
+    R_load_ohm: 12000.0
+    noise_strength: 0.001
+    Cth_factor: 1.0
+    couple_factor: 0.0
+
+parity_mve:
+  voltage_V: 11.0
+  t_max_ns: 60000.0
+  dt_values_ns: [10.0, 5.0, 2.5]
+  noise_strength: 0.0
+  seed: 20260715
+  maximum_forward_evaluations: 60
+
+measurement_semantics:
+  current_channel: CH3
+  current_channel_input_impedance_ohm: 50.0
+  voltage_channel: CH4
+  voltage_channel_input_impedance_ohm: 1.0e6
+  primary_time_window_us: [0.0, 60.0]
+  apply_baseline_subtraction: false
+  apply_phase_shift_or_dtw: false
+
+gates:
+  source_compat_nrmse_max: 1.0e-6
+  source_compat_event_count_exact: true
+  source_compat_event_time_dt_max: 1.0
+  finest_dt_nrmse_max: 0.01
+  require_all_provenance_fields: true
+  require_license_separation: true
+  forbid_13v_member_extraction_before_fit_lock: true
+
+claim_boundary:
+  allowed: >
+    Source-paper model reproduction and a repository SI semantic-equivalence
+    audit under the declared public-source and numerical protocol.
+  forbidden: >
+    Independent external validation, project-generated experimental validation,
+    unique raw-parameter recovery, or validation of the frozen synthetic GT.

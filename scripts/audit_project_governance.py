@@ -132,7 +132,8 @@ def check_delivery_contract() -> dict:
         "Mandatory Research Filter",
         "Stable Delivery Lanes",
         "Must-Have Definition Of Done",
-        "provenance-backed external quantitative anchor",
+        "public-data source-reproduction/identifiability bridge",
+        "complete phase-transition PINN",
         "User Confirmation Boundary",
         "Stretch failure cannot block paper delivery",
     ]

@@ -32,6 +32,10 @@ A separate 2400-case calibrated-protocol stress audit identifies `calibrated_sho
 - P3: `qualified_supported` for forward/local observability only; segmented terminals raise the local rank from `1` to `3` for a Gaussian conductivity-profile basis parameterized by center, width, and contrast.
 - P4: `forbidden` as a positive v10 claim because P1 fails.
 
-## R7. External Evidence Boundary
+## R7. Public VO2 Source-Reproduction Boundary
 
-Status: `forbidden` as a completed validation claim. No provenance-backed digitized external curve is available, and no measured dataset has been added. Literature values remain shape or engineering priors only.
+Status: `failed_but_informative`. Provenance, hashes and license separation are complete. The author code and SI rewrite agree for dynamic current, temperature and R-T semantics at the declared 10 ns step (NRMSE95 values below `5e-14`). However, the repository SI solver gives a 5 ns versus 2.5 ns full-trace current NRMSE95 of `0.163148`, above the preregistered `0.01` gate. Consequently no calibration was run, no fit lock was created and 13 V remains sealed. This is source-model reproduction evidence, not project experimental validation.
+
+## R8. Complete 1D PINN Contract And Failed MVE
+
+Status: `failed_but_informative` for trained evidence. The architecture contract and constant-equilibrium manufactured test pass, with exact electrical endpoint conditions and zero manufactured normalized residuals. The fixed 1200-epoch single-seed MVE remains outside every training gate: port NRMSE95 is `0.123764` versus `0.10`, while `r_phi`, `r_c`, `r_T`, and `r_m` RMS values are `0.012564`, `0.020203`, `0.019372`, and `0.012172` versus `0.01`. Outputs remain finite and within physical state bounds. This supports an optimization/residual limitation, not a reliable full-PINN claim; N1-N3 were not run.

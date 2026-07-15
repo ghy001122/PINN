@@ -31,3 +31,14 @@ All results remain synthetic numerical digital-twin benchmark evidence, not expe
 - Claim gate matrix: `docs/paper/claim_gate_resolution_matrix.md`.
 
 The lock is upgraded only for reduced 2D forward support, low-dimensional 2D inverse under augmented observations, and stiffness-mitigation wording. It still forbids terminal-only 2D inverse recovery, full 2D hidden-field recovery, full STL-PINN reproduction, and Fourier/F-SPS superiority.
+
+## 2026-07-15 Failure-Preserving Addendum
+
+This addendum does not replace or upgrade the locked gamma-sub figures.
+
+- D0a source/SI semantics are traceable, but the 5-to-2.5 ns convergence gate fails (`0.163148 > 0.01`). The D0a figure is supplementary negative evidence only.
+- No repository fit or 13 V evaluation exists. `independent external holdout`, `external validation`, and `experimental validation` remain forbidden.
+- A versioned full 1D PINN architecture contract exists, but the 1200-epoch single-seed MVE misses the port and all residual gates. Its figure is supplementary negative evidence only.
+- N1-N3 and the protocol-conditioned quotient hypothesis were not executed; no corresponding main figure/table is authorized.
+
+Candidate supplementary files are `outputs/figures/vo2_d0a_source_semantics_v2.png` and `outputs/figures/full_pinn_n0_mve_gate_v1.png`. The current safe main-text inverse remains the calibration-gated rank-1 `gamma_sub` result.

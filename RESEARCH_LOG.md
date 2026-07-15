@@ -710,3 +710,16 @@ Scope:
 Result:
 
 The stricter evidence downgrades several high-risk supplementary claims. Multilayer forward fails the energy-balance gate, terminal-only and low-dimensional sandwich inverse audits are failed-but-informative, holdout POD 2D field recovery is forbidden, and phase-aware STL remains weak. The only positive method-development result is condition-limited `stiffness_gated_fourier`; `adaptive_f_sps` and universal superiority remain unsupported.
+
+## VO2 Source-Reproduction And Complete-PINN v2 Round
+
+Date: 2026-07-15. Base commit: `73571ee7a6e69545b67d516654ccfbfa653323eb`.
+
+- Locked Nature Source Data, Zenodo 13119587 and GitHub `v1.0.0` provenance, hashes and separate licenses. Exact 13 V members remained sealed; no fit lock was created.
+- D0a author/SI semantic parity passed at 10 ns, but 5-to-2.5 ns full-trace current NRMSE95 was `0.163148`, failing the `0.01` convergence gate. D0b-D0d were not run.
+- Implemented a versioned full 1D PINN contract with `phi,c_v,T,m`, physical conductivity closure, four residuals, hard initial/electrical conditions, endpoint/interface flux terms, explicit optional event ledger and terminal series-resistance operator.
+- N0 contract/manufactured preflight passed. The fixed 1200-epoch single-seed MVE failed: port NRMSE95 `0.123764`; `r_phi/r_c/r_T/r_m` RMS `0.012564/0.020203/0.019372/0.012172`.
+- N1-N3 were not run. The protocol-conditioned quotient hypothesis remains untested. Trained full-PINN, sensitivity-fidelity, inverse, independent-external-validation and experimental-validation claims remain `forbidden`.
+- Historical P0-P4 failures/boundaries and the calibration-gated constrained `gamma_sub` safe mainline were preserved. Frozen GT hashes and mtimes were unchanged.
+
+Primary report: `docs/codex_reports/vo2_protocol_quotient_full_pinn_v2_report.md`.

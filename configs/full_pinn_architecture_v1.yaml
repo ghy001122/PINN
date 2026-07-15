@@ -1,0 +1,79 @@
+description: >-
+  Versioned minimal complete 1D phase-transition PINN contract for the frozen
+  synthetic Ground Truth v1.1. This is a new path; historical lightweight PINN
+  implementations remain unchanged and retain their original evidence status.
+stage_id: N0
+claim_scope: conditional_1d_full_pinn_forward_synthetic
+protocol: triangle
+frozen_gt_path: data/processed/gt_v1_acceptance/gt_triangle.npz
+frozen_gt_config: configs/gt_v1_acceptance_triangle.yaml
+
+architecture:
+  state_outputs: [phi, c_v, T, m]
+  hidden_dim: 48
+  hidden_layers: 3
+  fourier_scales: [1.0, 2.0, 4.0, 8.0]
+  voltage_scale_V: 0.20
+  temperature_scale_K: 20.0
+  conductivity_source: physical_state_closure
+  independent_log_sigma_output: false
+
+history_state:
+  continuous_state: m
+  event_ledger:
+    enabled_for_frozen_gt: false
+    activation_scope: explicit_hysteretic_vo2_protocols_only
+    fields: [branch, reversal_temperature_K, reversal_phase]
+    update_semantics: explicit_piecewise_event_map
+    learned_event_head: false
+
+physics:
+  state_equations: [electrostatic_conservation, defect_transport, heat_balance, phase_relaxation]
+  electrical_bc: [phi_left_zero, phi_right_applied_voltage]
+  defect_bc: [zero_normal_flux_left, zero_normal_flux_right]
+  thermal_bc: [zero_normal_flux_left, zero_normal_flux_right]
+  initial_conditions: [frozen_gaussian_defect_profile, ambient_temperature, equilibrium_phase]
+  interface_conditions: [state_continuity_diagnostic, current_flux, heat_flux, defect_flux]
+  observation_operator: series_resistance_area_integral
+
+training:
+  mode: data_free_forward_full_pinn
+  full_field_training: false
+  port_label_training: false
+  pilot_epochs: 160
+  full_epochs: 1200
+  collocation_points: 320
+  boundary_points: 80
+  interface_points: 48
+  learning_rate: 0.001
+  seeds: [20260715, 20260716, 20260717]
+  pilot_seed_count: 1
+  interface_exclusion_fraction: 0.01
+  interface_probe_fraction: 0.002
+  loss_weights:
+    r_phi: 1.0
+    r_c: 1.0
+    r_T: 1.0
+    r_m: 1.0
+    boundary: 2.0
+    interface: 0.25
+
+gates:
+  manufactured_normalized_residual_rms_max: 0.01
+  ic_bc_max_normalized_error: 0.001
+  port_full_trace_nrmse95_max: 0.10
+  residual_rms_max: 0.01
+  minimum_passing_seeds: 2
+  total_seeds: 3
+
+budget:
+  solver_checks_max: 300
+  gpu_hours_max: 9
+  wall_clock_hours_max: 12
+
+outputs:
+  contract_json: outputs/tables/full_pinn_contract_v1.json
+  pilot_json: outputs/tables/full_pinn_pilot_v1.json
+  single_seed_mve_json: outputs/tables/full_pinn_single_seed_mve_v1.json
+  full_training_json: outputs/tables/full_pinn_training_v1.json
+  checkpoint_dir: outputs/checkpoints/full_pinn_v1

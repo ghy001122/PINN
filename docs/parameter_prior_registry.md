@@ -21,6 +21,24 @@ numerical digital-twin benchmark. They are not measured material parameters.
 - Bounded confounders: `T_sw`, `tau_m`, `sigma_on0`, and `eta_A`.
 - No unconstrained joint inversion is claimed in this stage.
 
+## Zhang VO2 Public-Source Parameters
+
+These values reproduce the author code semantics and are not unique estimates made by this repository. D0a failed its integration-convergence gate; no repository calibration was performed.
+
+| Coordinate | Source-code value | SI unit | Role | Identifiability boundary |
+| --- | ---: | --- | --- | --- |
+| `C` | `145.34619293 pF` | `1.4534619293e-10 F` | electrical capacitance | fixed source value; not fitted |
+| `C_th` | `49.62776831 mW ns K^-1` | `4.962776831e-11 J K^-1` | thermal capacitance | fixed source value; not fitted |
+| `S_th` | `0.20558726 mW K^-1` | `2.0558726e-4 W K^-1` | thermal conductance | fixed source value; not fitted |
+| `R_load` | `12 kOhm` | `12000 ohm` | load | fixed by source circuit |
+| `R_m0` | `0.2625 kOhm` | `262.5 ohm` | metal-resistance factor | never separately estimable from `R_m_factor` in this code |
+| `R_m_factor` | `4.90025335` | dimensionless | multiplicative factor | only the product enters the observation |
+| `R_m=R_m0 R_m_factor` | derived | ohm | actual metallic offset | structural product coordinate |
+| `T_c` | `332.805839` | K | hysteresis center | fixed source value in D0a |
+| `w` | `7.19357064` | K | hysteresis width | fixed source value in D0a |
+
+If D0 is revisited, the preregistered first comparison is raw coordinates versus induced-prior-scaled physical time-scale quotients. No unique raw-parameter result may be reported before a step-converged Jacobian and profile/equivalence audit.
+
 
 ## V9 Multidomain OASIS Priors
 

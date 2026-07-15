@@ -1,6 +1,6 @@
 # Final Claim Matrix
 
-This matrix is authoritative for the current manuscript state. Historical claim evolution is archived and remains provenance only. All entries refer to synthetic numerical digital-twin evidence unless explicitly marked absent.
+This matrix is authoritative for the current manuscript state. Historical claim evolution is archived and remains provenance only. Entries are synthetic numerical digital-twin evidence unless explicitly labeled public external reproduction evidence.
 
 ## Mainline Claims
 
@@ -16,14 +16,17 @@ This matrix is authoritative for the current manuscript state. Historical claim 
 
 | ID | Claim | Status | Evidence | Allowed wording | Forbidden wording |
 | --- | --- | --- | --- | --- | --- |
-| B1_external_validation | Provenance-backed external quantitative validation has not been completed. | `forbidden` | `outputs/tables/literature_targeted_curve_extraction_attempt_summary.json`<br>`outputs/tables/literature_curve_fit_external_anchor_v2_summary.json` | No provenance-backed digitized external curve is currently available; no experimental-validation claim is made. | Experimental validation or fitted public curves have been completed. |
+| B1_external_validation | Zhang et al. source artifacts and source/SI semantics are provenance-locked, but D0a fails its time-step convergence gate. | `failed_but_informative` | `data/external/vo2_zhang_2024/manifest.json`<br>`outputs/tables/vo2_d0a_source_reproduction.json`<br>`outputs/tables/vo2_d0a_source_discrepancies.csv` | Author-code/SI parity is a source-reproduction sub-result; repository calibration and 13 V evaluation were not run. | Experimental validation, independent external holdout, completed repository refit, or source-model validation by this project. |
 | B2_p1_neural_solver | The v10 CV multidomain neural solver passes its strict field/interface gate. | `failed_but_informative` | `outputs/tables/cv_multidomain_oasis_training_summary.json`<br>`outputs/tables/cv_multidomain_oasis_cases.csv` | The strict CV/interface audit fails and exposes scaling, coordinate, and optimization repair targets. | OASIS-PINN field recovery is solved. |
 | B3_p2_active_inverse | The v10 active terminal inverse solves all material-specific parameter blocks. | `failed_but_informative` | `outputs/tables/active_protocol_design_v3_summary.json`<br>`outputs/tables/sequential_terminal_inverse_v3_summary.json` | Local block recovery is mixed, and rank-deficient protocol selection invalidates a solved multi-parameter inverse claim. | Full nonlinear multi-parameter inverse is solved. |
 | B4_p3_segmented_forward | Segmented terminals improve low-dimensional local observability in the synthetic y-z forward model. | `qualified_supported` | `outputs/tables/multiterminal_yz_forward_summary.json` | Segmented terminal currents increase the local Jacobian rank for a three-parameter conductivity-profile basis. | Segmented terminals recover arbitrary 2D hidden fields. |
 | B5_p4_algorithms | Full STL or universal Fourier/F-SPS superiority is supported on v10. | `forbidden` | `outputs/tables/oasis_algorithm_gate_v10_summary.json` | The algorithm comparison remains blocked by the failed P1 gate. | Full STL reproduction or universal Fourier/F-SPS superiority. |
+| B6_full_pinn_contract | A versioned complete 1D PINN architecture contract has a non-placeholder implementation. | `supported` as implementation fact | `outputs/tables/full_pinn_contract_v1.json`<br>`src/pinnpcm/pinn/full_pinn_1d.py`<br>`src/pinnpcm/pinn/full_residuals_1d.py` | The code contains the state network, physical conductivity closure, PDE/ODE residuals, IC/BC, interface diagnostics and port operator; this is not trained-accuracy evidence. | The current full PINN is reliable, validated, or accurate on the frozen benchmark. |
+| B7_full_pinn_forward | The implemented full 1D PINN passes the frozen synthetic forward gate. | `failed_but_informative` | `outputs/tables/full_pinn_pilot_v1.json`<br>`outputs/tables/full_pinn_single_seed_mve_v1.json`<br>`outputs/figures/full_pinn_n0_mve_gate_v1.png` | A stable finite MVE missed the port threshold and every residual threshold; use as an optimization/residual limitation. | Full-PINN forward success, sensitivity fidelity, or inverse readiness. |
+| B8_protocol_quotient | Public VO2 data support protocol-dependent identifiable quotients and a conditional quotient inverse. | `forbidden` | `outputs/tables/vo2_protocol_quotient_full_pinn_v2_summary.json` | The hypothesis was not tested because D0a and N0 upstream gates failed; D0b-D0d and N1-N3 were not run. | Protocol-dependent rank/rotation, quotient superiority, raw-parameter refusal as a demonstrated method result, or successful 13 V cross-voltage evaluation. |
 
 ## Absolute Manuscript Boundary
 
-Experimental validation, terminal-only arbitrary full-field recovery, full or Seiler-style STL reproduction, universal Fourier/F-SPS superiority, and device-grade FEM/3D reproduction remain `forbidden` without new direct evidence.
+Experimental validation, independent 13 V external holdout, unique raw-parameter recovery, protocol-dependent quotient identifiability, PINN sensitivity fidelity, terminal-only arbitrary full-field recovery, full or Seiler-style STL reproduction, universal Fourier/F-SPS superiority, and device-grade FEM/3D reproduction remain `forbidden` without new direct evidence.
 
 See `docs/paper/gamma_sub_evidence_lock.md` for equations, configs, scripts, tests, artifacts, figures, limitations, manuscript sentences, and reproduction commands.

@@ -10,8 +10,15 @@ __pycache__/
 # Generated benchmark data and outputs are reproducible and should not be committed.
 data/processed/*
 !data/processed/.gitkeep
+# Public external archives and extracted numeric payloads are reproducibly
+# downloaded from provenance manifests; only lightweight metadata are tracked.
+data/external/vo2_zhang_2024/raw/*
+data/external/vo2_zhang_2024/sealed/*
+data/external/vo2_zhang_2024/access_log.jsonl
 outputs/figures/*
 !outputs/figures/.gitkeep
+!outputs/figures/vo2_d0a_source_semantics_v2.png
+!outputs/figures/full_pinn_n0_mve_gate_v1.png
 outputs/logs/*
 !outputs/logs/.gitkeep
 outputs/checkpoints/*
@@ -187,3 +194,10 @@ outputs/pinn_inverse_v1_1_smoke/*
 
 !outputs/tables/project_governance_summary.json
 !outputs/tables/gamma_sub_evidence_lock_summary.json
+!outputs/tables/vo2_d0a_source_discrepancies.csv
+!outputs/tables/vo2_d0a_source_reproduction.json
+!outputs/tables/full_pinn_contract_v1.json
+!outputs/tables/full_pinn_pilot_v1.json
+!outputs/tables/full_pinn_single_seed_mve_v1.json
+!outputs/tables/full_pinn_training_v1.json
+!outputs/tables/vo2_protocol_quotient_full_pinn_v2_summary.json

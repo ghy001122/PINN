@@ -41,3 +41,12 @@ Use this file to decide which results belong in the main manuscript and which be
 | Calibrated protocol robustness final | `scripts/audit_gamma_sub_calibrated_protocol_robustness_final.py` | `outputs/tables/gamma_sub_calibrated_protocol_robustness_final_summary.json` | Figure 5 / Table 6 | `calibrated_short_pulse_to_ltp_ltd` is best in the tested ODE-backed synthetic grid | Experimental protocol validation |
 | Targeted external curve extraction | `scripts/attempt_literature_curve_extraction_from_sources.py` | `outputs/tables/literature_targeted_curve_extraction_attempt_summary.json` | Figure 7 / Supplement | No provenance-backed digitized curves were found; no curve data were fabricated | Literature curve fit success |
 
+## VO2 D0a and Full-PINN N0 Addendum
+
+| Candidate claim | Evidence | Strongest result | Limitation | Forbidden wording |
+| --- | --- | --- | --- | --- |
+| Exact-source semantics are reproduced | `outputs/tables/vo2_d0a_source_reproduction.json` | author/SI dynamic-current NRMSE95 `4.55e-14` | full D0a gate fails because 5-to-2.5 ns NRMSE95 is `0.163148` | independent validation or converged external reproduction |
+| Public 13 V is a withheld evaluation | sealed manifest only | content was not read | no fit lock or 13 V evaluation exists; source-model development may have used experimental results | independent external holdout or successful cross-voltage evaluation |
+| Full 1D PINN forward gate passes | `outputs/tables/full_pinn_single_seed_mve_v1.json` | finite physical states; loss decreases | port NRMSE95 `0.123764`; all residual RMS values exceed `0.01` | reliable full PINN, sensitivity fidelity, or inverse success |
+| Protocol-conditioned quotient hypothesis is supported | cumulative v2 summary | none; hypothesis not tested | D0a and N0 upstream failures stop D0c/D0d/N1-N3 | protocol rank/rotation or quotient superiority |
+

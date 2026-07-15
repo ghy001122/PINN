@@ -16,3 +16,5 @@ All tables report synthetic numerical digital-twin evidence unless explicitly ma
 
 | Supplementary Table | Stiffness and phase-field story manifest | `outputs/tables/stiffness_2d_story_figure_manifest.json` |
 | Supplementary Table | Literature evidence lock for stiffness and 2D positioning | `docs/literature/drive_and_web_literature_evidence_lock.md` |
+| Supplementary Table | VO2 D0a source discrepancies, provenance and stop-gate metrics | `outputs/tables/vo2_d0a_source_discrepancies.csv`; `outputs/tables/vo2_d0a_source_reproduction.json` |
+| Supplementary Table | Full-PINN N0 contract and failed single-seed MVE | `outputs/tables/full_pinn_contract_v1.json`; `outputs/tables/full_pinn_single_seed_mve_v1.json` |

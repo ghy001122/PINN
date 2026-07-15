@@ -1,42 +1,46 @@
 # Current Evidence Index
 
-This is the compact routing index. It is not a new status dashboard: current status remains in `PROJECT_STATE.md`.
+This is a routing index; current status remains authoritative in `PROJECT_STATE.md`.
 
-## Locked Mainline
+## Locked Safe Mainline
 
-- Evidence lock: commit `d1121e16fa5015a297da468e3e6f0504b9e97d17`.
-- Detailed lock: `docs/paper/gamma_sub_evidence_lock.md`.
-- Current claim matrix: `docs/paper/final_claim_matrix.md`.
-- Final figures/tables: `docs/paper/final_figure_list.md`, `docs/paper/final_table_list.md`.
-- Reproduction summary: `outputs/tables/gamma_sub_evidence_lock_summary.json`.
-- Quick reproduction: `docs/project_state/reproduction_quickstart.md`.
+- Existing evidence lock: `docs/paper/gamma_sub_evidence_lock.md`.
+- Claim matrix: `docs/paper/final_claim_matrix.md`.
+- Safe inverse wording: calibration-gated rank-1 `gamma_sub`, synthetic and prior-qualified.
 
-| Claim block | Status | Primary evidence |
+## VO2 D0a and Full-PINN N0 Round
+
+| Block | Status | Primary evidence |
 | --- | --- | --- |
-| Sparse-port complete hidden-field recovery boundary | `supported` for the frozen configured benchmark | `outputs/tables/pinn_identifiability_summary.json`; Figure 1 |
-| Constrained off-grid `gamma_sub` recovery | `qualified_supported` under fixed/tight priors | continuous-refinement JSON/CSV; Figure 2 |
-| `T_sw` calibration gate | `qualified_supported` and benchmark-specific | confounding/tolerance/ODE spot-check summaries; Figures 2–3 |
-| Conditional robustness and failed wide-prior region | `qualified_supported` | statistical robustness and paper-readiness summaries; Figure 6 |
-| Protocol after calibration | `qualified_supported` | 720-case sequential validation; Figure 5 |
+| D0a provenance/source semantics | `qualified_supported` sub-result | `data/external/vo2_zhang_2024/manifest.json`; `outputs/tables/vo2_d0a_source_discrepancies.csv` |
+| D0a completion gate | `failed_but_informative` | `outputs/tables/vo2_d0a_source_reproduction.json`; `outputs/figures/vo2_d0a_source_semantics_v2.png` |
+| D0b-D0d | not run / positive claims `forbidden` | D0a stop rule; 13 V sealed; no fit lock |
+| N0 architecture contract | `supported` as implementation fact | `outputs/tables/full_pinn_contract_v1.json`; `src/pinnpcm/pinn/full_pinn_1d.py` |
+| N0 trained forward evidence | `failed_but_informative`; positive claim `forbidden` | `outputs/tables/full_pinn_single_seed_mve_v1.json`; `outputs/figures/full_pinn_n0_mve_gate_v1.png` |
+| N1-N3 | not run / `forbidden` | N0 upstream stop rule |
 
-## Extension Ledger
+Round summary: `outputs/tables/vo2_protocol_quotient_full_pinn_v2_summary.json`.
+
+Full report: `docs/codex_reports/vo2_protocol_quotient_full_pinn_v2_report.md`.
+
+Literature overlap audit: `docs/literature/identifiability_neural_red_team_v2.md`.
+
+## Preserved Extension Ledger
 
 | Gate | Status | Boundary |
 | --- | --- | --- |
-| P0 | `qualified_supported` | reduced synthetic topology/material semantics |
-| P1 | `failed_but_informative` | field-anchored cross-family training; interface/scaling gate fails |
-| P2 | `failed_but_informative` | local rank/block audit; thermal/full-rank gate fails |
-| P3 | `qualified_supported` | local rank `1 -> 3` for a three-parameter conductivity basis only |
+| P0 | `qualified_supported` | reduced synthetic physical semantics |
+| P1 | `failed_but_informative` | historical interface/training failure preserved |
+| P2 | `failed_but_informative` | thermal/full-rank inverse gates fail |
+| P3 | `qualified_supported` | local rank `1 -> 3` in a three-parameter basis only |
 | P4 | `forbidden` | no full STL or universal Fourier/F-SPS claim |
-| External anchor | `forbidden` until Priority D completes | no repository external fit/holdout artifact yet |
 
-## Current Manuscript Surfaces
+## Evidence-Type Separation
 
-- Manuscript fragments: `docs/manuscript/`.
-- Reviewer defense: `docs/manuscript/reviewer_defense_matrix.md`.
-- Equation authority: `docs/method_equations.md`.
-- Parameter provenance: `docs/parameter_prior_registry.md` and `docs/physics/literature_prior_registry.md`.
-- Primary-source decision log: `docs/literature/primary_source_decision_log_2026-07-14.md`.
-- Current comprehensive audit: `docs/codex_reports/project_history_workflow_innovation_audit_f14c068.md`.
+- `public_external_raw`: Zhang paper/Source Data/Zenodo/GitHub artifacts.
+- `derived` or `interpolated`: processed copies with raw-parent hashes.
+- `solver_generated`: author-compatible and repository SI trajectories.
+- `pinn_predicted`: N0 neural trajectories.
+- `synthetic_gt`: frozen benchmark arrays, used as post-training score only in N0.
 
-The root registries and `RESEARCH_LOG.md` are cumulative history. Load them only when a specific older run must be traced.
+None of these is project-generated experimental measurement.

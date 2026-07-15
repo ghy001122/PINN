@@ -3,49 +3,46 @@
 ## Authoritative Current Snapshot
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
-- Active phase ID: `D_EXTERNAL_ANCHOR`.
-- Current phase: Priority D provenance-backed external quantitative anchor.
-- Mainline: identifiability-guided sparse-port target reduction and calibration-gated constrained `gamma_sub` inverse in a 1D synthetic numerical digital twin.
-- Evidence-lock commit: `d1121e16fa5015a297da468e3e6f0504b9e97d17`.
+- Active phase ID: `N0_FULL_PINN_NUMERICAL_REPAIR`.
 - Frozen GT v1.1: unchanged and read-only.
-- Local validation at the evidence-lock commit: `187 passed`; no `.github` workflow exists, so no GitHub CI claim is allowed.
-- Current workflow-audit regression: `188 passed in 213.32 s`; governance audit has no failed checks.
-- Experimental validation by this project: absent.
+- Complete PINN policy: mandatory architecture/paper scaffold; positive claims remain evidence-gated.
+- Safe manuscript inverse result: calibration-gated rank-1 `gamma_sub`, `qualified_supported` under its existing synthetic conditions.
+- Project-generated experimental validation: absent.
+- Public VO2 result: D0a `failed_but_informative`; source/SI semantics agree, but time-step convergence fails.
+- 13 V: still sealed; no fit lock, refit, cross-voltage evaluation, or independent external validation exists.
+- N0: architecture/manufactured preflight passes, trained single-seed MVE fails. Full-PINN forward evidence remains `forbidden`.
+- N1-N3: not run because the N0 gate failed.
+- Execution base commit: `73571ee7a6e69545b67d516654ccfbfa653323eb`.
+
+## Current Gate Ledger
+
+| Gate | Status | Direct boundary |
+| --- | --- | --- |
+| Frozen GT v1.1 | `supported` integrity baseline | No equations, parameters, arrays, or acceptance files changed. |
+| P0 | `qualified_supported` | Reduced synthetic physical semantics only. |
+| P1 | `failed_but_informative` | Historical `E_T=0.37563055753707886`, `E_m=0.06811526417732239`, interface residual `106.15460205078125`, success `0.0`; not a universal prerequisite for the minimum 1D scaffold. |
+| P2 | `failed_but_informative` | Thermal/material parameter-block identifiability remains unresolved. |
+| P3 | `qualified_supported` | Static pure-electrical three-parameter local rank improvement only. |
+| P4 | `forbidden` | No full STL or universal Fourier/F-SPS superiority. |
+| D0a | `failed_but_informative` | Source/SI parity passes; 5-to-2.5 ns NRMSE95 `0.163148 > 0.01`. |
+| D0b-D0d | `forbidden` as completed evidence | Not run after D0a stop; 13 V remains sealed. |
+| N0 implementation contract | `supported` as code fact | State network, physics closure, residuals, IC/BC, interface diagnostics and port operator exist. |
+| N0 trained forward evidence | `failed_but_informative`; positive claim `forbidden` | Single-seed 1200-epoch MVE misses port and all residual gates. |
+| N1-N3 | `forbidden` | Not run; upstream N0 gate failed. |
 
 ## Distance To Delivery Goal
 
-| Required deliverable | Current state | Remaining gap |
+| Deliverable | Current state | Remaining gap |
 | --- | --- | --- |
-| Reproducible frozen GT and main evidence | `supported`; evidence lock and six-figure map exist | final submission-bundle execution and archive |
-| Closed constrained `gamma_sub` main claim | `qualified_supported` under calibrated/tight priors | integrate locked text into the complete manuscript |
-| Direct visual for reduced recovery | `supported` as evidence mapping | regenerated Figure 2 now includes 36-case true-versus-estimated off-grid recovery |
-| External quantitative anchor | `forbidden` as completed evidence | active Priority D fit/holdout anchor with complete provenance |
-| Complete manuscript and supplement | not complete | Priority M after the external anchor |
-| Neural/OASIS upgrade | P1/P2 failed, P3 forward only | one bounded P1 repair cycle; cannot block delivery |
+| Frozen synthetic mainline and gamma-sub evidence | locked and preserved | Integrate without overclaiming |
+| Public-data realism anchor | provenance/source semantics available; D0a failed | Resolve numerical convergence before any refit or 13 V access |
+| Full 1D PINN scaffold | implementation exists | Pass unchanged N0 forward gate in 2/3 seeds |
+| Solver/PINN sensitivity evidence | absent | N1 and N2 blocked by N0 |
+| Conditional quotient inverse | absent | D0c/D0d and N1/N2 gates all required |
+| Complete manuscript/submission package | incomplete | Preserve failure-boundary figures/tables and finish only supported narrative |
 
-## Locked Gate Ledger
+## Current Single Priority
 
-| Gate | Status | Evidence boundary |
-| --- | --- | --- |
-| Priority A evidence lock | `supported` as evidence assembly | Commit `d1121e16...`; no new scientific experiment. |
-| P0 physical semantics | `qualified_supported` | Reduced synthetic topology/material implementation only. |
-| P1 CV multidomain training | `failed_but_informative` | `E_T=0.37563055753707886`, `E_m=0.06811526417732239`, interface residual `106.15460205078125`, success `0.0`; field-anchored synthetic cross-family benchmark only. |
-| P2 noisy active inverse | `failed_but_informative` | Local linear blocks; thermal, rank, and coverage gates fail. |
-| P3 segmented-terminal y-z forward | `qualified_supported` | Forward/current integration and local rank gain `1` to `3` for center/width/contrast only; topology is not literature-device-locked. |
-| P4 STL/Fourier/F-SPS | `forbidden` as positive claim | Blocked until P1 passes. |
-| External literature-curve validation | `forbidden` until gate completion | Primary Qiu source candidate verified; no source file or quantitative fit/holdout result has yet been added. |
-| Experimental validation by this project | `forbidden` | No project-generated measured dataset exists. |
+Run one bounded N0 numerical diagnosis and produce a preregistered repair decision. Do not expand into D0 calibration, protocol effects, sensitivity, or inverse methods while N0 remains failed. The constrained `gamma_sub` result remains the safe fallback.
 
-## Delivery-Critical Priority Decision
-
-Priority D now precedes P1 because the external anchor and complete manuscript are Must-have deliverables, whereas P1 is a high-risk upgrade. This changes scheduling, not the core manuscript claim. Numerical forward plus neural inverse/surrogate division is adopted; mechanism-specific VO2 and NbO2 kernels remain separated; exact review-document parameters are not imported without primary-source verification.
-
-## Active And Deferred Work
-
-Only Priority D is active. Priority M complete manuscript/supplement assembly follows. P1 receives one finite repair cycle later; failure remains a supplementary numerical limitation. Full-rank active design, dynamic multi-terminal reduced-target work, STL/Fourier, and compact-model export remain deferred or blocked as specified in `NEXT_ACTIONS.md`.
-
-## Historical Record
-
-Historical state, old priority labels, and cumulative claim matrices are provenance only. They cannot override this snapshot or `docs/research_strategy/active_phase.md`.
-
-Compact evidence routing is in `docs/project_state/current_evidence_index.md`; legacy document replacements are listed in `docs/research_strategy/legacy_document_index.md`.
+Compact routing is in `docs/project_state/current_evidence_index.md`; the cumulative execution report is `docs/codex_reports/vo2_protocol_quotient_full_pinn_v2_report.md`.

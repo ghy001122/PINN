@@ -82,6 +82,21 @@ Physical meaning: conductivity is a reduced closure tying `T`, `c_v`, and `m`
 to the terminal response. It is adequate for synthetic identifiability tests,
 not a complete transport model.
 
+## Full-PINN Contract Variables
+
+| Symbol | Unit | Meaning | Evidence role |
+| --- | --- | --- | --- |
+| `phi(x,t)` | V | Electrical potential state predicted by N0 | network state with hard endpoint transform |
+| `r_phi` | normalized | electrostatic conservation residual | N0 training/audit metric |
+| `r_c` | normalized | defect balance residual | N0 training/audit metric |
+| `r_T` | normalized | heat balance residual | N0 training/audit metric |
+| `r_m` | normalized | phase relaxation residual | N0 training/audit metric |
+| `branch` | categorical | explicit hysteresis branch ledger field | declared for VO2 event protocols; inactive for frozen GT |
+| `T_r` | K | most recent reversal temperature | declared event-ledger state; not a learned head |
+| `R_area` | ohm m2 | area-normalized series resistance | differentiable terminal observation operator |
+
+The N0 network has no `log_sigma` state. `sigma` is always derived from `c_v`, `T`, `m`, and declared material profiles. The contract is implemented, but its trained MVE failed; these variables currently support no positive PINN accuracy or inverse claim.
+
 ## Boundary Conditions
 
 Defect and thermal no-flux boundaries are used in the Ground Truth solver:

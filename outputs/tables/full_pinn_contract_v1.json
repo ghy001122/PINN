@@ -1,0 +1,84 @@
+{
+  "checks": {
+    "contract_complete": true,
+    "finite_cpu_forward": true,
+    "hard_phi_boundary_max": true,
+    "initial_condition_max": true,
+    "manufactured_residual_rms": true,
+    "no_field_or_port_label_training": true,
+    "physical_conductivity_closure": true
+  },
+  "claim_note": "N0 training evidence is not established by this contract audit.",
+  "claim_status": "forbidden",
+  "contract": {
+    "boundary_conditions": [
+      "phi_dirichlet",
+      "zero_defect_flux",
+      "zero_heat_flux"
+    ],
+    "claim_scope": "conditional 1D synthetic forward evidence only",
+    "conductivity": "derived_from_c_v_T_m_and_material_parameters",
+    "contract_id": "full_pinn_architecture_v1",
+    "coordinate_system": {
+      "t": "t/t_max",
+      "x": "x/L_eff"
+    },
+    "history_state": {
+      "continuous": "m",
+      "event_ledger": [
+        "branch",
+        "reversal_temperature_K",
+        "reversal_phase"
+      ],
+      "frozen_gt_event_ledger_active": false,
+      "implementation": "EventLedgerState + update_event_ledger explicit map",
+      "learned_event_head": false
+    },
+    "independent_log_sigma_output": false,
+    "initial_conditions": [
+      "c_v_gaussian_seed",
+      "T_0",
+      "m_equilibrium"
+    ],
+    "interface_conditions": [
+      "current_flux",
+      "defect_flux",
+      "heat_flux"
+    ],
+    "inverse_outputs": [
+      "identifiable_quotient",
+      "equivalence_class"
+    ],
+    "observation_operator": "I=A_eff*V/integral(dx/sigma)",
+    "residuals": [
+      "r_phi",
+      "r_c",
+      "r_T",
+      "r_m"
+    ],
+    "state_network": true,
+    "states": [
+      "phi",
+      "c_v",
+      "T",
+      "m"
+    ],
+    "training_evidence": "PDE_IC_BC_only; frozen full fields score-only"
+  },
+  "created_at_utc": "2026-07-15T15:52:38.592871+00:00",
+  "frozen_gt_role": "score_only",
+  "metrics": {
+    "hard_phi_boundary_max_normalized_error": 0.0,
+    "initial_condition_max_normalized_error": 1.4901161193847656e-08,
+    "manufactured_residual_rms": {
+      "r_T": 0.0,
+      "r_c": 0.0,
+      "r_m": 0.0,
+      "r_phi": 0.0
+    }
+  },
+  "p1_boundary": "Interface terms are diagnostics/losses only; no multidomain or interface-innovation claim is activated.",
+  "schema_version": "full_pinn_contract_v1",
+  "stage_id": "N0",
+  "status": "preflight_passed"
+}

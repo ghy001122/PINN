@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "vo2_d0_evidence_v2.schema.json",
+  "title": "VO2 D0 provenance and run evidence v2",
+  "type": "object",
+  "oneOf": [
+    {"$ref": "#/$defs/provenanceRecord"},
+    {"$ref": "#/$defs/runManifest"}
+  ],
+  "$defs": {
+    "provenanceRecord": {
+      "type": "object",
+      "required": [
+        "artifact_id", "source_role", "source_url", "sha256", "license_id",
+        "acquired_at_utc", "data_kind", "use_role", "sealed_until_fit_lock"
+      ],
+      "properties": {
+        "artifact_id": {"type": "string", "minLength": 1},
+        "source_role": {"enum": ["paper", "nature_source_data", "zenodo_archive", "github_tag"]},
+        "source_url": {"type": "string", "minLength": 1},
+        "source_version_or_tag": {"type": ["string", "null"]},
+        "source_commit_or_blob_sha": {"type": ["string", "null"]},
+        "sha256": {"type": ["string", "null"], "pattern": "^[A-Fa-f0-9]{64}$"},
+        "license_id": {"type": "string", "minLength": 1},
+        "acquired_at_utc": {"type": "string", "format": "date-time"},
+        "data_kind": {
+          "enum": ["public_external_raw", "derived", "interpolated", "solver_generated", "pinn_predicted", "synthetic_gt"]
+        },
+        "use_role": {
+          "enum": ["source_reproduction", "repository_calibration", "repository_withheld_cross_voltage", "sanity_only"]
+        },
+        "derived_from_artifact_ids": {"type": "array", "items": {"type": "string"}},
+        "curve_id": {"type": ["string", "null"]},
+        "protocol_id": {"type": ["string", "null"]},
+        "voltage_V": {"type": ["number", "null"]},
+        "branch_id": {"type": ["string", "null"]},
+        "raw_units": {"type": ["object", "null"]},
+        "si_units": {"type": ["object", "null"]},
+        "conversion_formula": {"type": ["string", "null"]},
+        "sealed_until_fit_lock": {"type": "boolean"}
+      }
+    },
+    "runManifest": {
+      "type": "object",
+      "required": [
+        "run_id", "stage_id", "git_commit", "git_dirty", "config_path",
+        "implementation_semantics", "parameterization", "machine_summary", "status"
+      ],
+      "properties": {
+        "run_id": {"type": "string", "minLength": 1},
+        "stage_id": {"type": "string", "minLength": 1},
+        "git_commit": {"type": "string", "minLength": 7},
+        "git_dirty": {"type": "boolean"},
+        "config_path": {"type": "string"},
+        "config_sha256": {"type": ["string", "null"]},
+        "data_manifest_sha256": {"type": ["string", "null"]},
+        "fit_lock_sha256": {"type": ["string", "null"]},
+        "implementation_semantics": {"enum": ["author_exact", "repository_si_solver", "independent_solver", "full_pinn"]},
+        "parameterization": {"enum": ["raw", "quotient", "equivalence_class"]},
+        "train_seed": {"type": ["integer", "null"]},
+        "start_id": {"type": ["string", "null"]},
+        "noise_seed": {"type": ["integer", "null"]},
+        "dt_s": {"type": ["number", "null"]},
+        "grid_size": {"type": ["integer", "null"]},
+        "machine_summary": {"type": "object"},
+        "started_at_utc": {"type": ["string", "null"]},
+        "ended_at_utc": {"type": ["string", "null"]},
+        "status": {"type": "string"},
+        "failure_reason": {"type": ["string", "null"]}
+      }
+    }
+  }
+}

@@ -38,3 +38,13 @@ Historical claim evolution remains in `docs/paper/final_claim_matrix.md`, report
 - Full 2D field recovery allowed: `False`.
 - Stiffness cliff mitigated: `True`.
 - Full STL claim allowed: `False`.
+
+## 2026-07-15 VO2 / Full-PINN v2 Gate
+
+| Claim | Status | Evidence | Allowed wording | Forbidden wording |
+| --- | --- | --- | --- | --- |
+| D0a source/SI semantics | `qualified_supported` sub-result | `outputs/tables/vo2_d0a_source_reproduction.json` | The author implementation and independent SI rewrite agree at the declared 10 ns semantics. | Independent external validation or repository fit. |
+| D0a completed reproduction | `failed_but_informative` | same JSON; `outputs/figures/vo2_d0a_source_semantics_v2.png` | The preregistered time-step convergence gate fails. | D0 passed or 13 V was evaluated. |
+| N0 implementation contract | `supported` as code fact | `outputs/tables/full_pinn_contract_v1.json` | A versioned non-placeholder full 1D architecture exists. | Reliable trained full PINN. |
+| N0 trained forward evidence | `failed_but_informative` | `outputs/tables/full_pinn_single_seed_mve_v1.json` | The fixed single-seed MVE remains outside all forward gates. | PINN sensitivity/inverse readiness. |
+| D0b-D0d and N1-N3 | `forbidden` as completed evidence | `outputs/tables/vo2_protocol_quotient_full_pinn_v2_summary.json` | Not run after upstream stop gates. | Quotient, protocol rotation, sensitivity fidelity, or inverse success. |

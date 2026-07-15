@@ -1,0 +1,17 @@
+source_surface,item,source_value,repository_value,unit,status,note
+github_tag_v1.0.0_model.py,w,7.19357064,7.19357064,K,match,Direct author-code versus YAML comparison.
+github_tag_v1.0.0_model.py,Tc,332.805839,332.805839,K,match,Direct author-code versus YAML comparison.
+github_tag_v1.0.0_model.py,beta,0.252796285,0.252796285,K^-1,match,Direct author-code versus YAML comparison.
+github_tag_v1.0.0_model.py,R0,0.00535882879,0.00535882879,ohm,match,Direct author-code versus YAML comparison.
+github_tag_v1.0.0_model.py,Ea,5220.47417,5220.47417,K,match,Direct author-code versus YAML comparison.
+github_tag_v1.0.0_model.py,gamma,0.956269682,0.956269682,K^-1,match,Direct author-code versus YAML comparison.
+github_tag_v1.0.0_model.py,Rm0,262.5,262.5,ohm,match,Direct author-code versus YAML comparison.
+github_tag_v1.0.0_model.py,Rm_factor,4.90025335,4.90025335,1,match,Direct author-code versus YAML comparison.
+github_tag_v1.0.0_model.py,Rm_product,1286.316504375,1286.316504375,ohm,match,Direct author-code versus YAML comparison.
+github_tag_v1.0.0_model.py,C0,145.34619293,145.34619293,pF,match,Direct author-code versus YAML comparison.
+github_tag_v1.0.0_model.py,Cth,49.62776831,49.62776831,mW ns K^-1,match,Direct author-code versus YAML comparison.
+github_tag_v1.0.0_model.py,Sth,0.20558726,0.20558726000000002,mW K^-1,match,Direct author-code versus YAML comparison.
+github_tag_v1.0.0_model.py,T_base,325.0,325.0,K,match,Direct author-code versus YAML comparison.
+github_tag_v1.0.0_model.py,R_load,12.0,12.0,kOhm,match,Direct author-code versus YAML comparison.
+github_tag_v1.0.0_model.py,Rm_parameterization,Rm0 * Rm_factor,single observable product R_metal,ohm,structural_equivalence_recorded,Rm0 and Rm_factor cannot be separately identified from this model output.
+nature_methods,parameter_development_boundary,parameters optimized to reproduce experimental results,13 V is not an independent external holdout,evidence_semantics,claim_boundary_recorded,Only repository-withheld preregistered cross-voltage wording is allowed.

@@ -38,7 +38,7 @@ All values below are literature-guided / engineering priors for synthetic numeri
 - NbO2 primary mechanism: Slesazeck et al., *RSC Advances* 5 (2015),
   DOI `10.1039/C5RA19300A`. The repository uses its temperature-activated
   Frenkel-Poole plus Joule-heating mechanism as a shape and parameter prior.
-- VO2 literature profile: Qiu et al., *Collective dynamics and long-range order
+- VO2 literature profile: Zhang, Sipling, Qiu et al., *Collective dynamics and long-range order
   in thermal neuristor networks* (2024), using the published reduced-model
   values `Tc=332.8 K`, hysteresis width `w=7.19 K`, `C=145 pF`, and
   `Rload=12 kOhm` as literature-shape priors. The v10 split thresholds are a
@@ -51,3 +51,9 @@ These sources do not upgrade any synthetic result to experimental validation.
 The v10 P1 training case combines `full_stack_with_SnSe_barrier`, which is motivated by NbO2 thermal-barrier stacks, with the `vo2:normalized_activated` synthetic kernel. It is therefore a field-anchored synthetic cross-family method benchmark. It is not a reproduction of a VO2/SnSe device, a Qiu thermal-neuristor geometry, or an SnSe/NbO2 measured stack.
 
 Future positive device-family claims require a topology-consistent constitutive kernel and provenance-backed external data. The exact VO2 and SnSe/NbO2 parameter sets quoted in the post-d1121e16 external review remain candidate values only until their primary source, table/figure, units, and fitted-versus-measured status are locked.
+
+## D0a Source Lock And Limitation
+
+The Zhang source package is now provenance- and hash-locked in `data/external/vo2_zhang_2024/manifest.json`. Paper/Source Data and Zenodo licensing are recorded separately from the MIT code license. The paper Methods states that constants were optimized to replicate experimental results, so a repository-withheld 13 V trace cannot be promoted to independent external validation.
+
+Author-code and repository SI implementations agree at the declared 10 ns algorithm, but the 5-to-2.5 ns convergence NRMSE95 is `0.163148`, above the `0.01` D0a gate. These values therefore remain source-model reproduction parameters and literature anchors, not repository-calibrated material estimates.
