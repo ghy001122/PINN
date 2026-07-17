@@ -1,0 +1,55 @@
+{
+  "adam_steps_completed_with_persistent_telemetry": 1200,
+  "b380_failure_reproduced": false,
+  "checkpoints": [
+    {
+      "path": "outputs/checkpoints/n0_cv_e_v3r_attempt1_scoring_abort/primary_equal_weight_seed_20260715_adam_0300.pt",
+      "sha256": "3701a8e0130f340517dc269e08d7306a3c1a0afc714d22cd26e6a3fe3370132c",
+      "size_bytes": 79631
+    },
+    {
+      "path": "outputs/checkpoints/n0_cv_e_v3r_attempt1_scoring_abort/primary_equal_weight_seed_20260715_adam_0600.pt",
+      "sha256": "5ba85c5e7ca4e588119d42d0655382f16736d14567342a3183c56a4de375151a",
+      "size_bytes": 79631
+    },
+    {
+      "path": "outputs/checkpoints/n0_cv_e_v3r_attempt1_scoring_abort/primary_equal_weight_seed_20260715_adam_0900.pt",
+      "sha256": "7181f4f700fed418a029b7b4ebe073d0a877efa10def6a6fe1e5b0b6b34d5f16",
+      "size_bytes": 79631
+    },
+    {
+      "path": "outputs/checkpoints/n0_cv_e_v3r_attempt1_scoring_abort/primary_equal_weight_seed_20260715_adam_1200.pt",
+      "sha256": "fb7e546ff917a7b502161b212ed8ddb5d2cfcd16db3a7dfaaef2c88f3ebcf140",
+      "size_bytes": 79631
+    },
+    {
+      "path": "outputs/checkpoints/n0_cv_e_v3r_attempt1_scoring_abort/primary_equal_weight_seed_20260715_initial.pt",
+      "sha256": "6495a699b8fe2eb848640a28d608059ea37d392a264e4849f8654dd852893118",
+      "size_bytes": 29239
+    },
+    {
+      "path": "outputs/checkpoints/n0_cv_e_v3r_attempt1_scoring_abort/primary_equal_weight_seed_20260715_pre_lbfgs.pt",
+      "sha256": "ad7c813d01a6c2419eb81d209d911b9690f10bd008e9a4888589db52b10bb030",
+      "size_bytes": 79631
+    }
+  ],
+  "created_at_utc": "2026-07-17T09:02:55.101618+00:00",
+  "exception_message": "cannot access free variable 'dx' where it is not associated with a value in enclosing scope",
+  "exception_type": "NameError",
+  "failure_stage": "post_adam_interface_flux_scoring_before_lbfgs",
+  "failure_substatus": "post_adam_evidence_scoring_implementation_abort",
+  "locked_commit": "18b703a366663b83947e8b84143481a99854362a",
+  "recovery_arm_run": false,
+  "root_cause": "common_cv_score invoked the nested face-flux scorer before binding dx later in the same function",
+  "run_log": {
+    "path": "outputs/tables/n0_cv_e_v3r_attempt1_run_log.jsonl",
+    "sha256": "67b44c154c8f404b9bae5701e0040d572d83a88ee4ff36d7a7756bc1edf63728"
+  },
+  "schema_version": "n0_cv_e_v3r_attempt1_scoring_abort_v1",
+  "scientific_model_falsification": false,
+  "status": "failed_but_informative",
+  "telemetry": {
+    "path": "outputs/tables/n0_cv_e_v3r_attempt1_telemetry.jsonl",
+    "sha256": "1e5e13f64452ab097410d0aab6a81d3e7e2100ff959f96f5cb26abd50c5a8ec4"
+  }
+}

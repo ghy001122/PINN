@@ -1,0 +1,12 @@
+{
+  "filesystem_code_modified_before_replay": false,
+  "formula_changed": false,
+  "locked_commit": "18b703a366663b83947e8b84143481a99854362a",
+  "positive_claim_ceiling": "failed_but_informative_due_post_lock_operational_repair",
+  "reason": "post-Adam score-only interface flux implementation ordering bug before any L-BFGS or recovery decision",
+  "runtime_action": "at common_cv_score frame entry, bind dx exactly to params[L_eff]/len(trajectory[x]) via CPython frame-local synchronization",
+  "sampling_loss_optimizer_or_gate_changed": false,
+  "schema_version": "n0_cv_e_v3r_runtime_scoring_workaround_v1",
+  "training_algorithm_changed": false,
+  "workaround_spec_sha256": "ac5c6eff75a64f479f5879835d4df40f48ab0321abc4391c281d96351939e327"
+}

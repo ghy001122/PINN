@@ -21,4 +21,4 @@ This registry records nearest primary precedents and claim boundaries for the pr
 
 NNCG, SOAP, PirateNet/residual-adaptive architectures ([arXiv:2402.00326](https://arxiv.org/abs/2402.00326)), causal/time-slab training, IRK-PINN, DWR, PINO, DeepONet, and Preisach/Prandtl-Ishlinskii constructions are established components or baselines. None is a standalone novelty claim in this project.
 
-The only bounded novelty hypothesis left for testing is the device-specific combination of solver-verified event/protocol observable quotients and a full PINN whose sensitivity geometry independently reproduces them. This round does not claim that hypothesis as established.
+The previously bounded novelty hypothesis—solver-verified event/protocol observable quotients plus an independently faithful full-PINN sensitivity geometry—fails this round's prerequisite discovery gates. SID and EC-OQ are therefore removed from the active route. The literature search remains a non-exhaustive overlap audit and cannot establish world-first novelty for any future reformulation.

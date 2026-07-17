@@ -1,0 +1,76 @@
+{
+  "config_hash": {
+    "mode": "canonical_semantic_json",
+    "sha256": "4aa478fbada014604de9179d7e961d467165b10d46653c577b2f157125c4fb17"
+  },
+  "config_path": "configs/n0_cv_e_v3r_optimizer_forensics.yaml",
+  "created_at_utc": "2026-07-17T08:57:22.093820+00:00",
+  "git_branch": "main",
+  "git_commit": "18b703a366663b83947e8b84143481a99854362a",
+  "git_remote_url": "https://github.com/ghy001122/PINN.git",
+  "immutable_rules": {
+    "external_13v_forbidden": true,
+    "frozen_gt_unchanged": true,
+    "hidden_field_labels_forbidden": true,
+    "nan_to_num_forbidden": true,
+    "old_results_and_checkpoints_not_overwritten": true,
+    "port_labels_for_n0_training_forbidden": true,
+    "posthoc_gate_or_window_changes_forbidden": true
+  },
+  "locked_files": {
+    "configs/full_pinn_n0_cv_e_v3.yaml": {
+      "mode": "canonical_semantic_json",
+      "sha256": "c9d1b54f95d237c8d28f7dc01be4a36cd2fbecb9ee5914bc07ffdfd0386d8cf1"
+    },
+    "configs/n0_cv_e_v3r_optimizer_forensics.yaml": {
+      "mode": "canonical_semantic_json",
+      "sha256": "4aa478fbada014604de9179d7e961d467165b10d46653c577b2f157125c4fb17"
+    },
+    "data/processed/gt_v1_acceptance/gt_triangle.npz": {
+      "mode": "raw_bytes",
+      "sha256": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8"
+    },
+    "outputs/tables/n0_cv_e_v3_diagnostic_set.npz": {
+      "mode": "raw_bytes",
+      "sha256": "a34b51cd48349c2bc5213a3c905e18d6640cdd305f87c05d944301882f478cfe"
+    },
+    "outputs/tables/n0_cv_e_v3_preflight.json": {
+      "mode": "canonical_semantic_json",
+      "sha256": "07ccd8dffb8e1ef126717fcac276f9587fa06ac0cd359ed71c50f82944cd24f6"
+    },
+    "outputs/tables/n0_cv_e_v3_semantic_amendment.json": {
+      "mode": "canonical_semantic_json",
+      "sha256": "13c4b6a8393019f20ee477a8e1239cdbc13c78212215fad819222b55dca63d0a"
+    },
+    "scripts/preregister_n0_sid_round.py": {
+      "mode": "canonical_lf",
+      "sha256": "597f47efc1997ea1fd7469664cb1dbdc6d361b7ad66e5dc5c34949f75d73843e"
+    },
+    "scripts/run_n0_cv_e_v3r_optimizer_forensics.py": {
+      "mode": "canonical_lf",
+      "sha256": "5a489b75ab10dcf5ff67c34daef89727f1e55182a0d968a642e3797aa0a8c265"
+    },
+    "src/pinnpcm/pinn/full_pinn_n0_cv_e.py": {
+      "mode": "canonical_lf",
+      "sha256": "4b5cdb581058b438d8977119de2df1477c7ff958c9d786f7fa3e81d9001bf8d1"
+    },
+    "src/pinnpcm/pinn/n0_cv_evidence.py": {
+      "mode": "canonical_lf",
+      "sha256": "290e365d73b65a5836fbf21d6babe4cfb77c993446d5c7ff23cec7c6038212b2"
+    },
+    "src/pinnpcm/pinn/optimizer_forensics.py": {
+      "mode": "canonical_lf",
+      "sha256": "9449bcf7a49a1fb05c38393af199e494ef91556ef8a07e596337f195b2cbbc1b"
+    }
+  },
+  "machine": {
+    "cuda_available": false,
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.9",
+    "torch": "2.3.1+cpu"
+  },
+  "origin_main_commit": "18b703a366663b83947e8b84143481a99854362a",
+  "schema_version": "n0_cv_e_v3r_optimizer_forensics_v1_preregistration_lock_v1",
+  "stage_id": "N0_OPTIMIZER_FORENSICS_AND_SID_DISCOVERY_A",
+  "worktree_clean_before_lock": true
+}

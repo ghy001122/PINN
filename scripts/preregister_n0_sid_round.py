@@ -90,7 +90,7 @@ def main() -> None:
         ],
     )
     args = parser.parse_args()
-    outputs = []
+    pending = []
     for supplied in args.configs:
         config_path = supplied if supplied.is_absolute() else ROOT / supplied
         config = yaml.safe_load(config_path.read_text(encoding="utf-8"))
@@ -98,6 +98,13 @@ def main() -> None:
         if output.exists():
             raise FileExistsError(f"Refusing to overwrite preregistration lock: {output}")
         payload = build_lock(config_path)
+        pending.append((output, payload))
+
+    # Build every lock against the same clean tree before writing any lock.
+    # Otherwise the first generated output dirties the tree and invalidates the
+    # second preregistration in the same invocation.
+    outputs = []
+    for output, payload in pending:
         atomic_json_write(output, payload)
         outputs.append({"path": str(output.relative_to(ROOT)).replace("\\", "/"), "commit": payload["git_commit"]})
     print(json.dumps({"status": "locked", "outputs": outputs}, sort_keys=True))

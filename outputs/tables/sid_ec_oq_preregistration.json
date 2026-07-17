@@ -1,0 +1,60 @@
+{
+  "config_hash": {
+    "mode": "canonical_semantic_json",
+    "sha256": "527a2ba1137bac676cbedb765991da30297fdd19ddae7052c8189181d7ddb29e"
+  },
+  "config_path": "configs/sid_ec_oq_event_geometry.yaml",
+  "created_at_utc": "2026-07-17T08:58:36.408827+00:00",
+  "git_branch": "main",
+  "git_commit": "18b703a366663b83947e8b84143481a99854362a",
+  "git_remote_url": "https://github.com/ghy001122/PINN.git",
+  "immutable_rules": {
+    "external_13v_forbidden": true,
+    "frozen_gt_unchanged": true,
+    "hidden_field_labels_forbidden": true,
+    "nan_to_num_forbidden": true,
+    "old_results_and_checkpoints_not_overwritten": true,
+    "port_labels_for_n0_training_forbidden": true,
+    "posthoc_gate_or_window_changes_forbidden": true
+  },
+  "locked_files": {
+    "configs/sid_ec_oq_event_geometry.yaml": {
+      "mode": "canonical_semantic_json",
+      "sha256": "527a2ba1137bac676cbedb765991da30297fdd19ddae7052c8189181d7ddb29e"
+    },
+    "scripts/preregister_n0_sid_round.py": {
+      "mode": "canonical_lf",
+      "sha256": "597f47efc1997ea1fd7469664cb1dbdc6d361b7ad66e5dc5c34949f75d73843e"
+    },
+    "scripts/run_sid_ec_oq_event_geometry.py": {
+      "mode": "canonical_lf",
+      "sha256": "2476da38a3abb6693550443ea67b10628839cc65c1be16fc09867eb26b768373"
+    },
+    "src/pinnpcm/identifiability.py": {
+      "mode": "canonical_lf",
+      "sha256": "e977d7ca54ffadf05f5b16ed92286c2bce0448ed501410bf56ac98e6238b7b9b"
+    },
+    "src/pinnpcm/physics/gt_solver.py": {
+      "mode": "canonical_lf",
+      "sha256": "94b900626be61827a5137670576142703a4700b67ac449702cc83f47b5f050d8"
+    },
+    "src/pinnpcm/physics/params.py": {
+      "mode": "canonical_lf",
+      "sha256": "a8fc571c7a83935e9a19fc94ada02e5d1bfc2118282186da2c4152967699d1f9"
+    },
+    "src/pinnpcm/physics/voltage_protocols.py": {
+      "mode": "canonical_lf",
+      "sha256": "191c68569bdf70e32208e7dc31197381431e3c9c48853b5714f77d94bc40bc70"
+    }
+  },
+  "machine": {
+    "cuda_available": false,
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.9",
+    "torch": "2.3.1+cpu"
+  },
+  "origin_main_commit": "18b703a366663b83947e8b84143481a99854362a",
+  "schema_version": "sid_ec_oq_event_geometry_v1_preregistration_lock_v1",
+  "stage_id": "N0_OPTIMIZER_FORENSICS_AND_SID_DISCOVERY_B",
+  "worktree_clean_before_lock": true
+}

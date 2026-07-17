@@ -519,7 +519,7 @@ def _run_lbfgs(
             "block_finite": {name: bool(torch.isfinite(value).all().item()) for name, value in blocks.items()},
             "weighted_total_loss": _safe_float(total),
             "weighted_total_finite": bool(torch.isfinite(total).all().item()),
-            "parameter_step_norm_from_pre_lbfgs": step_norm,
+            "parameter_step_norm_from_pre_lbfgs": _safe_float(step_norm),
             "parameter_state_before_backward": parameter_optimizer_finiteness(model, optimizer),
         }
         append_jsonl(telemetry_path, event)
@@ -533,7 +533,7 @@ def _run_lbfgs(
                 "first_nonfinite": attribution,
                 "block_finiteness": {name: bool(torch.isfinite(value).all().item()) for name, value in blocks.items()},
                 "physical_finiteness": {name: bool(torch.isfinite(value).all().item()) for name, value in physical.items() if torch.is_tensor(value)},
-                "parameter_step_norm_from_pre_lbfgs": step_norm,
+                "parameter_step_norm_from_pre_lbfgs": _safe_float(step_norm),
                 "created_at_utc": datetime.now(timezone.utc).isoformat(),
             }
             atomic_json_write(crash_path, crash)

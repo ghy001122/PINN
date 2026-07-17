@@ -389,6 +389,7 @@ def common_cv_score(
     t = np.asarray(trajectory["t"], dtype=float)
     x = np.asarray(trajectory["x"], dtype=float)
     nx = x.size
+    dx = float(params["L_eff"]) / nx
     derivative = np.concatenate(
         [
             np.gradient(np.asarray(trajectory["c_v"]), t, axis=0, edge_order=2),
@@ -582,7 +583,6 @@ def common_cv_score(
         "m": float(np.max(np.abs(trajectory["m"][0] - frozen_gt["m"][0]))),
     }
     voltage_scale = max(float(registry["voltage_scale_V"]), 1.0e-30)
-    dx = float(params["L_eff"]) / nx
     left_boundary = electrical["phi"][:, 0] + 0.5 * electrical["E"][:, 0] * dx
     right_boundary = electrical["phi"][:, -1] - 0.5 * electrical["E"][:, -1] * dx
     boundary_errors = {

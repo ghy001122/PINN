@@ -40,8 +40,31 @@ def atomic_torch_save(path: Path, payload: Mapping[str, Any]) -> None:
 
 
 def append_jsonl(path: Path, payload: Mapping[str, Any]) -> None:
+    """Append telemetry without letting a non-finite diagnostic hide the failure.
+
+    Strict, claim-bearing JSON artifacts still use :func:`atomic_json_write` and
+    reject NaN/Infinity.  Streaming telemetry is different: optimizer failure
+    may make a diagnostic norm infinite, so it is encoded as JSON ``null``
+    while the adjacent finite-state flags preserve the failure semantics.
+    """
+
+    def json_safe(value: Any) -> Any:
+        if isinstance(value, Mapping):
+            return {str(key): json_safe(item) for key, item in value.items()}
+        if isinstance(value, (list, tuple)):
+            return [json_safe(item) for item in value]
+        if isinstance(value, np.ndarray):
+            return json_safe(value.tolist())
+        if isinstance(value, np.generic):
+            return json_safe(value.item())
+        if torch.is_tensor(value):
+            return json_safe(value.detach().cpu().tolist())
+        if isinstance(value, float) and not math.isfinite(value):
+            return None
+        return value
+
     path.parent.mkdir(parents=True, exist_ok=True)
-    encoded = json.dumps(payload, sort_keys=True, allow_nan=False)
+    encoded = json.dumps(json_safe(payload), sort_keys=True, allow_nan=False)
     with path.open("a", encoding="utf-8", newline="\n") as handle:
         handle.write(encoded + "\n")
         handle.flush()

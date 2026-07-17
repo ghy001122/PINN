@@ -1,0 +1,42 @@
+{
+  "block_finiteness": {
+    "defect_mass_ledger": false,
+    "discrete_electrical": false,
+    "energy_ledger": false,
+    "r_T": false,
+    "r_c": false,
+    "r_m": false
+  },
+  "closure_index": 3,
+  "created_at_utc": "2026-07-17T09:05:19.692298+00:00",
+  "exception_message": "Non-finite N0-CV-E v3r L-BFGS loss.",
+  "exception_type": "RuntimeError",
+  "failure_stage": "lbfgs_strong_wolfe_closure",
+  "first_nonfinite": {
+    "kind": "parameter",
+    "layer": "backbone.net.0",
+    "name": "backbone.net.0.weight"
+  },
+  "parameter_step_norm_from_pre_lbfgs": null,
+  "physical_finiteness": {
+    "E": false,
+    "G": false,
+    "I": false,
+    "J": false,
+    "R_area": false,
+    "T": false,
+    "V": true,
+    "c_v": false,
+    "m": false,
+    "phi": false,
+    "sigma": false
+  },
+  "schema_version": "n0_cv_e_v3r_crash_manifest_v1",
+  "status": "nonfinite_detected",
+  "stderr_semantics": "captured_exception_traceback",
+  "stderr_sha256": "1f967e87297b546053f86c37a5f29f1707dd33772919a7ee2d76468bdd57d2e1",
+  "stdout_semantics": "machine_events_persisted_in_jsonl",
+  "stdout_sha256": "d22c197091a66237d6d85682a3227def3c26d39a683a9f20c591c1c9a6b8d48f",
+  "traceback": "Traceback (most recent call last):\n  File \"E:\\Python demo\\PINN\\scripts/run_n0_cv_e_v3r_optimizer_forensics.py\", line 559, in _run_lbfgs\n    optimizer.step(closure)\n  File \"E:\\Python demo\\PINN\\.venv\\Lib\\site-packages\\torch\\optim\\optimizer.py\", line 391, in wrapper\n    out = func(*args, **kwargs)\n          ^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\Python demo\\PINN\\.venv\\Lib\\site-packages\\torch\\utils\\_contextlib.py\", line 115, in decorate_context\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\Python demo\\PINN\\.venv\\Lib\\site-packages\\torch\\optim\\lbfgs.py\", line 433, in step\n    loss, flat_grad, t, ls_func_evals = _strong_wolfe(\n                                        ^^^^^^^^^^^^^^\n  File \"E:\\Python demo\\PINN\\.venv\\Lib\\site-packages\\torch\\optim\\lbfgs.py\", line 147, in _strong_wolfe\n    f_new, g_new = obj_func(x, t, d)\n                   ^^^^^^^^^^^^^^^^^\n  File \"E:\\Python demo\\PINN\\.venv\\Lib\\site-packages\\torch\\optim\\lbfgs.py\", line 431, in obj_func\n    return self._directional_evaluate(closure, x, t, d)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\Python demo\\PINN\\.venv\\Lib\\site-packages\\torch\\optim\\lbfgs.py\", line 285, in _directional_evaluate\n    loss = float(closure())\n                 ^^^^^^^^^\n  File \"E:\\Python demo\\PINN\\.venv\\Lib\\site-packages\\torch\\utils\\_contextlib.py\", line 115, in decorate_context\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\Python demo\\PINN\\scripts/run_n0_cv_e_v3r_optimizer_forensics.py\", line 540, in closure\n    raise RuntimeError(\"Non-finite N0-CV-E v3r L-BFGS loss.\")\nRuntimeError: Non-finite N0-CV-E v3r L-BFGS loss.\n",
+  "traceback_sha256": "1f967e87297b546053f86c37a5f29f1707dd33772919a7ee2d76468bdd57d2e1"
+}

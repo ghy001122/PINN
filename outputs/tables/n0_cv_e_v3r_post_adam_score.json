@@ -1,0 +1,359 @@
+{
+  "adam_steps": 1200,
+  "checkpoint": "outputs/checkpoints/n0_cv_e_v3r/primary_equal_weight_seed_20260715_pre_lbfgs.pt",
+  "finite_state": {
+    "adam_exp_avg_finite": true,
+    "adam_exp_avg_sq_finite": true,
+    "first_nonfinite_gradient": null,
+    "first_nonfinite_optimizer_state": null,
+    "first_nonfinite_parameter": null,
+    "gradients_finite": true,
+    "optimizer_state_finite": true,
+    "parameters_finite": true
+  },
+  "initial_gradient_diagnostics": {
+    "cosine_matrix": {
+      "defect_mass_ledger": {
+        "defect_mass_ledger": 1.0,
+        "discrete_electrical": 0.0,
+        "energy_ledger": -0.01721188612282276,
+        "r_T": 0.011842257343232632,
+        "r_c": 0.19027544558048248,
+        "r_m": 0.4922916889190674
+      },
+      "discrete_electrical": {
+        "defect_mass_ledger": 0.0,
+        "discrete_electrical": 0.0,
+        "energy_ledger": 0.0,
+        "r_T": 0.0,
+        "r_c": 0.0,
+        "r_m": 0.0
+      },
+      "energy_ledger": {
+        "defect_mass_ledger": -0.01721188612282276,
+        "discrete_electrical": 0.0,
+        "energy_ledger": 1.0,
+        "r_T": -0.01262423861771822,
+        "r_c": 0.014039414934813976,
+        "r_m": 0.7407696843147278
+      },
+      "r_T": {
+        "defect_mass_ledger": 0.011842257343232632,
+        "discrete_electrical": 0.0,
+        "energy_ledger": -0.01262423861771822,
+        "r_T": 1.0,
+        "r_c": 0.033352289348840714,
+        "r_m": 0.05995268374681473
+      },
+      "r_c": {
+        "defect_mass_ledger": 0.19027544558048248,
+        "discrete_electrical": 0.0,
+        "energy_ledger": 0.014039414934813976,
+        "r_T": 0.033352289348840714,
+        "r_c": 1.0000001192092896,
+        "r_m": 0.14986667037010193
+      },
+      "r_m": {
+        "defect_mass_ledger": 0.4922916889190674,
+        "discrete_electrical": 0.0,
+        "energy_ledger": 0.7407696843147278,
+        "r_T": 0.05995268374681473,
+        "r_c": 0.14986667037010193,
+        "r_m": 0.9999999403953552
+      }
+    },
+    "gradient_norm_ratio": 3.2922007005003824e+22,
+    "median_pairwise_cosine": 0.011842257343232632,
+    "minimum_pairwise_cosine": -0.01721188612282276,
+    "negative_pair_count": 2,
+    "per_block": {
+      "defect_mass_ledger": {
+        "finite": true,
+        "max_abs": 4.1994624444541273e-10,
+        "norm": 2.1852428755408937e-09
+      },
+      "discrete_electrical": {
+        "finite": true,
+        "max_abs": 1.0421912589810957e-24,
+        "norm": 0.0
+      },
+      "energy_ledger": {
+        "finite": true,
+        "max_abs": 4.6536174522771034e-06,
+        "norm": 2.846394090738613e-05
+      },
+      "r_T": {
+        "finite": true,
+        "max_abs": 28769414807552.0,
+        "norm": 71942581256192.0
+      },
+      "r_c": {
+        "finite": true,
+        "max_abs": 0.00011258664017077535,
+        "norm": 0.00031967132235877216
+      },
+      "r_m": {
+        "finite": true,
+        "max_abs": 0.02899617701768875,
+        "norm": 0.11803410947322845
+      }
+    }
+  },
+  "initial_total_loss": 15062737616896.0,
+  "loss_declined": true,
+  "metrics_exceeding_20x_gate": [
+    {
+      "factor": 5658648.4375,
+      "gate": 0.01,
+      "metric": "cv_residual_rms.r_T",
+      "value": 56586.484375
+    },
+    {
+      "factor": 407.62195587158203,
+      "gate": 0.01,
+      "metric": "cv_residual_rms.r_m",
+      "value": 4.07621955871582
+    },
+    {
+      "factor": 664238.6820887533,
+      "gate": 0.05,
+      "metric": "interface_flux.heat",
+      "value": 33211.93410443767
+    },
+    {
+      "factor": 477.43605271411394,
+      "gate": 0.05,
+      "metric": "interface_flux.defect",
+      "value": 23.8718026357057
+    },
+    {
+      "factor": 100.0,
+      "gate": 0.01,
+      "metric": "defect_mass_ledger",
+      "value": 1.0
+    }
+  ],
+  "post_gradient_diagnostics": {
+    "cosine_matrix": {
+      "defect_mass_ledger": {
+        "defect_mass_ledger": 1.0,
+        "discrete_electrical": 0.0,
+        "energy_ledger": -0.07954476773738861,
+        "r_T": 0.01145963929593563,
+        "r_c": 0.3873852789402008,
+        "r_m": 0.4933086931705475
+      },
+      "discrete_electrical": {
+        "defect_mass_ledger": 0.0,
+        "discrete_electrical": 0.0,
+        "energy_ledger": 0.0,
+        "r_T": 0.0,
+        "r_c": 0.0,
+        "r_m": 0.0
+      },
+      "energy_ledger": {
+        "defect_mass_ledger": -0.07954476773738861,
+        "discrete_electrical": 0.0,
+        "energy_ledger": 0.9999998807907104,
+        "r_T": -0.007142916787415743,
+        "r_c": -0.021345876157283783,
+        "r_m": 0.7975296974182129
+      },
+      "r_T": {
+        "defect_mass_ledger": 0.01145963929593563,
+        "discrete_electrical": 0.0,
+        "energy_ledger": -0.007142916787415743,
+        "r_T": 0.9999998211860657,
+        "r_c": -0.02206147275865078,
+        "r_m": 0.0014068067539483309
+      },
+      "r_c": {
+        "defect_mass_ledger": 0.3873852789402008,
+        "discrete_electrical": 0.0,
+        "energy_ledger": -0.021345876157283783,
+        "r_T": -0.02206147275865078,
+        "r_c": 1.0000001192092896,
+        "r_m": 0.13514897227287292
+      },
+      "r_m": {
+        "defect_mass_ledger": 0.4933086931705475,
+        "discrete_electrical": 0.0,
+        "energy_ledger": 0.7975296974182129,
+        "r_T": 0.0014068067539483309,
+        "r_c": 0.13514897227287292,
+        "r_m": 1.000000238418579
+      }
+    },
+    "gradient_norm_ratio": 3.325078587195374e+20,
+    "median_pairwise_cosine": 0.0,
+    "minimum_pairwise_cosine": -0.07954476773738861,
+    "negative_pair_count": 4,
+    "per_block": {
+      "defect_mass_ledger": {
+        "finite": true,
+        "max_abs": 2.605085036577748e-09,
+        "norm": 1.1419142964541606e-08
+      },
+      "discrete_electrical": {
+        "finite": true,
+        "max_abs": 2.2798775936205646e-23,
+        "norm": 0.0
+      },
+      "energy_ledger": {
+        "finite": true,
+        "max_abs": 6.7040996327705216e-06,
+        "norm": 4.211826671962626e-05
+      },
+      "r_T": {
+        "finite": true,
+        "max_abs": 1065461612544.0,
+        "norm": 3796954775552.0
+      },
+      "r_c": {
+        "finite": true,
+        "max_abs": 0.0007762351306155324,
+        "norm": 0.0013702329015359282
+      },
+      "r_m": {
+        "finite": true,
+        "max_abs": 0.47153496742248535,
+        "norm": 3.1985809803009033
+      }
+    }
+  },
+  "post_total_loss": 2665305088.0,
+  "schema_version": "n0_cv_e_v3r_post_adam_score_v1",
+  "score": {
+    "gates": {
+      "all_pass": false,
+      "checks": {
+        "bounded_states": true,
+        "cv_residuals": false,
+        "defect_ledger": false,
+        "discrete_electrical": true,
+        "energy_ledger": false,
+        "fields": false,
+        "finite_outputs": true,
+        "ic_bc": true,
+        "interface_flux_score_only": false,
+        "interface_state_score_only": true,
+        "port": true
+      }
+    },
+    "metrics": {
+      "analytic_current_conservation_nonvote": 3.6088292095975133e-16,
+      "bounded_states": true,
+      "cv_residual_rms": {
+        "r_T": 56586.484375,
+        "r_c": 0.022650079801678658,
+        "r_m": 4.07621955871582
+      },
+      "defect_mass_ledger": {
+        "boundary_flux_integral": 0.0,
+        "gate_value": 1.0,
+        "max_interval_normalized_imbalance": 1.0,
+        "p95_interval_normalized_imbalance": 1.0,
+        "reaction_integral": 1.4118823154944531e-11,
+        "storage_change": 2.7315812485833347e-10,
+        "total_normalized_imbalance": 1.0
+      },
+      "discrete_electrical_rms": 2.682407941601017e-11,
+      "field_score_only_nrmse95": {
+        "T": 1.7527380971632291,
+        "c_v": 0.3804764754467812,
+        "m": 0.4276496303934893,
+        "phi": 0.006615897106539468,
+        "sigma": 0.24762120912795985
+      },
+      "finite_outputs": true,
+      "global_energy_ledger": {
+        "boundary_heat_integral_J_per_m2": 0.0,
+        "gate_value": 0.9999502024009691,
+        "joule_integral_J_per_m2": 2.0431156768947485,
+        "max_interval_normalized_imbalance": 0.9999502024009691,
+        "p95_interval_normalized_imbalance": 0.9956553404758758,
+        "storage_change_J_per_m2": 5.9435050737934745,
+        "substrate_sink_integral_J_per_m2": 1.6862507526694703,
+        "total_normalized_imbalance": 0.5775575688800305
+      },
+      "ic_bc_normalized_errors": {
+        "bc_defect_left": 0.0,
+        "bc_defect_right": 0.0,
+        "bc_heat_left": 0.0,
+        "bc_heat_right": 0.0,
+        "bc_phi_left": 0.0,
+        "bc_phi_right": 8.149072527885437e-08,
+        "ic_T": 0.0,
+        "ic_c_v": 1.4901161193847656e-08,
+        "ic_m": 1.4901161193847656e-08
+      },
+      "interface_flux_score_only_nrmse95": {
+        "current": 0.0955474831972429,
+        "defect": 23.8718026357057,
+        "heat": 33211.93410443767,
+        "semantics": "score_only_predicted_face_flux_vs_frozen_gt_face_flux"
+      },
+      "interface_state_score_only_rms": {
+        "T": 0.00022904867364559323,
+        "c_v": 0.01814647950232029,
+        "m": 0.012501165270805359,
+        "phi": 0.0014602823732854705,
+        "semantics": "score_only_one_sided_linear_face_trace_reconstruction"
+      },
+      "port_full_trace_nrmse95": 0.09554748319724289,
+      "region_diagnostics": {
+        "near_interface": {
+          "cell_count": 4,
+          "field_nrmse95": {
+            "T": 1.7090018438499344,
+            "c_v": 1.3876356534110739,
+            "m": 0.47944148244297097,
+            "phi": 0.004430598035293404,
+            "sigma": 0.25926986827074505
+          },
+          "sample_count": 1600,
+          "time_count": 400
+        },
+        "near_transition": {
+          "cell_count": 31,
+          "field_nrmse95": {
+            "T": 2.4334013008511723,
+            "c_v": 0.3331215967046663,
+            "m": 0.49453170255367235,
+            "phi": 0.015148163106256935,
+            "sigma": 0.17601560092691587
+          },
+          "sample_count": 3720,
+          "time_count": 120
+        },
+        "ordinary": {
+          "cell_count": 27,
+          "field_nrmse95": {
+            "T": 2.194996746180984,
+            "c_v": 0.5923831857827169,
+            "m": 0.5321584790805348,
+            "phi": 0.008630812331537872,
+            "sigma": 0.26403814267986486
+          },
+          "sample_count": 5400,
+          "time_count": 200
+        }
+      },
+      "structural_face_conservation_nonvote": {
+        "current_equal_and_opposite": true,
+        "defect_equal_and_opposite": true,
+        "heat_equal_and_opposite": true,
+        "semantics": "shared_control_volume_face_structural_invariant_not_learned_performance"
+      }
+    },
+    "structural_invariants": {
+      "analytic_head_current_continuity": true,
+      "learned_performance_vote": false,
+      "shared_cv_face_equal_and_opposite": true,
+      "sigma_times_E_equals_J": true
+    },
+    "trajectory_semantics": "pinn_predicted_score_only_against_frozen_synthetic_gt"
+  },
+  "scoreable": true,
+  "seed": 20260715
+}

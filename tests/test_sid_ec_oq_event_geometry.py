@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import json
+from pathlib import Path
+
 import numpy as np
 
 from pinnpcm.identifiability import (
@@ -62,3 +65,12 @@ def test_sid_and_ec_oq_decisions_are_independent_and_fail_closed() -> None:
     failed = sid_decision(metrics, gates)
     assert failed["ec_oq_retained"] is False
     assert failed["sid_retained"] is False
+
+
+def test_recorded_discovery_result_deletes_both_labels() -> None:
+    payload = json.loads(Path("outputs/tables/sid_ec_oq_summary.json").read_text(encoding="utf-8"))
+    assert payload["decision"]["claim_status"] == "failed_but_informative"
+    assert payload["decision"]["sid_retained"] is False
+    assert payload["decision"]["ec_oq_retained"] is False
+    assert payload["derivative_audit"]["passing_cases"] == 3
+    assert payload["derivative_audit"]["total_cases"] == 9

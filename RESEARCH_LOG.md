@@ -744,3 +744,16 @@ Date: 2026-07-17. Base commit: `e3f5765801991ebd1006dc762f8804a48e2d7a5a`.
 - Final disposition: N0 `failed_but_informative` and stopped. Reliable trained full-PINN forward, sensitivity, and inverse claims remain `forbidden`. The unique next step is the locked calibrated `gamma_sub` manuscript mainline.
 
 Primary report: `docs/codex_reports/n0_cv_e_v3_report.md`.
+
+## N0 Optimizer Forensics And SID/EC-OQ Discovery
+
+Date: 2026-07-17. Definition/preregistration commit: `18b703a366663b83947e8b84143481a99854362a`.
+
+- Preserved the historical b380 result as `failed_but_informative / runtime_abort_unassessed`; its absent score trajectory is not scientific-model falsification.
+- The independent v3r replay completed 1200 Adam steps, saved six checkpoints, and produced a scoreable post-Adam trajectory. Port NRMSE95 passes (`0.0955475`), while residual, field, interface-flux, energy-ledger, and defect-ledger gates fail. Five metrics exceed their gates by at least `20x`.
+- A serializer-safe diagnostic replay from the same pre-L-BFGS checkpoint reproduced a non-finite strong-Wolfe failure at closure 3. The first non-finite parameter is `backbone.net.0.weight`.
+- The locked recovery prerequisite is false. No float64 arm, balancing arm, or seed expansion was run; N0 optimizer work is permanently stopped.
+- The solver-first SID/EC-OQ audit used 189/420 allowed forward evaluations. Derivative convergence passes only 3/9 cases; a preregistered switch window degenerates to the full trace; corrected angle, training-condition, protocol-count, and neighborhood gates fail.
+- SID and EC-OQ are both deleted from the active route. The calibrated rank-1 `gamma_sub` mainline is unchanged.
+
+Primary report: `docs/codex_reports/n0_optimizer_forensics_sid_discovery_final.md`.

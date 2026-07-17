@@ -1,0 +1,112 @@
+{
+  "schema_version": "n0_cv_e_v3r_forensic_resolution_v1",
+  "created_at_utc": "2026-07-17T09:15:43.0558016Z",
+  "stage_id": "N0_OPTIMIZER_FORENSICS_AND_SID_DISCOVERY",
+  "historical_result": {
+    "artifact_commit": "b3800fd55dc1e2fd08ca802efc73d0e0bc7fab7a",
+    "execution_base_commit": "e3f5765801991ebd1006dc762f8804a48e2d7a5a",
+    "claim_status": "failed_but_informative",
+    "failure_substatus": "runtime_abort_unassessed",
+    "scientific_model_falsification": false,
+    "scoreable_pinn_predicted_trajectory_available": false
+  },
+  "authorized_replay": {
+    "locked_commit": "18b703a366663b83947e8b84143481a99854362a",
+    "seed": 20260715,
+    "adam_steps": 1200,
+    "post_adam_scoreable": true,
+    "primary_driver_exact_failure_flag": false,
+    "primary_driver_limitation": "an infinite diagnostic step norm reached strict JSON serialization before the crash manifest could preserve the closure attribution",
+    "serializer_safe_diagnostic_replay": {
+      "same_pre_lbfgs_checkpoint": true,
+      "optimizer_or_scientific_algorithm_changed": false,
+      "exact_b380_failure_type_reproduced": true,
+      "failure_stage": "lbfgs_strong_wolfe_closure",
+      "closure_index": 3,
+      "first_nonfinite": {
+        "kind": "parameter",
+        "layer": "backbone.net.0",
+        "name": "backbone.net.0.weight"
+      },
+      "all_six_loss_blocks_nonfinite_at_detection": true,
+      "diagnostic_only": true
+    },
+    "post_lock_scoring_repair": {
+      "required": true,
+      "reason": "common_cv_score referenced dx in the nested face-flux scorer before its local binding",
+      "filesystem_code_changed_during_scientific_replay": false,
+      "training_sampling_loss_optimizer_gate_or_formula_changed": false,
+      "positive_claim_ceiling": "failed_but_informative"
+    }
+  },
+  "post_adam": {
+    "parameters_gradients_and_adam_state_finite": true,
+    "loss_declined": true,
+    "initial_total_loss": 15062737616896.0,
+    "post_total_loss": 2665305088.0,
+    "gradient_norm_ratio": 3.3250785871953743e20,
+    "minimum_pairwise_gradient_cosine": -0.07954476773738861,
+    "negative_gradient_pair_count": 4,
+    "metrics": {
+      "port_full_trace_nrmse95": 0.09554748319724289,
+      "cv_residual_rms": {
+        "r_c": 0.022650079801678658,
+        "r_T": 56586.484375,
+        "r_m": 4.07621955871582
+      },
+      "discrete_electrical_rms": 2.68240794160102e-11,
+      "interface_state_score_only_rms": {
+        "phi": 0.0014602823732854705,
+        "c_v": 0.01814647950232029,
+        "T": 0.00022904867364559323,
+        "m": 0.012501165270805359
+      },
+      "interface_flux_score_only_nrmse95": {
+        "current": 0.0955474831972429,
+        "heat": 33211.93410443767,
+        "defect": 23.8718026357057
+      },
+      "global_energy_ledger_gate_value": 0.9999502024009691,
+      "defect_mass_ledger_gate_value": 1.0
+    },
+    "gate_checks": {
+      "port": true,
+      "cv_residuals": false,
+      "discrete_electrical": true,
+      "fields": false,
+      "interface_state_score_only": true,
+      "interface_flux_score_only": false,
+      "energy_ledger": false,
+      "defect_ledger": false,
+      "ic_bc": true,
+      "finite_outputs": true,
+      "bounded_states": true,
+      "all_pass": false
+    },
+    "metrics_exceeding_20x_gate": [
+      {"metric": "cv_residual_rms.r_T", "factor": 5658648.4375},
+      {"metric": "cv_residual_rms.r_m", "factor": 407.62195587158203},
+      {"metric": "interface_flux.heat", "factor": 664238.6820887533},
+      {"metric": "interface_flux.defect", "factor": 477.43605271411394},
+      {"metric": "defect_mass_ledger", "factor": 100.0}
+    ]
+  },
+  "recovery_decision": {
+    "eligible": false,
+    "decision": "no_recovery_stop",
+    "float64_arm_run": false,
+    "gradient_statistics_balancing_arm_run": false,
+    "seed_expansion_run": false,
+    "reason": "at least one physics or ledger metric exceeded 20x its locked gate",
+    "permanent_n0_optimizer_stop": true
+  },
+  "claim_status": "failed_but_informative",
+  "scientific_disposition": "post-Adam trajectory and optimizer forensics localize severe physics/conservation and strong-Wolfe instability; they do not support trained full-PINN forward fidelity",
+  "evidence_sha256": {
+    "preregistration": "5afce19aac3ffbd58a36d102c7588efbc5a03d50f7fb70d1f949ff1163efdb9d",
+    "post_adam_score": "14a89d8366e7e6db420ef3c9e3f3acefe2136b076ff0f92a8e5d4d7364883ab4",
+    "primary_summary": "f3c0cd62c1a6a1ac717e12ad1be8e6509f7cac14a5d1a683bd31936ef73953f0",
+    "diagnostic_telemetry": "d22c197091a66237d6d85682a3227def3c26d39a683a9f20c591c1c9a6b8d48f",
+    "diagnostic_crash": "eaad6e0659569d86daf1f4ca6acab8fa7df3c680785c3176606036df2ea51e20"
+  }
+}

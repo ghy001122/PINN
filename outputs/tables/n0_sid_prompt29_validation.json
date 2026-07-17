@@ -1,0 +1,66 @@
+{
+  "schema_version": "n0_sid_prompt29_validation_v1",
+  "created_at_utc": "2026-07-17T09:30:10.6333894Z",
+  "stage_id": "N0_OPTIMIZER_FORENSICS_AND_SID_DISCOVERY",
+  "definition_commit": "18b703a366663b83947e8b84143481a99854362a",
+  "validation_context": {
+    "worktree_contains_uncommitted_result_package": true,
+    "reason": "the second required commit had not yet been created",
+    "clean_clone_validation_required_after_result_commit": true
+  },
+  "checks": {
+    "focused_prompt29_tests": {
+      "command": ".\\.venv\\Scripts\\python.exe -m pytest tests\\test_n0_cv_e_v3r_forensics.py tests\\test_sid_ec_oq_event_geometry.py tests\\test_n0_cv_e_v3_gate_safety.py -q",
+      "status": "pass",
+      "passed": 16,
+      "duration_s": 13.83
+    },
+    "full_pytest": {
+      "command": ".\\.venv\\Scripts\\python.exe -m pytest -q",
+      "status": "pass",
+      "passed": 245,
+      "duration_s": 345.27
+    },
+    "governance_audit": {
+      "command": ".\\.venv\\Scripts\\python.exe scripts\\audit_project_governance.py",
+      "status": "pass_with_manual_review",
+      "failed_checks": [],
+      "manual_review_required": [
+        "codex_rules",
+        "frozen_gt_integrity"
+      ],
+      "frozen_gt_hashes_unchanged": true,
+      "low_token_context_bytes": 16704,
+      "low_token_context_limit_bytes": 24576
+    },
+    "governance_tests": {
+      "command": ".\\.venv\\Scripts\\python.exe -m pytest tests\\test_project_governance.py -q",
+      "status": "pass",
+      "passed": 4,
+      "duration_s": 12.29
+    },
+    "checkpoint_manifest": {
+      "status": "pass",
+      "checked": 6,
+      "hash_or_size_mismatches": 0,
+      "all_atomic": true
+    },
+    "machine_artifact_parse": {
+      "status": "pass",
+      "strict_json_files": 9,
+      "sid_case_rows": 36,
+      "sid_bootstrap_rows": 600
+    },
+    "git_diff_check": {
+      "command": "git diff --check",
+      "status": "pass"
+    }
+  },
+  "scientific_stop_rules_unchanged": true,
+  "frozen_gt_modified": false,
+  "external_13v_accessed": false,
+  "recovery_arm_run": false,
+  "sid_retained": false,
+  "ec_oq_retained": false,
+  "unique_next_action": "M_GAMMA_SUB_MANUSCRIPT_ASSEMBLY"
+}

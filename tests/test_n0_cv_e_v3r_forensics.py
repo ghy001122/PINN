@@ -7,8 +7,9 @@ import torch
 import yaml
 
 from pinnpcm.pinn.full_pinn_n0_cv_e import ControlVolumeFullPINN
-from pinnpcm.pinn.n0_cv_evidence import load_frozen_gt
+from pinnpcm.pinn.n0_cv_evidence import common_cv_score, load_frozen_gt
 from pinnpcm.pinn.optimizer_forensics import (
+    append_jsonl,
     atomic_torch_save,
     first_nonfinite_attribution,
     parameter_optimizer_finiteness,
@@ -105,6 +106,23 @@ def test_atomic_checkpoint_restore_reproduces_output(tmp_path: Path) -> None:
     assert torch.equal(expected, actual)
 
 
+def test_common_cv_score_self_reference_has_zero_face_flux_error() -> None:
+    _, config, gt = _full_size_model(seed=13)
+    _, params = load_frozen_gt(Path(config["frozen_inputs"]["gt_path"]))
+    score = common_cv_score(gt, gt, params, config["dimensionless_registry"])
+    flux = score["interface_flux_accuracy_nrmse95"]
+    assert flux["current"] == 0.0
+    assert flux["heat"] == 0.0
+    assert flux["defect"] == 0.0
+
+
+def test_jsonl_telemetry_encodes_nonfinite_diagnostic_as_null(tmp_path: Path) -> None:
+    path = tmp_path / "telemetry.jsonl"
+    append_jsonl(path, {"finite": 1.0, "diagnostic": float("inf")})
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    assert payload == {"diagnostic": None, "finite": 1.0}
+
+
 def test_semantic_amendment_preserves_historical_failure_boundary() -> None:
     payload = json.loads(
         Path("outputs/tables/n0_cv_e_v3_semantic_amendment.json").read_text(encoding="utf-8")
@@ -114,3 +132,16 @@ def test_semantic_amendment_preserves_historical_failure_boundary() -> None:
     assert historical["failure_substatus"] == "runtime_abort_unassessed"
     assert historical["scientific_model_falsification"] is False
     assert payload["historical_rescore_semantics"]["correct_name"] == "counterfactual_projected_state_rescore"
+
+
+def test_forensic_resolution_keeps_historical_and_replay_claims_separate() -> None:
+    payload = json.loads(
+        Path("outputs/tables/n0_cv_e_v3r_forensic_resolution.json").read_text(encoding="utf-8")
+    )
+    assert payload["historical_result"]["failure_substatus"] == "runtime_abort_unassessed"
+    assert payload["historical_result"]["scientific_model_falsification"] is False
+    diagnostic = payload["authorized_replay"]["serializer_safe_diagnostic_replay"]
+    assert diagnostic["exact_b380_failure_type_reproduced"] is True
+    assert diagnostic["first_nonfinite"]["name"] == "backbone.net.0.weight"
+    assert payload["recovery_decision"]["decision"] == "no_recovery_stop"
+    assert payload["post_adam"]["gate_checks"]["all_pass"] is False

@@ -4,29 +4,35 @@
 
 Exactly one bottleneck is active: `M_GAMMA_SUB_MANUSCRIPT_ASSEMBLY`.
 
-### Priority M: calibrated gamma_sub manuscript assembly — active
+### Priority M — calibrated gamma_sub manuscript assembly (active)
 
-Use the locked calibration-gated constrained `gamma_sub` rank-1 evidence as the scientific mainline. Integrate D0a and N0-CV-E v3 as explicit numerical and reviewer-defense limitations. The next round should only reconcile manuscript text, figures/tables, claim wording, references, and submission checks against the existing evidence lock.
+Use the locked constrained `gamma_sub` evidence, calibration-gated and rank-1, as the scientific mainline. Reconcile manuscript text, figures/tables, claim wording, references, and submission checks against the existing evidence lock.
 
 Required boundaries:
 
-1. retain the calibrated/tightly bounded `T_sw` condition and the wide-prior failure region;
-2. state that all mainline results are synthetic numerical digital-twin evidence;
+1. retain the calibrated/tightly bounded `T_sw` condition, wide-prior failure region, and protocol-after-calibration interpretation;
+2. state that the positive mainline is synthetic numerical digital-twin evidence;
 3. preserve D0a as source-reproduction parity plus failed time-step convergence, with no repository refit or 13 V evaluation;
-4. preserve N0-CV-E v3 as 18/18 operator-preflight success followed by a non-finite L-BFGS runtime failure before checkpoint and result scoring;
-5. keep all full-PINN forward result gates fail-closed and forbid sensitivity/inverse claims;
-6. do not present analytic electrostatics, FVM/CV residuals, hard constraints, causal training, or gradient balancing as standalone novelty.
+4. preserve historical b380 as `runtime_abort_unassessed`, not scientific-model falsification;
+5. report v3r's narrow port pass together with its failed physics, field, interface-flux, and conservation gates;
+6. report the reproduced strong-Wolfe non-finite parameter as optimizer forensics, not forward fidelity;
+7. report solver-first SID/EC-OQ as rejected after derivative, event-window, stability, and dual-geometry failures;
+8. keep full-PINN forward, sensitivity, quotient inverse, and protocol-geometry claims forbidden.
 
-### N0 — final stop
+### N0 — permanent optimizer stop
 
-Do not rerun, retune, change normalization, skip L-BFGS, add port/field labels, activate the unused balancing arm, or add a sparse anchor. The final bounded attempt is `failed_but_informative`; further N0 work requires a future user-authorized change of research phase, not continuation of this queue.
+Do not rerun, retune, change normalization, skip L-BFGS, add labels, activate another optimizer arm, add an anchor, or expand seeds. The preregistered recovery prerequisite was false because five physics/ledger metrics exceeded `20x` their gates.
+
+### SID/EC-OQ — deleted from active route
+
+Do not move event windows, relax the derivative gate, select only favorable protocols, or repackage isolated angles/rank diagnostics. Any future revisit requires a new user-authorized phase and a new numerical derivative/window contract; it is not part of the current queue.
 
 ### D0 and N1-N3 — held
 
 - D0b-D0d remain blocked by D0a; 13 V stays sealed.
 - N1/N2 sensitivity and N3 quotient inverse remain unrun and `forbidden` as completed evidence.
-- SC-LOS, operator learning, UQ, 2D, new hysteresis, latent heat, and external fitting are outside the active phase.
+- SC-LOS, DWR, operator learning, UQ, 2D, new hysteresis, latent heat, and external fitting are outside the active phase.
 
-## Non-negotiable Boundaries
+## Non-negotiable boundaries
 
-No frozen-GT edits, 13 V access without a valid fit lock, post-hoc gate relaxation, hidden seeds, synthetic-as-experimental wording, source-paper reproduction as repository validation, or PINN/solver attribution mixing.
+No frozen-GT edits, 13 V access without a valid fit lock, post-hoc gate or window relaxation, hidden seeds, synthetic-as-experimental wording, solver/PINN attribution mixing, or novelty claims for standard SVD/Fisher/event/gradient-balancing components.

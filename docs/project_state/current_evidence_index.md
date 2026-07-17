@@ -2,13 +2,13 @@
 
 This is a routing index; current status remains authoritative in `PROJECT_STATE.md`.
 
-## Locked Safe Mainline
+## Locked safe mainline
 
-- Existing evidence lock: `docs/paper/gamma_sub_evidence_lock.md`.
+- Evidence lock: `docs/paper/gamma_sub_evidence_lock.md`.
 - Claim matrix: `docs/paper/final_claim_matrix.md`.
 - Safe inverse wording: calibration-gated rank-1 `gamma_sub`, synthetic and prior-qualified.
 
-## VO2 D0 and Full-PINN N0 Evidence
+## VO2 D0, full-PINN N0, and prompt-29 evidence
 
 | Block | Status | Primary evidence |
 | --- | --- | --- |
@@ -16,20 +16,24 @@ This is a routing index; current status remains authoritative in `PROJECT_STATE.
 | D0a completion gate | `failed_but_informative` | `outputs/tables/vo2_d0a_source_reproduction.json`; `outputs/figures/vo2_d0a_source_semantics_v2.png` |
 | D0b-D0d | not run / positive claims `forbidden` | D0a stop rule; 13 V sealed; no fit lock |
 | N0 architecture contracts | `supported` as implementation facts | `outputs/tables/full_pinn_contract_v1.json`; `src/pinnpcm/pinn/full_pinn_1d.py`; `src/pinnpcm/pinn/full_pinn_n0_cv_e.py` |
-| N0 v1 trained forward | `failed_but_informative`; positive claim `forbidden` | `outputs/tables/full_pinn_single_seed_mve_v1.json`; `outputs/figures/full_pinn_n0_mve_gate_v1.png` |
-| N0 teacher/FVM audit | `supported` with corrected scope | `outputs/tables/n0_teacher_equation_compatibility_v1.json`; `outputs/tables/n0_r_v2_evidence_integrity_audit.json` |
-| N0-R v2 exact-trace repair | `failed_but_informative` | `outputs/tables/full_pinn_n0_repair_data_free_seed_20260715_v2.json`; `outputs/tables/n0_full_pinn_bounded_repair_v2_summary.json` |
-| N0-CV-E v3 no-training preflight | `supported` operator fact | `configs/full_pinn_n0_cv_e_v3.yaml`; `outputs/tables/n0_cv_e_v3_preregistration.json`; `outputs/tables/n0_cv_e_v3_preflight.json` |
-| N0-CV-E v3 training | `failed_but_informative`; positive claim `forbidden` | `outputs/tables/n0_cv_e_v3_seed_20260715.json`; `outputs/tables/n0_cv_e_v3_summary.json`; `outputs/figures/n0_cv_e_v3_gate_comparison.png` |
-| N1-N3 / SC-LOS | not run / `forbidden` | N0 final stop and upstream dependency rule |
+| N0 v1 trained forward | `failed_but_informative` | `outputs/tables/full_pinn_single_seed_mve_v1.json` |
+| N0 teacher/FVM and exact-trace v2 | mixed implementation support; trained result `failed_but_informative` | `outputs/tables/n0_teacher_equation_compatibility_v1.json`; `outputs/tables/n0_full_pinn_bounded_repair_v2_summary.json` |
+| Historical N0-CV-E v3 | `failed_but_informative / runtime_abort_unassessed` | `outputs/tables/n0_cv_e_v3_semantic_amendment.json`; `outputs/tables/n0_cv_e_v3_summary.json` |
+| N0-CV-E v3r preregistration | locked at clean remote commit | `outputs/tables/n0_cv_e_v3r_preregistration.json`; `configs/n0_cv_e_v3r_optimizer_forensics.yaml` |
+| N0-CV-E v3r post-Adam and crash forensics | `failed_but_informative`; N0 stopped | `outputs/tables/n0_cv_e_v3r_forensic_resolution.json`; `outputs/tables/n0_cv_e_v3r_post_adam_score.json`; `outputs/tables/n0_cv_e_v3r_lbfgs_diagnostic_crash.json` |
+| Solver-first SID/EC-OQ | `failed_but_informative`; both ideas deleted | `outputs/tables/sid_ec_oq_summary.json`; `outputs/tables/sid_ec_oq_cases.csv`; `outputs/tables/sid_ec_oq_bootstrap.csv` |
+| N1-N3 / SC-LOS | not run / `forbidden` | failed upstream trained-forward and geometry gates |
 
-Final N0 report: `docs/codex_reports/n0_cv_e_v3_report.md`.
+Final prompt-29 report: `docs/codex_reports/n0_optimizer_forensics_sid_discovery_final.md`.
 
-Phase-A integrity report: `docs/codex_reports/n0_r_v2_evidence_integrity_audit.md`.
+Detailed reports:
 
-Literature overlap audit: `docs/literature/identifiability_neural_red_team_v2.md`.
+- `docs/codex_reports/n0_cv_e_v3r_optimizer_forensics.md`
+- `docs/codex_reports/sid_ec_oq_strict_review.md`
 
-## Preserved Extension Ledger
+Literature overlap audit: `docs/literature/n0_sid_optimizer_red_team.md`.
+
+## Preserved extension ledger
 
 | Gate | Status | Boundary |
 | --- | --- | --- |
@@ -39,12 +43,12 @@ Literature overlap audit: `docs/literature/identifiability_neural_red_team_v2.md
 | P3 | `qualified_supported` | local rank `1 -> 3` in a three-parameter basis only |
 | P4 | `forbidden` | no full STL or universal Fourier/F-SPS claim |
 
-## Evidence-Type Separation
+## Evidence-type separation
 
 - `public_external_raw`: Zhang paper/Source Data/Zenodo/GitHub artifacts.
 - `derived` or `interpolated`: processed copies with raw-parent hashes.
-- `solver_generated`: author-compatible, repository SI, and operator-preflight trajectories.
-- `pinn_predicted`: completed neural trajectories only; v3 produced no checkpoint or score trajectory.
+- `solver_generated`: author-compatible, repository SI, event-geometry, and operator-preflight trajectories.
+- `pinn_predicted`: completed neural trajectories, including the scoreable v3r post-Adam trajectory.
 - `synthetic_gt`: frozen benchmark arrays, never N0 training labels.
 
 None is project-generated experimental measurement.

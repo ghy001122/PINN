@@ -66,13 +66,13 @@
     "low_token_context_budget": {
       "status": "pass",
       "limit_bytes": 24576,
-      "total_bytes": 15422,
+      "total_bytes": 16704,
       "files": {
-        "CODEX_CONTEXT.md": 3430,
-        "docs/research_strategy/active_phase.md": 2714,
-        "PROJECT_STATE.md": 3883,
-        "NEXT_ACTIONS.md": 2102,
-        "docs/project_state/current_evidence_index.md": 3293
+        "CODEX_CONTEXT.md": 3918,
+        "docs/research_strategy/active_phase.md": 2750,
+        "PROJECT_STATE.md": 3990,
+        "NEXT_ACTIONS.md": 2504,
+        "docs/project_state/current_evidence_index.md": 3542
       }
     },
     "retired_generator_guard": {

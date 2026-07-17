@@ -1,0 +1,496 @@
+{
+  "authorization": {
+    "authorized": true,
+    "clean_before_lock": true,
+    "current_commit": "18b703a366663b83947e8b84143481a99854362a",
+    "hash_mismatches": {},
+    "lock_path": "outputs/tables/n0_cv_e_v3r_preregistration.json",
+    "lock_sha256": "5afce19aac3ffbd58a36d102c7588efbc5a03d50f7fb70d1f949ff1163efdb9d",
+    "locked_commit": "18b703a366663b83947e8b84143481a99854362a"
+  },
+  "checkpoint_manifest": {
+    "all_atomic": true,
+    "checkpoints": [
+      {
+        "adam_step": 0,
+        "arm": "primary_equal_weight",
+        "label": "initial",
+        "path": "outputs/checkpoints/n0_cv_e_v3r/primary_equal_weight_seed_20260715_initial.pt",
+        "seed": 20260715,
+        "sha256": "64842580cf0720936cd05c8b0b027423bab585f03da6e32417c5f5b113333bce",
+        "size_bytes": 29239
+      },
+      {
+        "adam_step": 300,
+        "arm": "primary_equal_weight",
+        "label": "adam_0300",
+        "path": "outputs/checkpoints/n0_cv_e_v3r/primary_equal_weight_seed_20260715_adam_0300.pt",
+        "seed": 20260715,
+        "sha256": "1e76cfc60e2646ea5ed832a65ce6cce097a91e93db9149516545c56f28833530",
+        "size_bytes": 79631
+      },
+      {
+        "adam_step": 600,
+        "arm": "primary_equal_weight",
+        "label": "adam_0600",
+        "path": "outputs/checkpoints/n0_cv_e_v3r/primary_equal_weight_seed_20260715_adam_0600.pt",
+        "seed": 20260715,
+        "sha256": "47b30775d99b9b070f38662a8c875692f0bbc592c19e051d29890fe290c1559f",
+        "size_bytes": 79631
+      },
+      {
+        "adam_step": 900,
+        "arm": "primary_equal_weight",
+        "label": "adam_0900",
+        "path": "outputs/checkpoints/n0_cv_e_v3r/primary_equal_weight_seed_20260715_adam_0900.pt",
+        "seed": 20260715,
+        "sha256": "5c673edb158fe3190e51095409f7d8354c2f1b456c86cc2d9f4b6eba0d699ba1",
+        "size_bytes": 79631
+      },
+      {
+        "adam_step": 1200,
+        "arm": "primary_equal_weight",
+        "label": "adam_1200",
+        "path": "outputs/checkpoints/n0_cv_e_v3r/primary_equal_weight_seed_20260715_adam_1200.pt",
+        "seed": 20260715,
+        "sha256": "c147a9bc744c749c5c8ae7c815e1a3ca4f4099f0bb3db682ef898c0e7d26bbc4",
+        "size_bytes": 79631
+      },
+      {
+        "adam_step": 1200,
+        "arm": "primary_equal_weight",
+        "label": "pre_lbfgs",
+        "path": "outputs/checkpoints/n0_cv_e_v3r/primary_equal_weight_seed_20260715_pre_lbfgs.pt",
+        "seed": 20260715,
+        "sha256": "d8eeebd8dc338052ddc2201def18dfa927af3fea122d35c3cd168100cc676877",
+        "size_bytes": 79631
+      }
+    ],
+    "last_finite_adam_checkpoint": "outputs/checkpoints/n0_cv_e_v3r/primary_equal_weight_seed_20260715_pre_lbfgs.pt",
+    "schema_version": "n0_cv_e_v3r_checkpoint_manifest_v1"
+  },
+  "claim_status": "failed_but_informative",
+  "created_at_utc": "2026-07-17T09:04:18.919950+00:00",
+  "exact_b380_failure_reproduced": false,
+  "historical_b380": {
+    "adam_1200_evidence": "config_and_control_flow_derived_only",
+    "failure_substatus": "runtime_abort_unassessed",
+    "original_stdout_stderr_traceback_history": "absent",
+    "pinn_predicted_trajectory": "absent",
+    "scientific_model_falsification": false,
+    "status": "failed_but_informative"
+  },
+  "machine": {
+    "device": "cpu",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.9",
+    "torch": "2.3.1+cpu"
+  },
+  "permanent_n0_optimizer_stop": true,
+  "positive_full_pinn_forward_claim_allowed": false,
+  "post_adam": {
+    "adam_steps": 1200,
+    "checkpoint": "outputs/checkpoints/n0_cv_e_v3r/primary_equal_weight_seed_20260715_pre_lbfgs.pt",
+    "finite_state": {
+      "adam_exp_avg_finite": true,
+      "adam_exp_avg_sq_finite": true,
+      "first_nonfinite_gradient": null,
+      "first_nonfinite_optimizer_state": null,
+      "first_nonfinite_parameter": null,
+      "gradients_finite": true,
+      "optimizer_state_finite": true,
+      "parameters_finite": true
+    },
+    "initial_gradient_diagnostics": {
+      "cosine_matrix": {
+        "defect_mass_ledger": {
+          "defect_mass_ledger": 1.0,
+          "discrete_electrical": 0.0,
+          "energy_ledger": -0.01721188612282276,
+          "r_T": 0.011842257343232632,
+          "r_c": 0.19027544558048248,
+          "r_m": 0.4922916889190674
+        },
+        "discrete_electrical": {
+          "defect_mass_ledger": 0.0,
+          "discrete_electrical": 0.0,
+          "energy_ledger": 0.0,
+          "r_T": 0.0,
+          "r_c": 0.0,
+          "r_m": 0.0
+        },
+        "energy_ledger": {
+          "defect_mass_ledger": -0.01721188612282276,
+          "discrete_electrical": 0.0,
+          "energy_ledger": 1.0,
+          "r_T": -0.01262423861771822,
+          "r_c": 0.014039414934813976,
+          "r_m": 0.7407696843147278
+        },
+        "r_T": {
+          "defect_mass_ledger": 0.011842257343232632,
+          "discrete_electrical": 0.0,
+          "energy_ledger": -0.01262423861771822,
+          "r_T": 1.0,
+          "r_c": 0.033352289348840714,
+          "r_m": 0.05995268374681473
+        },
+        "r_c": {
+          "defect_mass_ledger": 0.19027544558048248,
+          "discrete_electrical": 0.0,
+          "energy_ledger": 0.014039414934813976,
+          "r_T": 0.033352289348840714,
+          "r_c": 1.0000001192092896,
+          "r_m": 0.14986667037010193
+        },
+        "r_m": {
+          "defect_mass_ledger": 0.4922916889190674,
+          "discrete_electrical": 0.0,
+          "energy_ledger": 0.7407696843147278,
+          "r_T": 0.05995268374681473,
+          "r_c": 0.14986667037010193,
+          "r_m": 0.9999999403953552
+        }
+      },
+      "gradient_norm_ratio": 3.2922007005003824e+22,
+      "median_pairwise_cosine": 0.011842257343232632,
+      "minimum_pairwise_cosine": -0.01721188612282276,
+      "negative_pair_count": 2,
+      "per_block": {
+        "defect_mass_ledger": {
+          "finite": true,
+          "max_abs": 4.1994624444541273e-10,
+          "norm": 2.1852428755408937e-09
+        },
+        "discrete_electrical": {
+          "finite": true,
+          "max_abs": 1.0421912589810957e-24,
+          "norm": 0.0
+        },
+        "energy_ledger": {
+          "finite": true,
+          "max_abs": 4.6536174522771034e-06,
+          "norm": 2.846394090738613e-05
+        },
+        "r_T": {
+          "finite": true,
+          "max_abs": 28769414807552.0,
+          "norm": 71942581256192.0
+        },
+        "r_c": {
+          "finite": true,
+          "max_abs": 0.00011258664017077535,
+          "norm": 0.00031967132235877216
+        },
+        "r_m": {
+          "finite": true,
+          "max_abs": 0.02899617701768875,
+          "norm": 0.11803410947322845
+        }
+      }
+    },
+    "initial_total_loss": 15062737616896.0,
+    "loss_declined": true,
+    "metrics_exceeding_20x_gate": [
+      {
+        "factor": 5658648.4375,
+        "gate": 0.01,
+        "metric": "cv_residual_rms.r_T",
+        "value": 56586.484375
+      },
+      {
+        "factor": 407.62195587158203,
+        "gate": 0.01,
+        "metric": "cv_residual_rms.r_m",
+        "value": 4.07621955871582
+      },
+      {
+        "factor": 664238.6820887533,
+        "gate": 0.05,
+        "metric": "interface_flux.heat",
+        "value": 33211.93410443767
+      },
+      {
+        "factor": 477.43605271411394,
+        "gate": 0.05,
+        "metric": "interface_flux.defect",
+        "value": 23.8718026357057
+      },
+      {
+        "factor": 100.0,
+        "gate": 0.01,
+        "metric": "defect_mass_ledger",
+        "value": 1.0
+      }
+    ],
+    "post_gradient_diagnostics": {
+      "cosine_matrix": {
+        "defect_mass_ledger": {
+          "defect_mass_ledger": 1.0,
+          "discrete_electrical": 0.0,
+          "energy_ledger": -0.07954476773738861,
+          "r_T": 0.01145963929593563,
+          "r_c": 0.3873852789402008,
+          "r_m": 0.4933086931705475
+        },
+        "discrete_electrical": {
+          "defect_mass_ledger": 0.0,
+          "discrete_electrical": 0.0,
+          "energy_ledger": 0.0,
+          "r_T": 0.0,
+          "r_c": 0.0,
+          "r_m": 0.0
+        },
+        "energy_ledger": {
+          "defect_mass_ledger": -0.07954476773738861,
+          "discrete_electrical": 0.0,
+          "energy_ledger": 0.9999998807907104,
+          "r_T": -0.007142916787415743,
+          "r_c": -0.021345876157283783,
+          "r_m": 0.7975296974182129
+        },
+        "r_T": {
+          "defect_mass_ledger": 0.01145963929593563,
+          "discrete_electrical": 0.0,
+          "energy_ledger": -0.007142916787415743,
+          "r_T": 0.9999998211860657,
+          "r_c": -0.02206147275865078,
+          "r_m": 0.0014068067539483309
+        },
+        "r_c": {
+          "defect_mass_ledger": 0.3873852789402008,
+          "discrete_electrical": 0.0,
+          "energy_ledger": -0.021345876157283783,
+          "r_T": -0.02206147275865078,
+          "r_c": 1.0000001192092896,
+          "r_m": 0.13514897227287292
+        },
+        "r_m": {
+          "defect_mass_ledger": 0.4933086931705475,
+          "discrete_electrical": 0.0,
+          "energy_ledger": 0.7975296974182129,
+          "r_T": 0.0014068067539483309,
+          "r_c": 0.13514897227287292,
+          "r_m": 1.000000238418579
+        }
+      },
+      "gradient_norm_ratio": 3.325078587195374e+20,
+      "median_pairwise_cosine": 0.0,
+      "minimum_pairwise_cosine": -0.07954476773738861,
+      "negative_pair_count": 4,
+      "per_block": {
+        "defect_mass_ledger": {
+          "finite": true,
+          "max_abs": 2.605085036577748e-09,
+          "norm": 1.1419142964541606e-08
+        },
+        "discrete_electrical": {
+          "finite": true,
+          "max_abs": 2.2798775936205646e-23,
+          "norm": 0.0
+        },
+        "energy_ledger": {
+          "finite": true,
+          "max_abs": 6.7040996327705216e-06,
+          "norm": 4.211826671962626e-05
+        },
+        "r_T": {
+          "finite": true,
+          "max_abs": 1065461612544.0,
+          "norm": 3796954775552.0
+        },
+        "r_c": {
+          "finite": true,
+          "max_abs": 0.0007762351306155324,
+          "norm": 0.0013702329015359282
+        },
+        "r_m": {
+          "finite": true,
+          "max_abs": 0.47153496742248535,
+          "norm": 3.1985809803009033
+        }
+      }
+    },
+    "post_total_loss": 2665305088.0,
+    "schema_version": "n0_cv_e_v3r_post_adam_score_v1",
+    "score": {
+      "gates": {
+        "all_pass": false,
+        "checks": {
+          "bounded_states": true,
+          "cv_residuals": false,
+          "defect_ledger": false,
+          "discrete_electrical": true,
+          "energy_ledger": false,
+          "fields": false,
+          "finite_outputs": true,
+          "ic_bc": true,
+          "interface_flux_score_only": false,
+          "interface_state_score_only": true,
+          "port": true
+        }
+      },
+      "metrics": {
+        "analytic_current_conservation_nonvote": 3.6088292095975133e-16,
+        "bounded_states": true,
+        "cv_residual_rms": {
+          "r_T": 56586.484375,
+          "r_c": 0.022650079801678658,
+          "r_m": 4.07621955871582
+        },
+        "defect_mass_ledger": {
+          "boundary_flux_integral": 0.0,
+          "gate_value": 1.0,
+          "max_interval_normalized_imbalance": 1.0,
+          "p95_interval_normalized_imbalance": 1.0,
+          "reaction_integral": 1.4118823154944531e-11,
+          "storage_change": 2.7315812485833347e-10,
+          "total_normalized_imbalance": 1.0
+        },
+        "discrete_electrical_rms": 2.682407941601017e-11,
+        "field_score_only_nrmse95": {
+          "T": 1.7527380971632291,
+          "c_v": 0.3804764754467812,
+          "m": 0.4276496303934893,
+          "phi": 0.006615897106539468,
+          "sigma": 0.24762120912795985
+        },
+        "finite_outputs": true,
+        "global_energy_ledger": {
+          "boundary_heat_integral_J_per_m2": 0.0,
+          "gate_value": 0.9999502024009691,
+          "joule_integral_J_per_m2": 2.0431156768947485,
+          "max_interval_normalized_imbalance": 0.9999502024009691,
+          "p95_interval_normalized_imbalance": 0.9956553404758758,
+          "storage_change_J_per_m2": 5.9435050737934745,
+          "substrate_sink_integral_J_per_m2": 1.6862507526694703,
+          "total_normalized_imbalance": 0.5775575688800305
+        },
+        "ic_bc_normalized_errors": {
+          "bc_defect_left": 0.0,
+          "bc_defect_right": 0.0,
+          "bc_heat_left": 0.0,
+          "bc_heat_right": 0.0,
+          "bc_phi_left": 0.0,
+          "bc_phi_right": 8.149072527885437e-08,
+          "ic_T": 0.0,
+          "ic_c_v": 1.4901161193847656e-08,
+          "ic_m": 1.4901161193847656e-08
+        },
+        "interface_flux_score_only_nrmse95": {
+          "current": 0.0955474831972429,
+          "defect": 23.8718026357057,
+          "heat": 33211.93410443767,
+          "semantics": "score_only_predicted_face_flux_vs_frozen_gt_face_flux"
+        },
+        "interface_state_score_only_rms": {
+          "T": 0.00022904867364559323,
+          "c_v": 0.01814647950232029,
+          "m": 0.012501165270805359,
+          "phi": 0.0014602823732854705,
+          "semantics": "score_only_one_sided_linear_face_trace_reconstruction"
+        },
+        "port_full_trace_nrmse95": 0.09554748319724289,
+        "region_diagnostics": {
+          "near_interface": {
+            "cell_count": 4,
+            "field_nrmse95": {
+              "T": 1.7090018438499344,
+              "c_v": 1.3876356534110739,
+              "m": 0.47944148244297097,
+              "phi": 0.004430598035293404,
+              "sigma": 0.25926986827074505
+            },
+            "sample_count": 1600,
+            "time_count": 400
+          },
+          "near_transition": {
+            "cell_count": 31,
+            "field_nrmse95": {
+              "T": 2.4334013008511723,
+              "c_v": 0.3331215967046663,
+              "m": 0.49453170255367235,
+              "phi": 0.015148163106256935,
+              "sigma": 0.17601560092691587
+            },
+            "sample_count": 3720,
+            "time_count": 120
+          },
+          "ordinary": {
+            "cell_count": 27,
+            "field_nrmse95": {
+              "T": 2.194996746180984,
+              "c_v": 0.5923831857827169,
+              "m": 0.5321584790805348,
+              "phi": 0.008630812331537872,
+              "sigma": 0.26403814267986486
+            },
+            "sample_count": 5400,
+            "time_count": 200
+          }
+        },
+        "structural_face_conservation_nonvote": {
+          "current_equal_and_opposite": true,
+          "defect_equal_and_opposite": true,
+          "heat_equal_and_opposite": true,
+          "semantics": "shared_control_volume_face_structural_invariant_not_learned_performance"
+        }
+      },
+      "structural_invariants": {
+        "analytic_head_current_continuity": true,
+        "learned_performance_vote": false,
+        "shared_cv_face_equal_and_opposite": true,
+        "sigma_times_E_equals_J": true
+      },
+      "trajectory_semantics": "pinn_predicted_score_only_against_frozen_synthetic_gt"
+    },
+    "scoreable": true,
+    "seed": 20260715
+  },
+  "primary_lbfgs": {
+    "closure_calls": 3,
+    "completed": false,
+    "crash": {
+      "closure_index": 3,
+      "created_at_utc": "2026-07-17T09:04:18.906519+00:00",
+      "exception_message": "Out of range float values are not JSON compliant",
+      "exception_type": "ValueError",
+      "failure_stage": "lbfgs_strong_wolfe_driver",
+      "first_nonfinite": {
+        "kind": "parameter",
+        "layer": "backbone.net.0",
+        "name": "backbone.net.0.weight"
+      },
+      "schema_version": "n0_cv_e_v3r_crash_manifest_v1",
+      "status": "runtime_exception",
+      "stderr_semantics": "captured_exception_traceback",
+      "stderr_sha256": "bab549c0c6a59bf12712c2e7b4b112e0f0c33aa4131e6b91626dab205a1f06ea",
+      "stdout_semantics": "machine_events_persisted_in_jsonl",
+      "stdout_sha256": "8152cf771ae58042619246f426915e6412f7845e1125b13d16de4e589e844461",
+      "traceback": "Traceback (most recent call last):\n  File \"E:\\Python demo\\PINN\\scripts/run_n0_cv_e_v3r_optimizer_forensics.py\", line 559, in _run_lbfgs\n    optimizer.step(closure)\n  File \"E:\\Python demo\\PINN\\.venv\\Lib\\site-packages\\torch\\optim\\optimizer.py\", line 391, in wrapper\n    out = func(*args, **kwargs)\n          ^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\Python demo\\PINN\\.venv\\Lib\\site-packages\\torch\\utils\\_contextlib.py\", line 115, in decorate_context\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\Python demo\\PINN\\.venv\\Lib\\site-packages\\torch\\optim\\lbfgs.py\", line 433, in step\n    loss, flat_grad, t, ls_func_evals = _strong_wolfe(\n                                        ^^^^^^^^^^^^^^\n  File \"E:\\Python demo\\PINN\\.venv\\Lib\\site-packages\\torch\\optim\\lbfgs.py\", line 147, in _strong_wolfe\n    f_new, g_new = obj_func(x, t, d)\n                   ^^^^^^^^^^^^^^^^^\n  File \"E:\\Python demo\\PINN\\.venv\\Lib\\site-packages\\torch\\optim\\lbfgs.py\", line 431, in obj_func\n    return self._directional_evaluate(closure, x, t, d)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\Python demo\\PINN\\.venv\\Lib\\site-packages\\torch\\optim\\lbfgs.py\", line 285, in _directional_evaluate\n    loss = float(closure())\n                 ^^^^^^^^^\n  File \"E:\\Python demo\\PINN\\.venv\\Lib\\site-packages\\torch\\utils\\_contextlib.py\", line 115, in decorate_context\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\Python demo\\PINN\\scripts/run_n0_cv_e_v3r_optimizer_forensics.py\", line 525, in closure\n    append_jsonl(telemetry_path, event)\n  File \"E:\\Python demo\\PINN\\src\\pinnpcm\\pinn\\optimizer_forensics.py\", line 44, in append_jsonl\n    encoded = json.dumps(payload, sort_keys=True, allow_nan=False)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\anaconda\\envs\\py311\\Lib\\json\\__init__.py\", line 238, in dumps\n    **kw).encode(obj)\n          ^^^^^^^^^^^\n  File \"D:\\anaconda\\envs\\py311\\Lib\\json\\encoder.py\", line 200, in encode\n    chunks = self.iterencode(o, _one_shot=True)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\anaconda\\envs\\py311\\Lib\\json\\encoder.py\", line 258, in iterencode\n    return _iterencode(o, 0)\n           ^^^^^^^^^^^^^^^^^\nValueError: Out of range float values are not JSON compliant\n",
+      "traceback_sha256": "bab549c0c6a59bf12712c2e7b4b112e0f0c33aa4131e6b91626dab205a1f06ea"
+    }
+  },
+  "recovery_decision": {
+    "decision": "no_recovery_stop",
+    "eligible": false,
+    "reason": "at least one physics or ledger metric exceeded 20x its locked gate"
+  },
+  "recovery_result": null,
+  "run_log_sha256_before_final_event": "bd63ca9c7a8bf99101c7e7d709a7b89afb4bbb98e538e7a545e355dbaf06b51e",
+  "schema_version": "n0_cv_e_v3r_summary_v1",
+  "seed_expansion": {
+    "reason": "pilot_did_not_pass_all_scientific_gates",
+    "run": false,
+    "seeds": []
+  },
+  "seed_vote": {
+    "evaluated": 1,
+    "overall_pass": false,
+    "passing": 0,
+    "required": 2,
+    "total": 3
+  },
+  "stage_id": "N0_OPTIMIZER_FORENSICS_AND_SID_DISCOVERY_A",
+  "telemetry_sha256": "8152cf771ae58042619246f426915e6412f7845e1125b13d16de4e589e844461"
+}

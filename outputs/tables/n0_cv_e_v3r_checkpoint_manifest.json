@@ -1,0 +1,61 @@
+{
+  "all_atomic": true,
+  "checkpoints": [
+    {
+      "adam_step": 0,
+      "arm": "primary_equal_weight",
+      "label": "initial",
+      "path": "outputs/checkpoints/n0_cv_e_v3r/primary_equal_weight_seed_20260715_initial.pt",
+      "seed": 20260715,
+      "sha256": "64842580cf0720936cd05c8b0b027423bab585f03da6e32417c5f5b113333bce",
+      "size_bytes": 29239
+    },
+    {
+      "adam_step": 300,
+      "arm": "primary_equal_weight",
+      "label": "adam_0300",
+      "path": "outputs/checkpoints/n0_cv_e_v3r/primary_equal_weight_seed_20260715_adam_0300.pt",
+      "seed": 20260715,
+      "sha256": "1e76cfc60e2646ea5ed832a65ce6cce097a91e93db9149516545c56f28833530",
+      "size_bytes": 79631
+    },
+    {
+      "adam_step": 600,
+      "arm": "primary_equal_weight",
+      "label": "adam_0600",
+      "path": "outputs/checkpoints/n0_cv_e_v3r/primary_equal_weight_seed_20260715_adam_0600.pt",
+      "seed": 20260715,
+      "sha256": "47b30775d99b9b070f38662a8c875692f0bbc592c19e051d29890fe290c1559f",
+      "size_bytes": 79631
+    },
+    {
+      "adam_step": 900,
+      "arm": "primary_equal_weight",
+      "label": "adam_0900",
+      "path": "outputs/checkpoints/n0_cv_e_v3r/primary_equal_weight_seed_20260715_adam_0900.pt",
+      "seed": 20260715,
+      "sha256": "5c673edb158fe3190e51095409f7d8354c2f1b456c86cc2d9f4b6eba0d699ba1",
+      "size_bytes": 79631
+    },
+    {
+      "adam_step": 1200,
+      "arm": "primary_equal_weight",
+      "label": "adam_1200",
+      "path": "outputs/checkpoints/n0_cv_e_v3r/primary_equal_weight_seed_20260715_adam_1200.pt",
+      "seed": 20260715,
+      "sha256": "c147a9bc744c749c5c8ae7c815e1a3ca4f4099f0bb3db682ef898c0e7d26bbc4",
+      "size_bytes": 79631
+    },
+    {
+      "adam_step": 1200,
+      "arm": "primary_equal_weight",
+      "label": "pre_lbfgs",
+      "path": "outputs/checkpoints/n0_cv_e_v3r/primary_equal_weight_seed_20260715_pre_lbfgs.pt",
+      "seed": 20260715,
+      "sha256": "d8eeebd8dc338052ddc2201def18dfa927af3fea122d35c3cd168100cc676877",
+      "size_bytes": 79631
+    }
+  ],
+  "last_finite_adam_checkpoint": "outputs/checkpoints/n0_cv_e_v3r/primary_equal_weight_seed_20260715_pre_lbfgs.pt",
+  "schema_version": "n0_cv_e_v3r_checkpoint_manifest_v1"
+}

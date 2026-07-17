@@ -239,6 +239,14 @@ outputs/pinn_inverse_v1_1_smoke/*
 !outputs/tables/n0_cv_e_v3r_summary.json
 !outputs/tables/n0_cv_e_v3r_checkpoint_manifest.json
 !outputs/tables/n0_cv_e_v3r_run_log.jsonl
+!outputs/tables/n0_cv_e_v3r_attempt1_telemetry.jsonl
+!outputs/tables/n0_cv_e_v3r_attempt1_run_log.jsonl
+!outputs/tables/n0_cv_e_v3r_attempt1_scoring_abort.json
+!outputs/tables/n0_cv_e_v3r_runtime_scoring_workaround.json
+!outputs/tables/n0_cv_e_v3r_lbfgs_diagnostic_telemetry.jsonl
+!outputs/tables/n0_cv_e_v3r_lbfgs_diagnostic_crash.json
+!outputs/tables/n0_cv_e_v3r_forensic_resolution.json
+!outputs/tables/n0_sid_prompt29_validation.json
 !outputs/tables/sid_ec_oq_preregistration.json
 !outputs/tables/sid_ec_oq_event_windows.json
 !outputs/tables/sid_ec_oq_cases.csv
@@ -250,3 +258,5 @@ outputs/pinn_inverse_v1_1_smoke/*
 !outputs/checkpoints/n0_cv_e_v3r/
 !outputs/checkpoints/n0_cv_e_v3r/*.pt
 !outputs/checkpoints/n0_cv_e_v3r/*.json
+!outputs/checkpoints/n0_cv_e_v3r_attempt1_scoring_abort/
+!outputs/checkpoints/n0_cv_e_v3r_attempt1_scoring_abort/*.pt
