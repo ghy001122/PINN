@@ -1,0 +1,6 @@
+{
+  "checkpoints": [],
+  "result_path": "outputs/tables/n0_cv_e_v3_seed_20260715.json",
+  "schema_version": "n0_cv_e_v3_checkpoint_manifest_v1",
+  "status": "no_checkpoint_runtime_failure_before_serialization"
+}

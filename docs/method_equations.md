@@ -421,3 +421,58 @@ S_m=\frac{1}{t_*}+\frac{1}{\tau_m}.
 $$
 
 These are repository operational scales, not universal nondimensional laws. The N0-R single-seed run passed the local exact-interface gates but failed the held-out defect/thermal, terminal-current, energy, field, and port gates. Therefore this section supports an implementation and failure-boundary description only; it does not support reliable full-PINN forward evidence or interface novelty.
+
+## N0-CV-E v3 Solver-Consistent Cell Contract
+
+The final bounded N0 formulation predicts only bounded cell-centered states
+
+$$
+u_\theta(t)=\{c_i(t),T_i(t),m_i(t)\}_{i=1}^{31},
+$$
+
+with hard initial conditions. It returns the complete state/observable set by applying the frozen constitutive closure and analytic series-electric relation:
+
+$$
+\sigma_i=\max[\sigma(c_i,T_i,m_i),\epsilon_\sigma],\qquad
+R_A=\sum_i\frac{\Delta x}{\sigma_i}+\epsilon_R,
+$$
+
+$$
+J=\frac{V(t)}{R_A},\qquad E_i=\frac{J}{\sigma_i},\qquad
+\phi_i=V(t)-\left[\sum_{k\le i}E_k\Delta x-\frac12E_i\Delta x\right],
+$$
+
+$$
+I=A_{\mathrm{eff}}J,\qquad G=\frac{I}{V+\epsilon_V}.
+$$
+
+For an interior face (i+1/2), the defect and heat fluxes reproduce the frozen arithmetic-face convention:
+
+$$
+J^v_{i+1/2}=-\bar D_{i+1/2}\frac{c_{i+1}-c_i}{\Delta x}
++\bar\mu_{i+1/2}\bar c_{i+1/2}(1-\bar c_{i+1/2})\bar E_{i+1/2},
+$$
+
+$$
+q_{i+1/2}=-\bar k_{i+1/2}\frac{T_{i+1}-T_i}{\Delta x},
+$$
+
+with (J^v_{1/2}=J^v_{N+1/2}=q_{1/2}=q_{N+1/2}=0). The cell right-hand sides are
+
+$$
+\dot c_i=-\frac{J^v_{i+1/2}-J^v_{i-1/2}}{\Delta x}
+-k_{r,i}(c_i-c_{v0}),
+$$
+
+$$
+\rho C_p\dot T_i=-\frac{q_{i+1/2}-q_{i-1/2}}{\Delta x}
++JE_i-\gamma_{\mathrm{sub}}(T_i-T_0),
+$$
+
+$$
+\dot m_i=\frac{m_{\mathrm{eq}}(T_i,c_i)-m_i}{\tau_m}.
+$$
+
+Training blocks use the dimensionless cellwise differences between neural time derivatives and these right-hand sides, plus adjacent-state trapezoidal defect-mass and energy ledgers. The registry fixes (L_*=100\,\mathrm{nm}), (t_*=3\,\mathrm{ms}), (V_*=0.2\,\mathrm{V}), (T_*=20\,\mathrm{K}), (sigma_*=2.4\,\mathrm{S\,m^{-1}}), and (J_*=4.8\times10^6\,\mathrm{A\,m^{-2}}) before training.
+
+The locked no-training parity and conservation checks pass, but the sole primary optimization terminates before checkpoint and result scoring. These equations therefore support only an operator-implementation fact and a `failed_but_informative` optimization boundary; they do not support trained full-PINN forward evidence.

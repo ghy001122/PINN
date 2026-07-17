@@ -214,3 +214,18 @@ outputs/pinn_inverse_v1_1_smoke/*
 !outputs/tables/full_pinn_n0_repair_data_free_seed_20260715_v2.json
 !outputs/tables/n0_baseline_repair_gate_comparison_v2.csv
 !outputs/tables/n0_full_pinn_bounded_repair_v2_summary.json
+
+# Final bounded N0-CV-E v3 evidence, deterministic diagnostics, and small checkpoints.
+!outputs/figures/n0_cv_e_v3_gate_comparison.png
+!outputs/tables/n0_r_v2_evidence_integrity_audit.json
+!outputs/tables/n0_cv_e_v3_diagnostic_set.npz
+!outputs/tables/n0_cv_e_v3_preregistration.json
+!outputs/tables/n0_cv_e_v3_preflight.json
+!outputs/tables/n0_cv_e_v3_seed_20260715.json
+!outputs/tables/n0_cv_e_v3_all_seeds.json
+!outputs/tables/n0_cv_e_v3_summary.json
+!outputs/tables/n0_cv_e_v3_checkpoint_manifest.json
+!outputs/tables/n0_cv_e_v3_model_comparison.csv
+!outputs/tables/n0_cv_e_v3_validation.json
+!outputs/checkpoints/n0_cv_e_v3/
+!outputs/checkpoints/n0_cv_e_v3/*.pt

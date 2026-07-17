@@ -1,0 +1,86 @@
+{
+  "all_pass": true,
+  "commands": [
+    {
+      "command": ".\\.venv\\Scripts\\python.exe -m pytest tests\\test_electrostatics.py tests\\test_gt_solver_smoke.py tests\\test_full_pinn_contract.py tests\\test_full_pinn_manufactured.py tests\\test_full_pinn_n0_split.py tests\\test_n0_fixed_diagnostics.py tests\\test_n0_repair_evidence.py tests\\test_n0_teacher_equation_compatibility.py tests\\test_train_full_pinn_n0_repair.py tests\\test_n0_r_v2_evidence_integrity.py tests\\test_n0_cv_e_v3_operator.py tests\\test_n0_cv_e_v3_gate_safety.py -q",
+      "counts": {
+        "errors": 0,
+        "failed": 0,
+        "passed": 41,
+        "skipped": 0,
+        "warnings": 0,
+        "xfailed": 0,
+        "xpassed": 0
+      },
+      "label": "focused_physics_and_n0_tests",
+      "result": "pass",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ".........................................                                [100%]\n41 passed in 5.49s",
+      "wall_clock_s": 6.563677500002086
+    },
+    {
+      "command": ".\\.venv\\Scripts\\python.exe scripts\\audit_project_governance.py",
+      "counts": {
+        "errors": 0,
+        "failed": 0,
+        "passed": 0,
+        "skipped": 0,
+        "warnings": 0,
+        "xfailed": 0,
+        "xpassed": 0
+      },
+      "label": "governance_audit",
+      "result": "pass",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"audit\": \"project_governance\",\n  \"overall_status\": \"pass_with_manual_review\",\n  \"failed_checks\": [],\n  \"manual_review_required\": [\n    \"codex_rules\",\n    \"frozen_gt_integrity\"\n  ],\n  \"checks\": {\n    \"required_files\": {\n      \"status\": \"pass\",\n      \"missing\": []\n    },\n    \"current_handoff\": {\n      \"status\": \"pass\",\n      \"bytes\": 405,\n      \"missing_markers\": []\n    },\n    \"single_current_snapshot\": {\n      \"status\": \"pass\",\n      \"project_state_snapshot_headings\": 1,\n      \"next_actions_queue_headings\": 1\n    },\n    \"phase_consistency\": {\n      \"status\": \"pass\",\n      \"active_phase_id\": \"M_GAMMA_SUB_MANUSCRIPT_ASSEMBLY\",\n      \"missing\": []\n    },\n    \"delivery_contract\": {\n      \"status\": \"pass\",\n      \"missing\": []\n    },\n    \"claim_matrix_vocabulary\": {\n      \"status\": \"pass\",\n      \"obsolete\": []\n    },\n    \"critical_markdown_links\": {\n      \"status\": \"pass\",\n      \"checked\": 8,\n      \"missing\": []\n    },\n    \"claim_vocabulary\": {\n      \"status\": \"pass\",\n      \"obsolete\": [],\n      \"all_four_present\": true\n    },\n    \"final_report_template\": {\n      \"status\": \"pass\",\n      \"missing_fields\": []\n    },\n    \"agents_chain_size\": {\n      \"status\": \"pass\",\n      \"bytes\": {\n        \"src/pinnpcm/physics/AGENTS.md\": 7958,\n        \"src/pinnpcm/pinn/AGENTS.md\": 8090,\n        \"scripts/AGENTS.md\": 7853,\n        \"tests/AGENTS.md\": 7795,\n        \"docs/AGENTS.md\": 7925\n      },\n      \"oversized\": {}\n    },\n    \"no_authoritative_memorys_directory\": {\n      \"status\": \"pass\",\n      \"paths\": []\n    },\n    \"low_token_context_budget\": {\n      \"status\": \"pass\",\n      \"limit_bytes\": 24576,\n      \"total_bytes\": 15422,\n      \"files\": {\n        \"CODEX_CONTEXT.md\": 3430,\n        \"docs/research_strategy/active_phase.md\": 2714,\n        \"PROJECT_STATE.md\": 3883,\n        \"NEXT_ACTIONS.md\": 2102,\n        \"docs/project_state/current_evidence_index.md\": 3293\n      }\n    },\n    \"retired_generator_guard\": {\n      \"status\": \"pass\",\n      \"path\": \"scripts/build_final_submission_figures.py\"\n    },\n    \"no_duplicate_active_markdown\": {\n      \"status\": \"pass\",\n      \"groups\": []\n    },\n    \"frozen_gt_integrity\": {\n      \"status\": \"pass\",\n      \"files\": {\n        \"configs/gt_v1_acceptance_triangle.yaml\": {\n          \"sha256\": \"F2E6BEC6006827344BEBDDCF20519B5B87F923B349A8799596D06E9F254A2B02\",\n          \"expected_sha256\": \"F2E6BEC6006827344BEBDDCF20519B5B87F923B349A8799596D06E9F254A2B02\",\n          \"hash_unchanged\": true,\n          \"mtime_observed\": true\n        },\n        \"configs/gt_v1_acceptance_ltp_ltd.yaml\": {\n          \"sha256\": \"F1F71F21F1D0D27532EEAD23A3A4B71B0864E6B0966E564104DCFFD7040C1D93\",\n          \"expected_sha256\": \"F1F71F21F1D0D27532EEAD23A3A4B71B0864E6B0966E564104DCFFD7040C1D93\",\n          \"hash_unchanged\": true,\n          \"mtime_observed\": true\n        },\n        \"docs/gt_v1_acceptance_report.md\": {\n          \"sha256\": \"0F72718AFFB84F727771F8D4A1A16AFB9D7C0D15BD7984632B3BEB8155F91643\",\n          \"expected_sha256\": \"0F72718AFFB84F727771F8D4A1A16AFB9D7C0D15BD7984632B3BEB8155F91643\",\n          \"hash_unchanged\": true,\n          \"mtime_observed\": true\n        },\n        \"data/processed/gt_v1_acceptance/manifest.json\": {\n          \"sha256\": \"634554429B9E61A231E47BF35B9B5C66C1C316E5E11A86BDE0540B05FF5AE30F\",\n          \"expected_sha256\": \"634554429B9E61A231E47BF35B9B5C66C1C316E5E11A86BDE0540B05FF5AE30F\",\n          \"hash_unchanged\": true,\n          \"mtime_observed\": true\n        },\n        \"data/processed/gt_v1_acceptance/gt_triangle.npz\": {\n          \"sha256\": \"4E4814D9C66A79CBE86417296B0A797E53FFFF2CEE2BD881548FBCD35E05C9F8\",\n          \"expected_sha256\": \"4E4814D9C66A79CBE86417296B0A797E53FFFF2CEE2BD881548FBCD35E05C9F8\",\n          \"hash_unchanged\": true,\n          \"mtime_observed\": true\n        },\n        \"data/processed/gt_v1_acceptance/obs_triangle_sparse.npz\": {\n          \"sha256\": \"F45DAF53136A255B3666EBEB56E6298CE148A613C46FA596B795E7ADE68EA602\",\n          \"expected_sha256\": \"F45DAF53136A255B3666EBEB56E6298CE148A613C46FA596B795E7ADE68EA602\",\n          \"hash_unchanged\": true,\n          \"mtime_observed\": true\n        },\n        \"data/processed/gt_v1_acceptance/gt_ltp_ltd.npz\": {\n          \"sha256\": \"772D17178C77392BF8A0813ADA3DB4A7241C5FA4E6D72E091894271BFA13C247\",\n          \"expected_sha256\": \"772D17178C77392BF8A0813ADA3DB4A7241C5FA4E6D72E091894271BFA13C247\",\n          \"hash_unchanged\": true,\n          \"mtime_observed\": true\n        },\n        \"data/processed/gt_v1_acceptance/obs_ltp_ltd_sparse.npz\": {\n          \"sha256\": \"7155BFF7C406FAB49E9670FA8A73AB6D0063459A80FEB705138E3FE61A351645\",\n          \"expected_sha256\": \"7155BFF7C406FAB49E9670FA8A73AB6D0063459A80FEB705138E3FE61A351645\",\n          \"hash_unchanged\": true,\n          \"mtime_observed\": true\n        }\n      },\n      \"mtime_review\": \"manual_review_required\",\n      \"mtime_reason\": \"Portable Git checkout mtimes are not authoritative; compare pre/post mtimes in the active task.\"\n    },\n    \"codex_rules\": {\n      \"status\": \"manual_review_required\",\n      \"syntax_file_present\": true,\n      \"automatic_project_loading\": \"manual_review_required\",\n      \"note\": \"Use codex execpolicy check for direct match tests; automatic trust/loading depends on the client.\"\n    }\n  }\n}",
+      "wall_clock_s": 1.623726000005263
+    },
+    {
+      "command": ".\\.venv\\Scripts\\python.exe -m pytest -q",
+      "counts": {
+        "errors": 0,
+        "failed": 0,
+        "passed": 233,
+        "skipped": 0,
+        "warnings": 0,
+        "xfailed": 0,
+        "xpassed": 0
+      },
+      "label": "full_pytest",
+      "result": "pass",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "........................................................................ [ 30%]\n........................................................................ [ 61%]\n........................................................................ [ 92%]\n.................                                                        [100%]\n233 passed in 130.41s (0:02:10)",
+      "wall_clock_s": 131.96481560000393
+    },
+    {
+      "command": "git diff --check",
+      "counts": {
+        "errors": 0,
+        "failed": 0,
+        "passed": 0,
+        "skipped": 0,
+        "warnings": 0,
+        "xfailed": 0,
+        "xpassed": 0
+      },
+      "label": "git_diff_check",
+      "result": "pass",
+      "returncode": 0,
+      "stderr": "warning: in the working copy of '.gitignore', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'RESEARCH_LOG.md', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'data/literature/literature_curve_ingestion_registry.csv', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'docs/literature/literature_curve_provenance_notes.md', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'docs/manuscript/discussion_v1.md', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'docs/manuscript/reviewer_defense_matrix.md', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'docs/method_equations.md', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'docs/paper/final_claim_matrix.md', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'docs/paper/final_figure_list.md', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'docs/paper/final_table_list.md', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'outputs/tables/gamma_sub_tsw_calibration_workflow_cases.csv', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'outputs/tables/gamma_sub_tsw_calibration_workflow_summary.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'outputs/tables/literature_curve_fit_external_anchor_v2_cases.csv', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'outputs/tables/literature_curve_fit_external_anchor_v2_summary.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'outputs/tables/literature_curve_ingestion_cases.csv', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'outputs/tables/literature_curve_ingestion_summary.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'outputs/tables/project_governance_summary.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'outputs/tables/reduced_2d_observability_limited_inverse_cases.csv', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'outputs/tables/reduced_2d_observability_limited_inverse_summary.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'outputs/tables/reduced_2d_phase_transition_forward_cases.csv', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'outputs/tables/reduced_2d_phase_transition_forward_summary.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'outputs/tables/stiffness_aware_algorithm_benchmark_cases.csv', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'outputs/tables/stiffness_aware_algorithm_benchmark_summary.json', CRLF will be replaced by LF the next time Git touches it",
+      "stdout": "",
+      "wall_clock_s": 0.21113070000137668
+    }
+  ],
+  "created_at_utc": "2026-07-17T07:05:30.543183+00:00",
+  "machine": {
+    "cuda_available": false,
+    "device": "cpu",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.9",
+    "torch": "2.3.1+cpu"
+  },
+  "schema_version": "n0_cv_e_v3_validation_v1"
+}

@@ -3,47 +3,45 @@
 ## Authoritative Current Snapshot
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
-- Active phase ID: `N0_CV_LEDGER_REFORMULATION_PREFLIGHT`.
+- Active phase ID: `M_GAMMA_SUB_MANUSCRIPT_ASSEMBLY`.
 - Frozen GT v1.1: unchanged and read-only.
-- Complete PINN policy: mandatory architecture/paper scaffold; positive claims remain evidence-gated.
-- Safe manuscript inverse result: calibration-gated rank-1 `gamma_sub`, `qualified_supported` under its existing synthetic conditions.
+- Complete PINN policy: mandatory architecture/paper scaffold; positive trained claims remain evidence-gated.
+- Safe inverse result: calibration-gated constrained `gamma_sub` rank-1 recovery, `qualified_supported` under its locked synthetic conditions.
 - Project-generated experimental validation: absent.
-- Public VO2 result: D0a `failed_but_informative`; source/SI semantics agree, but time-step convergence fails.
-- 13 V: still sealed; no fit lock, refit, cross-voltage evaluation, or independent external validation exists.
-- N0: teacher/FVM compatibility audit passes and exposes the v1 electrode-orientation mismatch; a preregistered matched-budget exact-trace dual-domain repair still fails residual, field, current, energy, and port gates. Full-PINN forward evidence remains `forbidden`.
-- N1-N3: not run because the N0 gate failed.
-- N0-R execution base commit: `583cb441687001c7df9a8ee9d4d5cf45258f8efb`.
+- Public VO2 result: D0a `failed_but_informative`; D0b-D0d were not run and 13 V remains sealed.
+- N0: final stop after v1, exact-trace v2, and solver-consistent N0-CV-E v3 failed to establish trained forward evidence. The v3 operator preflight passes, but its locked primary optimization terminates on a non-finite L-BFGS closure before checkpoint or result-gate evaluation.
+- N1-N3 and SC-LOS: not run; positive claims `forbidden`.
+- N0-CV-E v3 execution base: `e3f5765801991ebd1006dc762f8804a48e2d7a5a`.
 
 ## Current Gate Ledger
 
 | Gate | Status | Direct boundary |
 | --- | --- | --- |
-| Frozen GT v1.1 | `supported` integrity baseline | No equations, parameters, arrays, or acceptance files changed. |
+| Frozen GT v1.1 | `supported` integrity baseline | Equations, parameters, arrays, and acceptance files unchanged. |
 | P0 | `qualified_supported` | Reduced synthetic physical semantics only. |
 | P1 | `failed_but_informative` | Historical `E_T=0.37563055753707886`, `E_m=0.06811526417732239`, interface residual `106.15460205078125`, success `0.0`; not a universal prerequisite for the minimum 1D scaffold. |
-| P2 | `failed_but_informative` | Thermal/material parameter-block identifiability remains unresolved. |
-| P3 | `qualified_supported` | Static pure-electrical three-parameter local rank improvement only. |
+| P2 | `failed_but_informative` | Thermal/material parameter-block identifiability unresolved. |
+| P3 | `qualified_supported` | Static pure-electrical three-parameter local rank result only. |
 | P4 | `forbidden` | No full STL or universal Fourier/F-SPS superiority. |
-| D0a | `failed_but_informative` | Source/SI parity passes; 5-to-2.5 ns NRMSE95 `0.163148 > 0.01`. |
-| D0b-D0d | `forbidden` as completed evidence | Not run after D0a stop; 13 V remains sealed. |
-| N0 teacher-equation compatibility | `supported` | Manufactured electrical/thermal/defect/bilayer cases and frozen FVM ledgers pass; v1 PINN reverses the teacher electrode orientation. |
-| N0 exact-trace dual-domain implementation | `supported` | `5704` versus `5812` parameters, local layer coordinates, global-SI derivatives, physical conductivity, and independent one-sided traces. |
-| N0 trained forward evidence | `failed_but_informative`; positive claim `forbidden` | Repair port `0.120358`; max held-out residual `0.048286`; current error `0.519809`; energy imbalance `0.998556`. Anchor and seed expansion were blocked. |
-| N1-N3 | `forbidden` | Not run; upstream N0 gate failed. |
+| D0a | `failed_but_informative` | Source/SI parity passes; time-step NRMSE95 `0.163148 > 0.01`. |
+| D0b-D0d | `forbidden` as completed evidence | Not run; no fit lock; 13 V sealed. |
+| N0 teacher/trajectory compatibility | `supported` | Manufactured and independent trajectory ledgers pass; the older conservation artifact alone is only bookkeeping smoke evidence. |
+| N0-CV-E v3 operator contract | `supported` as implementation fact | Analytic series electrostatics, exact frozen CV RHS, hard IC/BC, dimensionless roundtrip, negative controls, and locked hashes pass 18/18 preflight checks. |
+| N0-CV-E v3 trained forward | `failed_but_informative`; positive claim `forbidden` | Seed `20260715` stops on non-finite L-BFGS loss after 1200 Adam steps, before checkpoint/metrics; every result gate is fail-closed and unassessed. |
+| N1-N3 / SC-LOS | `forbidden` | Not run; N0 never passed a complete trained gate. |
 
 ## Distance To Delivery Goal
 
 | Deliverable | Current state | Remaining gap |
 | --- | --- | --- |
-| Frozen synthetic mainline and gamma-sub evidence | locked and preserved | Integrate without overclaiming |
-| Public-data realism anchor | provenance/source semantics available; D0a failed | Resolve numerical convergence before any refit or 13 V access |
-| Full 1D PINN scaffold | v1 and exact-trace split implementations exist; both trained MVEs fail | A solver-consistent residual must close local and global ledgers before 2/3-seed evidence |
-| Solver/PINN sensitivity evidence | absent | N1 and N2 blocked by N0 |
-| Conditional quotient inverse | absent | D0c/D0d and N1/N2 gates all required |
-| Complete manuscript/submission package | incomplete | Preserve failure-boundary figures/tables and finish only supported narrative |
+| Frozen synthetic `gamma_sub` mainline | locked and preserved | Integrate claims, failures, figures, and reviewer defense into final manuscript |
+| Public-data realism anchor | D0a provenance/source semantics plus convergence failure | Keep as limitation; no current refit or 13 V action |
+| Full 1D PINN scaffold | versioned code/operator contracts exist; all bounded training attempts fail | Preserve as mandatory scaffold and explicit failure boundary, not positive evidence |
+| Solver/PINN sensitivity and quotient inverse | absent | Not part of current execution; upstream gates failed |
+| Submission package | incomplete | Assemble only supported/qualified claims and negative boundaries |
 
 ## Current Single Priority
 
-Do not enter SC-LOS or N1-N3. The only admissible next N0 action is a no-training preregistration/preflight for a solver-consistent control-volume or weak-form residual that directly exposes face fluxes and global ledgers. It must reuse the fixed diagnostic set and unchanged gates; otherwise stop N0 tuning and retain the constrained `gamma_sub` fallback.
+Finalize the calibrated `gamma_sub` manuscript and reviewer-defense package. Incorporate D0a and all N0 failures without overclaiming. Do not reopen N0 optimization or promote the v3 no-training operator preflight to trained full-PINN evidence.
 
-Compact routing is in `docs/project_state/current_evidence_index.md`; the current execution report is `docs/codex_reports/n0_full_pinn_bounded_repair_v2_report.md`.
+Compact routing is in `docs/project_state/current_evidence_index.md`; the final N0 report is `docs/codex_reports/n0_cv_e_v3_report.md`.

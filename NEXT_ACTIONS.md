@@ -2,37 +2,31 @@
 
 ## Authoritative Current Queue
 
-Exactly one bottleneck is active: `N0_CV_LEDGER_REFORMULATION_PREFLIGHT`.
+Exactly one bottleneck is active: `M_GAMMA_SUB_MANUSCRIPT_ASSEMBLY`.
 
-### Priority N0-CV: solver-consistent residual preflight — active
+### Priority M: calibrated gamma_sub manuscript assembly — active
 
-N0-R is closed as `failed_but_informative`. The v1 sign mismatch and finite-band interface proxy were repaired, but the data-free split model still fails global current/energy, defect/thermal residual, field, and port gates. Do not tune the completed branch.
+Use the locked calibration-gated constrained `gamma_sub` rank-1 evidence as the scientific mainline. Integrate D0a and N0-CV-E v3 as explicit numerical and reviewer-defense limitations. The next round should only reconcile manuscript text, figures/tables, claim wording, references, and submission checks against the existing evidence lock.
 
-The only next action is a new no-training preflight and preregistration for one solver-consistent control-volume/weak-form N0 MVE. It must:
+Required boundaries:
 
-1. reuse fixed diagnostic point content SHA `80e34ca549d86588d12ffbcde4a304e378197dba602bcccc6e4e7d1ead932731`;
-2. express frozen arithmetic face-flux semantics and the declared-interface offset explicitly;
-3. put terminal-current, defect-mass, and global-energy ledgers in the residual contract, not only post-training diagnostics;
-4. retain the same state network, physical conductivity closure, score-only hidden fields, seeds, budgets, and unchanged gates;
-5. remain a numerical consistency repair, not cPINN/XPINN/interface novelty.
+1. retain the calibrated/tightly bounded `T_sw` condition and the wide-prior failure region;
+2. state that all mainline results are synthetic numerical digital-twin evidence;
+3. preserve D0a as source-reproduction parity plus failed time-step convergence, with no repository refit or 13 V evaluation;
+4. preserve N0-CV-E v3 as 18/18 operator-preflight success followed by a non-finite L-BFGS runtime failure before checkpoint and result scoring;
+5. keep all full-PINN forward result gates fail-closed and forbid sensitivity/inverse claims;
+6. do not present analytic electrostatics, FVM/CV residuals, hard constraints, causal training, or gradient balancing as standalone novelty.
 
-Do not train that formulation until its config and equation/scale registry are locked. The unchanged final success gate remains 2/3 fixed seeds plus all port, residual, field, interface, current, energy, state-bound, and frozen-hash gates.
+### N0 — final stop
 
-### D0 — held at D0a failure boundary
+Do not rerun, retune, change normalization, skip L-BFGS, add port/field labels, activate the unused balancing arm, or add a sparse anchor. The final bounded attempt is `failed_but_informative`; further N0 work requires a future user-authorized change of research phase, not continuation of this queue.
 
-Author/SI semantics are reproducible, but time-step convergence failed. D0b-D0d are not authorized by the current evidence. Before revisiting D0, preregister a stable integration-policy audit that does not tune against public trajectories. The 13 V numerical members remain sealed.
+### D0 and N1-N3 — held
 
-### N1-N3 — blocked
-
-- N1 independent solver sensitivity: blocked until N0 passes.
-- N2 PINN sensitivity fidelity: blocked until N1 and N0 pass.
-- N3 conditional quotient inverse: blocked until D0c/D0d, N1 and N2 pass.
-- Solver-first SC-LOS: blocked because N0-R failed current/energy and held-out residual gates.
-
-### Preserved manuscript path
-
-Retain the existing calibration-gated constrained `gamma_sub` rank-1 result as the safe inverse evidence. Add D0a and N0 as explicit numerical/reviewer-defense limitations. Do not relabel them as validation or successful full-PINN evidence.
+- D0b-D0d remain blocked by D0a; 13 V stays sealed.
+- N1/N2 sensitivity and N3 quotient inverse remain unrun and `forbidden` as completed evidence.
+- SC-LOS, operator learning, UQ, 2D, new hysteresis, latent heat, and external fitting are outside the active phase.
 
 ## Non-negotiable Boundaries
 
-No frozen-GT edits, 13 V access without a valid fit lock, post-hoc gate relaxation, hidden seeds, synthetic-as-experimental wording, source-paper reproduction as repository validation, or PINN/solver attribution mixing. P1 remains a prerequisite only if a multidomain, two-dimensional, face-flux, or interface-innovation claim is activated.
+No frozen-GT edits, 13 V access without a valid fit lock, post-hoc gate relaxation, hidden seeds, synthetic-as-experimental wording, source-paper reproduction as repository validation, or PINN/solver attribution mixing.

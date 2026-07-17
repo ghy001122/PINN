@@ -731,3 +731,16 @@ Date: 2026-07-15. Base commit: `73571ee7a6e69545b67d516654ccfbfa653323eb`.
 - Historical P0-P4 failures/boundaries and the calibration-gated constrained `gamma_sub` safe mainline were preserved. Frozen GT hashes and mtimes were unchanged.
 
 Primary report: `docs/codex_reports/vo2_protocol_quotient_full_pinn_v2_report.md`.
+
+## N0-CV-E v3 Final Bounded Full-PINN Attempt
+
+Date: 2026-07-17. Base commit: `e3f5765801991ebd1006dc762f8804a48e2d7a5a`.
+
+- Re-audited N0-R v2 evidence without changing historical hashes. The local v2 checkpoint is not versioned, remote CI has no run for the base commit, and no final pytest machine/text record exists in the v2 evidence package.
+- Reclassified the old conservation artifact as algebraic bookkeeping smoke evidence. Independent adjacent-state frozen-trajectory ledgers pass: defect `4.039483937e-06`, energy `0.0025823386`; one Radau replay gives `1.302712655e-07` maximum relative RMS; deliberately tampered states fail.
+- Implemented a 31-cell, bounded `c_v/T/m` neural state with analytic frozen-series electrostatics and solver-exact arithmetic-face defect, heat, reaction, Joule, sink, and phase operators. No port or hidden-field labels are used.
+- Locked configuration, diagnostics, code hashes, schedule, seeds, and unchanged result gates. All 18 no-training preflight checks pass; electrostatic parity is `2.307872145e-08` and CV-RHS parity is `2.125855328e-08`.
+- The authorized seed `20260715` run reached L-BFGS after 1200 Adam steps, then terminated on a non-finite strong-Wolfe closure before checkpoint or scoring. All training-result gates are `unassessed_fail_closed`; no balancing arm, seed expansion, sparse anchor, hyperparameter search, N1-N3, or SC-LOS was run.
+- Final disposition: N0 `failed_but_informative` and stopped. Reliable trained full-PINN forward, sensitivity, and inverse claims remain `forbidden`. The unique next step is the locked calibrated `gamma_sub` manuscript mainline.
+
+Primary report: `docs/codex_reports/n0_cv_e_v3_report.md`.

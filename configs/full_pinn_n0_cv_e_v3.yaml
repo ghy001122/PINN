@@ -1,0 +1,229 @@
+schema_version: full_pinn_n0_cv_e_v3
+stage_id: N0-CV-E-v3
+description: >-
+  Final bounded N0 attempt using a differentiable analytic series-electrical
+  head and solver-exact control-volume defect, heat, and phase dynamics. This
+  is a numerical consistency repair on frozen synthetic GT v1.1, not a new
+  cPINN, VPINN, FVM, hard-constraint, or gradient-balancing method claim.
+base_commit: e3f5765801991ebd1006dc762f8804a48e2d7a5a
+claim_scope: conditional_frozen_1d_synthetic_forward_and_conservation_only
+evidence_semantics: synthetic_gt_score_only
+
+frozen_inputs:
+  gt_path: data/processed/gt_v1_acceptance/gt_triangle.npz
+  gt_config: configs/gt_v1_acceptance_triangle.yaml
+  gt_manifest: data/processed/gt_v1_acceptance/manifest.json
+  old_fixed_points: outputs/tables/n0_fixed_diagnostic_points_v1.npz
+  old_fixed_points_content_sha256: 80e34ca549d86588d12ffbcde4a304e378197dba602bcccc6e4e7d1ead932731
+  old_fixed_points_raw_sha256: 5a2d64cba87d1af6f34df128334636c1a5b9207760a604590f1f69ff29d5f883
+  v2_config: configs/full_pinn_n0_repair_v2.yaml
+  v2_preregistration: outputs/tables/full_pinn_n0_repair_v2_preregistration.json
+  v2_result: outputs/tables/full_pinn_n0_repair_data_free_seed_20260715_v2.json
+  v2_checkpoint: outputs/checkpoints/full_pinn_n0_repair_v2/data_free_seed_20260715.pt
+  global_baseline_checkpoint: outputs/checkpoints/full_pinn_v1/seed_20260715_epochs_1200.pt
+  external_13v_access: forbidden
+
+architecture:
+  network_inputs: [t_over_tmax]
+  learned_states: [c_v_cell, T_cell, m_cell]
+  returned_states: [phi, c_v, T, m, sigma, E, J, I, G]
+  nx: 31
+  hidden_dim: 32
+  hidden_layers: 3
+  fourier_scales: [1.0, 2.0, 4.0, 8.0]
+  hard_initial_conditions: true
+  hard_outer_electrical_boundary: true
+  bounded_c_v_and_m: true
+  temperature_min_K: 300.0
+  temperature_max_K: 350.0
+  independent_phi_network: false
+  independent_sigma_network: false
+  electrostatic_semantics: frozen_series_cell_center
+  face_average: arithmetic
+
+dimensionless_registry:
+  length_scale_m: 100.0e-9
+  time_scale_s: 3.0e-3
+  voltage_scale_V: 0.20
+  concentration_scale: 1.0
+  temperature_scale_K: 20.0
+  phase_scale: 1.0
+  conductivity_scale_S_per_m: 2.4
+  current_density_scale_A_per_m2: 4.8e6
+  residual_scales:
+    r_c_per_s: 333.3333333333333
+    r_T_K_per_s: 6666.666666666667
+    r_m_per_s: 333.3333333333333
+  scale_source: frozen_protocol_and_declared_material_priors
+  posthoc_rescaling_forbidden: true
+
+diagnostics:
+  seed: 20260720
+  dataset_path: outputs/tables/n0_cv_e_v3_diagnostic_set.npz
+  deterministic_npz_timestamp: [1980, 1, 1, 0, 0, 0]
+  operator_random_states: 8
+  operator_frozen_indices: [0, 57, 114, 171, 228, 285, 342, 399]
+  train_times_per_stage: 96
+  eval_times: 160
+  ledger_times: 96
+  near_interface_half_width_cells: 2
+  near_transition_t_norm: [0.35, 0.65]
+  ordinary_t_norm_windows: [[0.05, 0.30], [0.70, 0.95]]
+  fixed_regions_required: [near_interface, near_transition, ordinary]
+  radau_replay_selection: maximum_phase_increment_interval
+
+evidence_integrity:
+  v2_checkpoint_must_be_reported: true
+  remote_ci_must_be_reported: true
+  pytest_evidence_must_be_reported: true
+  v2_hashes_must_not_be_rewritten: true
+  text_hash_mode: canonical_lf
+  yaml_json_hash_mode: canonical_semantic_json
+  binary_hash_mode: raw_bytes
+  old_conservation_audit_role: algebraic_bookkeeping_smoke_test
+  independent_trajectory_ledger_required: true
+  tamper_detection_required: true
+  unified_rescore_required_models: [strongest_global_baseline, e3f5765_split_repair]
+
+preflight_gates:
+  phase_a_completed_required: true
+  gate_coverage_complete_required: true
+  result_keys_complete_required: true
+  electrostatics_float64_relative_error_max: 1.0e-7
+  cv_rhs_relative_rms_max: 1.0e-6
+  current_spatial_spread_max: 1.0e-7
+  gradient_finite_required: true
+  gradient_nonzero_norm_min: 1.0e-12
+  gradient_central_difference_relative_error_max: 1.0e-3
+  roundtrip_relative_error_max: 1.0e-12
+  frozen_trajectory_defect_ledger_max: 0.01
+  frozen_trajectory_energy_ledger_max: 0.05
+  radau_replay_relative_rms_max: 1.0e-5
+  negative_candidate_separation_required: true
+  ic_bc_max_normalized_error: 0.001
+  finite_operator_outputs_required: true
+  frozen_gt_hash_unchanged_required: true
+  old_fixed_points_hash_unchanged_required: true
+
+training:
+  mode: data_free_control_volume_full_pinn
+  full_field_training: false
+  port_label_training: false
+  seed: 20260715
+  expansion_seeds: [20260716, 20260717]
+  optimizer: Adam
+  learning_rate: 0.001
+  epochs: 1200
+  causal_stages:
+    - {t_norm_max: 0.25, epochs: 300}
+    - {t_norm_max: 0.50, epochs: 300}
+    - {t_norm_max: 0.75, epochs: 300}
+    - {t_norm_max: 1.00, epochs: 300}
+  lbfgs:
+    enabled: true
+    max_iter: 40
+    history_size: 20
+    tolerance_grad: 1.0e-9
+    tolerance_change: 1.0e-12
+  gradient_clip_norm: 100.0
+  loss_weights:
+    r_c: 1.0
+    r_T: 1.0
+    r_m: 1.0
+    discrete_electrical: 1.0
+    defect_mass_ledger: 1.0
+    energy_ledger: 1.0
+  gradient_statistics_balancing_arm:
+    preregistered: true
+    run_only_after_primary_optimization_pathology: true
+    weight_rule: inverse_initial_gradient_norm_clipped
+    weight_clip: [0.1, 10.0]
+    network_change_forbidden: true
+    sampling_change_forbidden: true
+    normalization_change_forbidden: true
+    maximum_arms: 1
+  sparse_anchor:
+    allowed_only_if_all_physics_ledgers_pass_and_only_port_or_field_fails: true
+    preregistered_for_this_round: false
+
+result_gates:
+  port_full_trace_nrmse95_max: 0.10
+  residual_rms_max: 0.01
+  discrete_electrical_rms_max: 0.01
+  field_score_only_nrmse95_max: 0.25
+  interface_state_rms_max: 0.05
+  interface_flux_rms_max: 0.05
+  terminal_current_conservation_max: 0.01
+  global_energy_imbalance_max: 0.05
+  defect_mass_ledger_max: 0.01
+  result_ic_bc_max_normalized_error: 0.001
+  finite_outputs_required: true
+  bounded_states_required: true
+  hash_and_operator_gates_required: true
+  minimum_passing_seeds: 2
+  total_seeds: 3
+
+gate_coverage:
+  phase_a_completed_required: preflight.checks.phase_a_completed
+  gate_coverage_complete_required: preflight.checks.gate_coverage_complete
+  result_keys_complete_required: preflight.checks.result_keys_complete
+  electrostatics_float64_relative_error_max: preflight.checks.electrostatics_parity
+  cv_rhs_relative_rms_max: preflight.checks.cv_rhs_parity
+  current_spatial_spread_max: preflight.checks.current_spread
+  gradient_finite_required: preflight.checks.gradient_finite
+  gradient_nonzero_norm_min: preflight.checks.gradient_nonzero
+  gradient_central_difference_relative_error_max: preflight.checks.gradient_parity
+  roundtrip_relative_error_max: preflight.checks.dimensionless_roundtrip
+  frozen_trajectory_defect_ledger_max: preflight.checks.frozen_defect_ledger
+  frozen_trajectory_energy_ledger_max: preflight.checks.frozen_energy_ledger
+  radau_replay_relative_rms_max: preflight.checks.radau_replay
+  negative_candidate_separation_required: preflight.checks.negative_candidate_separation
+  ic_bc_max_normalized_error: preflight.checks.ic_bc
+  finite_operator_outputs_required: preflight.checks.finite_operator_outputs
+  frozen_gt_hash_unchanged_required: preflight.checks.frozen_gt_hash
+  old_fixed_points_hash_unchanged_required: preflight.checks.old_fixed_points_hash
+  port_full_trace_nrmse95_max: training.gates.checks.port
+  residual_rms_max: training.gates.checks.cv_residuals
+  discrete_electrical_rms_max: training.gates.checks.discrete_electrical
+  field_score_only_nrmse95_max: training.gates.checks.fields
+  interface_state_rms_max: training.gates.checks.interface_state
+  interface_flux_rms_max: training.gates.checks.interface_flux
+  terminal_current_conservation_max: training.gates.checks.current_conservation
+  global_energy_imbalance_max: training.gates.checks.energy_ledger
+  defect_mass_ledger_max: training.gates.checks.defect_ledger
+  result_ic_bc_max_normalized_error: training.gates.checks.ic_bc
+  finite_outputs_required: training.gates.checks.finite_outputs
+  bounded_states_required: training.gates.checks.bounded_states
+  hash_and_operator_gates_required: training.gates.checks.hash_and_operator
+  minimum_passing_seeds: training.seed_vote.minimum_passing_seeds
+  total_seeds: training.seed_vote.total_seeds
+
+budget:
+  device: cpu
+  pilot_adam_steps: 1200
+  pilot_lbfgs_max_iter: 40
+  wall_clock_hours_max: 12
+  seed_expansion_only_after_complete_pilot_pass: true
+  hyperparameter_search_forbidden: true
+
+stop_rules:
+  - any_phase_a_operator_ledger_negative_or_icbc_failure_blocks_training
+  - single_seed_failure_blocks_seed_expansion
+  - physics_or_ledger_failure_blocks_sparse_anchor
+  - no_posthoc_gate_hash_scale_or_sampling_change
+  - v3_failure_closes_N0_and_returns_to_calibrated_gamma_sub_mainline
+  - no_N1_N2_N3_SC_LOS_operator_learning_UQ_2D_external_fit
+
+outputs:
+  phase_a_json: outputs/tables/n0_r_v2_evidence_integrity_audit.json
+  phase_a_report: docs/codex_reports/n0_r_v2_evidence_integrity_audit.md
+  preregistration: outputs/tables/n0_cv_e_v3_preregistration.json
+  preflight: outputs/tables/n0_cv_e_v3_preflight.json
+  pilot_result: outputs/tables/n0_cv_e_v3_seed_20260715.json
+  expanded_result: outputs/tables/n0_cv_e_v3_all_seeds.json
+  summary: outputs/tables/n0_cv_e_v3_summary.json
+  checkpoint_dir: outputs/checkpoints/n0_cv_e_v3
+  checkpoint_manifest: outputs/tables/n0_cv_e_v3_checkpoint_manifest.json
+  comparison_csv: outputs/tables/n0_cv_e_v3_model_comparison.csv
+  gate_figure: outputs/figures/n0_cv_e_v3_gate_comparison.png
+  report: docs/codex_reports/n0_cv_e_v3_report.md

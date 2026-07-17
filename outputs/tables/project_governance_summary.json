@@ -23,7 +23,7 @@
     },
     "phase_consistency": {
       "status": "pass",
-      "active_phase_id": "N0_CV_LEDGER_REFORMULATION_PREFLIGHT",
+      "active_phase_id": "M_GAMMA_SUB_MANUSCRIPT_ASSEMBLY",
       "missing": []
     },
     "delivery_contract": {
@@ -66,13 +66,13 @@
     "low_token_context_budget": {
       "status": "pass",
       "limit_bytes": 24576,
-      "total_bytes": 17817,
+      "total_bytes": 15422,
       "files": {
-        "CODEX_CONTEXT.md": 3855,
-        "docs/research_strategy/active_phase.md": 4000,
-        "PROJECT_STATE.md": 4136,
-        "NEXT_ACTIONS.md": 2658,
-        "docs/project_state/current_evidence_index.md": 3168
+        "CODEX_CONTEXT.md": 3430,
+        "docs/research_strategy/active_phase.md": 2714,
+        "PROJECT_STATE.md": 3883,
+        "NEXT_ACTIONS.md": 2102,
+        "docs/project_state/current_evidence_index.md": 3293
       }
     },
     "retired_generator_guard": {

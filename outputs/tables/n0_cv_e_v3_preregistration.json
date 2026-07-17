@@ -1,0 +1,276 @@
+{
+  "base_commit": "e3f5765801991ebd1006dc762f8804a48e2d7a5a",
+  "created_at_utc": "2026-07-17T06:45:27.503329+00:00",
+  "diagnostic_dataset": {
+    "array_keys": [
+      "I",
+      "V",
+      "eval_t",
+      "frozen_T",
+      "frozen_c_v",
+      "frozen_m",
+      "frozen_phi",
+      "frozen_sigma",
+      "ledger_t",
+      "material_left_mask",
+      "near_interface_cell_indices",
+      "near_transition_time_indices",
+      "operator_frozen_indices",
+      "operator_random_T",
+      "operator_random_c_v",
+      "operator_random_m",
+      "operator_random_t",
+      "ordinary_time_indices",
+      "t_norm",
+      "t_s",
+      "train_t_stage_025",
+      "train_t_stage_050",
+      "train_t_stage_075",
+      "train_t_stage_100",
+      "x_m"
+    ],
+    "created": true,
+    "path": "outputs/tables/n0_cv_e_v3_diagnostic_set.npz",
+    "raw_sha256": "a34b51cd48349c2bc5213a3c905e18d6640cdd305f87c05d944301882f478cfe",
+    "size_bytes": 421892
+  },
+  "git_commit_before_training": "e3f5765801991ebd1006dc762f8804a48e2d7a5a",
+  "git_dirty_before_training": true,
+  "locked_dimensionless_registry": {
+    "concentration_scale": 1.0,
+    "conductivity_scale_S_per_m": 2.4,
+    "current_density_scale_A_per_m2": "4.8e6",
+    "length_scale_m": 1e-07,
+    "phase_scale": 1.0,
+    "posthoc_rescaling_forbidden": true,
+    "residual_scales": {
+      "r_T_K_per_s": 6666.666666666667,
+      "r_c_per_s": 333.3333333333333,
+      "r_m_per_s": 333.3333333333333
+    },
+    "scale_source": "frozen_protocol_and_declared_material_priors",
+    "temperature_scale_K": 20.0,
+    "time_scale_s": 0.003,
+    "voltage_scale_V": 0.2
+  },
+  "locked_files": {
+    "configs/full_pinn_n0_cv_e_v3.yaml": {
+      "mode": "canonical_semantic_json",
+      "sha256": "c9d1b54f95d237c8d28f7dc01be4a36cd2fbecb9ee5914bc07ffdfd0386d8cf1"
+    },
+    "configs/gt_v1_acceptance_triangle.yaml": {
+      "mode": "canonical_semantic_json",
+      "sha256": "6077fde8ddecb889b4c5a5d878ea78814c0f777857c49b2dec24182e0a1204d8"
+    },
+    "data/processed/gt_v1_acceptance/gt_triangle.npz": {
+      "mode": "raw_bytes",
+      "sha256": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8"
+    },
+    "data/processed/gt_v1_acceptance/manifest.json": {
+      "mode": "canonical_semantic_json",
+      "sha256": "9a1c9e31a1f7340a411ba5801d7ceb8b494257908cad2f8268fb001b4d3a1991"
+    },
+    "outputs/tables/n0_cv_e_v3_diagnostic_set.npz": {
+      "mode": "raw_bytes",
+      "sha256": "a34b51cd48349c2bc5213a3c905e18d6640cdd305f87c05d944301882f478cfe"
+    },
+    "outputs/tables/n0_fixed_diagnostic_points_v1.npz": {
+      "mode": "raw_bytes",
+      "sha256": "5a2d64cba87d1af6f34df128334636c1a5b9207760a604590f1f69ff29d5f883"
+    },
+    "outputs/tables/n0_r_v2_evidence_integrity_audit.json": {
+      "mode": "canonical_semantic_json",
+      "sha256": "6c779497d5db1d5030e91ef19eef8993f9b40067d1e247da25645f52ea744369"
+    },
+    "scripts/audit_n0_r_v2_evidence_integrity.py": {
+      "mode": "canonical_lf",
+      "sha256": "b9f2d557c0b2586553887bac9a16b6eaa71e6d04e62d5d956ef4c137588aa9e6"
+    },
+    "scripts/build_n0_cv_e_v3_evidence.py": {
+      "mode": "canonical_lf",
+      "sha256": "bc282ebea9074cc6be1ca9fde4fce6d071b9669ddc1f680495a7c8e564dd38ee"
+    },
+    "scripts/run_n0_cv_e_v3_preflight.py": {
+      "mode": "canonical_lf",
+      "sha256": "8fe0d8d3943e095b843f8e91fffb2f127afe643d881ee6d737f042dc6e42584f"
+    },
+    "scripts/train_n0_cv_e_v3.py": {
+      "mode": "canonical_lf",
+      "sha256": "4302965046266bde68c8f5f8783eddd29fb24416adf00a14dbd81d56fa619d10"
+    },
+    "src/pinnpcm/physics/conductivity.py": {
+      "mode": "canonical_lf",
+      "sha256": "7a851d00b77370876199ec2af371aefd4a7839ba2b576fe96438baa59c3b9a2b"
+    },
+    "src/pinnpcm/physics/electrostatics.py": {
+      "mode": "canonical_lf",
+      "sha256": "70a0aaaed22531f4026dd754dc3f2872536f6423b14227ab02e5509cebe81269"
+    },
+    "src/pinnpcm/physics/gt_solver.py": {
+      "mode": "canonical_lf",
+      "sha256": "94b900626be61827a5137670576142703a4700b67ac449702cc83f47b5f050d8"
+    },
+    "src/pinnpcm/physics/params.py": {
+      "mode": "canonical_lf",
+      "sha256": "a8fc571c7a83935e9a19fc94ada02e5d1bfc2118282186da2c4152967699d1f9"
+    },
+    "src/pinnpcm/pinn/full_pinn_n0_cv_e.py": {
+      "mode": "canonical_lf",
+      "sha256": "4b5cdb581058b438d8977119de2df1477c7ff958c9d786f7fa3e81d9001bf8d1"
+    },
+    "src/pinnpcm/pinn/n0_cv_evidence.py": {
+      "mode": "canonical_lf",
+      "sha256": "45c845d06c0a8acc42a78e4ba7afb5d3d34249e696dcc31c5c77ecc522c361d9"
+    }
+  },
+  "locked_gate_coverage": {
+    "bounded_states_required": "training.gates.checks.bounded_states",
+    "current_spatial_spread_max": "preflight.checks.current_spread",
+    "cv_rhs_relative_rms_max": "preflight.checks.cv_rhs_parity",
+    "defect_mass_ledger_max": "training.gates.checks.defect_ledger",
+    "discrete_electrical_rms_max": "training.gates.checks.discrete_electrical",
+    "electrostatics_float64_relative_error_max": "preflight.checks.electrostatics_parity",
+    "field_score_only_nrmse95_max": "training.gates.checks.fields",
+    "finite_operator_outputs_required": "preflight.checks.finite_operator_outputs",
+    "finite_outputs_required": "training.gates.checks.finite_outputs",
+    "frozen_gt_hash_unchanged_required": "preflight.checks.frozen_gt_hash",
+    "frozen_trajectory_defect_ledger_max": "preflight.checks.frozen_defect_ledger",
+    "frozen_trajectory_energy_ledger_max": "preflight.checks.frozen_energy_ledger",
+    "gate_coverage_complete_required": "preflight.checks.gate_coverage_complete",
+    "global_energy_imbalance_max": "training.gates.checks.energy_ledger",
+    "gradient_central_difference_relative_error_max": "preflight.checks.gradient_parity",
+    "gradient_finite_required": "preflight.checks.gradient_finite",
+    "gradient_nonzero_norm_min": "preflight.checks.gradient_nonzero",
+    "hash_and_operator_gates_required": "training.gates.checks.hash_and_operator",
+    "ic_bc_max_normalized_error": "preflight.checks.ic_bc",
+    "interface_flux_rms_max": "training.gates.checks.interface_flux",
+    "interface_state_rms_max": "training.gates.checks.interface_state",
+    "minimum_passing_seeds": "training.seed_vote.minimum_passing_seeds",
+    "negative_candidate_separation_required": "preflight.checks.negative_candidate_separation",
+    "old_fixed_points_hash_unchanged_required": "preflight.checks.old_fixed_points_hash",
+    "phase_a_completed_required": "preflight.checks.phase_a_completed",
+    "port_full_trace_nrmse95_max": "training.gates.checks.port",
+    "radau_replay_relative_rms_max": "preflight.checks.radau_replay",
+    "residual_rms_max": "training.gates.checks.cv_residuals",
+    "result_ic_bc_max_normalized_error": "training.gates.checks.ic_bc",
+    "result_keys_complete_required": "preflight.checks.result_keys_complete",
+    "roundtrip_relative_error_max": "preflight.checks.dimensionless_roundtrip",
+    "terminal_current_conservation_max": "training.gates.checks.current_conservation",
+    "total_seeds": "training.seed_vote.total_seeds"
+  },
+  "locked_preflight_gates": {
+    "current_spatial_spread_max": 1e-07,
+    "cv_rhs_relative_rms_max": 1e-06,
+    "electrostatics_float64_relative_error_max": 1e-07,
+    "finite_operator_outputs_required": true,
+    "frozen_gt_hash_unchanged_required": true,
+    "frozen_trajectory_defect_ledger_max": 0.01,
+    "frozen_trajectory_energy_ledger_max": 0.05,
+    "gate_coverage_complete_required": true,
+    "gradient_central_difference_relative_error_max": 0.001,
+    "gradient_finite_required": true,
+    "gradient_nonzero_norm_min": 1e-12,
+    "ic_bc_max_normalized_error": 0.001,
+    "negative_candidate_separation_required": true,
+    "old_fixed_points_hash_unchanged_required": true,
+    "phase_a_completed_required": true,
+    "radau_replay_relative_rms_max": 1e-05,
+    "result_keys_complete_required": true,
+    "roundtrip_relative_error_max": 1e-12
+  },
+  "locked_result_gates": {
+    "bounded_states_required": true,
+    "defect_mass_ledger_max": 0.01,
+    "discrete_electrical_rms_max": 0.01,
+    "field_score_only_nrmse95_max": 0.25,
+    "finite_outputs_required": true,
+    "global_energy_imbalance_max": 0.05,
+    "hash_and_operator_gates_required": true,
+    "interface_flux_rms_max": 0.05,
+    "interface_state_rms_max": 0.05,
+    "minimum_passing_seeds": 2,
+    "port_full_trace_nrmse95_max": 0.1,
+    "residual_rms_max": 0.01,
+    "result_ic_bc_max_normalized_error": 0.001,
+    "terminal_current_conservation_max": 0.01,
+    "total_seeds": 3
+  },
+  "locked_stop_rules": [
+    "any_phase_a_operator_ledger_negative_or_icbc_failure_blocks_training",
+    "single_seed_failure_blocks_seed_expansion",
+    "physics_or_ledger_failure_blocks_sparse_anchor",
+    "no_posthoc_gate_hash_scale_or_sampling_change",
+    "v3_failure_closes_N0_and_returns_to_calibrated_gamma_sub_mainline",
+    "no_N1_N2_N3_SC_LOS_operator_learning_UQ_2D_external_fit"
+  ],
+  "locked_training": {
+    "causal_stages": [
+      {
+        "epochs": 300,
+        "t_norm_max": 0.25
+      },
+      {
+        "epochs": 300,
+        "t_norm_max": 0.5
+      },
+      {
+        "epochs": 300,
+        "t_norm_max": 0.75
+      },
+      {
+        "epochs": 300,
+        "t_norm_max": 1.0
+      }
+    ],
+    "epochs": 1200,
+    "expansion_seeds": [
+      20260716,
+      20260717
+    ],
+    "full_field_training": false,
+    "gradient_clip_norm": 100.0,
+    "gradient_statistics_balancing_arm": {
+      "maximum_arms": 1,
+      "network_change_forbidden": true,
+      "normalization_change_forbidden": true,
+      "preregistered": true,
+      "run_only_after_primary_optimization_pathology": true,
+      "sampling_change_forbidden": true,
+      "weight_clip": [
+        0.1,
+        10.0
+      ],
+      "weight_rule": "inverse_initial_gradient_norm_clipped"
+    },
+    "lbfgs": {
+      "enabled": true,
+      "history_size": 20,
+      "max_iter": 40,
+      "tolerance_change": 1e-12,
+      "tolerance_grad": 1e-09
+    },
+    "learning_rate": 0.001,
+    "loss_weights": {
+      "defect_mass_ledger": 1.0,
+      "discrete_electrical": 1.0,
+      "energy_ledger": 1.0,
+      "r_T": 1.0,
+      "r_c": 1.0,
+      "r_m": 1.0
+    },
+    "mode": "data_free_control_volume_full_pinn",
+    "optimizer": "Adam",
+    "port_label_training": false,
+    "seed": 20260715,
+    "sparse_anchor": {
+      "allowed_only_if_all_physics_ledgers_pass_and_only_port_or_field_fails": true,
+      "preregistered_for_this_round": false
+    }
+  },
+  "old_fixed_points": {
+    "content_sha256": "80e34ca549d86588d12ffbcde4a304e378197dba602bcccc6e4e7d1ead932731",
+    "raw_sha256": "5a2d64cba87d1af6f34df128334636c1a5b9207760a604590f1f69ff29d5f883"
+  },
+  "schema_version": "n0_cv_e_v3_preregistration_v1",
+  "status": "locked_before_preflight_and_training"
+}

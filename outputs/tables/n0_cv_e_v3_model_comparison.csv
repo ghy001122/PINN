@@ -1,0 +1,4 @@
+model,evaluation_status,port_nrmse95,max_cv_residual,max_field_nrmse95,max_interface_state,terminal_current,defect_ledger,energy_ledger,normalization
+strongest_global_baseline,scored_common_frozen_registry,0.12376401247320011,2569.680633371854,0.4420256234130143,0.014491518767399335,3.914880467746821e-16,1.0,0.9998757973219249,single_frozen_dimensionless_registry
+e3f5765_split_repair,scored_common_frozen_registry,0.12035832990119828,500142.7307004532,1.1494688775426998,0.01647853285988853,3.630491723519531e-16,1.0,0.9998735348329717,single_frozen_dimensionless_registry
+n0_cv_e_v3_seed_20260715,unscored_runtime_failure_before_checkpoint,,,,,,,,preregistered_but_no_trajectory_available
