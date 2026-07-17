@@ -201,3 +201,16 @@ outputs/pinn_inverse_v1_1_smoke/*
 !outputs/tables/full_pinn_single_seed_mve_v1.json
 !outputs/tables/full_pinn_training_v1.json
 !outputs/tables/vo2_protocol_quotient_full_pinn_v2_summary.json
+
+# Lightweight, hash-locked N0-R evidence and fixed diagnostic points.
+!outputs/figures/full_pinn_n0_train_eval_gradient_v2.png
+!outputs/figures/full_pinn_n0_baseline_repair_gates_v2.png
+!outputs/tables/n0_teacher_equation_compatibility_v1.json
+!outputs/tables/n0_equation_parity_registry_v1.csv
+!outputs/tables/n0_global_conservation_audit_v1.json
+!outputs/tables/n0_fixed_diagnostic_points_v1.npz
+!outputs/tables/full_pinn_n0_baseline_diagnostics_v2.json
+!outputs/tables/full_pinn_n0_repair_v2_preregistration.json
+!outputs/tables/full_pinn_n0_repair_data_free_seed_20260715_v2.json
+!outputs/tables/n0_baseline_repair_gate_comparison_v2.csv
+!outputs/tables/n0_full_pinn_bounded_repair_v2_summary.json

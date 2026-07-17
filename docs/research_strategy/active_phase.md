@@ -1,53 +1,48 @@
 # Active Phase
 
-Active phase ID: `N0_FULL_PINN_NUMERICAL_REPAIR`
+Active phase ID: `N0_CV_LEDGER_REFORMULATION_PREFLIGHT`
 
 ## Current Phase
 
-`Q2 SCI delivery - bounded full-PINN residual/trajectory convergence diagnosis`
+`Q2 SCI delivery - solver-consistent full-PINN conservation preflight`
 
-The latest research requirement supersedes the former scheduling rule that treated neural methods as optional. A complete physics-informed neural network is an indispensable project and paper scaffold. Historical P0-P4 results, frozen GT v1.1, the claim matrix, and all failed artifacts remain unchanged facts.
+The bounded N0-R strong-form dual-domain repair is closed as `failed_but_informative`. Historical P0-P4, D0a, the original N0 failure, frozen GT v1.1, and all failed artifacts remain unchanged facts. A complete PINN remains an indispensable paper scaffold, but no positive trained-forward claim is available.
+
+The calibration-gated constrained `gamma_sub` rank-1 result remains the safe `qualified_supported` inverse mainline while N0 is unresolved.
 
 ## Manuscript Use
 
-Establish whether the versioned one-dimensional full-PINN path can satisfy the frozen synthetic forward gate before any sensitivity or inverse claim is attempted. The architecture contract is implemented, but the trained evidence is not yet supported.
+Decide whether one solver-consistent control-volume or weak-form residual formulation is sufficiently specified to justify a final bounded N0 MVE. Its purpose would be to close the gap between locally normalized strong-form residuals and the required terminal-current, defect-mass, and global-energy ledgers. It is a numerical consistency repair, not an interface/cPINN/XPINN innovation claim.
+
+## Closed N0-R Evidence
+
+- Original contract and seed `20260715` 1200-epoch baseline were reproduced exactly. The pre-repair full suite reported `199 passed in 244.49s`.
+- Four non-trivial manufactured cases pass. The reconstructed frozen FVM maximum normalized mass, energy, and current errors are at roundoff scale.
+- The v1 full PINN reverses the frozen teacher's electrical boundary orientation. The frozen `nx=31` material mask places the arithmetic interface face `0.18 dx` from declared `L_int`.
+- Controlled `nx=31 -> 63` solver-generated port NRMSE95 is `0.001225`; frozen GT was not modified.
+- The preregistered split repair has `5704` parameters versus the `5812`-parameter baseline, exact one-sided state/current/heat/defect traces, hard teacher-compatible electrical boundaries, hard dynamic-state initial conditions, and physical conductivity closure.
+- Seed `20260715` repair result: port `0.120358`; held-out `r_phi/r_c/r_T/r_m=0.006634/0.048286/0.027081/0.008616`; maximum field error `1.149469`; maximum exact-interface flux RMS `0.008965`; terminal-current error `0.519809`; global-energy imbalance `0.998556`.
+- Sparse-port anchor was not run because residual/current/energy gates failed. Seed expansion was not run because the data-free pilot failed.
+- N0 trained evidence remains `failed_but_informative`; reliable full-PINN forward evidence remains `forbidden`.
+
+Primary report: `docs/codex_reports/n0_full_pinn_bounded_repair_v2_report.md`.
+
+Machine summary: `outputs/tables/n0_full_pinn_bounded_repair_v2_summary.json`.
 
 ## Single Active Bottleneck
 
-Diagnose the N0 single-seed failure without changing the frozen GT or preregistered thresholds. The minimum bounded audit must separate:
+Produce a no-training equation/config preflight for at most one solver-consistent N0 residual formulation. It must:
 
-1. collocation generalization error from training-point loss;
-2. physical residual scaling/gradient conflict;
-3. bilayer-interface and endpoint-flux contributions;
-4. data-free forward non-uniqueness versus optimization failure.
+1. reuse fixed-point content SHA `80e34ca549d86588d12ffbcde4a304e378197dba602bcccc6e4e7d1ead932731`;
+2. express face-current, heat, and defect fluxes with the frozen FVM arithmetic-face semantics or an explicitly quantified conservative alternative;
+3. include terminal-current, defect-mass, and energy ledgers in the residual contract;
+4. keep frozen full fields score-only and forbid port anchoring until all physics/conservation gates pass;
+5. retain the existing seeds, matched budget, and unchanged operational gates.
 
-No N1 solver-sensitivity, N2 PINN-sensitivity, or N3 inverse work may run until at least 2/3 fixed N0 seeds satisfy the unchanged gate.
+No training is authorized merely by this status file. A new config and code/equation hash lock must precede any MVE.
 
-## Locked Execution Evidence
+## Stop And Claim Boundary
 
-- D0a: `failed_but_informative`. Author-code/SI semantic parity passed, but 5 ns versus 2.5 ns full-trace current NRMSE95 was `0.163148`, above the preregistered `0.01` convergence gate.
-- D0b-D0d: not run. No fit lock exists, and 13 V numerical content remains sealed.
-- N0 contract audit: `supported` as an implementation fact; manufactured equilibrium residuals are zero and hard electrical/initial constraints pass.
-- N0 trained MVE: `failed_but_informative`; the positive forward claim remains `forbidden`. At 1200 epochs, port NRMSE95 was `0.123764` versus `0.10`; normalized `r_phi/r_c/r_T/r_m` RMS values were `0.012564/0.020203/0.019372/0.012172` versus `0.01` each.
-- N1-N3: not run because the N0 upstream gate failed.
-- Historical calibration-gated constrained `gamma_sub` rank-1 result: remains the safe `qualified_supported` inverse result.
-- P1: remains `failed_but_informative`; no multidomain, 2D, face-flux, or interface-innovation claim is activated by the N0 implementation.
+Do not re-tune the completed strong-form branch. If a solver-consistent residual cannot be specified without changing frozen GT or relaxing gates, stop N0 training and preserve the negative result in the manuscript.
 
-Primary evidence is in `docs/codex_reports/vo2_protocol_quotient_full_pinn_v2_report.md` and `outputs/tables/vo2_protocol_quotient_full_pinn_v2_summary.json`.
-
-## Completion Gate
-
-Use the existing N0 gate without relaxation:
-
-- manufactured normalized residual RMS `<=0.01`;
-- IC/BC maximum normalized error `<=0.001`;
-- at least 2/3 fixed seeds with port full-trace NRMSE95 `<=0.10` and all four normalized residual RMS values `<=0.01`;
-- finite physical states and unchanged frozen GT hashes.
-
-If the bounded diagnosis cannot produce a preregistered repair proposal without changing the physics or thresholds, retain the N0 failure and frame the neural result as a limitation. Do not enter inverse work.
-
-## Claim Boundary
-
-Allowed now: a complete versioned 1D architecture contract was implemented and its first data-free synthetic training MVE failed the strict forward gate.
-
-Forbidden now: reliable full-PINN forward evidence, PINN sensitivity fidelity, raw or quotient inverse recovery, protocol-dependent identifiability, independent external validation, or experimental validation.
+SC-LOS and N1-N3 remain blocked. Allowed wording is limited to the supported teacher-equation audit, the supported exact-trace implementation fact, and the failed trained-forward boundary. Reliable full-PINN forward evidence, sensitivity fidelity, quotient inverse recovery, protocol-dependent identifiability, independent external validation, and experimental validation remain `forbidden`.

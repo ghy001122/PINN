@@ -5,10 +5,10 @@
 Read this file and `docs/research_strategy/active_phase.md` first. Load longer context through `docs/research_strategy/context_loading_policy.md`.
 
 - Authoritative goal: `PROJECT_GOAL.md`
-- Phase ID: `N0_FULL_PINN_NUMERICAL_REPAIR`
+- Phase ID: `N0_CV_LEDGER_REFORMULATION_PREFLIGHT`
 - Current evidence: `docs/project_state/current_evidence_index.md`
 - Safe historical evidence lock: `d1121e16fa5015a297da468e3e6f0504b9e97d17`
-- Current report: `docs/codex_reports/vo2_protocol_quotient_full_pinn_v2_report.md`
+- Current report: `docs/codex_reports/n0_full_pinn_bounded_repair_v2_report.md`
 
 ## Corrected North Star
 
@@ -18,7 +18,7 @@ D0 public VO2 work is a reality/identifiability bridge, not a substitute for PIN
 
 ## Single Active Bottleneck
 
-`N0_FULL_PINN_NUMERICAL_REPAIR`: diagnose why the versioned complete 1D PINN contract passes manufactured/IC/BC checks while its fixed single-seed training MVE fails the frozen synthetic port and residual gates. Do not run N1-N3 until N0 passes in at least 2/3 fixed seeds.
+`N0_CV_LEDGER_REFORMULATION_PREFLIGHT`: the one allowed strong-form dual-domain repair is closed as `failed_but_informative`. Before any further training, decide through a new preregistration whether a solver-consistent control-volume/weak-form N0 residual can train face-flux and global ledgers directly. Do not run SC-LOS or N1-N3 until N0 passes in at least 2/3 fixed seeds.
 
 ## Evidence Snapshot
 
@@ -30,8 +30,9 @@ D0 public VO2 work is a reality/identifiability bridge, not a substitute for PIN
 - P4: positive claims `forbidden`.
 - D0a: `failed_but_informative`; source/SI parity passes, but 5-to-2.5 ns NRMSE95 is `0.163148 > 0.01`.
 - D0b-D0d: not run; no fit lock; 13 V remains sealed.
-- N0 contract: implemented and preflight passed.
-- N0 trained evidence: `failed_but_informative`; port NRMSE95 `0.123764`; all four residual RMS values exceed `0.01`.
+- N0 teacher-equation audit: `supported`. Four non-trivial manufactured cases and the reconstructed frozen FVM mass/energy/current ledgers pass; the v1 PINN electrode orientation conflicts with the frozen teacher, and the frozen arithmetic interface face is offset `0.18 dx` from declared `L_int`.
+- N0 dual-domain repair implementation: `supported` as a code fact. It uses `5704` parameters versus the `5812`-parameter baseline and exact one-sided state/current/heat/defect traces.
+- N0 trained evidence: `failed_but_informative`. The fixed seed repair has port NRMSE95 `0.120358`; held-out `r_phi/r_c/r_T/r_m=0.006634/0.048286/0.027081/0.008616`; terminal-current error `0.519809`; energy imbalance `0.998556`. No anchor or seed expansion was authorized.
 - N1-N3: not run and positive claims `forbidden`.
 
 ## Evidence Semantics

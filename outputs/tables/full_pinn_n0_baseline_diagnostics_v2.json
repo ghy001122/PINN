@@ -1,0 +1,211 @@
+{
+  "baseline_checkpoint_epochs": 1200,
+  "baseline_checkpoint_seed": 20260715,
+  "baseline_training_status": "mve_fail_reproduced",
+  "claim_status": "failed_but_informative",
+  "created_at_utc": "2026-07-17T04:44:03.614486+00:00",
+  "evidence_boundary": "Frozen fields were used only after loading the already-trained checkpoint.",
+  "fixed_points": {
+    "content_sha256": "80e34ca549d86588d12ffbcde4a304e378197dba602bcccc6e4e7d1ead932731",
+    "file_sha256": "5a2d64cba87d1af6f34df128334636c1a5b9207760a604590f1f69ff29d5f883",
+    "path": "E:/Python demo/PINN/outputs/tables/n0_fixed_diagnostic_points_v1.npz"
+  },
+  "fixed_points_content_sha256_recomputed": "80e34ca549d86588d12ffbcde4a304e378197dba602bcccc6e4e7d1ead932731",
+  "git_commit": "583cb441687001c7df9a8ee9d4d5cf45258f8efb",
+  "git_dirty": true,
+  "hashes": {
+    "configs/full_pinn_architecture_v1.yaml": "bba90ae2d84a3e056aee3241647c9382aac351c489d52a71f0ac0739e7b5da66",
+    "configs/full_pinn_n0_repair_v2.yaml": "864b9b4405e801dfe6f352282bfd3554029c3bc814afe6f0bb83c9a8b3119a7c",
+    "configs/gt_v1_acceptance_ltp_ltd.yaml": "f1f71f21f1d0d27532eead23a3a4b71b0864e6b0966e564104dcffd7040c1d93",
+    "configs/gt_v1_acceptance_triangle.yaml": "f2e6bec6006827344bebddcf20519b5b87f923b349a8799596d06e9f254a2b02",
+    "data/processed/gt_v1_acceptance/gt_ltp_ltd.npz": "772d17178c77392bf8a0813ada3db4a7241c5fa4e6d72e091894271bfa13c247",
+    "data/processed/gt_v1_acceptance/gt_triangle.npz": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8",
+    "data/processed/gt_v1_acceptance/manifest.json": "634554429b9e61a231e47bf35b9b5c66c1c316e5e11a86bde0540b05ff5ae30f",
+    "data/processed/gt_v1_acceptance/obs_ltp_ltd_sparse.npz": "7155bff7c406fab49e9670fa8a73ab6d0063459a80feb705138e3fe61a351645",
+    "data/processed/gt_v1_acceptance/obs_triangle_sparse.npz": "f45daf53136a255b3666ebeb56e6298ce148a613c46fa596b795e7ade68ea602",
+    "data/processed/gt_v1_acceptance/params_gt_v1.json": "1020e9b07466c8f3474762702aa354cf6a6b73da26deb31d3f75c7e54521d9fa",
+    "docs/gt_v1_acceptance_report.md": "0f72718affb84f727771f8d4a1a16afb9d7c0d15bd7984632b3beb8155f91643",
+    "outputs/checkpoints/full_pinn_v1/seed_20260715_epochs_1200.pt": "ed7c0f8e6995ab3b8c9de5b21106a629df49fea5cf1a2d66764b742f8942f2ea",
+    "outputs/tables/n0_fixed_diagnostic_points_v1.npz": "5a2d64cba87d1af6f34df128334636c1a5b9207760a604590f1f69ff29d5f883",
+    "scripts/diagnose_full_pinn_n0.py": "1652f1fefed2f9d10fe30d9812e4ecc68b17c974b9f327d73bb883a8e3ffa543",
+    "scripts/train_full_pinn_1d.py": "a968a059cf065a84d306b84430e0eb9fabecd63f96d0f1541ca76a21c7b285ed",
+    "src/pinnpcm/physics/conductivity.py": "7a851d00b77370876199ec2af371aefd4a7839ba2b576fe96438baa59c3b9a2b",
+    "src/pinnpcm/physics/electrostatics.py": "70a0aaaed22531f4026dd754dc3f2872536f6423b14227ab02e5509cebe81269",
+    "src/pinnpcm/physics/gt_solver.py": "94b900626be61827a5137670576142703a4700b67ac449702cc83f47b5f050d8",
+    "src/pinnpcm/physics/params.py": "a8fc571c7a83935e9a19fc94ada02e5d1bfc2118282186da2c4152967699d1f9",
+    "src/pinnpcm/pinn/full_pinn_1d.py": "faf1c14353852d0fe73c168f38882c43e2b78aee3ea3d421f874110a7064ff1d",
+    "src/pinnpcm/pinn/full_residuals_1d.py": "c316921ff1981938eed97aa66848ab53966ae70ae517a7e85738badb2b890416",
+    "src/pinnpcm/pinn/n0_diagnostics.py": "3c792cce18a10091c0f5a9a66d4c18a42051c480bd37f33e2148a10e503e55dc"
+  },
+  "machine_summary": {
+    "cuda_available": false,
+    "device": "cpu",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.9",
+    "torch": "2.3.1+cpu"
+  },
+  "metrics": {
+    "boundary_rms": {
+      "defect_left": 0.012570991180837154,
+      "defect_right": 0.0034793743398040533,
+      "heat_left": 0.0005539715057238936,
+      "heat_right": 0.0006550928810611367,
+      "phi_left": 0.0,
+      "phi_right": 0.0
+    },
+    "defect_mass_account_normalized_imbalance": 0.9964935611276232,
+    "field_score_only_nrmse95": {
+      "T": 0.4420256234130143,
+      "c_v": 0.4389949689518076,
+      "m": 0.2384509895260175,
+      "phi": 0.3301203187347753,
+      "sigma": 0.2900182888212933
+    },
+    "finite_outputs": true,
+    "global_energy_account_normalized_imbalance": 0.9618644474083736,
+    "gradient_diagnostics": {
+      "cosine_matrix": {
+        "boundary": {
+          "boundary": 1.0000001192092896,
+          "interface_proxy": -0.21108803153038025,
+          "r_T": -0.25638341903686523,
+          "r_c": -0.09890438616275787,
+          "r_m": 0.1200377568602562,
+          "r_phi": 0.005818902514874935
+        },
+        "interface_proxy": {
+          "boundary": -0.21108803153038025,
+          "interface_proxy": 1.0,
+          "r_T": 0.0006248849676921964,
+          "r_c": -0.27248242497444153,
+          "r_m": 0.15726757049560547,
+          "r_phi": -0.04621731862425804
+        },
+        "r_T": {
+          "boundary": -0.25638341903686523,
+          "interface_proxy": 0.0006248849676921964,
+          "r_T": 1.000000238418579,
+          "r_c": 4.8220510507235304e-05,
+          "r_m": -0.017988283187150955,
+          "r_phi": -0.10738902539014816
+        },
+        "r_c": {
+          "boundary": -0.09890438616275787,
+          "interface_proxy": -0.27248242497444153,
+          "r_T": 4.8220510507235304e-05,
+          "r_c": 1.0000001192092896,
+          "r_m": -0.5063493251800537,
+          "r_phi": 0.020609406754374504
+        },
+        "r_m": {
+          "boundary": 0.1200377568602562,
+          "interface_proxy": 0.15726757049560547,
+          "r_T": -0.017988283187150955,
+          "r_c": -0.5063493251800537,
+          "r_m": 1.0,
+          "r_phi": -0.32781827449798584
+        },
+        "r_phi": {
+          "boundary": 0.005818902514874935,
+          "interface_proxy": -0.04621731862425804,
+          "r_T": -0.10738902539014816,
+          "r_c": 0.020609406754374504,
+          "r_m": -0.32781827449798584,
+          "r_phi": 1.0000003576278687
+        }
+      },
+      "gradient_norms": {
+        "boundary": 0.0004540054651442915,
+        "interface_proxy": 0.0031532805878669024,
+        "r_T": 0.38665643334388733,
+        "r_c": 0.0032275202684104443,
+        "r_m": 0.004351284820586443,
+        "r_phi": 0.002066507935523987
+      },
+      "negative_cosine_pairs": [
+        {
+          "cosine": -0.5063493251800537,
+          "first": "r_c",
+          "second": "r_m"
+        },
+        {
+          "cosine": -0.10738902539014816,
+          "first": "r_T",
+          "second": "r_phi"
+        },
+        {
+          "cosine": -0.017988283187150955,
+          "first": "r_T",
+          "second": "r_m"
+        },
+        {
+          "cosine": -0.32781827449798584,
+          "first": "r_m",
+          "second": "r_phi"
+        },
+        {
+          "cosine": -0.09890438616275787,
+          "first": "boundary",
+          "second": "r_c"
+        },
+        {
+          "cosine": -0.25638341903686523,
+          "first": "boundary",
+          "second": "r_T"
+        },
+        {
+          "cosine": -0.21108803153038025,
+          "first": "boundary",
+          "second": "interface_proxy"
+        },
+        {
+          "cosine": -0.04621731862425804,
+          "first": "interface_proxy",
+          "second": "r_phi"
+        },
+        {
+          "cosine": -0.27248242497444153,
+          "first": "interface_proxy",
+          "second": "r_c"
+        }
+      ]
+    },
+    "heldout_residual_rms": {
+      "r_T": 0.017261337488889694,
+      "r_c": 0.019630316644906998,
+      "r_m": 0.010560005903244019,
+      "r_phi": 0.010588266886770725
+    },
+    "interface_flux_rms": {
+      "current": 0.002600966254249215,
+      "defect": 0.09638587385416031,
+      "heat": 0.00030679890187457204
+    },
+    "interface_semantics": "finite-band proxy from one smooth network; not an exact trace",
+    "interface_state_rms": {
+      "T": 2.892637439799728e-06,
+      "c_v": 0.00019449090177658945,
+      "m": 0.0019341419683769345,
+      "phi": 0.002742632757872343
+    },
+    "model_role": "current_single_global_network_baseline",
+    "parameter_count": 5812,
+    "physical_state_bounds": true,
+    "port_full_trace_nrmse95": 0.12376401394385624,
+    "terminal_current_conservation_normalized_error": 1.9874867980337114,
+    "train_residual_rms": {
+      "r_T": 0.02092578262090683,
+      "r_c": 0.019224276766180992,
+      "r_m": 0.011441634967923164,
+      "r_phi": 0.012665011920034885
+    },
+    "worst_time_window_current_error": {
+      "end_index_exclusive": 400,
+      "normalized_rmse": 0.3483023321092257,
+      "start_index": 360
+    }
+  },
+  "reproduction_test_result": "199 passed in 244.49s",
+  "schema_version": "full_pinn_n0_baseline_diagnostics_v2",
+  "stage_id": "N0-R"
+}

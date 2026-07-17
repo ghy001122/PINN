@@ -1,0 +1,143 @@
+{
+  "base_commit": "583cb441687001c7df9a8ee9d4d5cf45258f8efb",
+  "baseline_status": "failed_but_informative",
+  "claim_changes": {
+    "N0_trained_forward_evidence": "failed_but_informative",
+    "SC_LOS_or_N1_N3_authorized": false,
+    "exact_interface_implementation": "supported as an implementation fact",
+    "reliable_full_PINN_forward_claim": "forbidden",
+    "single_seed_exact_interface_metrics": "pilot sub-result only; no manuscript upgrade",
+    "teacher_equation_compatibility_audit": "supported as a no-training numerical audit"
+  },
+  "comparison_table": [
+    {
+      "baseline": 0.12376401394385624,
+      "gate": 0.1,
+      "metric": "port_full_trace_nrmse95",
+      "repair": 0.12035832244525033
+    },
+    {
+      "baseline": 0.019630316644906998,
+      "gate": 0.01,
+      "metric": "max_heldout_residual_rms",
+      "repair": 0.04828565940260887
+    },
+    {
+      "baseline": 0.4420256234130143,
+      "gate": 0.25,
+      "metric": "max_field_score_only_nrmse95",
+      "repair": 1.1494688775426998
+    },
+    {
+      "baseline": 0.09638587385416031,
+      "gate": 0.05,
+      "metric": "max_interface_flux_rms",
+      "repair": 0.008965015411376953
+    },
+    {
+      "baseline": 1.9874867980337114,
+      "gate": 0.01,
+      "metric": "terminal_current_conservation",
+      "repair": 0.5198086500060433
+    },
+    {
+      "baseline": 0.9618644474083736,
+      "gate": 0.05,
+      "metric": "global_energy_imbalance",
+      "repair": 0.9985563048378772
+    }
+  ],
+  "compatibility_findings": {
+    "frozen_discrete_conservation_pass": true,
+    "grid_31_63_port_nrmse95": 0.0012246445796208884,
+    "interface_face_offset_m": 5.806451612903228e-10,
+    "v1_electrical_orientation_mismatch": true
+  },
+  "compatibility_status": "repair_authorized",
+  "data_free_repair_metrics": {
+    "boundary_rms": {
+      "defect_left": 0.003927083685994148,
+      "defect_right": 0.0010052946163341403,
+      "heat_left": 0.0008348404662683606,
+      "heat_right": 0.0010079782223328948,
+      "phi_left": 0.0,
+      "phi_right": 0.0
+    },
+    "defect_mass_account_normalized_imbalance": 0.9966527566132855,
+    "field_score_only_nrmse95": {
+      "T": 0.16127762141334928,
+      "c_v": 1.1494688775426998,
+      "m": 0.30666157701590363,
+      "phi": 0.07438502659441554,
+      "sigma": 0.3158316249600806
+    },
+    "finite_outputs": true,
+    "global_energy_account_normalized_imbalance": 0.9985563048378772,
+    "heldout_residual_rms": {
+      "r_T": 0.02708056941628456,
+      "r_c": 0.04828565940260887,
+      "r_m": 0.008615963160991669,
+      "r_phi": 0.006634448189288378
+    },
+    "interface_flux_rms": {
+      "current": 0.008965015411376953,
+      "defect": 0.008160828612744808,
+      "heat": 0.000793683051597327
+    },
+    "interface_semantics": "independent exact left/right traces at declared L_int",
+    "interface_state_rms": {
+      "T": 0.01504966989159584,
+      "c_v": 0.0034202742390334606,
+      "m": 0.008375032804906368,
+      "phi": 0.0053015598095953465
+    },
+    "model_role": "matched_budget_dual_domain_conservative_full_pinn",
+    "parameter_count": 5704,
+    "physical_state_bounds": true,
+    "port_full_trace_nrmse95": 0.12035832244525033,
+    "terminal_current_conservation_normalized_error": 0.5198086500060433,
+    "train_residual_rms": {
+      "r_T": 0.009251135401427746,
+      "r_c": 0.0460217222571373,
+      "r_m": 0.009270403534173965,
+      "r_phi": 0.007533010095357895
+    },
+    "worst_time_window_current_error": {
+      "end_index_exclusive": 400,
+      "normalized_rmse": 0.33080023470999825,
+      "start_index": 360
+    }
+  },
+  "data_free_repair_status": "failed_but_informative",
+  "date": "2026-07-17",
+  "fixed_points_content_sha256": "80e34ca549d86588d12ffbcde4a304e378197dba602bcccc6e4e7d1ead932731",
+  "frozen_fvm_ledger": {
+    "max_current_spread": 6.965180579167115e-17,
+    "max_energy_imbalance": 2.684466477981651e-16,
+    "max_mass_imbalance": 3.197410968680222e-16
+  },
+  "gate_checks": {
+    "all_pass": false,
+    "checks": {
+      "current_conservation": false,
+      "endpoint_flux": true,
+      "energy_conservation": false,
+      "fields": false,
+      "finite_states": true,
+      "heldout_residuals": false,
+      "interface_flux": true,
+      "interface_state": true,
+      "physical_bounds": true,
+      "port": false
+    }
+  },
+  "next_single_recommendation": "Do not enter SC-LOS. If a new round is approved, preregister one solver-consistent control-volume/weak-form N0-R2 MVE that trains face-flux and global ledgers directly on the same frozen diagnostic set.",
+  "preregistration_config_sha256": "864b9b4405e801dfe6f352282bfd3554029c3bc814afe6f0bb83c9a8b3119a7c",
+  "route": {
+    "N1_N3_run": false,
+    "anchor_run": false,
+    "reason": "residual/current/energy conditions did not authorize expansion",
+    "seed_expansion_run": false
+  },
+  "schema_version": "n0_full_pinn_bounded_repair_v2_summary"
+}

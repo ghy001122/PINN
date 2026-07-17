@@ -3,16 +3,16 @@
 ## Authoritative Current Snapshot
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
-- Active phase ID: `N0_FULL_PINN_NUMERICAL_REPAIR`.
+- Active phase ID: `N0_CV_LEDGER_REFORMULATION_PREFLIGHT`.
 - Frozen GT v1.1: unchanged and read-only.
 - Complete PINN policy: mandatory architecture/paper scaffold; positive claims remain evidence-gated.
 - Safe manuscript inverse result: calibration-gated rank-1 `gamma_sub`, `qualified_supported` under its existing synthetic conditions.
 - Project-generated experimental validation: absent.
 - Public VO2 result: D0a `failed_but_informative`; source/SI semantics agree, but time-step convergence fails.
 - 13 V: still sealed; no fit lock, refit, cross-voltage evaluation, or independent external validation exists.
-- N0: architecture/manufactured preflight passes, trained single-seed MVE fails. Full-PINN forward evidence remains `forbidden`.
+- N0: teacher/FVM compatibility audit passes and exposes the v1 electrode-orientation mismatch; a preregistered matched-budget exact-trace dual-domain repair still fails residual, field, current, energy, and port gates. Full-PINN forward evidence remains `forbidden`.
 - N1-N3: not run because the N0 gate failed.
-- Execution base commit: `73571ee7a6e69545b67d516654ccfbfa653323eb`.
+- N0-R execution base commit: `583cb441687001c7df9a8ee9d4d5cf45258f8efb`.
 
 ## Current Gate Ledger
 
@@ -26,8 +26,9 @@
 | P4 | `forbidden` | No full STL or universal Fourier/F-SPS superiority. |
 | D0a | `failed_but_informative` | Source/SI parity passes; 5-to-2.5 ns NRMSE95 `0.163148 > 0.01`. |
 | D0b-D0d | `forbidden` as completed evidence | Not run after D0a stop; 13 V remains sealed. |
-| N0 implementation contract | `supported` as code fact | State network, physics closure, residuals, IC/BC, interface diagnostics and port operator exist. |
-| N0 trained forward evidence | `failed_but_informative`; positive claim `forbidden` | Single-seed 1200-epoch MVE misses port and all residual gates. |
+| N0 teacher-equation compatibility | `supported` | Manufactured electrical/thermal/defect/bilayer cases and frozen FVM ledgers pass; v1 PINN reverses the teacher electrode orientation. |
+| N0 exact-trace dual-domain implementation | `supported` | `5704` versus `5812` parameters, local layer coordinates, global-SI derivatives, physical conductivity, and independent one-sided traces. |
+| N0 trained forward evidence | `failed_but_informative`; positive claim `forbidden` | Repair port `0.120358`; max held-out residual `0.048286`; current error `0.519809`; energy imbalance `0.998556`. Anchor and seed expansion were blocked. |
 | N1-N3 | `forbidden` | Not run; upstream N0 gate failed. |
 
 ## Distance To Delivery Goal
@@ -36,13 +37,13 @@
 | --- | --- | --- |
 | Frozen synthetic mainline and gamma-sub evidence | locked and preserved | Integrate without overclaiming |
 | Public-data realism anchor | provenance/source semantics available; D0a failed | Resolve numerical convergence before any refit or 13 V access |
-| Full 1D PINN scaffold | implementation exists | Pass unchanged N0 forward gate in 2/3 seeds |
+| Full 1D PINN scaffold | v1 and exact-trace split implementations exist; both trained MVEs fail | A solver-consistent residual must close local and global ledgers before 2/3-seed evidence |
 | Solver/PINN sensitivity evidence | absent | N1 and N2 blocked by N0 |
 | Conditional quotient inverse | absent | D0c/D0d and N1/N2 gates all required |
 | Complete manuscript/submission package | incomplete | Preserve failure-boundary figures/tables and finish only supported narrative |
 
 ## Current Single Priority
 
-Run one bounded N0 numerical diagnosis and produce a preregistered repair decision. Do not expand into D0 calibration, protocol effects, sensitivity, or inverse methods while N0 remains failed. The constrained `gamma_sub` result remains the safe fallback.
+Do not enter SC-LOS or N1-N3. The only admissible next N0 action is a no-training preregistration/preflight for a solver-consistent control-volume or weak-form residual that directly exposes face fluxes and global ledgers. It must reuse the fixed diagnostic set and unchanged gates; otherwise stop N0 tuning and retain the constrained `gamma_sub` fallback.
 
-Compact routing is in `docs/project_state/current_evidence_index.md`; the cumulative execution report is `docs/codex_reports/vo2_protocol_quotient_full_pinn_v2_report.md`.
+Compact routing is in `docs/project_state/current_evidence_index.md`; the current execution report is `docs/codex_reports/n0_full_pinn_bounded_repair_v2_report.md`.

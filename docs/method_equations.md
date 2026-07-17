@@ -365,3 +365,59 @@ G(t) = I(t) / [V(t)+eps_V].
 For the frozen GT, history is represented by continuous `m`; the explicit VO2 event ledger `(branch,T_r,m_r)` is declared but inactive. No learned event head is used. Frozen full fields are score-only and never training labels in N0.
 
 The equations and contract preflight are implementation facts. The trained N0 MVE failed its port and residual gates, so these equations currently support no positive full-PINN accuracy or inverse claim.
+
+## N0-R Teacher-Compatible Dual-Domain Audit
+
+The frozen GT electrostatic reconstruction uses the driven left electrode and grounded right electrode:
+
+$$
+\phi(0,t)=V(t),\qquad \phi(L_{\mathrm{eff}},t)=0,\qquad E=-\partial_x\phi.
+$$
+
+The v1 single-global-network transform used the opposite electrode orientation. N0-R preserves the historical implementation and evidence, but the new split diagnostic path uses the frozen-teacher orientation.
+
+For the declared interface $L_{\mathrm{int}}$, the layer-local coordinates are
+
+$$
+\xi_L=\frac{x}{L_{\mathrm{int}}},\qquad
+\xi_R=\frac{x-L_{\mathrm{int}}}{L_{\mathrm{eff}}-L_{\mathrm{int}}},
+$$
+
+and every spatial derivative is mapped back to SI coordinates through
+
+$$
+\partial_x=L_d^{-1}\partial_{\xi_d},\qquad d\in\{L,R\}.
+$$
+
+Independent one-sided traces impose the operational interface residuals
+
+$$
+[\phi]=[c_v]=[T]=[m]=0,
+$$
+
+$$
+[\sigma E]=[F_v]=[-k\partial_xT]=0.
+$$
+
+The preregistered layer-local normalization uses dimensional term sums rather than post-hoc rescaling:
+
+$$
+S_{\phi,d}=\frac{\sigma_{\mathrm{ref},d}V_*}{L_d^2},
+$$
+
+$$
+S_{c,d}=\frac{1}{t_*}+\frac{D_d}{L_d^2}
++\frac{0.25\mu_dV_*}{L_{\mathrm{eff}}L_d}+k_{r0},
+$$
+
+$$
+S_{T,d}=\frac{\rho C_pT_*}{t_*}+\frac{k_dT_*}{L_d^2}
++\sigma_{\mathrm{ref},d}\left(\frac{V_*}{L_{\mathrm{eff}}}\right)^2
++\gamma_{\mathrm{sub}}T_*,
+$$
+
+$$
+S_m=\frac{1}{t_*}+\frac{1}{\tau_m}.
+$$
+
+These are repository operational scales, not universal nondimensional laws. The N0-R single-seed run passed the local exact-interface gates but failed the held-out defect/thermal, terminal-current, energy, field, and port gates. Therefore this section supports an implementation and failure-boundary description only; it does not support reliable full-PINN forward evidence or interface novelty.

@@ -18,3 +18,4 @@ All tables report synthetic numerical digital-twin evidence unless explicitly ma
 | Supplementary Table | Literature evidence lock for stiffness and 2D positioning | `docs/literature/drive_and_web_literature_evidence_lock.md` |
 | Supplementary Table | VO2 D0a source discrepancies, provenance and stop-gate metrics | `outputs/tables/vo2_d0a_source_discrepancies.csv`; `outputs/tables/vo2_d0a_source_reproduction.json` |
 | Supplementary Table | Full-PINN N0 contract and failed single-seed MVE | `outputs/tables/full_pinn_contract_v1.json`; `outputs/tables/full_pinn_single_seed_mve_v1.json` |
+| Supplementary Table | N0-R teacher-equation compatibility, exact-trace repair, and gate comparison | `outputs/tables/n0_equation_parity_registry_v1.csv`; `outputs/tables/n0_global_conservation_audit_v1.json`; `outputs/tables/n0_baseline_repair_gate_comparison_v2.csv` |

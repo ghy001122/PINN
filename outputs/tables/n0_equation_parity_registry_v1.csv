@@ -1,0 +1,11 @@
+item,frozen_gt,continuous_full_pinn_v1,status,repair_requirement
+electrostatic_sign_and_boundary,E=-dphi/dx; stored phi decreases from V at x=0 to 0 at x=L,"E=-dphi/dx but hard phi(0)=0, phi(L)=V",incompatible_v1_boundary_orientation,use phi(0)=V and phi(L)=0 without changing GT
+terminal_operator,R_area=sum(dx/sigma); I=A_eff*V/R_area,R_area=L*mean(1/sigma); I=A_eff*V/R_area,compatible_on_uniform_cell_centres,none
+defect_transport,dc/dt=-div(-D grad c+mu c(1-c)E)-k(c-c0),dc/dt+div(F)+k(c-c0)=0,equation_compatible_if_electric_field_orientation_is_repaired,correct electrical boundary orientation
+heat_balance,"rhoCp dT/dt=-div(q)+J E-gamma(T-T0), q=-k grad T",rhoCp dT/dt+div(q)-sigma E^2+gamma(T-T0)=0,equation_compatible,enforce exact one-sided k-flux at the material interface
+phase_relaxation,dm/dt=(m_eq-m)/tau_m,dm/dt-(m_eq-m)/tau_m=0,compatible,none
+initial_conditions,"Gaussian c seed; T=T0; m=m_eq(c,T0)",same hard initial transforms,compatible,none
+endpoint_flux_boundaries,zero defect and heat face flux at both ends,zero defect and heat flux losses,compatible_but_not_hard_enforced,retain explicit endpoint flux gates
+bilayer_material_coefficients,cell centres x<=L_int use Nb-oxide values; remaining cells use V2O5 values,piecewise profiles at exact x=L_int inside one smooth network,coefficient_values_compatible_representation_not_conservative,use independent left/right traces and local coordinates
+interface_face_semantics,arithmetic face averages at a face offset 5.806452e-10 m from L_int,finite-band x_i+/-epsilon proxy from one smooth network,not_equivalent,exact interface traces; record continuum-discrete face offset
+cell_center_scoring_map,states and phi stored at cell centres,network evaluated at normalized frozen cell-centre coordinates,coordinate_compatible_after_phi_orientation_repair,do not treat cell-centre phi as electrode value

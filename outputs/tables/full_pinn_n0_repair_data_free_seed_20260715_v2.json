@@ -1,0 +1,1096 @@
+{
+  "config_path": "configs/full_pinn_n0_repair_v2.yaml",
+  "config_sha256": "864b9b4405e801dfe6f352282bfd3554029c3bc814afe6f0bb83c9a8b3119a7c",
+  "ended_at_utc": "2026-07-17T04:53:16.618095+00:00",
+  "fixed_points_content_sha256": "80e34ca549d86588d12ffbcde4a304e378197dba602bcccc6e4e7d1ead932731",
+  "git_commit": "583cb441687001c7df9a8ee9d4d5cf45258f8efb",
+  "git_dirty": true,
+  "machine_summary": {
+    "cuda_available": false,
+    "device": "cpu",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.9",
+    "torch": "2.3.1+cpu"
+  },
+  "preregistration_lock_sha256": "f8165620cefc092db9b69d3eddaf3d8429c0b5db64d22e2e0be3ccaf5fca9fdc",
+  "result": {
+    "checkpoint": "outputs/checkpoints/full_pinn_n0_repair_v2/data_free_seed_20260715.pt",
+    "checkpoint_sha256": "9c363c71c81d02f7fd4f607f5a41f6a462ccbde4b0446b89e9ca0e292db7299a",
+    "diagnostic_history": [
+      {
+        "block_losses": {
+          "endpoint_flux": 0.0010314519749954343,
+          "interface_flux": 1.7451671361923218,
+          "interface_state": 0.0009395190863870084,
+          "r_T": 0.5255202651023865,
+          "r_c": 7.070859282976016e-05,
+          "r_m": 0.0009711500024423003,
+          "r_phi": 0.00016296739340759814
+        },
+        "epoch": 0,
+        "gradient_cosine_matrix": {
+          "endpoint_flux": {
+            "endpoint_flux": 1.0000001192092896,
+            "interface_flux": -0.04449836537241936,
+            "interface_state": -0.006824163720011711,
+            "r_T": 0.628325879573822,
+            "r_c": -0.0017750272527337074,
+            "r_m": 0.04965188354253769,
+            "r_phi": 0.12083281576633453
+          },
+          "interface_flux": {
+            "endpoint_flux": -0.04449836537241936,
+            "interface_flux": 1.0000001192092896,
+            "interface_state": 0.08578693866729736,
+            "r_T": 0.012930749915540218,
+            "r_c": -0.019666189327836037,
+            "r_m": 0.00012093730765627697,
+            "r_phi": 0.43167048692703247
+          },
+          "interface_state": {
+            "endpoint_flux": -0.006824163720011711,
+            "interface_flux": 0.08578693866729736,
+            "interface_state": 1.0000001192092896,
+            "r_T": -0.016917265951633453,
+            "r_c": 0.013301229104399681,
+            "r_m": -0.02605714090168476,
+            "r_phi": 0.004438543226569891
+          },
+          "r_T": {
+            "endpoint_flux": 0.628325879573822,
+            "interface_flux": 0.012930749915540218,
+            "interface_state": -0.016917265951633453,
+            "r_T": 1.000000238418579,
+            "r_c": -0.0012380286352708936,
+            "r_m": 0.05078398063778877,
+            "r_phi": 0.1596611589193344
+          },
+          "r_c": {
+            "endpoint_flux": -0.0017750272527337074,
+            "interface_flux": -0.019666189327836037,
+            "interface_state": 0.013301229104399681,
+            "r_T": -0.0012380286352708936,
+            "r_c": 0.9999999403953552,
+            "r_m": -0.3692483603954315,
+            "r_phi": -0.0047320406883955
+          },
+          "r_m": {
+            "endpoint_flux": 0.04965188354253769,
+            "interface_flux": 0.00012093730765627697,
+            "interface_state": -0.02605714090168476,
+            "r_T": 0.05078398063778877,
+            "r_c": -0.3692483603954315,
+            "r_m": 1.0000001192092896,
+            "r_phi": 0.004323448520153761
+          },
+          "r_phi": {
+            "endpoint_flux": 0.12083281576633453,
+            "interface_flux": 0.43167048692703247,
+            "interface_state": 0.004438543226569891,
+            "r_T": 0.1596611589193344,
+            "r_c": -0.0047320406883955,
+            "r_m": 0.004323448520153761,
+            "r_phi": 0.9999998807907104
+          }
+        },
+        "gradient_norms": {
+          "endpoint_flux": 0.01825953647494316,
+          "interface_flux": 33.87001419067383,
+          "interface_state": 0.023449014872312546,
+          "r_T": 8.35531997680664,
+          "r_c": 0.000914360920432955,
+          "r_m": 0.0019918917678296566,
+          "r_phi": 0.0029563328716903925
+        },
+        "heldout_residual_rms": {
+          "r_T": 2.9846348762512207,
+          "r_c": 0.011416561901569366,
+          "r_m": 0.21185506880283356,
+          "r_phi": 0.014049503952264786
+        },
+        "negative_gradient_pairs": [
+          {
+            "cosine": -0.0047320406883955,
+            "first": "r_c",
+            "second": "r_phi"
+          },
+          {
+            "cosine": -0.3692483603954315,
+            "first": "r_c",
+            "second": "r_m"
+          },
+          {
+            "cosine": -0.0012380286352708936,
+            "first": "r_T",
+            "second": "r_c"
+          },
+          {
+            "cosine": -0.0017750272527337074,
+            "first": "endpoint_flux",
+            "second": "r_c"
+          },
+          {
+            "cosine": -0.006824163720011711,
+            "first": "endpoint_flux",
+            "second": "interface_state"
+          },
+          {
+            "cosine": -0.04449836537241936,
+            "first": "endpoint_flux",
+            "second": "interface_flux"
+          },
+          {
+            "cosine": -0.016917265951633453,
+            "first": "interface_state",
+            "second": "r_T"
+          },
+          {
+            "cosine": -0.02605714090168476,
+            "first": "interface_state",
+            "second": "r_m"
+          },
+          {
+            "cosine": -0.019666189327836037,
+            "first": "interface_flux",
+            "second": "r_c"
+          }
+        ],
+        "stage_label": "025",
+        "total_loss": 2.2738633155822754,
+        "train_residual_rms": {
+          "r_T": 0.7249277830123901,
+          "r_c": 0.00840883981436491,
+          "r_m": 0.031163278967142105,
+          "r_phi": 0.012765868566930294
+        }
+      },
+      {
+        "block_losses": {
+          "endpoint_flux": 3.0801238608546555e-05,
+          "interface_flux": 0.0006968919769860804,
+          "interface_state": 0.00023183043231256306,
+          "r_T": 0.0004991173045709729,
+          "r_c": 0.00014607624325435609,
+          "r_m": 0.0008817665511742234,
+          "r_phi": 6.321403634501621e-05
+        },
+        "epoch": 300,
+        "gradient_cosine_matrix": {
+          "endpoint_flux": {
+            "endpoint_flux": 1.0000001192092896,
+            "interface_flux": 0.13050884008407593,
+            "interface_state": 0.02385108917951584,
+            "r_T": -0.26087549328804016,
+            "r_c": -0.0013630748726427555,
+            "r_m": 0.0238006804138422,
+            "r_phi": -0.027563152834773064
+          },
+          "interface_flux": {
+            "endpoint_flux": 0.13050884008407593,
+            "interface_flux": 1.000000238418579,
+            "interface_state": 0.013001630082726479,
+            "r_T": -0.11893118917942047,
+            "r_c": -0.015944479033350945,
+            "r_m": 0.014721395447850227,
+            "r_phi": 0.08293282240629196
+          },
+          "interface_state": {
+            "endpoint_flux": 0.02385108917951584,
+            "interface_flux": 0.013001630082726479,
+            "interface_state": 0.9999994039535522,
+            "r_T": -0.036194466054439545,
+            "r_c": 0.06932856887578964,
+            "r_m": -0.07197294384241104,
+            "r_phi": 0.020247571170330048
+          },
+          "r_T": {
+            "endpoint_flux": -0.26087549328804016,
+            "interface_flux": -0.11893118917942047,
+            "interface_state": -0.036194466054439545,
+            "r_T": 1.0,
+            "r_c": -0.00043653385364450514,
+            "r_m": 0.020927729085087776,
+            "r_phi": 0.029403885826468468
+          },
+          "r_c": {
+            "endpoint_flux": -0.0013630748726427555,
+            "interface_flux": -0.015944479033350945,
+            "interface_state": 0.06932856887578964,
+            "r_T": -0.00043653385364450514,
+            "r_c": 1.0000001192092896,
+            "r_m": -0.22847963869571686,
+            "r_phi": 0.0009439988061785698
+          },
+          "r_m": {
+            "endpoint_flux": 0.0238006804138422,
+            "interface_flux": 0.014721395447850227,
+            "interface_state": -0.07197294384241104,
+            "r_T": 0.020927729085087776,
+            "r_c": -0.22847963869571686,
+            "r_m": 1.0000001192092896,
+            "r_phi": -0.0003599653427954763
+          },
+          "r_phi": {
+            "endpoint_flux": -0.027563152834773064,
+            "interface_flux": 0.08293282240629196,
+            "interface_state": 0.020247571170330048,
+            "r_T": 0.029403885826468468,
+            "r_c": 0.0009439988061785698,
+            "r_m": -0.0003599653427954763,
+            "r_phi": 0.9999998807907104
+          }
+        },
+        "gradient_norms": {
+          "endpoint_flux": 0.0015150002436712384,
+          "interface_flux": 0.006842165254056454,
+          "interface_state": 0.006072300020605326,
+          "r_T": 0.006205649580806494,
+          "r_c": 0.0013431012630462646,
+          "r_m": 0.001895580324344337,
+          "r_phi": 0.000976992305368185
+        },
+        "heldout_residual_rms": {
+          "r_T": 0.5358880162239075,
+          "r_c": 0.014180940575897694,
+          "r_m": 0.20161476731300354,
+          "r_phi": 0.010255809873342514
+        },
+        "negative_gradient_pairs": [
+          {
+            "cosine": -0.22847963869571686,
+            "first": "r_c",
+            "second": "r_m"
+          },
+          {
+            "cosine": -0.00043653385364450514,
+            "first": "r_T",
+            "second": "r_c"
+          },
+          {
+            "cosine": -0.0003599653427954763,
+            "first": "r_m",
+            "second": "r_phi"
+          },
+          {
+            "cosine": -0.027563152834773064,
+            "first": "endpoint_flux",
+            "second": "r_phi"
+          },
+          {
+            "cosine": -0.0013630748726427555,
+            "first": "endpoint_flux",
+            "second": "r_c"
+          },
+          {
+            "cosine": -0.26087549328804016,
+            "first": "endpoint_flux",
+            "second": "r_T"
+          },
+          {
+            "cosine": -0.036194466054439545,
+            "first": "interface_state",
+            "second": "r_T"
+          },
+          {
+            "cosine": -0.07197294384241104,
+            "first": "interface_state",
+            "second": "r_m"
+          },
+          {
+            "cosine": -0.015944479033350945,
+            "first": "interface_flux",
+            "second": "r_c"
+          },
+          {
+            "cosine": -0.11893118917942047,
+            "first": "interface_flux",
+            "second": "r_T"
+          }
+        ],
+        "stage_label": "025",
+        "total_loss": 0.0025496978778392076,
+        "train_residual_rms": {
+          "r_T": 0.022340932860970497,
+          "r_c": 0.012086200527846813,
+          "r_m": 0.029694553464651108,
+          "r_phi": 0.007950725965201855
+        }
+      },
+      {
+        "block_losses": {
+          "endpoint_flux": 9.051927008840721e-06,
+          "interface_flux": 0.00012584240175783634,
+          "interface_state": 8.114518277579919e-05,
+          "r_T": 0.00043836361146532,
+          "r_c": 0.0003517148725222796,
+          "r_m": 0.0033697360195219517,
+          "r_phi": 7.698476838413626e-05
+        },
+        "epoch": 600,
+        "gradient_cosine_matrix": {
+          "endpoint_flux": {
+            "endpoint_flux": 1.0000001192092896,
+            "interface_flux": 0.10668206214904785,
+            "interface_state": 0.00943682063370943,
+            "r_T": -0.07191333919763565,
+            "r_c": 0.08932444453239441,
+            "r_m": 0.01620718277990818,
+            "r_phi": -0.057770274579524994
+          },
+          "interface_flux": {
+            "endpoint_flux": 0.10668206214904785,
+            "interface_flux": 1.0000001192092896,
+            "interface_state": 0.006819926202297211,
+            "r_T": -0.15258289873600006,
+            "r_c": -0.025172129273414612,
+            "r_m": 0.02880724146962166,
+            "r_phi": -0.12494565546512604
+          },
+          "interface_state": {
+            "endpoint_flux": 0.00943682063370943,
+            "interface_flux": 0.006819926202297211,
+            "interface_state": 1.0000007152557373,
+            "r_T": -0.03079657256603241,
+            "r_c": 0.0060284812934696674,
+            "r_m": -0.04179904982447624,
+            "r_phi": 0.0245499350130558
+          },
+          "r_T": {
+            "endpoint_flux": -0.07191333919763565,
+            "interface_flux": -0.15258289873600006,
+            "interface_state": -0.03079657256603241,
+            "r_T": 1.0,
+            "r_c": 0.003388167591765523,
+            "r_m": 0.01734095811843872,
+            "r_phi": 0.04718439653515816
+          },
+          "r_c": {
+            "endpoint_flux": 0.08932444453239441,
+            "interface_flux": -0.025172129273414612,
+            "interface_state": 0.0060284812934696674,
+            "r_T": 0.003388167591765523,
+            "r_c": 1.000000238418579,
+            "r_m": -0.5841463208198547,
+            "r_phi": -0.001618621638044715
+          },
+          "r_m": {
+            "endpoint_flux": 0.01620718277990818,
+            "interface_flux": 0.02880724146962166,
+            "interface_state": -0.04179904982447624,
+            "r_T": 0.01734095811843872,
+            "r_c": -0.5841463208198547,
+            "r_m": 1.0000001192092896,
+            "r_phi": 0.00029247766360640526
+          },
+          "r_phi": {
+            "endpoint_flux": -0.057770274579524994,
+            "interface_flux": -0.12494565546512604,
+            "interface_state": 0.0245499350130558,
+            "r_T": 0.04718439653515816,
+            "r_c": -0.001618621638044715,
+            "r_m": 0.00029247766360640526,
+            "r_phi": 1.000000238418579
+          }
+        },
+        "gradient_norms": {
+          "endpoint_flux": 0.000322722306009382,
+          "interface_flux": 0.0023368257097899914,
+          "interface_state": 0.003252965398132801,
+          "r_T": 0.00465049222111702,
+          "r_c": 0.002119588665664196,
+          "r_m": 0.008772832341492176,
+          "r_phi": 0.001130587188526988
+        },
+        "heldout_residual_rms": {
+          "r_T": 0.17851459980010986,
+          "r_c": 0.019817190244793892,
+          "r_m": 0.1563868522644043,
+          "r_phi": 0.008616027422249317
+        },
+        "negative_gradient_pairs": [
+          {
+            "cosine": -0.001618621638044715,
+            "first": "r_c",
+            "second": "r_phi"
+          },
+          {
+            "cosine": -0.5841463208198547,
+            "first": "r_c",
+            "second": "r_m"
+          },
+          {
+            "cosine": -0.057770274579524994,
+            "first": "endpoint_flux",
+            "second": "r_phi"
+          },
+          {
+            "cosine": -0.07191333919763565,
+            "first": "endpoint_flux",
+            "second": "r_T"
+          },
+          {
+            "cosine": -0.03079657256603241,
+            "first": "interface_state",
+            "second": "r_T"
+          },
+          {
+            "cosine": -0.04179904982447624,
+            "first": "interface_state",
+            "second": "r_m"
+          },
+          {
+            "cosine": -0.12494565546512604,
+            "first": "interface_flux",
+            "second": "r_phi"
+          },
+          {
+            "cosine": -0.025172129273414612,
+            "first": "interface_flux",
+            "second": "r_c"
+          },
+          {
+            "cosine": -0.15258289873600006,
+            "first": "interface_flux",
+            "second": "r_T"
+          }
+        ],
+        "stage_label": "050",
+        "total_loss": 0.004452838562428951,
+        "train_residual_rms": {
+          "r_T": 0.020937135443091393,
+          "r_c": 0.018754063174128532,
+          "r_m": 0.05804942920804024,
+          "r_phi": 0.00877409614622593
+        }
+      },
+      {
+        "block_losses": {
+          "endpoint_flux": 5.361939201975474e-06,
+          "interface_flux": 6.687617860734463e-05,
+          "interface_state": 6.23001396888867e-05,
+          "r_T": 0.00021611822012346238,
+          "r_c": 0.001355608575977385,
+          "r_m": 0.0030308454297482967,
+          "r_phi": 7.733237725915387e-05
+        },
+        "epoch": 900,
+        "gradient_cosine_matrix": {
+          "endpoint_flux": {
+            "endpoint_flux": 1.0,
+            "interface_flux": -0.1557769924402237,
+            "interface_state": 0.02031783200800419,
+            "r_T": -0.00888212863355875,
+            "r_c": 0.17401425540447235,
+            "r_m": -0.013678508810698986,
+            "r_phi": -0.03305200859904289
+          },
+          "interface_flux": {
+            "endpoint_flux": -0.1557769924402237,
+            "interface_flux": 1.0000001192092896,
+            "interface_state": 0.12217695266008377,
+            "r_T": -0.06759185343980789,
+            "r_c": -0.03346214070916176,
+            "r_m": -0.05160263553261757,
+            "r_phi": -0.08475185930728912
+          },
+          "interface_state": {
+            "endpoint_flux": 0.02031783200800419,
+            "interface_flux": 0.12217695266008377,
+            "interface_state": 1.0000003576278687,
+            "r_T": 0.0053303116001188755,
+            "r_c": 0.0625276193022728,
+            "r_m": 0.07790029793977737,
+            "r_phi": 0.024698449298739433
+          },
+          "r_T": {
+            "endpoint_flux": -0.00888212863355875,
+            "interface_flux": -0.06759185343980789,
+            "interface_state": 0.0053303116001188755,
+            "r_T": 1.0000003576278687,
+            "r_c": 0.006111871916800737,
+            "r_m": -0.050046127289533615,
+            "r_phi": 0.04508865624666214
+          },
+          "r_c": {
+            "endpoint_flux": 0.17401425540447235,
+            "interface_flux": -0.03346214070916176,
+            "interface_state": 0.0625276193022728,
+            "r_T": 0.006111871916800737,
+            "r_c": 1.0,
+            "r_m": -0.547989547252655,
+            "r_phi": -0.0006090584793128073
+          },
+          "r_m": {
+            "endpoint_flux": -0.013678508810698986,
+            "interface_flux": -0.05160263553261757,
+            "interface_state": 0.07790029793977737,
+            "r_T": -0.050046127289533615,
+            "r_c": -0.547989547252655,
+            "r_m": 0.9999998807907104,
+            "r_phi": -0.0005182856693863869
+          },
+          "r_phi": {
+            "endpoint_flux": -0.03305200859904289,
+            "interface_flux": -0.08475185930728912,
+            "interface_state": 0.024698449298739433,
+            "r_T": 0.04508865624666214,
+            "r_c": -0.0006090584793128073,
+            "r_m": -0.0005182856693863869,
+            "r_phi": 1.0
+          }
+        },
+        "gradient_norms": {
+          "endpoint_flux": 0.00021465022291522473,
+          "interface_flux": 0.0017942212289199233,
+          "interface_state": 0.0015862968284636736,
+          "r_T": 0.002918204991146922,
+          "r_c": 0.003955241292715073,
+          "r_m": 0.011845663189888,
+          "r_phi": 0.0009860540740191936
+        },
+        "heldout_residual_rms": {
+          "r_T": 0.1155206561088562,
+          "r_c": 0.03664794936776161,
+          "r_m": 0.0822410061955452,
+          "r_phi": 0.008073234930634499
+        },
+        "negative_gradient_pairs": [
+          {
+            "cosine": -0.0006090584793128073,
+            "first": "r_c",
+            "second": "r_phi"
+          },
+          {
+            "cosine": -0.547989547252655,
+            "first": "r_c",
+            "second": "r_m"
+          },
+          {
+            "cosine": -0.050046127289533615,
+            "first": "r_T",
+            "second": "r_m"
+          },
+          {
+            "cosine": -0.0005182856693863869,
+            "first": "r_m",
+            "second": "r_phi"
+          },
+          {
+            "cosine": -0.03305200859904289,
+            "first": "endpoint_flux",
+            "second": "r_phi"
+          },
+          {
+            "cosine": -0.00888212863355875,
+            "first": "endpoint_flux",
+            "second": "r_T"
+          },
+          {
+            "cosine": -0.013678508810698986,
+            "first": "endpoint_flux",
+            "second": "r_m"
+          },
+          {
+            "cosine": -0.1557769924402237,
+            "first": "endpoint_flux",
+            "second": "interface_flux"
+          },
+          {
+            "cosine": -0.08475185930728912,
+            "first": "interface_flux",
+            "second": "r_phi"
+          },
+          {
+            "cosine": -0.03346214070916176,
+            "first": "interface_flux",
+            "second": "r_c"
+          },
+          {
+            "cosine": -0.06759185343980789,
+            "first": "interface_flux",
+            "second": "r_T"
+          },
+          {
+            "cosine": -0.05160263553261757,
+            "first": "interface_flux",
+            "second": "r_m"
+          }
+        ],
+        "stage_label": "075",
+        "total_loss": 0.004814443178474903,
+        "train_residual_rms": {
+          "r_T": 0.01470095943659544,
+          "r_c": 0.03681859001517296,
+          "r_m": 0.055053114891052246,
+          "r_phi": 0.00879388302564621
+        }
+      },
+      {
+        "block_losses": {
+          "endpoint_flux": 3.111957312285085e-06,
+          "interface_flux": 5.6965418480103835e-05,
+          "interface_state": 5.943147698417306e-05,
+          "r_T": 0.00013879545440431684,
+          "r_c": 0.002085206564515829,
+          "r_m": 0.0012364763533696532,
+          "r_phi": 7.31699401512742e-05
+        },
+        "epoch": 1200,
+        "gradient_cosine_matrix": {
+          "endpoint_flux": {
+            "endpoint_flux": 1.0000001192092896,
+            "interface_flux": 0.20515264570713043,
+            "interface_state": -0.01473372895270586,
+            "r_T": -0.028711359947919846,
+            "r_c": -0.022012807428836823,
+            "r_m": -0.04079034924507141,
+            "r_phi": -0.011495045386254787
+          },
+          "interface_flux": {
+            "endpoint_flux": 0.20515264570713043,
+            "interface_flux": 1.000000238418579,
+            "interface_state": 0.1899845004081726,
+            "r_T": -0.027509508654475212,
+            "r_c": -0.079410620033741,
+            "r_m": -0.053221382200717926,
+            "r_phi": -0.17134568095207214
+          },
+          "interface_state": {
+            "endpoint_flux": -0.01473372895270586,
+            "interface_flux": 0.1899845004081726,
+            "interface_state": 1.0000001192092896,
+            "r_T": -0.007053970359265804,
+            "r_c": 0.09585432708263397,
+            "r_m": -0.06285808235406876,
+            "r_phi": 0.017234979197382927
+          },
+          "r_T": {
+            "endpoint_flux": -0.028711359947919846,
+            "interface_flux": -0.027509508654475212,
+            "interface_state": -0.007053970359265804,
+            "r_T": 1.0,
+            "r_c": 0.009833073243498802,
+            "r_m": -0.07501900941133499,
+            "r_phi": 0.014003812335431576
+          },
+          "r_c": {
+            "endpoint_flux": -0.022012807428836823,
+            "interface_flux": -0.079410620033741,
+            "interface_state": 0.09585432708263397,
+            "r_T": 0.009833073243498802,
+            "r_c": 1.0000003576278687,
+            "r_m": -0.5241220593452454,
+            "r_phi": 0.00016163253167178482
+          },
+          "r_m": {
+            "endpoint_flux": -0.04079034924507141,
+            "interface_flux": -0.053221382200717926,
+            "interface_state": -0.06285808235406876,
+            "r_T": -0.07501900941133499,
+            "r_c": -0.5241220593452454,
+            "r_m": 0.9999998807907104,
+            "r_phi": -0.008316951803863049
+          },
+          "r_phi": {
+            "endpoint_flux": -0.011495045386254787,
+            "interface_flux": -0.17134568095207214,
+            "interface_state": 0.017234979197382927,
+            "r_T": 0.014003812335431576,
+            "r_c": 0.00016163253167178482,
+            "r_m": -0.008316951803863049,
+            "r_phi": 1.0000001192092896
+          }
+        },
+        "gradient_norms": {
+          "endpoint_flux": 0.00014687363000120968,
+          "interface_flux": 0.0015270774019882083,
+          "interface_state": 0.0010792716639116406,
+          "r_T": 0.002075152937322855,
+          "r_c": 0.003913266118615866,
+          "r_m": 0.00866011343896389,
+          "r_phi": 0.000832950696349144
+        },
+        "heldout_residual_rms": {
+          "r_T": 0.03372611850500107,
+          "r_c": 0.047406747937202454,
+          "r_m": 0.031199155375361443,
+          "r_phi": 0.0077249519526958466
+        },
+        "negative_gradient_pairs": [
+          {
+            "cosine": -0.5241220593452454,
+            "first": "r_c",
+            "second": "r_m"
+          },
+          {
+            "cosine": -0.07501900941133499,
+            "first": "r_T",
+            "second": "r_m"
+          },
+          {
+            "cosine": -0.008316951803863049,
+            "first": "r_m",
+            "second": "r_phi"
+          },
+          {
+            "cosine": -0.011495045386254787,
+            "first": "endpoint_flux",
+            "second": "r_phi"
+          },
+          {
+            "cosine": -0.022012807428836823,
+            "first": "endpoint_flux",
+            "second": "r_c"
+          },
+          {
+            "cosine": -0.028711359947919846,
+            "first": "endpoint_flux",
+            "second": "r_T"
+          },
+          {
+            "cosine": -0.04079034924507141,
+            "first": "endpoint_flux",
+            "second": "r_m"
+          },
+          {
+            "cosine": -0.01473372895270586,
+            "first": "endpoint_flux",
+            "second": "interface_state"
+          },
+          {
+            "cosine": -0.007053970359265804,
+            "first": "interface_state",
+            "second": "r_T"
+          },
+          {
+            "cosine": -0.06285808235406876,
+            "first": "interface_state",
+            "second": "r_m"
+          },
+          {
+            "cosine": -0.17134568095207214,
+            "first": "interface_flux",
+            "second": "r_phi"
+          },
+          {
+            "cosine": -0.079410620033741,
+            "first": "interface_flux",
+            "second": "r_c"
+          },
+          {
+            "cosine": -0.027509508654475212,
+            "first": "interface_flux",
+            "second": "r_T"
+          },
+          {
+            "cosine": -0.053221382200717926,
+            "first": "interface_flux",
+            "second": "r_m"
+          }
+        ],
+        "stage_label": "100",
+        "total_loss": 0.0036531572695821524,
+        "train_residual_rms": {
+          "r_T": 0.011781148612499237,
+          "r_c": 0.04566406086087227,
+          "r_m": 0.03516356647014618,
+          "r_phi": 0.008553942665457726
+        }
+      },
+      {
+        "block_losses": {
+          "endpoint_flux": 3.024263605766464e-06,
+          "interface_flux": 4.920018545817584e-05,
+          "interface_state": 8.410963346250355e-05,
+          "r_T": 8.558350236853585e-05,
+          "r_c": 0.0021179988980293274,
+          "r_m": 8.594038081355393e-05,
+          "r_phi": 5.674624117091298e-05
+        },
+        "epoch": 1200,
+        "gradient_cosine_matrix": {
+          "endpoint_flux": {
+            "endpoint_flux": 1.0000001192092896,
+            "interface_flux": -0.05235231667757034,
+            "interface_state": -0.02281312085688114,
+            "r_T": 0.22770218551158905,
+            "r_c": 0.11046185344457626,
+            "r_m": 0.026121649891138077,
+            "r_phi": -0.008678632788360119
+          },
+          "interface_flux": {
+            "endpoint_flux": -0.05235231667757034,
+            "interface_flux": 1.0,
+            "interface_state": 0.10658859461545944,
+            "r_T": -0.0032790452241897583,
+            "r_c": -0.0065142810344696045,
+            "r_m": 0.01634678989648819,
+            "r_phi": 0.39566826820373535
+          },
+          "interface_state": {
+            "endpoint_flux": -0.02281312085688114,
+            "interface_flux": 0.10658859461545944,
+            "interface_state": 1.0,
+            "r_T": -0.03940586745738983,
+            "r_c": 0.016162259504199028,
+            "r_m": -0.29328322410583496,
+            "r_phi": -0.004736628383398056
+          },
+          "r_T": {
+            "endpoint_flux": 0.22770218551158905,
+            "interface_flux": -0.0032790452241897583,
+            "interface_state": -0.03940586745738983,
+            "r_T": 1.0000001192092896,
+            "r_c": 0.009216821752488613,
+            "r_m": 0.01037005428224802,
+            "r_phi": 5.667405275744386e-05
+          },
+          "r_c": {
+            "endpoint_flux": 0.11046185344457626,
+            "interface_flux": -0.0065142810344696045,
+            "interface_state": 0.016162259504199028,
+            "r_T": 0.009216821752488613,
+            "r_c": 1.0000001192092896,
+            "r_m": -0.10456684976816177,
+            "r_phi": -0.0020503231789916754
+          },
+          "r_m": {
+            "endpoint_flux": 0.026121649891138077,
+            "interface_flux": 0.01634678989648819,
+            "interface_state": -0.29328322410583496,
+            "r_T": 0.01037005428224802,
+            "r_c": -0.10456684976816177,
+            "r_m": 0.9999998807907104,
+            "r_phi": 0.0010219871765002608
+          },
+          "r_phi": {
+            "endpoint_flux": -0.008678632788360119,
+            "interface_flux": 0.39566826820373535,
+            "interface_state": -0.004736628383398056,
+            "r_T": 5.667405275744386e-05,
+            "r_c": -0.0020503231789916754,
+            "r_m": 0.0010219871765002608,
+            "r_phi": 1.000000238418579
+          }
+        },
+        "gradient_norms": {
+          "endpoint_flux": 0.000150011750520207,
+          "interface_flux": 0.013136138208210468,
+          "interface_state": 0.0030757407657802105,
+          "r_T": 0.017495673149824142,
+          "r_c": 0.0038457002956420183,
+          "r_m": 0.0005096769891679287,
+          "r_phi": 0.0006671522278338671
+        },
+        "heldout_residual_rms": {
+          "r_T": 0.02708056941628456,
+          "r_c": 0.04828565940260887,
+          "r_m": 0.008615963160991669,
+          "r_phi": 0.006634448189288378
+        },
+        "negative_gradient_pairs": [
+          {
+            "cosine": -0.0020503231789916754,
+            "first": "r_c",
+            "second": "r_phi"
+          },
+          {
+            "cosine": -0.10456684976816177,
+            "first": "r_c",
+            "second": "r_m"
+          },
+          {
+            "cosine": -0.008678632788360119,
+            "first": "endpoint_flux",
+            "second": "r_phi"
+          },
+          {
+            "cosine": -0.02281312085688114,
+            "first": "endpoint_flux",
+            "second": "interface_state"
+          },
+          {
+            "cosine": -0.05235231667757034,
+            "first": "endpoint_flux",
+            "second": "interface_flux"
+          },
+          {
+            "cosine": -0.004736628383398056,
+            "first": "interface_state",
+            "second": "r_phi"
+          },
+          {
+            "cosine": -0.03940586745738983,
+            "first": "interface_state",
+            "second": "r_T"
+          },
+          {
+            "cosine": -0.29328322410583496,
+            "first": "interface_state",
+            "second": "r_m"
+          },
+          {
+            "cosine": -0.0065142810344696045,
+            "first": "interface_flux",
+            "second": "r_c"
+          },
+          {
+            "cosine": -0.0032790452241897583,
+            "first": "interface_flux",
+            "second": "r_T"
+          }
+        ],
+        "stage_label": "100",
+        "total_loss": 0.0024826028384268284,
+        "train_residual_rms": {
+          "r_T": 0.009251135401427746,
+          "r_c": 0.0460217222571373,
+          "r_m": 0.009270403534173965,
+          "r_phi": 0.007533010095357895
+        }
+      }
+    ],
+    "epochs": 1200,
+    "frozen_full_fields_semantics": "post_training_score_only",
+    "gates": {
+      "all_pass": false,
+      "checks": {
+        "current_conservation": false,
+        "endpoint_flux": true,
+        "energy_conservation": false,
+        "fields": false,
+        "finite_states": true,
+        "heldout_residuals": false,
+        "interface_flux": true,
+        "interface_state": true,
+        "physical_bounds": true,
+        "port": false
+      }
+    },
+    "lbfgs_closure_calls": 43,
+    "lbfgs_optimizer_instances": 1,
+    "metrics": {
+      "boundary_rms": {
+        "defect_left": 0.003927083685994148,
+        "defect_right": 0.0010052946163341403,
+        "heat_left": 0.0008348404662683606,
+        "heat_right": 0.0010079782223328948,
+        "phi_left": 0.0,
+        "phi_right": 0.0
+      },
+      "defect_mass_account_normalized_imbalance": 0.9966527566132855,
+      "field_score_only_nrmse95": {
+        "T": 0.16127762141334928,
+        "c_v": 1.1494688775426998,
+        "m": 0.30666157701590363,
+        "phi": 0.07438502659441554,
+        "sigma": 0.3158316249600806
+      },
+      "finite_outputs": true,
+      "global_energy_account_normalized_imbalance": 0.9985563048378772,
+      "heldout_residual_rms": {
+        "r_T": 0.02708056941628456,
+        "r_c": 0.04828565940260887,
+        "r_m": 0.008615963160991669,
+        "r_phi": 0.006634448189288378
+      },
+      "interface_flux_rms": {
+        "current": 0.008965015411376953,
+        "defect": 0.008160828612744808,
+        "heat": 0.000793683051597327
+      },
+      "interface_semantics": "independent exact left/right traces at declared L_int",
+      "interface_state_rms": {
+        "T": 0.01504966989159584,
+        "c_v": 0.0034202742390334606,
+        "m": 0.008375032804906368,
+        "phi": 0.0053015598095953465
+      },
+      "model_role": "matched_budget_dual_domain_conservative_full_pinn",
+      "parameter_count": 5704,
+      "physical_state_bounds": true,
+      "port_full_trace_nrmse95": 0.12035832244525033,
+      "terminal_current_conservation_normalized_error": 0.5198086500060433,
+      "train_residual_rms": {
+        "r_T": 0.009251135401427746,
+        "r_c": 0.0460217222571373,
+        "r_m": 0.009270403534173965,
+        "r_phi": 0.007533010095357895
+      },
+      "worst_time_window_current_error": {
+        "end_index_exclusive": 400,
+        "normalized_rmse": 0.33080023470999825,
+        "start_index": 360
+      }
+    },
+    "normalization_scales": {
+      "left": {
+        "defect_terms": {
+          "diffusion": 4.132231404958678,
+          "drift": 0.02272727272727273,
+          "reaction": 5.0,
+          "storage": 333.3333333333333
+        },
+        "domain": "left",
+        "electrical_terms": {
+          "conductivity_voltage_curvature": 991735537190082.6
+        },
+        "length_m": 2.2e-08,
+        "phase_terms": {
+          "relaxation": 2500.0,
+          "storage": 333.3333333333333
+        },
+        "r_T": 3.3067476106336092e+16,
+        "r_c": 342.48829201101927,
+        "r_m": 2833.3333333333335,
+        "r_phi": 991735537190082.6,
+        "thermal_terms": {
+          "conduction": 3.3057851239669424e+16,
+          "joule": 9600000000000.002,
+          "sink": 9000000000.0,
+          "storage": 15866666666.666666
+        }
+      },
+      "right": {
+        "defect_terms": {
+          "diffusion": 0.11505588428665353,
+          "drift": 0.0025641025641025645,
+          "reaction": 5.0,
+          "storage": 333.3333333333333
+        },
+        "domain": "right",
+        "electrical_terms": {
+          "conductivity_voltage_curvature": 44378698224852.08
+        },
+        "length_m": 7.8e-08,
+        "phase_terms": {
+          "relaxation": 2500.0,
+          "storage": 333.3333333333333
+        },
+        "r_T": 4443294689151874.0,
+        "r_c": 338.4509533201841,
+        "r_m": 2833.3333333333335,
+        "r_phi": 44378698224852.08,
+        "thermal_terms": {
+          "conduction": 4437869822485207.5,
+          "joule": 5400000000000.002,
+          "sink": 9000000000.0,
+          "storage": 15866666666.666666
+        }
+      }
+    },
+    "parameter_counts": {
+      "left": 2852,
+      "right": 2852,
+      "total": 5704
+    },
+    "seed": 20260715,
+    "status": "gate_fail",
+    "training_semantics": "data_free_PDE_IC_BC_exact_interface_only",
+    "wall_clock_s": 301.24887349999335
+  },
+  "run_role": "data_free_single_seed_MVE",
+  "schema_version": "full_pinn_n0_repair_v2",
+  "stage_id": "N0-R",
+  "started_at_utc": "2026-07-17T04:48:11.085935+00:00"
+}

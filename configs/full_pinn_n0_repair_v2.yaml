@@ -1,0 +1,172 @@
+description: >-
+  Preregistered bounded N0-R repair. It preserves frozen GT v1.1 and all N0
+  gates while correcting the teacher/PINN electrode orientation and replacing
+  the single-network finite-band interface proxy with exact dual-domain traces.
+stage_id: N0-R
+base_commit: 583cb441687001c7df9a8ee9d4d5cf45258f8efb
+claim_scope: conditional_1d_bilayer_full_pinn_forward_synthetic
+evidence_semantics: synthetic_gt_score_only
+frozen_gt_path: data/processed/gt_v1_acceptance/gt_triangle.npz
+frozen_gt_config: configs/gt_v1_acceptance_triangle.yaml
+baseline_config: configs/full_pinn_architecture_v1.yaml
+baseline_checkpoint: outputs/checkpoints/full_pinn_v1/seed_20260715_epochs_1200.pt
+
+architecture:
+  state_outputs: [phi, c_v, T, m]
+  domains: [left_nb_oxide, right_v2o5]
+  hidden_dim_per_domain: 32
+  hidden_layers: 3
+  fourier_scales: [1.0, 2.0, 4.0, 8.0]
+  voltage_scale_V: 0.20
+  temperature_scale_K: 20.0
+  baseline_parameter_count: 5812
+  split_parameter_count_expected: 5704
+  parameter_count_relative_tolerance: 0.10
+  local_coordinates: true
+  derivatives_returned_to_global_SI: true
+  electrical_boundary_orientation: phi_left_V_phi_right_zero
+  hard_electrical_bc: true
+  hard_initial_conditions: true
+  physical_conductivity_closure: true
+  independent_log_sigma_output: false
+
+interface:
+  coordinate_m: 22.0e-9
+  exact_left_right_traces: true
+  state_continuity: [phi, c_v, T, m]
+  flux_continuity: [current, heat, defect]
+  finite_band_proxy_allowed_for_repair: false
+  frozen_fvm_face_semantics: arithmetic_cell_center_average
+  continuum_discrete_offset_reported: true
+
+diagnostics:
+  point_seed: 20260719
+  train_interior_per_domain: 160
+  heldout_interior_per_domain: 256
+  boundary_times: 80
+  interface_times: 64
+  near_interface_per_domain: 96
+  near_interface_band_fraction_of_domain: 0.04
+  near_transition_points: 160
+  near_transition_t_norm: [0.35, 0.65]
+  ordinary_points: 160
+  ordinary_t_norm_windows: [[0.05, 0.30], [0.70, 0.95]]
+  score_space_points_per_domain: 96
+  score_time_points: 96
+  gradient_diagnostic_epochs: [0, 300, 600, 900, 1200]
+  saved_points_path: outputs/tables/n0_fixed_diagnostic_points_v1.npz
+  saved_points_hash_algorithm: sha256
+
+normalization:
+  strategy: layer_local_dimensional_term_sum
+  electrical_terms: [conductivity, voltage, layer_length]
+  defect_terms: [storage, diffusion, drift, reaction]
+  thermal_terms: [storage, conduction, joule, sink]
+  phase_terms: [storage, relaxation]
+  posthoc_rescaling_forbidden: true
+
+training:
+  mode: data_free_forward_full_pinn
+  seeds: [20260715, 20260716, 20260717]
+  pilot_seed: 20260715
+  full_field_training: false
+  port_label_training: false
+  optimizer: Adam
+  learning_rate: 0.001
+  epochs: 1200
+  causal_continuation:
+    enabled: true
+    stages:
+      - {t_norm_max: 0.25, epochs: 300}
+      - {t_norm_max: 0.50, epochs: 300}
+      - {t_norm_max: 0.75, epochs: 300}
+      - {t_norm_max: 1.00, epochs: 300}
+  lbfgs_tail:
+    enabled: true
+    max_iter: 40
+    history_size: 20
+    tolerance_grad: 1.0e-9
+    tolerance_change: 1.0e-12
+  gradient_clip_norm: 100.0
+  loss_weights:
+    r_phi: 1.0
+    r_c: 1.0
+    r_T: 1.0
+    r_m: 1.0
+    endpoint_flux: 1.0
+    interface_state: 1.0
+    interface_flux: 1.0
+
+sparse_port_anchor_ablation:
+  preregistered: true
+  run_only_if:
+    all_residual_gates_pass: true
+    all_interface_flux_gates_pass: true
+    current_conservation_gate_pass: true
+    energy_gate_pass: true
+    port_or_field_gate_fails: true
+  training_semantics: hybrid_sparse_port_anchored_full_pinn
+  allowed_labels: [I, G]
+  forbidden_labels: [phi, c_v, T, m, sigma]
+  time_indices: [0, 27, 53, 80, 106, 133, 160, 186, 213, 239, 266, 293, 319, 346, 372, 399]
+  loss_weight: 1.0
+  additional_adam_epochs: 400
+  learning_rate: 0.0005
+  repeat_tuning_forbidden: true
+
+gates:
+  ic_bc_max_normalized_error: 0.001
+  endpoint_flux_rms_max: 0.05
+  port_full_trace_nrmse95_max: 0.10
+  residual_rms_max: 0.01
+  field_score_only_nrmse95_max:
+    phi: 0.25
+    c_v: 0.25
+    T: 0.25
+    m: 0.25
+    sigma: 0.25
+  interface_state_rms_max:
+    phi: 0.05
+    c_v: 0.05
+    T: 0.05
+    m: 0.05
+  interface_flux_rms_max:
+    current: 0.05
+    heat: 0.05
+    defect: 0.05
+  terminal_current_conservation_max: 0.01
+  global_energy_account_imbalance_max: 0.05
+  finite_states_required: true
+  positive_temperature_required: true
+  bounded_c_v_and_m_required: true
+  frozen_gt_hash_unchanged_required: true
+  heldout_residual_required: true
+  minimum_passing_seeds: 2
+  total_seeds: 3
+  single_seed_success_label: pilot_pass
+
+budget:
+  data_free_single_seed_max_epochs: 1200
+  lbfgs_tail_max_iter: 40
+  sparse_anchor_max_additional_epochs: 400
+  full_seed_expansion_only_after_pilot_pass: true
+  gpu_hours_max: 9
+  wall_clock_hours_max: 12
+  device: cpu
+
+stop_rules:
+  - compatibility_audit_stop_blocks_training
+  - data_free_residual_interface_or_conservation_failure_blocks_anchor
+  - data_free_pilot_failure_blocks_seed_expansion
+  - no_N1_N2_N3_in_this_round
+  - no_posthoc_gate_or_scale_changes
+
+outputs:
+  preregistration_lock: outputs/tables/full_pinn_n0_repair_v2_preregistration.json
+  baseline_diagnostics: outputs/tables/full_pinn_n0_baseline_diagnostics_v2.json
+  data_free_pilot: outputs/tables/full_pinn_n0_repair_data_free_seed_20260715_v2.json
+  sparse_anchor_pilot: outputs/tables/full_pinn_n0_repair_sparse_anchor_seed_20260715_v2.json
+  full_seed_result: outputs/tables/full_pinn_n0_repair_full_seeds_v2.json
+  checkpoint_dir: outputs/checkpoints/full_pinn_n0_repair_v2
+  diagnostic_figure: outputs/figures/full_pinn_n0_train_eval_gradient_v2.png
+  gate_comparison_figure: outputs/figures/full_pinn_n0_baseline_repair_gates_v2.png

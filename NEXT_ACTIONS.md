@@ -2,19 +2,21 @@
 
 ## Authoritative Current Queue
 
-Exactly one bottleneck is active: `N0_FULL_PINN_NUMERICAL_REPAIR`.
+Exactly one bottleneck is active: `N0_CV_LEDGER_REFORMULATION_PREFLIGHT`.
 
-### Priority N0-R: bounded full-PINN convergence diagnosis — active
+### Priority N0-CV: solver-consistent residual preflight — active
 
-Keep the frozen GT, full-PINN equations, state variables, physical conductivity closure, seeds, and gates unchanged. Add only diagnostics needed to attribute the failed single-seed MVE:
+N0-R is closed as `failed_but_informative`. The v1 sign mismatch and finite-band interface proxy were repaired, but the data-free split model still fails global current/energy, defect/thermal residual, field, and port gates. Do not tune the completed branch.
 
-1. fixed collocation train/evaluation split and per-residual generalization curves;
-2. gradient-norm/conflict measurements for `r_phi`, `r_c`, `r_T`, `r_m`, boundary, and interface losses;
-3. one-sided bilayer-interface and endpoint-flux residual breakdown;
-4. comparison of data-free forward training with a declared sparse-port-anchor ablation, while never using full hidden fields for training;
-5. a repair pre-registration before any new training run.
+The only next action is a new no-training preflight and preregistration for one solver-consistent control-volume/weak-form N0 MVE. It must:
 
-The unchanged success gate is at least 2/3 seeds with port NRMSE95 `<=0.10`, every normalized residual RMS `<=0.01`, finite physical states, and unchanged frozen GT hashes. Failure remains `failed_but_informative` and stops N1-N3.
+1. reuse fixed diagnostic point content SHA `80e34ca549d86588d12ffbcde4a304e378197dba602bcccc6e4e7d1ead932731`;
+2. express frozen arithmetic face-flux semantics and the declared-interface offset explicitly;
+3. put terminal-current, defect-mass, and global-energy ledgers in the residual contract, not only post-training diagnostics;
+4. retain the same state network, physical conductivity closure, score-only hidden fields, seeds, budgets, and unchanged gates;
+5. remain a numerical consistency repair, not cPINN/XPINN/interface novelty.
+
+Do not train that formulation until its config and equation/scale registry are locked. The unchanged final success gate remains 2/3 fixed seeds plus all port, residual, field, interface, current, energy, state-bound, and frozen-hash gates.
 
 ### D0 — held at D0a failure boundary
 
@@ -25,6 +27,7 @@ Author/SI semantics are reproducible, but time-step convergence failed. D0b-D0d 
 - N1 independent solver sensitivity: blocked until N0 passes.
 - N2 PINN sensitivity fidelity: blocked until N1 and N0 pass.
 - N3 conditional quotient inverse: blocked until D0c/D0d, N1 and N2 pass.
+- Solver-first SC-LOS: blocked because N0-R failed current/energy and held-out residual gates.
 
 ### Preserved manuscript path
 

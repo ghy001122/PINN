@@ -16,3 +16,4 @@
 14. Full STL/Seiler reproduction, universal Fourier/F-SPS superiority, terminal-only 2D inverse solved, and experimental validation remain `forbidden`.
 15. The versioned complete 1D PINN implementation passes its contract/manufactured audit but fails the fixed single-seed forward MVE. Reliability, sensitivity fidelity and inverse recovery remain `forbidden`.
 16. The protocol-conditioned quotient hypothesis was not tested because D0a and N0 failed upstream gates. No negative or positive scientific conclusion about protocol-dependent quotient geometry follows from these stops.
+17. The N0-R teacher/FVM audit passes and the exact-trace interface implementation improves local interface metrics, but the fixed data-free repair still fails global current/energy, defect/thermal residual, field, and port gates. No sparse-port anchor, seed expansion, SC-LOS, or sensitivity/inverse stage was authorized.

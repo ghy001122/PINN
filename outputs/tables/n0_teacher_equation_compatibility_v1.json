@@ -1,0 +1,89 @@
+{
+  "base_commit": "583cb441687001c7df9a8ee9d4d5cf45258f8efb",
+  "claim_status": "failed_but_informative",
+  "created_at_utc": "2026-07-17T04:33:31.679538+00:00",
+  "decision": "The frozen FVM is internally conservative and the declared continuous equations pass manufactured tests, but full_pinn_architecture_v1 reverses the frozen electrical boundary orientation and its finite-band interface proxy is not the frozen FVM face law. A bounded exact-trace split-domain repair is authorized.",
+  "forbidden_interpretation": "This audit is not trained full-PINN evidence and does not revive P1 or authorize N1-N3.",
+  "frozen_discrete_conservation_pass": true,
+  "git_dirty": true,
+  "grid_refinement": {
+    "cell_center_field_nrmse95_31_vs_63": {
+      "T": 0.0019303153799576664,
+      "c_v": 0.0011868609149840313,
+      "m": 0.0017452445439361725,
+      "phi": 0.0003926644224807622,
+      "sigma": 0.001974216677634529
+    },
+    "nt": 160,
+    "nx_levels": [
+      31,
+      63
+    ],
+    "port_current_nrmse95_31_vs_63": 0.0012246445796208884,
+    "role": "controlled non-frozen spatial-grid diagnostic; frozen arrays were not modified"
+  },
+  "hashes": {
+    "configs/full_pinn_architecture_v1.yaml": "bba90ae2d84a3e056aee3241647c9382aac351c489d52a71f0ac0739e7b5da66",
+    "configs/gt_v1_acceptance_triangle.yaml": "f2e6bec6006827344bebddcf20519b5b87f923b349a8799596d06e9f254a2b02",
+    "data/processed/gt_v1_acceptance/gt_triangle.npz": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8",
+    "scripts/audit_n0_teacher_equation_compatibility.py": "e34c07d0f6dd339c67a6aff288d55df7dddff84304547796d2c5fcde5ca1a4e5",
+    "src/pinnpcm/physics/electrostatics.py": "70a0aaaed22531f4026dd754dc3f2872536f6423b14227ab02e5509cebe81269",
+    "src/pinnpcm/physics/gt_solver.py": "94b900626be61827a5137670576142703a4700b67ac449702cc83f47b5f050d8",
+    "src/pinnpcm/pinn/full_pinn_1d.py": "faf1c14353852d0fe73c168f38882c43e2b78aee3ea3d421f874110a7064ff1d",
+    "src/pinnpcm/pinn/full_residuals_1d.py": "c316921ff1981938eed97aa66848ab53966ae70ae517a7e85738badb2b890416",
+    "src/pinnpcm/pinn/n0_compatibility.py": "f40ffda98c358f2de9ca0b35b0c864b8a7a194c3706afa7e9599cdfb1e90f3a6"
+  },
+  "interface_discretization": {
+    "declared_interface_m": 2.2e-08,
+    "face_offset_from_declared_m": 5.806451612903228e-10,
+    "face_offset_over_dx": 0.18000000000000008,
+    "first_right_cell_center_m": 2.4193548387096773e-08,
+    "first_right_cell_index": 7,
+    "implied_discrete_face_m": 2.258064516129032e-08,
+    "last_left_cell_center_m": 2.096774193548387e-08,
+    "last_left_cell_index": 6
+  },
+  "manufactured_cases": {
+    "bilayer_piecewise_flux_continuity": {
+      "c_v_jump": 0.0,
+      "current_flux_jump_normalized": 0.0,
+      "expected_potential_derivative_ratio": 2.285714285714286,
+      "expected_temperature_derivative_ratio": 1.6875,
+      "heat_flux_jump_normalized": 0.0,
+      "m_jump": 0.0,
+      "phi_jump_normalized": 6.938893903907228e-17,
+      "potential_derivative_ratio": 2.285714285714286,
+      "temperature_derivative_ratio": 1.6875,
+      "temperature_jump_normalized": 0.0
+    },
+    "defect_diffusion_drift_reaction": {
+      "diffusion_divergence_rms_per_s": 0.0019199999999999998,
+      "drift_divergence_rms_per_s": 5.507247080378327e-05,
+      "manufactured_source_rms_per_s": 1.3561542331529213,
+      "normalized_residual_rms": 0.0,
+      "reaction_rms_per_s": 0.02223411482674914,
+      "storage_rms_per_s": 1.3333333333333335
+    },
+    "heat_storage_source_sink": {
+      "conduction_rms_W_per_m3": 720000000000000.0,
+      "manufactured_source_rms_W_per_m3": 720005353312545.5,
+      "normalized_residual_rms": 2.411907978379233e-17,
+      "sink_rms_W_per_m3": 1540528604.3447335,
+      "storage_rms_W_per_m3": 3966666666.6666675
+    },
+    "uniform_nonzero_voltage_conduction": {
+      "analytic_current_density_A_per_m2": 4000000.0000000005,
+      "current_density_relative_rms_error": 3.536892430694615e-15,
+      "port_current_relative_error": 0.0,
+      "potential_left_error_V": 0.0,
+      "potential_right_error_V": 0.0,
+      "sigma_S_per_m": 2.0,
+      "voltage_V": 0.2
+    }
+  },
+  "manufactured_checks_pass": true,
+  "schema_version": "n0_teacher_equation_compatibility_v1",
+  "stage_id": "N0-R",
+  "status": "repair_authorized",
+  "v1_electrical_orientation_mismatch": true
+}

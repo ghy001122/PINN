@@ -2,6 +2,14 @@
 
 > Do not load by default. Use `PROJECT_STATE.md`, `NEXT_ACTIONS.md`, and the latest task report for current work.
 
+## N0-R Frozen-GT Compatibility And Bounded Exact-Trace Repair
+
+Date: 2026-07-17
+
+Reproduced the original N0 contract, fixed-seed 1200-epoch failure, and pre-repair full suite (`199 passed`). Added four non-trivial manufactured tests, a term-by-term equation-parity registry, a reconstructed frozen-FVM mass/energy/current ledger, and a controlled `nx=31 -> 63` diagnostic. The frozen FVM is internally conservative, while the v1 full PINN reverses the teacher's electrical boundary orientation and uses a finite-band proxy that is not an exact bilayer trace.
+
+Preregistered and ran one `5704`-parameter dual-domain exact-trace data-free repair against the `5812`-parameter baseline. The seed `20260715` repair passed local electrical/phase, endpoint, exact-interface, finite-state, and physical-bound checks, but failed port (`0.120358`), held-out defect/thermal residuals (`0.048286/0.027081`), terminal current (`0.519809`), global energy (`0.998556`), and field gates. Sparse-port anchor and seed expansion were not authorized. N0 remains `failed_but_informative`; SC-LOS and N1-N3 remain blocked. Frozen GT and 13 V boundaries were preserved.
+
 ## Project History, Workflow, And Innovation Audit
 
 Date: 2026-07-14

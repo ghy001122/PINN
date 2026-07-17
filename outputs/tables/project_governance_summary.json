@@ -23,7 +23,7 @@
     },
     "phase_consistency": {
       "status": "pass",
-      "active_phase_id": "N0_FULL_PINN_NUMERICAL_REPAIR",
+      "active_phase_id": "N0_CV_LEDGER_REFORMULATION_PREFLIGHT",
       "missing": []
     },
     "delivery_contract": {
@@ -66,13 +66,13 @@
     "low_token_context_budget": {
       "status": "pass",
       "limit_bytes": 24576,
-      "total_bytes": 14685,
+      "total_bytes": 17817,
       "files": {
-        "CODEX_CONTEXT.md": 3158,
-        "docs/research_strategy/active_phase.md": 3400,
-        "PROJECT_STATE.md": 3475,
-        "NEXT_ACTIONS.md": 2253,
-        "docs/project_state/current_evidence_index.md": 2399
+        "CODEX_CONTEXT.md": 3855,
+        "docs/research_strategy/active_phase.md": 4000,
+        "PROJECT_STATE.md": 4136,
+        "NEXT_ACTIONS.md": 2658,
+        "docs/project_state/current_evidence_index.md": 3168
       }
     },
     "retired_generator_guard": {

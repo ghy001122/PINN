@@ -1,0 +1,192 @@
+{
+  "base_commit": "583cb441687001c7df9a8ee9d4d5cf45258f8efb",
+  "baseline_checkpoint_sha256": "ed7c0f8e6995ab3b8c9de5b21106a629df49fea5cf1a2d66764b742f8942f2ea",
+  "compatibility_audit_sha256": "dca1734cd8a4243ac31f24534f24a6965e7af147027909be2131ff3ff2a34157",
+  "config_path": "configs/full_pinn_n0_repair_v2.yaml",
+  "config_sha256": "864b9b4405e801dfe6f352282bfd3554029c3bc814afe6f0bb83c9a8b3119a7c",
+  "created_at_utc": "2026-07-17T04:48:02.047879+00:00",
+  "fixed_points": {
+    "content_sha256": "80e34ca549d86588d12ffbcde4a304e378197dba602bcccc6e4e7d1ead932731",
+    "file_sha256": "5a2d64cba87d1af6f34df128334636c1a5b9207760a604590f1f69ff29d5f883",
+    "path": "E:/Python demo/PINN/outputs/tables/n0_fixed_diagnostic_points_v1.npz"
+  },
+  "git_diff_sha256": "5d28ee48fba3e1054aadb00b7a6a7c44256c761b4878e97c3ea9a9614998f5e8",
+  "git_dirty": true,
+  "locked_file_sha256": {
+    "configs/full_pinn_architecture_v1.yaml": "bba90ae2d84a3e056aee3241647c9382aac351c489d52a71f0ac0739e7b5da66",
+    "configs/full_pinn_n0_repair_v2.yaml": "864b9b4405e801dfe6f352282bfd3554029c3bc814afe6f0bb83c9a8b3119a7c",
+    "configs/gt_v1_acceptance_triangle.yaml": "f2e6bec6006827344bebddcf20519b5b87f923b349a8799596d06e9f254a2b02",
+    "data/processed/gt_v1_acceptance/gt_triangle.npz": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8",
+    "outputs/tables/n0_fixed_diagnostic_points_v1.npz": "5a2d64cba87d1af6f34df128334636c1a5b9207760a604590f1f69ff29d5f883",
+    "outputs/tables/n0_global_conservation_audit_v1.json": "88d140cc429fed42a548480ccd1bc9c563f90f0af8484215d1ba3ccbb16c3e31",
+    "outputs/tables/n0_teacher_equation_compatibility_v1.json": "dca1734cd8a4243ac31f24534f24a6965e7af147027909be2131ff3ff2a34157",
+    "scripts/audit_n0_teacher_equation_compatibility.py": "e34c07d0f6dd339c67a6aff288d55df7dddff84304547796d2c5fcde5ca1a4e5",
+    "scripts/diagnose_full_pinn_n0.py": "1652f1fefed2f9d10fe30d9812e4ecc68b17c974b9f327d73bb883a8e3ffa543",
+    "scripts/train_full_pinn_n0_repair.py": "4f3b842d8e5bee514bf4b1791fab4a9e4c4e58f3e09232a24453c1dbe0b812b0",
+    "src/pinnpcm/physics/conductivity.py": "7a851d00b77370876199ec2af371aefd4a7839ba2b576fe96438baa59c3b9a2b",
+    "src/pinnpcm/physics/electrostatics.py": "70a0aaaed22531f4026dd754dc3f2872536f6423b14227ab02e5509cebe81269",
+    "src/pinnpcm/physics/gt_solver.py": "94b900626be61827a5137670576142703a4700b67ac449702cc83f47b5f050d8",
+    "src/pinnpcm/physics/params.py": "a8fc571c7a83935e9a19fc94ada02e5d1bfc2118282186da2c4152967699d1f9",
+    "src/pinnpcm/pinn/full_pinn_1d_split.py": "0a2d21cf215c3fa9258523a95e3e82bab459fabf6a34eacea59285081290d843",
+    "src/pinnpcm/pinn/full_residuals_1d_split.py": "848cbed221aeb5b3c669185fc77c67652cd1249c65d2949f6d5104dc08403735",
+    "src/pinnpcm/pinn/n0_compatibility.py": "f40ffda98c358f2de9ca0b35b0c864b8a7a194c3706afa7e9599cdfb1e90f3a6",
+    "src/pinnpcm/pinn/n0_diagnostics.py": "3c792cce18a10091c0f5a9a66d4c18a42051c480bd37f33e2148a10e503e55dc"
+  },
+  "locked_gates": {
+    "bounded_c_v_and_m_required": true,
+    "endpoint_flux_rms_max": 0.05,
+    "field_score_only_nrmse95_max": {
+      "T": 0.25,
+      "c_v": 0.25,
+      "m": 0.25,
+      "phi": 0.25,
+      "sigma": 0.25
+    },
+    "finite_states_required": true,
+    "frozen_gt_hash_unchanged_required": true,
+    "global_energy_account_imbalance_max": 0.05,
+    "heldout_residual_required": true,
+    "ic_bc_max_normalized_error": 0.001,
+    "interface_flux_rms_max": {
+      "current": 0.05,
+      "defect": 0.05,
+      "heat": 0.05
+    },
+    "interface_state_rms_max": {
+      "T": 0.05,
+      "c_v": 0.05,
+      "m": 0.05,
+      "phi": 0.05
+    },
+    "minimum_passing_seeds": 2,
+    "port_full_trace_nrmse95_max": 0.1,
+    "positive_temperature_required": true,
+    "residual_rms_max": 0.01,
+    "single_seed_success_label": "pilot_pass",
+    "terminal_current_conservation_max": 0.01,
+    "total_seeds": 3
+  },
+  "locked_normalization": {
+    "defect_terms": [
+      "storage",
+      "diffusion",
+      "drift",
+      "reaction"
+    ],
+    "electrical_terms": [
+      "conductivity",
+      "voltage",
+      "layer_length"
+    ],
+    "phase_terms": [
+      "storage",
+      "relaxation"
+    ],
+    "posthoc_rescaling_forbidden": true,
+    "strategy": "layer_local_dimensional_term_sum",
+    "thermal_terms": [
+      "storage",
+      "conduction",
+      "joule",
+      "sink"
+    ]
+  },
+  "locked_sparse_anchor": {
+    "additional_adam_epochs": 400,
+    "allowed_labels": [
+      "I",
+      "G"
+    ],
+    "forbidden_labels": [
+      "phi",
+      "c_v",
+      "T",
+      "m",
+      "sigma"
+    ],
+    "learning_rate": 0.0005,
+    "loss_weight": 1.0,
+    "preregistered": true,
+    "repeat_tuning_forbidden": true,
+    "run_only_if": {
+      "all_interface_flux_gates_pass": true,
+      "all_residual_gates_pass": true,
+      "current_conservation_gate_pass": true,
+      "energy_gate_pass": true,
+      "port_or_field_gate_fails": true
+    },
+    "time_indices": [
+      0,
+      27,
+      53,
+      80,
+      106,
+      133,
+      160,
+      186,
+      213,
+      239,
+      266,
+      293,
+      319,
+      346,
+      372,
+      399
+    ],
+    "training_semantics": "hybrid_sparse_port_anchored_full_pinn"
+  },
+  "locked_training": {
+    "causal_continuation": {
+      "enabled": true,
+      "stages": [
+        {
+          "epochs": 300,
+          "t_norm_max": 0.25
+        },
+        {
+          "epochs": 300,
+          "t_norm_max": 0.5
+        },
+        {
+          "epochs": 300,
+          "t_norm_max": 0.75
+        },
+        {
+          "epochs": 300,
+          "t_norm_max": 1.0
+        }
+      ]
+    },
+    "epochs": 1200,
+    "full_field_training": false,
+    "gradient_clip_norm": 100.0,
+    "lbfgs_tail": {
+      "enabled": true,
+      "history_size": 20,
+      "max_iter": 40,
+      "tolerance_change": 1e-12,
+      "tolerance_grad": 1e-09
+    },
+    "learning_rate": 0.001,
+    "loss_weights": {
+      "endpoint_flux": 1.0,
+      "interface_flux": 1.0,
+      "interface_state": 1.0,
+      "r_T": 1.0,
+      "r_c": 1.0,
+      "r_m": 1.0,
+      "r_phi": 1.0
+    },
+    "mode": "data_free_forward_full_pinn",
+    "optimizer": "Adam",
+    "pilot_seed": 20260715,
+    "port_label_training": false,
+    "seeds": [
+      20260715,
+      20260716,
+      20260717
+    ]
+  },
+  "schema_version": "full_pinn_n0_repair_v2_preregistration",
+  "status": "locked_before_repair_training"
+}
