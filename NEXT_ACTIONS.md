@@ -17,8 +17,9 @@ Required boundaries:
 5. report v3r's narrow port pass together with its failed physics, field, interface-flux, and conservation gates;
 6. report the reproduced strong-Wolfe non-finite parameter as optimizer forensics, not forward fidelity;
 7. report solver-first SID/EC-OQ as rejected after derivative, event-window, stability, and dual-geometry failures;
-8. report CPCF as a failed `48`-case pilot with no full sweep and no cost-optimality claim;
-9. keep full-PINN forward, sensitivity, quotient inverse, protocol-geometry, and CPCF frontier claims forbidden.
+8. report CPCF as an implementation-contract-invalid, non-voting software diagnostic; it supports neither existence nor absence of a resource frontier;
+9. report CEBA parity as an implementation result and the pilot as a locked abstention boundary with no `delta_T_sw_star`;
+10. keep full-PINN forward, sensitivity, quotient inverse, protocol-geometry, CPCF frontier, and positive CEBA boundary claims forbidden.
 
 ### N0 — permanent stop for this optimizer route
 
@@ -28,15 +29,15 @@ Do not rerun, retune, change normalization, skip L-BFGS, add labels, activate an
 
 Do not move event windows, relax the derivative gate, select only favorable protocols, or repackage isolated angles/rank diagnostics. Any future revisit requires a new user-authorized phase and a new numerical derivative/window contract; it is not part of the current queue.
 
-### CPCF — pilot closed
+### CPCF and CEBA — closed
 
-Do not run the full sweep, alter the `20%` threshold, or call the sampled nondominated chain a reliable cost frontier. Retain the pilot table and plot only as `failed_but_informative` supplementary decision evidence.
+CPCF's historical artifacts remain immutable, but the superseding semantic audit sets `scientific_vote=false`; do not use its table or Pareto image as scientific decision evidence. CEBA passes all six exact-source parity anchors but its preregistered pilot abstains at zero error and forms no direct success/failure bracket. Do not change the ambiguity threshold, add seeds, run refinement, expand the delta range, or start a replacement experiment.
 
 ### D0 and N1-N3 — held
 
 - D0b-D0d remain blocked by D0a; 13 V stays sealed.
 - N1/N2 sensitivity and N3 quotient inverse remain unrun and `forbidden` as completed evidence.
-- SC-LOS, DWR, operator learning, UQ, 2D, new hysteresis, latent heat, and external fitting are outside the active phase. H1-H3 upgrades remain evidence-triggered registry items only.
+- SC-LOS, DWR, operator learning, UQ, 2D, new hysteresis, latent heat, and external fitting are outside the active phase. The next research candidate after manuscript closure is the registered QoI-guided Event-Conditioned complete PINN, but it requires a new authorization and independent solver/field/interface/conservation gates. H1-H3 upgrades remain evidence-triggered registry items only.
 
 ## Non-negotiable boundaries
 

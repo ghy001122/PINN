@@ -8,7 +8,7 @@ This is a routing index; current status remains authoritative in `PROJECT_STATE.
 - Claim matrix: `docs/paper/final_claim_matrix.md`.
 - Safe inverse wording: calibration-gated rank-1 `gamma_sub`, synthetic and prior-qualified.
 
-## VO2 D0, full-PINN N0, SID, and CPCF evidence
+## VO2 D0, full-PINN N0, SID, CPCF, and CEBA evidence
 
 | Block | Status | Primary evidence |
 | --- | --- | --- |
@@ -22,11 +22,14 @@ This is a routing index; current status remains authoritative in `PROJECT_STATE.
 | N0-CV-E v3r preregistration | locked at clean remote commit | `outputs/tables/n0_cv_e_v3r_preregistration.json`; `configs/n0_cv_e_v3r_optimizer_forensics.yaml` |
 | N0-CV-E v3r post-Adam and crash forensics | `failed_but_informative`; N0 stopped | `outputs/tables/n0_cv_e_v3r_forensic_resolution.json`; `outputs/tables/n0_cv_e_v3r_post_adam_score.json`; `outputs/tables/n0_cv_e_v3r_lbfgs_diagnostic_crash.json` |
 | Solver-first SID/EC-OQ | `failed_but_informative`; current implementation rejected/inactive | `outputs/tables/sid_ec_oq_summary.json`; `outputs/tables/sid_ec_oq_cases.csv`; `outputs/tables/sid_ec_oq_bootstrap.csv` |
-| CPCF preregistration and valid pilot | `failed_but_informative`; no full sweep/main claim | `outputs/tables/gamma_sub_cpcf_preregistration.json`; `outputs/tables/gamma_sub_cpcf_pilot_summary.json`; `outputs/tables/gamma_sub_cpcf_pilot_operating_points.csv` |
+| CPCF superseding semantic audit | frontier inference `forbidden`; software audit `failed_but_informative` | `outputs/tables/prompt31_cpcf_semantic_audit.json`; `outputs/tables/gamma_sub_cpcf_superseding_claim_record.json` |
+| Historical CPCF preregistration and pilot | immutable, non-voting diagnostic only | `outputs/tables/gamma_sub_cpcf_preregistration.json`; `outputs/tables/gamma_sub_cpcf_pilot_summary.json`; `outputs/tables/gamma_sub_cpcf_pilot_operating_points.csv` |
 | CPCF invalid attempt provenance | no scientific vote | `outputs/tables/gamma_sub_cpcf_attempt1_invalid_provenance.json`; `outputs/tables/gamma_sub_cpcf_attempt1_invalid_summary.json` |
+| CEBA exact-source parity | implementation parity `supported` | `outputs/tables/gamma_sub_ceba_parity_cases.csv`; `outputs/tables/gamma_sub_ceba_parity_summary.json` |
+| CEBA bounded pilot | `failed_but_informative`; no boundary claim | `outputs/tables/gamma_sub_ceba_pilot_cases.csv`; `outputs/tables/gamma_sub_ceba_pilot_summary.json`; `outputs/figures/gamma_sub_ceba_boundary_v1.png` |
 | N1-N3 / SC-LOS | not run / `forbidden` | failed upstream trained-forward and geometry gates |
 
-Current report: `docs/codex_reports/prompt30_a7c_audit_and_cpcf_report.md`.
+Current report: `docs/codex_reports/prompt31_three_commit_cpcf_semantic_review.md`.
 
 Detailed reports:
 
@@ -36,6 +39,8 @@ Detailed reports:
 Literature overlap audit: `docs/literature/n0_sid_optimizer_red_team.md`.
 
 Prompt-30 literature red team: `docs/literature/prompt30_cpcf_idea_red_team.md`.
+
+Prompt-31 QoI/event PINN red team: `docs/literature/prompt31_qoi_event_pinn_red_team.md`.
 
 ## Preserved extension ledger
 

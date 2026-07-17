@@ -1,0 +1,7 @@
+anchor_id,protocol,source_scenario,delta_T_sw_K,observation_count,historical_gamma_est,ceba_gamma_est,historical_relative_error,ceba_relative_error,historical_objective,ceba_objective,best_gamma_pass,relative_error_pass,recoverable_classification_pass,objective_value_pass,objective_ordering_pass,waveform_hash_pass,solver_config_hash_pass,all_core_gates_pass
+triangle_nominal,triangle,nominal_fixed_prior,0.0,32,450000000.0,450000000.0,0.0,0.0,0.0,0.0,True,True,True,True,True,True,True,True
+triangle_narrow,triangle,narrow_T_sw_prior,0.2,32,550000000.0,550000000.0,0.2222222222222222,0.2222222222222222,0.0005873140115977435,0.0005873140115977435,True,True,True,True,True,True,True,True
+triangle_mismatch,triangle,T_sw_mismatch,2.0,32,1000000000.0,1000000000.0,1.2222222222222223,1.2222222222222223,0.11989697954242562,0.11989697954242562,True,True,True,True,True,True,True,True
+ltp_ltd_nominal,ltp_ltd,nominal_fixed_prior,0.0,32,450000000.0,450000000.0,0.0,0.0,0.0,0.0,True,True,True,True,True,True,True,True
+ltp_ltd_narrow,ltp_ltd,narrow_T_sw_prior,0.2,32,500000000.0,500000000.0,0.1111111111111111,0.1111111111111111,0.00036072504674767013,0.00036072504674767013,True,True,True,True,True,True,True,True
+ltp_ltd_mismatch,ltp_ltd,T_sw_mismatch,2.0,32,1000000000.0,1000000000.0,1.2222222222222223,1.2222222222222223,0.03386738505771758,0.03386738505771758,True,True,True,True,True,True,True,True

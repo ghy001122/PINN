@@ -71,6 +71,7 @@ jobs:
           tests/test_historical_evidence_manifest.py
           tests/test_prompt31_cpcf_semantic_audit.py
           tests/test_gamma_sub_ceba_contract.py
+          tests/test_gamma_sub_ceba_evidence_schema.py
           tests/test_validation_workflow_contract.py
           tests/test_gamma_sub_evidence_lock.py
           tests/test_claim_gate_resolution_matrix.py -q

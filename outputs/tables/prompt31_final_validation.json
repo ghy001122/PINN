@@ -1,0 +1,70 @@
+{
+  "schema_version": "prompt31_final_validation_v1",
+  "stage_id": "M31_CPCF_SEMANTIC_SUPERSEDE_AND_CEBA_PARITY",
+  "base_commit": "16427d7d20b32c8d25fc7967b43657f0588ba8b2",
+  "definition_commit": "306f5c9fdc720c71cad18b7ab322d4d0ae73d938",
+  "result_commit": null,
+  "branch": "main",
+  "frozen_gt_modified": false,
+  "new_high_cost_experiments": {
+    "n0_or_full_pinn_training": false,
+    "sid_or_ec_oq": false,
+    "d0_or_13v": false,
+    "cpcf_full_sweep": false
+  },
+  "scientific_resolution": {
+    "cpcf_scientific_vote": false,
+    "cpcf_status": "implementation_contract_invalid",
+    "cpcf_claim_status": "failed_but_informative",
+    "ceba_parity_all_passed": true,
+    "ceba_parity_claim_status": "supported",
+    "ceba_configuration_claim_eligible": false,
+    "ceba_pilot_claim_status": "failed_but_informative",
+    "delta_T_sw_star_available": false
+  },
+  "budget": {
+    "parity_anchor_count": 6,
+    "pilot_scoring_case_count": 72,
+    "unique_solver_trajectories": 36,
+    "pilot_new_solver_trajectories": 0,
+    "pilot_cache_hits": 36,
+    "maximum_workers_used": 1,
+    "elapsed_seconds_total_parity_and_pilot": 29.480941999994684,
+    "all_budget_gates_pass": true
+  },
+  "validation": {
+    "focused_precommit": {
+      "status": "passed",
+      "tests_passed": 20,
+      "elapsed_seconds": 20.52
+    },
+    "full_pytest_once": {
+      "status": "passed",
+      "tests_passed": 270,
+      "elapsed_seconds": 382.12
+    },
+    "governance_and_tracked_json_once": {
+      "status": "passed_with_manual_review",
+      "governance_overall_status": "pass_with_manual_review",
+      "governance_failed_checks": 0,
+      "manual_review_only": [
+        "codex_rules client loading semantics",
+        "frozen artifact mtime semantics; all eight SHA256 checks passed"
+      ],
+      "tracked_json_count": 141,
+      "tracked_json_failures": 0
+    },
+    "clean_clone_read_only_once": {
+      "status": "pending_after_result_commit",
+      "tests_passed": null
+    },
+    "remote_ci": {
+      "status": "pending_push"
+    }
+  },
+  "publication": {
+    "commit_count_planned": 2,
+    "push_count_planned": 1,
+    "push_status": "pending"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "all_parity_gates_pass": true,
+  "anchor_cap": 6,
+  "anchor_count": 6,
+  "cache_hits": 0,
+  "cases_path": "outputs/tables/gamma_sub_ceba_parity_cases.csv",
+  "claim_status": "supported",
+  "elapsed_seconds": 29.219467299990356,
+  "external_13v_accessed": false,
+  "failure_action": null,
+  "gate_pass_counts": {
+    "best_gamma_pass": 6,
+    "objective_ordering_pass": 6,
+    "objective_value_pass": 6,
+    "recoverable_classification_pass": 6,
+    "relative_error_pass": 6,
+    "solver_config_hash_pass": 6,
+    "waveform_hash_pass": 6
+  },
+  "implementation_status": "parity_passed",
+  "max_workers_used": 1,
+  "new_solver_trajectory_evaluations": 36,
+  "no_full_pinn_run": true,
+  "pilot_authorized": true,
+  "preregistration_path": "outputs/tables/gamma_sub_ceba_preregistration.json",
+  "preregistration_sha256": "e6037a5ddde712d3cbd962574454a3729e09e4fc0c99cc1eed6192058f56cf53",
+  "schema_version": "gamma_sub_ceba_parity_summary_v1",
+  "stage_id": "M31_CEBA_PARITY_AND_BOUNDED_PILOT",
+  "unique_solver_trajectories": 36
+}

@@ -1,0 +1,465 @@
+{
+  "allowed_claim_if_all_gates_pass": "In the configured frozen one-dimensional synthetic benchmark, exact direct-solver triangle and LTP/LTD protocols bracket a calibration-excitation recoverability boundary for gamma_sub under the locked observation, noise, seed, abstention, candidate-grid, and solver contracts.\n",
+  "budget": {
+    "fail_closed": true,
+    "maximum_parity_anchors": 6,
+    "maximum_unique_solver_trajectories": 60,
+    "maximum_wall_time_minutes": 30,
+    "maximum_workers": 2,
+    "resume_state": "outputs/cache/gamma_sub_ceba/resume_state.json",
+    "trajectory_cache": "outputs/cache/gamma_sub_ceba/trajectories"
+  },
+  "definition_commit": "306f5c9fdc720c71cad18b7ab322d4d0ae73d938",
+  "external_13v_accessed": false,
+  "forbidden_claims": [
+    "globally optimal protocol",
+    "real experimental calibration cost",
+    "device-general calibration requirement",
+    "cross-material generalization",
+    "trained full-PINN success",
+    "independent external validation",
+    "world-first claim"
+  ],
+  "full_pinn_run": false,
+  "git_dirty_before_registration": false,
+  "independent_remote_timestamp": false,
+  "internal_commit_ordered_preregistration": true,
+  "inverse": {
+    "gamma_candidates": [
+      "1.5e8",
+      "2.0e8",
+      "2.75e8",
+      "3.25e8",
+      "3.75e8",
+      "4.0e8",
+      "4.25e8",
+      "4.5e8",
+      "4.75e8",
+      "5.0e8",
+      "5.5e8",
+      "6.5e8",
+      "7.5e8",
+      "9.0e8",
+      "1.0e9"
+    ],
+    "heat_residual_weight": 0.0,
+    "objective": {
+      "w_g": 1.0,
+      "w_i": 0.5
+    },
+    "objective_semantics": "squared_relative_RMSE_G_plus_half_squared_relative_RMSE_I",
+    "primary_parameter": "gamma_sub",
+    "success_relative_error_threshold": 0.15,
+    "true_gamma_sub": "4.5e8"
+  },
+  "locks": {
+    "definition_file_paths": {
+      "config": "configs/gamma_sub_ceba_v1.yaml",
+      "implementation": "scripts/run_gamma_sub_ceba.py",
+      "ltp_ltd_target": "data/processed/gt_v1_acceptance/gt_ltp_ltd.npz",
+      "source_cases": "outputs/tables/gamma_sub_multi_protocol_recoverability_cases.csv",
+      "source_config": "configs/gamma_sub_multi_protocol_recoverability.yaml",
+      "source_implementation": "scripts/audit_gamma_sub_multi_protocol_recoverability.py",
+      "triangle_target": "data/processed/gt_v1_acceptance/gt_triangle.npz"
+    },
+    "definition_file_sha256": {
+      "config": "20bd298aef3276e1d537ffae73966b25684cac3c080a1e549d9d2388e3e00bc5",
+      "implementation": "5324b933c6469e355c301f08d521fdf12818daea0f0c59391fdd5e16d454841d",
+      "ltp_ltd_target": "772d17178c77392bf8a0813ada3db4a7241c5fa4e6d72e091894271bfa13c247",
+      "source_cases": "ead6e35a86bcd9a279a8e9d41b20b14876bf613d7281ac294e04a46a3618b448",
+      "source_config": "371a1d5452169b7e8db97da32d5f3c11cfebe9035969dfc909160124e7d074fd",
+      "source_implementation": "bec3cf9d3e6f83726436471e6778adb2409d35268122ca8b244bd635d77878f3",
+      "triangle_target": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8"
+    },
+    "physical_parameter_sha256": {
+      "ltp_ltd": "fa7e69ef39d771f7fcb90ab93593ca1b97ea9ad8881b246fbc9685a35077f75e",
+      "triangle": "fa7e69ef39d771f7fcb90ab93593ca1b97ea9ad8881b246fbc9685a35077f75e"
+    },
+    "physical_parameters": {
+      "ltp_ltd": {
+        "A_contact": 7.853981633974483e-09,
+        "Cp": 700.0,
+        "D_v0": 8e-16,
+        "E_D_eV": 0.25,
+        "E_mu_eV": 0.2,
+        "E_off_eV": 0.12,
+        "E_r_eV": 0.15,
+        "L_eff": 1e-07,
+        "L_int": 2.2e-08,
+        "T0": 300.0,
+        "T_sw": 313.0,
+        "alpha_c": 100.0,
+        "beta_off": 3.0,
+        "beta_on": 7.0,
+        "c_v0": 0.08,
+        "dT_sw": 4.8,
+        "eps_R": 1e-30,
+        "eps_V": 1e-12,
+        "eps_sigma": 1e-30,
+        "eta_A": 1e-06,
+        "gamma_sub": 450000000.0,
+        "gaussian_delta_c": 0.028,
+        "gaussian_w_d": 9e-09,
+        "gaussian_x_d": 2.5e-08,
+        "initial_defect_mode": "gaussian_seed",
+        "k_r0": 5.0,
+        "k_th": 1.2,
+        "layer_profile": "bilayer",
+        "ltp_v_neg": -0.02,
+        "ltp_v_pos": 0.08,
+        "mu_v0": 5e-16,
+        "nb_oxide_D_v0": 2e-15,
+        "nb_oxide_k_th": 0.8,
+        "nb_oxide_mu_v0": 1e-15,
+        "nb_oxide_sigma_off0": 0.0014,
+        "nb_oxide_sigma_on0": 2.4,
+        "rho": 3400.0,
+        "sigma_off0": 0.003,
+        "sigma_on0": 1.65,
+        "tau_m": 0.0004,
+        "triangle_v_peak": 0.2,
+        "v2o5_D_v0": 7e-16,
+        "v2o5_k_th": 1.35,
+        "v2o5_mu_v0": 4e-16,
+        "v2o5_sigma_off0": 0.0032,
+        "v2o5_sigma_on0": 1.35
+      },
+      "triangle": {
+        "A_contact": 7.853981633974483e-09,
+        "Cp": 700.0,
+        "D_v0": 8e-16,
+        "E_D_eV": 0.25,
+        "E_mu_eV": 0.2,
+        "E_off_eV": 0.12,
+        "E_r_eV": 0.15,
+        "L_eff": 1e-07,
+        "L_int": 2.2e-08,
+        "T0": 300.0,
+        "T_sw": 313.0,
+        "alpha_c": 100.0,
+        "beta_off": 3.0,
+        "beta_on": 7.0,
+        "c_v0": 0.08,
+        "dT_sw": 4.8,
+        "eps_R": 1e-30,
+        "eps_V": 1e-12,
+        "eps_sigma": 1e-30,
+        "eta_A": 1e-06,
+        "gamma_sub": 450000000.0,
+        "gaussian_delta_c": 0.028,
+        "gaussian_w_d": 9e-09,
+        "gaussian_x_d": 2.5e-08,
+        "initial_defect_mode": "gaussian_seed",
+        "k_r0": 5.0,
+        "k_th": 1.2,
+        "layer_profile": "bilayer",
+        "ltp_v_neg": -0.02,
+        "ltp_v_pos": 0.08,
+        "mu_v0": 5e-16,
+        "nb_oxide_D_v0": 2e-15,
+        "nb_oxide_k_th": 0.8,
+        "nb_oxide_mu_v0": 1e-15,
+        "nb_oxide_sigma_off0": 0.0014,
+        "nb_oxide_sigma_on0": 2.4,
+        "rho": 3400.0,
+        "sigma_off0": 0.003,
+        "sigma_on0": 1.65,
+        "tau_m": 0.0004,
+        "triangle_v_peak": 0.2,
+        "v2o5_D_v0": 7e-16,
+        "v2o5_k_th": 1.35,
+        "v2o5_mu_v0": 4e-16,
+        "v2o5_sigma_off0": 0.0032,
+        "v2o5_sigma_on0": 1.35
+      }
+    },
+    "protocol_contracts": {
+      "ltp_ltd": {
+        "base_solver": {
+          "gamma_candidates": [
+            150000000.0,
+            200000000.0,
+            275000000.0,
+            325000000.0,
+            375000000.0,
+            400000000.0,
+            425000000.0,
+            450000000.0,
+            475000000.0,
+            500000000.0,
+            550000000.0,
+            650000000.0,
+            750000000.0,
+            900000000.0,
+            1000000000.0
+          ],
+          "objective": {
+            "w_g": 1.0,
+            "w_i": 0.5
+          },
+          "physical_parameter_sha256": "fa7e69ef39d771f7fcb90ab93593ca1b97ea9ad8881b246fbc9685a35077f75e",
+          "protocol": "ltp_ltd",
+          "simulation": {
+            "atol": 1e-07,
+            "method": "Radau",
+            "nt": 180,
+            "nx": 21,
+            "protocol": "ltp_ltd",
+            "rtol": 1e-05
+          },
+          "solver_config_sha256": "ffd5976d538e06e3352d65b680c24abed25748f60f9f4f6ec33d87d70a61a47b",
+          "solver_level": "base",
+          "t_max_s": 0.015
+        },
+        "refinement_solver": {
+          "gamma_candidates": [
+            150000000.0,
+            200000000.0,
+            275000000.0,
+            325000000.0,
+            375000000.0,
+            400000000.0,
+            425000000.0,
+            450000000.0,
+            475000000.0,
+            500000000.0,
+            550000000.0,
+            650000000.0,
+            750000000.0,
+            900000000.0,
+            1000000000.0
+          ],
+          "objective": {
+            "w_g": 1.0,
+            "w_i": 0.5
+          },
+          "physical_parameter_sha256": "fa7e69ef39d771f7fcb90ab93593ca1b97ea9ad8881b246fbc9685a35077f75e",
+          "protocol": "ltp_ltd",
+          "simulation": {
+            "atol": 5e-08,
+            "method": "Radau",
+            "nt": 270,
+            "nx": 31,
+            "protocol": "ltp_ltd",
+            "rtol": 5e-06
+          },
+          "solver_config_sha256": "87f03a5d71f3648fc9c8b5c0e192cc310a850a14ddf4e5ee589880a6f51c85af",
+          "solver_level": "refinement",
+          "t_max_s": 0.015
+        },
+        "waveform": {
+          "protocol": "ltp_ltd",
+          "pulse_count": 12,
+          "pulse_spacing_fraction_of_period": 0.38,
+          "pulse_spacing_s": null,
+          "pulse_width_fraction_of_period": 0.62,
+          "pulse_width_s": null,
+          "simulator_protocol": "ltp_ltd",
+          "t_max_s": 0.015,
+          "time_grid_points": 2049,
+          "time_grid_sha256": "73ca10c80ef839b96d2af3ae3b375d0569a93b7868bdf51294ae1ee5e01db1c0",
+          "waveform_parameters": {
+            "ltp_v_neg": -0.02,
+            "ltp_v_pos": 0.08,
+            "n_neg": 6,
+            "n_pos": 6
+          },
+          "waveform_sha256": "270be7f5473c71f50d9bae58e8b87bf68a1f920a2481bb327f3d476b720d9eed"
+        }
+      },
+      "triangle": {
+        "base_solver": {
+          "gamma_candidates": [
+            150000000.0,
+            200000000.0,
+            275000000.0,
+            325000000.0,
+            375000000.0,
+            400000000.0,
+            425000000.0,
+            450000000.0,
+            475000000.0,
+            500000000.0,
+            550000000.0,
+            650000000.0,
+            750000000.0,
+            900000000.0,
+            1000000000.0
+          ],
+          "objective": {
+            "w_g": 1.0,
+            "w_i": 0.5
+          },
+          "physical_parameter_sha256": "fa7e69ef39d771f7fcb90ab93593ca1b97ea9ad8881b246fbc9685a35077f75e",
+          "protocol": "triangle",
+          "simulation": {
+            "atol": 1e-07,
+            "method": "Radau",
+            "nt": 160,
+            "nx": 21,
+            "protocol": "triangle",
+            "rtol": 1e-05
+          },
+          "solver_config_sha256": "776fadd63b70c17fe431536b6260615528c0fe5ea443503e90a2117840294029",
+          "solver_level": "base",
+          "t_max_s": 0.003
+        },
+        "refinement_solver": {
+          "gamma_candidates": [
+            150000000.0,
+            200000000.0,
+            275000000.0,
+            325000000.0,
+            375000000.0,
+            400000000.0,
+            425000000.0,
+            450000000.0,
+            475000000.0,
+            500000000.0,
+            550000000.0,
+            650000000.0,
+            750000000.0,
+            900000000.0,
+            1000000000.0
+          ],
+          "objective": {
+            "w_g": 1.0,
+            "w_i": 0.5
+          },
+          "physical_parameter_sha256": "fa7e69ef39d771f7fcb90ab93593ca1b97ea9ad8881b246fbc9685a35077f75e",
+          "protocol": "triangle",
+          "simulation": {
+            "atol": 5e-08,
+            "method": "Radau",
+            "nt": 240,
+            "nx": 31,
+            "protocol": "triangle",
+            "rtol": 5e-06
+          },
+          "solver_config_sha256": "0597599602ad046bca13d1a88707c19237fc9bfcb80990bd59bba13283f3d3de",
+          "solver_level": "refinement",
+          "t_max_s": 0.003
+        },
+        "waveform": {
+          "protocol": "triangle",
+          "pulse_count": 0,
+          "pulse_spacing_fraction_of_period": null,
+          "pulse_spacing_s": null,
+          "pulse_width_fraction_of_period": null,
+          "pulse_width_s": null,
+          "simulator_protocol": "triangle",
+          "t_max_s": 0.003,
+          "time_grid_points": 2049,
+          "time_grid_sha256": "fa0ee4b4e20a32f46d1973b238de1c144a75a4a31bcf2ba41b67f029aa8fffa6",
+          "waveform_parameters": {
+            "triangle_v_peak": 0.2
+          },
+          "waveform_sha256": "0175f31d5c1db10ccbf01cb7dc2725bde7f217a4e8e8587083d2ea742dd6444f"
+        }
+      }
+    }
+  },
+  "no_solver_run": true,
+  "parity": {
+    "anchors": [
+      {
+        "anchor_id": "triangle_nominal",
+        "delta_T_sw_K": 0.0,
+        "protocol": "triangle",
+        "source_scenario": "nominal_fixed_prior"
+      },
+      {
+        "anchor_id": "triangle_narrow",
+        "delta_T_sw_K": 0.2,
+        "protocol": "triangle",
+        "source_scenario": "narrow_T_sw_prior"
+      },
+      {
+        "anchor_id": "triangle_mismatch",
+        "delta_T_sw_K": 2.0,
+        "protocol": "triangle",
+        "source_scenario": "T_sw_mismatch"
+      },
+      {
+        "anchor_id": "ltp_ltd_nominal",
+        "delta_T_sw_K": 0.0,
+        "protocol": "ltp_ltd",
+        "source_scenario": "nominal_fixed_prior"
+      },
+      {
+        "anchor_id": "ltp_ltd_narrow",
+        "delta_T_sw_K": 0.2,
+        "protocol": "ltp_ltd",
+        "source_scenario": "narrow_T_sw_prior"
+      },
+      {
+        "anchor_id": "ltp_ltd_mismatch",
+        "delta_T_sw_K": 2.0,
+        "protocol": "ltp_ltd",
+        "source_scenario": "T_sw_mismatch"
+      }
+    ],
+    "maximum_anchors": 6,
+    "noise": 0.0,
+    "observation_count": 32,
+    "tolerances": {
+      "best_gamma_absolute": 1e-06,
+      "objective_absolute": 1e-10,
+      "objective_ordering_exact": true,
+      "objective_relative": 1e-07,
+      "recoverable_classification_exact": true,
+      "relative_error_absolute": 1e-12,
+      "solver_config_hash_exact": true,
+      "waveform_hash_exact": true
+    }
+  },
+  "pilot": {
+    "bootstrap_semantics": "seed_bootstrap_within_fixed_protocol_observation_noise_scenario",
+    "boundary_tolerance_K": 0.125,
+    "claim_condition": {
+      "noise": 0.02,
+      "observation_count": 32
+    },
+    "delta_T_sw_K_range": [
+      0.0,
+      2.0
+    ],
+    "discovery_seeds": [
+      20260715,
+      20260716,
+      20260717,
+      20260718,
+      20260719
+    ],
+    "heldout_seeds": [
+      20260720,
+      20260721,
+      20260722,
+      20260723,
+      20260724
+    ],
+    "locked_maximum_abstention_rate": 0.2,
+    "locked_success_probability": 0.8,
+    "maximum_additional_base_target_trajectories": 12,
+    "maximum_bisection_rounds": 6,
+    "noise_levels": [
+      0.0,
+      0.02
+    ],
+    "observation_counts": [
+      8,
+      32
+    ],
+    "profile_retention_span_fraction": 0.05,
+    "refinement": {
+      "candidate_count_per_protocol": 3,
+      "maximum_additional_trajectories": 10,
+      "target_endpoints_per_protocol": 2
+    }
+  },
+  "registration_semantics": "internal commit-ordered preregistration; not an independent remote timestamp",
+  "research_quantity": "delta_T_sw_star(protocol, observation_count, noise) in absolute K",
+  "schema_version": "gamma_sub_ceba_preregistration_v1",
+  "scientific_hypothesis": "A direct-solver calibration-excitation boundary may exist for gamma_sub within the locked synthetic configuration, with explicit abstention when the discrete profile is ambiguous.",
+  "stage_id": "M31_CEBA_PARITY_AND_BOUNDED_PILOT"
+}

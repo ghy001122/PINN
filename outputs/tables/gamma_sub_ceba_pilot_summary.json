@@ -1,0 +1,268 @@
+{
+  "adaptive_search_rounds": [],
+  "additional_base_target_trajectories": 0,
+  "allowed_claim": "The bounded direct-solver pilot did not satisfy every preregistered CEBA claim gate; it is retained as a failure/abstention boundary only.",
+  "bootstrap_semantics": "seed_bootstrap_within_fixed_protocol_observation_noise_scenario",
+  "budget_gates": {
+    "max_workers_le_2": true,
+    "refinement_trajectories_le_10": true,
+    "unique_solver_trajectories_le_60": true,
+    "wall_time_le_30_min": true
+  },
+  "cache_hits_this_process": 36,
+  "ceba_configuration_claim_eligible": false,
+  "claim_status": "failed_but_informative",
+  "condition_results": {
+    "ltp_ltd|n=32|noise=0": {
+      "discovery_bracket_K": null,
+      "discovery_delta_results": {
+        "0.0": {
+          "abstention_rate": 1.0,
+          "passes_locked_gate": false,
+          "seed_count": 1,
+          "success_probability": 0.0
+        },
+        "0.2": {
+          "abstention_rate": 1.0,
+          "passes_locked_gate": false,
+          "seed_count": 1,
+          "success_probability": 0.0
+        },
+        "2.0": {
+          "abstention_rate": 0.0,
+          "passes_locked_gate": false,
+          "seed_count": 1,
+          "success_probability": 0.0
+        }
+      },
+      "heldout_gate_pass": false,
+      "heldout_success_failure_bracket_K": null
+    },
+    "ltp_ltd|n=32|noise=0.02": {
+      "discovery_bracket_K": null,
+      "discovery_delta_results": {
+        "0.0": {
+          "abstention_rate": 1.0,
+          "passes_locked_gate": false,
+          "seed_count": 5,
+          "success_probability": 0.0
+        },
+        "0.2": {
+          "abstention_rate": 1.0,
+          "passes_locked_gate": false,
+          "seed_count": 5,
+          "success_probability": 0.0
+        },
+        "2.0": {
+          "abstention_rate": 0.0,
+          "passes_locked_gate": false,
+          "seed_count": 5,
+          "success_probability": 0.0
+        }
+      },
+      "heldout_gate_pass": false,
+      "heldout_success_failure_bracket_K": null
+    },
+    "ltp_ltd|n=8|noise=0": {
+      "discovery_bracket_K": null,
+      "discovery_delta_results": {
+        "0.0": {
+          "abstention_rate": 1.0,
+          "passes_locked_gate": false,
+          "seed_count": 1,
+          "success_probability": 0.0
+        },
+        "0.2": {
+          "abstention_rate": 1.0,
+          "passes_locked_gate": false,
+          "seed_count": 1,
+          "success_probability": 0.0
+        },
+        "2.0": {
+          "abstention_rate": 0.0,
+          "passes_locked_gate": false,
+          "seed_count": 1,
+          "success_probability": 0.0
+        }
+      },
+      "heldout_gate_pass": false,
+      "heldout_success_failure_bracket_K": null
+    },
+    "ltp_ltd|n=8|noise=0.02": {
+      "discovery_bracket_K": null,
+      "discovery_delta_results": {
+        "0.0": {
+          "abstention_rate": 1.0,
+          "passes_locked_gate": false,
+          "seed_count": 5,
+          "success_probability": 0.0
+        },
+        "0.2": {
+          "abstention_rate": 1.0,
+          "passes_locked_gate": false,
+          "seed_count": 5,
+          "success_probability": 0.0
+        },
+        "2.0": {
+          "abstention_rate": 0.0,
+          "passes_locked_gate": false,
+          "seed_count": 5,
+          "success_probability": 0.0
+        }
+      },
+      "heldout_gate_pass": false,
+      "heldout_success_failure_bracket_K": null
+    },
+    "triangle|n=32|noise=0": {
+      "discovery_bracket_K": null,
+      "discovery_delta_results": {
+        "0.0": {
+          "abstention_rate": 1.0,
+          "passes_locked_gate": false,
+          "seed_count": 1,
+          "success_probability": 0.0
+        },
+        "0.2": {
+          "abstention_rate": 1.0,
+          "passes_locked_gate": false,
+          "seed_count": 1,
+          "success_probability": 0.0
+        },
+        "2.0": {
+          "abstention_rate": 0.0,
+          "passes_locked_gate": false,
+          "seed_count": 1,
+          "success_probability": 0.0
+        }
+      },
+      "heldout_gate_pass": false,
+      "heldout_success_failure_bracket_K": null
+    },
+    "triangle|n=32|noise=0.02": {
+      "discovery_bracket_K": null,
+      "discovery_delta_results": {
+        "0.0": {
+          "abstention_rate": 1.0,
+          "passes_locked_gate": false,
+          "seed_count": 5,
+          "success_probability": 0.0
+        },
+        "0.2": {
+          "abstention_rate": 1.0,
+          "passes_locked_gate": false,
+          "seed_count": 5,
+          "success_probability": 0.0
+        },
+        "2.0": {
+          "abstention_rate": 0.0,
+          "passes_locked_gate": false,
+          "seed_count": 5,
+          "success_probability": 0.0
+        }
+      },
+      "heldout_gate_pass": false,
+      "heldout_success_failure_bracket_K": null
+    },
+    "triangle|n=8|noise=0": {
+      "discovery_bracket_K": null,
+      "discovery_delta_results": {
+        "0.0": {
+          "abstention_rate": 1.0,
+          "passes_locked_gate": false,
+          "seed_count": 1,
+          "success_probability": 0.0
+        },
+        "0.2": {
+          "abstention_rate": 1.0,
+          "passes_locked_gate": false,
+          "seed_count": 1,
+          "success_probability": 0.0
+        },
+        "2.0": {
+          "abstention_rate": 0.0,
+          "passes_locked_gate": false,
+          "seed_count": 1,
+          "success_probability": 0.0
+        }
+      },
+      "heldout_gate_pass": false,
+      "heldout_success_failure_bracket_K": null
+    },
+    "triangle|n=8|noise=0.02": {
+      "discovery_bracket_K": null,
+      "discovery_delta_results": {
+        "0.0": {
+          "abstention_rate": 1.0,
+          "passes_locked_gate": false,
+          "seed_count": 5,
+          "success_probability": 0.0
+        },
+        "0.2": {
+          "abstention_rate": 1.0,
+          "passes_locked_gate": false,
+          "seed_count": 5,
+          "success_probability": 0.0
+        },
+        "2.0": {
+          "abstention_rate": 0.0,
+          "passes_locked_gate": false,
+          "seed_count": 5,
+          "success_probability": 0.0
+        }
+      },
+      "heldout_gate_pass": false,
+      "heldout_success_failure_bracket_K": null
+    }
+  },
+  "definition_commit": "306f5c9fdc720c71cad18b7ab322d4d0ae73d938",
+  "elapsed_seconds_pilot_process": 0.6708110999898054,
+  "elapsed_seconds_total_parity_and_pilot": 29.480941999994684,
+  "external_13v_accessed": false,
+  "forbidden_claims": [
+    "globally optimal protocol",
+    "real experimental calibration cost",
+    "device-general calibration requirement",
+    "cross-material generalization",
+    "trained full-PINN success",
+    "independent external validation",
+    "world-first claim"
+  ],
+  "full_pinn_run": false,
+  "max_workers_used": 1,
+  "new_solver_trajectory_evaluations_this_process": 0,
+  "no_protocol_unit_or_source_mixing": true,
+  "outputs": {
+    "cases": "outputs/tables/gamma_sub_ceba_pilot_cases.csv",
+    "figure": "outputs/figures/gamma_sub_ceba_boundary_v1.png",
+    "summary": "outputs/tables/gamma_sub_ceba_pilot_summary.json"
+  },
+  "parity_all_passed": true,
+  "protocol_results": {
+    "ltp_ltd": {
+      "claim_noise": 0.02,
+      "claim_observation_count": 32,
+      "delta_T_sw_star_K": null,
+      "heldout_gate_pass": false,
+      "heldout_success_failure_bracket_K": null,
+      "solver_refinement_consistent": false
+    },
+    "triangle": {
+      "claim_noise": 0.02,
+      "claim_observation_count": 32,
+      "delta_T_sw_star_K": null,
+      "heldout_gate_pass": false,
+      "heldout_success_failure_bracket_K": null,
+      "solver_refinement_consistent": false
+    }
+  },
+  "queried_delta_T_sw_K": [
+    0.0,
+    0.2,
+    2.0
+  ],
+  "refinement_trajectory_count": 0,
+  "schema_version": "gamma_sub_ceba_pilot_summary_v1",
+  "scoring_case_count": 72,
+  "stage_id": "M31_CEBA_PARITY_AND_BOUNDED_PILOT",
+  "unique_solver_trajectories": 36
+}

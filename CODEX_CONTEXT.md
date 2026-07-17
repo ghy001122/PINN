@@ -8,7 +8,7 @@ Read this file and `docs/research_strategy/active_phase.md` first. Load longer c
 - Phase ID: `M_GAMMA_SUB_MANUSCRIPT_ASSEMBLY`
 - Current evidence: `docs/project_state/current_evidence_index.md`
 - Safe historical evidence lock: `d1121e16fa5015a297da468e3e6f0504b9e97d17`
-- Current report: `docs/codex_reports/prompt30_a7c_audit_and_cpcf_report.md`
+- Current report: `docs/codex_reports/prompt31_three_commit_cpcf_semantic_review.md`
 
 ## Corrected North Star
 
@@ -18,7 +18,7 @@ The calibration-gated constrained `gamma_sub` rank-1 result is the safe `qualifi
 
 ## Single Active Bottleneck
 
-`M_GAMMA_SUB_MANUSCRIPT_ASSEMBLY`: assemble the manuscript only from locked `gamma_sub` evidence plus explicit D0/N0/SID/CPCF failure boundaries. N0 optimizer work and the current SID/EC-OQ implementation are closed. No N1-N3, SC-LOS, 13 V access, external refit, or CPCF full sweep is active.
+`M_GAMMA_SUB_MANUSCRIPT_ASSEMBLY`: assemble the manuscript only from locked `gamma_sub` evidence plus explicit D0/N0/SID/CPCF/CEBA boundaries. N0 optimizer work, the current SID/EC-OQ implementation, CPCF scientific interpretation, and CEBA boundary search are closed. No N1-N3, SC-LOS, 13 V access, external refit, or CPCF/CEBA expansion is active.
 
 ## Evidence Snapshot
 
@@ -31,7 +31,8 @@ The calibration-gated constrained `gamma_sub` rank-1 result is the safe `qualifi
 - Historical N0-CV-E v3 training: `failed_but_informative / runtime_abort_unassessed`. It has no scoreable trajectory and is not scientific-model falsification by itself.
 - N0-CV-E v3r: `failed_but_informative`. The scoreable Adam-1200 state passes port NRMSE95 (`0.0955475`) but fails residual, field, interface-flux, and ledger gates; five metrics exceed `20x`. A same-checkpoint diagnostic reproduces a strong-Wolfe non-finite `backbone.net.0.weight` at closure 3. Recovery is ineligible; no recovery arm or seed expansion ran.
 - Solver-first SID/EC-OQ: `failed_but_informative`. Derivative agreement passes `3/9`, one event window degenerates to the full trace, and stability/dual-geometry gates fail. The preregistered implementation is rejected and inactive; this does not permanently falsify the broader scientific hypothesis. A revisit requires a new user-authorized numerical derivative/event-window contract.
-- CPCF pilot: `failed_but_informative`. It ran `48` cases over `12` operating points plus `8` fresh solver anchors. Only the stable-nondominated-point gate passed; anchor consistency, locked `20%` improvement, and bootstrap-direction gates failed. No full sweep ran and CPCF has no main-claim eligibility.
+- CPCF semantic audit: frontier inference is `forbidden`; software diagnosis is `failed_but_informative`. All `48` votes are proxy-derived and the protocol, solver/grid, candidate, objective, unit, bootstrap, and Pareto contracts are non-equivalent. Historical artifacts are immutable non-voting diagnostics.
+- CEBA: exact-source implementation parity is `supported` (`6/6` anchors; `36` unique trajectories). The bounded `72`-case cached pilot is `failed_but_informative` because the locked ambiguity rule abstains at zero `T_sw` error; no bracket, `delta_T_sw_star`, or refinement vote exists.
 - Reliable full-PINN forward, sensitivity fidelity, and inverse claims remain `forbidden`.
 
 ## Evidence Semantics
@@ -40,4 +41,4 @@ Keep `public_external_raw`, `derived`, `interpolated`, `solver_generated`, `pinn
 
 ## Operating Rule
 
-Preserve all negative artifacts and unchanged preregistered gates. Do not reinterpret operator preflight or a narrow port fit as trained PINN fidelity; do not reopen N0 optimization, rename failed SID/EC-OQ diagnostics, or promote the failed CPCF pilot to a cost frontier. Use only `supported`, `qualified_supported`, `failed_but_informative`, or `forbidden`.
+Preserve all negative artifacts and unchanged preregistered gates. Do not reinterpret operator preflight or a narrow port fit as trained PINN fidelity; do not reopen N0 optimization, rename failed SID/EC-OQ diagnostics, give CPCF a scientific vote, or relax CEBA after abstention. Use only `supported`, `qualified_supported`, `failed_but_informative`, or `forbidden`.

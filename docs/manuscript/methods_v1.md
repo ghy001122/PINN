@@ -58,21 +58,19 @@ The protocol search is finite and benchmark-specific. It is not a continuous glo
 
 Noise, random seed, observation count, off-grid truth, prior width, and protocol are audited without averaging away the wide-\(T_{\mathrm{sw}}\)-mismatch failures. A positive mainline claim is allowed only with status `supported` or `qualified_supported` in `docs/paper/final_claim_matrix.md`.
 
-## Bounded Calibration-Protocol Resource Audit
+## CPCF Semantic Audit And Direct-Solver CEBA
 
-The preregistered CPCF pilot reuses the locked `gamma_sub` response/profile/protocol tables and adds only eight fresh independent-solver anchors. It compares calibration-only, protocol-only, sequential calibration-to-protocol, and joint designs across `48` cases and `12` operating points. The normalized resource index is explicitly non-monetary:
+CPCF is retained only as a historical software artifact. A superseding machine audit compares sampled voltage-array hashes, solver/grid/tolerance settings, the gamma candidate grid, objective implementation, `T_sw` units, seed participation, bootstrap semantics, direct-solver case counts, and Pareto qualification. Because those contracts are non-equivalent, CPCF has `scientific_vote=false`; its plot is not a scientific supplementary figure.
 
-$$
-c_{\mathrm{cal}}=\frac{\log(w_{\max}/w)}{\log(w_{\max}/w_{\min})},\quad
-c_{\mathrm{prot}}=\frac{p-p_{\min}}{p_{\max}-p_{\min}},\quad
-c_{\mathrm{obs}}=\frac{n-n_{\min}}{n_{\max}-n_{\min}},
-$$
+The replacement CEBA audit uses only the exact frozen triangle and exact LTP/LTD protocols. Candidate trajectories are generated with the historical `nx=21`, `nt=160/180`, Radau `rtol=1e-5`, `atol=1e-7`, the same fifteen-point `gamma_sub` grid, and the historical port-only objective
 
 $$
-C=0.40c_{\mathrm{cal}}+0.35c_{\mathrm{prot}}+0.25c_{\mathrm{obs}}.
+\mathcal J_{\mathrm{CEBA}}=
+\operatorname{rRMSE}(\hat G,G)^2+
+0.5\operatorname{rRMSE}(\hat I,I)^2.
 $$
 
-Here (w) is the `T_sw` prior width, (p) is a declared historical protocol-complexity proxy, and (n) is observation count. The risk index combines median relative error, failure rate, bootstrap interval width, and abstention rate with fixed weights `0.40/0.25/0.20/0.15`. This is a transparent decision index, not laboratory time, energy, or currency. Full expansion is permitted only if fresh-anchor consistency, at least two stable nondominated points, a locked `>=20%` cost-or-risk improvement, and a bootstrap 95% improvement direction excluding zero all pass.
+The calibration coordinate is the absolute error `delta_T_sw_K`; no normalized cost or protocol/noise factor is used. Candidate cache keys contain only waveform hash, `gamma_sub`, and solver hash; target keys contain waveform hash, absolute `delta_T_sw_K`, and solver hash. Observation count, noise, and seed are post-trajectory scoring operations. Six direct-source anchors must reproduce best gamma, relative error, recoverability, objective value/order, waveform hash, and solver hash before the pilot can run. Pilot success requires seed success probability at least `0.80`, abstention at most `0.20`, a direct success/failure bracket, and unchanged classification under one refined solver. The total cap is 60 unique solver trajectories, two workers, and 30 minutes.
 
 ## Device-Scale Extensions
 
