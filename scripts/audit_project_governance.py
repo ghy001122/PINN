@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import re
@@ -164,7 +165,7 @@ def check_claim_matrix_vocabulary() -> dict:
     return {"status": "pass" if not found else "fail", "obsolete": found}
 
 
-def run_audit(write_output: bool = True) -> dict:
+def run_audit(write_output: bool = True, require_frozen_payloads: bool = True) -> dict:
     checks: dict[str, dict] = {}
 
     missing_required = [rel for rel in REQUIRED if not (ROOT / rel).exists()]
@@ -257,16 +258,20 @@ def run_audit(write_output: bool = True) -> dict:
     for rel, expected in FROZEN_HASHES.items():
         path = ROOT / rel
         actual = sha256(path) if path.exists() else None
-        ok = actual == expected
+        payload_is_ignored = rel.startswith("data/processed/gt_v1_acceptance/")
+        deferred = bool(not require_frozen_payloads and payload_is_ignored and not path.exists())
+        ok = deferred or actual == expected
         frozen_ok = frozen_ok and ok
         frozen_details[rel] = {
             "sha256": actual,
             "expected_sha256": expected,
             "hash_unchanged": ok,
             "mtime_observed": path.exists(),
+            "deferred_to_full_validation": deferred,
         }
+    frozen_deferred = any(item["deferred_to_full_validation"] for item in frozen_details.values())
     checks["frozen_gt_integrity"] = {
-        "status": "pass" if frozen_ok else "fail",
+        "status": "deferred_to_full_validation" if frozen_ok and frozen_deferred else ("pass" if frozen_ok else "fail"),
         "files": frozen_details,
         "mtime_review": "manual_review_required",
         "mtime_reason": "Portable Git checkout mtimes are not authoritative; compare pre/post mtimes in the active task.",
@@ -284,7 +289,8 @@ def run_audit(write_output: bool = True) -> dict:
     manual = [name for name, result in checks.items() if result["status"] == "manual_review_required" or any(value == "manual_review_required" for value in result.values())]
     summary = {
         "audit": "project_governance",
-        "overall_status": "fail" if failed else ("pass_with_manual_review" if manual else "pass"),
+        "audit_scope": "full" if require_frozen_payloads else "fast_checkout",
+        "overall_status": "fail" if failed else ("pass_with_deferred_full_validation" if frozen_deferred else ("pass_with_manual_review" if manual else "pass")),
         "failed_checks": failed,
         "manual_review_required": sorted(set(manual)),
         "checks": checks,
@@ -296,6 +302,14 @@ def run_audit(write_output: bool = True) -> dict:
 
 
 if __name__ == "__main__":
-    result = run_audit(write_output=True)
+    parser = argparse.ArgumentParser(description="Audit project governance and frozen-evidence integrity.")
+    parser.add_argument("--no-write", action="store_true", help="Do not update the tracked governance summary.")
+    parser.add_argument(
+        "--fast-checkout",
+        action="store_true",
+        help="Defer only ignored frozen payload hashes to the full workflow; all tracked governance checks still run.",
+    )
+    args = parser.parse_args()
+    result = run_audit(write_output=not args.no_write, require_frozen_payloads=not args.fast_checkout)
     print(json.dumps(result, indent=2, ensure_ascii=False))
     raise SystemExit(1 if result["overall_status"] == "fail" else 0)

@@ -23,6 +23,8 @@ outputs/logs/*
 !outputs/logs/.gitkeep
 outputs/checkpoints/*
 !outputs/checkpoints/.gitkeep
+outputs/cache/*
+!outputs/cache/.gitkeep
 outputs/tables/*
 !outputs/tables/.gitkeep
 !outputs/tables/pinn_inverse_v0_ablation_summary.json
@@ -260,3 +262,14 @@ outputs/pinn_inverse_v1_1_smoke/*
 !outputs/checkpoints/n0_cv_e_v3r/*.json
 !outputs/checkpoints/n0_cv_e_v3r_attempt1_scoring_abort/
 !outputs/checkpoints/n0_cv_e_v3r_attempt1_scoring_abort/*.pt
+
+# Prompt-30 a7c audit and bounded CPCF evidence.
+!outputs/tables/prompt30_a7c_audit_summary.json
+!outputs/tables/gamma_sub_cpcf_preregistration.json
+!outputs/tables/gamma_sub_cpcf_pilot_cases.csv
+!outputs/tables/gamma_sub_cpcf_pilot_operating_points.csv
+!outputs/tables/gamma_sub_cpcf_pilot_summary.json
+!outputs/tables/gamma_sub_cpcf_full_cases.csv
+!outputs/tables/gamma_sub_cpcf_full_summary.json
+!outputs/tables/gamma_sub_cpcf_pareto_source.csv
+!outputs/figures/gamma_sub_cpcf_pareto_v1.png

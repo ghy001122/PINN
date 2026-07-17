@@ -1,0 +1,174 @@
+schema_version: 1
+stage_id: M_GAMMA_SUB_CPCF_PILOT
+benchmark: gamma_sub_calibration_protocol_cost_frontier
+evidence_type: synthetic numerical digital-twin decision audit
+base_commit: a7c108e3980953ced24d2de86ce7afc340e65a88
+random_seed: 20260717
+
+inputs:
+  - path: configs/gamma_sub_evidence_lock.yaml
+    sha256: 136c7431ca97c7d1864667033d917cb8ec54bf49a1c7f2c216df824d4dcd205e
+    role: locked_claim_thresholds
+  - path: outputs/tables/gamma_sub_tsw_confounding_phase_map_cases.csv
+    sha256: 41befd6b96df5ef8827a0f7c1dbd03829f6204548f430a2df7ae84d20833bb4b
+    role: historical_response_surface_source
+  - path: outputs/tables/gamma_sub_tsw_tolerance_ode_spotcheck_cases.csv
+    sha256: c47c3a8e5f571a2f2ed9bcd2fa256abdb0ad5106bea5b7c42b8e9f0e7a93ab28
+    role: historical_calibration_anchors
+  - path: outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_cases.csv
+    sha256: ac48940bf5bd4dc32f2a523d6834510c4e40dd1e1227f69051d9d51864f27e99
+    role: historical_protocol_anchors
+  - path: outputs/tables/gamma_sub_recoverability_phase_diagram_cases.csv
+    sha256: 7d09b8003b2cfa1553e2a6f0d46d28525ea5b146e4346070e7dc20190852aeb1
+    role: historical_risk_surface
+  - path: outputs/tables/gamma_sub_statistical_robustness_cases.csv
+    sha256: ad89459fb6c8c986345af5513429947c93ae553f4d948528bae1c54cd6c4b5b6
+    role: historical_seed_noise_audit
+  - path: outputs/tables/gamma_sub_tsw_profile_likelihood_grid.csv
+    sha256: 0ade5506617bf7a0ccb19529c8c725ed999f91668e86dcf941ad4ac801b552c2
+    role: historical_profile_grid
+  - path: outputs/tables/gamma_sub_tsw_profile_likelihood_profiles.csv
+    sha256: ef5ffd3873bad8546ff7e7d88658bb7ddaa69c7a506f40d1a098660110015ce0
+    role: historical_profile_summary
+  - path: outputs/tables/gamma_sub_response_surface_anchor_verification_cases.csv
+    sha256: 3072ceb2bc0edea187cedcc1f51f4d932247bb2bde13fc2b12f7956420793870
+    role: locked_anchor_tolerance_source
+  - path: data/processed/gt_v1_acceptance/gt_triangle.npz
+    sha256: 4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8
+    role: frozen_synthetic_gt
+  - path: data/processed/gt_v1_acceptance/obs_triangle_sparse.npz
+    sha256: f45daf53136a255b3666ebeb56e6298ce148a613c46fa596b795e7ade68ea602
+    role: frozen_sparse_observations
+
+pilot:
+  case_cap: 48
+  bootstrap_replicates: 2000
+  max_workers: 2
+  wall_time_minutes: 60
+  resume_required: true
+  cache_dir: outputs/cache/gamma_sub_cpcf
+  anchor_case_ids:
+    - cal_010_ltp_n16__noise_000
+    - cal_005_ltp_n16__noise_020
+    - proto_100_ltp_n16__noise_000
+    - proto_100_multi_n16__noise_020
+    - seq_005_short_n16__noise_000
+    - seq_005_multi_n16__noise_020
+    - joint_005_multi_n32__noise_000
+    - joint_002_multi_n64__noise_020
+
+replicates:
+  - id: noise_000
+    noise: 0.0
+    seed: 20260715
+  - id: noise_010
+    noise: 0.01
+    seed: 20260716
+  - id: noise_020
+    noise: 0.02
+    seed: 20260717
+  - id: noise_050
+    noise: 0.05
+    seed: 20260718
+
+operating_points:
+  - {id: cal_010_ltp_n16, strategy: calibration_only, T_sw_prior_width: 0.10, protocol: ltp_ltd, observation_count: 16}
+  - {id: cal_005_ltp_n16, strategy: calibration_only, T_sw_prior_width: 0.05, protocol: ltp_ltd, observation_count: 16}
+  - {id: cal_002_ltp_n16, strategy: calibration_only, T_sw_prior_width: 0.02, protocol: ltp_ltd, observation_count: 16}
+  - {id: proto_100_ltp_n16, strategy: protocol_only, T_sw_prior_width: 1.00, protocol: ltp_ltd, observation_count: 16}
+  - {id: proto_100_short_n16, strategy: protocol_only, T_sw_prior_width: 1.00, protocol: short_pulse_to_ltp_ltd, observation_count: 16}
+  - {id: proto_100_multi_n16, strategy: protocol_only, T_sw_prior_width: 1.00, protocol: multi_pulse_to_ltp_ltd, observation_count: 16}
+  - {id: seq_010_short_n16, strategy: sequential_calibration_then_protocol, T_sw_prior_width: 0.10, protocol: short_pulse_to_ltp_ltd, observation_count: 16}
+  - {id: seq_005_short_n16, strategy: sequential_calibration_then_protocol, T_sw_prior_width: 0.05, protocol: short_pulse_to_ltp_ltd, observation_count: 16}
+  - {id: seq_005_multi_n16, strategy: sequential_calibration_then_protocol, T_sw_prior_width: 0.05, protocol: multi_pulse_to_ltp_ltd, observation_count: 16}
+  - {id: joint_010_multi_n32, strategy: joint_calibration_protocol_design, T_sw_prior_width: 0.10, protocol: multi_pulse_to_ltp_ltd, observation_count: 32}
+  - {id: joint_005_multi_n32, strategy: joint_calibration_protocol_design, T_sw_prior_width: 0.05, protocol: multi_pulse_to_ltp_ltd, observation_count: 32}
+  - {id: joint_002_multi_n64, strategy: joint_calibration_protocol_design, T_sw_prior_width: 0.02, protocol: multi_pulse_to_ltp_ltd, observation_count: 64}
+
+protocols:
+  ltp_ltd:
+    response_surface_protocol: ltp_ltd
+    simulator_protocol: ltp_ltd
+    t_max_s: 0.015
+    ltp_v_pos_V: 0.08
+    ltp_v_neg_V: -0.02
+    historical_cost_proxy: 1.0
+  short_pulse_to_ltp_ltd:
+    response_surface_protocol: mixed_protocol
+    simulator_protocol: ltp_ltd
+    t_max_s: 0.012
+    ltp_v_pos_V: 0.08
+    ltp_v_neg_V: -0.02
+    historical_cost_proxy: 2.4
+  multi_pulse_to_ltp_ltd:
+    response_surface_protocol: multi_amplitude_synthetic
+    simulator_protocol: ltp_ltd
+    t_max_s: 0.015
+    ltp_v_pos_V: 0.10
+    ltp_v_neg_V: -0.03
+    historical_cost_proxy: 3.6
+
+solver_anchor:
+  simulation: {nx: 5, nt: 24, method: Radau, rtol: 1.0e-3, atol: 1.0e-5}
+  gamma_candidates: [3.75e8, 4.25e8, 4.5e8, 5.0e8, 5.5e8]
+  T_sw_reference_delta_K: 2.0
+  loss: {w_g: 1.0, w_i: 0.5, w_heat: 0.01}
+  discrete_profile_span_fraction: 0.05
+  classification_threshold: 0.10
+  historical_tolerance:
+    mean_absolute_discrepancy_max: 0.05373609469259508
+    classification_agreement_min: 0.8833333333333333
+    disagreement_count_max: 0
+
+resource_index:
+  calibration_width_range_K: [0.02, 1.0]
+  observation_count_range: [8, 64]
+  protocol_cost_proxy_range: [1.0, 3.6]
+  primary_weights: balanced
+  weight_sets:
+    balanced: {calibration: 0.40, protocol: 0.35, observations: 0.25}
+    calibration_heavy: {calibration: 0.60, protocol: 0.20, observations: 0.20}
+    acquisition_heavy: {calibration: 0.25, protocol: 0.25, observations: 0.50}
+
+risk:
+  success_relative_error_threshold: 0.15
+  minimum_operating_point_success_rate: 0.80
+  abstention_relative_error_threshold: 0.15
+  weights: {median_error: 0.40, failure_rate: 0.25, ci_width: 0.20, abstention_rate: 0.15}
+
+full_sweep_gate:
+  stable_frontier_bootstrap_frequency_min: 0.90
+  minimum_stable_nondominated_points: 2
+  minimum_cost_reduction_same_risk: 0.20
+  minimum_risk_reduction_same_cost: 0.20
+  same_risk_relative_tolerance: 0.05
+  same_cost_relative_tolerance: 0.05
+  bootstrap_improvement_ci_level: 0.95
+  bootstrap_direction_must_exclude_zero: true
+  full_case_cap: 384
+
+outputs:
+  preregistration_json: outputs/tables/gamma_sub_cpcf_preregistration.json
+  pilot_cases_csv: outputs/tables/gamma_sub_cpcf_pilot_cases.csv
+  pilot_operating_points_csv: outputs/tables/gamma_sub_cpcf_pilot_operating_points.csv
+  pilot_summary_json: outputs/tables/gamma_sub_cpcf_pilot_summary.json
+  full_cases_csv: outputs/tables/gamma_sub_cpcf_full_cases.csv
+  full_summary_json: outputs/tables/gamma_sub_cpcf_full_summary.json
+  pareto_source_csv: outputs/tables/gamma_sub_cpcf_pareto_source.csv
+  pareto_figure: outputs/figures/gamma_sub_cpcf_pareto_v1.png
+
+allowed_claim_if_all_gates_pass: >
+  In the configured one-dimensional synthetic benchmark, the preregistered CPCF
+  identifies stable nondominated normalized-resource combinations for conditional
+  gamma_sub inversion; calibration remains prerequisite and protocol/observation
+  investment is interpreted only within the locked prior, noise, and protocol grid.
+failure_claim: >
+  The bounded CPCF pilot did not establish a stable resource frontier; its table is
+  retained as failed_but_informative supplementary decision evidence without a
+  cost-optimality claim.
+forbidden_claims:
+  - monetary or real laboratory cost optimality
+  - experimental or device-general resource requirements
+  - full-PINN forward, sensitivity, or inverse success
+  - globally optimal protocol
+  - unconditional gamma_sub identifiability

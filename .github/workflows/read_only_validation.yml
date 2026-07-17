@@ -1,34 +1,76 @@
-name: read-only validation
+name: fast validation
 
 on:
   push:
+    paths:
+      - ".github/workflows/**"
+      - "configs/**"
+      - "src/**"
+      - "scripts/**"
+      - "tests/**"
+      - "docs/paper/**"
+      - "docs/research_strategy/**"
+      - "docs/project_state/**"
+      - "docs/manuscript/**"
+      - "outputs/tables/**"
+      - "AGENTS.md"
+      - "PROJECT_GOAL.md"
+      - "CODEX_CONTEXT.md"
+      - "PROJECT_STATE.md"
+      - "NEXT_ACTIONS.md"
+      - "requirements.txt"
+      - "pyproject.toml"
   pull_request:
+    paths:
+      - ".github/workflows/**"
+      - "configs/**"
+      - "src/**"
+      - "scripts/**"
+      - "tests/**"
+      - "docs/paper/**"
+      - "docs/research_strategy/**"
+      - "docs/project_state/**"
+      - "docs/manuscript/**"
+      - "outputs/tables/**"
+      - "AGENTS.md"
+      - "PROJECT_GOAL.md"
+      - "CODEX_CONTEXT.md"
+      - "PROJECT_STATE.md"
+      - "NEXT_ACTIONS.md"
+      - "requirements.txt"
+      - "pyproject.toml"
 
 permissions:
   contents: read
 
+concurrency:
+  group: fast-validation-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  validate:
+  focused:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: pip
+          cache-dependency-path: requirements.txt
       - name: Install project
         run: |
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
           python -m pip install -e .
-      - name: Prompt-29 focused tests
+      - name: Focused evidence and claim tests
         run: >-
           python -m pytest
-          tests/test_n0_cv_e_v3_gate_safety.py
-          tests/test_n0_cv_e_v3r_forensics.py
-          tests/test_sid_ec_oq_event_geometry.py -q
-      - name: Full test suite
-        run: python -m pytest -q
-      - name: Governance audit
-        run: python scripts/audit_project_governance.py
+          tests/test_gamma_sub_calibration_protocol_cost_frontier.py
+          tests/test_prompt30_a7c_evidence_audit.py
+          tests/test_gamma_sub_evidence_lock.py
+          tests/test_claim_gate_resolution_matrix.py -q
+      - name: Fast checkout governance scope
+        run: python scripts/audit_project_governance.py --no-write --fast-checkout
+      - name: Strict tracked JSON parse
+        run: python scripts/validate_tracked_json.py
