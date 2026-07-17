@@ -1,0 +1,190 @@
+{
+  "schema_version": "historical_evidence_manifest_v1",
+  "purpose": "Immutable blob and SHA-256 locks for claim-bearing historical evidence. Fast validation checks current required artifacts; full validation additionally verifies every historic Git blob.",
+  "entries": [
+    {
+      "historic_commit": "a7c108e3980953ced24d2de86ce7afc340e65a88",
+      "artifact_path": "configs/n0_cv_e_v3r_optimizer_forensics.yaml",
+      "git_blob_oid": "4950188242dc35b7cd6c539bee28f1618f95174a",
+      "sha256": "8fc5423c73cd58ab77cbe0212dac968fa140f7bf6e722949be720b2489560e57",
+      "claim_scope": "N0 optimizer-forensics preregistration",
+      "current_file_required": true
+    },
+    {
+      "historic_commit": "a7c108e3980953ced24d2de86ce7afc340e65a88",
+      "artifact_path": "configs/sid_ec_oq_event_geometry.yaml",
+      "git_blob_oid": "c63f003f65c6b725ea76704c563318e257a0298a",
+      "sha256": "84cf49fdc5ad840e22bcdb7593cc876c296fe71997d4a8b3f07ac11aefe9d117",
+      "claim_scope": "SID EC-OQ event-geometry preregistration",
+      "current_file_required": true
+    },
+    {
+      "historic_commit": "a7c108e3980953ced24d2de86ce7afc340e65a88",
+      "artifact_path": "docs/codex_reports/n0_optimizer_forensics_sid_discovery_final.md",
+      "git_blob_oid": "651e40b30f657f553e1793bc00ea2d9bf44673f3",
+      "sha256": "f1ceb47febe36ecdb195886cf57daee94ffff68533ca3643d556fd1d223555cf",
+      "claim_scope": "N0 and SID negative-evidence report",
+      "current_file_required": true
+    },
+    {
+      "historic_commit": "a7c108e3980953ced24d2de86ce7afc340e65a88",
+      "artifact_path": "outputs/tables/n0_cv_e_v3r_forensic_resolution.json",
+      "git_blob_oid": "e1492e9176db763be534720b7dfc16a82daacf3d",
+      "sha256": "cd8b888c12719cf64bc638311a5b60da0e41d2c6a3df39302c46cf73cf690e59",
+      "claim_scope": "N0 forensic resolution",
+      "current_file_required": true
+    },
+    {
+      "historic_commit": "a7c108e3980953ced24d2de86ce7afc340e65a88",
+      "artifact_path": "outputs/tables/n0_cv_e_v3r_post_adam_score.json",
+      "git_blob_oid": "5e8b1f4bddef90270347658cab3dcba879282910",
+      "sha256": "14a89d8366e7e6db420ef3c9e3f3acefe2136b076ff0f92a8e5d4d7364883ab4",
+      "claim_scope": "N0 post-Adam score",
+      "current_file_required": true
+    },
+    {
+      "historic_commit": "a7c108e3980953ced24d2de86ce7afc340e65a88",
+      "artifact_path": "outputs/tables/n0_cv_e_v3r_summary.json",
+      "git_blob_oid": "c9853e14b527162967c632b43495c265aed8f750",
+      "sha256": "f3c0cd62c1a6a1ac717e12ad1be8e6509f7cac14a5d1a683bd31936ef73953f0",
+      "claim_scope": "N0 v3r bounded result",
+      "current_file_required": true
+    },
+    {
+      "historic_commit": "a7c108e3980953ced24d2de86ce7afc340e65a88",
+      "artifact_path": "outputs/tables/n0_sid_prompt29_validation.json",
+      "git_blob_oid": "31e96ef0b9e8f7addcdaf84490806a3a69f04267",
+      "sha256": "2076f6c178ffa6a1dff9b0102b53309adfe9b52a171cef8b1cc0aca63d0f29e6",
+      "claim_scope": "N0 SID validation lock",
+      "current_file_required": true
+    },
+    {
+      "historic_commit": "a7c108e3980953ced24d2de86ce7afc340e65a88",
+      "artifact_path": "outputs/tables/sid_ec_oq_summary.json",
+      "git_blob_oid": "136481472e288ef7dd92aed30a360164c2b6916a",
+      "sha256": "95a00abaad993e5cb9b54e487d6521bd6c92a9dfea3401e30352034dfc18a4aa",
+      "claim_scope": "SID EC-OQ failed-but-informative summary",
+      "current_file_required": true
+    },
+    {
+      "historic_commit": "a7c108e3980953ced24d2de86ce7afc340e65a88",
+      "artifact_path": ".github/workflows/read_only_validation.yml",
+      "git_blob_oid": "e54ee27357df1e9884bf45e85c072c6e21457893",
+      "sha256": "dbcab1b7132c88576f1af3aa73037dc2575409cae9ecc47d8c814db3d06f336a",
+      "claim_scope": "historic a7c workflow definition only",
+      "current_file_required": false
+    },
+    {
+      "historic_commit": "3cd714cb91bd2c700881584391f3b9ab66027b3c",
+      "artifact_path": "configs/gamma_sub_calibration_protocol_cost_frontier.yaml",
+      "git_blob_oid": "a7379ffee435ac322fa8c93aca65c5b672bd3897",
+      "sha256": "03ebcf1c94c3c6c626d85e5267666bfaff22c51ac63d9c15d1cf03ed854c2624",
+      "claim_scope": "CPCF preregistered definition",
+      "current_file_required": true
+    },
+    {
+      "historic_commit": "3cd714cb91bd2c700881584391f3b9ab66027b3c",
+      "artifact_path": "scripts/audit_gamma_sub_calibration_protocol_cost_frontier.py",
+      "git_blob_oid": "dbfc68f4b49632729d7c5a8dcc6780d1c8d64006",
+      "sha256": "e97c1892cd10c25dd4cb850b07c03018eff7e0270101c4ce266486b7e13605ff",
+      "claim_scope": "CPCF implementation definition",
+      "current_file_required": true
+    },
+    {
+      "historic_commit": "3cd714cb91bd2c700881584391f3b9ab66027b3c",
+      "artifact_path": "scripts/audit_a7c_prompt30_evidence.py",
+      "git_blob_oid": "5b9f4a0497c5174eda1c1cfb12f58e9c6c453ecc",
+      "sha256": "855e2b53e4b1f4082040d5434f53719eefde16b62036a9550119585eb59d310c",
+      "claim_scope": "a7c historical audit implementation",
+      "current_file_required": true
+    },
+    {
+      "historic_commit": "4f55e482fca4e332d009b209772e4c56f5fb96ee",
+      "artifact_path": "outputs/tables/gamma_sub_cpcf_preregistration.json",
+      "git_blob_oid": "ec0f3bb6b17adb66e0bb5841c7738c2d7ebf0a40",
+      "sha256": "4149ec9aca8f7e466c17d7491eef10883f96860923bfbe0f87587d25ba64e284",
+      "claim_scope": "CPCF preregistration record",
+      "current_file_required": true
+    },
+    {
+      "historic_commit": "4f55e482fca4e332d009b209772e4c56f5fb96ee",
+      "artifact_path": "outputs/tables/gamma_sub_cpcf_pilot_cases.csv",
+      "git_blob_oid": "40383b18112f6374678e76cd58b3588f09d86f51",
+      "sha256": "6f06bda792758756f4258782b4cf667baf4db8dd44fdf7acaea9f84ce02dc3d3",
+      "claim_scope": "CPCF historical pilot cases retained unchanged",
+      "current_file_required": true
+    },
+    {
+      "historic_commit": "4f55e482fca4e332d009b209772e4c56f5fb96ee",
+      "artifact_path": "outputs/tables/gamma_sub_cpcf_pilot_operating_points.csv",
+      "git_blob_oid": "119a94ebcb61d96e8b743f00af124c08f510e30f",
+      "sha256": "35e5507a5957238855cb9092a7a5fa31c0a10e843e74ffebdfb9eda52ee74b5f",
+      "claim_scope": "CPCF historical operating points retained unchanged",
+      "current_file_required": true
+    },
+    {
+      "historic_commit": "4f55e482fca4e332d009b209772e4c56f5fb96ee",
+      "artifact_path": "outputs/tables/gamma_sub_cpcf_pilot_summary.json",
+      "git_blob_oid": "2224dc52fa71fbd2c26f89a7e1fdb00de50e7f2c",
+      "sha256": "6e76c73f25ac35e948fd801e7fb1b634709fac89e4fb789f3d356c5e1f590d50",
+      "claim_scope": "CPCF historical failed-but-informative result retained unchanged",
+      "current_file_required": true
+    },
+    {
+      "historic_commit": "4f55e482fca4e332d009b209772e4c56f5fb96ee",
+      "artifact_path": "outputs/tables/gamma_sub_cpcf_attempt1_invalid_provenance.json",
+      "git_blob_oid": "281ece4ecc09e854b2d7c8a94be2743e3f735601",
+      "sha256": "a85488b6519695569abfa98be5144c882a88896299744c7cc13d0cf6a64cc682",
+      "claim_scope": "CPCF invalid-attempt provenance retained unchanged",
+      "current_file_required": true
+    },
+    {
+      "historic_commit": "4f55e482fca4e332d009b209772e4c56f5fb96ee",
+      "artifact_path": "outputs/tables/gamma_sub_cpcf_attempt1_invalid_summary.json",
+      "git_blob_oid": "cc0398856bbda9a30986c3a386e26c243ce7c243",
+      "sha256": "05ba3a91c9b78ce08de02a5fbae8077ea9cafd6da65ab6e98bd77fd2728363c4",
+      "claim_scope": "CPCF invalid-attempt summary retained unchanged",
+      "current_file_required": true
+    },
+    {
+      "historic_commit": "4f55e482fca4e332d009b209772e4c56f5fb96ee",
+      "artifact_path": "outputs/tables/prompt30_cpcf_final_validation.json",
+      "git_blob_oid": "cc6510c739f54fab68b4af65b482c925df9ad957",
+      "sha256": "9a77c94f7872e73d7c8489e808e5506cdffacc5c5eaf00133f77e0604f02d94f",
+      "claim_scope": "Prompt-30 local validation record retained unchanged",
+      "current_file_required": true
+    },
+    {
+      "historic_commit": "4f55e482fca4e332d009b209772e4c56f5fb96ee",
+      "artifact_path": "outputs/figures/gamma_sub_cpcf_pareto_v1.png",
+      "git_blob_oid": "4518b25740d888c74b4499664f663471310fc83e",
+      "sha256": "5cb248e4b73dba1a4bb9db111675669232ee521e618ea25a899d517a7ef09f49",
+      "claim_scope": "CPCF non-voting proxy-contract diagnostic figure retained unchanged",
+      "current_file_required": true
+    },
+    {
+      "historic_commit": "4f55e482fca4e332d009b209772e4c56f5fb96ee",
+      "artifact_path": "docs/codex_reports/prompt30_a7c_audit_and_cpcf_report.md",
+      "git_blob_oid": "ae0c5794bcf9504d1bb9c4676b93fde59b8a5902",
+      "sha256": "77c83e3104685238b226e9ce2e53663a8367ad2a1dd75969eacea661ea66e3e8",
+      "claim_scope": "Prompt-30 historical report retained unchanged",
+      "current_file_required": true
+    },
+    {
+      "historic_commit": "16427d7d20b32c8d25fc7967b43657f0588ba8b2",
+      "artifact_path": ".github/workflows/read_only_validation.yml",
+      "git_blob_oid": "dfff0c80d137f5271e9c8cbc413c9c85defb72c0",
+      "sha256": "f0cdf008751bc7407a51036ea7d663b690461f5d6b80615be0dcba7c014ede33",
+      "claim_scope": "historic CI hotfix definition only",
+      "current_file_required": false
+    },
+    {
+      "historic_commit": "16427d7d20b32c8d25fc7967b43657f0588ba8b2",
+      "artifact_path": ".github/workflows/full_validation.yml",
+      "git_blob_oid": "74495ef8f3a888a2da360c0e3220bb5ff22b2711",
+      "sha256": "0ed0711e9064899f5b168697c0e6180a75ae62b60c69af9f857d6a8890fa749a",
+      "claim_scope": "historic full-validation workflow definition only",
+      "current_file_required": false
+    }
+  ]
+}

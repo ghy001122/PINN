@@ -1,0 +1,283 @@
+{
+  "T_sw_prior_width_contract": {
+    "cpcf_output_label": "T_sw_prior_width_K",
+    "cpcf_resource_range_label": "calibration_width_range_K",
+    "cpcf_semantics": "dimensionless multiplier applied to T_sw_reference_delta_K",
+    "historical_semantics": "dimensionless multiplier applied to T_sw_delta_K",
+    "unit_contract_mismatch": true
+  },
+  "allowed_wording": "The CPCF artifact diagnoses proxy/implementation contract mismatches and is retained as historical failed_but_informative software evidence.",
+  "audited_commits": [
+    "3cd714cb91bd2c700881584391f3b9ab66027b3c",
+    "4f55e482fca4e332d009b209772e4c56f5fb96ee",
+    "16427d7d20b32c8d25fc7967b43657f0588ba8b2"
+  ],
+  "bootstrap_contract": {
+    "iid_seed_bootstrap": false,
+    "implementation": "case bootstrap over predicted_relative_error",
+    "sample_count_per_operating_point": 4,
+    "sample_semantics": "four different noise levels with one seed each",
+    "valid_scope": "heuristic scenario resampling only"
+  },
+  "candidate_grid_contract": {
+    "cpcf_fresh_anchor_count": 5,
+    "cpcf_fresh_anchor_gamma_sub": [
+      375000000.0,
+      425000000.0,
+      450000000.0,
+      500000000.0,
+      550000000.0
+    ],
+    "equivalent": false,
+    "historical_count": 15,
+    "historical_gamma_sub": [
+      150000000.0,
+      200000000.0,
+      275000000.0,
+      325000000.0,
+      375000000.0,
+      400000000.0,
+      425000000.0,
+      450000000.0,
+      475000000.0,
+      500000000.0,
+      550000000.0,
+      650000000.0,
+      750000000.0,
+      900000000.0,
+      1000000000.0
+    ]
+  },
+  "case_accounting": {
+    "fresh_solver_diagnostic_rows": 8,
+    "fresh_solver_trajectory_evaluations": 48,
+    "fully_direct_solver_voting_rows": 0,
+    "operating_point_vote_source": "predicted_relative_error",
+    "proxy_only_rows": 40,
+    "proxy_plus_fresh_solver_diagnostic_rows": 8,
+    "proxy_prediction_rows": 48,
+    "total_case_rows": 48
+  },
+  "claim_status": "failed_but_informative",
+  "external_13v_accessed": false,
+  "failed_contracts": {
+    "T_sw_prior_width_unit_semantics": true,
+    "bootstrap_semantics": true,
+    "candidate_grid_equivalence": true,
+    "direct_solver_scientific_voting": true,
+    "iid_seed_replication": true,
+    "objective_equivalence": true,
+    "pareto_qualification_filter": true,
+    "protocol_equivalence": true,
+    "solver_grid_equivalence": true
+  },
+  "forbidden_inference": "no conclusion about existence or absence of a calibration-protocol resource frontier",
+  "forbidden_wording": [
+    "CPCF establishes that no calibration-protocol resource frontier exists.",
+    "CPCF establishes a Pareto-optimal scientific resource frontier.",
+    "CPCF fresh anchors validate the 48 proxy cases as equivalent direct-solver cases."
+  ],
+  "full_pinn_run": false,
+  "historical_artifacts_modified": false,
+  "no_new_solver_run": true,
+  "noise_seed_contract": {
+    "independent_seeds_per_same_noise": {
+      "0.0": 1,
+      "0.01": 1,
+      "0.02": 1,
+      "0.05": 1
+    },
+    "noise_and_seed_confounded": true,
+    "proxy_function_signature": "(protocol: 'str', T_sw_delta_K: 'float', T_sw_prior_width: 'float', n_obs: 'int', noise: 'float') -> 'float'",
+    "proxy_prediction_uses_seed": false,
+    "replicates": [
+      {
+        "noise": 0.0,
+        "replicate_id": "noise_000",
+        "seed": 20260715
+      },
+      {
+        "noise": 0.01,
+        "replicate_id": "noise_010",
+        "seed": 20260716
+      },
+      {
+        "noise": 0.02,
+        "replicate_id": "noise_020",
+        "seed": 20260717
+      },
+      {
+        "noise": 0.05,
+        "replicate_id": "noise_050",
+        "seed": 20260718
+      }
+    ],
+    "same_distribution_seed_replication": false
+  },
+  "objective_contract": {
+    "cpcf_fresh_anchor_uses_heat": true,
+    "cpcf_fresh_anchor_weights": {
+      "w_g": 1.0,
+      "w_heat": 0.01,
+      "w_i": 0.5
+    },
+    "equivalent": false,
+    "historical_declared_weights": {
+      "w_g": 1.0,
+      "w_heat": 0.01,
+      "w_i": 0.5
+    },
+    "historical_implementation_uses_heat": false,
+    "historical_implementation_weights": {
+      "w_g": 1.0,
+      "w_heat": 0.0,
+      "w_i": 0.5
+    }
+  },
+  "pareto_contract": {
+    "locked_risk_qualified_count": 6,
+    "locked_risk_unqualified_count": 6,
+    "nondominated_filter_uses_locked_risk_qualified": false,
+    "operating_point_count": 12,
+    "scientific_figure_disposition": "NON-VOTING PROXY-CONTRACT DIAGNOSTIC",
+    "stable_but_locked_risk_unqualified_ids": [
+      "cal_010_ltp_n16",
+      "proto_100_ltp_n16"
+    ],
+    "stable_nondominated_count": 5
+  },
+  "protocol_contract": {
+    "common_grid": {
+      "common_time_grid_points": 1501,
+      "common_time_grid_sha256": "bc3f7c8cb7ea5788dd91659149628be17283a94324d0322821604ba14a827262",
+      "common_time_grid_start_s": 0.0,
+      "common_time_grid_stop_s": 0.015,
+      "semantic_kind": "single_voltage_waveform",
+      "voltage_array_sha256": null,
+      "voltage_max_V": 0.19999999999999996,
+      "voltage_min_V": -0.2
+    },
+    "comparisons": [
+      {
+        "contract_status": "equivalent",
+        "cpcf_protocol": "ltp_ltd",
+        "fresh_anchor_waveform_sha256": "e9706dfcc1a78836230646743f3b23b209f7bb4952103717d33701cbdeb63d37",
+        "response_surface_bundle_sha256": null,
+        "response_surface_protocol": "ltp_ltd",
+        "response_surface_waveform_sha256": "e9706dfcc1a78836230646743f3b23b209f7bb4952103717d33701cbdeb63d37",
+        "same_sampled_V_t": true,
+        "simulator_protocol": "ltp_ltd"
+      },
+      {
+        "contract_status": "protocol_contract_mismatch",
+        "cpcf_protocol": "short_pulse_to_ltp_ltd",
+        "fresh_anchor_waveform_sha256": "fc03fb775a325c5b974351360aadec504ae302556e07bfd226e91245260f6794",
+        "response_surface_bundle_sha256": "608212fe3f3b48a9771ff28cd56b385720988e1e750ea5b57e30c0cff44d02d8",
+        "response_surface_protocol": "mixed_protocol",
+        "response_surface_waveform_sha256": null,
+        "same_sampled_V_t": false,
+        "simulator_protocol": "ltp_ltd"
+      },
+      {
+        "contract_status": "protocol_contract_mismatch",
+        "cpcf_protocol": "multi_pulse_to_ltp_ltd",
+        "fresh_anchor_waveform_sha256": "5d5519373cb3a6effd3451229360fc5c2b35b1a9f8a92f4d20c8c5d9bdef6f36",
+        "response_surface_bundle_sha256": null,
+        "response_surface_protocol": "multi_amplitude_synthetic",
+        "response_surface_waveform_sha256": "b902ba6eb50c281b783c80130174c139d330e87a8d82e6c2b1613729a7960252",
+        "same_sampled_V_t": false,
+        "simulator_protocol": "ltp_ltd"
+      }
+    ],
+    "waveforms": {
+      "ltp_ltd": {
+        "common_time_grid_points": 1501,
+        "common_time_grid_sha256": "bc3f7c8cb7ea5788dd91659149628be17283a94324d0322821604ba14a827262",
+        "common_time_grid_start_s": 0.0,
+        "common_time_grid_stop_s": 0.015,
+        "semantic_kind": "single_voltage_waveform",
+        "voltage_array_sha256": "e9706dfcc1a78836230646743f3b23b209f7bb4952103717d33701cbdeb63d37",
+        "voltage_max_V": 0.07999996971803737,
+        "voltage_min_V": -0.019999992429509342
+      },
+      "mixed_protocol": {
+        "component_protocols": [
+          "triangle",
+          "ltp_ltd"
+        ],
+        "component_voltage_array_sha256": [
+          "768b4e8571650805308d47e13862eae3b60585e065ac74ec6ae2f250cd5d9546",
+          "e9706dfcc1a78836230646743f3b23b209f7bb4952103717d33701cbdeb63d37"
+        ],
+        "composite_bundle_sha256": "608212fe3f3b48a9771ff28cd56b385720988e1e750ea5b57e30c0cff44d02d8",
+        "reason": "The historical mixed objective has no single interchangeable V(t) array.",
+        "semantic_kind": "mean_objective_over_two_separate_waveforms",
+        "voltage_array_sha256": null
+      },
+      "multi_amplitude_synthetic": {
+        "common_time_grid_points": 1501,
+        "common_time_grid_sha256": "bc3f7c8cb7ea5788dd91659149628be17283a94324d0322821604ba14a827262",
+        "common_time_grid_start_s": 0.0,
+        "common_time_grid_stop_s": 0.015,
+        "semantic_kind": "single_voltage_waveform",
+        "voltage_array_sha256": "b902ba6eb50c281b783c80130174c139d330e87a8d82e6c2b1613729a7960252",
+        "voltage_max_V": 0.2599999999999999,
+        "voltage_min_V": -0.26
+      },
+      "multi_pulse_to_ltp_ltd": {
+        "common_time_grid_points": 1501,
+        "common_time_grid_sha256": "bc3f7c8cb7ea5788dd91659149628be17283a94324d0322821604ba14a827262",
+        "common_time_grid_start_s": 0.0,
+        "common_time_grid_stop_s": 0.015,
+        "semantic_kind": "single_voltage_waveform",
+        "voltage_array_sha256": "5d5519373cb3a6effd3451229360fc5c2b35b1a9f8a92f4d20c8c5d9bdef6f36",
+        "voltage_max_V": 0.09999996214754671,
+        "voltage_min_V": -0.02999998864426401
+      },
+      "short_pulse_to_ltp_ltd": {
+        "common_time_grid_points": 1501,
+        "common_time_grid_sha256": "bc3f7c8cb7ea5788dd91659149628be17283a94324d0322821604ba14a827262",
+        "common_time_grid_start_s": 0.0,
+        "common_time_grid_stop_s": 0.015,
+        "semantic_kind": "single_voltage_waveform",
+        "voltage_array_sha256": "fc03fb775a325c5b974351360aadec504ae302556e07bfd226e91245260f6794",
+        "voltage_max_V": 0.07999997031374388,
+        "voltage_min_V": -0.01999999257843597
+      },
+      "triangle": {
+        "common_time_grid_points": 1501,
+        "common_time_grid_sha256": "bc3f7c8cb7ea5788dd91659149628be17283a94324d0322821604ba14a827262",
+        "common_time_grid_start_s": 0.0,
+        "common_time_grid_stop_s": 0.015,
+        "semantic_kind": "single_voltage_waveform",
+        "voltage_array_sha256": "768b4e8571650805308d47e13862eae3b60585e065ac74ec6ae2f250cd5d9546",
+        "voltage_max_V": 0.19999999999999996,
+        "voltage_min_V": -0.2
+      }
+    }
+  },
+  "schema_version": "prompt31_cpcf_semantic_audit_v1",
+  "scientific_vote": false,
+  "solver_contract": {
+    "cpcf_fresh_anchor": {
+      "atol": 1e-05,
+      "method": "Radau",
+      "nt": 24,
+      "nx": 5,
+      "rtol": 0.001
+    },
+    "equivalent": false,
+    "historical": {
+      "atol": 1e-07,
+      "method": "Radau",
+      "nt_ltp_ltd": 180,
+      "nt_triangle": 160,
+      "nx": 21,
+      "rtol": 1e-05
+    }
+  },
+  "stage_id": "M31_CPCF_SEMANTIC_SUPERSEDE_AND_CEBA_PARITY",
+  "status": "implementation_contract_invalid",
+  "supersedes_scientific_interpretation_of_prompt30_cpcf": true,
+  "valid_scope": "software/proxy mismatch diagnosis only"
+}

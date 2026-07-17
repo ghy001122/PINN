@@ -276,3 +276,14 @@ outputs/pinn_inverse_v1_1_smoke/*
 !outputs/tables/gamma_sub_cpcf_pareto_source.csv
 !outputs/tables/prompt30_cpcf_final_validation.json
 !outputs/figures/gamma_sub_cpcf_pareto_v1.png
+
+# Prompt-31 CPCF semantic supersession and bounded CEBA evidence.
+!outputs/tables/prompt31_cpcf_semantic_audit.json
+!outputs/tables/gamma_sub_cpcf_superseding_claim_record.json
+!outputs/tables/gamma_sub_ceba_preregistration.json
+!outputs/tables/gamma_sub_ceba_parity_cases.csv
+!outputs/tables/gamma_sub_ceba_parity_summary.json
+!outputs/tables/gamma_sub_ceba_pilot_cases.csv
+!outputs/tables/gamma_sub_ceba_pilot_summary.json
+!outputs/tables/prompt31_final_validation.json
+!outputs/figures/gamma_sub_ceba_boundary_v1.png

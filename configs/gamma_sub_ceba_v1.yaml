@@ -1,0 +1,125 @@
+schema_version: gamma_sub_ceba_config_v1
+stage_id: M31_CEBA_PARITY_AND_BOUNDED_PILOT
+benchmark: frozen_gt_v1_1_gamma_sub_calibration_excitation_boundary_with_abstention
+evidence_type: synthetic numerical digital-twin direct-solver evidence
+
+source_contract:
+  config: configs/gamma_sub_multi_protocol_recoverability.yaml
+  implementation: scripts/audit_gamma_sub_multi_protocol_recoverability.py
+  cases: outputs/tables/gamma_sub_multi_protocol_recoverability_cases.csv
+  triangle_target: data/processed/gt_v1_acceptance/gt_triangle.npz
+  ltp_ltd_target: data/processed/gt_v1_acceptance/gt_ltp_ltd.npz
+
+protocols:
+  triangle:
+    simulator_protocol: triangle
+    t_max_s: 3.0e-3
+    waveform_parameters: {triangle_v_peak: 0.20}
+    pulse_count: 0
+    pulse_width_s: null
+    pulse_spacing_s: null
+  ltp_ltd:
+    simulator_protocol: ltp_ltd
+    t_max_s: 15.0e-3
+    waveform_parameters: {ltp_v_pos: 0.08, ltp_v_neg: -0.02, n_pos: 6, n_neg: 6}
+    pulse_count: 12
+    pulse_width_fraction_of_period: 0.62
+    pulse_spacing_fraction_of_period: 0.38
+
+waveform_hash_grid_points: 2049
+
+solver:
+  base:
+    nx: 21
+    nt_triangle: 160
+    nt_ltp_ltd: 180
+    method: Radau
+    rtol: 1.0e-5
+    atol: 1.0e-7
+  refinement:
+    nx: 31
+    nt_triangle: 240
+    nt_ltp_ltd: 270
+    method: Radau
+    rtol: 5.0e-6
+    atol: 5.0e-8
+
+inverse:
+  primary_parameter: gamma_sub
+  true_gamma_sub: 4.5e8
+  gamma_candidates: [1.5e8, 2.0e8, 2.75e8, 3.25e8, 3.75e8, 4.0e8, 4.25e8, 4.5e8, 4.75e8, 5.0e8, 5.5e8, 6.5e8, 7.5e8, 9.0e8, 1.0e9]
+  success_relative_error_threshold: 0.15
+  objective: {w_g: 1.0, w_i: 0.5}
+  objective_semantics: squared_relative_RMSE_G_plus_half_squared_relative_RMSE_I
+  heat_residual_weight: 0.0
+
+parity:
+  maximum_anchors: 6
+  observation_count: 32
+  noise: 0.0
+  anchors:
+    - {anchor_id: triangle_nominal, protocol: triangle, source_scenario: nominal_fixed_prior, delta_T_sw_K: 0.0}
+    - {anchor_id: triangle_narrow, protocol: triangle, source_scenario: narrow_T_sw_prior, delta_T_sw_K: 0.2}
+    - {anchor_id: triangle_mismatch, protocol: triangle, source_scenario: T_sw_mismatch, delta_T_sw_K: 2.0}
+    - {anchor_id: ltp_ltd_nominal, protocol: ltp_ltd, source_scenario: nominal_fixed_prior, delta_T_sw_K: 0.0}
+    - {anchor_id: ltp_ltd_narrow, protocol: ltp_ltd, source_scenario: narrow_T_sw_prior, delta_T_sw_K: 0.2}
+    - {anchor_id: ltp_ltd_mismatch, protocol: ltp_ltd, source_scenario: T_sw_mismatch, delta_T_sw_K: 2.0}
+  tolerances:
+    best_gamma_absolute: 1.0e-6
+    relative_error_absolute: 1.0e-12
+    objective_absolute: 1.0e-10
+    objective_relative: 1.0e-7
+    objective_ordering_exact: true
+    recoverable_classification_exact: true
+    waveform_hash_exact: true
+    solver_config_hash_exact: true
+
+pilot:
+  delta_T_sw_K_range: [0.0, 2.0]
+  observation_counts: [8, 32]
+  noise_levels: [0.0, 0.02]
+  discovery_seeds: [20260715, 20260716, 20260717, 20260718, 20260719]
+  heldout_seeds: [20260720, 20260721, 20260722, 20260723, 20260724]
+  locked_success_probability: 0.80
+  locked_maximum_abstention_rate: 0.20
+  profile_retention_span_fraction: 0.05
+  boundary_tolerance_K: 0.125
+  maximum_additional_base_target_trajectories: 12
+  maximum_bisection_rounds: 6
+  claim_condition: {observation_count: 32, noise: 0.02}
+  bootstrap_semantics: seed_bootstrap_within_fixed_protocol_observation_noise_scenario
+  refinement:
+    candidate_count_per_protocol: 3
+    target_endpoints_per_protocol: 2
+    maximum_additional_trajectories: 10
+
+budget:
+  maximum_parity_anchors: 6
+  maximum_unique_solver_trajectories: 60
+  maximum_workers: 2
+  maximum_wall_time_minutes: 30
+  fail_closed: true
+  resume_state: outputs/cache/gamma_sub_ceba/resume_state.json
+  trajectory_cache: outputs/cache/gamma_sub_ceba/trajectories
+
+outputs:
+  preregistration: outputs/tables/gamma_sub_ceba_preregistration.json
+  parity_cases: outputs/tables/gamma_sub_ceba_parity_cases.csv
+  parity_summary: outputs/tables/gamma_sub_ceba_parity_summary.json
+  pilot_cases: outputs/tables/gamma_sub_ceba_pilot_cases.csv
+  pilot_summary: outputs/tables/gamma_sub_ceba_pilot_summary.json
+  pilot_figure: outputs/figures/gamma_sub_ceba_boundary_v1.png
+
+allowed_claim_if_all_gates_pass: >
+  In the configured frozen one-dimensional synthetic benchmark, exact direct-solver
+  triangle and LTP/LTD protocols bracket a calibration-excitation recoverability
+  boundary for gamma_sub under the locked observation, noise, seed, abstention,
+  candidate-grid, and solver contracts.
+forbidden_claims:
+  - globally optimal protocol
+  - real experimental calibration cost
+  - device-general calibration requirement
+  - cross-material generalization
+  - trained full-PINN success
+  - independent external validation
+  - world-first claim

@@ -1,0 +1,11 @@
+{
+  "claim_status": "failed_but_informative",
+  "forbidden_inference": "no conclusion about existence or absence of a calibration-protocol resource frontier",
+  "historical_files_retained_unchanged": true,
+  "schema_version": "gamma_sub_cpcf_superseding_claim_record_v1",
+  "scientific_vote": false,
+  "status": "implementation_contract_invalid",
+  "superseded_artifact": "outputs/tables/gamma_sub_cpcf_pilot_summary.json",
+  "superseding_audit": "outputs/tables/prompt31_cpcf_semantic_audit.json",
+  "valid_scope": "software/proxy mismatch diagnosis only"
+}

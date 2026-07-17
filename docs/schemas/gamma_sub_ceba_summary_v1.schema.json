@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pinnpcm.local/schemas/gamma_sub_ceba_summary_v1.schema.json",
+  "title": "Gamma-sub CEBA parity or bounded pilot summary",
+  "oneOf": [
+    {
+      "type": "object",
+      "required": ["schema_version", "stage_id", "claim_status", "all_parity_gates_pass", "pilot_authorized", "anchor_count", "unique_solver_trajectories"],
+      "properties": {
+        "schema_version": {"const": "gamma_sub_ceba_parity_summary_v1"},
+        "claim_status": {"enum": ["supported", "forbidden"]},
+        "all_parity_gates_pass": {"type": "boolean"},
+        "pilot_authorized": {"type": "boolean"},
+        "anchor_count": {"type": "integer", "maximum": 6},
+        "unique_solver_trajectories": {"type": "integer", "maximum": 60}
+      }
+    },
+    {
+      "type": "object",
+      "required": ["schema_version", "stage_id", "claim_status", "ceba_configuration_claim_eligible", "protocol_results", "unique_solver_trajectories", "budget_gates"],
+      "properties": {
+        "schema_version": {"const": "gamma_sub_ceba_pilot_summary_v1"},
+        "claim_status": {"enum": ["qualified_supported", "failed_but_informative"]},
+        "ceba_configuration_claim_eligible": {"type": "boolean"},
+        "unique_solver_trajectories": {"type": "integer", "maximum": 60},
+        "protocol_results": {"type": "object"},
+        "budget_gates": {"type": "object", "additionalProperties": {"type": "boolean"}}
+      }
+    }
+  ]
+}

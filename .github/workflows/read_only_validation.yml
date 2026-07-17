@@ -53,10 +53,6 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-        with:
-          # The prompt-30 audit verifies blobs at the fixed historic a7c lock.
-          # Keep that lock reachable as main advances instead of using a brittle depth.
-          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -72,9 +68,14 @@ jobs:
           python -m pytest
           tests/test_gamma_sub_calibration_protocol_cost_frontier.py
           tests/test_gamma_sub_cpcf_evidence_schema.py
-          tests/test_prompt30_a7c_evidence_audit.py
+          tests/test_historical_evidence_manifest.py
+          tests/test_prompt31_cpcf_semantic_audit.py
+          tests/test_gamma_sub_ceba_contract.py
+          tests/test_validation_workflow_contract.py
           tests/test_gamma_sub_evidence_lock.py
           tests/test_claim_gate_resolution_matrix.py -q
+      - name: Current immutable evidence manifest
+        run: python scripts/validate_historical_evidence_manifest.py
       - name: Fast checkout governance scope
         run: python scripts/audit_project_governance.py --no-write --fast-checkout
       - name: Strict tracked JSON parse

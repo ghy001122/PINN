@@ -24,7 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          # Full pytest includes the fixed historic a7c evidence-lock audit.
+          # Only manual/scheduled full validation verifies historic Git blobs.
           fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
@@ -40,6 +40,8 @@ jobs:
         run: python scripts/run_gt_v1_acceptance.py
       - name: Full test suite
         run: python -m pytest -q
+      - name: Verify immutable historic blobs
+        run: python scripts/validate_historical_evidence_manifest.py --verify-history
       - name: Full governance audit without tracked writes
         run: python scripts/audit_project_governance.py --no-write
       - name: Strict tracked JSON parse
