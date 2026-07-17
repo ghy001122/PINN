@@ -1,0 +1,205 @@
+{
+  "actually_executed": [
+    {
+      "evidence": "1200 Adam steps completed; a scoreable PINN-predicted post-Adam trajectory exists",
+      "id": "n0_v3r_adam_replay",
+      "metrics": {
+        "initial_loss": 15062737616896.0,
+        "post_loss": 2665305088.0
+      }
+    },
+    {
+      "evidence": "serializer-safe same-checkpoint replay reproduced the strong-Wolfe non-finite parameter at closure 3",
+      "id": "n0_v3r_lbfgs_diagnostic",
+      "metrics": {
+        "all_six_loss_blocks_nonfinite_at_detection": true,
+        "closure_index": 3,
+        "diagnostic_only": true,
+        "exact_b380_failure_type_reproduced": true,
+        "failure_stage": "lbfgs_strong_wolfe_closure",
+        "first_nonfinite": {
+          "kind": "parameter",
+          "layer": "backbone.net.0",
+          "name": "backbone.net.0.weight"
+        },
+        "optimizer_or_scientific_algorithm_changed": false,
+        "same_pre_lbfgs_checkpoint": true
+      }
+    },
+    {
+      "evidence": "solver-first event-window geometry audit completed within its locked budget",
+      "id": "sid_ec_oq_current_preregistered_audit",
+      "metrics": {
+        "budget_cap": 420,
+        "case_rows": 36,
+        "solver_forward_evaluations": 189
+      }
+    }
+  ],
+  "audit_semantics": "hash, row-count, gate-logic, and report-to-JSON consistency only; no historical experiment was rerun",
+  "audited_base_blob_hashes": {
+    ".github/workflows/read_only_validation.yml": "dbcab1b7132c88576f1af3aa73037dc2575409cae9ecc47d8c814db3d06f336a",
+    "configs/n0_cv_e_v3r_optimizer_forensics.yaml": "8fc5423c73cd58ab77cbe0212dac968fa140f7bf6e722949be720b2489560e57",
+    "configs/sid_ec_oq_event_geometry.yaml": "84cf49fdc5ad840e22bcdb7593cc876c296fe71997d4a8b3f07ac11aefe9d117",
+    "docs/codex_reports/n0_optimizer_forensics_sid_discovery_final.md": "f1ceb47febe36ecdb195886cf57daee94ffff68533ca3643d556fd1d223555cf",
+    "outputs/tables/n0_cv_e_v3r_forensic_resolution.json": "cd8b888c12719cf64bc638311a5b60da0e41d2c6a3df39302c46cf73cf690e59",
+    "outputs/tables/n0_cv_e_v3r_post_adam_score.json": "14a89d8366e7e6db420ef3c9e3f3acefe2136b076ff0f92a8e5d4d7364883ab4",
+    "outputs/tables/n0_cv_e_v3r_summary.json": "f3c0cd62c1a6a1ac717e12ad1be8e6509f7cac14a5d1a683bd31936ef73953f0",
+    "outputs/tables/n0_sid_prompt29_validation.json": "2076f6c178ffa6a1dff9b0102b53309adfe9b52a171cef8b1cc0aca63d0f29e6",
+    "outputs/tables/sid_ec_oq_summary.json": "95a00abaad993e5cb9b54e487d6521bd6c92a9dfea3401e30352034dfc18a4aa"
+  },
+  "audited_commit": "a7c108e3980953ced24d2de86ce7afc340e65a88",
+  "claim_scope": "machine audit of existing a7c artifacts only",
+  "claim_status": "supported",
+  "current_implementation_rejected": [
+    {
+      "disposition": "no_recovery_stop",
+      "id": "n0_v3r_optimizer_route",
+      "scope": "the locked N0 optimizer route; not deletion of the complete multidomain PINN architecture"
+    },
+    {
+      "disposition": "fallback_fixed_rank1_gamma_sub_delete_sid_and_ec_oq",
+      "id": "sid_ec_oq_prompt29_contract",
+      "scope": "the prompt-29 preregistered numerical derivative/event-window implementation"
+    }
+  ],
+  "failed_but_informative": [
+    {
+      "id": "n0_v3r_trained_forward",
+      "metrics_over_20x_gate": [
+        {
+          "factor": 5658648.4375,
+          "gate": 0.01,
+          "metric": "cv_residual_rms.r_T",
+          "value": 56586.484375
+        },
+        {
+          "factor": 407.62195587158203,
+          "gate": 0.01,
+          "metric": "cv_residual_rms.r_m",
+          "value": 4.07621955871582
+        },
+        {
+          "factor": 664238.6820887533,
+          "gate": 0.05,
+          "metric": "interface_flux.heat",
+          "value": 33211.93410443767
+        },
+        {
+          "factor": 477.43605271411394,
+          "gate": 0.05,
+          "metric": "interface_flux.defect",
+          "value": 23.8718026357057
+        },
+        {
+          "factor": 100.0,
+          "gate": 0.01,
+          "metric": "defect_mass_ledger",
+          "value": 1.0
+        }
+      ],
+      "reason": "port passes but residual, field, interface-flux, energy, and defect-ledger gates fail"
+    },
+    {
+      "id": "sid_ec_oq_current_preregistered_implementation",
+      "metrics": {
+        "derivative": {
+          "claim_allowed": false,
+          "maximum_relative_difference": 0.6484293492573403,
+          "passing_cases": 3,
+          "total_cases": 9
+        },
+        "gate_metrics": {
+          "angle_ci_lower_deg": 0.4906597697141914,
+          "derivative_pass": false,
+          "neighborhood_direction_stable": false,
+          "physical_stable_protocol_count": 1,
+          "rank_change_consistency": 1.0,
+          "stable_protocol_count": 1,
+          "switch_information_ratio": 10.208701451533676,
+          "switch_training_condition_ratio": 1.9038041102437957,
+          "training_geometry_available": true
+        }
+      },
+      "reason": "derivative agreement, event-window, stability, and dual-geometry prerequisites fail"
+    }
+  ],
+  "frozen_gt_modified": false,
+  "gates_passed": [
+    {
+      "id": "n0_v3r_port",
+      "scope": "port-only; not forward fidelity",
+      "threshold": 0.1,
+      "value": 0.09554748319724289
+    },
+    {
+      "id": "n0_v3r_finite_and_bounds",
+      "scope": "finite output/state-bound implementation checks only"
+    },
+    {
+      "id": "sid_isolated_rank_vote",
+      "scope": "non-voting after the numerical derivative prerequisite failed"
+    },
+    {
+      "id": "sid_switch_information_vote",
+      "scope": "non-voting after the derivative/window prerequisite failed",
+      "value": 10.208701451533676
+    }
+  ],
+  "historical_expensive_results_recomputed": false,
+  "report_json_consistency": {
+    "prompt29_frozen_gt_unchanged": true,
+    "report_matches_five_over_20x_metrics": true,
+    "report_matches_port_gate": true,
+    "report_matches_sid_derivative_vote": true,
+    "report_matches_sid_forward_budget": true,
+    "report_matches_sid_max_discrepancy": true,
+    "report_mentions_1200_adam_steps": true,
+    "sid_bootstrap_count_matches_validation": true,
+    "sid_case_count_matches_validation": true
+  },
+  "row_counts": {
+    "sid_bootstrap": 600,
+    "sid_cases": 36
+  },
+  "schema_version": "prompt30_a7c_audit_summary_v1",
+  "sid_scope_correction": {
+    "active_now": false,
+    "allowed_wording": "The current preregistered SID implementation failed its numerical and stability gates and is inactive.",
+    "broad_scientific_hypothesis_permanently_falsified": false,
+    "current_preregistered_implementation_rejected": true,
+    "forbidden_wording": "The SID scientific hypothesis has been permanently falsified.",
+    "revisit_requires": "new user-authorized phase plus a new numerical derivative and event-window contract"
+  },
+  "still_unvalidated": [
+    "reliable complete-PINN forward fidelity",
+    "PINN sensitivity/Fisher geometry fidelity",
+    "PINN inverse readiness",
+    "protocol-dependent quotient identifiability",
+    "the broader SID scientific hypothesis under a new numerical/event-window contract",
+    "D0b-D0d, any 13 V evaluation, and independent external validation"
+  ],
+  "workflow_scope_note": "The a7c workflow blob is hash-audited from Git; the working workflow is the prompt-30 preregistered CI split and is not a scientific-result change.",
+  "working_tree_hashes": {
+    ".github/workflows/read_only_validation.yml": "e53de1a5c111fcd0720b0e6b6a75562fa16a9684af6b7065cfbe8920876bbaa9",
+    "configs/n0_cv_e_v3r_optimizer_forensics.yaml": "8fc5423c73cd58ab77cbe0212dac968fa140f7bf6e722949be720b2489560e57",
+    "configs/sid_ec_oq_event_geometry.yaml": "84cf49fdc5ad840e22bcdb7593cc876c296fe71997d4a8b3f07ac11aefe9d117",
+    "docs/codex_reports/n0_optimizer_forensics_sid_discovery_final.md": "f1ceb47febe36ecdb195886cf57daee94ffff68533ca3643d556fd1d223555cf",
+    "outputs/tables/n0_cv_e_v3r_forensic_resolution.json": "cd8b888c12719cf64bc638311a5b60da0e41d2c6a3df39302c46cf73cf690e59",
+    "outputs/tables/n0_cv_e_v3r_post_adam_score.json": "14a89d8366e7e6db420ef3c9e3f3acefe2136b076ff0f92a8e5d4d7364883ab4",
+    "outputs/tables/n0_cv_e_v3r_summary.json": "f3c0cd62c1a6a1ac717e12ad1be8e6509f7cac14a5d1a683bd31936ef73953f0",
+    "outputs/tables/n0_sid_prompt29_validation.json": "2076f6c178ffa6a1dff9b0102b53309adfe9b52a171cef8b1cc0aca63d0f29e6",
+    "outputs/tables/sid_ec_oq_summary.json": "95a00abaad993e5cb9b54e487d6521bd6c92a9dfea3401e30352034dfc18a4aa"
+  },
+  "working_tree_matches_a7c": {
+    ".github/workflows/read_only_validation.yml": false,
+    "configs/n0_cv_e_v3r_optimizer_forensics.yaml": true,
+    "configs/sid_ec_oq_event_geometry.yaml": true,
+    "docs/codex_reports/n0_optimizer_forensics_sid_discovery_final.md": true,
+    "outputs/tables/n0_cv_e_v3r_forensic_resolution.json": true,
+    "outputs/tables/n0_cv_e_v3r_post_adam_score.json": true,
+    "outputs/tables/n0_cv_e_v3r_summary.json": true,
+    "outputs/tables/n0_sid_prompt29_validation.json": true,
+    "outputs/tables/sid_ec_oq_summary.json": true
+  }
+}

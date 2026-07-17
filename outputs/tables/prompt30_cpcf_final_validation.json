@@ -1,0 +1,162 @@
+{
+  "schema_version": "prompt30_cpcf_final_validation_v1",
+  "created_at_utc": "2026-07-17T11:23:26.8276959Z",
+  "stage_id": "M_GAMMA_SUB_CPCF_PILOT",
+  "base_commit": "a7c108e3980953ced24d2de86ce7afc340e65a88",
+  "preregistration_commit": "3cd714cb91bd2c700881584391f3b9ab66027b3c",
+  "branch": "main",
+  "result_commit_binding": {
+    "status": "reported_in_final_handoff",
+    "reason": "The result commit contains this validation file and therefore cannot embed its own hash without a circular rewrite."
+  },
+  "scope_guards": {
+    "full_pinn_training_run": false,
+    "sid_or_ec_oq_rerun": false,
+    "d0_or_13v_access": false,
+    "unrestricted_seed_sweep": false,
+    "full_cpcf_sweep_triggered": false,
+    "full_cpcf_sweep_executed": false,
+    "frozen_gt_modified": false
+  },
+  "scientific_result": {
+    "claim_status": "failed_but_informative",
+    "cpcf_main_claim_eligible": false,
+    "all_pilot_expansion_gates_pass": false,
+    "gates": {
+      "a_solver_anchor_consistency": false,
+      "b_two_stable_nondominated_points": true,
+      "c_twenty_percent_cost_or_risk_improvement": false,
+      "d_bootstrap_direction_excludes_zero": false
+    },
+    "anchor_metrics": {
+      "mean_absolute_discrepancy": 0.2996002220593028,
+      "locked_mean_absolute_discrepancy_max": 0.05373609469259508,
+      "classification_agreement_rate": 0.625,
+      "locked_classification_agreement_min": 0.8833333333333333,
+      "disagreement_count": 3,
+      "locked_disagreement_count_max": 0,
+      "maximum_absolute_discrepancy": 1.129979035639413,
+      "stable_nondominated_count": 5
+    }
+  },
+  "execution_accounting": {
+    "invalid_attempt": {
+      "scientific_vote": false,
+      "reason": "Replicate id overwrote operating-point id, collapsing 12 operating points to 4.",
+      "definition_commit": "30785f22dd1e0122b1cf0799bdea92c7c2142b85",
+      "case_count": 48,
+      "operating_point_count": 4,
+      "elapsed_seconds": 43.17585929998313,
+      "solver_forward_evaluations": 48,
+      "cache_hits": 0,
+      "cache_misses": 48
+    },
+    "valid_pilot": {
+      "scientific_vote": true,
+      "case_count": 48,
+      "operating_point_count": 12,
+      "fresh_solver_anchor_count": 8,
+      "elapsed_seconds": 116.44458399998257,
+      "solver_forward_evaluations": 48,
+      "cache_hits": 0,
+      "cache_misses": 48,
+      "max_workers": 2
+    },
+    "all_executions_including_invalid_attempt": {
+      "case_count": 96,
+      "elapsed_seconds": 159.6204432999657,
+      "solver_forward_evaluations": 96,
+      "cache_hits": 0,
+      "cache_misses": 96
+    }
+  },
+  "validation": {
+    "focused_tests": {
+      "status": "pass",
+      "final_count": 8,
+      "elapsed_seconds": 3.2
+    },
+    "full_pytest": {
+      "command": ".\\.venv\\Scripts\\python.exe -m pytest -q",
+      "status": "pass",
+      "passed": 253,
+      "failed": 0,
+      "elapsed_seconds": 259.15,
+      "wall_seconds": 260.9,
+      "run_count_this_round": 1
+    },
+    "project_governance": {
+      "command": ".\\.venv\\Scripts\\python.exe scripts\\audit_project_governance.py --no-write",
+      "status": "pass_with_manual_review",
+      "failed_checks": [],
+      "manual_review_required": [
+        "codex_rules",
+        "frozen_gt_integrity"
+      ],
+      "low_token_context_bytes": 19820,
+      "low_token_context_limit_bytes": 24576,
+      "explicit_run_count_this_round": 1
+    },
+    "strict_tracked_json_before_this_file": {
+      "status": "pass",
+      "tracked_json_count": 132,
+      "failure_count": 0
+    },
+    "strict_tracked_json_final": {
+      "status": "pass",
+      "tracked_json_count": 133,
+      "failure_count": 0
+    },
+    "staged_diff_check_before_this_file": "pass",
+    "clean_clone_read_only_validation": {
+      "status": "reported_in_final_handoff",
+      "reason": "The clean clone must be created from the result commit that contains this file."
+    }
+  },
+  "frozen_gt_integrity": {
+    "status": "pass",
+    "diff_from_base": [],
+    "pre_task_mtime_snapshot_available": false,
+    "mtime_interpretation": "No independently serialized pre-task mtime snapshot is available; SHA-256 equality and an empty Git diff provide the authoritative unchanged check.",
+    "files": {
+      "configs/gt_v1_acceptance_triangle.yaml": {
+        "sha256": "f2e6bec6006827344bebddcf20519b5b87f923b349a8799596d06e9f254a2b02",
+        "post_validation_mtime_utc": "2026-06-21T16:45:58.9578596Z"
+      },
+      "configs/gt_v1_acceptance_ltp_ltd.yaml": {
+        "sha256": "f1f71f21f1d0d27532eead23a3a4b71b0864e6b0966e564104dcffd7040c1d93",
+        "post_validation_mtime_utc": "2026-06-21T16:45:59.1757523Z"
+      },
+      "docs/gt_v1_acceptance_report.md": {
+        "sha256": "0f72718affb84f727771f8d4a1a16afb9d7c0d15bd7984632b3beb8155f91643",
+        "post_validation_mtime_utc": "2026-06-22T03:41:29.3533397Z"
+      },
+      "data/processed/gt_v1_acceptance/manifest.json": {
+        "sha256": "634554429b9e61a231e47bf35b9b5c66c1c316e5e11a86bde0540b05ff5ae30f",
+        "post_validation_mtime_utc": "2026-06-21T16:47:59.0463477Z"
+      },
+      "data/processed/gt_v1_acceptance/gt_triangle.npz": {
+        "sha256": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8",
+        "post_validation_mtime_utc": "2026-06-21T16:47:54.1182949Z"
+      },
+      "data/processed/gt_v1_acceptance/obs_triangle_sparse.npz": {
+        "sha256": "f45daf53136a255b3666ebeb56e6298ce148a613c46fa596b795e7ade68ea602",
+        "post_validation_mtime_utc": "2026-06-21T16:47:54.1212080Z"
+      },
+      "data/processed/gt_v1_acceptance/gt_ltp_ltd.npz": {
+        "sha256": "772d17178c77392bf8a0813ada3db4a7241c5fa4e6d72e091894271bfa13c247",
+        "post_validation_mtime_utc": "2026-06-21T16:47:56.8252187Z"
+      },
+      "data/processed/gt_v1_acceptance/obs_ltp_ltd_sparse.npz": {
+        "sha256": "7155bff7c406fab49e9670fa8a73ab6d0063459a80feb705138e3fe61a351645",
+        "post_validation_mtime_utc": "2026-06-21T16:47:56.8272282Z"
+      }
+    }
+  },
+  "machine_summary": {
+    "python": "3.11.9 | packaged by Anaconda, Inc. | (main, Apr 19 2024, 16:40:41) [MSC v.1916 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 154 Stepping 4, GenuineIntel",
+    "logical_cpu_count": 12
+  }
+}

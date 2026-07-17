@@ -42,3 +42,10 @@ This addendum does not replace or upgrade the locked gamma-sub figures.
 - N1-N3 and the protocol-conditioned quotient hypothesis were not executed; no corresponding main figure/table is authorized.
 
 Candidate supplementary files are `outputs/figures/vo2_d0a_source_semantics_v2.png` and `outputs/figures/full_pinn_n0_mve_gate_v1.png`. The current safe main-text inverse remains the calibration-gated rank-1 `gamma_sub` result.
+
+## 2026-07-17 CPCF And Implementation-Scope Addendum
+
+- The instrumented N0 v3r state passes port NRMSE95 narrowly but fails residual, field, interface-flux, and conservation-ledger gates. This N0 optimizer route is stopped; the complete PINN architecture remains the mandatory scaffold.
+- The current solver-first SID/EC-OQ implementation is rejected after derivative, event-window, stability, and dual-geometry failures. This does not permanently falsify the broader hypothesis, which is inactive pending a new authorized contract.
+- The preregistered CPCF pilot ran `48` cases over `12` operating points and `8` fresh solver anchors. Only the stable-nondominated-point gate passed; anchor consistency, locked `20%` improvement, and bootstrap direction failed. Full expansion did not run.
+- `outputs/figures/gamma_sub_cpcf_pareto_v1.png` and the CPCF operating-point table are supplementary failure-boundary artifacts only. CPCF receives no main figure, main table, or cost-optimality wording.

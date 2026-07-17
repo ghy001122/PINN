@@ -1,0 +1,92 @@
+{
+  "all_pilot_expansion_gates_pass": false,
+  "allowed_claim": "The bounded CPCF pilot did not establish a stable resource frontier; its table is retained as failed_but_informative supplementary decision evidence without a cost-optimality claim.\n",
+  "anchor_gate": {
+    "checks": {
+      "classification_agreement": false,
+      "disagreement_count": false,
+      "mean_absolute_discrepancy": false
+    },
+    "locked_tolerance": {
+      "classification_agreement_min": 0.8833333333333333,
+      "disagreement_count_max": 0,
+      "mean_absolute_discrepancy_max": 0.05373609469259508
+    },
+    "metrics": {
+      "classification_agreement_rate": 0.625,
+      "disagreement_count": 3,
+      "fresh_anchor_count": 8,
+      "maximum_absolute_discrepancy": 1.129979035639413,
+      "mean_absolute_discrepancy": 0.2996002220593028,
+      "solver_forward_evaluations": 48
+    },
+    "pass": false
+  },
+  "cache_hits": 0,
+  "cache_misses": 48,
+  "case_count": 48,
+  "claim_status": "failed_but_informative",
+  "config_sha256": "03ebcf1c94c3c6c626d85e5267666bfaff22c51ac63d9c15d1cf03ed854c2624",
+  "cpcf_main_claim_eligible": false,
+  "elapsed_seconds": 43.17585929998313,
+  "evidence_type": "synthetic numerical digital-twin decision audit",
+  "external_13v_accessed": false,
+  "forbidden_claims": [
+    "monetary or real laboratory cost optimality",
+    "experimental or device-general resource requirements",
+    "full-PINN forward, sensitivity, or inverse success",
+    "globally optimal protocol",
+    "unconditional gamma_sub identifiability"
+  ],
+  "fresh_solver_anchor_count": 8,
+  "frozen_gt_modified": false,
+  "full_pinn_run": false,
+  "full_sweep_executed": false,
+  "full_sweep_triggered": false,
+  "gates": {
+    "a_solver_anchor_consistency": false,
+    "b_two_stable_nondominated_points": false,
+    "c_twenty_percent_cost_or_risk_improvement": false,
+    "d_bootstrap_direction_excludes_zero": false
+  },
+  "improvement_gate": {
+    "pass": false,
+    "reason": "no calibration-only reference meets the locked risk gate",
+    "selected": null
+  },
+  "input_hashes": {
+    "configs/gamma_sub_evidence_lock.yaml": "136c7431ca97c7d1864667033d917cb8ec54bf49a1c7f2c216df824d4dcd205e",
+    "data/processed/gt_v1_acceptance/gt_triangle.npz": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8",
+    "data/processed/gt_v1_acceptance/obs_triangle_sparse.npz": "f45daf53136a255b3666ebeb56e6298ce148a613c46fa596b795e7ade68ea602",
+    "outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_cases.csv": "ac48940bf5bd4dc32f2a523d6834510c4e40dd1e1227f69051d9d51864f27e99",
+    "outputs/tables/gamma_sub_recoverability_phase_diagram_cases.csv": "7d09b8003b2cfa1553e2a6f0d46d28525ea5b146e4346070e7dc20190852aeb1",
+    "outputs/tables/gamma_sub_response_surface_anchor_verification_cases.csv": "3072ceb2bc0edea187cedcc1f51f4d932247bb2bde13fc2b12f7956420793870",
+    "outputs/tables/gamma_sub_statistical_robustness_cases.csv": "ad89459fb6c8c986345af5513429947c93ae553f4d948528bae1c54cd6c4b5b6",
+    "outputs/tables/gamma_sub_tsw_confounding_phase_map_cases.csv": "41befd6b96df5ef8827a0f7c1dbd03829f6204548f430a2df7ae84d20833bb4b",
+    "outputs/tables/gamma_sub_tsw_profile_likelihood_grid.csv": "0ade5506617bf7a0ccb19529c8c725ed999f91668e86dcf941ad4ac801b552c2",
+    "outputs/tables/gamma_sub_tsw_profile_likelihood_profiles.csv": "ef5ffd3873bad8546ff7e7d88658bb7ddaa69c7a506f40d1a098660110015ce0",
+    "outputs/tables/gamma_sub_tsw_tolerance_ode_spotcheck_cases.csv": "c47c3a8e5f571a2f2ed9bcd2fa256abdb0ad5106bea5b7c42b8e9f0e7a93ab28"
+  },
+  "max_workers": 2,
+  "mode": "pilot",
+  "operating_point_count": 4,
+  "outputs": {
+    "cases_csv": "outputs/tables/gamma_sub_cpcf_pilot_cases.csv",
+    "operating_points_csv": "outputs/tables/gamma_sub_cpcf_pilot_operating_points.csv",
+    "pareto_figure": "outputs/figures/gamma_sub_cpcf_pareto_v1.png",
+    "pareto_source_csv": "outputs/tables/gamma_sub_cpcf_pareto_source.csv",
+    "summary_json": "outputs/tables/gamma_sub_cpcf_pilot_summary.json"
+  },
+  "preregistration": {
+    "definition_commit": "30785f22dd1e0122b1cf0799bdea92c7c2142b85",
+    "path": "outputs/tables/gamma_sub_cpcf_preregistration.json",
+    "sha256": "6198609db8e5f9a1e3f70622b5629da16321bf9f61da1de039a47c653eb1d374"
+  },
+  "profile_semantics": "fresh anchors report a discrete candidate-profile width; operating-point uncertainty uses case bootstrap and is not cross-device generalization",
+  "resource_semantics": "transparent normalized resource index; no monetary or laboratory cost data",
+  "schema_version": "gamma_sub_cpcf_pilot_summary_v1",
+  "solver_forward_evaluations": 48,
+  "source_semantics": "historical response-surface cases with a locked small set of fresh independent-solver anchors",
+  "stable_nondominated_count": 0,
+  "stage_id": "M_GAMMA_SUB_CPCF_PILOT"
+}

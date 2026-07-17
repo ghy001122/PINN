@@ -59,6 +59,8 @@ Use exactly: `supported`, `qualified_supported`, `failed_but_informative`, `forb
 28. Cross-material failure hidden inside pooled OOD metrics.
 29. Old status or handoff text overriding the active phase.
 30. Local memory treated as more authoritative than Git evidence.
+31. Failure of one preregistered SID/event-window implementation described as permanent falsification of the broader scientific hypothesis.
+32. Stable sampled nondominated points described as a reliable resource frontier before solver-anchor and effect-direction gates pass.
 
 ## Authority Order
 

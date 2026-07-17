@@ -757,3 +757,17 @@ Date: 2026-07-17. Definition/preregistration commit: `18b703a366663b83947e8b8414
 - SID and EC-OQ are both deleted from the active route. The calibrated rank-1 `gamma_sub` mainline is unchanged.
 
 Primary report: `docs/codex_reports/n0_optimizer_forensics_sid_discovery_final.md`.
+
+## Prompt-30 a7c Audit, CI Split, And Bounded CPCF Pilot
+
+Date: 2026-07-17. Base commit: `a7c108e3980953ced24d2de86ce7afc340e65a88`. Preregistration commit: `3cd714cb91bd2c700881584391f3b9ab66027b3c`.
+
+- Hash/row-count/gate audit confirms the a7c scientific artifacts without rerunning N0 or SID. The current SID/EC-OQ implementation is rejected and inactive; the broader hypothesis is not declared permanently false.
+- Split CI into focused push/PR validation and manual/scheduled full claim-bearing validation, with dependency caching, path filters, concurrency cancellation, timeouts, strict JSON parsing, and a clean-checkout frozen-payload policy.
+- Locked a non-monetary CPCF pilot with `48` cases, `12` operating points, four strategies, fixed seeds, `2000` bootstrap replicates, case cache/resume, atomic writes, and at most two workers.
+- A first implementation attempt aggregated `48` cases into only `4` operating points because replicate IDs overwrote operating-point IDs. It receives no scientific vote; the raw summary and hash-locked provenance are retained. Only that implementation error was corrected before the valid pilot; thresholds were unchanged.
+- The valid pilot used `48` solver forward evaluations and `8` fresh anchors. Gate b passes with `5` stable sampled nondominated points. Gate a fails (`0.299600 > 0.0537361` mean discrepancy, `0.625 < 0.883333` agreement, `3 > 0` disagreements); gates c and d also fail. Full expansion did not run.
+- CPCF is `failed_but_informative` and supplementary only. It has no monetary, laboratory, device-general, globally optimal, or main-contribution claim.
+- The H0-H3 hierarchy is preserved. H1 latent heat, H2 history state, and H3 2D geometry require external discrepancy triggers plus conservation, SI-unit, primary-literature, and independent-solver gates.
+
+Primary report: `docs/codex_reports/prompt30_a7c_audit_and_cpcf_report.md`.

@@ -67,6 +67,7 @@ jobs:
         run: >-
           python -m pytest
           tests/test_gamma_sub_calibration_protocol_cost_frontier.py
+          tests/test_gamma_sub_cpcf_evidence_schema.py
           tests/test_prompt30_a7c_evidence_audit.py
           tests/test_gamma_sub_evidence_lock.py
           tests/test_claim_gate_resolution_matrix.py -q

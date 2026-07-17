@@ -58,6 +58,22 @@ The protocol search is finite and benchmark-specific. It is not a continuous glo
 
 Noise, random seed, observation count, off-grid truth, prior width, and protocol are audited without averaging away the wide-\(T_{\mathrm{sw}}\)-mismatch failures. A positive mainline claim is allowed only with status `supported` or `qualified_supported` in `docs/paper/final_claim_matrix.md`.
 
+## Bounded Calibration-Protocol Resource Audit
+
+The preregistered CPCF pilot reuses the locked `gamma_sub` response/profile/protocol tables and adds only eight fresh independent-solver anchors. It compares calibration-only, protocol-only, sequential calibration-to-protocol, and joint designs across `48` cases and `12` operating points. The normalized resource index is explicitly non-monetary:
+
+$$
+c_{\mathrm{cal}}=\frac{\log(w_{\max}/w)}{\log(w_{\max}/w_{\min})},\quad
+c_{\mathrm{prot}}=\frac{p-p_{\min}}{p_{\max}-p_{\min}},\quad
+c_{\mathrm{obs}}=\frac{n-n_{\min}}{n_{\max}-n_{\min}},
+$$
+
+$$
+C=0.40c_{\mathrm{cal}}+0.35c_{\mathrm{prot}}+0.25c_{\mathrm{obs}}.
+$$
+
+Here (w) is the `T_sw` prior width, (p) is a declared historical protocol-complexity proxy, and (n) is observation count. The risk index combines median relative error, failure rate, bootstrap interval width, and abstention rate with fixed weights `0.40/0.25/0.20/0.15`. This is a transparent decision index, not laboratory time, energy, or currency. Full expansion is permitted only if fresh-anchor consistency, at least two stable nondominated points, a locked `>=20%` cost-or-risk improvement, and a bootstrap 95% improvement direction excluding zero all pass.
+
 ## Device-Scale Extensions
 
 V10 multilayer OASIS evidence is supplementary. P1 is a field-anchored CV physics-regularized surrogate with a failed strict interface gate; P2 is local linearized block recovery with rank-deficient selected protocols; P3 supports only segmented-terminal forward/current integration and local three-parameter observability; P4 remains blocked.
@@ -75,3 +91,5 @@ The versioned N0 model predicts \(\phi,c_v,T,m\), derives \(\sigma(c_v,T,m)\), a
 The N0-R audit additionally compares the frozen FVM face/volume ledger with the continuous equations and four manufactured cases. It corrects the frozen-teacher electrode orientation only in a new matched-budget split path, using two layer-local state networks and exact independent traces at `L_int`. All derivatives are returned to global SI coordinates, and residual scales are fixed before training from layer-local storage, diffusion/drift/reaction, conduction/Joule/sink, and phase-relaxation terms. This path remains data-free; hidden fields are still score-only.
 
 The final N0-CV-E v3 formulation instead predicts bounded cell-centered (c_i(t),T_i(t),m_i(t)) on the unchanged 31-cell frozen grid. Conductivity follows the frozen constitutive closure, while (phi_i,sigma_i,E_i,J,I,G) are computed by a differentiable analytic series-electric head with the same cell-center convention as the teacher. Defect and heat fluxes use the frozen arithmetic face average and zero end fluxes; reaction, Joule, substrate-sink, and phase-relaxation terms are translations of the frozen right-hand side. The loss contains dimensionless cellwise (r_c,r_T,r_m), the structurally exact discrete-current check, and adjacent-state global defect/energy ledgers. Neither frozen full fields nor port traces enter training. Configuration, diagnostics, code hashes, seeds, schedule, and gates were locked before the no-training preflight and optimization attempt.
+
+Physical-model upgrades follow an evidence-triggered H0-H3 ladder. H1 enthalpy/latent heat requires a provenance-backed external thermal residual; H2 history-state freedom requires heating/cooling or minor-loop discrepancy; H3 two-dimensional geometry requires proven one-dimensional structural error. Every new term must have a conservation derivation, SI dimensional audit, primary literature source, and independent-solver test before entering a PINN loss.

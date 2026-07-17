@@ -1,0 +1,57 @@
+{
+  "allowed_claim_if_all_gates_pass": "In the configured one-dimensional synthetic benchmark, the preregistered CPCF identifies stable nondominated normalized-resource combinations for conditional gamma_sub inversion; calibration remains prerequisite and protocol/observation investment is interpreted only within the locked prior, noise, and protocol grid.\n",
+  "base_commit": "a7c108e3980953ced24d2de86ce7afc340e65a88",
+  "bootstrap_replicates": 2000,
+  "config_path": "configs/gamma_sub_calibration_protocol_cost_frontier.yaml",
+  "config_sha256": "03ebcf1c94c3c6c626d85e5267666bfaff22c51ac63d9c15d1cf03ed854c2624",
+  "definition_commit": "3cd714cb91bd2c700881584391f3b9ab66027b3c",
+  "definition_hashes": {
+    ".github/workflows/full_validation.yml": "d40b4e54dd71bf89cfff28747bb41d32bf1862552e731b986cef588f286ccc62",
+    ".github/workflows/read_only_validation.yml": "a3dfeb71a175b206433e1c592b4281c96e1edf67460be548bd06898a79472b8c",
+    "configs/gamma_sub_calibration_protocol_cost_frontier.yaml": "03ebcf1c94c3c6c626d85e5267666bfaff22c51ac63d9c15d1cf03ed854c2624",
+    "scripts/audit_a7c_prompt30_evidence.py": "855e2b53e4b1f4082040d5434f53719eefde16b62036a9550119585eb59d310c",
+    "scripts/audit_gamma_sub_calibration_protocol_cost_frontier.py": "e97c1892cd10c25dd4cb850b07c03018eff7e0270101c4ce266486b7e13605ff",
+    "tests/test_gamma_sub_calibration_protocol_cost_frontier.py": "1736df58ba36ac9514abeccaf22491cfdf16625c6dbe31828baf88e74a4549f2",
+    "tests/test_prompt30_a7c_evidence_audit.py": "f3a1388aafb0aa7c97e1db572f475a164617e3e99f52ba992d7e9db7104b5250"
+  },
+  "external_13v_access_authorized": false,
+  "failure_claim": "The bounded CPCF pilot did not establish a stable resource frontier; its table is retained as failed_but_informative supplementary decision evidence without a cost-optimality claim.\n",
+  "forbidden_claims": [
+    "monetary or real laboratory cost optimality",
+    "experimental or device-general resource requirements",
+    "full-PINN forward, sensitivity, or inverse success",
+    "globally optimal protocol",
+    "unconditional gamma_sub identifiability"
+  ],
+  "frozen_gt_write_authorized": false,
+  "full_pinn_training_authorized": false,
+  "full_sweep_gate": {
+    "bootstrap_direction_must_exclude_zero": true,
+    "bootstrap_improvement_ci_level": 0.95,
+    "full_case_cap": 384,
+    "minimum_cost_reduction_same_risk": 0.2,
+    "minimum_risk_reduction_same_cost": 0.2,
+    "minimum_stable_nondominated_points": 2,
+    "same_cost_relative_tolerance": 0.05,
+    "same_risk_relative_tolerance": 0.05,
+    "stable_frontier_bootstrap_frequency_min": 0.9
+  },
+  "git_dirty_at_lock": false,
+  "input_hashes": {
+    "configs/gamma_sub_evidence_lock.yaml": "136c7431ca97c7d1864667033d917cb8ec54bf49a1c7f2c216df824d4dcd205e",
+    "data/processed/gt_v1_acceptance/gt_triangle.npz": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8",
+    "data/processed/gt_v1_acceptance/obs_triangle_sparse.npz": "f45daf53136a255b3666ebeb56e6298ce148a613c46fa596b795e7ade68ea602",
+    "outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_cases.csv": "ac48940bf5bd4dc32f2a523d6834510c4e40dd1e1227f69051d9d51864f27e99",
+    "outputs/tables/gamma_sub_recoverability_phase_diagram_cases.csv": "7d09b8003b2cfa1553e2a6f0d46d28525ea5b146e4346070e7dc20190852aeb1",
+    "outputs/tables/gamma_sub_response_surface_anchor_verification_cases.csv": "3072ceb2bc0edea187cedcc1f51f4d932247bb2bde13fc2b12f7956420793870",
+    "outputs/tables/gamma_sub_statistical_robustness_cases.csv": "ad89459fb6c8c986345af5513429947c93ae553f4d948528bae1c54cd6c4b5b6",
+    "outputs/tables/gamma_sub_tsw_confounding_phase_map_cases.csv": "41befd6b96df5ef8827a0f7c1dbd03829f6204548f430a2df7ae84d20833bb4b",
+    "outputs/tables/gamma_sub_tsw_profile_likelihood_grid.csv": "0ade5506617bf7a0ccb19529c8c725ed999f91668e86dcf941ad4ac801b552c2",
+    "outputs/tables/gamma_sub_tsw_profile_likelihood_profiles.csv": "ef5ffd3873bad8546ff7e7d88658bb7ddaa69c7a506f40d1a098660110015ce0",
+    "outputs/tables/gamma_sub_tsw_tolerance_ode_spotcheck_cases.csv": "c47c3a8e5f571a2f2ed9bcd2fa256abdb0ad5106bea5b7c42b8e9f0e7a93ab28"
+  },
+  "origin_main_at_lock": "a7c108e3980953ced24d2de86ce7afc340e65a88",
+  "pilot_case_cap": 48,
+  "schema_version": "gamma_sub_cpcf_preregistration_v1",
+  "stage_id": "M_GAMMA_SUB_CPCF_PILOT"
+}

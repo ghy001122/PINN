@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pinnpcm.local/schemas/gamma_sub_cpcf_summary_v1.schema.json",
+  "title": "Gamma-sub CPCF bounded pilot summary",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "stage_id",
+    "claim_status",
+    "case_count",
+    "operating_point_count",
+    "solver_forward_evaluations",
+    "cache_hits",
+    "cache_misses",
+    "gates",
+    "all_pilot_expansion_gates_pass",
+    "full_sweep_triggered",
+    "full_sweep_executed",
+    "cpcf_main_claim_eligible",
+    "anchor_gate",
+    "improvement_gate",
+    "input_hashes",
+    "preregistration",
+    "allowed_claim",
+    "forbidden_claims"
+  ],
+  "properties": {
+    "schema_version": {"const": "gamma_sub_cpcf_pilot_summary_v1"},
+    "stage_id": {"const": "M_GAMMA_SUB_CPCF_PILOT"},
+    "claim_status": {
+      "enum": ["supported", "qualified_supported", "failed_but_informative", "forbidden"]
+    },
+    "case_count": {"type": "integer", "minimum": 1, "maximum": 50},
+    "operating_point_count": {"type": "integer", "minimum": 1},
+    "solver_forward_evaluations": {"type": "integer", "minimum": 0},
+    "cache_hits": {"type": "integer", "minimum": 0},
+    "cache_misses": {"type": "integer", "minimum": 0},
+    "gates": {
+      "type": "object",
+      "required": [
+        "a_solver_anchor_consistency",
+        "b_two_stable_nondominated_points",
+        "c_twenty_percent_cost_or_risk_improvement",
+        "d_bootstrap_direction_excludes_zero"
+      ],
+      "additionalProperties": {"type": "boolean"}
+    },
+    "all_pilot_expansion_gates_pass": {"type": "boolean"},
+    "full_sweep_triggered": {"type": "boolean"},
+    "full_sweep_executed": {"type": "boolean"},
+    "cpcf_main_claim_eligible": {"type": "boolean"},
+    "anchor_gate": {"type": "object"},
+    "improvement_gate": {"type": "object"},
+    "input_hashes": {"type": "object"},
+    "preregistration": {"type": "object"},
+    "allowed_claim": {"type": "string", "minLength": 1},
+    "forbidden_claims": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+  }
+}

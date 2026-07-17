@@ -14,6 +14,9 @@ This remains an untested hypothesis because upstream gates failed.
 | N0 contract audit | architecture, hard IC/electrical BC, manufactured equilibrium | preflight passed | allowed one fixed-seed training MVE |
 | N0 160-epoch pilot | one CPU seed | gate failed; finite/physical | expanded epochs only because 1200 was fixed before results; no seed expansion |
 | N0 1200-epoch MVE | same config and seed | `failed_but_informative`; port and all residual gates fail | N1-N3 not run |
+| N0 v3r instrumented replay | 1200 Adam steps plus same-checkpoint strong-Wolfe diagnostic | port passes, five physics/ledger metrics exceed `20x`; optimizer non-finite localized | this N0 optimizer route stopped; no recovery/seed expansion |
+| Solver-first SID/EC-OQ | `189` forward evaluations, `36` cases, fixed event windows | `failed_but_informative`; derivative `3/9`, window/stability/dual-geometry gates fail | current implementation rejected/inactive; broader hypothesis requires a new authorized contract |
+| CPCF bounded pilot | `48` cases, `12` operating points, `8` fresh solver anchors | `failed_but_informative`; only gate b passes | full sweep stopped; supplementary decision table only |
 
 ## Preserved Pre-registration
 
@@ -30,4 +33,6 @@ D0b-D0d are blocked by D0a. N1 independent solver sensitivity, N2 PINN sensitivi
 
 ## Active Next Experiment
 
-Only a bounded N0 diagnostic is active. It must pre-register any repair before new training and separate collocation generalization, residual scaling/gradient conflict, endpoint/interface fluxes and sparse-port-anchor ablation. The frozen fields remain score-only. A failure retains the historical `gamma_sub` calibration-gated inverse as the safe mainline.
+No scientific experiment is active. The single project action is manuscript/submission assembly from the locked calibration-gated `gamma_sub` evidence and the D0/N0/SID/CPCF failure boundaries. N0 retraining, CPCF expansion, D0/13 V, and SID/EC-OQ reopening are not authorized.
+
+The highest-value future research gate is a provenance-backed branch-resolved thermal-data feasibility audit before any H1 latent-heat or H2 history-state MVE. H3 two-dimensional geometry remains blocked until a one-dimensional structural error is demonstrated. These are registry items, not an execution queue.

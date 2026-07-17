@@ -1,0 +1,17 @@
+{
+  "schema_version": "gamma_sub_cpcf_invalid_attempt_provenance_v1",
+  "attempt_id": "prompt30_cpcf_attempt1",
+  "definition_commit": "30785f22dd1e0122b1cf0799bdea92c7c2142b85",
+  "raw_summary_path": "outputs/tables/gamma_sub_cpcf_attempt1_invalid_summary.json",
+  "raw_summary_sha256": "16d327f58c8828c66e359f42a8ba56b0b5ea339aa016849e9ac87bcbf6754da1",
+  "case_count": 48,
+  "expected_operating_point_count": 12,
+  "observed_operating_point_count": 4,
+  "invalidating_error": "replicate id overwrote operating point id during aggregation",
+  "scientific_vote": false,
+  "claim_status": "failed_but_informative",
+  "failure_scope": "implementation-only invalid attempt; no scientific gate inference",
+  "thresholds_changed_after_attempt": false,
+  "replacement_definition_commit": "3cd714cb91bd2c700881584391f3b9ab66027b3c",
+  "replacement_result_path": "outputs/tables/gamma_sub_cpcf_pilot_summary.json"
+}
