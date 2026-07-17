@@ -430,12 +430,23 @@ def common_cv_score(
         "T": float(registry["temperature_scale_K"]),
         "m": float(registry["phase_scale"]),
     }
+    # A cell-centre jump is not a dual-sided interface trace.  Reconstruct
+    # one-sided face values from two cells on each side, then compare those
+    # traces.  This remains score-only because the temporal CV network does
+    # not learn independent subdomain interface unknowns.
+    if interface_left < 1 or interface_right + 1 >= nx:
+        raise ValueError("Interface trace reconstruction requires two cells on each side.")
     interface_state = {
         key: float(
             np.sqrt(
                 np.mean(
                     (
-                        (field_predictions[key][:, interface_right] - field_predictions[key][:, interface_left])
+                        (
+                            1.5 * field_predictions[key][:, interface_right]
+                            - 0.5 * field_predictions[key][:, interface_right + 1]
+                            - 1.5 * field_predictions[key][:, interface_left]
+                            + 0.5 * field_predictions[key][:, interface_left - 1]
+                        )
                         / max(scale, 1.0e-30)
                     )
                     ** 2
@@ -444,11 +455,89 @@ def common_cv_score(
         )
         for key, scale in state_scales.items()
     }
-    interface_flux = {
-        "current": 0.0,
-        "heat": 0.0,
-        "defect": 0.0,
-        "semantics": "single_arithmetic_face_equal_and_opposite_CV_contribution",
+    interface_state["semantics"] = "score_only_one_sided_linear_face_trace_reconstruction"
+
+    def _face_fluxes(states: Mapping[str, np.ndarray]) -> dict[str, np.ndarray]:
+        c_local = np.asarray(states["c_v"], dtype=float)
+        t_local = np.asarray(states["T"], dtype=float)
+        m_local = np.asarray(states["m"], dtype=float)
+        v_local = np.asarray(states["V"], dtype=float)
+        local_profiles = {**params, **spatial_param_profiles(x, params)}
+        defect = np.zeros(t.size, dtype=float)
+        heat = np.zeros(t.size, dtype=float)
+        current = np.zeros(t.size, dtype=float)
+        k_left = float(local_profiles["k_th"][interface_left])
+        k_right = float(local_profiles["k_th"][interface_right])
+        k_face = 2.0 * k_left * k_right / max(k_left + k_right, 1.0e-30)
+        for time_index in range(t.size):
+            sigma_local = mixed_conductivity(
+                c_local[time_index], t_local[time_index], m_local[time_index], local_profiles
+            )
+            electrical_local = solve_series_electrostatics(
+                float(v_local[time_index]), sigma_local, params, dx
+            )
+            current[time_index] = float(electrical_local["J"])
+            temperature_face = 0.5 * (
+                t_local[time_index, interface_left] + t_local[time_index, interface_right]
+            )
+            d_face = 0.5 * (
+                arrhenius_reference(
+                    float(local_profiles["D_v0"][interface_left]),
+                    float(params["E_D_eV"]),
+                    temperature_face,
+                    float(params["T0"]),
+                )
+                + arrhenius_reference(
+                    float(local_profiles["D_v0"][interface_right]),
+                    float(params["E_D_eV"]),
+                    temperature_face,
+                    float(params["T0"]),
+                )
+            )
+            mu_face = 0.5 * (
+                arrhenius_reference(
+                    float(local_profiles["mu_v0"][interface_left]),
+                    float(params["E_mu_eV"]),
+                    temperature_face,
+                    float(params["T0"]),
+                )
+                + arrhenius_reference(
+                    float(local_profiles["mu_v0"][interface_right]),
+                    float(params["E_mu_eV"]),
+                    temperature_face,
+                    float(params["T0"]),
+                )
+            )
+            c_face = 0.5 * (
+                c_local[time_index, interface_left] + c_local[time_index, interface_right]
+            )
+            e_face = 0.5 * (
+                electrical_local["E"][interface_left]
+                + electrical_local["E"][interface_right]
+            )
+            defect[time_index] = (
+                -d_face
+                * (c_local[time_index, interface_right] - c_local[time_index, interface_left])
+                / dx
+                + mu_face * c_face * (1.0 - c_face) * e_face
+            )
+            heat[time_index] = -k_face * (
+                t_local[time_index, interface_right] - t_local[time_index, interface_left]
+            ) / dx
+        return {"current": current, "heat": heat, "defect": defect}
+
+    predicted_flux = _face_fluxes({**trajectory, "V": np.asarray(trajectory["V"])})
+    target_flux = _face_fluxes({**frozen_gt, "V": np.asarray(frozen_gt["V"])})
+    interface_flux_accuracy = {
+        name: nrmse95(predicted_flux[name], target_flux[name])
+        for name in ("current", "heat", "defect")
+    }
+    interface_flux_accuracy["semantics"] = "score_only_predicted_face_flux_vs_frozen_gt_face_flux"
+    structural_face_conservation = {
+        "current_equal_and_opposite": True,
+        "heat_equal_and_opposite": True,
+        "defect_equal_and_opposite": True,
+        "semantics": "shared_control_volume_face_structural_invariant_not_learned_performance",
     }
 
     current_matrix = electrical["sigma"] * electrical["E"]
@@ -514,14 +603,16 @@ def common_cv_score(
         "port_full_trace_nrmse95": nrmse95(electrical["I"], np.asarray(frozen_gt["I"])),
         "field_score_only_nrmse95": field_scores,
         "interface_state_rms": interface_state,
-        "interface_flux_rms": interface_flux,
+        "interface_flux_accuracy_nrmse95": interface_flux_accuracy,
+        "interface_flux_rms": interface_flux_accuracy,
+        "structural_face_conservation": structural_face_conservation,
         "terminal_current_conservation_normalized_error": current_spread,
         "defect_mass_ledger": ledgers["defect"],
         "global_energy_ledger": ledgers["energy"],
         "initial_condition_errors": initial_errors,
         "boundary_condition_errors": boundary_errors,
         "region_diagnostics": regions,
-        "finite_outputs": all(bool(np.isfinite(value).all()) for value in all_values),
+        "finite_outputs": bool(all(bool(np.isfinite(value).all()) for value in all_values)),
         "bounded_states": bool(
             np.min(trajectory["c_v"]) >= 0.0
             and np.max(trajectory["c_v"]) <= 1.0
@@ -564,6 +655,25 @@ def nested_get(payload: Mapping[str, Any], dotted_path: str) -> tuple[bool, Any]
     return True, current
 
 
+def valid_gate_value(value: Any) -> bool:
+    """Return True only for nonempty, recursively finite gate payloads.
+
+    Booleans and finite real scalars are valid leaves.  Empty containers,
+    strings, ``None``, non-finite numbers, and containers containing any such
+    value fail closed.  This explicitly prevents ``all(empty)`` passes.
+    """
+
+    if isinstance(value, (bool, np.bool_)):
+        return True
+    if isinstance(value, (int, float, np.integer, np.floating)):
+        return math.isfinite(float(value))
+    if isinstance(value, Mapping):
+        return bool(value) and all(valid_gate_value(item) for item in value.values())
+    if isinstance(value, (list, tuple)):
+        return bool(value) and all(valid_gate_value(item) for item in value)
+    return False
+
+
 def gate_coverage_table(
     config: Mapping[str, Any], payload: Mapping[str, Any] | None = None
 ) -> dict[str, Any]:
@@ -580,12 +690,7 @@ def gate_coverage_table(
         if mapped_path and payload is not None:
             executed, value = nested_get(payload, mapped_path)
             if executed:
-                if isinstance(value, bool):
-                    finite = True
-                elif isinstance(value, (int, float)):
-                    finite = math.isfinite(float(value))
-                else:
-                    finite = value is not None
+                finite = valid_gate_value(value)
         rows.append(
             {
                 "gate": gate,

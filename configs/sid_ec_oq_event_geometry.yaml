@@ -1,0 +1,113 @@
+schema_version: sid_ec_oq_event_geometry_v1
+stage_id: N0_OPTIMIZER_FORENSICS_AND_SID_DISCOVERY_B
+evidence_semantics: solver_generated_terminal_only_discovery_map
+frozen_solver: src/pinnpcm/physics/gt_solver.py
+frozen_gt_config: configs/gt_v1_acceptance_triangle.yaml
+external_data_access: forbidden
+
+solver:
+  nx: 21
+  nt: 160
+  method: Radau
+  rtol: 1.0e-5
+  atol: 1.0e-7
+
+protocols:
+  - {name: triangle_low_amplitude, protocol: triangle, t_max_s: 3.0e-3, params: {triangle_v_peak: 0.12}}
+  - {name: triangle_high_amplitude, protocol: triangle, t_max_s: 3.0e-3, params: {triangle_v_peak: 0.26}}
+  - {name: multi_pulse, protocol: ltp_ltd, t_max_s: 15.0e-3, params: {ltp_v_pos: 0.11, ltp_v_neg: -0.04}}
+
+coordinates:
+  names: [gamma_sub, T_sw, tau_m, sigma_on0, eta_A]
+  relative_steps: {gamma_sub: 0.01, T_sw: 0.10, tau_m: 0.01, sigma_on0: 0.01, eta_A: 0.01}
+  scaling: log_for_positive_except_T_sw_standardized
+  T_sw_scale_K: 4.8
+  neighborhood_fraction: 0.05
+  neighborhoods:
+    - {name: anchor, signs: [0, 0, 0, 0, 0]}
+    - {name: alternating_plus, signs: [1, -1, 1, -1, 1]}
+    - {name: alternating_minus, signs: [-1, 1, -1, 1, -1]}
+
+observation:
+  public_terminal_quantities: [I]
+  noise_model: independent_gaussian_relative_to_protocol_peak
+  relative_noise: 0.01
+  absolute_noise_floor_A: 1.0e-12
+  labels_or_hidden_fields: forbidden
+
+event_windows:
+  switch_score: max_normalized_absolute_phase_rate_and_current_rate
+  switch_threshold_fraction: 0.50
+  cooling_temperature_rate_fraction: -0.10
+  minimum_points: 8
+  fallback_half_width_points: 6
+  posthoc_window_motion: forbidden
+  names: [pre_switch, switch, post_switch, cooling_recovery]
+
+derivative_audit:
+  central_relative_step_h: from_coordinates
+  central_relative_step_h_over_2: true
+  richardson_order: 2
+  maximum_relative_difference: 0.05
+  rank_claim_if_failed: forbidden
+  rank_relative_singular_threshold: 0.05
+
+bootstrap:
+  replicates: 200
+  seed: 20260721
+  resample_unit: observation_time_row
+  confidence: 0.95
+
+training_geometry:
+  checkpoint_manifest: outputs/tables/n0_cv_e_v3r_checkpoint_manifest.json
+  use_last_finite_adam_checkpoint: true
+  locked_protocol_coverage: triangle_0p20_only
+  vjp_random_probes: 8
+  seed: 20260722
+  dense_hessian: forbidden
+
+gates:
+  derivative_relative_difference_max: 0.05
+  ec_oq_angle_bootstrap_lower_deg_min: 15.0
+  ec_oq_rank_change_bootstrap_consistency_min: 0.80
+  switch_information_ratio_min: 2.0
+  switch_training_condition_ratio_min: 10.0
+  direction_stability_min_protocols: 3
+  direction_neighborhood_max_angle_deg: 15.0
+  sid_requires_solver_and_training_geometry: true
+  ec_oq_protocol_aggregator: at_least_one_protocol
+  sid_protocol_aggregator: all_preregistered_protocols
+
+decision_rules:
+  no_subspace_rotation: fallback_fixed_rank1_gamma_sub
+  rotation_without_dual_geometry: delete_sid_retain_ec_oq_candidate
+  neither_rotation_nor_dual_geometry: delete_sid_and_ec_oq
+  positive_status_ceiling: qualified_supported
+
+preregistration:
+  require_clean_worktree_before_lock: true
+  require_head_equals_origin_main: true
+  locked_files:
+    - configs/sid_ec_oq_event_geometry.yaml
+    - src/pinnpcm/identifiability.py
+    - src/pinnpcm/physics/gt_solver.py
+    - src/pinnpcm/physics/params.py
+    - src/pinnpcm/physics/voltage_protocols.py
+    - scripts/preregister_n0_sid_round.py
+    - scripts/run_sid_ec_oq_event_geometry.py
+
+outputs:
+  preregistration: outputs/tables/sid_ec_oq_preregistration.json
+  event_windows: outputs/tables/sid_ec_oq_event_windows.json
+  cases_csv: outputs/tables/sid_ec_oq_cases.csv
+  summary: outputs/tables/sid_ec_oq_summary.json
+  bootstrap_csv: outputs/tables/sid_ec_oq_bootstrap.csv
+  spectrum_figure: outputs/figures/sid_ec_oq_spectrum.png
+  angle_figure: outputs/figures/sid_ec_oq_principal_angles.png
+  dual_geometry_figure: outputs/figures/sid_training_information_geometry.png
+  report: docs/codex_reports/sid_ec_oq_strict_review.md
+
+budget:
+  solver_forward_evaluations_max: 420
+  wall_clock_hours_max: 4
+  gpu_hours_max: 0

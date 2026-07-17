@@ -1,0 +1,105 @@
+schema_version: n0_cv_e_v3r_optimizer_forensics_v1
+stage_id: N0_OPTIMIZER_FORENSICS_AND_SID_DISCOVERY_A
+scientific_source_config: configs/full_pinn_n0_cv_e_v3.yaml
+historical_result: outputs/tables/n0_cv_e_v3_seed_20260715.json
+historical_summary: outputs/tables/n0_cv_e_v3_summary.json
+evidence_semantics: synthetic_gt_and_pinn_predicted_score_only
+claim_status_if_runtime_reproduced: failed_but_informative
+failure_substatus_if_unscored: runtime_abort_unassessed
+scientific_model_falsification_if_unscored: false
+
+exact_replay_lock:
+  model_contract: full_pinn_n0_cv_e_v3
+  seed: 20260715
+  learning_rate: 0.001
+  adam_steps: 1200
+  causal_stages:
+    - {t_norm_max: 0.25, epochs: 300}
+    - {t_norm_max: 0.50, epochs: 300}
+    - {t_norm_max: 0.75, epochs: 300}
+    - {t_norm_max: 1.00, epochs: 300}
+  lbfgs: {max_iter: 40, history_size: 20, tolerance_grad: 1.0e-9, tolerance_change: 1.0e-12, line_search_fn: strong_wolfe}
+  gradient_clip_norm: 100.0
+  sampling_and_loss_weights_from_source: true
+  scientific_gates_from_source: true
+  port_labels: forbidden
+  hidden_field_labels: forbidden
+  external_13v: forbidden
+  nan_to_num: forbidden
+  gate_relaxation: forbidden
+
+instrumentation:
+  telemetry_every_adam_steps: 50
+  checkpoint_every_adam_steps: 300
+  atomic_checkpoints: true
+  checkpoint_labels: [initial, adam_0300, adam_0600, adam_0900, adam_1200, pre_lbfgs]
+  gradient_clip_error_if_nonfinite: true
+  record_per_block_gradient_norm_and_max: true
+  record_gradient_cosines: true
+  record_parameter_gradient_and_adam_state_finiteness: true
+  record_state_ranges: [c_v, T, m, sigma, E, J]
+  record_saturation: true
+  lbfgs_closure_telemetry: true
+  stable_log_hashes: sha256
+
+conditional_single_recovery:
+  maximum_arms: 1
+  stop_if_any_post_adam_metric_exceeds_gate_factor: 20.0
+  require_all_post_adam_parameter_gradient_optimizer_state_finite: true
+  require_total_loss_decline: true
+  require_scoreable_post_adam: true
+  require_first_nonfinite_only_in_strong_wolfe_trial: true
+  gradient_ratio_trigger: 1000.0
+  alignment_worsening_trigger: -0.25
+  if_gradient_trigger: gradient_statistics_balancing
+  otherwise: promoted_float64_lbfgs
+  simultaneous_arms: forbidden
+  balancing_rule: inverse_initial_gradient_norm_clipped
+  balancing_weight_clip: [0.1, 10.0]
+  seed_expansion_only_after_all_scientific_gates: true
+  expansion_seeds: [20260716, 20260717]
+  minimum_passing_seeds: 2
+  total_seeds: 3
+  permanent_stop_after_recovery_failure: true
+
+semantic_corrections:
+  sigma_E_equals_J: structural_invariant
+  analytic_current_continuity: structural_invariant
+  shared_cv_face_conservation: structural_invariant
+  interface_state: score_only_one_sided_linear_face_trace_reconstruction
+  interface_flux: score_only_predicted_face_flux_vs_frozen_gt_face_flux
+  historical_rescore: counterfactual_projected_state_rescore
+
+preregistration:
+  require_clean_worktree_before_lock: true
+  require_head_equals_origin_main: true
+  require_remote_url: https://github.com/ghy001122/PINN.git
+  locked_files:
+    - configs/n0_cv_e_v3r_optimizer_forensics.yaml
+    - configs/full_pinn_n0_cv_e_v3.yaml
+    - src/pinnpcm/pinn/full_pinn_n0_cv_e.py
+    - src/pinnpcm/pinn/n0_cv_evidence.py
+    - src/pinnpcm/pinn/optimizer_forensics.py
+    - scripts/preregister_n0_sid_round.py
+    - scripts/run_n0_cv_e_v3r_optimizer_forensics.py
+    - outputs/tables/n0_cv_e_v3_semantic_amendment.json
+    - outputs/tables/n0_cv_e_v3_preflight.json
+    - outputs/tables/n0_cv_e_v3_diagnostic_set.npz
+    - data/processed/gt_v1_acceptance/gt_triangle.npz
+
+outputs:
+  preregistration: outputs/tables/n0_cv_e_v3r_preregistration.json
+  telemetry: outputs/tables/n0_cv_e_v3r_telemetry.jsonl
+  post_adam_score: outputs/tables/n0_cv_e_v3r_post_adam_score.json
+  crash_manifest: outputs/tables/n0_cv_e_v3r_crash_manifest.json
+  summary: outputs/tables/n0_cv_e_v3r_summary.json
+  checkpoint_dir: outputs/checkpoints/n0_cv_e_v3r
+  checkpoint_manifest: outputs/tables/n0_cv_e_v3r_checkpoint_manifest.json
+  run_log: outputs/tables/n0_cv_e_v3r_run_log.jsonl
+  report: docs/codex_reports/n0_cv_e_v3r_optimizer_forensics.md
+
+budget:
+  device: cpu
+  wall_clock_hours_max: 4
+  recovery_arms_max: 1
+  hyperparameter_search: forbidden

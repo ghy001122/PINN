@@ -1,0 +1,58 @@
+{
+  "schema_version": "n0_cv_e_v3_semantic_amendment_v1",
+  "amends_without_overwriting": [
+    {
+      "path": "outputs/tables/n0_cv_e_v3_summary.json",
+      "raw_sha256": "1c4739a12a2c45c4f0f84f6176006d54c95657d00f58044c89d214fd61074c5f"
+    },
+    {
+      "path": "outputs/tables/n0_cv_e_v3_seed_20260715.json",
+      "raw_sha256": "b44974451ab5d2c13c1cc23cd6dc787f9dd3fbf0443893017cd0f050c7a027a3"
+    },
+    {
+      "path": "outputs/tables/n0_r_v2_evidence_integrity_audit.json",
+      "raw_sha256": "32d27abee5514628914833b24770225eec234d0784570c07b3632a662a71c650"
+    },
+    {
+      "path": "docs/codex_reports/n0_cv_e_v3_report.md",
+      "raw_sha256": "a204f6ac9f7b0f3247d670cb337f118b87e66d1d6b9bc505344523958da76342"
+    }
+  ],
+  "historical_b380_interpretation": {
+    "claim_status": "failed_but_informative",
+    "failure_substatus": "runtime_abort_unassessed",
+    "scientific_model_falsification": false,
+    "adam_1200_evidence": "derived_from_locked_config_and_control_flow_reaching_lbfgs_only",
+    "original_stdout": "absent",
+    "original_stderr": "absent",
+    "original_traceback": "absent_except_terminal_location_and_exception_message",
+    "stage_history": "absent",
+    "pinn_predicted_trajectory": "absent"
+  },
+  "historical_rescore_semantics": {
+    "correct_name": "counterfactual_projected_state_rescore",
+    "input": "legacy_checkpoint_c_v_T_m_states",
+    "projection": "analytic_series_electrical_head",
+    "current_near_zero_role": "structural_consequence_of_projection_not_original_end_to_end_performance",
+    "interface_flux_zero_role": "shared_face_structural_bookkeeping_not_original_end_to_end_performance",
+    "legacy_residual": "numpy_gradient_on_saved_states",
+    "v3_residual": "autograd_jvp_time_derivative",
+    "direct_residual_comparison_allowed": false
+  },
+  "structural_invariants_not_learned_votes": [
+    "sigma_times_E_equals_J",
+    "analytic_head_current_continuity",
+    "shared_control_volume_face_equal_and_opposite_conservation"
+  ],
+  "corrected_interface_semantics": {
+    "state": "score_only_one_sided_linear_face_trace_reconstruction",
+    "flux_structural": "shared_face_equal_and_opposite_conservation",
+    "flux_accuracy": "score_only_predicted_face_flux_vs_frozen_gt_face_flux"
+  },
+  "gate_evaluator": {
+    "expected_keys_required": true,
+    "empty_dict_or_list_fails": true,
+    "all_numeric_values_must_be_finite": true,
+    "vacuous_all_empty_forbidden": true
+  }
+}

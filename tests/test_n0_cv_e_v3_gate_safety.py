@@ -11,7 +11,7 @@ import torch
 import yaml
 
 from pinnpcm.pinn.full_pinn_n0_cv_e import ControlVolumeFullPINN
-from pinnpcm.pinn.n0_cv_evidence import gate_coverage_table, load_frozen_gt
+from pinnpcm.pinn.n0_cv_evidence import gate_coverage_table, load_frozen_gt, valid_gate_value
 
 
 def _load_script(name: str, path: str):
@@ -39,6 +39,14 @@ def test_missing_and_nan_gate_results_fail_closed() -> None:
     coverage = gate_coverage_table(config, payload)
     assert coverage["execution_complete"] is False
     assert any(row["fail_closed"] for row in coverage["rows"])
+
+
+def test_empty_and_nested_nonfinite_gate_payloads_fail_closed() -> None:
+    assert valid_gate_value({}) is False
+    assert valid_gate_value([]) is False
+    assert valid_gate_value({"a": []}) is False
+    assert valid_gate_value({"a": [1.0, float("nan")]}) is False
+    assert valid_gate_value({"a": [1.0, 2.0], "b": True}) is True
 
 
 def test_training_loss_uses_only_time_and_physics_no_labels() -> None:
