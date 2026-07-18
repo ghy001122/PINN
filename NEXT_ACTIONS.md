@@ -22,10 +22,11 @@ Required boundaries:
 10. report CEBA point success separately from its truth-dependent oracle abstention, and relabel Figure 5 as bundled calibrated-configuration performance rather than isolated protocol gain;
 11. report M32 SCIS as `failed_but_informative`: nominal set coverage passed, but severe-mismatch refusal failed;
 12. keep full-PINN forward, sensitivity, quotient inverse, protocol-geometry, CPCF frontier, positive CEBA boundary, and operational SCIS-certificate claims forbidden.
+13. include M33's matched-budget mixed-flux result: preflight passes and several thermal/flux metrics improve, but port, constitutive, PDE, field, interface-flux, global-ledger, and v3r no-regression gates fail.
 
-### N0 — permanent stop for this optimizer route
+### N0/M33 — permanent stop for full-PINN training exploration
 
-Do not rerun, retune, change normalization, skip L-BFGS, add labels, activate another optimizer arm, add an anchor, or expand seeds. The preregistered recovery prerequisite was false because five physics/ledger metrics exceeded `20x` their gates.
+Do not rerun, retune, change normalization, add labels, activate another optimizer arm, add an anchor, or expand seeds. M33 already changed the mathematical residual contract to explicit first-order flux heads and grouped augmented-Lagrangian feasibility training under a matched budget. It improved part of the thermal/flux failure but still failed eight gate blocks and regressed 10/20 v3r metrics. Prompt33's stop rule permanently closes new full-PINN training exploration.
 
 ### SID/EC-OQ — current implementation inactive
 

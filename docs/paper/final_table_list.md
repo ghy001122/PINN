@@ -22,6 +22,7 @@ All tables report synthetic numerical digital-twin evidence unless explicitly ma
 | Supplementary Table | N0-R teacher-equation compatibility, exact-trace repair, and gate comparison | `outputs/tables/n0_equation_parity_registry_v1.csv`; `outputs/tables/n0_global_conservation_audit_v1.json`; `outputs/tables/n0_baseline_repair_gate_comparison_v2.csv` |
 | Supplementary Table | N0-CV-E v3 evidence-integrity audit, locked operator preflight, and fail-closed training result | `outputs/tables/n0_r_v2_evidence_integrity_audit.json`; `outputs/tables/n0_cv_e_v3_preflight.json`; `outputs/tables/n0_cv_e_v3_seed_20260715.json`; `outputs/tables/n0_cv_e_v3_model_comparison.csv` |
 | Supplementary Table | N0 v3r optimizer forensics and current SID/EC-OQ implementation rejection | `outputs/tables/n0_cv_e_v3r_forensic_resolution.json`; `outputs/tables/sid_ec_oq_summary.json` |
+| Supplementary Table | M33 mixed-flux preflight, complete gate result, and matched v3r comparison | `outputs/tables/m33_mixed_flux_preflight.json`; `outputs/tables/m33_mixed_flux_final_summary.json`; `outputs/tables/m33_mixed_flux_v3r_comparison.csv` |
 | Supplementary Table | CEBA exact-source parity and preregistered abstention boundary | `outputs/tables/gamma_sub_ceba_parity_cases.csv`; `outputs/tables/gamma_sub_ceba_parity_summary.json`; `outputs/tables/gamma_sub_ceba_pilot_cases.csv`; `outputs/tables/gamma_sub_ceba_pilot_summary.json` |
 
 ## Non-voting software diagnostics

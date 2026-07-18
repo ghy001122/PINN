@@ -57,3 +57,10 @@ Candidate supplementary files are `outputs/figures/vo2_d0a_source_semantics_v2.p
 - Figure 5 is locked as **Bundled calibrated-configuration performance**. All candidates invoke the LTP/LTD simulator while waveform/duration and calibration-error factor vary together; `prior_width_factor` is not consumed. Isolated protocol gain and protocol optimality are forbidden.
 - M32 SCIS uses only cached direct-solver trajectories and truth-free inference. Nominal pooled coverage is `0.93233`, but the severe `2 K` mismatch has acceptance `1.0` and point success `0.0`; the operational coverage/refusal claim is `failed_but_informative`.
 - The complete-PINN architecture remains mandatory, but M32 adds zero PINN training and no positive neural evidence.
+
+## 2026-07-18 M33 Mixed-Flux Final Addendum
+
+- M33 is the last authorized full-PINN training exploration. Its 5632-parameter mixed state--flux contract passes all `16/16` no-training checks and completes one 1500-step Adam run on seed `20260715`.
+- Selected v3r failures improve (`r_T 56586.5 -> 1048.37`; interface heat `33211.9 -> 267.658`; interface defect `23.8718 -> 9.63365`), but they remain far above unchanged gates. Port NRMSE95 worsens to `0.116783`, constitutive/PDE/field/interface/global-ledger gates fail, and only `10/20` comparison metrics are non-worse.
+- M33 is locked as `failed_but_informative` and only Figure S-M33/table evidence may be used. Full-PINN forward success, sensitivity, inverse readiness, and novelty for mixed/augmented-Lagrangian components remain `forbidden`.
+- Prompt33's stop rule permanently closes new full-PINN training. The submission returns to the calibration-gated rank-1 `gamma_sub` mainline.

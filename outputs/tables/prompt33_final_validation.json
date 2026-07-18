@@ -1,0 +1,128 @@
+{
+  "schema_version": "prompt33_final_validation_v1",
+  "stage_id": "M33_FEASIBILITY_FIRST_MIXED_FLUX_PINN_MVE",
+  "base_snapshot": "664c3a0768e5de29fc68348827e18ed057b64862",
+  "preregistration_commit": "b3f7068223fcf618b212c1919bddddba05b0b7b8",
+  "execution_order": [
+    "preregistration_commit",
+    "preflight",
+    "single_training_run",
+    "evidence_build",
+    "focused_tests",
+    "full_test_suite",
+    "governance_audit",
+    "result_commit",
+    "single_push",
+    "single_remote_status_query"
+  ],
+  "preflight": {
+    "status": "supported",
+    "all_pass": true,
+    "passed_checks": 16,
+    "training_authorized": true
+  },
+  "training": {
+    "executed_runs": 1,
+    "seed": 20260715,
+    "steps": 1500,
+    "budget_ratio_to_v3r": 1.25,
+    "wall_clock_s": 100.18124820000958,
+    "continuation_used": false,
+    "post_result_retraining_or_tuning": false,
+    "external_13v_access": false
+  },
+  "scientific_result": {
+    "status": "failed_but_informative",
+    "positive_forward_claim_allowed": false,
+    "passed_gate_count": 9,
+    "failed_gate_count": 8,
+    "passed_gates": [
+      "bounded_states",
+      "current_conservation",
+      "discrete_electrical",
+      "explicit_head_current_ledger",
+      "explicit_head_defect_ledger",
+      "explicit_head_energy_ledger",
+      "finite_outputs",
+      "ic_bc",
+      "interface_state"
+    ],
+    "failed_gates": [
+      "constitutive",
+      "cv_residuals",
+      "defect_ledger",
+      "energy_ledger",
+      "fields",
+      "interface_flux",
+      "port",
+      "v3r_no_regression"
+    ],
+    "v3r_no_regression_metrics_passed": 10,
+    "v3r_no_regression_metrics_total": 20,
+    "disposition": "permanently_close_new_full_pinn_training_exploration_and_return_to_gamma_sub_manuscript_assembly"
+  },
+  "validation": {
+    "focused_tests": {
+      "status": "pass",
+      "passed": 14,
+      "wall_clock_s": 5.31
+    },
+    "full_test_suite": {
+      "status": "pass",
+      "passed": 296,
+      "failed": 0,
+      "wall_clock_s": 163.62,
+      "executions": 1,
+      "reruns": 0
+    },
+    "strict_json_parse_before_this_record": {
+      "status": "pass",
+      "file_count": 153
+    },
+    "git_diff_check": {
+      "result_commit_status": "pass",
+      "full_two_commit_phase_status": "warning_preserved_preregistration_hash_lock",
+      "warnings": [
+        "configs/m33_feasibility_first_mixed_flux.yaml:new_blank_line_at_eof",
+        "scripts/build_m33_mixed_flux_evidence.py:new_blank_line_at_eof",
+        "src/pinnpcm/pinn/mixed_flux_pinn.py:new_blank_line_at_eof",
+        "tests/test_m33_mixed_flux_contract.py:new_blank_line_at_eof"
+      ],
+      "disposition": "do_not_edit_after_training_because_all_four_files_are_in_the_preregistration_hash_lock"
+    },
+    "governance": {
+      "initial_status": "failed_low_token_context_budget_only",
+      "final_status": "pass_with_manual_review",
+      "failed_checks": 0,
+      "context_bytes": 24273,
+      "context_limit_bytes": 24576
+    },
+    "frozen_gt": {
+      "status": "unchanged",
+      "hashes_passed": 8,
+      "hashes_failed": 0
+    },
+    "protected_historical_artifacts": {
+      "status": "unchanged",
+      "changed_path_count": 0,
+      "scopes": [
+        "v3r",
+        "CEBA",
+        "SCIS",
+        "CPCF",
+        "D0",
+        "13V"
+      ]
+    }
+  },
+  "delivery_controls": {
+    "maximum_commits": 2,
+    "commits_before_result_commit": 1,
+    "result_commit_slot": 2,
+    "maximum_pushes": 1,
+    "pushes_before_result_commit": 0,
+    "maximum_remote_status_queries": 1,
+    "remote_status_queries_before_push": 0,
+    "remote_status": "one_shot_query_reserved_after_single_push"
+  }
+}

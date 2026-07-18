@@ -1,0 +1,208 @@
+{
+  "all_pass": true,
+  "checks": {
+    "constant_equilibrium": true,
+    "diagnostic_dataset_hash": true,
+    "exact_fvm_parity": true,
+    "finite_outputs_gradients_multipliers": true,
+    "frozen_defect_ledger": true,
+    "frozen_energy_ledger": true,
+    "frozen_gt_hash": true,
+    "gradient_nonzero": true,
+    "gradient_parity": true,
+    "initial_flux_head_parity": true,
+    "interface_flux_jump": true,
+    "interface_state_trace": true,
+    "ledger_reconstruction": true,
+    "parameter_budget": true,
+    "preregistration_precedes_preflight": true,
+    "tamper_controls": true
+  },
+  "contract": {
+    "claim_scope": "frozen one-dimensional synthetic forward-fidelity MVE only",
+    "contract_id": "m33_mixed_state_flux_v1",
+    "explicit_face_flux_heads": [
+      "q_c",
+      "q_T"
+    ],
+    "flux_units": {
+      "q_T": "W m^-2",
+      "q_c": "m s^-1"
+    },
+    "hard_initial_states": true,
+    "hard_outer_flux_boundaries": true,
+    "hard_series_electrostatics": true,
+    "interface_face_index": 7,
+    "learned_cell_states": [
+      "c_v",
+      "T",
+      "m"
+    ],
+    "parameter_count": 5632,
+    "relative_parameter_difference": 0.023813852026904198,
+    "returned_states": [
+      "phi",
+      "c_v",
+      "T",
+      "m",
+      "sigma",
+      "E",
+      "J",
+      "I",
+      "G",
+      "q_c",
+      "q_T"
+    ],
+    "training_labels": [],
+    "v3r_parameter_count": 5501
+  },
+  "created_at_utc": "2026-07-18T08:21:02.038192+00:00",
+  "git_commit": "b3f7068223fcf618b212c1919bddddba05b0b7b8",
+  "locked_files_match": true,
+  "metrics": {
+    "constant_equilibrium": {
+      "maximum_residual_rms": 0.0,
+      "residual_rms": {
+        "discrete_electrical": 0.0,
+        "q_T_constitutive": 0.0,
+        "q_c_constitutive": 0.0,
+        "r_T": 0.0,
+        "r_c": 0.0,
+        "r_m": 0.0
+      }
+    },
+    "exact_fvm_parity": {
+      "maximum_relative_rms": 7.392504092677734e-20,
+      "residual_rms": {
+        "discrete_electrical": 7.392504092677734e-20,
+        "q_T_constitutive": 0.0,
+        "q_c_constitutive": 0.0,
+        "r_T": 0.0,
+        "r_c": 0.0,
+        "r_m": 0.0
+      },
+      "sample_indices": [
+        0,
+        57,
+        114,
+        171,
+        228,
+        285,
+        342,
+        399
+      ]
+    },
+    "gradients": {
+      "all_gradients_finite": true,
+      "all_outputs_finite": true,
+      "automatic": 0.0,
+      "central_difference": 0.0,
+      "gradient_norm": 666533363.328199,
+      "parameter": "heat_flux_head.weight[0,0]",
+      "relative_error": 0.0
+    },
+    "initial_augmented_lagrangian_state": {
+      "multipliers": {
+        "conservation": 0.0,
+        "constitutive": 0.0,
+        "ic_bc": 0.0,
+        "interface": 0.0,
+        "ledgers": 0.0,
+        "phase_current": 0.0
+      },
+      "penalties": {
+        "conservation": 0.1,
+        "constitutive": 0.1,
+        "ic_bc": 0.1,
+        "interface": 0.1,
+        "ledgers": 0.1,
+        "phase_current": 0.1
+      }
+    },
+    "initial_flux_head": {
+      "maximum_error": 5.458390724499831e-15,
+      "q_T_absolute_rms_W_m2": 0.0,
+      "q_T_scale_W_m2": 270000000.0,
+      "q_T_units": "W m^-2",
+      "q_c_relative_rms": 5.458390724499831e-15,
+      "q_c_scale_m_s": 8.112652238878582e-08,
+      "q_c_units": "m s^-1"
+    },
+    "interface": {
+      "interface_face": 7,
+      "interface_left_cell": 6,
+      "interface_right_cell": 7,
+      "maximum_oriented_flux_jump": 0.0,
+      "maximum_state_trace_rms": 0.0028339160780643767,
+      "one_sided_state_trace_rms": {
+        "T": 2.481271786486192e-10,
+        "c_v": 0.0008254549491267542,
+        "m": 0.0028339160780643767,
+        "phi": 0.0006101117589595749
+      },
+      "oriented_flux_jump": {
+        "current_oriented_jump": 0.0,
+        "defect_oriented_jump": 0.0,
+        "heat_oriented_jump": 0.0
+      },
+      "semantics": "frozen one-sided state traces plus one explicit shared face flux with opposite outward normals"
+    },
+    "ledgers": {
+      "absolute_differences": {
+        "defect": 0.0,
+        "energy": 0.0
+      },
+      "direct": {
+        "defect_gate_value": 4.039483937358231e-06,
+        "energy_gate_value": 0.0025823385758499953
+      },
+      "maximum_relative_error": 0.0,
+      "reference": {
+        "defect": {
+          "boundary_flux_integral": 0.0,
+          "gate_value": 4.039483937358231e-06,
+          "max_interval_normalized_imbalance": 4.039483937358231e-06,
+          "p95_interval_normalized_imbalance": 1.9359186353331596e-06,
+          "reaction_integral": 1.0041487084310559e-11,
+          "storage_change": -1.0041483306042462e-11,
+          "total_normalized_imbalance": 1.8813293169355333e-07
+        },
+        "energy": {
+          "boundary_heat_integral_J_per_m2": 0.0,
+          "gate_value": 0.0025823385758499953,
+          "joule_integral_J_per_m2": 2.564420010898441,
+          "max_interval_normalized_imbalance": 0.0025823385758499953,
+          "p95_interval_normalized_imbalance": 0.0002221478125766123,
+          "storage_change_J_per_m2": 2.0826624972441152,
+          "substrate_sink_integral_J_per_m2": 0.48166979443108815,
+          "total_normalized_imbalance": 1.7103423613100414e-05
+        },
+        "interval_count": 399,
+        "semantics": "adjacent_saved_state_storage_plus_independent_trapezoidal_terms"
+      }
+    },
+    "tamper": {
+      "all_detected": true,
+      "baseline_max": 7.392504092677734e-20,
+      "interface_shift_max": 1339904.7012499091,
+      "ledger_tamper": {
+        "baseline_defect_gate_value": 4.039483937358231e-06,
+        "baseline_energy_gate_value": 0.0025823385758499953,
+        "defect_tamper_detected": true,
+        "energy_tamper_detected": true,
+        "tampered_defect_gate_value": 1.0,
+        "tampered_energy_gate_value": 0.9965830454019308,
+        "tampered_time_index": 200
+      },
+      "minimum_amplification": 606814507019.2556,
+      "sign_flip_max": 0.6068145070192555
+    }
+  },
+  "preregistration_commit": "b3f7068223fcf618b212c1919bddddba05b0b7b8",
+  "preregistration_raw_sha256": "d2b97e5273e919cb408878513018117b1ece5bbf5ef5d0172313db499bcd2849",
+  "schema_version": "m33_mixed_flux_preflight_v1",
+  "stage_id": "M33_FEASIBILITY_FIRST_MIXED_FLUX_PINN_MVE",
+  "status": "supported",
+  "stop_reason": null,
+  "training_authorized": true
+}

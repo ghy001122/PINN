@@ -9,6 +9,7 @@
 - Full PINN policy: mandatory architecture/paper scaffold; positive trained claims remain evidence-gated.
 - Public VO2: D0a `failed_but_informative`; D0b-D0d not run; 13 V sealed.
 - N0: v1, exact-trace v2, CV-E v3, and instrumented v3r do not establish trained forward fidelity. v3r localizes severe post-Adam physics/conservation failure plus a reproducible strong-Wolfe instability.
+- M33: the newly authorized mixed state--flux and grouped augmented-Lagrangian contract passes all 16 no-training checks but fails its only seed. It reduces thermal residual and interface heat/defect errors substantially relative to v3r, yet fails constitutive, PDE, port, field, interface-flux, and global-ledger gates; only 10/20 comparison metrics are non-worse. New full-PINN training exploration is permanently closed.
 - SID/EC-OQ: solver-first discovery executed and failed its numerical derivative, event-window, stability, and dual-geometry gates. The current implementation is rejected and inactive; the broader hypothesis is not permanently falsified.
 - CPCF: a stricter semantic audit supersedes its scientific interpretation. The historical pilot remains immutable, but `scientific_vote=false` because protocol, solver/grid, candidate, objective, unit, replicate/bootstrap, and Pareto contracts are non-equivalent.
 - CEBA: exact direct-solver parity passes all `6/6` anchors. The bounded pilot is `failed_but_informative`: its locked ambiguity rule abstains at zero `T_sw` error, so no bracket, `delta_T_sw_star`, refinement vote, or configuration claim exists.
@@ -33,6 +34,7 @@
 | Historical N0-CV-E v3 | `failed_but_informative / runtime_abort_unassessed` | The b380 artifact has no scoreable PINN trajectory; no scientific-model falsification is inferred from that run alone. |
 | N0-CV-E v3r post-Adam | `failed_but_informative`; positive claim `forbidden` | Port passes, but residual, field, interface-flux, and ledger gates fail; five metrics exceed `20x` gates. |
 | N0-CV-E v3r L-BFGS | `failed_but_informative` diagnostic | Strong-Wolfe closure 3 makes `backbone.net.0.weight` first non-finite; no recovery arm is eligible. |
+| M33 mixed state--flux PINN | preflight `supported`; training `failed_but_informative`; positive forward claim `forbidden` | 5632 parameters (+2.38%), seed 20260715, 1500 Adam steps. Port `0.116783`; max PDE `1048.37`; max constitutive `0.795344`; interface heat/defect `267.658/9.63365`; energy/defect ledgers `0.999955/1.0`; v3r no-regression `10/20`. |
 | Solver-first SID/EC-OQ | `failed_but_informative`; current implementation rejected | Derivative passes only `3/9`; event-window and stability gates fail. A new contract and explicit authorization are required to revisit the broader hypothesis. |
 | CPCF semantic vote | frontier inference `forbidden`; software audit `failed_but_informative` | `48/48` votes are proxy-derived, zero rows are fully direct-solver voting cases, and the implementation contracts are non-equivalent. Historical files are preserved only as non-voting diagnostics. |
 | CEBA direct-solver boundary | parity `supported`; boundary `failed_but_informative` | `6/6` parity anchors pass using `36` unique trajectories. The `72`-case cached pilot abstains at `delta_T_sw_K=0`, so no boundary claim is eligible. |
@@ -47,7 +49,7 @@
 | --- | --- | --- |
 | Frozen synthetic `gamma_sub` mainline | locked and preserved | Integrate claims, figures, limitations, and reviewer defense into final manuscript |
 | Public-data realism anchor | D0a parity sub-result plus convergence failure | Keep as limitation; no refit or 13 V action |
-| Full 1D PINN scaffold | versioned operator contracts; all bounded training attempts fail | Preserve as scaffold and explicit failure boundary |
+| Full 1D PINN scaffold | versioned strong/CV/mixed-flux operator contracts; all bounded training attempts fail | Preserve as scaffold and explicit failure boundary; no further training exploration |
 | Protocol/SID/EC-OQ discovery | bounded solver-first implementation audit completed and rejected | Keep inactive; revisit only under a new user-authorized numerical/event-window contract |
 | Calibration-excitation boundary | CPCF is implementation-contract invalid; CEBA parity passes but the pilot abstains before bracketing | Keep CPCF as non-voting software diagnosis and CEBA as a configuration-specific abstention boundary |
 | Solver/PINN sensitivity and quotient inverse | absent | Forbidden under failed upstream gates |
@@ -55,6 +57,6 @@
 
 ## Current single priority
 
-Finalize the calibrated `gamma_sub` manuscript and reviewer-defense package. Preserve CPCF only as a non-voting proxy-contract diagnosis and CEBA as a failed abstention boundary; do not start a replacement experiment, reopen N0 optimization, revisit the current SID/EC-OQ implementation, or expand CPCF/CEBA.
+Finalize the calibrated `gamma_sub` manuscript and reviewer-defense package immediately. Route M33 as the final full-PINN training failure boundary, preserve CPCF only as a non-voting proxy-contract diagnosis and CEBA/SCIS as failed refusal boundaries, and do not start another neural repair or replacement experiment.
 
 Compact routing: `docs/project_state/current_evidence_index.md`.

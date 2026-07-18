@@ -12,6 +12,7 @@ Assemble the SCI package from the constrained `gamma_sub` evidence, calibration-
 | --- | --- |
 | D0a | `failed_but_informative`; convergence fails; D0b-D0d/13 V blocked. |
 | N0 v1-v3r | `failed_but_informative`; trained fidelity fails; optimizer route stopped. |
+| M33 mixed-flux MVE | preflight `supported`; training `failed_but_informative`; partial thermal/flux improvement remains orders above gates, port regresses, and all new full-PINN training is permanently stopped. |
 | SID/EC-OQ | `failed_but_informative`; numerical/geometry gates fail; inactive. |
 | CPCF | frontier `forbidden`; immutable non-voting diagnostic. |
 | CEBA | parity `supported`; boundary `failed_but_informative`; no bracket, and its truth-dependent abstention is not deployable. |
@@ -19,11 +20,11 @@ Assemble the SCI package from the constrained `gamma_sub` evidence, calibration-
 | SCIS | `failed_but_informative`; nominal coverage `0.93233`, but `2 K` mismatch acceptance `1.0` with point success `0.0`. |
 | N1-N3 / SC-LOS | not run; positive claims `forbidden`. |
 
-Current report: `docs/codex_reports/prompt32_scis_and_manuscript_semantic_lock.md`; historical detail is routed by the evidence index.
+Current report: `docs/codex_reports/m33_feasibility_first_mixed_flux_pinn_mve.md`; historical detail is routed by the evidence index.
 
 ## Single bottleneck
 
-Lock Figure 5, CEBA oracle, SCIS refusal, and upstream failures into the manuscript. Further research requires new authorization after closure.
+Lock Figure 5, CEBA oracle, SCIS refusal, M33 mixed-flux failure, and upstream failures into the manuscript. The full-PINN training exploration is closed; the next action is submission assembly, not another neural repair.
 
 ## Forbidden claims
 

@@ -1,0 +1,368 @@
+{
+  "N1_N2_N3_SID_EC_OQ_or_SCIS_run": false,
+  "authorization": {
+    "authorized": true,
+    "current_commit": "b3f7068223fcf618b212c1919bddddba05b0b7b8",
+    "expected_preflight_only_status": "?? outputs/tables/m33_mixed_flux_preflight.json",
+    "hash_mismatches": {},
+    "preflight_all_pass": true,
+    "preflight_raw_sha256": "2da7900301d447628e6aad535328ede9a255dfb5aaabe3525a2c50e740634f2a",
+    "preregistration_commit": "b3f7068223fcf618b212c1919bddddba05b0b7b8",
+    "preregistration_raw_sha256": "d2b97e5273e919cb408878513018117b1ece5bbf5ef5d0172313db499bcd2849",
+    "worktree_allowed": true,
+    "worktree_status": [
+      "?? outputs/tables/m33_mixed_flux_preflight.json"
+    ]
+  },
+  "base_snapshot": "664c3a0768e5de29fc68348827e18ed057b64862",
+  "checkpoint": "outputs/checkpoints/m33_mixed_flux/seed_20260715.pt",
+  "checkpoint_sha256": "6a1e0a09644dd8e5fc03135e1631db9847a84889e977d5082e341349d66786ce",
+  "checkpoint_size_bytes": 31347,
+  "comparison_to_v3r": {
+    "all_no_worse": false,
+    "no_worse_count": 10,
+    "required_metrics": 20,
+    "rows": [
+      {
+        "delta": 0.02123534542871515,
+        "m33": 0.11678282862595804,
+        "metric": "port_full_trace_nrmse95",
+        "no_worse": false,
+        "v3r_post_adam": 0.09554748319724289
+      },
+      {
+        "delta": 0.007446847856044769,
+        "m33": 0.030096927657723427,
+        "metric": "cv_residual_rms.r_c",
+        "no_worse": false,
+        "v3r_post_adam": 0.022650079801678658
+      },
+      {
+        "delta": -55538.11462402344,
+        "m33": 1048.3697509765625,
+        "metric": "cv_residual_rms.r_T",
+        "no_worse": true,
+        "v3r_post_adam": 56586.484375
+      },
+      {
+        "delta": -0.47617506980895996,
+        "m33": 3.6000444889068604,
+        "metric": "cv_residual_rms.r_m",
+        "no_worse": true,
+        "v3r_post_adam": 4.07621955871582
+      },
+      {
+        "delta": 4.914298135094697e-14,
+        "m33": 2.687322239736112e-11,
+        "metric": "discrete_electrical_rms",
+        "no_worse": true,
+        "v3r_post_adam": 2.682407941601017e-11
+      },
+      {
+        "delta": 0.2722900526148392,
+        "m33": 0.6527665280616204,
+        "metric": "field_score_only_nrmse95.c_v",
+        "no_worse": false,
+        "v3r_post_adam": 0.3804764754467812
+      },
+      {
+        "delta": -0.036320394163986025,
+        "m33": 1.7164177029992431,
+        "metric": "field_score_only_nrmse95.T",
+        "no_worse": true,
+        "v3r_post_adam": 1.7527380971632291
+      },
+      {
+        "delta": 0.00041964826376872377,
+        "m33": 0.428069278657258,
+        "metric": "field_score_only_nrmse95.m",
+        "no_worse": false,
+        "v3r_post_adam": 0.4276496303934893
+      },
+      {
+        "delta": 0.015578133894562196,
+        "m33": 0.022194031001101663,
+        "metric": "field_score_only_nrmse95.phi",
+        "no_worse": false,
+        "v3r_post_adam": 0.006615897106539468
+      },
+      {
+        "delta": 0.01982989980869307,
+        "m33": 0.2674511089366529,
+        "metric": "field_score_only_nrmse95.sigma",
+        "no_worse": false,
+        "v3r_post_adam": 0.24762120912795985
+      },
+      {
+        "delta": -0.005922517739236355,
+        "m33": 0.012223961763083935,
+        "metric": "interface_state_rms.c_v",
+        "no_worse": true,
+        "v3r_post_adam": 0.01814647950232029
+      },
+      {
+        "delta": 0.008390508461161517,
+        "m33": 0.00861955713480711,
+        "metric": "interface_state_rms.T",
+        "no_worse": false,
+        "v3r_post_adam": 0.00022904867364559323
+      },
+      {
+        "delta": -0.002634388394653797,
+        "m33": 0.009866776876151562,
+        "metric": "interface_state_rms.m",
+        "no_worse": true,
+        "v3r_post_adam": 0.012501165270805359
+      },
+      {
+        "delta": 0.0002833975043565976,
+        "m33": 0.0017436798776420681,
+        "metric": "interface_state_rms.phi",
+        "no_worse": false,
+        "v3r_post_adam": 0.0014602823732854705
+      },
+      {
+        "delta": 0.02123534542871515,
+        "m33": 0.11678282862595805,
+        "metric": "interface_flux_rms.current",
+        "no_worse": false,
+        "v3r_post_adam": 0.0955474831972429
+      },
+      {
+        "delta": -32944.27588397003,
+        "m33": 267.658220467639,
+        "metric": "interface_flux_rms.heat",
+        "no_worse": true,
+        "v3r_post_adam": 33211.93410443767
+      },
+      {
+        "delta": -14.238155304718598,
+        "m33": 9.6336473309871,
+        "metric": "interface_flux_rms.defect",
+        "no_worse": true,
+        "v3r_post_adam": 23.8718026357057
+      },
+      {
+        "delta": -5.057752939376727e-18,
+        "m33": 3.558251680203746e-16,
+        "metric": "terminal_current_conservation_normalized_error",
+        "no_worse": true,
+        "v3r_post_adam": 3.6088292095975133e-16
+      },
+      {
+        "delta": 4.590260350934017e-06,
+        "m33": 0.99995479266132,
+        "metric": "global_energy_ledger.gate_value",
+        "no_worse": false,
+        "v3r_post_adam": 0.9999502024009691
+      },
+      {
+        "delta": 0.0,
+        "m33": 1.0,
+        "metric": "defect_mass_ledger.gate_value",
+        "no_worse": true,
+        "v3r_post_adam": 1.0
+      }
+    ]
+  },
+  "continuation_used": false,
+  "contract": {
+    "claim_scope": "frozen one-dimensional synthetic forward-fidelity MVE only",
+    "contract_id": "m33_mixed_state_flux_v1",
+    "explicit_face_flux_heads": [
+      "q_c",
+      "q_T"
+    ],
+    "flux_units": {
+      "q_T": "W m^-2",
+      "q_c": "m s^-1"
+    },
+    "hard_initial_states": true,
+    "hard_outer_flux_boundaries": true,
+    "hard_series_electrostatics": true,
+    "interface_face_index": 7,
+    "learned_cell_states": [
+      "c_v",
+      "T",
+      "m"
+    ],
+    "parameter_count": 5632,
+    "relative_parameter_difference": 0.023813852026904198,
+    "returned_states": [
+      "phi",
+      "c_v",
+      "T",
+      "m",
+      "sigma",
+      "E",
+      "J",
+      "I",
+      "G",
+      "q_c",
+      "q_T"
+    ],
+    "training_labels": [],
+    "v3r_parameter_count": 5501
+  },
+  "created_at_utc": "2026-07-18T08:23:04.173711+00:00",
+  "external_13v_access": false,
+  "failure_interpretation": "At least one unchanged v3r, explicit mixed-flux, ledger, or no-regression gate failed; one seed only and no post-result repair is allowed.",
+  "gates": {
+    "all_pass": false,
+    "checks": {
+      "bounded_states": true,
+      "constitutive": false,
+      "current_conservation": true,
+      "cv_residuals": false,
+      "defect_ledger": false,
+      "discrete_electrical": true,
+      "energy_ledger": false,
+      "explicit_head_current_ledger": true,
+      "explicit_head_defect_ledger": true,
+      "explicit_head_energy_ledger": true,
+      "fields": false,
+      "finite_outputs": true,
+      "ic_bc": true,
+      "interface_flux": false,
+      "interface_state": true,
+      "port": false,
+      "v3r_no_regression": false
+    }
+  },
+  "hidden_field_labels_used": [],
+  "history_path": "outputs/tables/m33_mixed_flux_training_history.json",
+  "history_raw_sha256": "e383f460754447305ba87fc5bdd0f081bff740437906a99ab9697a39e4cfaead",
+  "machine": {
+    "cuda_available": false,
+    "device": "cpu",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.9",
+    "torch": "2.3.1+cpu"
+  },
+  "metrics": {
+    "bounded_states": true,
+    "constitutive_rms": {
+      "q_T": 0.795344352722168,
+      "q_c": 0.0822843611240387
+    },
+    "cv_residual_rms": {
+      "r_T": 1048.3697509765625,
+      "r_c": 0.030096927657723427,
+      "r_m": 3.6000444889068604
+    },
+    "defect_mass_ledger": {
+      "boundary_flux_integral": 0.0,
+      "gate_value": 1.0,
+      "max_interval_normalized_imbalance": 1.0,
+      "p95_interval_normalized_imbalance": 1.0,
+      "reaction_integral": -1.0672796996533142e-11,
+      "storage_change": -2.0895404801253347e-09,
+      "total_normalized_imbalance": 1.0
+    },
+    "discrete_electrical_rms": 2.687322239736112e-11,
+    "explicit_head_ledger_rms": {
+      "current_ledger": 2.844876070828839e-11,
+      "defect_mass_ledger": 0.00022332249500323087,
+      "energy_ledger": 0.013080102391541004
+    },
+    "field_score_only_nrmse95": {
+      "T": 1.7164177029992431,
+      "c_v": 0.6527665280616204,
+      "m": 0.428069278657258,
+      "phi": 0.022194031001101663,
+      "sigma": 0.2674511089366529
+    },
+    "final_physics": "frozen_H0_exact_width_and_original_operator",
+    "finite_outputs": true,
+    "global_energy_ledger": {
+      "boundary_heat_integral_J_per_m2": 0.0,
+      "gate_value": 0.99995479266132,
+      "joule_integral_J_per_m2": 1.8746673023586236,
+      "max_interval_normalized_imbalance": 0.99995479266132,
+      "p95_interval_normalized_imbalance": 0.9960328633897227,
+      "storage_change_J_per_m2": 5.837415265483244,
+      "substrate_sink_integral_J_per_m2": 1.6555774234991008,
+      "total_normalized_imbalance": 0.5997576120201888
+    },
+    "ic_bc_normalized_errors": {
+      "bc_defect_left": 0.0,
+      "bc_defect_right": 0.0,
+      "bc_heat_left": 0.0,
+      "bc_heat_right": 0.0,
+      "bc_phi_left": 3.725290298461914e-08,
+      "bc_phi_right": 1.0826624929904938e-07,
+      "bc_q_T": 0.0,
+      "bc_q_c": 0.0,
+      "ic_T": 0.0,
+      "ic_c_v": 1.4901161193847656e-08,
+      "ic_m": 1.4901161193847656e-08
+    },
+    "interface_flux_rms": {
+      "current": 0.11678282862595805,
+      "defect": 9.6336473309871,
+      "heat": 267.658220467639,
+      "semantics": "explicit_m33_face_head_vs_frozen_gt_face_flux"
+    },
+    "interface_state_rms": {
+      "T": 0.00861955713480711,
+      "c_v": 0.012223961763083935,
+      "m": 0.009866776876151562,
+      "phi": 0.0017436798776420681,
+      "semantics": "score_only_one_sided_linear_face_trace_reconstruction"
+    },
+    "normalization": "single_frozen_dimensionless_registry",
+    "port_full_trace_nrmse95": 0.11678282862595804,
+    "region_diagnostics": {
+      "near_interface": {
+        "cell_count": 4,
+        "field_nrmse95": {
+          "T": 1.767640166318813,
+          "c_v": 2.0593041541885713,
+          "m": 0.4783122503012707,
+          "phi": 0.02542843324260196,
+          "sigma": 0.27736902464858876
+        },
+        "sample_count": 1600,
+        "time_count": 400
+      },
+      "near_transition": {
+        "cell_count": 31,
+        "field_nrmse95": {
+          "T": 2.383703690074289,
+          "c_v": 0.594035273656214,
+          "m": 0.49769852844362095,
+          "phi": 0.0326171305424757,
+          "sigma": 0.20414219357416344
+        },
+        "sample_count": 3720,
+        "time_count": 120
+      },
+      "ordinary": {
+        "cell_count": 27,
+        "field_nrmse95": {
+          "T": 2.1325546817412326,
+          "c_v": 1.032954214678628,
+          "m": 0.5325056971898461,
+          "phi": 0.03401445007332984,
+          "sigma": 0.2859495293216553
+        },
+        "sample_count": 5400,
+        "time_count": 200
+      }
+    },
+    "terminal_current_conservation_normalized_error": 3.558251680203746e-16
+  },
+  "optimizer": "Adam",
+  "port_labels_used": [],
+  "positive_forward_claim_allowed": false,
+  "preflight_all_pass": true,
+  "preregistration_commit": "b3f7068223fcf618b212c1919bddddba05b0b7b8",
+  "schema_version": "m33_mixed_flux_final_summary_v1",
+  "stage_id": "M33_FEASIBILITY_FIRST_MIXED_FLUX_PINN_MVE",
+  "status": "failed_but_informative",
+  "training_budget_ratio_to_v3r": 1.25,
+  "training_executed": true,
+  "training_seed": 20260715,
+  "training_steps": 1500,
+  "wall_clock_s": 100.18124820000958
+}
