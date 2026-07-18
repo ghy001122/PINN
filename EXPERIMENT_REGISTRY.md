@@ -2,6 +2,15 @@
 
 > Do not load by default. Current claim/evidence routing is `docs/project_state/current_evidence_index.md`; use this file only to trace a named historical run.
 
+## M35 gradient semantics and public multi-voltage fail-closed round (2026-07-18)
+
+- Base snapshot: `144aa53de1f6d6f788f61729355b4de45fd9c241`.
+- D-PREG: `outputs/tables/m35_public_multivoltage_preregistration.json`; all `21/21` provenance, role, equation, unit, licensing, LOVO, multistart, and sealed-path checks pass.
+- M34-A: `outputs/tables/m34a_gradient_semantics_amendment.json` and `outputs/tables/m34a_gradient_direction_curves.csv`; all `32/32` fixed float64 module/seed directions show stable group-normalized VJP/central-difference parity. No autograd implementation error or total-loss-scale cancellation is supported, and the amendment has no training vote.
+- D-FIT: `outputs/tables/m35_solver_convergence.csv` and `outputs/tables/m35_public_multivoltage_fit_summary.json`; eight solver evaluations were run on open 9/11/15/17 V only. All four voltages fail the locked current/voltage full-waveform convergence gates, while activity class, frequency, charge, and energy checks pass.
+- Stop disposition: `failed_but_informative`; no prefit Jacobian, optimization, multistart, repository parameter estimate, fit lock, or PINN training was executed. The 13 V numeric content remained sealed and unaccessed.
+- Report: `docs/codex_reports/m35_public_multivoltage_fit_and_gradient_amendment.md`.
+
 ## Project history/workflow/innovation audit (2026-07-14)
 
 - Type: documentation, governance, and primary-literature review; no new scientific experiment.

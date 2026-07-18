@@ -24,7 +24,7 @@
     },
     "phase_consistency": {
       "status": "pass",
-      "active_phase_id": "D_PUBLIC_MULTIVOLTAGE_PREREGISTRATION",
+      "active_phase_id": "D_PUBLIC_SOLVER_CONVERGENCE_RESOLUTION",
       "missing": []
     },
     "delivery_contract": {
@@ -67,13 +67,13 @@
     "low_token_context_budget": {
       "status": "pass",
       "limit_bytes": 24576,
-      "total_bytes": 24382,
+      "total_bytes": 22556,
       "files": {
-        "CODEX_CONTEXT.md": 3850,
-        "docs/research_strategy/active_phase.md": 2596,
-        "PROJECT_STATE.md": 8838,
-        "NEXT_ACTIONS.md": 2746,
-        "docs/project_state/current_evidence_index.md": 6352
+        "CODEX_CONTEXT.md": 3330,
+        "docs/research_strategy/active_phase.md": 3135,
+        "PROJECT_STATE.md": 5584,
+        "NEXT_ACTIONS.md": 3324,
+        "docs/project_state/current_evidence_index.md": 7183
       }
     },
     "retired_generator_guard": {

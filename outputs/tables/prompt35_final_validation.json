@@ -1,0 +1,91 @@
+{
+  "schema_version": "prompt35_final_validation_v1",
+  "task": "M34-A gradient semantics plus M35 public multi-voltage preregistration and fail-closed fit",
+  "baseline_commit": "144aa53de1f6d6f788f61729355b4de45fd9c241",
+  "preregistration_commit": "22c14aa401c45df4a36bbd09c7bb61a637079aef",
+  "head_at_execution": "22c14aa401c45df4a36bbd09c7bb61a637079aef",
+  "final_evidence_commit": null,
+  "final_evidence_commit_recording": "reported after the round-close commit because its hash is created after this artifact enters the tree",
+  "branch": "main",
+  "frozen_gt_modified": false,
+  "pinn_training_performed": false,
+  "m34_corrected_training_authorized": false,
+  "m34a": {
+    "status": "supported_diagnostic_fact_non_voting",
+    "direction_count": 32,
+    "stable_parity_no_autograd_error": 32,
+    "total_loss_scale_fd_cancellation": 0,
+    "autograd_implementation_error_supported": 0,
+    "uncertain_no_stable_interval": 0,
+    "training_authorized": false
+  },
+  "d_preg": {
+    "status": "supported_protocol_and_provenance_lock",
+    "preflight_pass_count": 21,
+    "preflight_total_count": 21,
+    "provenance_manifest_sha256": "99A85C833C051F27E030E79EF965FC37A2CDA29B7DEC93A12555477AD0AB7B5B"
+  },
+  "d_fit": {
+    "status": "failed_but_informative",
+    "stop_gate": "solver_convergence",
+    "forward_evaluations": 8,
+    "prefit_jacobian_executed": false,
+    "optimization_executed": false,
+    "multistart_executed": false,
+    "fit_lock_created": false,
+    "open_voltage_results": {
+      "9": {
+        "current_nrmse95": 8994.345448012633,
+        "device_voltage_nrmse95": 431857.49753457337,
+        "activity_class_match": true,
+        "gate_passed": false
+      },
+      "11": {
+        "current_nrmse95": 0.3781664447356617,
+        "device_voltage_nrmse95": 0.23428650685190963,
+        "activity_class_match": true,
+        "gate_passed": false
+      },
+      "15": {
+        "current_nrmse95": 0.4520662484246028,
+        "device_voltage_nrmse95": 0.5180228349686943,
+        "activity_class_match": true,
+        "gate_passed": false
+      },
+      "17": {
+        "current_nrmse95": 11596391.68902667,
+        "device_voltage_nrmse95": 6776521.563879327,
+        "activity_class_match": true,
+        "gate_passed": false
+      }
+    },
+    "historical_d0a_metric_preserved": 0.1631480017203279,
+    "historical_d0a_gate_passed": false
+  },
+  "sealed_13v": {
+    "numeric_access": false,
+    "content_read": false,
+    "extracted": false,
+    "derived_statistics_created": false,
+    "valid_fit_lock_exists": false
+  },
+  "validation": {
+    "strict_json_csv_fail_closed_check": "passed",
+    "focused_tests": "19 passed in 7.87s",
+    "governance_audit": "pass_with_manual_review",
+    "governance_failed_checks": [],
+    "full_pytest": "320 passed in 118.44s",
+    "full_pytest_runs_this_round": 1,
+    "git_diff_check": "passed_final_worktree",
+    "frozen_gt_hash_check": "passed"
+  },
+  "claim_disposition": {
+    "public_repository_refit": "forbidden",
+    "quotient_identifiability": "forbidden",
+    "independent_external_validation": "forbidden",
+    "m34_gradient_implementation_error": "forbidden",
+    "m35_solver_boundary": "failed_but_informative",
+    "safe_mainline": "qualified_supported calibration-gated synthetic gamma_sub rank-1"
+  },
+  "next_single_priority": "D_PUBLIC_SOLVER_CONVERGENCE_RESOLUTION"
+}

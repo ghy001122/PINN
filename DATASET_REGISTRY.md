@@ -2,6 +2,16 @@
 
 > Do not load by default. Current evidence routing is `docs/project_state/current_evidence_index.md`.
 
+## M35 public VO2 multi-voltage provenance lock (2026-07-18)
+
+- Manifest: `data/external/vo2_zhang_2024/multivoltage_prereg_manifest_v1.json`, derived only from the already-acquired publisher archive and existing D0a manifest.
+- Parent Source Data SHA-256: `E8916E1B0861C7947119C3F175CEB2E625B197BC32B6B5602F1016823222FFE3`.
+- Open public curves: Fig. 1b R-T plus Fig. 1c experimental 9/11/15/17 V traces. Each curve has a fixed curve ID, raw/SI units, conversion formula, permitted LOVO role, license, path, and SHA-256.
+- Data type: publisher-supplied `public_external_raw`; preregistered baseline zeroing produces a derived evaluation view at runtime. Solver convergence traces are `solver_generated`, not measured or PINN-predicted.
+- Evidence semantics: source-paper reproduction, repository-side refit, repository-withheld cross-voltage evaluation, and independent external validation remain separate.
+- Sealed boundary: only the two 13 V archive member names, CRCs, and sizes are registered. Their `content_read_prelock=false`, `extracted_path=null`, and content `sha256=null`; no 13 V numeric value or derived statistic was accessed. No fit lock was generated.
+- Frozen GT v1.1 was not modified.
+
 ## Priority D external-anchor planning (2026-07-14)
 
 No external dataset was added in this review-integration round. The Qiu-associated VO2 Nature Communications source-data package is the primary provenance candidate; it may enter `data/external/` only with DOI, figure/source-data identity, units, license, access date, extraction method, and SHA-256. External validation remains `forbidden` until a fit/holdout result passes.

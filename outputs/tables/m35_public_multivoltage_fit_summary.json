@@ -1,0 +1,58 @@
+{
+  "claim_status": "failed_but_informative",
+  "elapsed_seconds": 20.052598399983253,
+  "ended_at_utc": "2026-07-18T16:40:10.304954+00:00",
+  "evidence_semantics": {
+    "independent_external_validation": "unavailable",
+    "repository_side_refit": "current_open_voltage_fit",
+    "repository_withheld_preregistered_cross_voltage_evaluation": "future_13v_only_after_valid_fit_lock_and_new_authorization",
+    "source_paper_model_reproduction": "historical_D0a_only"
+  },
+  "failure_reason": "The preregistered open-voltage time-step convergence gate failed.",
+  "fit_data_voltages_V": [
+    9.0,
+    11.0,
+    15.0,
+    17.0
+  ],
+  "fit_executed": false,
+  "fit_lock_created": false,
+  "forward_evaluations": 8,
+  "git_commit": "22c14aa401c45df4a36bbd09c7bb61a637079aef",
+  "git_dirty_expected_m34a_only": true,
+  "m34_corrected_training_authorized": false,
+  "machine_summary": {
+    "device": "cpu",
+    "numpy": "1.26.4",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.9",
+    "scipy": "1.13.1"
+  },
+  "pinn_training_performed": false,
+  "preregistration_path": "outputs/tables/m35_public_multivoltage_preregistration.json",
+  "preregistration_sha256": "50FF336E82293991EDBC4FF73AFF53425790B9279812CCE84100EC0C21069868",
+  "provenance_manifest_sha256": "99A85C833C051F27E030E79EF965FC37A2CDA29B7DEC93A12555477AD0AB7B5B",
+  "rt_constitutive_sanity": {
+    "branch_values": [
+      -1.0,
+      1.0
+    ],
+    "event_count": 1,
+    "nrmse95": 0.05938095820944241,
+    "point_count": 597,
+    "role": "fixed_constitutive_sanity_not_dynamic_fit_target"
+  },
+  "schema_version": "m35_public_multivoltage_fit_evidence_v1",
+  "sealed_13v_access": false,
+  "solver_convergence": {
+    "all_operational_gates_pass": false,
+    "historical_d0a_gate": 0.01,
+    "historical_d0a_gate_passed": false,
+    "historical_d0a_gate_preserved": true,
+    "historical_d0a_metric": 0.1631480017203279,
+    "operational_gate_is_parallel_not_replacement": true
+  },
+  "stage_id": "M35_PUBLIC_MULTIVOLTAGE_PREREG_AND_FIT",
+  "started_at_utc": "2026-07-18T16:39:50.252395+00:00",
+  "status": "stopped_at_solver_convergence_gate"
+}

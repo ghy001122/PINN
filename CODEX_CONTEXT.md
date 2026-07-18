@@ -5,29 +5,29 @@
 Read this file and `docs/research_strategy/active_phase.md` first. Load longer context through `docs/research_strategy/context_loading_policy.md`.
 
 - Authoritative goal: `PROJECT_GOAL.md`
-- Phase ID: `D_PUBLIC_MULTIVOLTAGE_PREREGISTRATION`
+- Phase ID: `D_PUBLIC_SOLVER_CONVERGENCE_RESOLUTION`
 - Current evidence: `docs/project_state/current_evidence_index.md`
 - Safe historical evidence lock: `d1121e16fa5015a297da468e3e6f0504b9e97d17`
-- Current report: `docs/codex_reports/m34_optimization_and_ledger_contract_audit.md`
+- Current report: `docs/codex_reports/m35_public_multivoltage_fit_and_gradient_amendment.md`
 
 ## Corrected North Star
 
-A complete phase-transition PINN remains an indispensable project and paper scaffold, while an independent numerical solver remains the reference judge. Positive PINN claims are evidence-gated. The public-data quotient hypothesis remains untested; a separate solver-first synthetic SID/EC-OQ discovery audit failed and does not establish it.
+A complete phase-transition PINN remains an indispensable scaffold; an independent solver is the reference judge. Positive PINN claims are evidence-gated. The public-data quotient hypothesis remains untested.
 
 The calibration-gated constrained `gamma_sub` rank-1 result is the safe `qualified_supported` inverse mainline. D0 is a reality/identifiability bridge, not a substitute for PINN contribution or experimental validation.
 
 ## Single Active Bottleneck
 
-`D_PUBLIC_MULTIVOLTAGE_PREREGISTRATION`: preregister a provenance-locked repository-side public `9/11/15/17 V` fit while retaining sealed `13 V` exclusively for a later repository-withheld cross-voltage evaluation. This phase authorizes design and source/provenance checks only: no fit, 13 V access, neural training/search, N1-N3, SC-LOS, or CPCF/CEBA/SCIS expansion is active.
+`D_PUBLIC_SOLVER_CONVERGENCE_RESOLUTION`: M35 D-PREG passed, but D-FIT stopped before Jacobian/fitting because every open voltage failed the locked full-waveform step-convergence gate. Preregister one solver-only numerical resolution; no fit, 13 V access, neural training/search, N1-N3, or expansion route is active.
 
 ## Evidence Snapshot
 
 | Block | Current boundary |
 | --- | --- |
 | Frozen/P0-P4 | GT unchanged; P0/P3 qualified, P1/P2 failed, P4 forbidden. |
-| D0 | D0a convergence fails (`0.163148 > 0.01`); D0b-D0d unrun; 13 V sealed. |
+| D0/M35 | D0a fails (`0.163148 > 0.01`). D-PREG passes `21/21`; D-FIT fails convergence after 8 solver evaluations. No Jacobian, fit, fit lock, or 13 V access. |
 | N0 v1-v3r | Operator audits pass, trained paths fail. v3r port `0.0955475` passes but physics/field/flux/ledger gates fail; strong-Wolfe becomes non-finite. |
-| M33/M34 | M33 training remains `failed_but_informative`. M34 proves its optimizer was an adaptive group-norm exact penalty with nonnegative scalar accumulators, not signed/vector ALM. The stricter preregistered gradient-parity preflight fails (`30/44` nonzero coordinates pass; max relative error `0.0918561`), so no corrected training was authorized. M33-v1 is closed; the scaffold is retained. |
+| M33/M34 | M33 training fails. M34's preregistered authorization gate fails; M34-A shows stable parity in `32/32` non-voting post-hoc directions and does not support an autograd error. No training is authorized. |
 | SID/EC-OQ | `failed_but_informative`; derivative `3/9`, event-window, stability, and geometry gates fail; inactive. |
 | CPCF | Frontier `forbidden`; 48 proxy votes are non-equivalent, non-voting diagnostics. |
 | CEBA/SCIS | CEBA parity `supported` but abstention is oracle/grid-dependent; SCIS nominal coverage `0.93233` passes while severe-mismatch refusal fails. |
@@ -40,4 +40,4 @@ Keep `public_external_raw`, `derived`, `interpolated`, `solver_generated`, `pinn
 
 ## Operating Rule
 
-Preserve all negative artifacts and unchanged preregistered gates. Do not reinterpret operator preflight, explicit-head interval ledger RMS, the representability smoke, or a narrow port fit as trained PINN fidelity. M33-v1 is permanently closed, and M34 authorized no corrected run; do not start another neural search, rename failed SID/EC-OQ diagnostics, give CPCF a scientific vote, relax CEBA after abstention, tune SCIS after mismatch-refusal failure, or restore isolated protocol-gain wording to Figure 5. Use only `supported`, `qualified_supported`, `failed_but_informative`, or `forbidden`.
+Preserve negative artifacts and unchanged gates. M35 cannot be repaired retrospectively; raw-time convergence remains mandatory. M33-v1 is closed and M34 authorizes no training. Do not access 13 V, relabel SID/CPCF/CEBA/SCIS failures, or restore isolated protocol-gain wording. Use only `supported`, `qualified_supported`, `failed_but_informative`, or `forbidden`.
