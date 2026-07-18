@@ -1,0 +1,273 @@
+{
+  "artifacts": [
+    {
+      "artifact_id": "zhang_2024_nature_article",
+      "data_kind": "bibliographic_source",
+      "license_id": "CC-BY-4.0",
+      "sha256": null,
+      "source_commit_or_blob_sha": "",
+      "source_role": "paper",
+      "source_url": "https://www.nature.com/articles/s41467-024-51254-4",
+      "source_version_or_tag": "published_2024-08-14",
+      "use_role": "source_model_semantics"
+    },
+    {
+      "artifact_id": "zhang_2024_nature_source_data",
+      "data_kind": "public_external_raw_archive",
+      "license_id": "CC-BY-4.0",
+      "path": "data/external/vo2_zhang_2024/raw/nature_source_data.zip",
+      "sha256": "E8916E1B0861C7947119C3F175CEB2E625B197BC32B6B5602F1016823222FFE3",
+      "source_commit_or_blob_sha": "",
+      "source_role": "nature_source_data",
+      "source_url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-024-51254-4/MediaObjects/41467_2024_51254_MOESM8_ESM.zip",
+      "source_version_or_tag": "publisher_file",
+      "use_role": "source_reproduction_and_repository_calibration"
+    },
+    {
+      "artifact_id": "zhang_2024_zenodo_record_13119587",
+      "data_kind": "public_external_archive_record",
+      "license_id": "CC-BY-4.0",
+      "sha256": null,
+      "source_commit_or_blob_sha": "",
+      "source_role": "zenodo_archive",
+      "source_url": "https://zenodo.org/records/13119587",
+      "source_version_or_tag": "record_13119587",
+      "use_role": "source_provenance"
+    },
+    {
+      "artifact_id": "zhang_2024_github_v1_0_0",
+      "data_kind": "third_party_source_code",
+      "license_id": "MIT",
+      "sha256": null,
+      "source_commit_or_blob_sha": "v1.0.0_tag",
+      "source_role": "github_tag",
+      "source_url": "https://github.com/yuanhangzhang98/collective_dynamics_neuristor/tree/v1.0.0",
+      "source_version_or_tag": "v1.0.0",
+      "use_role": "source_model_semantics"
+    },
+    {
+      "artifact_id": "zhang_2024_fig1b_rt",
+      "branch_id": "heating_and_cooling",
+      "conversion_formula": "temperature_K=x; resistance_ohm=1000*y",
+      "curve_id": "zhang_2024_fig1b_rt",
+      "data_kind": "public_external_raw",
+      "derived_from_artifact_ids": [
+        "zhang_2024_nature_source_data"
+      ],
+      "license_id": "CC-BY-4.0",
+      "path": "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1b.csv",
+      "protocol_id": null,
+      "raw_units": {
+        "resistance": "kOhm",
+        "temperature": "K"
+      },
+      "sealed_until_fit_lock": false,
+      "sha256": "F3C408E98A11ED18659BDF00C443B40F76F5F7DDED7DA46E438ABBEB873850F9",
+      "si_units": {
+        "resistance": "ohm",
+        "temperature": "K"
+      },
+      "source_commit_or_blob_sha": "",
+      "source_role": "nature_source_data",
+      "source_url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-024-51254-4/MediaObjects/41467_2024_51254_MOESM8_ESM.zip",
+      "source_version_or_tag": "publisher_file",
+      "use_role": "repository_calibration_and_lovo",
+      "voltage_V": null
+    },
+    {
+      "artifact_id": "zhang_2024_fig1c_experiment_9v",
+      "branch_id": null,
+      "conversion_formula": "current_A=CH3/50; device_voltage_V=CH4",
+      "curve_id": "zhang_2024_fig1c_experiment_9v",
+      "data_kind": "public_external_raw",
+      "derived_from_artifact_ids": [
+        "zhang_2024_nature_source_data"
+      ],
+      "license_id": "CC-BY-4.0",
+      "path": "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_9V.csv",
+      "protocol_id": "dc_9v",
+      "raw_units": {
+        "CH3": "V",
+        "CH4": "V",
+        "time": "s"
+      },
+      "sealed_until_fit_lock": false,
+      "sha256": "A8A2F2F6BF43EB49A7CED7E06F6A72E52CFA49B0AEB19119A9AB9834A6ADDF56",
+      "si_units": {
+        "current": "A",
+        "device_voltage": "V",
+        "time": "s"
+      },
+      "source_commit_or_blob_sha": "",
+      "source_role": "nature_source_data",
+      "source_url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-024-51254-4/MediaObjects/41467_2024_51254_MOESM8_ESM.zip",
+      "source_version_or_tag": "publisher_file",
+      "use_role": "repository_calibration_and_lovo",
+      "voltage_V": 9.0
+    },
+    {
+      "artifact_id": "zhang_2024_fig1c_experiment_11v",
+      "branch_id": null,
+      "conversion_formula": "current_A=CH3/50; device_voltage_V=CH4",
+      "curve_id": "zhang_2024_fig1c_experiment_11v",
+      "data_kind": "public_external_raw",
+      "derived_from_artifact_ids": [
+        "zhang_2024_nature_source_data"
+      ],
+      "license_id": "CC-BY-4.0",
+      "path": "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_11V.csv",
+      "protocol_id": "dc_11v",
+      "raw_units": {
+        "CH3": "V",
+        "CH4": "V",
+        "time": "s"
+      },
+      "sealed_until_fit_lock": false,
+      "sha256": "42E29D10EDD707A79A51938C928FCB45B321D1B103114F2CECAB3B5063F18D51",
+      "si_units": {
+        "current": "A",
+        "device_voltage": "V",
+        "time": "s"
+      },
+      "source_commit_or_blob_sha": "",
+      "source_role": "nature_source_data",
+      "source_url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-024-51254-4/MediaObjects/41467_2024_51254_MOESM8_ESM.zip",
+      "source_version_or_tag": "publisher_file",
+      "use_role": "repository_calibration_and_lovo",
+      "voltage_V": 11.0
+    },
+    {
+      "artifact_id": "zhang_2024_fig1c_experiment_15v",
+      "branch_id": null,
+      "conversion_formula": "current_A=CH3/50; device_voltage_V=CH4",
+      "curve_id": "zhang_2024_fig1c_experiment_15v",
+      "data_kind": "public_external_raw",
+      "derived_from_artifact_ids": [
+        "zhang_2024_nature_source_data"
+      ],
+      "license_id": "CC-BY-4.0",
+      "path": "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_15V.csv",
+      "protocol_id": "dc_15v",
+      "raw_units": {
+        "CH3": "V",
+        "CH4": "V",
+        "time": "s"
+      },
+      "sealed_until_fit_lock": false,
+      "sha256": "DD7872C980B982CA32CB459313939B03777769D4C0B42A600C5B97966CF6A923",
+      "si_units": {
+        "current": "A",
+        "device_voltage": "V",
+        "time": "s"
+      },
+      "source_commit_or_blob_sha": "",
+      "source_role": "nature_source_data",
+      "source_url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-024-51254-4/MediaObjects/41467_2024_51254_MOESM8_ESM.zip",
+      "source_version_or_tag": "publisher_file",
+      "use_role": "repository_calibration_and_lovo",
+      "voltage_V": 15.0
+    },
+    {
+      "artifact_id": "zhang_2024_fig1c_experiment_17v",
+      "branch_id": null,
+      "conversion_formula": "current_A=CH3/50; device_voltage_V=CH4",
+      "curve_id": "zhang_2024_fig1c_experiment_17v",
+      "data_kind": "public_external_raw",
+      "derived_from_artifact_ids": [
+        "zhang_2024_nature_source_data"
+      ],
+      "license_id": "CC-BY-4.0",
+      "path": "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_17V.csv",
+      "protocol_id": "dc_17v",
+      "raw_units": {
+        "CH3": "V",
+        "CH4": "V",
+        "time": "s"
+      },
+      "sealed_until_fit_lock": false,
+      "sha256": "B8219F9C5E6A73E9C4526A9A01DDB5281F6CC7755343E6D166B0006D819CD6A6",
+      "si_units": {
+        "current": "A",
+        "device_voltage": "V",
+        "time": "s"
+      },
+      "source_commit_or_blob_sha": "",
+      "source_role": "nature_source_data",
+      "source_url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-024-51254-4/MediaObjects/41467_2024_51254_MOESM8_ESM.zip",
+      "source_version_or_tag": "publisher_file",
+      "use_role": "repository_calibration_and_lovo",
+      "voltage_V": 17.0
+    }
+  ],
+  "created_at_utc": "2026-07-18T16:37:29.369450+00:00",
+  "evidence_semantics": {
+    "independent_external_validation": "unavailable",
+    "repository_side_refit": "current_open_voltage_fit",
+    "repository_withheld_preregistered_cross_voltage_evaluation": "future_13v_only_after_valid_fit_lock_and_new_authorization",
+    "source_paper_model_reproduction": "historical_D0a_only"
+  },
+  "independent_external_validation": false,
+  "lovo_roles": {
+    "holdout_11v": {
+      "fit_voltages_V": [
+        9.0,
+        15.0,
+        17.0
+      ],
+      "holdout_voltage_V": 11.0,
+      "role": "repository_side_lovo_evaluation"
+    },
+    "holdout_15v": {
+      "fit_voltages_V": [
+        9.0,
+        11.0,
+        17.0
+      ],
+      "holdout_voltage_V": 15.0,
+      "role": "repository_side_lovo_evaluation"
+    },
+    "holdout_17v": {
+      "fit_voltages_V": [
+        9.0,
+        11.0,
+        15.0
+      ],
+      "holdout_voltage_V": 17.0,
+      "role": "repository_side_lovo_evaluation"
+    },
+    "holdout_9v": {
+      "fit_voltages_V": [
+        11.0,
+        15.0,
+        17.0
+      ],
+      "holdout_voltage_V": 9.0,
+      "role": "repository_side_lovo_evaluation"
+    }
+  },
+  "schema_version": "m35_public_multivoltage_provenance_v1",
+  "sealed_13v_access": false,
+  "sealed_members_metadata_only": [
+    {
+      "compressed_size": 1172836,
+      "content_read_prelock": false,
+      "crc32": "05172252",
+      "extracted_path": null,
+      "member_name": "Source Data/Fig. 1/Fig. 1c/Experiment_13V.csv",
+      "sha256": null,
+      "uncompressed_size": 5757618,
+      "use_role": "future_repository_withheld_preregistered_cross_voltage_evaluation"
+    },
+    {
+      "compressed_size": 84565,
+      "content_read_prelock": false,
+      "crc32": "FCE9E07E",
+      "extracted_path": null,
+      "member_name": "Source Data/Fig. 1/Fig. 1c/Theory_13V.csv",
+      "sha256": null,
+      "uncompressed_size": 202802,
+      "use_role": "future_repository_withheld_preregistered_cross_voltage_evaluation"
+    }
+  ],
+  "stage_id": "M35_PUBLIC_MULTIVOLTAGE_PREREG_AND_FIT"
+}

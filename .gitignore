@@ -321,3 +321,17 @@ outputs/pinn_inverse_v1_1_smoke/*
 !outputs/tables/prompt34_final_validation.json
 !outputs/checkpoints/m34_corrected_mixed_flux/
 !outputs/checkpoints/m34_corrected_mixed_flux/*.pt
+
+# Prompt-35 post-hoc gradient semantics and sealed public multi-voltage fit.
+!outputs/tables/m35_public_multivoltage_preregistration.json
+!outputs/tables/m34a_gradient_semantics_amendment.json
+!outputs/tables/m34a_gradient_direction_curves.csv
+!outputs/tables/m35_solver_convergence.csv
+!outputs/tables/m35_jacobian_audit.json
+!outputs/tables/m35_jacobian_spectra.csv
+!outputs/tables/m35_all_multistart_results.csv
+!outputs/tables/m35_lovo_metrics.csv
+!outputs/tables/m35_public_multivoltage_fit_summary.json
+!outputs/tables/m35_public_multivoltage_fit_lock.json
+!outputs/tables/prompt35_final_validation.json
+!data/external/vo2_zhang_2024/multivoltage_prereg_manifest_v1.json

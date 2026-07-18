@@ -1,0 +1,221 @@
+stage_id: M35_PUBLIC_MULTIVOLTAGE_PREREG_AND_FIT
+schema_version: m35_public_multivoltage_fit_config_v1
+base_snapshot: 144aa53de1f6d6f788f61729355b4de45fd9c241
+claim_scope: public_vo2_repository_side_refit_and_lovo_only
+
+m34a:
+  original_summary: outputs/tables/m34_contract_audit_summary.json
+  original_gradient_csv: outputs/tables/m34_gradient_geometry.csv
+  original_summary_sha256: DE97D61DE886BFF1DCBBBDA201CEB9C6FDBE4AA091B8ABA7DCC4A10214B9B4B3
+  m33_config: configs/m33_feasibility_first_mixed_flux.yaml
+  m33_checkpoint: outputs/checkpoints/m33_mixed_flux/seed_20260715.pt
+  m33_history: outputs/tables/m33_mixed_flux_training_history.json
+  diagnostic_dataset: outputs/tables/n0_cv_e_v3_diagnostic_set.npz
+  dtype: float64
+  train_time_count: 12
+  ledger_time_count: 16
+  modules: [shared_trunk, state_head, heat_flux_head, defect_flux_head]
+  direction_seeds: [20260715, 20260716, 20260717, 20260718, 20260719, 20260720, 20260721, 20260722]
+  relative_steps: [1.0e-2, 3.0e-3, 1.0e-3, 3.0e-4, 1.0e-4, 3.0e-5, 1.0e-5, 3.0e-6, 1.0e-6, 3.0e-7, 1.0e-7]
+  normalized_group_floor: 1.0e-12
+  parity_relative_error_max: 1.0e-4
+  stable_steps_min: 3
+  stable_fd_plateau_relative_change_max: 0.05
+  taylor_slope_range: [1.5, 2.5]
+  implementation_error_min_direction_fraction: 0.25
+  scale_cancellation_min_direction_fraction: 0.25
+  diagnostic_only: true
+  training_authorization: false
+
+sources:
+  paper:
+    doi: 10.1038/s41467-024-51254-4
+    url: https://www.nature.com/articles/s41467-024-51254-4
+    license_id: CC-BY-4.0
+  nature_source_data:
+    url: https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-024-51254-4/MediaObjects/41467_2024_51254_MOESM8_ESM.zip
+    license_id: CC-BY-4.0
+    parent_archive: data/external/vo2_zhang_2024/raw/nature_source_data.zip
+    parent_sha256: E8916E1B0861C7947119C3F175CEB2E625B197BC32B6B5602F1016823222FFE3
+  zenodo:
+    doi: 10.5281/zenodo.13119587
+    url: https://zenodo.org/records/13119587
+    license_id: CC-BY-4.0
+  github:
+    url: https://github.com/yuanhangzhang98/collective_dynamics_neuristor/tree/v1.0.0
+    model_url: https://github.com/yuanhangzhang98/collective_dynamics_neuristor/blob/v1.0.0/model.py
+    tag: v1.0.0
+    license_id: MIT
+
+data:
+  original_manifest: data/external/vo2_zhang_2024/manifest.json
+  prereg_manifest: data/external/vo2_zhang_2024/multivoltage_prereg_manifest_v1.json
+  current_sense_ohm: 50.0
+  rt:
+    path: data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1b.csv
+    curve_id: zhang_2024_fig1b_rt
+    allowed_role: fixed_constitutive_sanity_and_provenance
+  open_voltage_curves:
+    - {voltage_V: 9.0, curve_id: zhang_2024_fig1c_experiment_9v, path: "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_9V.csv"}
+    - {voltage_V: 11.0, curve_id: zhang_2024_fig1c_experiment_11v, path: "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_11V.csv"}
+    - {voltage_V: 15.0, curve_id: zhang_2024_fig1c_experiment_15v, path: "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_15V.csv"}
+    - {voltage_V: 17.0, curve_id: zhang_2024_fig1c_experiment_17v, path: "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_17V.csv"}
+  withheld_13v:
+    numeric_access: forbidden
+    extracted_path: null
+    member_names_metadata_only:
+      - Source Data/Fig. 1/Fig. 1c/Experiment_13V.csv
+      - Source Data/Fig. 1/Fig. 1c/Theory_13V.csv
+    evaluation_role: repository_withheld_preregistered_cross_voltage_evaluation
+
+evidence_semantics:
+  source_paper_model_reproduction: historical_D0a_only
+  repository_side_refit: current_open_voltage_fit
+  repository_withheld_preregistered_cross_voltage_evaluation: future_13v_only_after_valid_fit_lock_and_new_authorization
+  independent_external_validation: unavailable
+
+source_model:
+  source_config: configs/vo2_d0a_exact_source_v2.yaml
+  algorithm: deterministic_explicit_euler
+  noise_strength: 0.0
+  equations:
+    electrical: "C dV_d/dt = (V_in - V_d)/R_load - V_d/R(T,h)"
+    thermal: "C_th dT/dt = V_d^2/R(T,h) - S_e (T-T_base)"
+    resistance: "R(T,h) = R0 exp(E_a/T) g(T,h) + R_metal"
+  initial_conditions:
+    capacitor_voltage_V: 0.0
+    temperature_K: T_base
+    hysteresis_ledger_temperature_K: T_base_minus_0.1K
+    initial_branch: heating_delta_plus_one
+  boundary_semantics:
+    electrical: lumped_series_R_load_no_spatial_boundary
+    thermal: lumped_bath_exchange_S_e_no_spatial_boundary
+  event_rules:
+    temperature_clip_K: [305.0, 370.0]
+    reversal_delta_T_threshold_K: 0.01
+    ordering: update_reversal_then_evaluate_rhs_then_explicit_euler_state_update
+  units: {time: s, voltage: V, current: A, resistance: ohm, capacitance: F, thermal_capacitance: J_per_K, thermal_conductance: W_per_K, temperature: K}
+
+cross_model_mapping:
+  gamma_sub_units: W_m-3_K-1
+  S_e_units: W_K-1
+  conditional_relation: "S_e = gamma_sub * V_thermal only for the same uniformly lumped geometry and volumetric sink"
+  geometry_equivalence_proved: false
+  material_equivalence_proved: false
+  direct_S_e_to_gamma_sub_validation_claim: forbidden
+  allowed_cross_model_coordinate: tau_th_equals_C_th_over_S_e
+
+preprocessing:
+  time_zero: publisher_t_equals_zero
+  evaluation_window: all_samples_with_time_s_greater_equal_zero
+  pretrigger_baseline:
+    current: subtract_median_time_less_than_zero
+    device_voltage: subtract_median_time_less_than_zero
+  outlier_removal: forbidden
+  dtw_or_phase_shift: forbidden
+  observation_interpolation: forbidden
+  prediction_interpolation: linear_to_native_observation_timestamps
+  objective_points_per_trace: 256
+  objective_weights: {current: 0.7, device_voltage: 0.3}
+
+event_metrics:
+  baseline_fraction: 0.05
+  noise_mad_multiplier: 1.4826
+  prominence_noise_multiplier: 5.0
+  prominence_range_fraction: 0.05
+  minimum_peak_distance_s: 2.5e-7
+  transient_fraction: 0.10
+  sustained_min_peaks: 5
+  sustained_span_fraction: 0.50
+  sustained_isi_cv_max: 0.50
+  irregular_min_peaks: 3
+  latched_tail_fraction: 0.20
+
+solver_convergence:
+  voltages_V: [9.0, 11.0, 15.0, 17.0]
+  dt_values_s: [1.0e-8, 5.0e-9, 2.5e-9]
+  fit_dt_s: 5.0e-9
+  compare_two_finest: true
+  raw_current_nrmse95_max: 0.20
+  raw_voltage_nrmse95_max: 0.05
+  frequency_relative_error_max: 0.05
+  charge_relative_error_max: 0.02
+  energy_relative_error_max: 0.02
+  activity_class_exact: true
+  preserve_d0a_metric: true
+  d0a_medium_vs_fine_current_nrmse95: 0.1631480017203279
+  d0a_gate_max: 0.01
+  d0a_gate_passed: false
+
+jacobian_audit:
+  coordinate_systems: [raw_Cth_Sth, quotient_tau_th_Sth]
+  relative_steps: [1.0e-2, 5.0e-3, 2.5e-3, 1.25e-3]
+  observation_points_per_trace: 128
+  relative_rank_threshold: 0.05
+  retained_singular_value_relative_change_max: 0.10
+  principal_angle_deg_max: 10.0
+  retained_condition_number_max: 1.0e4
+  required_rank: 2
+  fit_only_if_both_coordinate_systems_stable: true
+
+fit:
+  folds:
+    - {fold_id: holdout_9v, holdout_voltage_V: 9.0, fit_voltages_V: [11.0, 15.0, 17.0]}
+    - {fold_id: holdout_11v, holdout_voltage_V: 11.0, fit_voltages_V: [9.0, 15.0, 17.0]}
+    - {fold_id: holdout_15v, holdout_voltage_V: 15.0, fit_voltages_V: [9.0, 11.0, 17.0]}
+    - {fold_id: holdout_17v, holdout_voltage_V: 17.0, fit_voltages_V: [9.0, 11.0, 15.0]}
+  include_all_open_voltage_final_fit: true
+  coordinate_systems: [raw_Cth_Sth, quotient_tau_th_Sth]
+  raw_parameter_factor_bounds: [0.5, 2.0]
+  deterministic_start_offsets:
+    - [0.0, 0.0]
+    - [-0.75, -0.75]
+    - [-0.75, 0.75]
+    - [0.75, -0.75]
+    - [0.75, 0.75]
+    - [-0.75, 0.0]
+    - [0.75, 0.0]
+    - [0.0, 0.75]
+  optimizer: scipy_least_squares_trf
+  loss: soft_l1
+  max_nfev_per_start: 24
+  ftol: 1.0e-6
+  xtol: 1.0e-6
+  gtol: 1.0e-6
+  maximum_forward_evaluations: 12000
+  cpu_wall_clock_hours_max: 4.0
+  all_multistarts_must_be_reported: true
+  best_seed_only_reporting: forbidden
+
+fit_gates:
+  minimum_finite_optimizer_starts_per_fold: 6
+  repository_operational_holdout_combined_nrmse95_max: 0.20
+  activity_class_accuracy_min: 0.75
+  quotient_noninferiority_nrmse_margin: 0.02
+  quotient_log_dispersion_improvement_fraction_min: 0.20
+  mainline_requires_all_gates: true
+
+outputs:
+  preregistration: outputs/tables/m35_public_multivoltage_preregistration.json
+  m34a_summary: outputs/tables/m34a_gradient_semantics_amendment.json
+  m34a_directions: outputs/tables/m34a_gradient_direction_curves.csv
+  solver_convergence: outputs/tables/m35_solver_convergence.csv
+  jacobian_summary: outputs/tables/m35_jacobian_audit.json
+  jacobian_spectra: outputs/tables/m35_jacobian_spectra.csv
+  all_multistarts: outputs/tables/m35_all_multistart_results.csv
+  lovo_metrics: outputs/tables/m35_lovo_metrics.csv
+  fit_summary: outputs/tables/m35_public_multivoltage_fit_summary.json
+  fit_lock: outputs/tables/m35_public_multivoltage_fit_lock.json
+  validation: outputs/tables/prompt35_final_validation.json
+  report: docs/codex_reports/m35_public_multivoltage_fit_and_gradient_amendment.md
+
+claim_boundary:
+  novelty_hypothesis: identifiable_thermal_timescale_coordinate_with_multivoltage_lovo_and_sealed_voltage_evaluation
+  allowed_if_pass: qualified_repository_side_multivoltage_evidence_only
+  forbidden:
+    - independent_external_validation
+    - experimental_validation_by_this_repository
+    - S_e_as_gamma_sub_external_validation
+    - unique_raw_parameter_recovery
+    - full_PINN_forward_or_inverse_success
+    - world_first

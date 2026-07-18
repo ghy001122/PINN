@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "m35_public_multivoltage_preregistration_v1.schema.json",
+  "title": "M35 public multi-voltage preregistration",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "stage_id",
+    "base_snapshot",
+    "status",
+    "created_at_utc",
+    "config_sha256",
+    "provenance_manifest_sha256",
+    "locked_files",
+    "preflight_checks",
+    "all_preflight_checks_pass",
+    "fit_authorized_after_preregistration_commit",
+    "sealed_13v_access"
+  ],
+  "properties": {
+    "schema_version": {"const": "m35_public_multivoltage_preregistration_v1"},
+    "stage_id": {"const": "M35_PUBLIC_MULTIVOLTAGE_PREREG_AND_FIT"},
+    "base_snapshot": {"type": "string", "minLength": 40, "maxLength": 40},
+    "status": {"enum": ["locked_before_fit", "failed_but_informative"]},
+    "created_at_utc": {"type": "string"},
+    "config_sha256": {"type": "object"},
+    "provenance_manifest_sha256": {"type": "string"},
+    "locked_files": {"type": "object", "minProperties": 1},
+    "preflight_checks": {"type": "object", "minProperties": 1},
+    "all_preflight_checks_pass": {"type": "boolean"},
+    "fit_authorized_after_preregistration_commit": {"type": "boolean"},
+    "sealed_13v_access": {"const": false}
+  },
+  "additionalProperties": true
+}
