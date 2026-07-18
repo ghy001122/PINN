@@ -1,17 +1,27 @@
 # Destructive Git operations are forbidden. Inspect and restore explicit paths instead.
-prefix_rule(pattern=["git", "reset", "--hard"], decision="forbidden")
-prefix_rule(pattern=["git", "clean", "-fd"], decision="forbidden")
-prefix_rule(pattern=["git", "clean", "-fdx"], decision="forbidden")
-prefix_rule(pattern=["git", "push", "--force"], decision="forbidden")
-prefix_rule(pattern=["git", "push", "--force-with-lease"], decision="forbidden")
+prefix_rule(pattern=["git", "reset", "--hard"], decision="forbidden", justification="Use git status/diff and restore only explicit user-approved paths.")
+prefix_rule(pattern=["git", "clean", "-fd"], decision="forbidden", justification="Inventory untracked files first and remove only explicit paths.")
+prefix_rule(pattern=["git", "clean", "-fdx"], decision="forbidden", justification="Inventory untracked files first and remove only explicit paths.")
+prefix_rule(pattern=["git", "push", ["--force", "-f", "--force-with-lease", "--force-if-includes", "--mirror", "--delete"]], decision="forbidden", justification="Use a normal fast-forward push to origin/main; never rewrite or delete remote history automatically.")
+prefix_rule(pattern=["git", "push", "origin", ["--force", "-f", "--force-with-lease", "--force-if-includes", "--mirror", "--delete", ":main", "+main", "+HEAD:main"]], decision="forbidden", justification="Use git push origin main without history-rewriting or deletion options.")
+prefix_rule(pattern=["git", "push", "origin", "main", ["--force", "-f", "--force-with-lease", "--force-if-includes", "--mirror", "--delete"]], decision="forbidden", justification="Use git push origin main without history-rewriting or deletion options.")
 
-# Normal publication and destructive directory/dependency changes require confirmation.
-prefix_rule(pattern=["git", "push"], decision="prompt")
+# Destructive directory/dependency changes and local history rewrites require confirmation.
+prefix_rule(pattern=["git", "commit", "--amend"], decision="prompt")
 prefix_rule(pattern=["git", "rm", "-r"], decision="prompt")
 prefix_rule(pattern=["Remove-Item", "-Recurse"], decision="prompt")
 prefix_rule(pattern=["pip", "install"], decision="prompt")
 prefix_rule(pattern=["python", "-m", "pip", "install"], decision="prompt")
 prefix_rule(pattern=[".\\.venv\\Scripts\\python.exe", "-m", "pip", "install"], decision="prompt")
+
+# Routine local version-control and the canonical fast-forward publication path are allowed.
+prefix_rule(pattern=["git", "add"], decision="allow")
+prefix_rule(pattern=["git", "commit"], decision="allow")
+prefix_rule(pattern=["git", "fetch", "origin"], decision="allow")
+prefix_rule(pattern=["git", "pull", "--ff-only", "origin", "main"], decision="allow")
+prefix_rule(pattern=["git", "push", "--dry-run", "origin", "main"], decision="allow")
+prefix_rule(pattern=["git", "push", "origin", "main"], decision="allow")
+prefix_rule(pattern=["git", "ls-remote", "origin"], decision="allow")
 
 # Common read-only Git and workspace test commands are allowed.
 prefix_rule(pattern=["git", "status"], decision="allow")
@@ -23,3 +33,13 @@ prefix_rule(pattern=["git", "branch", "--show-current"], decision="allow")
 prefix_rule(pattern=["git", "remote", "get-url"], decision="allow")
 prefix_rule(pattern=[".\\.venv\\Scripts\\python.exe", "-m", "pytest"], decision="allow")
 prefix_rule(pattern=[".\\.venv\\Scripts\\python.exe", "scripts/audit_project_governance.py"], decision="allow")
+
+# GitHub CLI inspection is read-only. Cloud writes remain subject to explicit
+# connector confirmation or normal approval policy.
+prefix_rule(pattern=["gh", "auth", "status"], decision="allow")
+prefix_rule(pattern=["gh", "repo", "view"], decision="allow")
+prefix_rule(pattern=["gh", "pr", ["list", "view", "status", "checks", "diff"]], decision="allow")
+prefix_rule(pattern=["gh", "run", ["list", "view", "watch"]], decision="allow")
+prefix_rule(pattern=["gh", "workflow", ["list", "view"]], decision="allow")
+prefix_rule(pattern=["gh", "issue", ["list", "view"]], decision="allow")
+prefix_rule(pattern=["gh", "release", ["list", "view"]], decision="allow")

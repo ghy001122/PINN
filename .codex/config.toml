@@ -1,0 +1,13 @@
+# Repository-scoped Codex defaults. This layer is loaded only when the project
+# is trusted; the user-level config explicitly trusts E:\Python demo\PINN.
+sandbox_mode = "workspace-write"
+approval_policy = "on-request"
+approvals_reviewer = "auto_review"
+
+[sandbox_workspace_write]
+network_access = true
+
+# Keep network access narrowly scoped to GitHub services used by this project.
+[features.network_proxy]
+enabled = true
+domains = { "github.com" = "allow", "api.github.com" = "allow", "uploads.github.com" = "allow", "raw.githubusercontent.com" = "allow", "objects.githubusercontent.com" = "allow", "codeload.github.com" = "allow", "**.github.com" = "allow", "**.githubusercontent.com" = "allow", "**.githubassets.com" = "allow", "**.actions.githubusercontent.com" = "allow" }
