@@ -287,3 +287,13 @@ outputs/pinn_inverse_v1_1_smoke/*
 !outputs/tables/gamma_sub_ceba_pilot_summary.json
 !outputs/tables/prompt31_final_validation.json
 !outputs/figures/gamma_sub_ceba_boundary_v1.png
+
+# Prompt-32 cache-only SCIS certificate and semantic-lock evidence.
+!outputs/tables/gamma_sub_scis_preregistration.json
+!outputs/tables/gamma_sub_scis_cache_preflight.json
+!outputs/tables/gamma_sub_scis_cases.csv
+!outputs/tables/gamma_sub_scis_summary.json
+!outputs/tables/prompt32_ceba_semantic_audit.json
+!outputs/tables/prompt32_figure5_semantic_audit.json
+!outputs/tables/prompt32_final_validation.json
+!outputs/figures/gamma_sub_scis_certificate_v1.png

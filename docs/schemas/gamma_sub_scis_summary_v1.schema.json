@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pinnpcm.local/schemas/gamma_sub_scis_summary_v1.schema.json",
+  "title": "Simulation-Calibrated Identifiability Set summary",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "stage_id",
+    "claim_status",
+    "scis_claim_eligible",
+    "all_preregistered_gates_pass",
+    "nominal_primary_metrics",
+    "true_4p5e8_primary_metrics",
+    "remote_candidate_sensitivity",
+    "gates",
+    "new_ode_evaluations",
+    "pinn_training_runs",
+    "external_13v_accessed"
+  ],
+  "properties": {
+    "schema_version": {"const": "gamma_sub_scis_summary_v1"},
+    "stage_id": {"const": "M32_SCIS"},
+    "claim_status": {"enum": ["qualified_supported", "failed_but_informative"]},
+    "scis_claim_eligible": {"type": "boolean"},
+    "all_preregistered_gates_pass": {"type": "boolean"},
+    "candidate_count": {"const": 15},
+    "calibration_seed_count": {"type": "integer", "minimum": 50},
+    "heldout_seed_count": {"type": "integer", "minimum": 50},
+    "seed_sets_pairwise_disjoint": {"const": true},
+    "nominal_primary_metrics": {
+      "type": "object",
+      "required": [
+        "pooled_set_coverage",
+        "coverage_by_candidate",
+        "worst_candidate_gamma_sub",
+        "worst_candidate_coverage",
+        "certificate_acceptance",
+        "conditional_accuracy_given_acceptance",
+        "point_success"
+      ]
+    },
+    "true_4p5e8_primary_metrics": {
+      "type": "object",
+      "required": [
+        "nominal_point_success",
+        "nominal_set_coverage",
+        "nominal_acceptance",
+        "delta_0p2K_acceptance",
+        "delta_2K_acceptance",
+        "stress_coverage_claimed"
+      ]
+    },
+    "remote_candidate_sensitivity": {
+      "type": "object",
+      "required": ["deleted_gamma_sub", "acceptance_refusal_decision_change_rate"]
+    },
+    "gates": {
+      "type": "object",
+      "minProperties": 9,
+      "additionalProperties": {"type": "boolean"}
+    },
+    "new_ode_evaluations": {"const": 0},
+    "pinn_training_runs": {"const": 0},
+    "full_pinn_run": {"const": false},
+    "external_13v_accessed": {"const": false}
+  }
+}

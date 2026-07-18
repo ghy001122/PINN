@@ -1,0 +1,82 @@
+schema_version: gamma_sub_scis_config_v1
+stage_id: M32_SCIS
+study_name: Simulation-Calibrated Identifiability Set
+evidence_type: synthetic numerical digital-twin cached direct-solver evidence
+
+source_contract:
+  ceba_config: configs/gamma_sub_ceba_v1.yaml
+  ceba_implementation: scripts/run_gamma_sub_ceba.py
+  trajectory_cache: outputs/cache/gamma_sub_ceba/trajectories
+  triangle_target: data/processed/gt_v1_acceptance/gt_triangle.npz
+  ltp_ltd_target: data/processed/gt_v1_acceptance/gt_ltp_ltd.npz
+
+protocols: [triangle, ltp_ltd]
+observation_counts: [8, 32]
+noise_levels: [0.02, 0.0]
+primary_noise: 0.02
+zero_noise_semantics: deterministic_sanity_only
+
+candidate_grid:
+  gamma_sub: [1.5e8, 2.0e8, 2.75e8, 3.25e8, 3.75e8, 4.0e8, 4.25e8, 4.5e8, 4.75e8, 5.0e8, 5.5e8, 6.5e8, 7.5e8, 9.0e8, 1.0e9]
+  evaluation_truth_gamma_sub: 4.5e8
+  remote_candidate_for_sensitivity: 1.0e9
+
+calibration:
+  alpha: 0.10
+  score: J_gamma_j_minus_minimum_J_over_candidates
+  finite_sample_quantile: ceil((n_calibration+1)*(1-alpha))-th_order_statistic_capped_at_n
+  per_candidate: true
+  nominal_delta_T_sw_K: 0.0
+  stress_delta_T_sw_K: [0.2, 2.0]
+  stress_semantics: model_mismatch_only_not_coverage
+
+seeds:
+  discovery: {start: 20261001, count: 10, use: implementation_diagnostic_only}
+  calibration: {start: 20261101, count: 50, use: q_j_only}
+  heldout: {start: 20261201, count: 50, use: all_reported_metrics}
+
+inference:
+  set_definition: C_alpha_y_equals_gamma_j_with_s_j_y_le_q_j
+  relative_radius: 0.15
+  point_estimate: argmin_objective_with_lower_gamma_tie_break
+  acceptance: nonempty_set_and_every_member_within_relative_radius_of_point_estimate
+  true_gamma_access: forbidden
+
+gates:
+  nominal_heldout_pooled_coverage_minimum: 0.90
+  nominal_worst_candidate_coverage_minimum: 0.80
+  nominal_true_4p5e8_acceptance_minimum: 0.80
+  conditional_accuracy_given_acceptance_minimum: 0.90
+  delta_2K_acceptance_maximum: 0.20
+  remote_candidate_deletion_decision_change_maximum: 0.10
+  new_ode_evaluations_maximum: 0
+  pinn_training_runs_maximum: 0
+
+cache_only:
+  required_solver_level: base
+  required_target_deltas_K: [0.0, 0.2, 2.0]
+  expected_unique_trajectory_count: 36
+  stop_on_any_missing_or_invalid_trajectory: true
+  solver_fallback: forbidden
+
+outputs:
+  preregistration: outputs/tables/gamma_sub_scis_preregistration.json
+  preflight: outputs/tables/gamma_sub_scis_cache_preflight.json
+  cases: outputs/tables/gamma_sub_scis_cases.csv
+  summary: outputs/tables/gamma_sub_scis_summary.json
+  figure: outputs/figures/gamma_sub_scis_certificate_v1.png
+
+allowed_claim_if_all_gates_pass: >-
+  Under the frozen synthetic solver, locked noise generator, and discrete candidate grid,
+  the simulation-calibrated set provides a runtime-computable coverage/refusal certificate
+  for gamma_sub.
+
+forbidden_claims:
+  - experimental validation
+  - cross-device or cross-material coverage
+  - continuous-parameter global coverage
+  - independent external validation
+  - world-first novelty
+  - complete-PINN training or inverse evidence
+  - modification or reinterpretation of the historical CEBA five-percent rule
+  - access to sealed 13 V data
