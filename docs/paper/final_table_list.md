@@ -9,7 +9,8 @@ All tables report synthetic numerical digital-twin evidence unless explicitly ma
 | Table 3 | Prior registry and literature sanity | `docs/parameter_prior_registry.md`; `data/literature/literature_parameter_sanity_table.csv` |
 | Table 4 | `T_sw` calibration tolerance plus ODE spot-check | `outputs/tables/gamma_sub_tsw_calibration_tolerance_sweep_summary.json`; `outputs/tables/gamma_sub_tsw_tolerance_ode_spotcheck_summary.json` |
 | Table 5 | Calibration-vs-protocol disentanglement | `outputs/tables/gamma_sub_calibration_protocol_disentanglement_summary.json` |
-| Table 6 | Calibrated protocol robustness | `outputs/tables/gamma_sub_calibrated_protocol_robustness_final_summary.json` |
+| Table 6 | Bundled calibrated-configuration performance and semantic audit | `outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_summary.json`; `outputs/tables/prompt32_figure5_semantic_audit.json` |
+| Supplementary Table | SCIS nominal-coverage and mismatch-refusal gates | `outputs/tables/gamma_sub_scis_summary.json`; `outputs/tables/gamma_sub_scis_cases.csv` |
 | Supplementary Table | Reviewer-defense matrix | `docs/manuscript/reviewer_defense_matrix.md` |
 | Supplementary Table | Quasi-2D literature-source registry and residual preflight | `outputs/tables/quasi_2d_literature_source_registry.json`; `outputs/tables/pinn_quasi_2d_residual_preflight_summary.json` |
 | Supplementary Table | F-SPS negative/small-run benchmark | `outputs/tables/f_sps_balanced_medium_budget_benchmark_summary.json` |

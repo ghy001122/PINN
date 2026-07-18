@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import csv
 import json
+from collections import defaultdict
 from pathlib import Path
 
 from scripts.audit_prompt32_semantics import build_ceba_audit, build_figure5_audit
@@ -64,3 +66,28 @@ def test_scis_schema_requires_zero_new_solver_and_pinn_runs() -> None:
     assert schema["properties"]["new_ode_evaluations"]["const"] == 0
     assert schema["properties"]["pinn_training_runs"]["const"] == 0
     assert schema["properties"]["external_13v_accessed"]["const"] is False
+
+
+def test_scis_zero_noise_rows_are_deterministic_sanity_only() -> None:
+    with (ROOT / "outputs/tables/gamma_sub_scis_cases.csv").open(encoding="utf-8", newline="") as handle:
+        rows = [row for row in csv.DictReader(handle) if float(row["noise"]) == 0.0]
+    groups: defaultdict[tuple[str, ...], set[tuple[str, ...]]] = defaultdict(set)
+    for row in rows:
+        group = (
+            row["scope"],
+            row["protocol"],
+            row["observation_count"],
+            row["delta_T_sw_K"],
+            row["true_gamma_sub"],
+        )
+        decision = (
+            row["gamma_hat"],
+            row["set_members"],
+            row["certificate_acceptance"],
+            row["point_success"],
+            row["set_contains_true"],
+        )
+        groups[group].add(decision)
+    assert len(rows) == 3400
+    assert len(groups) == 68
+    assert all(len(decisions) == 1 for decisions in groups.values())

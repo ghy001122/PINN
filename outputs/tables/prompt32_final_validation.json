@@ -1,0 +1,107 @@
+{
+  "schema_version": "prompt32_final_validation_v1",
+  "stage_id": "M32_SCIS",
+  "base_commit": "44dac1a5414f6a5eb84f9d8f2db2314d5d3a9f8a",
+  "preregistration_commit": "189445a2df5969a9428cdd035a3a9be0cc5f81af",
+  "result_commit": "recorded_in_final_handoff_due_to_commit_self_reference",
+  "evidence_type": "synthetic numerical digital-twin cached direct-solver evidence",
+  "scientific_resolution": {
+    "claim_status": "failed_but_informative",
+    "scis_claim_eligible": false,
+    "ceba_parity_status": "supported",
+    "ceba_boundary_status": "failed_but_informative",
+    "ceba_abstention_is_deployable": false,
+    "figure5_bundled_configuration_status": "qualified_supported",
+    "figure5_isolated_protocol_gain_status": "forbidden"
+  },
+  "scis_metrics": {
+    "nominal_pooled_coverage": 0.9323333333333333,
+    "worst_candidate_gamma_sub": 475000000.0,
+    "worst_candidate_coverage": 0.85,
+    "nominal_point_success": 0.996,
+    "nominal_certificate_acceptance": 1.0,
+    "conditional_accuracy_given_acceptance": 0.996,
+    "true_4p5e8_nominal_acceptance": 1.0,
+    "true_4p5e8_delta_0p2K_point_success": 0.375,
+    "true_4p5e8_delta_0p2K_acceptance": 1.0,
+    "true_4p5e8_delta_2K_point_success": 0.0,
+    "true_4p5e8_delta_2K_acceptance": 1.0,
+    "remote_candidate_deletion_decision_change_rate": 0.0,
+    "zero_noise_case_count": 3400,
+    "zero_noise_condition_count": 68,
+    "zero_noise_all_seed_decisions_identical": true
+  },
+  "scis_gates": {
+    "nominal_heldout_pooled_coverage": true,
+    "nominal_worst_candidate_coverage": true,
+    "nominal_true_4p5e8_certificate_acceptance": true,
+    "conditional_accuracy_given_acceptance": true,
+    "delta_2K_refusal": false,
+    "remote_candidate_deletion_stability": true,
+    "seed_sets_pairwise_disjoint": true,
+    "cache_only_zero_new_ode": true,
+    "zero_pinn_training": true,
+    "discovery_diagnostics_finite_and_nonvoting": true
+  },
+  "execution_counts": {
+    "required_cached_trajectories": 36,
+    "new_ode_evaluations": 0,
+    "pinn_training_runs": 0,
+    "external_13v_accesses": 0
+  },
+  "validation": {
+    "focused_tests": {
+      "status": "pass",
+      "passed": 16,
+      "failed": 0,
+      "duration_seconds": 3.26
+    },
+    "single_full_pytest": {
+      "status": "fail_governance_only",
+      "passed": 280,
+      "failed": 2,
+      "duration_seconds": 251.27,
+      "failed_tests": [
+        "tests/test_project_governance.py::test_governance_audit_has_no_failed_checks",
+        "tests/test_project_governance.py::test_handoff_snapshot_context_budget_and_agents_hierarchy"
+      ],
+      "root_cause": "authority-route byte budget exceeded after documentation expansion",
+      "rerun": false
+    },
+    "governance_remediation": {
+      "first_explicit_attempt_status": "fail_after_compaction_due_to_two_removed_parser_markers",
+      "final_status": "pass_with_manual_review",
+      "failed_checks": [],
+      "low_token_context_bytes": 24185,
+      "low_token_context_limit_bytes": 24576,
+      "all_frozen_gt_hashes_unchanged": true,
+      "manual_review": [
+        "portable Git mtimes are not authoritative",
+        "client-side Codex rule autoloading"
+      ]
+    },
+    "tracked_json": {
+      "command_run_count": 1,
+      "required_status_before_commit": "pass",
+      "status": "pass"
+    },
+    "git_diff_check": {
+      "required_status_before_commit": "pass",
+      "status": "pass"
+    }
+  },
+  "historical_ceba_modified": false,
+  "frozen_gt_modified": false,
+  "allowed_claim": "SCIS passes nominal held-out coverage on the frozen synthetic discrete grid but fails severe-mismatch refusal; Figure 5 supports bundled calibrated-configuration performance only.",
+  "forbidden_claims": [
+    "operational CEBA or SCIS coverage/refusal certificate",
+    "continuous-parameter global coverage",
+    "model-mismatch robustness",
+    "isolated Figure 5 protocol gain or protocol optimality",
+    "experimental, cross-device, or cross-material validation",
+    "complete-PINN training, sensitivity, or inverse evidence",
+    "independent 13 V validation",
+    "world-first novelty"
+  ],
+  "remote_ci": "recorded_in_final_handoff_after_the_single_push_and_single_view"
+}

@@ -18,9 +18,9 @@ Status: `qualified_supported`. The 42-case confounding phase map identifies \(T_
 
 Status: `qualified_supported`. Under nominal fixed priors, the seeded robustness audit reports median relative errors near `0.020` for the best/`ltp_ltd` protocol group. Narrow-prior cases remain within the configured `<=20%` boundary, whereas wide \(T_{\mathrm{sw}}\) mismatch fails systematically with median error about `0.816` in the same group. Observation-count and off-grid checks pass within the calibrated region; aggregate averages are not used to hide the failed prior region.
 
-## R5. Protocol Gain After Calibration
+## R5. Bundled Calibrated-Configuration Performance
 
-Status: `qualified_supported`. Equal-prior disentanglement gives calibration gain `1.1217` and protocol gain `0.0150`, so calibration dominates. The 720-case ODE-backed sequential validation selects `calibrated_multi_pulse_to_ltp_ltd`; it has success rate `1.0` and maximum relative error `0.1111` under calibrated priors. This is the locked Figure 5 result.
+Status: `qualified_supported` only for bundled configuration performance. The historical equal-prior disentanglement reports calibration gain `1.1217` and a much smaller protocol-associated difference `0.0150`. In the separate 720-case ODE-backed Figure 5 audit, all six named candidates use the LTP/LTD simulator while waveform amplitude, duration, and calibration-error factor vary together; the implementation does not consume `prior_width_factor`. The named `calibrated_multi_pulse_to_ltp_ltd` bundle has success rate `1.0` and maximum relative error `0.1111` under its configured synthetic conditions. This result does not isolate protocol gain or establish protocol optimality.
 
 A separate 2400-case calibrated-protocol stress audit identifies `calibrated_short_pulse_to_ltp_ltd` as its best candidate but reports worst-case error `0.4444` and explicitly sets `whether_ready_as_main_figure = false`. It is retained as `failed_but_informative` supplementary stress evidence and does not replace Figure 5.
 
@@ -63,3 +63,11 @@ Status: `failed_but_informative` as a software audit and `forbidden` as frontier
 ## R13. CEBA Parity And Abstention Boundary
 
 Status: `supported` for implementation parity and `failed_but_informative` for the boundary hypothesis. Six exact direct-source anchors reproduce best gamma, relative error, classification, objective value/order, waveform hash, and solver hash in all `6/6` cases. Parity uses 36 unique solver trajectories and completes in `29.22 s`. The conditional pilot then scores 72 protocol/observation/noise/seed cases entirely from those cached trajectories, adding zero ODE solves and recording 36 cache hits. Under the locked profile-ambiguity rule, every `delta_T_sw_K=0` condition has abstention rate `1.0`; hence there is no valid lower-success/upper-failure bracket, no `delta_T_sw_star`, and no refinement run. The CEBA configuration claim is rejected without changing its ambiguity or success thresholds.
+
+The semantic audit separates the point decision from that abstention. At `n=32, noise=0.02`, point success/abstention are respectively `1.0/1.0`, `0.0/1.0`, and `0.0/0.0` for triangle at `delta_T_sw_K={0,0.2,2}`, and `1.0/1.0`, `1.0/1.0`, and `0.0/0.0` for LTP/LTD. The retained-class decision reads `true_gamma` and hard-codes the `0.15` class radius, so it remains an oracle diagnostic. Removing the low candidate endpoint changes retained-set membership in `73.33%` of the 30 audited cases; hence the five-percent profile set is also grid-span dependent.
+
+## R14. Simulation-Calibrated Identifiability Set
+
+Status: `failed_but_informative`. M32 pre-registered candidate-specific finite-sample thresholds using 50 calibration seeds and evaluated 50 disjoint held-out seeds for both protocols, observation counts `8/32`, all 15 candidates, and primary noise `0.02`. All 36 required direct-solver trajectories were already cached, so the run added zero ODE solves and zero PINN training runs. Nominal pooled set coverage is `0.93233`; the worst candidate is `4.75e8` with coverage `0.85`; point success is `0.996`; and conditional point accuracy among accepted nominal cases is `0.996`. These nominal gates pass.
+
+The refusal gate fails decisively. At true `gamma_sub=4.5e8`, acceptance is `1.0` at nominal, `0.2 K`, and `2 K` mismatch, while point success falls from `1.0` to `0.375` and then `0.0`. Deleting the pre-registered remote `1.0e9` candidate changes no acceptance/refusal decision, but that stability does not repair the missing mismatch refusal. Therefore SCIS does not support a runtime coverage/refusal certificate and is retained only as a synthetic nominal-coverage plus model-mismatch failure boundary.

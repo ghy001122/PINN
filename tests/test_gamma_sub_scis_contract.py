@@ -113,3 +113,20 @@ def test_scis_preregistration_locks_unmodified_ceba_hashes() -> None:
     assert set(prereg["ceba_immutable_hashes"]) == set(CEBA_IMMUTABLE_PATHS)
     for path, expected in prereg["ceba_immutable_hashes"].items():
         assert _sha256_file(_resolve(path)) == expected
+
+
+def test_scis_locked_summary_fails_closed_on_mismatch_refusal() -> None:
+    summary = json.loads((ROOT / "outputs/tables/gamma_sub_scis_summary.json").read_text(encoding="utf-8"))
+    schema = json.loads((ROOT / "docs/schemas/gamma_sub_scis_summary_v1.schema.json").read_text(encoding="utf-8"))
+    assert set(schema["required"]) <= set(summary)
+    assert summary["claim_status"] == "failed_but_informative"
+    assert summary["scis_claim_eligible"] is False
+    assert summary["all_preregistered_gates_pass"] is False
+    assert summary["nominal_primary_metrics"]["pooled_set_coverage"] >= 0.90
+    assert summary["nominal_primary_metrics"]["worst_candidate_coverage"] >= 0.80
+    assert summary["true_4p5e8_primary_metrics"]["delta_2K_point_success"] == 0.0
+    assert summary["true_4p5e8_primary_metrics"]["delta_2K_acceptance"] == 1.0
+    assert summary["gates"]["delta_2K_refusal"] is False
+    assert summary["new_ode_evaluations"] == 0
+    assert summary["pinn_training_runs"] == 0
+    assert summary["external_13v_accessed"] is False

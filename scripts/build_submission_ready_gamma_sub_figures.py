@@ -67,12 +67,12 @@ def fig_calibrated_protocol() -> str:
         "wrong_calibration_multi_pulse_to_ltp_ltd",
     ]
     labels = [
-        "calibrated\nmulti-pulse",
-        "calibrated\nshort-pulse",
-        "calibrated\nLTP/LTD",
-        "calibrated\nbest single",
-        "no calibration\nLTP/LTD",
-        "wrong calibration\nmulti-pulse",
+        "calibrated\nmulti-pulse bundle",
+        "calibrated\nshort-pulse bundle",
+        "calibrated\nLTP/LTD bundle",
+        "calibrated\nsingle bundle",
+        "uncalibrated\nLTP/LTD bundle",
+        "wrong-calibration\nmulti-pulse bundle",
     ]
     colors = ["#2f7d4a", "#609966", "#87ad7f", "#9ab995", "#c9825b", "#b24b4b"]
     success = [float(summary["by_protocol"][name]["success_rate"]) for name in order]
@@ -87,13 +87,13 @@ def fig_calibrated_protocol() -> str:
     )
     ax_success.bar(x, success, color=colors)
     ax_success.set_ylim(0.0, 1.08)
-    _style(ax_success, "Figure 5: calibrated sequential protocol validation", "", "success rate (error <= 0.15)")
+    _style(ax_success, "Figure 5: bundled calibrated-configuration performance", "", "success rate (error <= 0.15)")
     for index, value in enumerate(success):
         ax_success.text(index, value + 0.025, f"{value:.2f}", ha="center", va="bottom", fontsize=8)
 
     ax_error.bar(x, max_error, color=colors)
     ax_error.axhline(0.15, color="black", linestyle="--", linewidth=1.0, label="per-case error threshold")
-    _style(ax_error, "Worst-case control", "protocol", "maximum relative gamma_sub error")
+    _style(ax_error, "Worst-case control", "bundled candidate configuration", "maximum relative gamma_sub error")
     for index, value in enumerate(max_error):
         ax_error.text(index, value + 0.025, f"{value:.2f}", ha="center", va="bottom", fontsize=8)
     ax_error.set_xticks(x, labels, rotation=18, ha="right")

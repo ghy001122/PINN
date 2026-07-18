@@ -27,9 +27,12 @@ This is a routing index; current status remains authoritative in `PROJECT_STATE.
 | CPCF invalid attempt provenance | no scientific vote | `outputs/tables/gamma_sub_cpcf_attempt1_invalid_provenance.json`; `outputs/tables/gamma_sub_cpcf_attempt1_invalid_summary.json` |
 | CEBA exact-source parity | implementation parity `supported` | `outputs/tables/gamma_sub_ceba_parity_cases.csv`; `outputs/tables/gamma_sub_ceba_parity_summary.json` |
 | CEBA bounded pilot | `failed_but_informative`; no boundary claim | `outputs/tables/gamma_sub_ceba_pilot_cases.csv`; `outputs/tables/gamma_sub_ceba_pilot_summary.json`; `outputs/figures/gamma_sub_ceba_boundary_v1.png` |
+| CEBA point/set/abstention semantics | diagnostic `supported`; deployable refusal `forbidden` | `outputs/tables/prompt32_ceba_semantic_audit.json` |
+| Figure 5 semantic lock | bundled configuration `qualified_supported`; isolated protocol gain `forbidden` | `outputs/tables/prompt32_figure5_semantic_audit.json`; `outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_summary.json` |
+| M32 SCIS | `failed_but_informative`; nominal coverage passes, mismatch refusal fails | `outputs/tables/gamma_sub_scis_preregistration.json`; `outputs/tables/gamma_sub_scis_cache_preflight.json`; `outputs/tables/gamma_sub_scis_summary.json`; `outputs/tables/gamma_sub_scis_cases.csv`; `outputs/figures/gamma_sub_scis_certificate_v1.png` |
 | N1-N3 / SC-LOS | not run / `forbidden` | failed upstream trained-forward and geometry gates |
 
-Current report: `docs/codex_reports/prompt31_three_commit_cpcf_semantic_review.md`.
+Current report: `docs/codex_reports/prompt32_scis_and_manuscript_semantic_lock.md`.
 
 Detailed reports:
 

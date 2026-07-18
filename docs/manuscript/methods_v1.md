@@ -72,13 +72,36 @@ $$
 
 The calibration coordinate is the absolute error `delta_T_sw_K`; no normalized cost or protocol/noise factor is used. Candidate cache keys contain only waveform hash, `gamma_sub`, and solver hash; target keys contain waveform hash, absolute `delta_T_sw_K`, and solver hash. Observation count, noise, and seed are post-trajectory scoring operations. Six direct-source anchors must reproduce best gamma, relative error, recoverability, objective value/order, waveform hash, and solver hash before the pilot can run. Pilot success requires seed success probability at least `0.80`, abstention at most `0.20`, a direct success/failure bracket, and unchanged classification under one refined solver. The total cap is 60 unique solver trajectories, two workers, and 30 minutes.
 
+The CEBA semantic audit keeps point success separate from abstention. The historical profile cutoff is exactly
+
+$$
+J_{\min}+0.05\left(J_{\max}-J_{\min}\right),
+$$
+
+but its retained-class abstention reads the synthetic truth and uses a locally hard-coded `0.15` class radius. It is therefore an oracle diagnostic, not a deployable uncertainty decision. M32 does not alter this historical rule.
+
+The independent Simulation-Calibrated Identifiability Set (SCIS) uses only the 36 already cached CEBA base-solver trajectories. For candidate (\gamma_j), the calibration score is
+
+$$
+s_j(y)=J(\gamma_j;y)-\min_k J(\gamma_k;y),
+$$
+
+and the candidate-specific threshold (q_j) is the finite-sample split-conformal order statistic with one-based rank
+
+$$
+r=\min\!\left\{n,\left\lceil(n+1)(1-\alpha)\right\rceil\right\},
+\qquad \alpha=0.10.
+$$
+
+Inference forms (C_\alpha(y)=\{\gamma_j:s_j(y)\le q_j\}) without receiving the true parameter. It accepts only when the set is nonempty and every member is within relative distance `0.15` of the objective minimizer. Discovery, calibration, and held-out seeds are disjoint; `delta_T_sw_K=0` is the only coverage population, whereas `0.2 K` and `2 K` are mismatch stress tests. Any cache miss is a hard stop with no solver fallback.
+
 ## Device-Scale Extensions
 
 V10 multilayer OASIS evidence is supplementary. P1 is a field-anchored CV physics-regularized surrogate with a failed strict interface gate; P2 is local linearized block recovery with rank-deficient selected protocols; P3 supports only segmented-terminal forward/current integration and local three-parameter observability; P4 remains blocked.
 
 ## Reproduction And Artifact Mapping
 
-The one-to-one equation/config/script/test/JSON-CSV/figure/limitation/sentence mapping and commands are authoritative in `docs/paper/gamma_sub_evidence_lock.md`. Figure 5 uses the 720-case calibrated sequential validation; the broader 2400-case stress audit is supplementary because its source marks it not main-figure ready.
+The one-to-one equation/config/script/test/JSON-CSV/figure/limitation/sentence mapping and commands are authoritative in `docs/paper/gamma_sub_evidence_lock.md`. Figure 5 uses the 720-case calibrated sequential validation, but the six candidate labels all invoke `simulator_protocol=ltp_ltd` while jointly varying waveform, duration, and calibration-error factor. Its heat term is an implemented candidate-simulation residual, not measured temperature supervision, and the configured `prior_width_factor` is not consumed by the script. Figure 5 therefore reports bundled calibrated-configuration performance and does not isolate causal protocol gain. The broader 2400-case stress audit remains supplementary because its source marks it not main-figure ready.
 
 ## VO2 Reproduction And Complete-PINN Audit
 

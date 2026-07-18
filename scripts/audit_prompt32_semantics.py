@@ -108,6 +108,7 @@ def build_ceba_audit(scis_config_path: Path = DEFAULT_SCIS_CONFIG) -> dict[str, 
                             "endpoint_change": endpoint_label,
                             "full_retained_set": full_set,
                             "reduced_retained_set": reduced_set,
+                            "retained_set_changed": set(full_set) != set(reduced_set),
                             "common_grid_membership_changed": set(common_full) != set(reduced_set),
                         }
                     )
@@ -153,9 +154,11 @@ def build_ceba_audit(scis_config_path: Path = DEFAULT_SCIS_CONFIG) -> dict[str, 
         "n32_noise0p02_conditions": conditions,
         "candidate_endpoint_sensitivity": {
             "comparison_case_count": len(endpoint_comparisons),
+            "remove_low_any_set_change_rate": float(np.mean([row["retained_set_changed"] for row in low])),
+            "remove_high_any_set_change_rate": float(np.mean([row["retained_set_changed"] for row in high])),
             "remove_low_common_membership_change_rate": float(np.mean([row["common_grid_membership_changed"] for row in low])),
             "remove_high_common_membership_change_rate": float(np.mean([row["common_grid_membership_changed"] for row in high])),
-            "any_retained_set_change": any(row["common_grid_membership_changed"] for row in endpoint_comparisons),
+            "any_retained_set_change": any(row["retained_set_changed"] for row in endpoint_comparisons),
             "comparisons": endpoint_comparisons,
         },
         "scientific_resolution": {

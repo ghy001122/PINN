@@ -8,7 +8,7 @@ Read this file and `docs/research_strategy/active_phase.md` first. Load longer c
 - Phase ID: `M_GAMMA_SUB_MANUSCRIPT_ASSEMBLY`
 - Current evidence: `docs/project_state/current_evidence_index.md`
 - Safe historical evidence lock: `d1121e16fa5015a297da468e3e6f0504b9e97d17`
-- Current report: `docs/codex_reports/prompt31_three_commit_cpcf_semantic_review.md`
+- Current report: `docs/codex_reports/prompt32_scis_and_manuscript_semantic_lock.md`
 
 ## Corrected North Star
 
@@ -18,7 +18,7 @@ The calibration-gated constrained `gamma_sub` rank-1 result is the safe `qualifi
 
 ## Single Active Bottleneck
 
-`M_GAMMA_SUB_MANUSCRIPT_ASSEMBLY`: assemble the manuscript only from locked `gamma_sub` evidence plus explicit D0/N0/SID/CPCF/CEBA boundaries. N0 optimizer work, the current SID/EC-OQ implementation, CPCF scientific interpretation, and CEBA boundary search are closed. No N1-N3, SC-LOS, 13 V access, external refit, or CPCF/CEBA expansion is active.
+`M_GAMMA_SUB_MANUSCRIPT_ASSEMBLY`: assemble the manuscript only from locked `gamma_sub` evidence plus explicit D0/N0/SID/CPCF/CEBA/SCIS boundaries. N0 optimizer work, the current SID/EC-OQ implementation, CPCF scientific interpretation, CEBA boundary search, and SCIS replacement audit are closed. No N1-N3, SC-LOS, 13 V access, external refit, or CPCF/CEBA/SCIS expansion is active.
 
 ## Evidence Snapshot
 
@@ -33,6 +33,9 @@ The calibration-gated constrained `gamma_sub` rank-1 result is the safe `qualifi
 - Solver-first SID/EC-OQ: `failed_but_informative`. Derivative agreement passes `3/9`, one event window degenerates to the full trace, and stability/dual-geometry gates fail. The preregistered implementation is rejected and inactive; this does not permanently falsify the broader scientific hypothesis. A revisit requires a new user-authorized numerical derivative/event-window contract.
 - CPCF semantic audit: frontier inference is `forbidden`; software diagnosis is `failed_but_informative`. All `48` votes are proxy-derived and the protocol, solver/grid, candidate, objective, unit, bootstrap, and Pareto contracts are non-equivalent. Historical artifacts are immutable non-voting diagnostics.
 - CEBA: exact-source implementation parity is `supported` (`6/6` anchors; `36` unique trajectories). The bounded `72`-case cached pilot is `failed_but_informative` because the locked ambiguity rule abstains at zero `T_sw` error; no bracket, `delta_T_sw_star`, or refinement vote exists.
+- Prompt32 CEBA semantics: historical point success is separated from truth-dependent oracle abstention. The abstention is not deployable and its five-percent retained set depends on candidate-grid span.
+- Figure 5: `qualified_supported` only for bundled calibrated-configuration performance; isolated protocol gain is `forbidden` because waveform/duration and calibration-error factor vary together.
+- M32 SCIS: `failed_but_informative`. Nominal pooled coverage is `0.93233`, but all `2 K` mismatch cases are accepted while point success is zero. No operational refusal-certificate claim is allowed.
 - Reliable full-PINN forward, sensitivity fidelity, and inverse claims remain `forbidden`.
 
 ## Evidence Semantics
@@ -41,4 +44,4 @@ Keep `public_external_raw`, `derived`, `interpolated`, `solver_generated`, `pinn
 
 ## Operating Rule
 
-Preserve all negative artifacts and unchanged preregistered gates. Do not reinterpret operator preflight or a narrow port fit as trained PINN fidelity; do not reopen N0 optimization, rename failed SID/EC-OQ diagnostics, give CPCF a scientific vote, or relax CEBA after abstention. Use only `supported`, `qualified_supported`, `failed_but_informative`, or `forbidden`.
+Preserve all negative artifacts and unchanged preregistered gates. Do not reinterpret operator preflight or a narrow port fit as trained PINN fidelity; do not reopen N0 optimization, rename failed SID/EC-OQ diagnostics, give CPCF a scientific vote, relax CEBA after abstention, tune SCIS after mismatch-refusal failure, or restore isolated protocol-gain wording to Figure 5. Use only `supported`, `qualified_supported`, `failed_but_informative`, or `forbidden`.

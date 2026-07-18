@@ -7,7 +7,9 @@
 - [ ] Full hidden-field recovery is stated as ill-posed for port-only observations.
 - [ ] `gamma_sub` recovery is stated as conditional on fixed or tightly bounded priors.
 - [ ] `T_sw` is treated as the dominant confounder and calibration boundary.
-- [ ] Protocol gain is described as secondary to calibration gain.
+- [ ] Figure 5 is described as bundled calibrated-configuration performance, not isolated protocol gain or protocol optimality.
+- [ ] CEBA abstention is identified as a true-gamma-dependent oracle diagnostic, not a deployable refusal rule.
+- [ ] SCIS nominal coverage and severe-mismatch refusal failure are both reported; no operational certificate is claimed.
 - [ ] Stiffness-continuation is described as preflight, not full STL-PINN.
 - [ ] Fourier/F-SPS superiority is not claimed.
 - [ ] Quasi-2D is described as extensibility and observability-boundary evidence only.

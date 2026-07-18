@@ -19,7 +19,9 @@ Required boundaries:
 7. report solver-first SID/EC-OQ as rejected after derivative, event-window, stability, and dual-geometry failures;
 8. report CPCF as an implementation-contract-invalid, non-voting software diagnostic; it supports neither existence nor absence of a resource frontier;
 9. report CEBA parity as an implementation result and the pilot as a locked abstention boundary with no `delta_T_sw_star`;
-10. keep full-PINN forward, sensitivity, quotient inverse, protocol-geometry, CPCF frontier, and positive CEBA boundary claims forbidden.
+10. report CEBA point success separately from its truth-dependent oracle abstention, and relabel Figure 5 as bundled calibrated-configuration performance rather than isolated protocol gain;
+11. report M32 SCIS as `failed_but_informative`: nominal set coverage passed, but severe-mismatch refusal failed;
+12. keep full-PINN forward, sensitivity, quotient inverse, protocol-geometry, CPCF frontier, positive CEBA boundary, and operational SCIS-certificate claims forbidden.
 
 ### N0 — permanent stop for this optimizer route
 
@@ -29,15 +31,15 @@ Do not rerun, retune, change normalization, skip L-BFGS, add labels, activate an
 
 Do not move event windows, relax the derivative gate, select only favorable protocols, or repackage isolated angles/rank diagnostics. Any future revisit requires a new user-authorized phase and a new numerical derivative/window contract; it is not part of the current queue.
 
-### CPCF and CEBA — closed
+### CPCF, CEBA, and SCIS — closed
 
-CPCF's historical artifacts remain immutable, but the superseding semantic audit sets `scientific_vote=false`; do not use its table or Pareto image as scientific decision evidence. CEBA passes all six exact-source parity anchors but its preregistered pilot abstains at zero error and forms no direct success/failure bracket. Do not change the ambiguity threshold, add seeds, run refinement, expand the delta range, or start a replacement experiment.
+CPCF's historical artifacts remain immutable, but the superseding semantic audit sets `scientific_vote=false`; do not use its table or Pareto image as scientific decision evidence. CEBA passes all six exact-source parity anchors but its preregistered pilot abstains at zero error and forms no direct success/failure bracket. Its abstention is an oracle diagnostic, not a runtime certificate. SCIS removes truth from inference and passes nominal coverage, but accepts all severe mismatch cases; do not tune alpha, replace seeds, delete candidates, or change the acceptance radius after this failure. No replacement UQ experiment is active.
 
 ### D0 and N1-N3 — held
 
 - D0b-D0d remain blocked by D0a; 13 V stays sealed.
 - N1/N2 sensitivity and N3 quotient inverse remain unrun and `forbidden` as completed evidence.
-- SC-LOS, DWR, operator learning, UQ, 2D, new hysteresis, latent heat, and external fitting are outside the active phase. The next research candidate after manuscript closure is the registered QoI-guided Event-Conditioned complete PINN, but it requires a new authorization and independent solver/field/interface/conservation gates. H1-H3 upgrades remain evidence-triggered registry items only.
+- SC-LOS, DWR, operator learning, further UQ, 2D, new hysteresis, latent heat, and external fitting are outside the active phase. The immediate highest-value action is manuscript assembly with the CEBA/SCIS refusal failure and Figure 5 semantic downgrade locked into claims, figures, limitations, and reviewer defense. The next research candidate after manuscript closure is the registered QoI-guided Event-Conditioned complete PINN, but it requires a new authorization and independent solver/field/interface/conservation gates. H1-H3 upgrades remain evidence-triggered registry items only.
 
 ## Non-negotiable boundaries
 

@@ -10,7 +10,7 @@ def test_reviewer_defense_matrix_covers_locked_questions_without_tracked_side_ef
     out = build_reviewer_defense_matrix(tmp_path / "reviewer_defense.md")
     text = out.read_text(encoding="utf-8")
     assert OUT.read_bytes() == before
-    assert len(QUESTIONS) == 17
+    assert len(QUESTIONS) == 19
     required = [
         "black-box",
         "full hidden fields",
@@ -18,6 +18,8 @@ def test_reviewer_defense_matrix_covers_locked_questions_without_tracked_side_ef
         "0.1 K",
         "observation count",
         "Figure 5",
+        "CEBA abstention",
+        "SCIS",
         "external-curve",
         "P1",
         "P2",

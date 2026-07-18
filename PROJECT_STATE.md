@@ -12,6 +12,8 @@
 - SID/EC-OQ: solver-first discovery executed and failed its numerical derivative, event-window, stability, and dual-geometry gates. The current implementation is rejected and inactive; the broader hypothesis is not permanently falsified.
 - CPCF: a stricter semantic audit supersedes its scientific interpretation. The historical pilot remains immutable, but `scientific_vote=false` because protocol, solver/grid, candidate, objective, unit, replicate/bootstrap, and Pareto contracts are non-equivalent.
 - CEBA: exact direct-solver parity passes all `6/6` anchors. The bounded pilot is `failed_but_informative`: its locked ambiguity rule abstains at zero `T_sw` error, so no bracket, `delta_T_sw_star`, refinement vote, or configuration claim exists.
+- M32 semantics: CEBA point success is now reported separately from its truth-dependent oracle abstention. Figure 5 is downgraded from isolated protocol gain to bundled calibrated-configuration performance because waveform and calibration error vary together and `prior_width_factor` is unused.
+- SCIS: `failed_but_informative`. Cache-only nominal coverage passes (`0.93233` pooled; `0.85` worst candidate), but the preregistered mismatch-refusal gate fails because `delta_T_sw_K=2` is accepted in `100%` of cases while point success is `0%`. No ODE solve or PINN training was added.
 - N1-N3 and SC-LOS: not run; positive claims `forbidden`.
 - Project-generated experimental validation: absent.
 
@@ -34,6 +36,9 @@
 | Solver-first SID/EC-OQ | `failed_but_informative`; current implementation rejected | Derivative passes only `3/9`; event-window and stability gates fail. A new contract and explicit authorization are required to revisit the broader hypothesis. |
 | CPCF semantic vote | frontier inference `forbidden`; software audit `failed_but_informative` | `48/48` votes are proxy-derived, zero rows are fully direct-solver voting cases, and the implementation contracts are non-equivalent. Historical files are preserved only as non-voting diagnostics. |
 | CEBA direct-solver boundary | parity `supported`; boundary `failed_but_informative` | `6/6` parity anchors pass using `36` unique trajectories. The `72`-case cached pilot abstains at `delta_T_sw_K=0`, so no boundary claim is eligible. |
+| CEBA operational semantics | deployable refusal `forbidden`; diagnostic audit `supported` | The historical abstention reads `true_gamma`, hard-codes `0.15`, and its five-percent retained set changes under candidate-endpoint deletion. Point success and oracle abstention must be separated. |
+| Figure 5 semantics | bundled performance `qualified_supported`; isolated protocol gain `forbidden` | All six candidates use the LTP/LTD simulator and confound waveform/duration with calibration-error factor; configured `prior_width_factor` is unused. |
+| M32 SCIS | `failed_but_informative` | Nominal coverage gates pass, but severe mismatch refusal fails (`delta=2 K`: acceptance `1.0`, point success `0.0`). It is not an operational coverage/refusal certificate. |
 | N1-N3 / SC-LOS | `forbidden` | Upstream trained-forward and geometry gates did not pass. |
 
 ## Distance to delivery goal

@@ -1,0 +1,417 @@
+{
+  "all_required_entries_valid": true,
+  "cache_only": true,
+  "entries": [
+    {
+      "cache_key": "0175f31d5c1db10ccbf01cb7dc2725bde7f217a4e8e8587083d2ea742dd6444f|gamma_sub=150000000|776fadd63b70c17fe431536b6260615528c0fe5ea443503e90a2117840294029",
+      "coordinate": 150000000.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/1e3272792ad48dee41c4f3ebb69cd5a0b89864b19452c4e0f01ebcd2635e62cc.npz",
+      "protocol": "triangle",
+      "role": "candidate",
+      "sha256": "23a5345920aec87f6df8f3ccadd3a8b05df515dfe6fa7ec6bb875c8632dbf11a"
+    },
+    {
+      "cache_key": "0175f31d5c1db10ccbf01cb7dc2725bde7f217a4e8e8587083d2ea742dd6444f|gamma_sub=200000000|776fadd63b70c17fe431536b6260615528c0fe5ea443503e90a2117840294029",
+      "coordinate": 200000000.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/d6a707d2fcdc80ad3b9f1c2209d55409363f570696ebdb80127b04b3b245c196.npz",
+      "protocol": "triangle",
+      "role": "candidate",
+      "sha256": "082770f5cdbf67b25fde1f0ca91d49bb82c82050af2a1abdd81dd533c6b64696"
+    },
+    {
+      "cache_key": "0175f31d5c1db10ccbf01cb7dc2725bde7f217a4e8e8587083d2ea742dd6444f|gamma_sub=275000000|776fadd63b70c17fe431536b6260615528c0fe5ea443503e90a2117840294029",
+      "coordinate": 275000000.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/dabfb01231bba78c57fda61e278db5569c9a0ec11b0e2edbc11464f99d1e734e.npz",
+      "protocol": "triangle",
+      "role": "candidate",
+      "sha256": "a0c21bbfae4b0b6874e72c6d49d823e2f9b39a680fa20f7632eb571fd984367d"
+    },
+    {
+      "cache_key": "0175f31d5c1db10ccbf01cb7dc2725bde7f217a4e8e8587083d2ea742dd6444f|gamma_sub=325000000|776fadd63b70c17fe431536b6260615528c0fe5ea443503e90a2117840294029",
+      "coordinate": 325000000.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/d783e7bf3b4ea1a5da8ac493e2d639cf22b4d75bba90a0910fda7bb607fc2635.npz",
+      "protocol": "triangle",
+      "role": "candidate",
+      "sha256": "6ad71b6d923af192608194571063a1075c3f1a21d071b1a8124cacc2c1fccaea"
+    },
+    {
+      "cache_key": "0175f31d5c1db10ccbf01cb7dc2725bde7f217a4e8e8587083d2ea742dd6444f|gamma_sub=375000000|776fadd63b70c17fe431536b6260615528c0fe5ea443503e90a2117840294029",
+      "coordinate": 375000000.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/171e459dd825ce8338db0e2701227863dc0dc2fdabcffda7c060bfb93897dc78.npz",
+      "protocol": "triangle",
+      "role": "candidate",
+      "sha256": "ec2794127925290a2fc1de2a2099bb4dce72cf41a2f389770eadf9ad442352c2"
+    },
+    {
+      "cache_key": "0175f31d5c1db10ccbf01cb7dc2725bde7f217a4e8e8587083d2ea742dd6444f|gamma_sub=400000000|776fadd63b70c17fe431536b6260615528c0fe5ea443503e90a2117840294029",
+      "coordinate": 400000000.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/e27d936cb5a554668f8039a8f6963d9bc7cd4681bce1f38326e7f18706510d31.npz",
+      "protocol": "triangle",
+      "role": "candidate",
+      "sha256": "fbd7aab149bfb4feda57a1678194585a269460208d3735c0408e4b0a4a9e5df0"
+    },
+    {
+      "cache_key": "0175f31d5c1db10ccbf01cb7dc2725bde7f217a4e8e8587083d2ea742dd6444f|gamma_sub=425000000|776fadd63b70c17fe431536b6260615528c0fe5ea443503e90a2117840294029",
+      "coordinate": 425000000.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/8627c81eaee6ba4771a39d56495eb09e852eaec2e22309697e37e31eacc95fe8.npz",
+      "protocol": "triangle",
+      "role": "candidate",
+      "sha256": "07333db446c8c75b786ac55288567d68c28259b81bec72db08c004642f632b43"
+    },
+    {
+      "cache_key": "0175f31d5c1db10ccbf01cb7dc2725bde7f217a4e8e8587083d2ea742dd6444f|gamma_sub=450000000|776fadd63b70c17fe431536b6260615528c0fe5ea443503e90a2117840294029",
+      "coordinate": 450000000.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/76dec47277753960ecf09ef8eee0377d6cda915f5e232bd0abb2e5e402abc8d9.npz",
+      "protocol": "triangle",
+      "role": "candidate",
+      "sha256": "59ec2fa41ff6b915702d38b71e224a05bbd410fec469a53133607d0ed79fd168"
+    },
+    {
+      "cache_key": "0175f31d5c1db10ccbf01cb7dc2725bde7f217a4e8e8587083d2ea742dd6444f|gamma_sub=475000000|776fadd63b70c17fe431536b6260615528c0fe5ea443503e90a2117840294029",
+      "coordinate": 475000000.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/8e9db77f8128beedec777740182de40c1176e6f5cf3e25dd31aedfac78ee7256.npz",
+      "protocol": "triangle",
+      "role": "candidate",
+      "sha256": "8e4d389de63440b189189ce2dd27541a6087f67c827b462ba9562d230880c31d"
+    },
+    {
+      "cache_key": "0175f31d5c1db10ccbf01cb7dc2725bde7f217a4e8e8587083d2ea742dd6444f|gamma_sub=500000000|776fadd63b70c17fe431536b6260615528c0fe5ea443503e90a2117840294029",
+      "coordinate": 500000000.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/23d228123bd721b832a293090b81bfd3bf3c2cddd97096fdb9412e00f8050ee5.npz",
+      "protocol": "triangle",
+      "role": "candidate",
+      "sha256": "8e19a402a76af760f81dbcae35701799490b5f710f75a03af02a187e5d93f0b1"
+    },
+    {
+      "cache_key": "0175f31d5c1db10ccbf01cb7dc2725bde7f217a4e8e8587083d2ea742dd6444f|gamma_sub=550000000|776fadd63b70c17fe431536b6260615528c0fe5ea443503e90a2117840294029",
+      "coordinate": 550000000.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/74bb93b1bd6c8cf7ade8e8b6b87a980773b60dcbb16f457dbfa7dc53de26dcda.npz",
+      "protocol": "triangle",
+      "role": "candidate",
+      "sha256": "8336af89172fd1d32f0a834a9ea81598a37772d0b3ed05dbf4f2ce992b1f5daf"
+    },
+    {
+      "cache_key": "0175f31d5c1db10ccbf01cb7dc2725bde7f217a4e8e8587083d2ea742dd6444f|gamma_sub=650000000|776fadd63b70c17fe431536b6260615528c0fe5ea443503e90a2117840294029",
+      "coordinate": 650000000.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/1884a88778212983e767d4dce16a0d307068d57cc0a5d6120cba61d9a1cfc467.npz",
+      "protocol": "triangle",
+      "role": "candidate",
+      "sha256": "a29f425c7a46c848a8e67a59c5461db8317dfa2d847382ef0c2d827ea70ddc25"
+    },
+    {
+      "cache_key": "0175f31d5c1db10ccbf01cb7dc2725bde7f217a4e8e8587083d2ea742dd6444f|gamma_sub=750000000|776fadd63b70c17fe431536b6260615528c0fe5ea443503e90a2117840294029",
+      "coordinate": 750000000.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/1a72817d41f91345ed0125fb94ecb3d35398556a9dd853192efefa9032852fd6.npz",
+      "protocol": "triangle",
+      "role": "candidate",
+      "sha256": "f5d864a81e4d33e3e265663b2f102e75774c42c99fbe4ee8caa80b2614c9093e"
+    },
+    {
+      "cache_key": "0175f31d5c1db10ccbf01cb7dc2725bde7f217a4e8e8587083d2ea742dd6444f|gamma_sub=900000000|776fadd63b70c17fe431536b6260615528c0fe5ea443503e90a2117840294029",
+      "coordinate": 900000000.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/651f61ef97974d3d4369d1e81994e3244dcaf9d3a14021089566a2c5c03b48be.npz",
+      "protocol": "triangle",
+      "role": "candidate",
+      "sha256": "9690b6bb63b11a0ab4495aaccbfcfd2a4e00347bb2bd0e039c4d3041056f3b10"
+    },
+    {
+      "cache_key": "0175f31d5c1db10ccbf01cb7dc2725bde7f217a4e8e8587083d2ea742dd6444f|gamma_sub=1000000000|776fadd63b70c17fe431536b6260615528c0fe5ea443503e90a2117840294029",
+      "coordinate": 1000000000.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/8a29ffce5cb340af3a833ab05d0a38c4d989eabef4afa951a4b7e2be12e38020.npz",
+      "protocol": "triangle",
+      "role": "candidate",
+      "sha256": "803bc4c81fcfd2190f3eb15510ca6e7f996aba3c736293f99f79b238dd8c94b6"
+    },
+    {
+      "cache_key": "0175f31d5c1db10ccbf01cb7dc2725bde7f217a4e8e8587083d2ea742dd6444f|delta_T_sw_K=0|776fadd63b70c17fe431536b6260615528c0fe5ea443503e90a2117840294029",
+      "coordinate": 0.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/0f57b8e4d1b57aea01150c076f8976dc077ac2419651dff76a6c94f583b0bd92.npz",
+      "protocol": "triangle",
+      "role": "target",
+      "sha256": "fc876a8e363e51bb8a6763c8789beae027ebfa0391280a6ffcab3e93121fae20"
+    },
+    {
+      "cache_key": "0175f31d5c1db10ccbf01cb7dc2725bde7f217a4e8e8587083d2ea742dd6444f|delta_T_sw_K=0.20000000000000001|776fadd63b70c17fe431536b6260615528c0fe5ea443503e90a2117840294029",
+      "coordinate": 0.2,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/bdbb438bc79139ac0b27c489fdd6e49fce8e8488b6935ab057b475243f455ad5.npz",
+      "protocol": "triangle",
+      "role": "target",
+      "sha256": "93d881c38800a9b020019ab2beca36e360da0bb8c72439eaa9d405f159e17073"
+    },
+    {
+      "cache_key": "0175f31d5c1db10ccbf01cb7dc2725bde7f217a4e8e8587083d2ea742dd6444f|delta_T_sw_K=2|776fadd63b70c17fe431536b6260615528c0fe5ea443503e90a2117840294029",
+      "coordinate": 2.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/f6f5e1a051de301d00537aae381dd8fcea8f5ff67082e34b73fff7519eec67ae.npz",
+      "protocol": "triangle",
+      "role": "target",
+      "sha256": "426375479b46ee5861c331b468f808e8d301369e7dc3bee422806fe37510a7ac"
+    },
+    {
+      "cache_key": "270be7f5473c71f50d9bae58e8b87bf68a1f920a2481bb327f3d476b720d9eed|gamma_sub=150000000|ffd5976d538e06e3352d65b680c24abed25748f60f9f4f6ec33d87d70a61a47b",
+      "coordinate": 150000000.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/c135ff153d9615100088c7a84f4e94eb955ce3c8baac8a4ed812ffb279191bc4.npz",
+      "protocol": "ltp_ltd",
+      "role": "candidate",
+      "sha256": "5c27fecb432a609cb40bf2b5777974bfd7be4785a6a3912a96da0ee92ea2203e"
+    },
+    {
+      "cache_key": "270be7f5473c71f50d9bae58e8b87bf68a1f920a2481bb327f3d476b720d9eed|gamma_sub=200000000|ffd5976d538e06e3352d65b680c24abed25748f60f9f4f6ec33d87d70a61a47b",
+      "coordinate": 200000000.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/ca64352a72517eff543edf8d26259b1f297100f7376a5b902489d78f6dd0a01a.npz",
+      "protocol": "ltp_ltd",
+      "role": "candidate",
+      "sha256": "d26b5429111bf4a6772513a6a03cb9026a3a970dd2f77203b03d6ac0b5354e48"
+    },
+    {
+      "cache_key": "270be7f5473c71f50d9bae58e8b87bf68a1f920a2481bb327f3d476b720d9eed|gamma_sub=275000000|ffd5976d538e06e3352d65b680c24abed25748f60f9f4f6ec33d87d70a61a47b",
+      "coordinate": 275000000.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/96b95b5ff7b87111bc429363d6fb78861bce118757ea731d873a65eae88a4cf9.npz",
+      "protocol": "ltp_ltd",
+      "role": "candidate",
+      "sha256": "0be089d9fc0efe4c5075c085006d2c910984c8e716176e9b19be04fcc49f7a76"
+    },
+    {
+      "cache_key": "270be7f5473c71f50d9bae58e8b87bf68a1f920a2481bb327f3d476b720d9eed|gamma_sub=325000000|ffd5976d538e06e3352d65b680c24abed25748f60f9f4f6ec33d87d70a61a47b",
+      "coordinate": 325000000.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/b44d27725b0e55c56ef73f4c8ffb04e2ca1c6e3c3b3b626a7edcd67429870d89.npz",
+      "protocol": "ltp_ltd",
+      "role": "candidate",
+      "sha256": "7ac6b5a3a750a9a5052b2860f99fd9aaf1a921eac924ecb47fcf93fcfa0ec61c"
+    },
+    {
+      "cache_key": "270be7f5473c71f50d9bae58e8b87bf68a1f920a2481bb327f3d476b720d9eed|gamma_sub=375000000|ffd5976d538e06e3352d65b680c24abed25748f60f9f4f6ec33d87d70a61a47b",
+      "coordinate": 375000000.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/18068310edd15849e7b5067ace1e40b21405bb7c5ddbbbbd6a31505970b8950a.npz",
+      "protocol": "ltp_ltd",
+      "role": "candidate",
+      "sha256": "b8b01e680b4506e69f6d04bc8011dd385a76f1cf32a143d322e95f4b1cf902f1"
+    },
+    {
+      "cache_key": "270be7f5473c71f50d9bae58e8b87bf68a1f920a2481bb327f3d476b720d9eed|gamma_sub=400000000|ffd5976d538e06e3352d65b680c24abed25748f60f9f4f6ec33d87d70a61a47b",
+      "coordinate": 400000000.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/a3f1b85d97e597b5a9d1524d9ac66120ebc1b0c3c8547c628d9adb7cf83c107b.npz",
+      "protocol": "ltp_ltd",
+      "role": "candidate",
+      "sha256": "5ef02cdb4b3063f68369b763bbb87e03c7d4c028556be33645ee21fab264d81e"
+    },
+    {
+      "cache_key": "270be7f5473c71f50d9bae58e8b87bf68a1f920a2481bb327f3d476b720d9eed|gamma_sub=425000000|ffd5976d538e06e3352d65b680c24abed25748f60f9f4f6ec33d87d70a61a47b",
+      "coordinate": 425000000.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/19ec0b49a6f1e74437c8fa35844e178f89c55883ce1bad95b98cc016174b5d7a.npz",
+      "protocol": "ltp_ltd",
+      "role": "candidate",
+      "sha256": "742c8ffbdfe29977f7ae420f2b255bf966a0a4e199de296c7e2469bf5321a742"
+    },
+    {
+      "cache_key": "270be7f5473c71f50d9bae58e8b87bf68a1f920a2481bb327f3d476b720d9eed|gamma_sub=450000000|ffd5976d538e06e3352d65b680c24abed25748f60f9f4f6ec33d87d70a61a47b",
+      "coordinate": 450000000.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/bf1786fdc9ef6e59d659536e3644846c0f662c21452d78bc7fe7e80ac121c30b.npz",
+      "protocol": "ltp_ltd",
+      "role": "candidate",
+      "sha256": "ededa6db1d6baca0d0ac9a61055ccfd11874835825b3d2a670be127396fec7a2"
+    },
+    {
+      "cache_key": "270be7f5473c71f50d9bae58e8b87bf68a1f920a2481bb327f3d476b720d9eed|gamma_sub=475000000|ffd5976d538e06e3352d65b680c24abed25748f60f9f4f6ec33d87d70a61a47b",
+      "coordinate": 475000000.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/cfafdcac8ac5540c0e0f8dc9936d73b6b8de64594ddd80d6321330fcdec56df2.npz",
+      "protocol": "ltp_ltd",
+      "role": "candidate",
+      "sha256": "db015abe1053abf8f779eae2cd08361a763daa3690c2f49e02eb2aca5ed16c12"
+    },
+    {
+      "cache_key": "270be7f5473c71f50d9bae58e8b87bf68a1f920a2481bb327f3d476b720d9eed|gamma_sub=500000000|ffd5976d538e06e3352d65b680c24abed25748f60f9f4f6ec33d87d70a61a47b",
+      "coordinate": 500000000.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/d96449325616fcce8a7202ea16eb8e81b800d3f769a0ed3fbc8699f280ab09ad.npz",
+      "protocol": "ltp_ltd",
+      "role": "candidate",
+      "sha256": "1bc575286119a5d8c6377bee16171c24971afdf31714a2aa41a0228bdfdb13a8"
+    },
+    {
+      "cache_key": "270be7f5473c71f50d9bae58e8b87bf68a1f920a2481bb327f3d476b720d9eed|gamma_sub=550000000|ffd5976d538e06e3352d65b680c24abed25748f60f9f4f6ec33d87d70a61a47b",
+      "coordinate": 550000000.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/79ef7c8059b07cb35c9c6ba0eb3470577bdfbd5cfd4c53c4e745668a172da330.npz",
+      "protocol": "ltp_ltd",
+      "role": "candidate",
+      "sha256": "110ac9c7292ce5facf91a89ab080a65fe8726bc0dface32a150c79a42fd676f5"
+    },
+    {
+      "cache_key": "270be7f5473c71f50d9bae58e8b87bf68a1f920a2481bb327f3d476b720d9eed|gamma_sub=650000000|ffd5976d538e06e3352d65b680c24abed25748f60f9f4f6ec33d87d70a61a47b",
+      "coordinate": 650000000.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/f88bed885cd2ab7ab1859c8a233e5f564461e0c39fb66d959ad14f653cdb0558.npz",
+      "protocol": "ltp_ltd",
+      "role": "candidate",
+      "sha256": "47c5ab271d0f81a666062d518cf43f615896864aaaf4a6a5e4e64969d5d0cb97"
+    },
+    {
+      "cache_key": "270be7f5473c71f50d9bae58e8b87bf68a1f920a2481bb327f3d476b720d9eed|gamma_sub=750000000|ffd5976d538e06e3352d65b680c24abed25748f60f9f4f6ec33d87d70a61a47b",
+      "coordinate": 750000000.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/ddf770029a352d592410f96a34057bc66b71b5a62d720468ddc149e8e5b3a763.npz",
+      "protocol": "ltp_ltd",
+      "role": "candidate",
+      "sha256": "1ff23da14979044479861fa289ee8945214746a139729ba8167892e031e3eb3f"
+    },
+    {
+      "cache_key": "270be7f5473c71f50d9bae58e8b87bf68a1f920a2481bb327f3d476b720d9eed|gamma_sub=900000000|ffd5976d538e06e3352d65b680c24abed25748f60f9f4f6ec33d87d70a61a47b",
+      "coordinate": 900000000.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/dacde2675a3e8d293a37e2c415ca78c9e0bc6798b49e8d94e7ab7ac57c9bd939.npz",
+      "protocol": "ltp_ltd",
+      "role": "candidate",
+      "sha256": "37875af003f3386804cf58726bdbc6f522691789735b0b19a9d4fac7bb20acf6"
+    },
+    {
+      "cache_key": "270be7f5473c71f50d9bae58e8b87bf68a1f920a2481bb327f3d476b720d9eed|gamma_sub=1000000000|ffd5976d538e06e3352d65b680c24abed25748f60f9f4f6ec33d87d70a61a47b",
+      "coordinate": 1000000000.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/f1cb04bc97c133b148080e041b37772181b47a215f920a4e5cb7fea19dcab659.npz",
+      "protocol": "ltp_ltd",
+      "role": "candidate",
+      "sha256": "42375afe859c35f991d87f6cecfbb139fdb8aed78fa43e9e44b3c22bf1b760e7"
+    },
+    {
+      "cache_key": "270be7f5473c71f50d9bae58e8b87bf68a1f920a2481bb327f3d476b720d9eed|delta_T_sw_K=0|ffd5976d538e06e3352d65b680c24abed25748f60f9f4f6ec33d87d70a61a47b",
+      "coordinate": 0.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/d69f92dfefbf2c18f738321a65a5ecacc4f21f428135308afde71cd5571bde01.npz",
+      "protocol": "ltp_ltd",
+      "role": "target",
+      "sha256": "95c8d4906939146281b6025f48cf31bbcaed867f76527020ea252f8e0958a669"
+    },
+    {
+      "cache_key": "270be7f5473c71f50d9bae58e8b87bf68a1f920a2481bb327f3d476b720d9eed|delta_T_sw_K=0.20000000000000001|ffd5976d538e06e3352d65b680c24abed25748f60f9f4f6ec33d87d70a61a47b",
+      "coordinate": 0.2,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/1e376dd6b2a82f5fd84401f438c5f42bf557c9145888c2d9bff5775a339a9c8e.npz",
+      "protocol": "ltp_ltd",
+      "role": "target",
+      "sha256": "682a52a3a12117b650ebc86847c7f4734994462076f5494bc4395a8b0b9b0f37"
+    },
+    {
+      "cache_key": "270be7f5473c71f50d9bae58e8b87bf68a1f920a2481bb327f3d476b720d9eed|delta_T_sw_K=2|ffd5976d538e06e3352d65b680c24abed25748f60f9f4f6ec33d87d70a61a47b",
+      "coordinate": 2.0,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/c6e355478a4b334f354df901d9daca6bb367a509fe572f5505faab3eec31f018.npz",
+      "protocol": "ltp_ltd",
+      "role": "target",
+      "sha256": "d7e506da8d5a2baba2010a473bd04819c1b087eb411ee408d837b84202dba4bc"
+    }
+  ],
+  "expected_unique_trajectory_count": 36,
+  "external_13v_accessed": false,
+  "new_ode_evaluations": 0,
+  "pinn_training_runs": 0,
+  "protocol_contracts": {
+    "ltp_ltd": {
+      "solver": {
+        "gamma_candidates": [
+          150000000.0,
+          200000000.0,
+          275000000.0,
+          325000000.0,
+          375000000.0,
+          400000000.0,
+          425000000.0,
+          450000000.0,
+          475000000.0,
+          500000000.0,
+          550000000.0,
+          650000000.0,
+          750000000.0,
+          900000000.0,
+          1000000000.0
+        ],
+        "objective": {
+          "w_g": 1.0,
+          "w_i": 0.5
+        },
+        "physical_parameter_sha256": "fa7e69ef39d771f7fcb90ab93593ca1b97ea9ad8881b246fbc9685a35077f75e",
+        "protocol": "ltp_ltd",
+        "simulation": {
+          "atol": 1e-07,
+          "method": "Radau",
+          "nt": 180,
+          "nx": 21,
+          "protocol": "ltp_ltd",
+          "rtol": 1e-05
+        },
+        "solver_config_sha256": "ffd5976d538e06e3352d65b680c24abed25748f60f9f4f6ec33d87d70a61a47b",
+        "solver_level": "base",
+        "t_max_s": 0.015
+      },
+      "waveform": {
+        "protocol": "ltp_ltd",
+        "pulse_count": 12,
+        "pulse_spacing_fraction_of_period": 0.38,
+        "pulse_spacing_s": null,
+        "pulse_width_fraction_of_period": 0.62,
+        "pulse_width_s": null,
+        "simulator_protocol": "ltp_ltd",
+        "t_max_s": 0.015,
+        "time_grid_points": 2049,
+        "time_grid_sha256": "73ca10c80ef839b96d2af3ae3b375d0569a93b7868bdf51294ae1ee5e01db1c0",
+        "waveform_parameters": {
+          "ltp_v_neg": -0.02,
+          "ltp_v_pos": 0.08,
+          "n_neg": 6,
+          "n_pos": 6
+        },
+        "waveform_sha256": "270be7f5473c71f50d9bae58e8b87bf68a1f920a2481bb327f3d476b720d9eed"
+      }
+    },
+    "triangle": {
+      "solver": {
+        "gamma_candidates": [
+          150000000.0,
+          200000000.0,
+          275000000.0,
+          325000000.0,
+          375000000.0,
+          400000000.0,
+          425000000.0,
+          450000000.0,
+          475000000.0,
+          500000000.0,
+          550000000.0,
+          650000000.0,
+          750000000.0,
+          900000000.0,
+          1000000000.0
+        ],
+        "objective": {
+          "w_g": 1.0,
+          "w_i": 0.5
+        },
+        "physical_parameter_sha256": "fa7e69ef39d771f7fcb90ab93593ca1b97ea9ad8881b246fbc9685a35077f75e",
+        "protocol": "triangle",
+        "simulation": {
+          "atol": 1e-07,
+          "method": "Radau",
+          "nt": 160,
+          "nx": 21,
+          "protocol": "triangle",
+          "rtol": 1e-05
+        },
+        "solver_config_sha256": "776fadd63b70c17fe431536b6260615528c0fe5ea443503e90a2117840294029",
+        "solver_level": "base",
+        "t_max_s": 0.003
+      },
+      "waveform": {
+        "protocol": "triangle",
+        "pulse_count": 0,
+        "pulse_spacing_fraction_of_period": null,
+        "pulse_spacing_s": null,
+        "pulse_width_fraction_of_period": null,
+        "pulse_width_s": null,
+        "simulator_protocol": "triangle",
+        "t_max_s": 0.003,
+        "time_grid_points": 2049,
+        "time_grid_sha256": "fa0ee4b4e20a32f46d1973b238de1c144a75a4a31bcf2ba41b67f029aa8fffa6",
+        "waveform_parameters": {
+          "triangle_v_peak": 0.2
+        },
+        "waveform_sha256": "0175f31d5c1db10ccbf01cb7dc2725bde7f217a4e8e8587083d2ea742dd6444f"
+      }
+    }
+  },
+  "required_entry_count": 36,
+  "schema_version": "gamma_sub_scis_cache_preflight_v1",
+  "solver_fallback_available": false,
+  "stage_id": "M32_SCIS",
+  "status": "pass",
+  "unique_trajectory_count": 36
+}

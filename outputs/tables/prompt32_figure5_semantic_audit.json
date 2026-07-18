@@ -1,0 +1,142 @@
+{
+  "candidate_contracts": [
+    {
+      "calibration_error_factor": 1.0,
+      "candidate_name": "no_calibration_ltp_ltd_only",
+      "ltp_v_neg_V": -0.02,
+      "ltp_v_pos_V": 0.08,
+      "prior_width_factor": 1.0,
+      "protocol_cost_proxy": 1.0,
+      "simulator_protocol": "ltp_ltd",
+      "t_max_s": 0.015,
+      "time_grid_sha256": "73ca10c80ef839b96d2af3ae3b375d0569a93b7868bdf51294ae1ee5e01db1c0",
+      "voltage_waveform_sha256": "270be7f5473c71f50d9bae58e8b87bf68a1f920a2481bb327f3d476b720d9eed",
+      "waveform_grid_points": 2049
+    },
+    {
+      "calibration_error_factor": 0.1,
+      "candidate_name": "calibrated_ltp_ltd_only",
+      "ltp_v_neg_V": -0.02,
+      "ltp_v_pos_V": 0.08,
+      "prior_width_factor": 0.1,
+      "protocol_cost_proxy": 1.8,
+      "simulator_protocol": "ltp_ltd",
+      "t_max_s": 0.015,
+      "time_grid_sha256": "73ca10c80ef839b96d2af3ae3b375d0569a93b7868bdf51294ae1ee5e01db1c0",
+      "voltage_waveform_sha256": "270be7f5473c71f50d9bae58e8b87bf68a1f920a2481bb327f3d476b720d9eed",
+      "waveform_grid_points": 2049
+    },
+    {
+      "calibration_error_factor": 0.045,
+      "candidate_name": "calibrated_multi_pulse_to_ltp_ltd",
+      "ltp_v_neg_V": -0.03,
+      "ltp_v_pos_V": 0.1,
+      "prior_width_factor": 0.045,
+      "protocol_cost_proxy": 3.6,
+      "simulator_protocol": "ltp_ltd",
+      "t_max_s": 0.015,
+      "time_grid_sha256": "73ca10c80ef839b96d2af3ae3b375d0569a93b7868bdf51294ae1ee5e01db1c0",
+      "voltage_waveform_sha256": "5487d9d76723bac20185514805b144f89a2d4392a8df2e1b0fb07ca056a00121",
+      "waveform_grid_points": 2049
+    },
+    {
+      "calibration_error_factor": 0.07,
+      "candidate_name": "calibrated_short_pulse_to_ltp_ltd",
+      "ltp_v_neg_V": -0.02,
+      "ltp_v_pos_V": 0.08,
+      "prior_width_factor": 0.07,
+      "protocol_cost_proxy": 2.4,
+      "simulator_protocol": "ltp_ltd",
+      "t_max_s": 0.012,
+      "time_grid_sha256": "3a0fa21e06b1e7acc6ab03fb86fbcb4bff0e62a410cd98d08dd452d7e7859fa7",
+      "voltage_waveform_sha256": "3adedc8d25b36365279fa001d3777c2ddea7e427c35adc39748a76a5ca64c82b",
+      "waveform_grid_points": 2049
+    },
+    {
+      "calibration_error_factor": 0.1,
+      "candidate_name": "calibrated_best_single",
+      "ltp_v_neg_V": -0.02,
+      "ltp_v_pos_V": 0.08,
+      "prior_width_factor": 0.1,
+      "protocol_cost_proxy": 1.8,
+      "simulator_protocol": "ltp_ltd",
+      "t_max_s": 0.006,
+      "time_grid_sha256": "5dd8f87cd67bc969222f43d7f4705af135f1b2e0ce923e14e7af7c790a876037",
+      "voltage_waveform_sha256": "3adedc8d25b36365279fa001d3777c2ddea7e427c35adc39748a76a5ca64c82b",
+      "waveform_grid_points": 2049
+    },
+    {
+      "calibration_error_factor": 0.2,
+      "candidate_name": "wrong_calibration_multi_pulse_to_ltp_ltd",
+      "ltp_v_neg_V": -0.03,
+      "ltp_v_pos_V": 0.1,
+      "prior_width_factor": 0.2,
+      "protocol_cost_proxy": 3.6,
+      "simulator_protocol": "ltp_ltd",
+      "t_max_s": 0.015,
+      "time_grid_sha256": "73ca10c80ef839b96d2af3ae3b375d0569a93b7868bdf51294ae1ee5e01db1c0",
+      "voltage_waveform_sha256": "5487d9d76723bac20185514805b144f89a2d4392a8df2e1b0fb07ca056a00121",
+      "waveform_grid_points": 2049
+    }
+  ],
+  "claim_resolution": {
+    "allowed": "Across 720 synthetic ODE-backed cases, the named bundled calibrated configuration has the reported conditional performance under its jointly varied waveform and calibration-error settings.",
+    "bundled_configuration_performance_status": "qualified_supported",
+    "figure5_title_required": "Bundled calibrated-configuration performance",
+    "forbidden": "Figure 5 isolates or causally establishes protocol gain, protocol optimality, or experimental protocol validation.",
+    "protocol_gain_claim_eligible": false
+  },
+  "external_13v_accessed": false,
+  "gamma_candidate_grid": [
+    375000000.0,
+    425000000.0,
+    450000000.0,
+    500000000.0,
+    550000000.0,
+    650000000.0,
+    1000000000.0
+  ],
+  "new_ode_evaluations": 0,
+  "objective": {
+    "heat_residual_implemented": true,
+    "heat_residual_semantics": "candidate-simulation internal finite-volume heat residual; not target-temperature supervision",
+    "implemented_formula": "w_g*G_loss + w_i*I_loss + w_heat*heat_residual_loss",
+    "weights": {
+      "w_g": 1.0,
+      "w_heat": 0.01,
+      "w_i": 0.5
+    }
+  },
+  "pinn_training_runs": 0,
+  "schema_version": "prompt32_figure5_semantic_audit_v1",
+  "semantic_findings": {
+    "720_case_count_verified": true,
+    "all_cases_simulator_backed": true,
+    "calibration_and_protocol_effects_are_confounded": true,
+    "calibration_error_factor_consumed_by_implementation": true,
+    "calibration_error_factor_source_occurrences": 1,
+    "candidate_count": 6,
+    "candidate_name_is_not_simulator_protocol": true,
+    "prior_width_factor_consumed_by_implementation": false,
+    "prior_width_factor_source_occurrences": 0,
+    "simulator_protocols": [
+      "ltp_ltd"
+    ],
+    "unique_simulator_protocol_count": 1,
+    "unique_voltage_waveform_count": 3,
+    "waveform_and_calibration_error_factor_vary_across_candidates": true
+  },
+  "solver": {
+    "atol": 1e-06,
+    "method": "Radau",
+    "nt": 48,
+    "nx": 7,
+    "rtol": 0.0001
+  },
+  "source_hashes": {
+    "configs/gamma_sub_calibrated_sequential_protocol_validation.yaml": "cba5d88067728e41d1f96405dac72434245f457eb99d4c31f277dcfa4611805e",
+    "outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_summary.json": "64f33d6dc3b8ab920617fedbb10cac29f3834b353484116c22ed5539ac81b040",
+    "scripts/audit_gamma_sub_calibrated_sequential_protocol_validation.py": "de25563f151ba380aa9773cbb158d8cea781a2b8bb3d9779b6ed3833234856bf"
+  },
+  "stage_id": "M32_SCIS"
+}

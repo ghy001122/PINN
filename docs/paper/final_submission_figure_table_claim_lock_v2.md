@@ -7,7 +7,7 @@ All claims are restricted to synthetic numerical digital-twin benchmark evidence
 1. Sparse-port observations do not uniquely recover hidden fields.
 2. Identifiability audit motivates target-space reduction.
 3. `gamma_sub` is conditionally recoverable under fixed or tightly bounded priors.
-4. `T_sw` calibration dominates protocol gain; protocol design is secondary.
+4. `T_sw` calibration is the dominant controlled condition; Figure 5 reports bundled calibrated-configuration performance and does not isolate protocol gain.
 
 ## Supplementary Defense
 
@@ -50,3 +50,10 @@ Candidate supplementary files are `outputs/figures/vo2_d0a_source_semantics_v2.p
 - A superseding semantic audit sets CPCF `scientific_vote=false` and `status=implementation_contract_invalid`. The historical Pareto image and operating-point table are non-voting software diagnostics and are removed from the scientific figure/table roster.
 - CEBA passes `6/6` exact-source parity anchors but abstains at zero `T_sw` error under the locked ambiguity rule. No success/failure bracket, refined boundary, or calibration-resource claim is authorized.
 - The optional CEBA failure figure/table may appear only as configuration-specific `failed_but_informative` abstention evidence. Neither CPCF nor CEBA receives a main figure, main table, or protocol/cost-optimality wording.
+
+## 2026-07-18 CEBA/SCIS And Figure 5 Semantic Addendum
+
+- CEBA point success and abstention are reported separately. The historical abstention reads true `gamma_sub`, hard-codes the `0.15` class radius, and is candidate-grid-span dependent; it is an oracle diagnostic, not an operational certificate.
+- Figure 5 is locked as **Bundled calibrated-configuration performance**. All candidates invoke the LTP/LTD simulator while waveform/duration and calibration-error factor vary together; `prior_width_factor` is not consumed. Isolated protocol gain and protocol optimality are forbidden.
+- M32 SCIS uses only cached direct-solver trajectories and truth-free inference. Nominal pooled coverage is `0.93233`, but the severe `2 K` mismatch has acceptance `1.0` and point success `0.0`; the operational coverage/refusal claim is `failed_but_informative`.
+- The complete-PINN architecture remains mandatory, but M32 adds zero PINN training and no positive neural evidence.
