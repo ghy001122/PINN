@@ -308,3 +308,15 @@ outputs/pinn_inverse_v1_1_smoke/*
 !outputs/figures/m33_mixed_flux_forward_fidelity.png
 !outputs/checkpoints/m33_mixed_flux/
 !outputs/checkpoints/m33_mixed_flux/*.pt
+
+# Prompt-34 optimization/gradient/ledger contract audit and conditional corrected run.
+!outputs/tables/m34_contract_audit_preregistration.json
+!outputs/tables/m34_contract_audit_summary.json
+!outputs/tables/m34_gradient_geometry.csv
+!outputs/tables/m34_ledger_reconciliation.csv
+!outputs/tables/m34_alm_toy_benchmark.csv
+!outputs/tables/m34_corrected_training_history.json
+!outputs/tables/m34_corrected_final_summary.json
+!outputs/tables/m34_corrected_v3r_m33_comparison.csv
+!outputs/checkpoints/m34_corrected_mixed_flux/
+!outputs/checkpoints/m34_corrected_mixed_flux/*.pt

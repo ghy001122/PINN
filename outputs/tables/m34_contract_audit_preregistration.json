@@ -1,0 +1,166 @@
+{
+  "audit_thresholds": {
+    "gradient_parity_relative_error_max": 0.0001,
+    "ledger_implementation_parity_abs_max": 1e-06,
+    "minimum_nonzero_gradient_coordinates": 20,
+    "toy_constraint_abs_max": 1e-06,
+    "toy_dual_abs_error_max": 1e-06
+  },
+  "authorization_conditions": [
+    "material_m33_contract_defect",
+    "corrected_toy_problem_pass",
+    "at_least_20_nonzero_gradient_directions_pass_parity",
+    "unified_ledger_implementation_parity_pass",
+    "corrected_preflight_all_pass",
+    "frozen_gt_and_equations_unchanged",
+    "complete_state_flux_electrical_interface_contract_retained",
+    "parameter_count_within_3_percent",
+    "no_labels_no_13v_no_search"
+  ],
+  "base_snapshot": "84bc5c5db2f5233b70bf97756734272c3eae36ca",
+  "checkpoint_raw_sha256": "6a1e0a09644dd8e5fc03135e1631db9847a84889e977d5082e341349d66786ce",
+  "conditional_corrected_run": {
+    "architecture_source": "m33_unchanged",
+    "authorization_requires_all_nine_conditions": true,
+    "causal_schedule": [
+      {
+        "dataset_key": "train_t_stage_025",
+        "steps": 150,
+        "t_norm_max": 0.25
+      },
+      {
+        "dataset_key": "train_t_stage_050",
+        "steps": 150,
+        "t_norm_max": 0.5
+      },
+      {
+        "dataset_key": "train_t_stage_075",
+        "steps": 150,
+        "t_norm_max": 0.75
+      },
+      {
+        "dataset_key": "train_t_stage_100",
+        "steps": 150,
+        "t_norm_max": 1.0
+      },
+      {
+        "dataset_key": "train_t_stage_100",
+        "steps": 900,
+        "t_norm_max": 1.0
+      }
+    ],
+    "conditionally_preregistered": true,
+    "constraint_contract": "stagewise_signed_vector_equality_alm",
+    "dtype": "float64",
+    "emergency_gradient_clip_norm": 100000000.0,
+    "gate_evaluation_dtype": "float32_for_exact_m33_comparability",
+    "hidden_field_labels": "forbidden",
+    "learning_rate": 0.001,
+    "multiplier_cap": null,
+    "optimizer": "Adam",
+    "optimizer_search": "forbidden",
+    "parameter_count_relative_difference_max": 0.03,
+    "penalty": {
+      "cap": 10.0,
+      "grow_only_if_current_rms_exceeds_previous_fraction": 0.9,
+      "growth": 1.5,
+      "initial": 0.1,
+      "update_frequency_steps": 100
+    },
+    "port_labels": "forbidden",
+    "post_result_change": "forbidden",
+    "require_no_regression_vs_m33": true,
+    "require_no_regression_vs_v3r": true,
+    "result_gates_source": "m33_unchanged",
+    "seed": 20260715,
+    "seed_expansion": "forbidden",
+    "total_steps": 1500,
+    "vector_multiplier_update": "lambda_equals_lambda_plus_rho_times_c"
+  },
+  "created_at_utc": "2026-07-18T14:59:34.827299+00:00",
+  "failure_rule": "M33-v1 contract closed; no corrected run authorized",
+  "git_dirty_at_generation": [
+    "M  .gitignore",
+    "A  configs/m34_optimization_contract_audit.yaml",
+    "AM docs/schemas/m34_contract_audit_v1.schema.json",
+    "AD outputs/tables/m34_contract_audit_preregistration.json",
+    "AM scripts/preregister_m34_contract_audit.py",
+    "AM scripts/run_m34_contract_audit.py",
+    "AM scripts/train_m34_corrected_mixed_flux.py",
+    "A  src/pinnpcm/pinn/m34_contract_audit.py",
+    "AM tests/test_m34_contract_audit.py",
+    "A  tests/test_m34_gate_safety.py"
+  ],
+  "locked_files": {
+    "configs/m33_feasibility_first_mixed_flux.yaml": {
+      "mode": "canonical_semantic_json",
+      "sha256": "1acd31817685e7a354ad22fcd24e5f95c3ddecf9bae75c44e36196d84fd6aa11"
+    },
+    "configs/m34_optimization_contract_audit.yaml": {
+      "mode": "canonical_semantic_json",
+      "sha256": "08b64bf94e1313687031fcc52c581a27d9d9deb6dd768645d6c10bfc5a1f74f1"
+    },
+    "data/processed/gt_v1_acceptance/gt_triangle.npz": {
+      "mode": "raw_bytes",
+      "sha256": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8"
+    },
+    "data/processed/gt_v1_acceptance/manifest.json": {
+      "mode": "canonical_semantic_json",
+      "sha256": "9a1c9e31a1f7340a411ba5801d7ceb8b494257908cad2f8268fb001b4d3a1991"
+    },
+    "docs/schemas/m34_contract_audit_v1.schema.json": {
+      "mode": "canonical_semantic_json",
+      "sha256": "fe1ec6b7592622b8a3d1ebedf6d542bedddd595105523fa65016ec28288b54bd"
+    },
+    "outputs/checkpoints/m33_mixed_flux/seed_20260715.pt": {
+      "mode": "raw_bytes",
+      "sha256": "6a1e0a09644dd8e5fc03135e1631db9847a84889e977d5082e341349d66786ce"
+    },
+    "outputs/tables/m33_mixed_flux_final_summary.json": {
+      "mode": "canonical_semantic_json",
+      "sha256": "cfc844e92222ca740fd62fe38e3205fa29999e60d145a4f82964b40ca0be8e44"
+    },
+    "outputs/tables/m33_mixed_flux_training_history.json": {
+      "mode": "canonical_semantic_json",
+      "sha256": "7c781167d1ad78c555cf2fc0b659197054c0d03661a65512278f93e8850944ac"
+    },
+    "outputs/tables/n0_cv_e_v3_diagnostic_set.npz": {
+      "mode": "raw_bytes",
+      "sha256": "a34b51cd48349c2bc5213a3c905e18d6640cdd305f87c05d944301882f478cfe"
+    },
+    "outputs/tables/n0_cv_e_v3r_post_adam_score.json": {
+      "mode": "canonical_semantic_json",
+      "sha256": "d48d1a9011cf1ee0e1a311e0c6bf6584c498fbfaaeaa74069c0e262b9601a1fc"
+    },
+    "scripts/preregister_m34_contract_audit.py": {
+      "mode": "canonical_lf",
+      "sha256": "6a27cbc896d6d649863534ac038cbf7f5a69eb6013fd0b86f3cbe8a25464e512"
+    },
+    "scripts/run_m34_contract_audit.py": {
+      "mode": "canonical_lf",
+      "sha256": "cf1dea77958c4ddf0e1a8ab2d319ff746751b52e34bfb96ad5515a6ba5346c59"
+    },
+    "scripts/train_m34_corrected_mixed_flux.py": {
+      "mode": "canonical_lf",
+      "sha256": "420469bb522132c07794d79f091a72312999fedd52e71c0367c952e4580ec2c6"
+    },
+    "src/pinnpcm/pinn/m34_contract_audit.py": {
+      "mode": "canonical_lf",
+      "sha256": "bf3bd89088376b274c72d7e3d19a631718da2d8ac04702961836de4e214c96b5"
+    },
+    "tests/test_m34_contract_audit.py": {
+      "mode": "canonical_lf",
+      "sha256": "4587fafb7c4bc858779756e73651acd3bd60d355d66f275f81ad633da047d2db"
+    },
+    "tests/test_m34_gate_safety.py": {
+      "mode": "canonical_lf",
+      "sha256": "a5a53f313b047e075bbbc496d8768f1ad848b06b08d3743d6f7c18a9595fd184"
+    }
+  },
+  "m33_artifacts_are_immutable": true,
+  "schema_version": "m34_contract_audit_preregistration_v1",
+  "scientific_question": "Does M33-v1 contain a reproducible optimization, gradient, dtype, or ledger-contract defect material enough to authorize one corrected run?",
+  "sealed_13v_access": false,
+  "stage_id": "M34_OPTIMIZATION_AND_LEDGER_CONTRACT_AUDIT",
+  "status": "locked_before_audit_and_any_corrected_training"
+}

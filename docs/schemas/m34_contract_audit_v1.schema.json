@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "m34_contract_audit_v1.schema.json",
+  "title": "M34 optimization and ledger contract audit",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "stage_id",
+    "status",
+    "preregistration_commit",
+    "input_hashes",
+    "checkpoint_raw_sha256",
+    "dtype",
+    "time_grids",
+    "normalization",
+    "alm",
+    "gradient_geometry",
+    "ledger_reconciliation",
+    "architecture_classification",
+    "corrected_preflight",
+    "authorization_conditions",
+    "corrected_training_authorized",
+    "sealed_13v_access"
+  ],
+  "properties": {
+    "schema_version": {"const": "m34_contract_audit_summary_v1"},
+    "stage_id": {"const": "M34_OPTIMIZATION_AND_LEDGER_CONTRACT_AUDIT"},
+    "status": {"enum": ["supported", "failed_but_informative"]},
+    "corrected_training_authorized": {"type": "boolean"},
+    "sealed_13v_access": {"const": false},
+    "finite_payload": {"const": true}
+  },
+  "additionalProperties": true
+}

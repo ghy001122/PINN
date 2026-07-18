@@ -1,0 +1,144 @@
+stage_id: M34_OPTIMIZATION_AND_LEDGER_CONTRACT_AUDIT
+schema_version: m34_optimization_contract_audit_config_v1
+base_snapshot: 84bc5c5db2f5233b70bf97756734272c3eae36ca
+claim_scope: frozen_1d_synthetic_contract_audit_only
+
+frozen_inputs:
+  gt_path: data/processed/gt_v1_acceptance/gt_triangle.npz
+  gt_manifest: data/processed/gt_v1_acceptance/manifest.json
+  diagnostic_dataset: outputs/tables/n0_cv_e_v3_diagnostic_set.npz
+  m33_config: configs/m33_feasibility_first_mixed_flux.yaml
+  m33_checkpoint: outputs/checkpoints/m33_mixed_flux/seed_20260715.pt
+  m33_history: outputs/tables/m33_mixed_flux_training_history.json
+  m33_summary: outputs/tables/m33_mixed_flux_final_summary.json
+  v3r_summary: outputs/tables/n0_cv_e_v3r_post_adam_score.json
+  sealed_13v_access: forbidden
+
+literature_lock:
+  pecann:
+    url: https://doi.org/10.1016/j.jcp.2022.111301
+    role: equality_constrained_alm_reference
+  pecann_capu:
+    url: https://arxiv.org/abs/2508.15695
+    role: heterogeneous_constraint_and_conditional_penalty_reference
+  pinn_conditioning:
+    url: https://proceedings.mlr.press/v235/rathore24a.html
+    role: loss_conditioning_reference
+  gradient_alignment:
+    url: https://arxiv.org/abs/2502.00604
+    role: gradient_conflict_reference
+  novelty_rule: implementation_reference_or_baseline_only
+
+alm_toy:
+  cases:
+    - {case_id: positive_dual, objective_center: 2.0, constraint_target: 0.0}
+    - {case_id: negative_dual, objective_center: -2.0, constraint_target: 0.0}
+    - {case_id: shifted_negative_dual, objective_center: 0.5, constraint_target: 1.0}
+  outer_iterations: 24
+  penalty: 1.0
+  corrected_constraint_abs_max: 1.0e-6
+  corrected_dual_abs_error_max: 1.0e-6
+
+gradient_audit:
+  seed: 20260715
+  train_time_count: 12
+  ledger_time_count: 16
+  candidates_per_module: 12
+  modules: [shared_trunk, state_head, heat_flux_head, defect_flux_head]
+  minimum_nonzero_coordinates: 20
+  nonzero_gradient_min: 1.0e-7
+  central_difference_relative_step: 1.0e-5
+  central_difference_absolute_step: 1.0e-7
+  parity_relative_error_max: 1.0e-4
+  dtypes: [float32, float64]
+  m33_gradient_clip_norm: 100.0
+  finite_required: true
+
+ledger_audit:
+  time_grid_counts: [32, 64, 96, 128, 400]
+  original_training_grid_count: 96
+  fixed_scale_normalization:
+    defect: L_eff
+    energy: rho_Cp_temperature_scale_L_eff
+  historical_interval_relative_floor: 1.0e-30
+  low_activity_denominator_fraction_of_fixed_scale: 1.0e-8
+  implementation_parity_abs_max: 1.0e-6
+  sampling_convergence_relative_change_max: 0.25
+  historical_gates_unchanged: true
+
+representability_smoke:
+  enabled: true
+  diagnostic_only: true
+  scientific_vote: false
+  hidden_fields_allowed_for_this_diagnostic_only: [c_v, T, m]
+  seed: 20260715
+  optimizer: Adam
+  learning_rate: 0.001
+  maximum_steps: 200
+  train_time_count: 64
+
+corrected_run:
+  conditionally_preregistered: true
+  authorization_requires_all_nine_conditions: true
+  seed: 20260715
+  optimizer: Adam
+  learning_rate: 0.001
+  dtype: float64
+  total_steps: 1500
+  architecture_source: m33_unchanged
+  parameter_count_relative_difference_max: 0.03
+  causal_schedule:
+    - {t_norm_max: 0.25, steps: 150, dataset_key: train_t_stage_025}
+    - {t_norm_max: 0.50, steps: 150, dataset_key: train_t_stage_050}
+    - {t_norm_max: 0.75, steps: 150, dataset_key: train_t_stage_075}
+    - {t_norm_max: 1.00, steps: 150, dataset_key: train_t_stage_100}
+    - {t_norm_max: 1.00, steps: 900, dataset_key: train_t_stage_100}
+  constraint_contract: stagewise_signed_vector_equality_alm
+  vector_multiplier_update: lambda_equals_lambda_plus_rho_times_c
+  penalty:
+    initial: 0.1
+    growth: 1.5
+    cap: 10.0
+    update_frequency_steps: 100
+    grow_only_if_current_rms_exceeds_previous_fraction: 0.90
+  multiplier_cap: null
+  emergency_gradient_clip_norm: 1.0e+8
+  hidden_field_labels: forbidden
+  port_labels: forbidden
+  optimizer_search: forbidden
+  seed_expansion: forbidden
+  post_result_change: forbidden
+  result_gates_source: m33_unchanged
+  require_no_regression_vs_v3r: true
+  require_no_regression_vs_m33: true
+  gate_evaluation_dtype: float32_for_exact_m33_comparability
+
+authorization_conditions:
+  - material_m33_contract_defect
+  - corrected_toy_problem_pass
+  - at_least_20_nonzero_gradient_directions_pass_parity
+  - unified_ledger_implementation_parity_pass
+  - corrected_preflight_all_pass
+  - frozen_gt_and_equations_unchanged
+  - complete_state_flux_electrical_interface_contract_retained
+  - parameter_count_within_3_percent
+  - no_labels_no_13v_no_search
+
+outputs:
+  preregistration: outputs/tables/m34_contract_audit_preregistration.json
+  audit_summary: outputs/tables/m34_contract_audit_summary.json
+  gradient_geometry: outputs/tables/m34_gradient_geometry.csv
+  ledger_reconciliation: outputs/tables/m34_ledger_reconciliation.csv
+  alm_toy_benchmark: outputs/tables/m34_alm_toy_benchmark.csv
+  corrected_history: outputs/tables/m34_corrected_training_history.json
+  corrected_summary: outputs/tables/m34_corrected_final_summary.json
+  corrected_comparison: outputs/tables/m34_corrected_v3r_m33_comparison.csv
+  corrected_checkpoint: outputs/checkpoints/m34_corrected_mixed_flux/seed_20260715.pt
+  report: docs/codex_reports/m34_optimization_and_ledger_contract_audit.md
+
+budget:
+  device: cpu
+  audit_wall_clock_hours_max: 2
+  representability_steps_max: 200
+  corrected_training_steps_max: 1500
+  corrected_training_seeds_max: 1
