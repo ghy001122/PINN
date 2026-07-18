@@ -297,3 +297,14 @@ outputs/pinn_inverse_v1_1_smoke/*
 !outputs/tables/prompt32_figure5_semantic_audit.json
 !outputs/tables/prompt32_final_validation.json
 !outputs/figures/gamma_sub_scis_certificate_v1.png
+
+# Prompt-33 bounded mixed state--flux full-PINN MVE.
+!outputs/tables/m33_mixed_flux_preregistration.json
+!outputs/tables/m33_mixed_flux_preflight.json
+!outputs/tables/m33_mixed_flux_training_history.json
+!outputs/tables/m33_mixed_flux_final_summary.json
+!outputs/tables/m33_mixed_flux_v3r_comparison.csv
+!outputs/tables/prompt33_final_validation.json
+!outputs/figures/m33_mixed_flux_forward_fidelity.png
+!outputs/checkpoints/m33_mixed_flux/
+!outputs/checkpoints/m33_mixed_flux/*.pt

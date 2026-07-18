@@ -476,3 +476,48 @@ $$
 Training blocks use the dimensionless cellwise differences between neural time derivatives and these right-hand sides, plus adjacent-state trapezoidal defect-mass and energy ledgers. The registry fixes (L_*=100\,\mathrm{nm}), (t_*=3\,\mathrm{ms}), (V_*=0.2\,\mathrm{V}), (T_*=20\,\mathrm{K}), (sigma_*=2.4\,\mathrm{S\,m^{-1}}), and (J_*=4.8\times10^6\,\mathrm{A\,m^{-2}}) before training.
 
 The locked no-training parity and conservation checks pass, but the sole primary optimization terminates before checkpoint and result scoring. These equations therefore support only an operator-implementation fact and a `failed_but_informative` optimization boundary; they do not support trained full-PINN forward evidence.
+
+## M33 First-Order Mixed State--Flux Contract
+
+M33 preserves the frozen N0-CV-E cell states, material partition, analytic
+series-electrical head, boundary orientation, and finite-volume arithmetic.
+It adds explicit face outputs
+
+$$
+q^c_{i+1/2,\theta}(t),\qquad q^T_{i+1/2,\theta}(t),
+$$
+
+with SI units (\mathrm{m\,s^{-1}}) and (\mathrm{W\,m^{-2}}), respectively.
+The endpoint heads are hard constrained to the frozen zero-flux conditions.
+The former second-order state residual is separated into constitutive and
+conservation residuals:
+
+$$
+r_{q_c}=\frac{q^c_\theta-F_v(c_v,T,E)}{q^c_*},\qquad
+r_c=\frac{\partial_t c_v+\nabla_h\!\cdot q^c_\theta+k_r(c_v-c_{v0})}{r_{c,*}},
+$$
+
+$$
+r_{q_T}=\frac{q^T_\theta+k_{\mathrm{th}}\nabla_h T}{q^T_*},\qquad
+r_T=\frac{\partial_tT-[-\nabla_h\!\cdot q^T_\theta+JE-\gamma_{\mathrm{sub}}(T-T_0)]/(\rho C_p)}{r_{T,*}}.
+$$
+
+The phase and electrical equations remain
+
+$$
+r_m=\partial_t m-\frac{m_{\mathrm{eq}}-m}{\tau_m},\qquad
+r_J=\frac{\sigma E-J}{J_*}.
+$$
+
+At the bilayer face, state continuity uses the same preregistered one-sided
+linear trace reconstruction as v3r. The heat and defect interface values are
+read directly from the explicit shared face heads; opposite outward normals
+give the oriented jump law. Adjacent-time global mass and energy ledgers use
+the explicit head boundary fluxes, while the terminal-current ledger retains
+the frozen analytic series relation.
+
+M33 groups constitutive, conservation, phase/current, IC/BC, interface, and
+global-ledger violations in independently updated augmented-Lagrangian blocks.
+Mixed formulations and augmented Lagrangians are established components and
+carry no standalone novelty claim. Any trained claim remains conditional on
+the unchanged v3r port, field, PDE, interface, and conservation gates.

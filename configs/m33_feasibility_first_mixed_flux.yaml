@@ -1,0 +1,205 @@
+schema_version: m33_feasibility_first_mixed_flux_v1
+stage_id: M33_FEASIBILITY_FIRST_MIXED_FLUX_PINN_MVE
+description: >-
+  Single-seed bounded MVE of a first-order mixed state--flux full PINN with
+  grouped augmented-Lagrangian feasibility training on frozen GT v1.1.
+base_snapshot: 664c3a0768e5de29fc68348827e18ed057b64862
+claim_scope: frozen_1d_synthetic_forward_fidelity_mve_only
+evidence_semantics: synthetic_gt_score_only
+
+frozen_inputs:
+  gt_path: data/processed/gt_v1_acceptance/gt_triangle.npz
+  gt_config: configs/gt_v1_acceptance_triangle.yaml
+  gt_manifest: data/processed/gt_v1_acceptance/manifest.json
+  diagnostic_dataset: outputs/tables/n0_cv_e_v3_diagnostic_set.npz
+  diagnostic_dataset_sha256: a34b51cd48349c2bc5213a3c905e18d6640cdd305f87c05d944301882f478cfe
+  v3r_config: configs/n0_cv_e_v3r_optimizer_forensics.yaml
+  v3r_post_adam_score: outputs/tables/n0_cv_e_v3r_post_adam_score.json
+  v3r_checkpoint: outputs/checkpoints/n0_cv_e_v3r/primary_equal_weight_seed_20260715_pre_lbfgs.pt
+  external_13v_access: forbidden
+
+baseline_contract:
+  id: N0-CV-E-v3r-post-Adam
+  seed: 20260715
+  parameter_count: 5501
+  adam_steps: 1200
+  training_points_reused: [train_t_stage_025, train_t_stage_050, train_t_stage_075, train_t_stage_100]
+  eval_points_reused: eval_t
+  ledger_points_reused: ledger_t
+  field_and_port_grid_reused: frozen_gt_400_by_31
+  labels_used: []
+
+architecture:
+  network_inputs: [t_over_tmax]
+  learned_cell_states: [c_v, T, m]
+  explicit_face_flux_heads: [q_c, q_T]
+  returned_states: [phi, c_v, T, m, sigma, E, J, I, G, q_c, q_T]
+  nx: 31
+  hidden_dim: 25
+  hidden_layers: 3
+  fourier_scales: [1.0, 2.0, 4.0, 8.0]
+  expected_parameter_count: 5632
+  maximum_relative_parameter_difference: 0.10
+  hard_initial_conditions: true
+  hard_outer_flux_boundaries: true
+  analytic_electrical_head_unchanged: true
+  material_partition_unchanged: true
+  frozen_operator_semantics_unchanged: true
+  temperature_min_K: 300.0
+  temperature_max_K: 350.0
+
+dimensionless_registry:
+  length_scale_m: 100.0e-9
+  time_scale_s: 3.0e-3
+  voltage_scale_V: 0.20
+  concentration_scale: 1.0
+  temperature_scale_K: 20.0
+  phase_scale: 1.0
+  conductivity_scale_S_per_m: 2.4
+  current_density_scale_A_per_m2: 4.8e6
+  residual_scales:
+    r_c_per_s: 333.3333333333333
+    r_T_K_per_s: 6666.666666666667
+    r_m_per_s: 333.3333333333333
+  flux_scales:
+    q_c_formula: max_D_at_350K_over_L_plus_quarter_max_mu_at_350K_times_V_over_L
+    q_T_formula: max_k_times_temperature_scale_over_L
+    q_c_units: m s^-1
+    q_T_units: W m^-2
+  posthoc_rescaling_forbidden: true
+
+residual_contract:
+  defect_constitutive: q_c_plus_D_grad_c_minus_mu_c_one_minus_c_E_equals_zero
+  defect_conservation: dc_dt_plus_div_q_c_plus_k_r_c_minus_c0_equals_zero
+  heat_constitutive: q_T_plus_k_grad_T_equals_zero
+  energy_conservation: rho_Cp_dT_dt_plus_div_q_T_minus_JE_plus_gamma_T_minus_T0_equals_zero
+  phase_dynamics: dm_dt_minus_m_eq_minus_m_over_tau_equals_zero
+  electrical_continuity: sigma_E_minus_J_equals_zero
+  interface_state: one_sided_linear_face_trace_continuity
+  interface_flux: explicit_shared_face_head_matches_frozen_face_constitutive_flux
+  ledgers: [terminal_current, defect_mass, thermal_energy]
+
+preflight_gates:
+  parameter_count_relative_difference_max: 0.10
+  constant_equilibrium_residual_rms_max: 1.0e-10
+  exact_fvm_residual_relative_rms_max: 1.0e-6
+  initial_flux_head_relative_rms_max: 1.0e-7
+  interface_state_rms_max: 0.05
+  interface_oriented_flux_jump_max: 1.0e-12
+  ledger_reconstruction_relative_error_max: 1.0e-6
+  frozen_defect_ledger_max: 0.01
+  frozen_energy_ledger_max: 0.05
+  gradient_central_difference_relative_error_max: 1.0e-3
+  gradient_nonzero_norm_min: 1.0e-12
+  tamper_detection_min_factor: 10.0
+  finite_outputs_gradients_multipliers_required: true
+  frozen_gt_hash_unchanged_required: true
+
+training:
+  mode: data_free_mixed_state_flux_grouped_augmented_lagrangian
+  seed: 20260715
+  optimizer: Adam
+  learning_rate: 0.001
+  total_steps: 1500
+  v3r_budget_multiplier: 1.25
+  feasibility_stage:
+    total_steps: 600
+    causal_schedule:
+      - {t_norm_max: 0.25, steps: 150, dataset_key: train_t_stage_025}
+      - {t_norm_max: 0.50, steps: 150, dataset_key: train_t_stage_050}
+      - {t_norm_max: 0.75, steps: 150, dataset_key: train_t_stage_075}
+      - {t_norm_max: 1.00, steps: 150, dataset_key: train_t_stage_100}
+  coupled_stage:
+    total_steps: 900
+    dataset_key: train_t_stage_100
+  continuation:
+    enabled: false
+    final_width_is_frozen_H0: true
+  gradient_clip_norm: 100.0
+  augmented_lagrangian:
+    groups: [constitutive, conservation, phase_current, ic_bc, interface, ledgers]
+    update_frequency_steps: 100
+    initial_penalty: 0.10
+    penalty_growth: 1.50
+    penalty_cap: 10.0
+    initial_multiplier: 0.0
+    multiplier_cap: 100.0
+    coupled_stage_adds_group_squared_objective: true
+  port_labels: forbidden
+  hidden_field_labels: forbidden
+  optimizer_search: forbidden
+  seed_expansion: forbidden
+  strong_wolfe_lbfgs: forbidden
+  post_result_weight_change: forbidden
+
+result_gates:
+  port_full_trace_nrmse95_max: 0.10
+  residual_rms_max: 0.01
+  constitutive_rms_max: 0.01
+  discrete_electrical_rms_max: 0.01
+  field_score_only_nrmse95_max: 0.25
+  interface_state_rms_max: 0.05
+  interface_flux_rms_max: 0.05
+  terminal_current_conservation_max: 0.01
+  global_energy_imbalance_max: 0.05
+  defect_mass_ledger_max: 0.01
+  result_ic_bc_max_normalized_error: 0.001
+  finite_outputs_required: true
+  bounded_states_required: true
+  explicit_flux_head_finite_required: true
+  all_individual_gates_required: true
+  mve_seed_vote:
+    evaluated: 1
+    required: 1
+    rationale: prompt33_explicit_single_seed_mve_supersedes_historical_2_of_3_expansion_vote
+
+comparison_to_v3r:
+  no_worse_relative_tolerance: 1.0e-6
+  no_worse_absolute_tolerance: 1.0e-12
+  required_metrics:
+    - port_full_trace_nrmse95
+    - cv_residual_rms.r_c
+    - cv_residual_rms.r_T
+    - cv_residual_rms.r_m
+    - discrete_electrical_rms
+    - field_score_only_nrmse95.c_v
+    - field_score_only_nrmse95.T
+    - field_score_only_nrmse95.m
+    - field_score_only_nrmse95.phi
+    - field_score_only_nrmse95.sigma
+    - interface_state_rms.c_v
+    - interface_state_rms.T
+    - interface_state_rms.m
+    - interface_state_rms.phi
+    - interface_flux_rms.current
+    - interface_flux_rms.heat
+    - interface_flux_rms.defect
+    - terminal_current_conservation_normalized_error
+    - global_energy_ledger.gate_value
+    - defect_mass_ledger.gate_value
+
+stop_rules:
+  - any_preflight_failure_blocks_training_and_closes_M33
+  - any_result_gate_failure_is_failed_but_informative
+  - no_second_seed_no_weight_change_no_epoch_extension_no_label_no_continuation_change
+  - M33_failure_permanently_closes_new_full_PINN_training_exploration
+  - no_N1_N2_N3_SID_EC_OQ_SCIS_replacement_or_external_experiment
+
+budget:
+  device: cpu
+  maximum_adam_steps: 1500
+  maximum_v3r_multiplier: 1.25
+  wall_clock_hours_max: 4
+  training_seeds_max: 1
+
+outputs:
+  preregistration: outputs/tables/m33_mixed_flux_preregistration.json
+  preflight: outputs/tables/m33_mixed_flux_preflight.json
+  history: outputs/tables/m33_mixed_flux_training_history.json
+  final_summary: outputs/tables/m33_mixed_flux_final_summary.json
+  comparison: outputs/tables/m33_mixed_flux_v3r_comparison.csv
+  checkpoint: outputs/checkpoints/m33_mixed_flux/seed_20260715.pt
+  figure: outputs/figures/m33_mixed_flux_forward_fidelity.png
+  report: docs/codex_reports/m33_feasibility_first_mixed_flux_pinn_mve.md
+  final_validation: outputs/tables/prompt33_final_validation.json
+

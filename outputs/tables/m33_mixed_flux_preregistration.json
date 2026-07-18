@@ -1,0 +1,337 @@
+{
+  "architecture": {
+    "analytic_electrical_head_unchanged": true,
+    "expected_parameter_count": 5632,
+    "explicit_face_flux_heads": [
+      "q_c",
+      "q_T"
+    ],
+    "fourier_scales": [
+      1.0,
+      2.0,
+      4.0,
+      8.0
+    ],
+    "frozen_operator_semantics_unchanged": true,
+    "hard_initial_conditions": true,
+    "hard_outer_flux_boundaries": true,
+    "hidden_dim": 25,
+    "hidden_layers": 3,
+    "learned_cell_states": [
+      "c_v",
+      "T",
+      "m"
+    ],
+    "material_partition_unchanged": true,
+    "maximum_relative_parameter_difference": 0.1,
+    "network_inputs": [
+      "t_over_tmax"
+    ],
+    "nx": 31,
+    "returned_states": [
+      "phi",
+      "c_v",
+      "T",
+      "m",
+      "sigma",
+      "E",
+      "J",
+      "I",
+      "G",
+      "q_c",
+      "q_T"
+    ],
+    "temperature_max_K": 350.0,
+    "temperature_min_K": 300.0
+  },
+  "base_snapshot": "664c3a0768e5de29fc68348827e18ed057b64862",
+  "baseline_contract": {
+    "adam_steps": 1200,
+    "eval_points_reused": "eval_t",
+    "field_and_port_grid_reused": "frozen_gt_400_by_31",
+    "id": "N0-CV-E-v3r-post-Adam",
+    "labels_used": [],
+    "ledger_points_reused": "ledger_t",
+    "parameter_count": 5501,
+    "seed": 20260715,
+    "training_points_reused": [
+      "train_t_stage_025",
+      "train_t_stage_050",
+      "train_t_stage_075",
+      "train_t_stage_100"
+    ]
+  },
+  "budget": {
+    "device": "cpu",
+    "maximum_adam_steps": 1500,
+    "maximum_v3r_multiplier": 1.25,
+    "training_seeds_max": 1,
+    "wall_clock_hours_max": 4
+  },
+  "commit_order_rule": "this JSON and all locked implementation files must be committed before M33 preflight or training",
+  "comparison_to_v3r": {
+    "no_worse_absolute_tolerance": 1e-12,
+    "no_worse_relative_tolerance": 1e-06,
+    "required_metrics": [
+      "port_full_trace_nrmse95",
+      "cv_residual_rms.r_c",
+      "cv_residual_rms.r_T",
+      "cv_residual_rms.r_m",
+      "discrete_electrical_rms",
+      "field_score_only_nrmse95.c_v",
+      "field_score_only_nrmse95.T",
+      "field_score_only_nrmse95.m",
+      "field_score_only_nrmse95.phi",
+      "field_score_only_nrmse95.sigma",
+      "interface_state_rms.c_v",
+      "interface_state_rms.T",
+      "interface_state_rms.m",
+      "interface_state_rms.phi",
+      "interface_flux_rms.current",
+      "interface_flux_rms.heat",
+      "interface_flux_rms.defect",
+      "terminal_current_conservation_normalized_error",
+      "global_energy_ledger.gate_value",
+      "defect_mass_ledger.gate_value"
+    ]
+  },
+  "component_novelty_claim": "forbidden",
+  "created_at_utc": "2026-07-18T08:16:34.469385+00:00",
+  "diagnostic_dataset_raw_sha256": "a34b51cd48349c2bc5213a3c905e18d6640cdd305f87c05d944301882f478cfe",
+  "dimensionless_registry": {
+    "concentration_scale": 1.0,
+    "conductivity_scale_S_per_m": 2.4,
+    "current_density_scale_A_per_m2": "4.8e6",
+    "flux_scales": {
+      "q_T_formula": "max_k_times_temperature_scale_over_L",
+      "q_T_units": "W m^-2",
+      "q_c_formula": "max_D_at_350K_over_L_plus_quarter_max_mu_at_350K_times_V_over_L",
+      "q_c_units": "m s^-1"
+    },
+    "length_scale_m": 1e-07,
+    "phase_scale": 1.0,
+    "posthoc_rescaling_forbidden": true,
+    "residual_scales": {
+      "r_T_K_per_s": 6666.666666666667,
+      "r_c_per_s": 333.3333333333333,
+      "r_m_per_s": 333.3333333333333
+    },
+    "temperature_scale_K": 20.0,
+    "time_scale_s": 0.003,
+    "voltage_scale_V": 0.2
+  },
+  "frozen_gt_raw_sha256": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8",
+  "git_dirty_contains_only_preregistration_package": true,
+  "git_head_before_preregistration_commit": "664c3a0768e5de29fc68348827e18ed057b64862",
+  "locked_files": {
+    "configs/gt_v1_acceptance_triangle.yaml": {
+      "mode": "canonical_semantic_json",
+      "sha256": "6077fde8ddecb889b4c5a5d878ea78814c0f777857c49b2dec24182e0a1204d8"
+    },
+    "configs/m33_feasibility_first_mixed_flux.yaml": {
+      "mode": "canonical_semantic_json",
+      "sha256": "1acd31817685e7a354ad22fcd24e5f95c3ddecf9bae75c44e36196d84fd6aa11"
+    },
+    "configs/n0_cv_e_v3r_optimizer_forensics.yaml": {
+      "mode": "canonical_semantic_json",
+      "sha256": "4aa478fbada014604de9179d7e961d467165b10d46653c577b2f157125c4fb17"
+    },
+    "data/processed/gt_v1_acceptance/gt_triangle.npz": {
+      "mode": "raw_bytes",
+      "sha256": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8"
+    },
+    "data/processed/gt_v1_acceptance/manifest.json": {
+      "mode": "canonical_semantic_json",
+      "sha256": "9a1c9e31a1f7340a411ba5801d7ceb8b494257908cad2f8268fb001b4d3a1991"
+    },
+    "docs/method_equations.md": {
+      "mode": "canonical_lf",
+      "sha256": "34a873cffe8c4ed01d2040bc39d47964b8a16c292165d48ef02ef55db31ecba5"
+    },
+    "docs/schemas/m33_mixed_flux_summary_v1.schema.json": {
+      "mode": "canonical_semantic_json",
+      "sha256": "62c5004154daa696537414be6e65e8ccc4d6769aaae94be3a8a25531755076f2"
+    },
+    "outputs/tables/n0_cv_e_v3_diagnostic_set.npz": {
+      "mode": "raw_bytes",
+      "sha256": "a34b51cd48349c2bc5213a3c905e18d6640cdd305f87c05d944301882f478cfe"
+    },
+    "outputs/tables/n0_cv_e_v3r_post_adam_score.json": {
+      "mode": "canonical_semantic_json",
+      "sha256": "d48d1a9011cf1ee0e1a311e0c6bf6584c498fbfaaeaa74069c0e262b9601a1fc"
+    },
+    "scripts/build_m33_mixed_flux_evidence.py": {
+      "mode": "canonical_lf",
+      "sha256": "214ca1872948a9ef36445eb7ef6cb6b0311975ac453633b0329e8dd82dbc0d6d"
+    },
+    "scripts/preregister_m33_mixed_flux.py": {
+      "mode": "canonical_lf",
+      "sha256": "530415c6ba7542fc652b3debf56ae09472f774c459a4f886ae5719c794cc111b"
+    },
+    "scripts/run_m33_mixed_flux_preflight.py": {
+      "mode": "canonical_lf",
+      "sha256": "5e5ed6358ed740780c7a20a62e3d571a868fa28d7b0d344d80d7c5a6b363d040"
+    },
+    "scripts/train_m33_mixed_flux.py": {
+      "mode": "canonical_lf",
+      "sha256": "2b9655b4f5d4fe2ce45cfaf357e8a9f70353bb849c83400e362e00f40ee318f9"
+    },
+    "src/pinnpcm/physics/gt_solver.py": {
+      "mode": "canonical_lf",
+      "sha256": "94b900626be61827a5137670576142703a4700b67ac449702cc83f47b5f050d8"
+    },
+    "src/pinnpcm/physics/params.py": {
+      "mode": "canonical_lf",
+      "sha256": "a8fc571c7a83935e9a19fc94ada02e5d1bfc2118282186da2c4152967699d1f9"
+    },
+    "src/pinnpcm/pinn/full_pinn_n0_cv_e.py": {
+      "mode": "canonical_lf",
+      "sha256": "4b5cdb581058b438d8977119de2df1477c7ff958c9d786f7fa3e81d9001bf8d1"
+    },
+    "src/pinnpcm/pinn/mixed_flux_pinn.py": {
+      "mode": "canonical_lf",
+      "sha256": "7d6753580419ee9d01d70d90e9ff44c7e4204f825c97f3ed8ec16cfc8cb964f5"
+    },
+    "src/pinnpcm/pinn/n0_cv_evidence.py": {
+      "mode": "canonical_lf",
+      "sha256": "81449fa1714e57d268cb9753c62bae888a7991dc8d83baf0626e7e2d9fd30369"
+    },
+    "tests/test_m33_mixed_flux_contract.py": {
+      "mode": "canonical_lf",
+      "sha256": "108631a291f4ee6dfff6aeaf54d5bf89fb6f5e8b171f34087cf40676dd9891b6"
+    },
+    "tests/test_m33_mixed_flux_gate_safety.py": {
+      "mode": "canonical_lf",
+      "sha256": "30064f95304c918ff65990ff9c78715781ded993e43e905bfd2f70bae772053d"
+    }
+  },
+  "preflight_gates": {
+    "constant_equilibrium_residual_rms_max": 1e-10,
+    "exact_fvm_residual_relative_rms_max": 1e-06,
+    "finite_outputs_gradients_multipliers_required": true,
+    "frozen_defect_ledger_max": 0.01,
+    "frozen_energy_ledger_max": 0.05,
+    "frozen_gt_hash_unchanged_required": true,
+    "gradient_central_difference_relative_error_max": 0.001,
+    "gradient_nonzero_norm_min": 1e-12,
+    "initial_flux_head_relative_rms_max": 1e-07,
+    "interface_oriented_flux_jump_max": 1e-12,
+    "interface_state_rms_max": 0.05,
+    "ledger_reconstruction_relative_error_max": 1e-06,
+    "parameter_count_relative_difference_max": 0.1,
+    "tamper_detection_min_factor": 10.0
+  },
+  "residual_contract": {
+    "defect_conservation": "dc_dt_plus_div_q_c_plus_k_r_c_minus_c0_equals_zero",
+    "defect_constitutive": "q_c_plus_D_grad_c_minus_mu_c_one_minus_c_E_equals_zero",
+    "electrical_continuity": "sigma_E_minus_J_equals_zero",
+    "energy_conservation": "rho_Cp_dT_dt_plus_div_q_T_minus_JE_plus_gamma_T_minus_T0_equals_zero",
+    "heat_constitutive": "q_T_plus_k_grad_T_equals_zero",
+    "interface_flux": "explicit_shared_face_head_matches_frozen_face_constitutive_flux",
+    "interface_state": "one_sided_linear_face_trace_continuity",
+    "ledgers": [
+      "terminal_current",
+      "defect_mass",
+      "thermal_energy"
+    ],
+    "phase_dynamics": "dm_dt_minus_m_eq_minus_m_over_tau_equals_zero"
+  },
+  "result_gates": {
+    "all_individual_gates_required": true,
+    "bounded_states_required": true,
+    "constitutive_rms_max": 0.01,
+    "defect_mass_ledger_max": 0.01,
+    "discrete_electrical_rms_max": 0.01,
+    "explicit_flux_head_finite_required": true,
+    "field_score_only_nrmse95_max": 0.25,
+    "finite_outputs_required": true,
+    "global_energy_imbalance_max": 0.05,
+    "interface_flux_rms_max": 0.05,
+    "interface_state_rms_max": 0.05,
+    "mve_seed_vote": {
+      "evaluated": 1,
+      "rationale": "prompt33_explicit_single_seed_mve_supersedes_historical_2_of_3_expansion_vote",
+      "required": 1
+    },
+    "port_full_trace_nrmse95_max": 0.1,
+    "residual_rms_max": 0.01,
+    "result_ic_bc_max_normalized_error": 0.001,
+    "terminal_current_conservation_max": 0.01
+  },
+  "schema_version": "m33_mixed_flux_preregistration_v1",
+  "scientific_question": "Can a matched-budget first-order mixed state-flux full PINN with grouped augmented-Lagrangian feasibility training pass all frozen forward-fidelity gates?",
+  "stage_id": "M33_FEASIBILITY_FIRST_MIXED_FLUX_PINN_MVE",
+  "status": "locked_before_preflight_and_training",
+  "stop_rules": [
+    "any_preflight_failure_blocks_training_and_closes_M33",
+    "any_result_gate_failure_is_failed_but_informative",
+    "no_second_seed_no_weight_change_no_epoch_extension_no_label_no_continuation_change",
+    "M33_failure_permanently_closes_new_full_PINN_training_exploration",
+    "no_N1_N2_N3_SID_EC_OQ_SCIS_replacement_or_external_experiment"
+  ],
+  "training": {
+    "augmented_lagrangian": {
+      "coupled_stage_adds_group_squared_objective": true,
+      "groups": [
+        "constitutive",
+        "conservation",
+        "phase_current",
+        "ic_bc",
+        "interface",
+        "ledgers"
+      ],
+      "initial_multiplier": 0.0,
+      "initial_penalty": 0.1,
+      "multiplier_cap": 100.0,
+      "penalty_cap": 10.0,
+      "penalty_growth": 1.5,
+      "update_frequency_steps": 100
+    },
+    "continuation": {
+      "enabled": false,
+      "final_width_is_frozen_H0": true
+    },
+    "coupled_stage": {
+      "dataset_key": "train_t_stage_100",
+      "total_steps": 900
+    },
+    "feasibility_stage": {
+      "causal_schedule": [
+        {
+          "dataset_key": "train_t_stage_025",
+          "steps": 150,
+          "t_norm_max": 0.25
+        },
+        {
+          "dataset_key": "train_t_stage_050",
+          "steps": 150,
+          "t_norm_max": 0.5
+        },
+        {
+          "dataset_key": "train_t_stage_075",
+          "steps": 150,
+          "t_norm_max": 0.75
+        },
+        {
+          "dataset_key": "train_t_stage_100",
+          "steps": 150,
+          "t_norm_max": 1.0
+        }
+      ],
+      "total_steps": 600
+    },
+    "gradient_clip_norm": 100.0,
+    "hidden_field_labels": "forbidden",
+    "learning_rate": 0.001,
+    "mode": "data_free_mixed_state_flux_grouped_augmented_lagrangian",
+    "optimizer": "Adam",
+    "optimizer_search": "forbidden",
+    "port_labels": "forbidden",
+    "post_result_weight_change": "forbidden",
+    "seed": 20260715,
+    "seed_expansion": "forbidden",
+    "strong_wolfe_lbfgs": "forbidden",
+    "total_steps": 1500,
+    "v3r_budget_multiplier": 1.25
+  }
+}

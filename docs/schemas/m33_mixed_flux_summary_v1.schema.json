@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "m33_mixed_flux_summary_v1.schema.json",
+  "title": "M33 mixed-flux final summary",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "stage_id",
+    "preregistration_commit",
+    "preflight_all_pass",
+    "training_executed",
+    "training_seed",
+    "metrics",
+    "gates",
+    "comparison_to_v3r",
+    "status",
+    "positive_forward_claim_allowed"
+  ],
+  "properties": {
+    "schema_version": {"const": "m33_mixed_flux_final_summary_v1"},
+    "stage_id": {"const": "M33_FEASIBILITY_FIRST_MIXED_FLUX_PINN_MVE"},
+    "preregistration_commit": {"type": "string", "minLength": 40, "maxLength": 40},
+    "preflight_all_pass": {"type": "boolean"},
+    "training_executed": {"type": "boolean"},
+    "training_seed": {"type": ["integer", "null"]},
+    "metrics": {"type": "object"},
+    "gates": {
+      "type": "object",
+      "required": ["checks", "all_pass"],
+      "properties": {
+        "checks": {"type": "object", "additionalProperties": {"type": "boolean"}},
+        "all_pass": {"type": "boolean"}
+      }
+    },
+    "comparison_to_v3r": {"type": "object"},
+    "status": {"enum": ["qualified_supported", "failed_but_informative"]},
+    "positive_forward_claim_allowed": {"type": "boolean"}
+  },
+  "additionalProperties": true
+}
