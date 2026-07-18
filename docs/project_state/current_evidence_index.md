@@ -21,7 +21,8 @@ This is a routing index; current status remains authoritative in `PROJECT_STATE.
 | Historical N0-CV-E v3 | `failed_but_informative / runtime_abort_unassessed` | `outputs/tables/n0_cv_e_v3_semantic_amendment.json`; `outputs/tables/n0_cv_e_v3_summary.json` |
 | N0-CV-E v3r preregistration | locked at clean remote commit | `outputs/tables/n0_cv_e_v3r_preregistration.json`; `configs/n0_cv_e_v3r_optimizer_forensics.yaml` |
 | N0-CV-E v3r post-Adam and crash forensics | `failed_but_informative`; N0 stopped | `outputs/tables/n0_cv_e_v3r_forensic_resolution.json`; `outputs/tables/n0_cv_e_v3r_post_adam_score.json`; `outputs/tables/n0_cv_e_v3r_lbfgs_diagnostic_crash.json` |
-| M33 mixed state--flux MVE | preflight `supported`; trained result `failed_but_informative`; new full-PINN training stopped | `outputs/tables/m33_mixed_flux_preregistration.json`; `outputs/tables/m33_mixed_flux_preflight.json`; `outputs/tables/m33_mixed_flux_training_history.json`; `outputs/tables/m33_mixed_flux_final_summary.json`; `outputs/tables/m33_mixed_flux_v3r_comparison.csv`; `outputs/figures/m33_mixed_flux_forward_fidelity.png` |
+| M33 mixed state--flux MVE | preflight `supported`; trained result `failed_but_informative`; M33-v1 closed | `outputs/tables/m33_mixed_flux_preregistration.json`; `outputs/tables/m33_mixed_flux_preflight.json`; `outputs/tables/m33_mixed_flux_training_history.json`; `outputs/tables/m33_mixed_flux_final_summary.json`; `outputs/tables/m33_mixed_flux_v3r_comparison.csv`; `outputs/figures/m33_mixed_flux_forward_fidelity.png` |
+| M34 optimizer/gradient/ledger audit | implementation facts `supported`; corrected-run authorization `failed_but_informative`; no training executed | `outputs/tables/m34_contract_audit_preregistration.json`; `outputs/tables/m34_contract_audit_summary.json`; `outputs/tables/m34_alm_toy_benchmark.csv`; `outputs/tables/m34_gradient_geometry.csv`; `outputs/tables/m34_ledger_reconciliation.csv` |
 | Solver-first SID/EC-OQ | `failed_but_informative`; current implementation rejected/inactive | `outputs/tables/sid_ec_oq_summary.json`; `outputs/tables/sid_ec_oq_cases.csv`; `outputs/tables/sid_ec_oq_bootstrap.csv` |
 | CPCF superseding semantic audit | frontier inference `forbidden`; software audit `failed_but_informative` | `outputs/tables/prompt31_cpcf_semantic_audit.json`; `outputs/tables/gamma_sub_cpcf_superseding_claim_record.json` |
 | Historical CPCF preregistration and pilot | immutable, non-voting diagnostic only | `outputs/tables/gamma_sub_cpcf_preregistration.json`; `outputs/tables/gamma_sub_cpcf_pilot_summary.json`; `outputs/tables/gamma_sub_cpcf_pilot_operating_points.csv` |
@@ -33,7 +34,7 @@ This is a routing index; current status remains authoritative in `PROJECT_STATE.
 | M32 SCIS | `failed_but_informative`; nominal coverage passes, mismatch refusal fails | `outputs/tables/gamma_sub_scis_preregistration.json`; `outputs/tables/gamma_sub_scis_cache_preflight.json`; `outputs/tables/gamma_sub_scis_summary.json`; `outputs/tables/gamma_sub_scis_cases.csv`; `outputs/figures/gamma_sub_scis_certificate_v1.png` |
 | N1-N3 / SC-LOS | not run / `forbidden` | failed upstream trained-forward and geometry gates |
 
-Current report: `docs/codex_reports/m33_feasibility_first_mixed_flux_pinn_mve.md`.
+Current report: `docs/codex_reports/m34_optimization_and_ledger_contract_audit.md`.
 
 Detailed reports:
 

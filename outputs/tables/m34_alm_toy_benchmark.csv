@@ -1,0 +1,10 @@
+analytic_solution,case_id,constraint_abs,dual_abs_error,dual_semantics,estimated_x,method,objective,reported_multiplier,true_signed_dual
+0.0,positive_dual,1.1920928955078125e-07,1.1920928955078125e-07,signed_dual,1.1920928955078125e-07,signed_vector_alm,1.999999761581428,1.9999998807907104,2.0
+0.0,positive_dual,1.1920928955078125e-07,1.1920928955078125e-07,nonnegative_norm_weight,1.1920928955078125e-07,group_rms_scalar_multiplier,1.999999761581428,1.9999998807907104,2.0
+0.0,positive_dual,1.0,,no_dual,1.0,quadratic_penalty,0.5,,2.0
+0.0,negative_dual,1.1920928955078125e-07,1.1920928955078125e-07,signed_dual,-1.1920928955078125e-07,signed_vector_alm,1.999999761581428,-1.9999998807907104,-2.0
+0.0,negative_dual,1.1920928955078125e-07,3.9999998807907104,nonnegative_norm_weight,-1.1920928955078125e-07,group_rms_scalar_multiplier,1.999999761581428,1.9999998807907104,-2.0
+0.0,negative_dual,1.0,,no_dual,-1.0,quadratic_penalty,0.5,,-2.0
+1.0,shifted_negative_dual,2.9802322387695312e-08,2.9802322387695312e-08,signed_dual,0.9999999701976776,signed_vector_alm,0.12499998509883925,-0.4999999701976776,-0.5
+1.0,shifted_negative_dual,2.9802322387695312e-08,0.9999999701976776,nonnegative_norm_weight,0.9999999701976776,group_rms_scalar_multiplier,0.12499998509883925,0.4999999701976776,-0.5
+1.0,shifted_negative_dual,0.25,,no_dual,0.75,quadratic_penalty,0.03125,,-0.5

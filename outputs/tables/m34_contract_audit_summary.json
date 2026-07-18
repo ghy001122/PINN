@@ -1,0 +1,620 @@
+{
+  "alm": {
+    "faithful_signed_vector_alm": false,
+    "gradient_clip_norm": 100.0,
+    "literature_boundary": "PECANN/PECANN-CAPU use constrained-optimization ALM machinery; M33-v1 does not test those methods generally.",
+    "m33_classification": "adaptive_group_norm_exact_penalty_with_nonnegative_scalar_accumulators",
+    "multiplier_cap": 100.0,
+    "toy": [
+      {
+        "analytic_solution": 0.0,
+        "case_id": "positive_dual",
+        "constraint_abs": 1.1920928955078125e-07,
+        "dual_abs_error": 1.1920928955078125e-07,
+        "dual_semantics": "signed_dual",
+        "estimated_x": 1.1920928955078125e-07,
+        "method": "signed_vector_alm",
+        "objective": 1.999999761581428,
+        "reported_multiplier": 1.9999998807907104,
+        "true_signed_dual": 2.0
+      },
+      {
+        "analytic_solution": 0.0,
+        "case_id": "positive_dual",
+        "constraint_abs": 1.1920928955078125e-07,
+        "dual_abs_error": 1.1920928955078125e-07,
+        "dual_semantics": "nonnegative_norm_weight",
+        "estimated_x": 1.1920928955078125e-07,
+        "method": "group_rms_scalar_multiplier",
+        "objective": 1.999999761581428,
+        "reported_multiplier": 1.9999998807907104,
+        "true_signed_dual": 2.0
+      },
+      {
+        "analytic_solution": 0.0,
+        "case_id": "positive_dual",
+        "constraint_abs": 1.0,
+        "dual_abs_error": null,
+        "dual_semantics": "no_dual",
+        "estimated_x": 1.0,
+        "method": "quadratic_penalty",
+        "objective": 0.5,
+        "reported_multiplier": null,
+        "true_signed_dual": 2.0
+      },
+      {
+        "analytic_solution": 0.0,
+        "case_id": "negative_dual",
+        "constraint_abs": 1.1920928955078125e-07,
+        "dual_abs_error": 1.1920928955078125e-07,
+        "dual_semantics": "signed_dual",
+        "estimated_x": -1.1920928955078125e-07,
+        "method": "signed_vector_alm",
+        "objective": 1.999999761581428,
+        "reported_multiplier": -1.9999998807907104,
+        "true_signed_dual": -2.0
+      },
+      {
+        "analytic_solution": 0.0,
+        "case_id": "negative_dual",
+        "constraint_abs": 1.1920928955078125e-07,
+        "dual_abs_error": 3.9999998807907104,
+        "dual_semantics": "nonnegative_norm_weight",
+        "estimated_x": -1.1920928955078125e-07,
+        "method": "group_rms_scalar_multiplier",
+        "objective": 1.999999761581428,
+        "reported_multiplier": 1.9999998807907104,
+        "true_signed_dual": -2.0
+      },
+      {
+        "analytic_solution": 0.0,
+        "case_id": "negative_dual",
+        "constraint_abs": 1.0,
+        "dual_abs_error": null,
+        "dual_semantics": "no_dual",
+        "estimated_x": -1.0,
+        "method": "quadratic_penalty",
+        "objective": 0.5,
+        "reported_multiplier": null,
+        "true_signed_dual": -2.0
+      },
+      {
+        "analytic_solution": 1.0,
+        "case_id": "shifted_negative_dual",
+        "constraint_abs": 2.9802322387695312e-08,
+        "dual_abs_error": 2.9802322387695312e-08,
+        "dual_semantics": "signed_dual",
+        "estimated_x": 0.9999999701976776,
+        "method": "signed_vector_alm",
+        "objective": 0.12499998509883925,
+        "reported_multiplier": -0.4999999701976776,
+        "true_signed_dual": -0.5
+      },
+      {
+        "analytic_solution": 1.0,
+        "case_id": "shifted_negative_dual",
+        "constraint_abs": 2.9802322387695312e-08,
+        "dual_abs_error": 0.9999999701976776,
+        "dual_semantics": "nonnegative_norm_weight",
+        "estimated_x": 0.9999999701976776,
+        "method": "group_rms_scalar_multiplier",
+        "objective": 0.12499998509883925,
+        "reported_multiplier": 0.4999999701976776,
+        "true_signed_dual": -0.5
+      },
+      {
+        "analytic_solution": 1.0,
+        "case_id": "shifted_negative_dual",
+        "constraint_abs": 0.25,
+        "dual_abs_error": null,
+        "dual_semantics": "no_dual",
+        "estimated_x": 0.75,
+        "method": "quadratic_penalty",
+        "objective": 0.03125,
+        "reported_multiplier": null,
+        "true_signed_dual": -0.5
+      }
+    ],
+    "unconditional_penalty_growth": true
+  },
+  "architecture_classification": "fixed-grid neural temporal trajectory with control-volume physics; not a continuous (x,t,mu) PINN",
+  "authorization_conditions": {
+    "at_least_20_nonzero_gradient_directions_pass_parity": false,
+    "complete_state_flux_electrical_interface_contract_retained": true,
+    "corrected_preflight_all_pass": false,
+    "corrected_toy_problem_pass": true,
+    "frozen_gt_and_equations_unchanged": true,
+    "material_m33_contract_defect": true,
+    "no_labels_no_13v_no_search": true,
+    "parameter_count_within_3_percent": true,
+    "unified_ledger_implementation_parity_pass": true
+  },
+  "authorization_disposition": "M33-v1 contract closed; no corrected run authorized",
+  "base_snapshot": "84bc5c5db2f5233b70bf97756734272c3eae36ca",
+  "checkpoint_raw_sha256": "6a1e0a09644dd8e5fc03135e1631db9847a84889e977d5082e341349d66786ce",
+  "corrected_preflight": {
+    "all_pass": false,
+    "checks": {
+      "all_gradient_and_dtype_values_finite": true,
+      "complete_architecture": true,
+      "frozen_inputs_and_checkpoint": true,
+      "no_labels_13v_or_search": true,
+      "parameter_budget": true,
+      "signed_vector_toy": true,
+      "stratified_nonzero_gradient_parity": false,
+      "unified_ledger_implementation_parity": true
+    }
+  },
+  "corrected_training_authorized": false,
+  "created_at_utc": "2026-07-18T15:01:10.665361+00:00",
+  "dtype": [
+    "float32",
+    "float64"
+  ],
+  "evidence_types": {
+    "alm_and_static_contract": "implementation_fact",
+    "gradient_dtype_ledger_and_capacity": "diagnostic_evidence",
+    "positive_full_pinn_scientific_evidence": false
+  },
+  "finite_payload": true,
+  "generalization_forbidden": [
+    "cross_grid",
+    "cross_geometry",
+    "cross_material",
+    "cross_waveform"
+  ],
+  "gradient_geometry": {
+    "coordinate_parity": {
+      "all_nonzero_pass": false,
+      "candidate_count": 48,
+      "maximum_nonzero_relative_error": 0.09185606001562653,
+      "module_nonzero_counts": {
+        "defect_flux_head": 10,
+        "heat_flux_head": 10,
+        "shared_trunk": 12,
+        "state_head": 12
+      },
+      "nonzero_count": 44
+    },
+    "dtype": {
+      "float32": {
+        "all_finite": true,
+        "groups": {
+          "conservation": {
+            "clip_effective_ratio": 1.1064752062098008e-07,
+            "constraint_rms": 638.420654296875,
+            "finite": true,
+            "gradient_norm": 903770816.0,
+            "squared_loss": 407580.90625
+          },
+          "constitutive": {
+            "clip_effective_ratio": 1.0,
+            "constraint_rms": 0.5427811741828918,
+            "finite": true,
+            "gradient_norm": 2.309108018875122,
+            "squared_loss": 0.2946114242076874
+          },
+          "ic_bc": {
+            "clip_effective_ratio": 1.0,
+            "constraint_rms": 1.1515016495877717e-08,
+            "finite": true,
+            "gradient_norm": 5.286690793019324e-18,
+            "squared_loss": 1.3259560958926204e-16
+          },
+          "interface": {
+            "clip_effective_ratio": 1.0,
+            "constraint_rms": 0.010567828081548214,
+            "finite": true,
+            "gradient_norm": 0.03584706783294678,
+            "squared_loss": 0.00011167899356223643
+          },
+          "ledgers": {
+            "clip_effective_ratio": 1.0,
+            "constraint_rms": 0.013881717808544636,
+            "finite": true,
+            "gradient_norm": 4.884900772594847e-05,
+            "squared_loss": 0.00019270209304522723
+          },
+          "phase_current": {
+            "clip_effective_ratio": 1.0,
+            "constraint_rms": 2.4190921783447266,
+            "finite": true,
+            "gradient_norm": 2.0568230152130127,
+            "squared_loss": 5.852006912231445
+          }
+        },
+        "most_severe_conflict": {
+          "cosine": -0.16403280198574066,
+          "group_a": "constitutive",
+          "group_b": "ic_bc"
+        },
+        "total_clip_effective_ratio": 1.8203640308649856e-08,
+        "total_gradient_norm": 5493406720.0,
+        "total_loss": 2509629.5
+      },
+      "float64": {
+        "all_finite": true,
+        "groups": {
+          "conservation": {
+            "clip_effective_ratio": 1.1064760849049736e-07,
+            "constraint_rms": 638.4210805672445,
+            "finite": true,
+            "gradient_norm": 903770098.2808698,
+            "squared_loss": 407581.47611264815
+          },
+          "constitutive": {
+            "clip_effective_ratio": 1.0,
+            "constraint_rms": 0.5427815901057084,
+            "finite": true,
+            "gradient_norm": 2.3091065352116296,
+            "squared_loss": 0.2946118545576812
+          },
+          "ic_bc": {
+            "clip_effective_ratio": 1.0,
+            "constraint_rms": 3.349090138030359e-17,
+            "finite": true,
+            "gradient_norm": 2.3023112622586878e-35,
+            "squared_loss": 1.1216404752652211e-33
+          },
+          "interface": {
+            "clip_effective_ratio": 1.0,
+            "constraint_rms": 0.010567908743454374,
+            "finite": true,
+            "gradient_norm": 0.03586441751667453,
+            "squared_loss": 0.00011168069520997935
+          },
+          "ledgers": {
+            "clip_effective_ratio": 1.0,
+            "constraint_rms": 0.013881714949192159,
+            "finite": true,
+            "gradient_norm": 4.8848945772761536e-05,
+            "squared_loss": 0.000192702009930625
+          },
+          "phase_current": {
+            "clip_effective_ratio": 1.0,
+            "constraint_rms": 2.419091970347273,
+            "finite": true,
+            "gradient_norm": 2.0568230805847434,
+            "squared_loss": 5.852005960998651
+          }
+        },
+        "most_severe_conflict": {
+          "cosine": -0.16290142987481007,
+          "group_a": "constitutive",
+          "group_b": "phase_current"
+        },
+        "total_clip_effective_ratio": 1.8203655097668793e-08,
+        "total_gradient_norm": 5493402257.044865,
+        "total_loss": 2509632.8419676013
+      }
+    },
+    "dtype_comparison": {
+      "conservation": {
+        "gradient_cosine": 0.9999999999269373,
+        "gradient_norm_ratio_32_to_64": 1.0000007941390532,
+        "residual_relative_difference": 6.676946963461968e-07
+      },
+      "constitutive": {
+        "gradient_cosine": 0.9999999999682968,
+        "gradient_norm_ratio_32_to_64": 1.0000006425270855,
+        "residual_relative_difference": 7.662802572951126e-07
+      },
+      "ic_bc": {
+        "gradient_cosine": 0.5716405120272152,
+        "gradient_norm_ratio_32_to_64": 2.296253716724994e+17,
+        "residual_relative_difference": 343825217.82942927
+      },
+      "interface": {
+        "gradient_cosine": 0.9999999936231714,
+        "gradient_norm_ratio_32_to_64": 0.9995162424227387,
+        "residual_relative_difference": 7.632721678220043e-06
+      },
+      "ledgers": {
+        "gradient_cosine": 0.9999999999887762,
+        "gradient_norm_ratio_32_to_64": 1.0000012682604702,
+        "residual_relative_difference": 2.0597977177021218e-07
+      },
+      "phase_current": {
+        "gradient_cosine": 0.9999999999999807,
+        "gradient_norm_ratio_32_to_64": 0.9999999682171348,
+        "residual_relative_difference": 8.598162287030765e-08
+      }
+    },
+    "semantics": "M33 final checkpoint, identical batches, squared group objectives for geometry and exact M33 group-RMS objective for coordinate parity"
+  },
+  "input_hashes": {
+    "configs/m33_feasibility_first_mixed_flux.yaml": {
+      "mode": "canonical_semantic_json",
+      "sha256": "1acd31817685e7a354ad22fcd24e5f95c3ddecf9bae75c44e36196d84fd6aa11"
+    },
+    "configs/m34_optimization_contract_audit.yaml": {
+      "mode": "canonical_semantic_json",
+      "sha256": "08b64bf94e1313687031fcc52c581a27d9d9deb6dd768645d6c10bfc5a1f74f1"
+    },
+    "data/processed/gt_v1_acceptance/gt_triangle.npz": {
+      "mode": "raw_bytes",
+      "sha256": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8"
+    },
+    "data/processed/gt_v1_acceptance/manifest.json": {
+      "mode": "canonical_semantic_json",
+      "sha256": "9a1c9e31a1f7340a411ba5801d7ceb8b494257908cad2f8268fb001b4d3a1991"
+    },
+    "docs/schemas/m34_contract_audit_v1.schema.json": {
+      "mode": "canonical_semantic_json",
+      "sha256": "fe1ec6b7592622b8a3d1ebedf6d542bedddd595105523fa65016ec28288b54bd"
+    },
+    "outputs/checkpoints/m33_mixed_flux/seed_20260715.pt": {
+      "mode": "raw_bytes",
+      "sha256": "6a1e0a09644dd8e5fc03135e1631db9847a84889e977d5082e341349d66786ce"
+    },
+    "outputs/tables/m33_mixed_flux_final_summary.json": {
+      "mode": "canonical_semantic_json",
+      "sha256": "cfc844e92222ca740fd62fe38e3205fa29999e60d145a4f82964b40ca0be8e44"
+    },
+    "outputs/tables/m33_mixed_flux_training_history.json": {
+      "mode": "canonical_semantic_json",
+      "sha256": "7c781167d1ad78c555cf2fc0b659197054c0d03661a65512278f93e8850944ac"
+    },
+    "outputs/tables/n0_cv_e_v3_diagnostic_set.npz": {
+      "mode": "raw_bytes",
+      "sha256": "a34b51cd48349c2bc5213a3c905e18d6640cdd305f87c05d944301882f478cfe"
+    },
+    "outputs/tables/n0_cv_e_v3r_post_adam_score.json": {
+      "mode": "canonical_semantic_json",
+      "sha256": "d48d1a9011cf1ee0e1a311e0c6bf6584c498fbfaaeaa74069c0e262b9601a1fc"
+    },
+    "scripts/preregister_m34_contract_audit.py": {
+      "mode": "canonical_lf",
+      "sha256": "6a27cbc896d6d649863534ac038cbf7f5a69eb6013fd0b86f3cbe8a25464e512"
+    },
+    "scripts/run_m34_contract_audit.py": {
+      "mode": "canonical_lf",
+      "sha256": "cf1dea77958c4ddf0e1a8ab2d319ff746751b52e34bfb96ad5515a6ba5346c59"
+    },
+    "scripts/train_m34_corrected_mixed_flux.py": {
+      "mode": "canonical_lf",
+      "sha256": "420469bb522132c07794d79f091a72312999fedd52e71c0367c952e4580ec2c6"
+    },
+    "src/pinnpcm/pinn/m34_contract_audit.py": {
+      "mode": "canonical_lf",
+      "sha256": "bf3bd89088376b274c72d7e3d19a631718da2d8ac04702961836de4e214c96b5"
+    },
+    "tests/test_m34_contract_audit.py": {
+      "mode": "canonical_lf",
+      "sha256": "4587fafb7c4bc858779756e73651acd3bd60d355d66f275f81ad633da047d2db"
+    },
+    "tests/test_m34_gate_safety.py": {
+      "mode": "canonical_lf",
+      "sha256": "a5a53f313b047e075bbbc496d8768f1ad848b06b08d3743d6f7c18a9595fd184"
+    }
+  },
+  "ledger_reconciliation": {
+    "grids": {
+      "128": {
+        "defect": {
+          "denominator_median": 1.639603333882865e-11,
+          "denominator_min": 1.2022748519364824e-11,
+          "fixed_scale_max": 0.00020565744955951886,
+          "fixed_scale_rms": 0.00016705278579426773,
+          "independent_gate_value": 1.0,
+          "interval_relative_max": 1.0,
+          "interval_relative_p95": 1.0,
+          "local_residual_prefix_fixed_scale_max": 0.02100269778398961,
+          "local_residual_prefix_fixed_scale_rms": 0.012891865243307493,
+          "low_activity_interval_fraction": 0.0,
+          "prefix_fixed_scale_max": 0.021002132801042104,
+          "prefix_fixed_scale_rms": 0.012891828114339778,
+          "training_implementation_abs_difference": 4.9629354445523965e-17
+        },
+        "energy": {
+          "denominator_median": 0.05638858726239743,
+          "denominator_min": 0.04594380979048127,
+          "fixed_scale_max": 0.01381036059455252,
+          "fixed_scale_rms": 0.009785549248455138,
+          "independent_gate_value": 0.9995537000554623,
+          "interval_relative_max": 1.0,
+          "interval_relative_p95": 1.0,
+          "local_residual_prefix_fixed_scale_max": 1.1802745904463015,
+          "local_residual_prefix_fixed_scale_rms": 0.6493901993460537,
+          "low_activity_interval_fraction": 0.0,
+          "prefix_fixed_scale_max": 1.1802757171724445,
+          "prefix_fixed_scale_rms": 0.6493901877300607,
+          "training_implementation_abs_difference": 1.194183640862434e-14
+        }
+      },
+      "32": {
+        "defect": {
+          "denominator_median": 6.726321333076482e-11,
+          "denominator_min": 5.020235435987528e-11,
+          "fixed_scale_max": 0.0008378494369890196,
+          "fixed_scale_rms": 0.000684338347027686,
+          "independent_gate_value": 1.0,
+          "interval_relative_max": 1.0,
+          "interval_relative_p95": 1.0,
+          "local_residual_prefix_fixed_scale_max": 0.021011923730061676,
+          "local_residual_prefix_fixed_scale_rms": 0.012944604499887647,
+          "low_activity_interval_fraction": 0.0,
+          "prefix_fixed_scale_max": 0.02100214489723528,
+          "prefix_fixed_scale_rms": 0.01294362829594833,
+          "training_implementation_abs_difference": 4.130810277169772e-17
+        },
+        "energy": {
+          "denominator_median": 0.22986336952202557,
+          "denominator_min": 0.19007427032690527,
+          "fixed_scale_max": 0.05636239002487059,
+          "fixed_scale_rms": 0.039994012062038224,
+          "independent_gate_value": 0.9925243782939318,
+          "interval_relative_max": 1.0,
+          "interval_relative_p95": 1.0,
+          "local_residual_prefix_fixed_scale_max": 1.1794727055470466,
+          "local_residual_prefix_fixed_scale_rms": 0.6542356326857897,
+          "low_activity_interval_fraction": 0.0,
+          "prefix_fixed_scale_max": 1.1794915382021516,
+          "prefix_fixed_scale_rms": 0.6542357337690868,
+          "training_implementation_abs_difference": 5.974387651264124e-15
+        }
+      },
+      "400": {
+        "defect": {
+          "denominator_median": 5.2210069723543966e-12,
+          "denominator_min": 3.8223202827470186e-12,
+          "fixed_scale_max": 6.546878294285866e-05,
+          "fixed_scale_rms": 5.3172388218019436e-05,
+          "independent_gate_value": 1.0,
+          "interval_relative_max": 1.0,
+          "interval_relative_p95": 1.0,
+          "local_residual_prefix_fixed_scale_max": 0.021002189166449053,
+          "local_residual_prefix_fixed_scale_rms": 0.01288041682289497,
+          "low_activity_interval_fraction": 0.0,
+          "prefix_fixed_scale_max": 0.021002132111638122,
+          "prefix_fixed_scale_rms": 0.012880413314350797,
+          "training_implementation_abs_difference": 6.616343757592791e-17
+        },
+        "energy": {
+          "denominator_median": 0.017976307277081778,
+          "denominator_min": 0.014590375025781628,
+          "fixed_scale_max": 0.004396538401897817,
+          "fixed_scale_rms": 0.00311515010612489,
+          "independent_gate_value": 0.9999547939857177,
+          "interval_relative_max": 1.0,
+          "interval_relative_p95": 1.0,
+          "local_residual_prefix_fixed_scale_max": 1.1803202513195985,
+          "local_residual_prefix_fixed_scale_rms": 0.6482629388289329,
+          "low_activity_interval_fraction": 0.0,
+          "prefix_fixed_scale_max": 1.1803203652494034,
+          "prefix_fixed_scale_rms": 0.6482629371300909,
+          "training_implementation_abs_difference": 1.1944004812969311e-14
+        }
+      },
+      "64": {
+        "defect": {
+          "denominator_median": 3.306076330760192e-11,
+          "denominator_min": 2.4354352244328774e-11,
+          "fixed_scale_max": 0.0004141035949136956,
+          "fixed_scale_rms": 0.0003367531033178042,
+          "independent_gate_value": 1.0,
+          "interval_relative_max": 1.0,
+          "interval_relative_p95": 1.0,
+          "local_residual_prefix_fixed_scale_max": 0.021004457392124403,
+          "local_residual_prefix_fixed_scale_rms": 0.012908998970471116,
+          "low_activity_interval_fraction": 0.0,
+          "prefix_fixed_scale_max": 0.021002135149725917,
+          "prefix_fixed_scale_rms": 0.01290883088970551,
+          "training_implementation_abs_difference": 6.619054263024005e-17
+        },
+        "energy": {
+          "denominator_median": 0.11382759616820994,
+          "denominator_min": 0.09304802776806703,
+          "fixed_scale_max": 0.02782453517916093,
+          "fixed_scale_rms": 0.01971694034226704,
+          "independent_gate_value": 0.9981865885743471,
+          "interval_relative_max": 1.0,
+          "interval_relative_p95": 1.0,
+          "local_residual_prefix_fixed_scale_max": 1.1801188947538468,
+          "local_residual_prefix_fixed_scale_rms": 0.6510299314857442,
+          "low_activity_interval_fraction": 0.0,
+          "prefix_fixed_scale_max": 1.1801235047907093,
+          "prefix_fixed_scale_rms": 0.6510299113589988,
+          "training_implementation_abs_difference": 8.959846753420209e-15
+        }
+      },
+      "96": {
+        "defect": {
+          "denominator_median": 2.194216390346271e-11,
+          "denominator_min": 1.616290655621614e-11,
+          "fixed_scale_max": 0.0002748622457149079,
+          "fixed_scale_rms": 0.00022332248184481806,
+          "independent_gate_value": 1.0,
+          "interval_relative_max": 1.0,
+          "interval_relative_p95": 1.0,
+          "local_residual_prefix_fixed_scale_max": 0.021003146013119603,
+          "local_residual_prefix_fixed_scale_rms": 0.012897535635140156,
+          "low_activity_interval_fraction": 0.0,
+          "prefix_fixed_scale_max": 0.021002133404702118,
+          "prefix_fixed_scale_rms": 0.012897466897438665,
+          "training_implementation_abs_difference": 4.960224939121183e-17
+        },
+        "energy": {
+          "denominator_median": 0.0755311412204056,
+          "denominator_min": 0.06195580180870242,
+          "fixed_scale_max": 0.018454699275278583,
+          "fixed_scale_rms": 0.013080097840758542,
+          "independent_gate_value": 0.9992023841394301,
+          "interval_relative_max": 1.0,
+          "interval_relative_p95": 1.0,
+          "local_residual_prefix_fixed_scale_max": 1.1802345933819678,
+          "local_residual_prefix_fixed_scale_rms": 0.6499392510995302,
+          "low_activity_interval_fraction": 0.0,
+          "prefix_fixed_scale_max": 1.1802366104732727,
+          "prefix_fixed_scale_rms": 0.6499392345494164,
+          "training_implementation_abs_difference": 1.194183640862434e-14
+        }
+      }
+    },
+    "historical_gate_preserved": true,
+    "maximum_training_independent_implementation_difference": 1.1944004812969311e-14,
+    "root_cause_votes": {
+      "low_activity_denominator_pathology": false,
+      "normalization_mismatch": true,
+      "sign_unit_boundary_implementation_error": false,
+      "state_flux_or_local_residual_incompatibility": true,
+      "time_sampling_primary": true
+    },
+    "sampling_relative_change_two_finest_grids": {
+      "coarse_count": 128,
+      "fine_count": 400,
+      "values": {
+        "defect": 2.1417205695052024,
+        "energy": 2.1412769577989716
+      }
+    }
+  },
+  "m33_interpretation": {
+    "does_not_imply": [
+      "mixed_PINNs_are_generally_ineffective",
+      "PECANN_or_ALM_are_generally_ineffective"
+    ],
+    "must_shrink": "M33-v1 cannot by itself permanently close every corrected full-PINN training contract because its optimizer was not the declared signed/vector ALM.",
+    "still_valid": "The locked M33-v1 run failed its unchanged forward gates."
+  },
+  "normalization": {
+    "historical_gate": "interval_relative_plus_total_relative_unchanged",
+    "training_parallel_metric": {
+      "defect": "L_eff",
+      "energy": "rho_Cp_temperature_scale_L_eff"
+    }
+  },
+  "preregistration_commit": "ee83d73a16a219e02a19a5d7f6419dea3d224bb6",
+  "representability_smoke": {
+    "after_field_nrmse95": {
+      "T": 0.07085181241859088,
+      "c_v": 0.062021124633637785,
+      "m": 0.08059352126292511
+    },
+    "before_field_nrmse95": {
+      "T": 1.7164177029992431,
+      "c_v": 0.6527665280616204,
+      "m": 0.428069278657258
+    },
+    "diagnostic_only": true,
+    "hidden_field_labels_used": [
+      "c_v",
+      "T",
+      "m"
+    ],
+    "interpretation": "capacity/local-optimization smoke only; not forward evidence and not an inverse-training result",
+    "scientific_vote": false,
+    "steps": 200
+  },
+  "schema_version": "m34_contract_audit_summary_v1",
+  "sealed_13v_access": false,
+  "stage_id": "M34_OPTIMIZATION_AND_LEDGER_CONTRACT_AUDIT",
+  "status": "failed_but_informative",
+  "time_grids": [
+    32,
+    64,
+    96,
+    128,
+    400
+  ]
+}

@@ -1,10 +1,10 @@
 # Active Phase
 
-Active phase ID: `M_GAMMA_SUB_MANUSCRIPT_ASSEMBLY`
+Active phase ID: `D_PUBLIC_MULTIVOLTAGE_PREREGISTRATION`
 
 ## Objective
 
-Assemble the SCI package from the constrained `gamma_sub` evidence, calibration-gated and rank-1. Complete PINN remains mandatory architecture; trained full-PINN claims are unsupported. Do not reopen experiments in this phase.
+Preregister a provenance-locked public `9/11/15/17 V` repository-side fit while retaining sealed `13 V` for a later repository-withheld, preregistered cross-voltage evaluation. The constrained `gamma_sub` result remains the safe mainline. This phase prepares the contract only; it does not authorize fitting, 13 V access, or neural training/search. Complete PINN remains mandatory architecture, while trained full-PINN claims remain unsupported.
 
 ## Evidence routing
 
@@ -12,7 +12,7 @@ Assemble the SCI package from the constrained `gamma_sub` evidence, calibration-
 | --- | --- |
 | D0a | `failed_but_informative`; convergence fails; D0b-D0d/13 V blocked. |
 | N0 v1-v3r | `failed_but_informative`; trained fidelity fails; optimizer route stopped. |
-| M33 mixed-flux MVE | preflight `supported`; training `failed_but_informative`; partial thermal/flux improvement remains orders above gates, port regresses, and all new full-PINN training is permanently stopped. |
+| M33/M34 | M33 training is `failed_but_informative`. M34 finds a material optimizer-semantics defect but fails its stricter gradient-parity preflight, so no corrected run is authorized. M33-v1 is permanently closed; no neural search is active. |
 | SID/EC-OQ | `failed_but_informative`; numerical/geometry gates fail; inactive. |
 | CPCF | frontier `forbidden`; immutable non-voting diagnostic. |
 | CEBA | parity `supported`; boundary `failed_but_informative`; no bracket, and its truth-dependent abstention is not deployable. |
@@ -20,11 +20,11 @@ Assemble the SCI package from the constrained `gamma_sub` evidence, calibration-
 | SCIS | `failed_but_informative`; nominal coverage `0.93233`, but `2 K` mismatch acceptance `1.0` with point success `0.0`. |
 | N1-N3 / SC-LOS | not run; positive claims `forbidden`. |
 
-Current report: `docs/codex_reports/m33_feasibility_first_mixed_flux_pinn_mve.md`; historical detail is routed by the evidence index.
+Current report: `docs/codex_reports/m34_optimization_and_ledger_contract_audit.md`; historical detail is routed by the evidence index.
 
 ## Single bottleneck
 
-Lock Figure 5, CEBA oracle, SCIS refusal, M33 mixed-flux failure, and upstream failures into the manuscript. The full-PINN training exploration is closed; the next action is submission assembly, not another neural repair.
+Define the public-data preregistration before any fit: provenance and licenses; public voltage-curve identifiers; source-paper reproduction versus repository-side refit roles; fixed preprocessing; 9/11/15/17 V fit/calibration partition; multistart and complete-trace metrics; solver step convergence; operational thresholds; failure handling; and a cryptographic fit lock that keeps 13 V inaccessible until all choices are frozen. The next action is preregistration, not fitting or neural repair.
 
 ## Forbidden claims
 

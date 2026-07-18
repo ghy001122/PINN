@@ -318,5 +318,6 @@ outputs/pinn_inverse_v1_1_smoke/*
 !outputs/tables/m34_corrected_training_history.json
 !outputs/tables/m34_corrected_final_summary.json
 !outputs/tables/m34_corrected_v3r_m33_comparison.csv
+!outputs/tables/prompt34_final_validation.json
 !outputs/checkpoints/m34_corrected_mixed_flux/
 !outputs/checkpoints/m34_corrected_mixed_flux/*.pt

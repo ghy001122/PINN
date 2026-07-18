@@ -1,0 +1,70 @@
+{
+  "schema_version": "prompt34_final_validation_v1",
+  "stage_id": "M34_OPTIMIZATION_AND_LEDGER_CONTRACT_AUDIT",
+  "created_at_utc": "2026-07-18T15:20:10.480235+00:00",
+  "base_snapshot": "84bc5c5db2f5233b70bf97756734272c3eae36ca",
+  "preregistration_commit": "ee83d73a16a219e02a19a5d7f6419dea3d224bb6",
+  "validation_git_head": "ee83d73a16a219e02a19a5d7f6419dea3d224bb6",
+  "result_commit_semantics": "commit_containing_this_record",
+  "git_dirty_during_validation": true,
+  "focused_tests": {
+    "command": ".\\.venv\\Scripts\\python.exe -m pytest tests\\test_m34_contract_audit.py tests\\test_m34_gate_safety.py tests\\test_m34_result_evidence.py -q",
+    "passed": 12,
+    "failed": 0,
+    "duration_s": 6.93
+  },
+  "full_repository_tests": {
+    "command": ".\\.venv\\Scripts\\python.exe -m pytest -q",
+    "execution_count": 1,
+    "passed": 308,
+    "failed": 0,
+    "duration_s": 164.63
+  },
+  "governance_audit": {
+    "command": ".\\.venv\\Scripts\\python.exe scripts\\audit_project_governance.py",
+    "overall_status": "pass_with_manual_review",
+    "failed_checks": [],
+    "manual_review_required": [
+      "codex_rules",
+      "frozen_gt_integrity"
+    ],
+    "frozen_gt_hashes_unchanged": true,
+    "active_mtime_review": "completed_by_pre_post_task_observation"
+  },
+  "scientific_execution": {
+    "audit_execution_count": 1,
+    "corrected_training_authorized": false,
+    "corrected_training_executed": false,
+    "sealed_13v_access": false
+  },
+  "audit_numerics": {
+    "dtype": [
+      "float32",
+      "float64"
+    ],
+    "time_grids": [
+      32,
+      64,
+      96,
+      128,
+      400
+    ],
+    "normalization": {
+      "historical_gate": "interval_relative_plus_total_relative_unchanged",
+      "parallel_diagnostics": "fixed_physical_scale_and_prefix_integral"
+    }
+  },
+  "input_hashes": {
+    "m34_contract_audit_summary_sha256": "de97d61de886bff1dcbbbda201ceb9c6fdbe4aa091b8aba7dcc4a10214b9b4b3",
+    "project_governance_summary_sha256": "84c779b9fe354b3ce10c212ecf86a9075f3323ec7f1e3dcf5d94541b03840629",
+    "frozen_gt_triangle_sha256": "4e4814d9c66a79cbe86417296b0a797e53ffff2cee2bd881548fbcd35e05c9f8",
+    "m33_checkpoint_sha256": "6a1e0a09644dd8e5fc03135e1631db9847a84889e977d5082e341349d66786ce"
+  },
+  "evidence_types": {
+    "optimizer_and_static_contract": "implementation_fact",
+    "gradient_dtype_ledger_and_capacity": "diagnostic_evidence",
+    "positive_full_pinn_scientific_evidence": false
+  },
+  "strict_json_no_nan_or_infinity": true,
+  "status": "validated_failed_but_informative"
+}
