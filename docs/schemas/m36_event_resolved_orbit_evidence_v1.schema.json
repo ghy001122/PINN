@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/pinnpcm/m36_event_resolved_orbit_evidence_v1.schema.json",
+  "title": "M36 event-resolved orbit convergence evidence",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "stage_id",
+    "status",
+    "sealed_13v_access",
+    "pinn_training_performed"
+  ],
+  "properties": {
+    "schema_version": {
+      "enum": [
+        "m36_event_resolved_orbit_preregistration_v1",
+        "m36_event_resolved_orbit_evidence_v1"
+      ]
+    },
+    "stage_id": {
+      "const": "M36_EVENT_RESOLVED_ORBIT_CONVERGENCE_AND_CONDITIONAL_PUBLIC_FIT"
+    },
+    "status": {"type": "string", "minLength": 1},
+    "sealed_13v_access": {"const": false},
+    "pinn_training_performed": {"const": false},
+    "all_preflight_checks_pass": {"type": "boolean"},
+    "m36_primary_gates_pass": {"type": "boolean"},
+    "jacobian_executed": {"type": "boolean"},
+    "fit_executed": {"type": "boolean"},
+    "fit_lock_created": {"type": "boolean"},
+    "voltage_results": {
+      "type": "object",
+      "propertyNames": {"enum": ["9", "11", "15", "17"]},
+      "additionalProperties": {
+        "type": "object",
+        "required": ["regime", "classification", "primary_gate_passed"]
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "schema_version": {"const": "m36_event_resolved_orbit_preregistration_v1"}
+        }
+      },
+      "then": {
+        "required": [
+          "base_snapshot",
+          "locked_files",
+          "preflight_checks",
+          "all_preflight_checks_pass",
+          "solver_authorized_after_preregistration_commit"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "schema_version": {"const": "m36_event_resolved_orbit_evidence_v1"}
+        }
+      },
+      "then": {
+        "required": [
+          "m36_primary_gates_pass",
+          "jacobian_executed",
+          "fit_executed",
+          "fit_lock_created",
+          "voltage_results"
+        ]
+      }
+    }
+  ],
+  "additionalProperties": true
+}

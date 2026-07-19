@@ -1,0 +1,257 @@
+stage_id: M36_EVENT_RESOLVED_ORBIT_CONVERGENCE_AND_CONDITIONAL_PUBLIC_FIT
+schema_version: m36_event_resolved_orbit_config_v1
+base_snapshot: 31098e74156feb5ed83a0c14d037ffa8c22c24c2
+claim_scope: numerical_orbit_convergence_and_conditional_open_voltage_refit_only
+
+historical_evidence_lock:
+  m35_summary:
+    path: outputs/tables/m35_public_multivoltage_fit_summary.json
+    sha256: 30A6A8A7192915F81C699A6AEF91A9476FAAB38F1EEC9A0E0E541DCA04552159
+  m35_solver_convergence:
+    path: outputs/tables/m35_solver_convergence.csv
+    sha256: AE78EB5952209B265931F0307E310E73332E1D2B6607055C28DFC922EB3DC551
+  d0a_source_reproduction:
+    path: outputs/tables/vo2_d0a_source_reproduction.json
+    sha256: 8540999E0716B226CB697AD879B985B1D5630EC2636B34A9FF77AF57DCADB70D
+  m34a_gradient_amendment:
+    path: outputs/tables/m34a_gradient_semantics_amendment.json
+    sha256: 4134A69AEF09A9064FC5D438E63182F114FB69F20325B6F52B75AE0DE612DC71
+  m35_config:
+    path: configs/m35_public_multivoltage_fit.yaml
+    sha256: 9C36BF4FF252958FBA13717FD4D557C918E51B104B331A544CB3CA91722B2441
+  source_solver:
+    path: src/pinnpcm/physics/vo2_thermal_neuristor.py
+    sha256: 469801F1F5FFA0F20E987FF2C7C3E57FA856AD652CAED08B7ABFCE0FFFA553BE
+  preserve_m35_raw_time_failures: true
+  preserve_d0a_current_nrmse95: 0.1631480017203279
+  rerun_m34a_or_m35: forbidden
+
+data:
+  current_sense_ohm: 50.0
+  open_voltage_curves:
+    - {voltage_V: 9.0, regime: static, curve_id: zhang_2024_fig1c_experiment_9v, path: "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_9V.csv"}
+    - {voltage_V: 11.0, regime: oscillatory, curve_id: zhang_2024_fig1c_experiment_11v, path: "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_11V.csv"}
+    - {voltage_V: 15.0, regime: oscillatory, curve_id: zhang_2024_fig1c_experiment_15v, path: "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_15V.csv"}
+    - {voltage_V: 17.0, regime: static, curve_id: zhang_2024_fig1c_experiment_17v, path: "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_17V.csv"}
+  locked_sampling_interval_s: 3.2e-9
+  locked_pretrigger_instrument_floors:
+    "9": {current_A: 6.833859375e-6, device_voltage_V: 2.73354375e-2}
+    "11": {current_A: 5.79140625e-6, device_voltage_V: 4.378303125e-2}
+    "15": {current_A: 6.0230625e-6, device_voltage_V: 2.91886875e-2}
+    "17": {current_A: 6.486375e-6, device_voltage_V: 3.6138375e-2}
+  noise_floor_source: public_pretrigger_median_absolute_deviation_before_any_m36_simulation
+  withheld_13v:
+    numeric_access: forbidden
+    extracted_path: null
+    sealed_13v_access: false
+    use_role: future_repository_withheld_preregistered_cross_voltage_evaluation_only
+
+source_model:
+  source_config: configs/vo2_d0a_exact_source_v2.yaml
+  discrete_semantics_name: source_compatible_threshold_sampled_explicit_euler
+  continuous_semantics_name: continuous_extremum_root_located_hysteresis_reference
+  semantics_are_identical: false
+  shared_physical_rhs: true
+  distinction: >-
+    The source-compatible family updates T_last on discrete samples and changes
+    branch only after a sampled temperature increment exceeds 0.01 K. The
+    independent reference root-locates a thermal extremum and applies the same
+    0.01 K reversal delay continuously. Agreement must be demonstrated; it is
+    not assumed from the shared constitutive law.
+  source_event_order:
+    - update_sampled_reversal_ledger_at_step_start
+    - evaluate_resistance_and_rhs_on_current_branch
+    - record_pre_update_state
+    - explicit_euler_state_update
+  continuous_event_order:
+    - integrate_branch_with_fixed_ledger
+    - root_locate_temperature_boundary_crossings
+    - root_locate_thermal_extremum
+    - integrate_to_exact_0p01K_reversal_delay
+    - evaluate_old_branch_fraction_at_event_state
+    - update_history_ledger_then_resume_rhs
+
+fixed_step_family:
+  dt_values_s: [2.5e-9, 1.25e-9, 6.25e-10, 3.125e-10]
+  noise_strength: 0.0
+  seed: 0
+
+independent_reference:
+  methods: [DOP853, Radau]
+  primary_method: DOP853
+  rtol: 1.0e-9
+  atol_voltage_V: 1.0e-10
+  atol_temperature_K: 1.0e-8
+  max_step_s: 2.5e-8
+  event_time_epsilon_s: 1.0e-14
+  maximum_event_segments: 10000
+  reversal_delay_K: 0.01
+  temperature_boundaries_K: [305.0, 370.0]
+  output_grid: native_public_nonnegative_timestamps
+  fail_if_method_or_event_sequence_disagrees: true
+
+event_metrics:
+  baseline_fraction: 0.05
+  noise_mad_multiplier: 1.4826
+  prominence_noise_multiplier: 5.0
+  prominence_range_fraction: 0.05
+  minimum_peak_distance_s: 2.5e-7
+  transient_fraction: 0.10
+  sustained_min_peaks: 5
+  sustained_span_fraction: 0.50
+  sustained_isi_cv_max: 0.50
+  irregular_min_peaks: 3
+  latched_tail_fraction: 0.20
+  event_pairing: fixed_reversal_index_after_transient
+  global_phase_shift: forbidden_for_primary_gate
+  dtw: forbidden
+  phase_grid_points: 128
+  short_raw_window_s: 2.0e-5
+
+reference_parity_gates:
+  reversal_event_count_exact: true
+  boundary_event_sequence_exact: true
+  maximum_reversal_event_time_error_s: 8.0e-10
+  current_absolute_rmse_noise_fraction_max: 0.05
+  voltage_absolute_rmse_noise_fraction_max: 0.05
+  cycle_shape_nrmse_max: 0.002
+  period_relative_error_max: 2.0e-4
+  charge_relative_error_max: 2.0e-4
+  energy_relative_error_max: 2.0e-4
+  reference_cycle_ledger_relative_residual_max: 1.0e-5
+
+static_primary_gates:
+  voltages_V: [9.0, 17.0]
+  current_absolute_rmse_noise_fraction_max: 1.0
+  current_max_error_noise_fraction_max: 5.0
+  voltage_absolute_rmse_noise_fraction_max: 1.0
+  voltage_max_error_noise_fraction_max: 5.0
+  steady_current_error_noise_fraction_max: 2.0
+  steady_voltage_error_noise_fraction_max: 2.0
+  activity_class_exact: true
+  charge_relative_error_max: 0.01
+  energy_relative_error_max: 0.01
+  finest_error_score_max: 1.0
+
+oscillatory_primary_gates:
+  voltages_V: [11.0, 15.0]
+  activity_class_exact: true
+  reversal_event_count_exact: true
+  period_relative_error_max: 0.005
+  frequency_relative_error_max: 0.005
+  maximum_event_time_error_s: 2.5e-8
+  phase_drift_s_per_event_max: 8.0e-10
+  cycle_shape_nrmse_max: 0.05
+  peak_relative_error_max: 0.02
+  duty_cycle_absolute_error_max: 0.02
+  cycle_charge_relative_error_max: 0.02
+  cycle_energy_relative_error_max: 0.02
+  cycle_ledger_relative_residual_max: 0.01
+  short_raw_current_nrmse95_max: 0.10
+  short_raw_voltage_nrmse95_max: 0.10
+  finest_error_score_max: 1.0
+
+sequence_convergence_gates:
+  activity_class_exact_across_two_finest: true
+  reversal_event_count_exact_across_two_finest: true
+  finest_score_not_greater_than_coarsest: true
+  normalized_loglog_slope_min: 0.25
+  minimum_finite_score_count: 3
+
+diagnostic_only_gates:
+  full_horizon_current_nrmse95_max: 0.20
+  full_horizon_voltage_nrmse95_max: 0.20
+  full_horizon_raw_time_failure_alone_is_not_primary_failure: true
+  median_cycle_is_auxiliary_only: true
+
+conditional_jacobian:
+  execute_only_if_all_m36_primary_gates_pass: true
+  coordinate_systems: [raw_Cth_Sth, quotient_tau_th_Sth]
+  observation_groups: [static_only, oscillatory_only, joint]
+  relative_steps: [1.0e-2, 5.0e-3, 2.5e-3, 1.25e-3]
+  relative_rank_threshold: 0.05
+  retained_singular_value_relative_change_max: 0.10
+  principal_angle_deg_max: 10.0
+  retained_condition_number_max: 1.0e4
+  joint_required_rank: 2
+  complementary_top_direction_angle_deg_min: 20.0
+  event_sensitivity_method: root_located_central_finite_difference_including_event_times
+  reversible_coordinate_transform_rank_increase_claim: forbidden
+
+conditional_fit:
+  execute_only_if_m36_and_jacobian_gates_pass: true
+  folds:
+    - {fold_id: holdout_9v, holdout_voltage_V: 9.0, fit_voltages_V: [11.0, 15.0, 17.0]}
+    - {fold_id: holdout_11v, holdout_voltage_V: 11.0, fit_voltages_V: [9.0, 15.0, 17.0]}
+    - {fold_id: holdout_15v, holdout_voltage_V: 15.0, fit_voltages_V: [9.0, 11.0, 17.0]}
+    - {fold_id: holdout_17v, holdout_voltage_V: 17.0, fit_voltages_V: [9.0, 11.0, 15.0]}
+  objectives: [raw_time_m35_baseline, regime_aware_orbit]
+  coordinate_systems: [raw_Cth_Sth, quotient_tau_th_Sth]
+  deterministic_start_offsets:
+    - [0.0, 0.0]
+    - [-0.75, -0.75]
+    - [-0.75, 0.75]
+    - [0.75, -0.75]
+    - [0.75, 0.75]
+    - [-0.75, 0.0]
+    - [0.75, 0.0]
+    - [0.0, 0.75]
+  raw_parameter_factor_bounds: [0.5, 2.0]
+  solver_method: DOP853
+  max_nfev_per_start_per_objective: 12
+  equal_forward_budget_required: true
+  optimizer: scipy_least_squares_trf
+  loss: soft_l1
+  ftol: 1.0e-6
+  xtol: 1.0e-6
+  gtol: 1.0e-6
+  minimum_finite_starts_per_fold: 6
+  activity_class_accuracy_min: 0.75
+  repository_operational_holdout_combined_nrmse95_max: 0.20
+  orbit_noninferiority_margin: 0.02
+  orbit_parameter_dispersion_noninferiority_fraction: 0.0
+  maximum_forward_evaluations: 10000
+  cpu_wall_clock_hours_max: 4.0
+  all_starts_reported: true
+  best_start_only_reporting: forbidden
+
+budget:
+  total_incremental_cpu_hours_max: 4.0
+  m36_fixed_step_forward_count: 16
+  m36_independent_reference_forward_count: 8
+  bootstrap: forbidden_this_round
+  gpu_hours: 0
+
+outputs:
+  preregistration: outputs/tables/m36_event_resolved_orbit_preregistration.json
+  convergence_metrics: outputs/tables/m36_orbit_convergence_metrics.csv
+  event_table: outputs/tables/m36_event_times.csv
+  summary: outputs/tables/m36_event_resolved_orbit_summary.json
+  jacobian_summary: outputs/tables/m36_event_aware_jacobian.json
+  jacobian_spectra: outputs/tables/m36_event_aware_jacobian_spectra.csv
+  fit_starts: outputs/tables/m36_conditional_fit_all_starts.csv
+  fit_metrics: outputs/tables/m36_conditional_fit_lovo_metrics.csv
+  fit_lock: outputs/tables/m36_public_multivoltage_fit_lock.json
+  validation: outputs/tables/prompt36_final_validation.json
+  figure_convergence: outputs/figures/m36_error_dt_convergence.png
+  figure_event_drift: outputs/figures/m36_event_time_drift.png
+  figure_cycle_overlay: outputs/figures/m36_phase_cycle_overlay.png
+  figure_static_absolute: outputs/figures/m36_static_absolute_noise_error.png
+  report: docs/codex_reports/m36_event_resolved_orbit_and_conditional_fit.md
+
+claim_boundary:
+  novelty_hypothesis: >-
+    Phase-transition devices exhibit regime-dependent observable subspaces,
+    and quiescent plus limit-cycle voltage branches may jointly identify a
+    transportable thermal parameter equivalence class.
+  allowed_if_solver_only_passes: qualified_numerical_orbit_convergence_evidence
+  allowed_if_conditional_fit_passes: qualified_repository_side_open_voltage_lovo_evidence
+  forbidden:
+    - independent_external_validation
+    - experimental_validation_by_this_repository
+    - unique_raw_parameter_recovery
+    - fisher_rank_increase_from_reversible_reparameterization
+    - trained_PINN_claim
+    - world_first
+    - access_to_13v_in_m36
+    - replacement_or_relaxation_of_m35_or_d0a_failure

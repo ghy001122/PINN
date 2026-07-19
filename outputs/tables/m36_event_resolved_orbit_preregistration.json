@@ -1,0 +1,320 @@
+{
+  "all_preflight_checks_pass": true,
+  "base_snapshot": "31098e74156feb5ed83a0c14d037ffa8c22c24c2",
+  "conditional_continuation_authorized_without_second_user_confirmation": true,
+  "config_sha256": "3F817834E12C118C11460CCB1A1DC8F9817499E878431338B8C999F3B3DD1FC0",
+  "created_at_utc": "2026-07-19T09:12:21.531599+00:00",
+  "forbidden_claims": [
+    "independent_external_validation",
+    "experimental_validation_by_this_repository",
+    "unique_raw_parameter_recovery",
+    "fisher_rank_increase_from_reversible_reparameterization",
+    "trained_PINN_claim",
+    "world_first",
+    "access_to_13v_in_m36",
+    "replacement_or_relaxation_of_m35_or_d0a_failure"
+  ],
+  "historical_hash_checks": {
+    "d0a_source_reproduction": true,
+    "m34a_gradient_amendment": true,
+    "m35_config": true,
+    "m35_solver_convergence": true,
+    "m35_summary": true,
+    "source_solver": true
+  },
+  "locked_files": {
+    ".gitignore": "4FE6B669A7F49416E0CB0CCEC7A83B7FD84F6260CEA141EE8028963F274A126A",
+    "configs/m35_public_multivoltage_fit.yaml": "9C36BF4FF252958FBA13717FD4D557C918E51B104B331A544CB3CA91722B2441",
+    "configs/m36_event_resolved_orbit_convergence.yaml": "3F817834E12C118C11460CCB1A1DC8F9817499E878431338B8C999F3B3DD1FC0",
+    "configs/vo2_d0a_exact_source_v2.yaml": "F4EDA82DEF46CCBC031CCE6DB6AC4427DC1D376268A4A9A12EE48DFBE6667F28",
+    "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_11V.csv": "42E29D10EDD707A79A51938C928FCB45B321D1B103114F2CECAB3B5063F18D51",
+    "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_15V.csv": "DD7872C980B982CA32CB459313939B03777769D4C0B42A600C5B97966CF6A923",
+    "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_17V.csv": "B8219F9C5E6A73E9C4526A9A01DDB5281F6CC7755343E6D166B0006D819CD6A6",
+    "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_9V.csv": "A8A2F2F6BF43EB49A7CED7E06F6A72E52CFA49B0AEB19119A9AB9834A6ADDF56",
+    "docs/codex_reports/m36_event_resolved_orbit_and_conditional_fit.md": "72DBD4D64DCD08E4195CEA7376D552200ADC865B0FE7596978DFC81DEC9B2C56",
+    "docs/schemas/m36_event_resolved_orbit_evidence_v1.schema.json": "859FAF45076085826654EDA5FF9B9D6EDD5857CC7075CACAC5279A24C68CA136",
+    "outputs/tables/m34a_gradient_semantics_amendment.json": "4134A69AEF09A9064FC5D438E63182F114FB69F20325B6F52B75AE0DE612DC71",
+    "outputs/tables/m35_public_multivoltage_fit_summary.json": "30A6A8A7192915F81C699A6AEF91A9476FAAB38F1EEC9A0E0E541DCA04552159",
+    "outputs/tables/m35_solver_convergence.csv": "AE78EB5952209B265931F0307E310E73332E1D2B6607055C28DFC922EB3DC551",
+    "outputs/tables/vo2_d0a_source_reproduction.json": "8540999E0716B226CB697AD879B985B1D5630EC2636B34A9FF77AF57DCADB70D",
+    "scripts/preregister_m36_event_resolved_orbit.py": "58F950F7D5E598B95F695A000CCE3E0483E9C35C0200AE5F96CFEF741B61B5D2",
+    "scripts/run_m36_event_resolved_orbit.py": "A30FADE424CB9DAF512C57D6E87DFD305D8ABF808D82EA928A04935CC77EF881",
+    "src/pinnpcm/external_data/vo2_multivoltage.py": "934F9EEC67C3380AA07FAB329253E6549AFC3DE28A5765A7A86215BA83BA3F51",
+    "src/pinnpcm/external_data/vo2_orbit_convergence.py": "4D031154803E77A38F75B8C453D1C1E63BFCC45454953B889D16FBEFEB7B088C",
+    "src/pinnpcm/external_data/vo2_orbit_fit.py": "9733BCE5601EE4AFC88150781E92F18691F43D8DA55117FEBC3FB99727938874",
+    "src/pinnpcm/physics/vo2_event_resolved.py": "07272C94689E2F0F324E3F060E2A02E2ADEDBF0238F0D2F0511304801FD0F44C",
+    "src/pinnpcm/physics/vo2_thermal_neuristor.py": "469801F1F5FFA0F20E987FF2C7C3E57FA856AD652CAED08B7ABFCE0FFFA553BE",
+    "tests/test_m36_event_resolved_orbit.py": "6B93D481BB778C1D5F461CB7BA7F1717260B86A23441A0F57C27E2C466DB3FD6",
+    "tests/test_m36_result_evidence.py": "D3DEE37CE91F65344D296D20B28DC6C7AC3D3F09EFBBCC61FC21E6655C6B2943"
+  },
+  "open_public_curve_records": [
+    {
+      "current_noise_floor_A": 6.833859375000002e-06,
+      "curve_id": "zhang_2024_fig1c_experiment_9v",
+      "data_kind": "public_external_raw_with_preregistered_instrument_zeroing",
+      "device_voltage_noise_floor_V": 0.027335437499999993,
+      "path": "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_9V.csv",
+      "regime": "static",
+      "sample_interval_s": 3.2000000000070167e-09,
+      "sha256": "A8A2F2F6BF43EB49A7CED7E06F6A72E52CFA49B0AEB19119A9AB9834A6ADDF56",
+      "voltage_V": 9.0
+    },
+    {
+      "current_noise_floor_A": 5.79140625e-06,
+      "curve_id": "zhang_2024_fig1c_experiment_11v",
+      "data_kind": "public_external_raw_with_preregistered_instrument_zeroing",
+      "device_voltage_noise_floor_V": 0.043783031250000014,
+      "path": "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_11V.csv",
+      "regime": "oscillatory",
+      "sample_interval_s": 3.2000000000070167e-09,
+      "sha256": "42E29D10EDD707A79A51938C928FCB45B321D1B103114F2CECAB3B5063F18D51",
+      "voltage_V": 11.0
+    },
+    {
+      "current_noise_floor_A": 6.023062500000001e-06,
+      "curve_id": "zhang_2024_fig1c_experiment_15v",
+      "data_kind": "public_external_raw_with_preregistered_instrument_zeroing",
+      "device_voltage_noise_floor_V": 0.029188687499999994,
+      "path": "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_15V.csv",
+      "regime": "oscillatory",
+      "sample_interval_s": 3.2000000000070167e-09,
+      "sha256": "DD7872C980B982CA32CB459313939B03777769D4C0B42A600C5B97966CF6A923",
+      "voltage_V": 15.0
+    },
+    {
+      "current_noise_floor_A": 6.486375000000002e-06,
+      "curve_id": "zhang_2024_fig1c_experiment_17v",
+      "data_kind": "public_external_raw_with_preregistered_instrument_zeroing",
+      "device_voltage_noise_floor_V": 0.036138374999999986,
+      "path": "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_17V.csv",
+      "regime": "static",
+      "sample_interval_s": 3.2000000000070167e-09,
+      "sha256": "B8219F9C5E6A73E9C4526A9A01DDB5281F6CC7755343E6D166B0006D819CD6A6",
+      "voltage_V": 17.0
+    }
+  ],
+  "pinn_training_performed": false,
+  "preflight_checks": {
+    "base_snapshot_exact": true,
+    "conditional_outputs_absent": true,
+    "d0a_failure_preserved": true,
+    "different_event_semantics_declared": true,
+    "dtw_and_primary_global_shift_forbidden": true,
+    "equal_objective_budget_locked": true,
+    "fixed_step_family_exact": true,
+    "four_lovo_folds_and_eight_starts_locked": true,
+    "historical_artifact_hashes_exact": true,
+    "instrument_noise_floors_prelocked": true,
+    "m35_solver_failure_preserved": true,
+    "no_open_path_mentions_13v": true,
+    "open_voltage_set_exact": true,
+    "pinn_and_gpu_work_absent": true,
+    "raw_full_horizon_is_diagnostic_only": true,
+    "sampling_interval_prelocked": true,
+    "sealed_13v_metadata_only": true,
+    "solver_tolerances_locked": true,
+    "static_and_oscillatory_roles_exact": true,
+    "two_independent_methods_locked": true
+  },
+  "schema_version": "m36_event_resolved_orbit_preregistration_v1",
+  "scientific_question": "Do sampled Euler solutions converge to a separately labelled, root-located hybrid reference in static observables and limit-cycle orbit coordinates?",
+  "sealed_13v_access": false,
+  "solver_authorized_after_preregistration_commit": true,
+  "solver_must_run_on_later_commit": true,
+  "stage_id": "M36_EVENT_RESOLVED_ORBIT_CONVERGENCE_AND_CONDITIONAL_PUBLIC_FIT",
+  "status": "locked_before_m36_solver_execution",
+  "thresholds": {
+    "conditional_fit": {
+      "activity_class_accuracy_min": 0.75,
+      "all_starts_reported": true,
+      "best_start_only_reporting": "forbidden",
+      "coordinate_systems": [
+        "raw_Cth_Sth",
+        "quotient_tau_th_Sth"
+      ],
+      "cpu_wall_clock_hours_max": 4.0,
+      "deterministic_start_offsets": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          -0.75,
+          -0.75
+        ],
+        [
+          -0.75,
+          0.75
+        ],
+        [
+          0.75,
+          -0.75
+        ],
+        [
+          0.75,
+          0.75
+        ],
+        [
+          -0.75,
+          0.0
+        ],
+        [
+          0.75,
+          0.0
+        ],
+        [
+          0.0,
+          0.75
+        ]
+      ],
+      "equal_forward_budget_required": true,
+      "execute_only_if_m36_and_jacobian_gates_pass": true,
+      "folds": [
+        {
+          "fit_voltages_V": [
+            11.0,
+            15.0,
+            17.0
+          ],
+          "fold_id": "holdout_9v",
+          "holdout_voltage_V": 9.0
+        },
+        {
+          "fit_voltages_V": [
+            9.0,
+            15.0,
+            17.0
+          ],
+          "fold_id": "holdout_11v",
+          "holdout_voltage_V": 11.0
+        },
+        {
+          "fit_voltages_V": [
+            9.0,
+            11.0,
+            17.0
+          ],
+          "fold_id": "holdout_15v",
+          "holdout_voltage_V": 15.0
+        },
+        {
+          "fit_voltages_V": [
+            9.0,
+            11.0,
+            15.0
+          ],
+          "fold_id": "holdout_17v",
+          "holdout_voltage_V": 17.0
+        }
+      ],
+      "ftol": 1e-06,
+      "gtol": 1e-06,
+      "loss": "soft_l1",
+      "max_nfev_per_start_per_objective": 12,
+      "maximum_forward_evaluations": 10000,
+      "minimum_finite_starts_per_fold": 6,
+      "objectives": [
+        "raw_time_m35_baseline",
+        "regime_aware_orbit"
+      ],
+      "optimizer": "scipy_least_squares_trf",
+      "orbit_noninferiority_margin": 0.02,
+      "orbit_parameter_dispersion_noninferiority_fraction": 0.0,
+      "raw_parameter_factor_bounds": [
+        0.5,
+        2.0
+      ],
+      "repository_operational_holdout_combined_nrmse95_max": 0.2,
+      "solver_method": "DOP853",
+      "xtol": 1e-06
+    },
+    "conditional_jacobian": {
+      "complementary_top_direction_angle_deg_min": 20.0,
+      "coordinate_systems": [
+        "raw_Cth_Sth",
+        "quotient_tau_th_Sth"
+      ],
+      "event_sensitivity_method": "root_located_central_finite_difference_including_event_times",
+      "execute_only_if_all_m36_primary_gates_pass": true,
+      "joint_required_rank": 2,
+      "observation_groups": [
+        "static_only",
+        "oscillatory_only",
+        "joint"
+      ],
+      "principal_angle_deg_max": 10.0,
+      "relative_rank_threshold": 0.05,
+      "relative_steps": [
+        0.01,
+        0.005,
+        0.0025,
+        0.00125
+      ],
+      "retained_condition_number_max": "1.0e4",
+      "retained_singular_value_relative_change_max": 0.1,
+      "reversible_coordinate_transform_rank_increase_claim": "forbidden"
+    },
+    "diagnostic_only": {
+      "full_horizon_current_nrmse95_max": 0.2,
+      "full_horizon_raw_time_failure_alone_is_not_primary_failure": true,
+      "full_horizon_voltage_nrmse95_max": 0.2,
+      "median_cycle_is_auxiliary_only": true
+    },
+    "oscillatory_primary": {
+      "activity_class_exact": true,
+      "cycle_charge_relative_error_max": 0.02,
+      "cycle_energy_relative_error_max": 0.02,
+      "cycle_ledger_relative_residual_max": 0.01,
+      "cycle_shape_nrmse_max": 0.05,
+      "duty_cycle_absolute_error_max": 0.02,
+      "finest_error_score_max": 1.0,
+      "frequency_relative_error_max": 0.005,
+      "maximum_event_time_error_s": 2.5e-08,
+      "peak_relative_error_max": 0.02,
+      "period_relative_error_max": 0.005,
+      "phase_drift_s_per_event_max": 8e-10,
+      "reversal_event_count_exact": true,
+      "short_raw_current_nrmse95_max": 0.1,
+      "short_raw_voltage_nrmse95_max": 0.1,
+      "voltages_V": [
+        11.0,
+        15.0
+      ]
+    },
+    "reference_parity": {
+      "boundary_event_sequence_exact": true,
+      "charge_relative_error_max": 0.0002,
+      "current_absolute_rmse_noise_fraction_max": 0.05,
+      "cycle_shape_nrmse_max": 0.002,
+      "energy_relative_error_max": 0.0002,
+      "maximum_reversal_event_time_error_s": 8e-10,
+      "period_relative_error_max": 0.0002,
+      "reference_cycle_ledger_relative_residual_max": 1e-05,
+      "reversal_event_count_exact": true,
+      "voltage_absolute_rmse_noise_fraction_max": 0.05
+    },
+    "sequence_convergence": {
+      "activity_class_exact_across_two_finest": true,
+      "finest_score_not_greater_than_coarsest": true,
+      "minimum_finite_score_count": 3,
+      "normalized_loglog_slope_min": 0.25,
+      "reversal_event_count_exact_across_two_finest": true
+    },
+    "static_primary": {
+      "activity_class_exact": true,
+      "charge_relative_error_max": 0.01,
+      "current_absolute_rmse_noise_fraction_max": 1.0,
+      "current_max_error_noise_fraction_max": 5.0,
+      "energy_relative_error_max": 0.01,
+      "finest_error_score_max": 1.0,
+      "steady_current_error_noise_fraction_max": 2.0,
+      "steady_voltage_error_noise_fraction_max": 2.0,
+      "voltage_absolute_rmse_noise_fraction_max": 1.0,
+      "voltage_max_error_noise_fraction_max": 5.0,
+      "voltages_V": [
+        9.0,
+        17.0
+      ]
+    }
+  }
+}
