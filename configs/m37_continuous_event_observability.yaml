@@ -1,0 +1,175 @@
+stage_id: M37_CONTINUOUS_EVENT_CROSS_REGIME_OBSERVABILITY_GATE
+schema_version: m37_continuous_event_observability_config_v1
+base_snapshot: ec2017a5c1d17720ab207473557948b48eba5f02
+claim_scope: continuous_event_local_observability_preflight_only
+
+historical_inputs:
+  m36_config: configs/m36_event_resolved_orbit_convergence.yaml
+  m36_summary: outputs/tables/m36_event_resolved_orbit_summary.json
+  m36_metrics: outputs/tables/m36_orbit_convergence_metrics.csv
+  m36_execution_script: scripts/run_m36_event_resolved_orbit.py
+  source_parameter_config: configs/vo2_d0a_exact_source_v2.yaml
+  preserve_m36_outputs: true
+  rerun_m35_or_m36_full_workflow: false
+
+data:
+  current_sense_ohm: 50.0
+  open_voltage_curves:
+    - voltage_V: 9.0
+      regime: static
+      expected_activity_class: quiescent
+      path: data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_9V.csv
+    - voltage_V: 11.0
+      regime: oscillatory
+      expected_activity_class: sustained_spiking
+      path: data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_11V.csv
+    - voltage_V: 15.0
+      regime: oscillatory
+      expected_activity_class: sustained_spiking
+      path: data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_15V.csv
+    - voltage_V: 17.0
+      regime: static
+      expected_activity_class: quiescent
+      path: data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_17V.csv
+  withheld_13v:
+    numeric_access: forbidden
+    extracted_path: null
+    sealed_13v_access: false
+
+model_semantics:
+  m35_m36: source_compatible_finite_step_reproduction
+  m37: continuous_extremum_root_located_physical_equation_observability_preflight
+  semantics_are_interchangeable: false
+  source_parameters_validated: false
+  independent_external_validation: false
+
+parameters:
+  coordinate_names:
+    - log_C_th
+    - log_S_e
+  physical_mapping:
+    log_C_th: C_th_J_per_K
+    log_S_e: S_th_W_per_K
+  nominal_source: configs/vo2_d0a_exact_source_v2.yaml
+  positive_log_perturbations: true
+  relative_steps:
+    - 0.01
+    - 0.005
+    - 0.0025
+  quotient_coordinate_names:
+    - log_tau_th
+    - log_S_e
+  analytic_raw_to_quotient_matrix:
+    - [1.0, -1.0]
+    - [0.0, 1.0]
+  analytic_quotient_to_raw_matrix:
+    - [1.0, 1.0]
+    - [0.0, 1.0]
+  quotient_resimulation: forbidden
+  reversible_reparameterization_rank_increase_claim: forbidden
+  gamma_sub_and_S_e_equivalence_claim: forbidden
+
+solvers:
+  primary_method: DOP853
+  independent_method: Radau
+  radau_scope: nominal_and_finest_difference_scale_only
+  reference_config_from_m36: true
+  expected_primary_forward_evaluations: 52
+  expected_independent_forward_evaluations: 20
+  maximum_total_forward_evaluations: 72
+
+observations:
+  groups:
+    static_only: [9.0, 17.0]
+    oscillatory_only: [11.0, 15.0]
+    joint: [9.0, 11.0, 15.0, 17.0]
+  static_features:
+    - steady_current
+    - steady_voltage
+    - total_charge
+    - total_energy
+  oscillatory_features:
+    - log_frequency
+    - peak_to_trough_current
+    - duty_cycle
+    - cycle_charge
+    - cycle_energy
+    - phase_normalized_current_waveform
+    - phase_normalized_voltage_waveform
+  phase_grid_points: 32
+  transient_fraction: 0.1
+  tail_fraction: 0.2
+  frequency_relative_scale: 0.005
+  frequency_or_period_representation: log_frequency_only_no_duplicate_period_weight
+  waveform_family_weighting: divide_each_sample_by_sqrt_phase_points
+  feature_family_weighting: equal_norm_per_feature_family
+  voltage_weighting: equal_norm_per_voltage
+  joint_regime_weighting: equal_norm_static_and_oscillatory
+  whitening:
+    static_current_voltage: locked_m36_pretrigger_noise
+    static_charge: current_noise_times_trace_duration
+    static_energy: current_noise_times_drive_voltage_times_trace_duration
+    frequency: m36_period_relative_gate_times_locked_nominal_period
+    peak_current: locked_m36_pretrigger_current_noise
+    duty_cycle: m36_locked_absolute_duty_gate
+    cycle_charge: current_noise_times_locked_nominal_period
+    cycle_energy: current_noise_times_drive_voltage_times_locked_nominal_period
+    phase_waveforms: locked_m36_pretrigger_noise
+  dtw: forbidden
+  post_hoc_event_window_change: forbidden
+  accumulated_raw_time_phase_error_feature: forbidden
+
+event_topology:
+  signature: reversal_event_types_only
+  compatibility: exact_common_prefix_and_event_count_difference_at_most_one
+  rationale: terminal_horizon_crossing_may_add_or_remove_only_the_last_reversal
+  static_signature_must_be_empty: true
+  activity_class_must_match_expected: true
+
+gates:
+  every_state_finite: true
+  every_activity_class_exact: true
+  every_event_topology_compatible: true
+  two_finest_white_jacobian_relative_change_max: 0.10
+  two_finest_retained_left_subspace_angle_deg_max: 10.0
+  dop853_radau_column_direction_cosine_min: 0.99
+  dop853_radau_retained_singular_value_relative_difference_max: 0.10
+  relative_singular_value_rank_threshold: 0.05
+  joint_required_rank: 2
+  joint_retained_condition_number_max: 1.0e4
+  static_oscillatory_top_right_direction_angle_deg_min: 20.0
+  all_gates_required_for_m38: true
+
+budget:
+  maximum_incremental_cpu_wall_hours: 2.0
+  gpu_hours: 0
+  extra_step_search: forbidden
+  extra_parameter_search: forbidden
+  fitting: forbidden
+  bootstrap: forbidden
+
+outputs:
+  preregistration: outputs/tables/m37_preregistration.json
+  semantic_audit: outputs/tables/m37_semantic_audit.json
+  jacobian_summary: outputs/tables/m37_cross_regime_jacobian.json
+  jacobian_spectra: outputs/tables/m37_jacobian_spectra.csv
+  figure: outputs/figures/m37_cross_regime_observability.png
+  report: docs/codex_reports/m37_continuous_event_observability_results.md
+  schema: docs/schemas/m37_continuous_event_observability_evidence_v1.schema.json
+
+claim_boundary:
+  allowed_if_all_gates_pass: qualified_local_continuous_model_cross_regime_observability_preflight_supports_m38_only
+  failure_route: Q2_MANUSCRIPT_EVIDENCE_COMPRESSION
+  forbidden:
+    - source_compatible_finite_step_parameter_reproduction
+    - independent_external_validation
+    - experimental_validation_by_this_repository
+    - unique_parameter_recovery
+    - gamma_sub_S_e_equivalence
+    - fisher_rank_increase_from_reversible_reparameterization
+    - public_parameter_fit
+    - fit_lock
+    - access_to_13v
+    - trained_PINN_claim
+    - world_first
+    - SVD_or_event_sensitivity_as_standalone_novelty

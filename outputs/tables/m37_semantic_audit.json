@@ -1,0 +1,120 @@
+{
+  "broad_primary_failure_classifier_detected": true,
+  "claim_status": "supported",
+  "m36_primary_gates_pass": false,
+  "schema_version": "m37_m36_superseding_semantic_audit_v1",
+  "semantic_scope": "wording_correction_only_not_gate_relaxation",
+  "source_execution_script_sha256": "A30FADE424CB9DAF512C57D6E87DFD305D8ABF808D82EA928A04935CC77EF881",
+  "source_m36_failure_vote_unchanged": true,
+  "source_m36_outputs_modified": false,
+  "source_metrics_sha256": "90DEB1D95E013E383C2A255308C36BE92F819B07FC96CF15F41384B80C98FC16",
+  "source_stage": "M36_EVENT_RESOLVED_ORBIT_CONVERGENCE_AND_CONDITIONAL_PUBLIC_FIT",
+  "source_summary_sha256": "4C04A9C30C5DE78320C6C63F98D33A2DEB944EBB80048FBD9D5BB2095595AD3C",
+  "voltage_audit": {
+    "11": {
+      "dt_values_s": [
+        2.5e-09,
+        1.25e-09,
+        6.25e-10,
+        3.125e-10
+      ],
+      "finest_less_than_coarsest": true,
+      "finite_score_count": 4,
+      "loglog_slope": 0.9186905569564499,
+      "m36_primary_gate_passed": false,
+      "normalized_scores": [
+        21.68576963471232,
+        2.992846653891799,
+        2.660769574977344,
+        2.6999508512932056
+      ],
+      "observed_convergence_trend": true,
+      "pairwise_decrease_checks": [
+        true,
+        true,
+        false
+      ],
+      "source_m36_classification": "true_numerical_nonconvergence",
+      "strict_pairwise_decrease": false,
+      "superseding_semantic_wording": "finite_step_accuracy_gate_failed_with_observed_overall_but_nonmonotone_fine_scale_convergence_trend"
+    },
+    "15": {
+      "dt_values_s": [
+        1.25e-09,
+        6.25e-10,
+        3.125e-10
+      ],
+      "finest_less_than_coarsest": true,
+      "finite_score_count": 3,
+      "loglog_slope": 1.0749455433374122,
+      "m36_primary_gate_passed": false,
+      "normalized_scores": [
+        44.17489714379205,
+        32.09141305353814,
+        9.95391304369495
+      ],
+      "observed_convergence_trend": true,
+      "pairwise_decrease_checks": [
+        true,
+        true
+      ],
+      "source_m36_classification": "true_numerical_nonconvergence",
+      "strict_pairwise_decrease": true,
+      "superseding_semantic_wording": "finite_step_accuracy_gate_failed_after_event_sequence_stabilization_with_observed_convergence_trend"
+    },
+    "17": {
+      "dt_values_s": [
+        2.5e-09,
+        1.25e-09,
+        6.25e-10,
+        3.125e-10
+      ],
+      "finest_less_than_coarsest": true,
+      "finite_score_count": 4,
+      "loglog_slope": 0.9172459676792594,
+      "m36_primary_gate_passed": false,
+      "normalized_scores": [
+        83.22684064668464,
+        49.70356133277052,
+        25.590545354192507,
+        12.472999322085029
+      ],
+      "observed_convergence_trend": true,
+      "pairwise_decrease_checks": [
+        true,
+        true,
+        true
+      ],
+      "source_m36_classification": "true_numerical_nonconvergence",
+      "strict_pairwise_decrease": true,
+      "superseding_semantic_wording": "finite_step_accuracy_gate_failed_with_observed_convergence_trend"
+    },
+    "9": {
+      "dt_values_s": [
+        2.5e-09,
+        1.25e-09,
+        6.25e-10,
+        3.125e-10
+      ],
+      "finest_less_than_coarsest": true,
+      "finite_score_count": 4,
+      "loglog_slope": 0.9992701038808646,
+      "m36_primary_gate_passed": true,
+      "normalized_scores": [
+        0.09405718431005909,
+        0.0471510794983057,
+        0.023563402370621152,
+        0.011779013975208572
+      ],
+      "observed_convergence_trend": true,
+      "pairwise_decrease_checks": [
+        true,
+        true,
+        true
+      ],
+      "source_m36_classification": "normalization_artifact_resolved_by_absolute_noise_floor_metrics",
+      "strict_pairwise_decrease": true,
+      "superseding_semantic_wording": "normalization_artifact_resolved_by_absolute_noise_floor_metrics"
+    }
+  }
+}

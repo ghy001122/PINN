@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "m37_continuous_event_observability_evidence_v1.schema.json",
+  "title": "M37 continuous-event cross-regime observability evidence",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "stage_id",
+    "status",
+    "claim_status",
+    "m37_all_gates_pass",
+    "m38_authorized",
+    "groups",
+    "dop853_radau_crosscheck",
+    "analytic_quotient_transform",
+    "forward_evaluations",
+    "elapsed_seconds",
+    "sealed_13v_access",
+    "fit_executed",
+    "fit_lock_created",
+    "pinn_training_performed"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "m37_continuous_event_observability_evidence_v1"
+    },
+    "stage_id": {
+      "const": "M37_CONTINUOUS_EVENT_CROSS_REGIME_OBSERVABILITY_GATE"
+    },
+    "status": {"type": "string"},
+    "claim_status": {
+      "enum": ["qualified_supported", "failed_but_informative", "forbidden"]
+    },
+    "m37_all_gates_pass": {"type": "boolean"},
+    "m38_authorized": {"type": "boolean"},
+    "groups": {"type": "object"},
+    "dop853_radau_crosscheck": {"type": "object"},
+    "analytic_quotient_transform": {"type": "object"},
+    "forward_evaluations": {"type": "object"},
+    "elapsed_seconds": {"type": "number", "minimum": 0.0},
+    "sealed_13v_access": {"const": false},
+    "fit_executed": {"const": false},
+    "fit_lock_created": {"const": false},
+    "pinn_training_performed": {"const": false}
+  },
+  "additionalProperties": true
+}
