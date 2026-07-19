@@ -1,0 +1,109 @@
+{
+  "analytic_quotient_transform": {
+    "rank_increase_claim": "forbidden",
+    "resimulation_performed": false
+  },
+  "claim_status": "failed_but_informative",
+  "dop853_radau_crosscheck": {},
+  "elapsed_seconds": 236.11218470003223,
+  "ended_at_utc": "2026-07-19T11:30:53.823277+00:00",
+  "evidence_type": "solver_generated_local_observability_under_public_protocol",
+  "fit_executed": false,
+  "fit_lock_created": false,
+  "forward_evaluations": {
+    "DOP853": 4,
+    "Radau": 4,
+    "total": 8
+  },
+  "git_commit": "c4c3b7fe2936c7734d1d302dbfe1fc91c3627a4c",
+  "groups": {},
+  "m35_or_m36_full_workflow_rerun": false,
+  "m36_failure_vote_unchanged": true,
+  "m36_outputs_modified": false,
+  "m37_all_gates_pass": false,
+  "m38_authorized": false,
+  "machine_summary": {
+    "device": "cpu",
+    "numpy": "1.26.4",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.9",
+    "scipy": "1.13.1"
+  },
+  "next_single_action": "Q2_MANUSCRIPT_EVIDENCE_COMPRESSION",
+  "nominal_checks": {
+    "DOP853": {
+      "11": {
+        "activity_class_exact": true,
+        "event_count": 216,
+        "event_topology_compatible": true,
+        "finite_state": true,
+        "m36_event_count_reproduced": false,
+        "radau_sequence_exact": true
+      },
+      "15": {
+        "activity_class_exact": true,
+        "event_count": 381,
+        "event_topology_compatible": true,
+        "finite_state": true,
+        "m36_event_count_reproduced": false,
+        "radau_sequence_exact": true
+      },
+      "17": {
+        "activity_class_exact": true,
+        "event_count": 4,
+        "event_topology_compatible": true,
+        "finite_state": true,
+        "m36_event_count_reproduced": false,
+        "radau_sequence_exact": true
+      },
+      "9": {
+        "activity_class_exact": true,
+        "event_count": 0,
+        "event_topology_compatible": true,
+        "finite_state": true,
+        "m36_event_count_reproduced": true,
+        "radau_sequence_exact": true
+      }
+    },
+    "Radau": {
+      "11": {
+        "activity_class_exact": true,
+        "dop853_sequence_exact": true,
+        "event_count": 216,
+        "event_topology_compatible": true,
+        "finite_state": true,
+        "m36_event_count_reproduced": false
+      },
+      "15": {
+        "activity_class_exact": true,
+        "dop853_sequence_exact": true,
+        "event_count": 381,
+        "event_topology_compatible": true,
+        "finite_state": true,
+        "m36_event_count_reproduced": false
+      },
+      "17": {
+        "activity_class_exact": true,
+        "dop853_sequence_exact": true,
+        "event_count": 4,
+        "event_topology_compatible": true,
+        "finite_state": true,
+        "m36_event_count_reproduced": false
+      },
+      "9": {
+        "activity_class_exact": true,
+        "dop853_sequence_exact": true,
+        "event_count": 0,
+        "event_topology_compatible": true,
+        "finite_state": true,
+        "m36_event_count_reproduced": true
+      }
+    }
+  },
+  "pinn_training_performed": false,
+  "schema_version": "m37_continuous_event_observability_evidence_v1",
+  "sealed_13v_access": false,
+  "stage_id": "M37_CONTINUOUS_EVENT_CROSS_REGIME_OBSERVABILITY_GATE",
+  "started_at_utc": "2026-07-19T11:26:57.360769+00:00",
+  "status": "stopped_at_nominal_solver_event_gate"
+}
