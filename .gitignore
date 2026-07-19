@@ -335,19 +335,3 @@ outputs/pinn_inverse_v1_1_smoke/*
 !outputs/tables/m35_public_multivoltage_fit_lock.json
 !outputs/tables/prompt35_final_validation.json
 !data/external/vo2_zhang_2024/multivoltage_prereg_manifest_v1.json
-
-# Prompt-36 event-resolved orbit convergence and conditional open-voltage fit.
-!outputs/tables/m36_event_resolved_orbit_preregistration.json
-!outputs/tables/m36_orbit_convergence_metrics.csv
-!outputs/tables/m36_event_times.csv
-!outputs/tables/m36_event_resolved_orbit_summary.json
-!outputs/tables/m36_event_aware_jacobian.json
-!outputs/tables/m36_event_aware_jacobian_spectra.csv
-!outputs/tables/m36_conditional_fit_all_starts.csv
-!outputs/tables/m36_conditional_fit_lovo_metrics.csv
-!outputs/tables/m36_public_multivoltage_fit_lock.json
-!outputs/tables/prompt36_final_validation.json
-!outputs/figures/m36_error_dt_convergence.png
-!outputs/figures/m36_event_time_drift.png
-!outputs/figures/m36_phase_cycle_overlay.png
-!outputs/figures/m36_static_absolute_noise_error.png

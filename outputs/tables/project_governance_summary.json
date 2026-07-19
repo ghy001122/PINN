@@ -24,7 +24,7 @@
     },
     "phase_consistency": {
       "status": "pass",
-      "active_phase_id": "D_PUBLIC_SOLVER_CONVERGENCE_RESOLUTION",
+      "active_phase_id": "Q2_MANUSCRIPT_EVIDENCE_COMPRESSION",
       "missing": []
     },
     "delivery_contract": {
@@ -67,13 +67,13 @@
     "low_token_context_budget": {
       "status": "pass",
       "limit_bytes": 24576,
-      "total_bytes": 22556,
+      "total_bytes": 23636,
       "files": {
-        "CODEX_CONTEXT.md": 3330,
-        "docs/research_strategy/active_phase.md": 3135,
-        "PROJECT_STATE.md": 5584,
-        "NEXT_ACTIONS.md": 3324,
-        "docs/project_state/current_evidence_index.md": 7183
+        "CODEX_CONTEXT.md": 3350,
+        "docs/research_strategy/active_phase.md": 3663,
+        "PROJECT_STATE.md": 6599,
+        "NEXT_ACTIONS.md": 2063,
+        "docs/project_state/current_evidence_index.md": 7961
       }
     },
     "retired_generator_guard": {

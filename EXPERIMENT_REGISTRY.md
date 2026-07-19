@@ -2,6 +2,16 @@
 
 > Do not load by default. Current claim/evidence routing is `docs/project_state/current_evidence_index.md`; use this file only to trace a named historical run.
 
+## M36 event-resolved orbit convergence and conditional public fit (2026-07-19)
+
+- Base snapshot: `31098e74156feb5ed83a0c14d037ffa8c22c24c2`; immutable preregistration commit: `661142c`.
+- Preregistration: `outputs/tables/m36_event_resolved_orbit_preregistration.json`; all `20/20` history-hash, open-voltage, instrument-noise, solver, event, budget, LOVO, and sealed-path checks pass.
+- Independent reference: DOP853 and Radau pass all locked parity gates at 9/11/15/17 V. At 11/15 V their reversal counts are exactly `196/196` and `344/344`; maximum event-time disagreement is below `1e-12 s`.
+- Source-compatible Euler family: 2.5/1.25/0.625/0.3125 ns runs are complete. Only 9 V passes all primary gates. The finest 11 V run fails event-time, cycle-shape, and peak gates; 15 V fails event-time and has coarse-grid event-sequence instability; 17 V fails the maximum-current/noise gate.
+- Stop disposition: `failed_but_informative`; no event-aware Jacobian, optimization, LOVO, parameter estimate, fit lock, PINN training, or 13 V numeric access was executed.
+- Evidence: `outputs/tables/m36_event_resolved_orbit_summary.json`, `outputs/tables/m36_orbit_convergence_metrics.csv`, `outputs/tables/m36_event_times.csv`, and four `outputs/figures/m36_*.png` figures.
+- Report: `docs/codex_reports/m36_event_resolved_orbit_results_and_q2_assessment.md`.
+
 ## M35 gradient semantics and public multi-voltage fail-closed round (2026-07-18)
 
 - Base snapshot: `144aa53de1f6d6f788f61729355b4de45fd9c241`.

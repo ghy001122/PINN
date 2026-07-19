@@ -16,6 +16,9 @@ This is a routing index; current status remains authoritative in `PROJECT_STATE.
 | D0a completion gate | `failed_but_informative` | `outputs/tables/vo2_d0a_source_reproduction.json`; `outputs/figures/vo2_d0a_source_semantics_v2.png` |
 | M35 D-PREG public multi-voltage lock | `supported` provenance/protocol fact; not fit evidence | `outputs/tables/m35_public_multivoltage_preregistration.json`; `data/external/vo2_zhang_2024/multivoltage_prereg_manifest_v1.json`; `configs/m35_public_multivoltage_fit.yaml` |
 | M35 D-FIT | `failed_but_informative`; refit/fit-lock claim `forbidden` | `outputs/tables/m35_solver_convergence.csv`; `outputs/tables/m35_public_multivoltage_fit_summary.json`; stops before Jacobian and fitting |
+| M36 preregistration | `supported` protocol/threshold/hash lock; not scientific outcome evidence | `outputs/tables/m36_event_resolved_orbit_preregistration.json`; `configs/m36_event_resolved_orbit_convergence.yaml` |
+| M36 independent event-resolved reference | `supported` numerical parity fact; no parameter or validation claim | `outputs/tables/m36_event_resolved_orbit_summary.json`; `outputs/tables/m36_orbit_convergence_metrics.csv`; DOP853/Radau pass at all four open voltages |
+| M36 source-compatible Euler convergence | `failed_but_informative`; public refit route closed | `outputs/tables/m36_event_times.csv`; `outputs/figures/m36_error_dt_convergence.png`; `outputs/figures/m36_event_time_drift.png`; only 9 V passes all primary gates; no Jacobian, fit, or lock |
 | D0b-D0d | not completed / positive claims `forbidden` | D0a/M35 convergence stop rules; 13 V sealed; no fit lock |
 | N0 architecture contracts | `supported` as implementation facts | `outputs/tables/full_pinn_contract_v1.json`; `src/pinnpcm/pinn/full_pinn_1d.py`; `src/pinnpcm/pinn/full_pinn_n0_cv_e.py` |
 | N0 v1 trained forward | `failed_but_informative` | `outputs/tables/full_pinn_single_seed_mve_v1.json` |
@@ -37,7 +40,7 @@ This is a routing index; current status remains authoritative in `PROJECT_STATE.
 | M32 SCIS | `failed_but_informative`; nominal coverage passes, mismatch refusal fails | `outputs/tables/gamma_sub_scis_preregistration.json`; `outputs/tables/gamma_sub_scis_cache_preflight.json`; `outputs/tables/gamma_sub_scis_summary.json`; `outputs/tables/gamma_sub_scis_cases.csv`; `outputs/figures/gamma_sub_scis_certificate_v1.png` |
 | N1-N3 / SC-LOS | not run / `forbidden` | failed upstream trained-forward and geometry gates |
 
-Current report: `docs/codex_reports/m35_public_multivoltage_fit_and_gradient_amendment.md`.
+Current report: `docs/codex_reports/m36_event_resolved_orbit_results_and_q2_assessment.md`.
 
 Detailed reports:
 

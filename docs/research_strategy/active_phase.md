@@ -1,10 +1,10 @@
 # Active Phase
 
-Active phase ID: `D_PUBLIC_SOLVER_CONVERGENCE_RESOLUTION`
+Active phase ID: `Q2_MANUSCRIPT_EVIDENCE_COMPRESSION`
 
 ## Objective
 
-Resolve the numerical full-waveform convergence blocker exposed by M35 using only the already-open public `9/11/15/17 V` source-model contract. M35 D-PREG remains immutable and D-FIT remains a failed, informative stop. This phase does not authorize repository fitting, 13 V access, neural training/search, or a change to the safe constrained `gamma_sub` mainline. Complete PINN remains mandatory architecture, while trained full-PINN claims remain unsupported.
+Produce the leanest defensible Q2-targeted manuscript and reviewer-defense package from the locked evidence. M36 has closed the present public-refit route: its independent continuous-event reference is reliable, but the source-compatible Euler family fails the full cross-regime gate. The constrained `gamma_sub` synthetic result remains the only positive inverse mainline. Complete PINN remains the mandatory architecture scaffold, while trained full-PINN accuracy, sensitivity, and inverse claims remain unsupported.
 
 ## Evidence routing
 
@@ -13,6 +13,9 @@ Resolve the numerical full-waveform convergence blocker exposed by M35 using onl
 | D0a | `failed_but_informative`; source/SI parity passes but the historical convergence metric is `0.163148 > 0.01`. |
 | M35 D-PREG | `supported` protocol/provenance lock; `21/21` checks pass, 13 V remains metadata-only and sealed. |
 | M35 D-FIT | `failed_but_informative`; all open voltages fail the locked 5 ns versus 2.5 ns current/voltage NRMSE gates. Event class, frequency, charge, and energy checks pass, but no Jacobian, fit, multistart, or fit lock was produced. |
+| M36 preregistration | `supported` protocol fact; `20/20` checks and all locked-file hashes pass before new simulation. |
+| M36 continuous-event reference | `supported` numerical fact only; DOP853 and Radau pass every parity/event gate at all four open voltages. |
+| M36 source-compatible convergence | `failed_but_informative`; only 9 V passes. 11 V fails event-time/shape/peak, 15 V fails event-time with coarse-grid sequence instability, and 17 V fails maximum current/noise. No Jacobian, LOVO, fit lock, or 13 V access. |
 | N0 v1-v3r | `failed_but_informative`; trained fidelity fails; optimizer route stopped. |
 | M33/M34 | M33 training is `failed_but_informative`. M34's preregistered authorization gate failed. M34-A finds stable parity in `32/32` post-hoc directions, does not support an autograd error, and cannot authorize training. |
 | SID/EC-OQ | `failed_but_informative`; numerical/geometry gates fail; inactive. |
@@ -22,11 +25,11 @@ Resolve the numerical full-waveform convergence blocker exposed by M35 using onl
 | SCIS | `failed_but_informative`; nominal coverage `0.93233`, but `2 K` mismatch acceptance `1.0` with point success `0.0`. |
 | N1-N3 / SC-LOS | not run; positive claims `forbidden`. |
 
-Current report: `docs/codex_reports/m35_public_multivoltage_fit_and_gradient_amendment.md`; historical detail is routed by the evidence index.
+Current report: `docs/codex_reports/m36_event_resolved_orbit_results_and_q2_assessment.md`; historical detail is routed by the evidence index.
 
 ## Single bottleneck
 
-Preregister one solver-only resolution audit that separates (a) near-zero Q95-Q05 normalization at quiescent 9/17 V from (b) accumulated event-time/phase error at oscillatory 11/15 V. Compare finer fixed steps with an independent event-resolved/adaptive reference and lock instrument-scale absolute floors before inspecting the new solver results. Raw-time full-waveform convergence remains mandatory; event alignment is diagnostic only. Stop again without fitting if the numerical gate fails.
+Compress the manuscript around the locked `gamma_sub` inverse evidence, the full-PINN architecture/failure boundary, and M36's public-source numerical limitation. Remove unsupported public-calibration and quotient-inverse story elements, retain failures in the supplement/reviewer defense, and perform a journal-fit/go-no-go audit after the evidence-bounded draft is assembled. No further public solver rescue or parameter search is active.
 
 ## Forbidden claims
 

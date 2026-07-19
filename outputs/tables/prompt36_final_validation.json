@@ -1,0 +1,31 @@
+{
+  "claim_status": "failed_but_informative",
+  "convergence_metrics_sha256": "90DEB1D95E013E383C2A255308C36BE92F819B07FC96CF15F41384B80C98FC16",
+  "event_table_sha256": "62DC7E64B8BC3C1F8480787CB3E23AC6424473230CC1D853F5168318E663B0FE",
+  "frozen_gt_modified": false,
+  "full_pytest": {
+    "command": ".\\.venv\\Scripts\\python.exe -m pytest -q",
+    "elapsed_seconds": 353.02,
+    "failed": 1,
+    "failure_category": "administrative_cross_round_hash_lock_conflict",
+    "passed": 329,
+    "run_count": 1,
+    "status": "completed_once"
+  },
+  "full_pytest_status": "329_passed_1_administrative_hash_lock_failure",
+  "governance_status": "pass_with_manual_review",
+  "m34a_or_m35_rerun": false,
+  "pinn_training_performed": false,
+  "post_test_administrative_correction": {
+    "focused_hash_lock_reverification": "6_passed_in_0.95s",
+    "m35_gitignore_sha256_restored": "3FD75E4D2871C302BA807E9CBE6F5A65E9587F33A610F933ED02441568633645",
+    "m36_original_preregistration_commit": "661142c634867796e607427fe8efffe8bcb47e55",
+    "scientific_code_config_threshold_or_result_changed": false,
+    "second_full_pytest_run_performed": false
+  },
+  "schema_version": "prompt36_final_validation_v1",
+  "sealed_13v_access": false,
+  "stage_id": "M36_EVENT_RESOLVED_ORBIT_CONVERGENCE_AND_CONDITIONAL_PUBLIC_FIT",
+  "strict_json_csv_validation": "pass",
+  "summary_sha256": "4C04A9C30C5DE78320C6C63F98D33A2DEB944EBB80048FBD9D5BB2095595AD3C"
+}
