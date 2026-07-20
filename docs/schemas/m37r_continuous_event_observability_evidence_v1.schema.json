@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "m37r_continuous_event_observability_evidence_v1.schema.json",
+  "title": "M37R repaired continuous-event cross-regime observability evidence",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "stage_id",
+    "status",
+    "claim_status",
+    "m37r_all_gates_pass",
+    "gate_results",
+    "event_window_contract",
+    "nominal_checks",
+    "simulation_checks",
+    "groups",
+    "whitened_jacobians",
+    "dop853_radau_crosscheck",
+    "analytic_quotient_transform",
+    "forward_evaluations",
+    "cache_hits",
+    "elapsed_seconds",
+    "sealed_13v_access",
+    "fit_executed",
+    "fit_lock_created",
+    "pinn_training_performed",
+    "m38_executed"
+  ],
+  "properties": {
+    "schema_version": {"const": "m37r_continuous_event_observability_evidence_v1"},
+    "stage_id": {"const": "M37R_CONTINUOUS_EVENT_CROSS_REGIME_OBSERVABILITY_REPAIR"},
+    "status": {"type": "string"},
+    "claim_status": {"enum": ["qualified_supported", "failed_but_informative"]},
+    "m37r_all_gates_pass": {"type": "boolean"},
+    "gate_results": {"type": "object"},
+    "event_window_contract": {
+      "type": "object",
+      "required": ["contract_id", "transient_fraction", "lower_boundary", "upper_boundary"],
+      "properties": {
+        "contract_id": {"const": "m37r_post_transient_reversal_signature_v1"},
+        "transient_fraction": {"const": 0.1},
+        "lower_boundary": {"const": "inclusive"},
+        "upper_boundary": {"const": "inclusive"}
+      }
+    },
+    "nominal_checks": {"type": "object"},
+    "simulation_checks": {"type": "array"},
+    "groups": {"type": "object"},
+    "whitened_jacobians": {"type": "object"},
+    "dop853_radau_crosscheck": {"type": "object"},
+    "analytic_quotient_transform": {"type": "object"},
+    "forward_evaluations": {"type": "object"},
+    "cache_hits": {"type": "integer", "minimum": 0},
+    "elapsed_seconds": {"type": "number", "minimum": 0.0},
+    "sealed_13v_access": {"const": false},
+    "fit_executed": {"const": false},
+    "fit_lock_created": {"const": false},
+    "pinn_training_performed": {"const": false},
+    "m38_executed": {"const": false}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,491 @@
+{
+  "all_preflight_checks_pass": true,
+  "base_snapshot": "d91b5e76aaff8066408159e0414985e7f2000475",
+  "created_at_utc": "2026-07-20T09:23:39.086379+00:00",
+  "fit_authorized": false,
+  "fit_lock_authorized": false,
+  "formal_execution_limit": 1,
+  "formal_result_paths_absent_at_lock": [
+    "outputs/tables/m37r_cross_regime_jacobian.json",
+    "outputs/tables/m37r_jacobian_spectra.csv",
+    "outputs/tables/m37r_event_window_audit.csv",
+    "outputs/figures/m37r_cross_regime_observability.png",
+    "docs/codex_reports/m37r_continuous_event_observability_results.md"
+  ],
+  "git_commit_before_preregistration": "d91b5e76aaff8066408159e0414985e7f2000475",
+  "git_dirty_before_preregistration": true,
+  "historical_read_only_files": {
+    "configs/m35_public_multivoltage_fit.yaml": "9C36BF4FF252958FBA13717FD4D557C918E51B104B331A544CB3CA91722B2441",
+    "configs/m36_event_resolved_orbit_convergence.yaml": "3F817834E12C118C11460CCB1A1DC8F9817499E878431338B8C999F3B3DD1FC0",
+    "configs/m37_continuous_event_observability.yaml": "E693C593F7A5D7722DBA098590A0F6EAF143CF901F0BF53CC3851C04A08C204D",
+    "docs/codex_reports/m35_public_multivoltage_fit_and_gradient_amendment.md": "6CEF8AFBAD601E2D38395A12D08BF73A11EB73CB6A3F261AA035F645EFE773A1",
+    "docs/codex_reports/m36_event_resolved_orbit_and_conditional_fit.md": "72DBD4D64DCD08E4195CEA7376D552200ADC865B0FE7596978DFC81DEC9B2C56",
+    "docs/codex_reports/m36_event_resolved_orbit_results_and_q2_assessment.md": "3BEA38C57B992DEC5E049CBBD4B1E81C3F559108F85B300846B21EE8A1A87FEE",
+    "docs/codex_reports/m37_continuous_event_observability_results.md": "55F58B81021A4419682BF35DE8DDD48907316C8C1A0445D7FA5FD7FEE0FBC862",
+    "docs/schemas/m35_public_multivoltage_preregistration_v1.schema.json": "B78775C0C54D9B2C78D57D3A5C57A35634B5A67024D88C434CAE82715EDE7DE2",
+    "docs/schemas/m36_event_resolved_orbit_evidence_v1.schema.json": "859FAF45076085826654EDA5FF9B9D6EDD5857CC7075CACAC5279A24C68CA136",
+    "docs/schemas/m37_continuous_event_observability_evidence_v1.schema.json": "A26293D97F634DEF95E6B03B225DCDFE064B3BD552D34F58660786933BA5FAE2",
+    "outputs/figures/m36_error_dt_convergence.png": "E265A981C9FF9DC12400DD6ABEC185D4EE6DAACDE09E09E988FB1520992D8802",
+    "outputs/figures/m36_event_time_drift.png": "A934C08B3568754592DD8B450F0EED25E4730DF9668940E9D6A6819D56E45035",
+    "outputs/figures/m36_phase_cycle_overlay.png": "74E32BA49C073E55ABFA07577AAB1DC87576564FEFCACBEF56B6F58C0122A21D",
+    "outputs/figures/m36_static_absolute_noise_error.png": "E1CC688D44BEC7A96EF0355D53E233C71DA25F4DA8D0145809B27478B5DCB00B",
+    "outputs/figures/m37_cross_regime_observability.png": "B3490E1A860C3EC5CCCDCC40AE59CB6414C751E9498141E34097FA38B31D5D83",
+    "outputs/tables/m35_public_multivoltage_fit_summary.json": "30A6A8A7192915F81C699A6AEF91A9476FAAB38F1EEC9A0E0E541DCA04552159",
+    "outputs/tables/m35_public_multivoltage_preregistration.json": "50FF336E82293991EDBC4FF73AFF53425790B9279812CCE84100EC0C21069868",
+    "outputs/tables/m35_solver_convergence.csv": "AE78EB5952209B265931F0307E310E73332E1D2B6607055C28DFC922EB3DC551",
+    "outputs/tables/m36_event_resolved_orbit_preregistration.json": "CCFE99B9FD819DCD965A020B45B378A900463A272B8DBDC5381A2E465910150C",
+    "outputs/tables/m36_event_resolved_orbit_summary.json": "4C04A9C30C5DE78320C6C63F98D33A2DEB944EBB80048FBD9D5BB2095595AD3C",
+    "outputs/tables/m36_event_times.csv": "62DC7E64B8BC3C1F8480787CB3E23AC6424473230CC1D853F5168318E663B0FE",
+    "outputs/tables/m36_orbit_convergence_metrics.csv": "90DEB1D95E013E383C2A255308C36BE92F819B07FC96CF15F41384B80C98FC16",
+    "outputs/tables/m37_cross_regime_jacobian.json": "F12FF77CDB06AE49948F7D7053D66585F48D496A67493E0EA10C93CD3880DE07",
+    "outputs/tables/m37_jacobian_spectra.csv": "0C4FEB9B6B9BBEC1D2EB10AB425EE2AD34795EBE7685C832CBB94BCCAA0B7441",
+    "outputs/tables/m37_preregistration.json": "0B059F71806D727152656DCE2CA9204F3D689D42736C763A4C01C52437342301",
+    "outputs/tables/m37_semantic_audit.json": "260DA10F8A7C5A1C66E98B7FD5BA1F9AA5192BA78AB5A4419652B94FF82A2762",
+    "scripts/preregister_m35_public_multivoltage.py": "07630597FBA0CDC21788B855DB7A6DD1C9560E9F7631CF75700B917024B07142",
+    "scripts/preregister_m36_event_resolved_orbit.py": "58F950F7D5E598B95F695A000CCE3E0483E9C35C0200AE5F96CFEF741B61B5D2",
+    "scripts/preregister_m37_continuous_event_observability.py": "A32510BC93A65FD9D3B0DEBF39E79395C3C037E22E49A267A9A746219D994587",
+    "scripts/run_m35_public_multivoltage_fit.py": "0C8939A39BF42782A807C8E19B1C9AB098803992C2E38DD1792257545F795C07",
+    "scripts/run_m36_event_resolved_orbit.py": "A30FADE424CB9DAF512C57D6E87DFD305D8ABF808D82EA928A04935CC77EF881",
+    "scripts/run_m37_continuous_event_observability.py": "9DB45E4B8571D320648420AAA521425F08077A1E0A5120BDEDAB916FC6414862",
+    "src/pinnpcm/external_data/vo2_cross_regime_observability.py": "5307BEE558579E1D1AD04122C96AE857B338312512201AF79B4FF77CC0B0A84C",
+    "src/pinnpcm/external_data/vo2_orbit_convergence.py": "4D031154803E77A38F75B8C453D1C1E63BFCC45454953B889D16FBEFEB7B088C",
+    "src/pinnpcm/external_data/vo2_orbit_fit.py": "9733BCE5601EE4AFC88150781E92F18691F43D8DA55117FEBC3FB99727938874",
+    "src/pinnpcm/physics/vo2_event_resolved.py": "07272C94689E2F0F324E3F060E2A02E2ADEDBF0238F0D2F0511304801FD0F44C",
+    "src/pinnpcm/physics/vo2_thermal_neuristor.py": "469801F1F5FFA0F20E987FF2C7C3E57FA856AD652CAED08B7ABFCE0FFFA553BE",
+    "tests/test_m35_public_multivoltage.py": "DF8C852459985AE6882BC39ACB1D4C4239E9A13D2693975E2554380B4E7CEF18",
+    "tests/test_m35_result_evidence.py": "B1318A643819814840DA73CD64ED03BAABB0F28F66165C616D2960EC4F97B210",
+    "tests/test_m36_event_resolved_orbit.py": "6B93D481BB778C1D5F461CB7BA7F1717260B86A23441A0F57C27E2C466DB3FD6",
+    "tests/test_m36_result_evidence.py": "D3DEE37CE91F65344D296D20B28DC6C7AC3D3F09EFBBCC61FC21E6655C6B2943",
+    "tests/test_m37_continuous_event_observability.py": "8F601717258C4409E2287EE020F2035609886E0B4675DAF228838B1206116E06",
+    "tests/test_m37_result_evidence.py": "16EF39E6DBF2D3F8F751C6DFD3404AA5F3156C9AC35ACAC89E6E8A114A013F5D"
+  },
+  "locked_files": {
+    "configs/m35_public_multivoltage_fit.yaml": "9C36BF4FF252958FBA13717FD4D557C918E51B104B331A544CB3CA91722B2441",
+    "configs/m36_event_resolved_orbit_convergence.yaml": "3F817834E12C118C11460CCB1A1DC8F9817499E878431338B8C999F3B3DD1FC0",
+    "configs/m37_continuous_event_observability.yaml": "E693C593F7A5D7722DBA098590A0F6EAF143CF901F0BF53CC3851C04A08C204D",
+    "configs/m37r_continuous_event_observability_repair.yaml": "FDF5D403D6FB415B54E1134288F2EFA2D15F8D6F2DF04EB11D4624E04DDCB00C",
+    "configs/vo2_d0a_exact_source_v2.yaml": "F4EDA82DEF46CCBC031CCE6DB6AC4427DC1D376268A4A9A12EE48DFBE6667F28",
+    "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_11V.csv": "42E29D10EDD707A79A51938C928FCB45B321D1B103114F2CECAB3B5063F18D51",
+    "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_15V.csv": "DD7872C980B982CA32CB459313939B03777769D4C0B42A600C5B97966CF6A923",
+    "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_17V.csv": "B8219F9C5E6A73E9C4526A9A01DDB5281F6CC7755343E6D166B0006D819CD6A6",
+    "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_9V.csv": "A8A2F2F6BF43EB49A7CED7E06F6A72E52CFA49B0AEB19119A9AB9834A6ADDF56",
+    "docs/codex_reports/m35_public_multivoltage_fit_and_gradient_amendment.md": "6CEF8AFBAD601E2D38395A12D08BF73A11EB73CB6A3F261AA035F645EFE773A1",
+    "docs/codex_reports/m36_event_resolved_orbit_and_conditional_fit.md": "72DBD4D64DCD08E4195CEA7376D552200ADC865B0FE7596978DFC81DEC9B2C56",
+    "docs/codex_reports/m36_event_resolved_orbit_results_and_q2_assessment.md": "3BEA38C57B992DEC5E049CBBD4B1E81C3F559108F85B300846B21EE8A1A87FEE",
+    "docs/codex_reports/m37_continuous_event_observability_results.md": "55F58B81021A4419682BF35DE8DDD48907316C8C1A0445D7FA5FD7FEE0FBC862",
+    "docs/schemas/m35_public_multivoltage_preregistration_v1.schema.json": "B78775C0C54D9B2C78D57D3A5C57A35634B5A67024D88C434CAE82715EDE7DE2",
+    "docs/schemas/m36_event_resolved_orbit_evidence_v1.schema.json": "859FAF45076085826654EDA5FF9B9D6EDD5857CC7075CACAC5279A24C68CA136",
+    "docs/schemas/m37_continuous_event_observability_evidence_v1.schema.json": "A26293D97F634DEF95E6B03B225DCDFE064B3BD552D34F58660786933BA5FAE2",
+    "docs/schemas/m37r_continuous_event_observability_evidence_v1.schema.json": "C4EEEA9E28D0A54C4B90EA2D4F9029A10513E0F9A80A6620A958DA2830B10AB4",
+    "outputs/figures/m36_error_dt_convergence.png": "E265A981C9FF9DC12400DD6ABEC185D4EE6DAACDE09E09E988FB1520992D8802",
+    "outputs/figures/m36_event_time_drift.png": "A934C08B3568754592DD8B450F0EED25E4730DF9668940E9D6A6819D56E45035",
+    "outputs/figures/m36_phase_cycle_overlay.png": "74E32BA49C073E55ABFA07577AAB1DC87576564FEFCACBEF56B6F58C0122A21D",
+    "outputs/figures/m36_static_absolute_noise_error.png": "E1CC688D44BEC7A96EF0355D53E233C71DA25F4DA8D0145809B27478B5DCB00B",
+    "outputs/figures/m37_cross_regime_observability.png": "B3490E1A860C3EC5CCCDCC40AE59CB6414C751E9498141E34097FA38B31D5D83",
+    "outputs/tables/m35_public_multivoltage_fit_summary.json": "30A6A8A7192915F81C699A6AEF91A9476FAAB38F1EEC9A0E0E541DCA04552159",
+    "outputs/tables/m35_public_multivoltage_preregistration.json": "50FF336E82293991EDBC4FF73AFF53425790B9279812CCE84100EC0C21069868",
+    "outputs/tables/m35_solver_convergence.csv": "AE78EB5952209B265931F0307E310E73332E1D2B6607055C28DFC922EB3DC551",
+    "outputs/tables/m36_event_resolved_orbit_preregistration.json": "CCFE99B9FD819DCD965A020B45B378A900463A272B8DBDC5381A2E465910150C",
+    "outputs/tables/m36_event_resolved_orbit_summary.json": "4C04A9C30C5DE78320C6C63F98D33A2DEB944EBB80048FBD9D5BB2095595AD3C",
+    "outputs/tables/m36_event_times.csv": "62DC7E64B8BC3C1F8480787CB3E23AC6424473230CC1D853F5168318E663B0FE",
+    "outputs/tables/m36_orbit_convergence_metrics.csv": "90DEB1D95E013E383C2A255308C36BE92F819B07FC96CF15F41384B80C98FC16",
+    "outputs/tables/m37_cross_regime_jacobian.json": "F12FF77CDB06AE49948F7D7053D66585F48D496A67493E0EA10C93CD3880DE07",
+    "outputs/tables/m37_jacobian_spectra.csv": "0C4FEB9B6B9BBEC1D2EB10AB425EE2AD34795EBE7685C832CBB94BCCAA0B7441",
+    "outputs/tables/m37_preregistration.json": "0B059F71806D727152656DCE2CA9204F3D689D42736C763A4C01C52437342301",
+    "outputs/tables/m37_semantic_audit.json": "260DA10F8A7C5A1C66E98B7FD5BA1F9AA5192BA78AB5A4419652B94FF82A2762",
+    "scripts/preregister_m35_public_multivoltage.py": "07630597FBA0CDC21788B855DB7A6DD1C9560E9F7631CF75700B917024B07142",
+    "scripts/preregister_m36_event_resolved_orbit.py": "58F950F7D5E598B95F695A000CCE3E0483E9C35C0200AE5F96CFEF741B61B5D2",
+    "scripts/preregister_m37_continuous_event_observability.py": "A32510BC93A65FD9D3B0DEBF39E79395C3C037E22E49A267A9A746219D994587",
+    "scripts/preregister_m37r_continuous_event_observability.py": "1F83E95DDA092DEAE08D913E2A1F60CC4916456902940DE91A8AFF88E9663D97",
+    "scripts/run_m35_public_multivoltage_fit.py": "0C8939A39BF42782A807C8E19B1C9AB098803992C2E38DD1792257545F795C07",
+    "scripts/run_m36_event_resolved_orbit.py": "A30FADE424CB9DAF512C57D6E87DFD305D8ABF808D82EA928A04935CC77EF881",
+    "scripts/run_m37_continuous_event_observability.py": "9DB45E4B8571D320648420AAA521425F08077A1E0A5120BDEDAB916FC6414862",
+    "scripts/run_m37r_continuous_event_observability.py": "D396C5F522683496775C07EA17B9BEB9ECFD806E330630FDC1323BA7F4D59011",
+    "src/pinnpcm/external_data/vo2_cross_regime_observability.py": "5307BEE558579E1D1AD04122C96AE857B338312512201AF79B4FF77CC0B0A84C",
+    "src/pinnpcm/external_data/vo2_cross_regime_observability_repair.py": "803367E13C7247DFE832181F9EC336A6D99FC5FC05B19049EEB120569F81567A",
+    "src/pinnpcm/external_data/vo2_orbit_convergence.py": "4D031154803E77A38F75B8C453D1C1E63BFCC45454953B889D16FBEFEB7B088C",
+    "src/pinnpcm/external_data/vo2_orbit_fit.py": "9733BCE5601EE4AFC88150781E92F18691F43D8DA55117FEBC3FB99727938874",
+    "src/pinnpcm/physics/vo2_event_resolved.py": "07272C94689E2F0F324E3F060E2A02E2ADEDBF0238F0D2F0511304801FD0F44C",
+    "src/pinnpcm/physics/vo2_thermal_neuristor.py": "469801F1F5FFA0F20E987FF2C7C3E57FA856AD652CAED08B7ABFCE0FFFA553BE",
+    "tests/test_m35_public_multivoltage.py": "DF8C852459985AE6882BC39ACB1D4C4239E9A13D2693975E2554380B4E7CEF18",
+    "tests/test_m35_result_evidence.py": "B1318A643819814840DA73CD64ED03BAABB0F28F66165C616D2960EC4F97B210",
+    "tests/test_m36_event_resolved_orbit.py": "6B93D481BB778C1D5F461CB7BA7F1717260B86A23441A0F57C27E2C466DB3FD6",
+    "tests/test_m36_result_evidence.py": "D3DEE37CE91F65344D296D20B28DC6C7AC3D3F09EFBBCC61FC21E6655C6B2943",
+    "tests/test_m37_continuous_event_observability.py": "8F601717258C4409E2287EE020F2035609886E0B4675DAF228838B1206116E06",
+    "tests/test_m37_result_evidence.py": "16EF39E6DBF2D3F8F751C6DFD3404AA5F3156C9AC35ACAC89E6E8A114A013F5D",
+    "tests/test_m37r_continuous_event_observability_repair.py": "030D8A684BC9FA22C7A2E1AA5DAB29AD55CADFE9399D5072CE90B1DD519825FE",
+    "tests/test_m37r_result_evidence.py": "1E99B746E57FA608FE579FF47D67AE09FAAECB112D17A575E9FA6AE100F48F19"
+  },
+  "locked_whitening": {
+    "by_voltage": {
+      "11": {
+        "current_noise_A": 5.79140625e-06,
+        "duration_s": 0.00039199680000000003,
+        "feature_scales": {
+          "cycle_charge_C": 2.0879044184214344e-11,
+          "cycle_energy_J": 2.296694860263578e-10,
+          "duty_cycle": 0.02,
+          "log_frequency": 0.005,
+          "peak_to_trough_current_A": 5.79140625e-06,
+          "phase_current_A": 5.79140625e-06,
+          "phase_voltage_V": 0.043783031250000014
+        },
+        "locked_nominal_period_s": 3.6051769264527672e-06,
+        "regime": "oscillatory",
+        "sample_count": 122500,
+        "voltage_noise_V": 0.043783031250000014
+      },
+      "15": {
+        "current_noise_A": 6.023062500000001e-06,
+        "duration_s": 0.0003919968,
+        "feature_scales": {
+          "cycle_charge_C": 1.2319614031392722e-11,
+          "cycle_energy_J": 1.8479421047089084e-10,
+          "duty_cycle": 0.02,
+          "log_frequency": 0.005,
+          "peak_to_trough_current_A": 6.023062500000001e-06,
+          "phase_current_A": 6.023062500000001e-06,
+          "phase_voltage_V": 0.029188687499999994
+        },
+        "locked_nominal_period_s": 2.0454069721827925e-06,
+        "regime": "oscillatory",
+        "sample_count": 122500,
+        "voltage_noise_V": 0.029188687499999994
+      },
+      "17": {
+        "current_noise_A": 6.486375000000002e-06,
+        "duration_s": 0.00039199680000000003,
+        "feature_scales": {
+          "steady_current_A": 6.486375000000002e-06,
+          "steady_voltage_V": 0.036138374999999986,
+          "total_charge_C": 2.542638243600001e-09,
+          "total_energy_J": 4.322485014120001e-08
+        },
+        "regime": "static",
+        "sample_count": 122500,
+        "voltage_noise_V": 0.036138374999999986
+      },
+      "9": {
+        "current_noise_A": 6.833859375000002e-06,
+        "duration_s": 0.0003919968,
+        "feature_scales": {
+          "steady_current_A": 6.833859375000002e-06,
+          "steady_voltage_V": 0.027335437499999993,
+          "total_charge_C": 2.6788510066500007e-09,
+          "total_energy_J": 2.4109659059850007e-08
+        },
+        "regime": "static",
+        "sample_count": 122500,
+        "voltage_noise_V": 0.027335437499999993
+      }
+    },
+    "feature_family_equal_weight": true,
+    "joint_regime_equal_weight": true,
+    "scale_source": "m36_locked_noise_and_nominal_period_plus_preregistered_physical_integration_scales",
+    "voltage_equal_weight": true
+  },
+  "m36_reference_window_audit": {
+    "all_counts_match": true,
+    "boundary_rule": "inclusive_lower_and_upper_without_tolerance",
+    "by_voltage": {
+      "11": {
+        "available_event_row_count": 196,
+        "count_matches_m36_summary": true,
+        "expected_m36_summary_count": 196,
+        "post_transient_event_count": 196,
+        "post_transient_signature_sha256": "983754009A207F7892C6DE0EE18272DDB9E637D65FDCCCA6CB9EB76921192A64",
+        "source": "m36_event_times_reference_rows_for_Radau_comparison",
+        "source_rows_are_already_post_transient": true,
+        "trace_end_s": 0.000391999355,
+        "window_start_s": 3.920223500000001e-05
+      },
+      "15": {
+        "available_event_row_count": 344,
+        "count_matches_m36_summary": true,
+        "expected_m36_summary_count": 344,
+        "post_transient_event_count": 344,
+        "post_transient_signature_sha256": "16A0421BD06E02F3AF90E0C735260D601B8BFF10CFBB86BF47E5997E4A342B02",
+        "source": "m36_event_times_reference_rows_for_Radau_comparison",
+        "source_rows_are_already_post_transient": true,
+        "trace_end_s": 0.00039199856,
+        "window_start_s": 3.920144e-05
+      },
+      "17": {
+        "available_event_row_count": 0,
+        "count_matches_m36_summary": true,
+        "expected_m36_summary_count": 0,
+        "post_transient_event_count": 0,
+        "post_transient_signature_sha256": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945",
+        "source": "m36_event_times_reference_rows_for_Radau_comparison",
+        "source_rows_are_already_post_transient": true,
+        "trace_end_s": 0.00039199824,
+        "window_start_s": 3.920112000000001e-05
+      },
+      "9": {
+        "available_event_row_count": 0,
+        "count_matches_m36_summary": true,
+        "expected_m36_summary_count": 0,
+        "post_transient_event_count": 0,
+        "post_transient_signature_sha256": "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945",
+        "source": "m36_event_times_reference_rows_for_Radau_comparison",
+        "source_rows_are_already_post_transient": true,
+        "trace_end_s": 0.00039199856,
+        "window_start_s": 3.920144e-05
+      }
+    },
+    "event_window_contract_id": "m37r_post_transient_reversal_signature_v1",
+    "transient_fraction": 0.1
+  },
+  "m38_execution_authorized": false,
+  "missing_locked_files": [],
+  "mock_end_to_end_contract": {
+    "all_pass": true,
+    "boundary_post_transient_event_count": 19,
+    "checks": {
+      "all_feature_matrices_finite": true,
+      "all_feature_matrices_have_two_columns": true,
+      "boundary_event_included": true,
+      "joint_mock_rank_two": true,
+      "schema_contract_passes": true,
+      "terminal_event_included": true
+    },
+    "group_shapes": {
+      "joint": [
+        146,
+        2
+      ],
+      "oscillatory_only": [
+        138,
+        2
+      ],
+      "static_only": [
+        8,
+        2
+      ]
+    },
+    "group_threshold_ranks": {
+      "joint": 2,
+      "oscillatory_only": 2,
+      "static_only": 2
+    },
+    "pipeline": "synthetic_mock_no_scientific_vote",
+    "schema_validation": {
+      "all_pass": true,
+      "checks": {
+        "claim_status_allowed": true,
+        "event_window_contract_exact": true,
+        "forbidden_actions_false": true,
+        "required_keys_present": true,
+        "schema_version_exact": true,
+        "stage_id_exact": true
+      },
+      "missing_keys": []
+    }
+  },
+  "open_public_curve_records": [
+    {
+      "expected_activity_class": "quiescent",
+      "path": "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_9V.csv",
+      "regime": "static",
+      "sha256": "A8A2F2F6BF43EB49A7CED7E06F6A72E52CFA49B0AEB19119A9AB9834A6ADDF56",
+      "voltage_V": 9.0
+    },
+    {
+      "expected_activity_class": "sustained_spiking",
+      "path": "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_11V.csv",
+      "regime": "oscillatory",
+      "sha256": "42E29D10EDD707A79A51938C928FCB45B321D1B103114F2CECAB3B5063F18D51",
+      "voltage_V": 11.0
+    },
+    {
+      "expected_activity_class": "sustained_spiking",
+      "path": "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_15V.csv",
+      "regime": "oscillatory",
+      "sha256": "DD7872C980B982CA32CB459313939B03777769D4C0B42A600C5B97966CF6A923",
+      "voltage_V": 15.0
+    },
+    {
+      "expected_activity_class": "quiescent",
+      "path": "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_17V.csv",
+      "regime": "static",
+      "sha256": "B8219F9C5E6A73E9C4526A9A01DDB5281F6CC7755343E6D166B0006D819CD6A6",
+      "voltage_V": 17.0
+    }
+  ],
+  "original_m37_result_status": "stopped_at_nominal_solver_event_gate",
+  "pinn_training_authorized": false,
+  "preflight_checks": {
+    "all_locked_files_exist": true,
+    "base_snapshot_is_current_head": true,
+    "event_window_contract_exact": true,
+    "expected_count_regression_exact": true,
+    "forward_budget_exact": true,
+    "gpu_budget_zero": true,
+    "groups_exact": true,
+    "historical_files_declared_read_only": true,
+    "m36_failure_preserved": true,
+    "m36_post_transient_reference_reproduced": true,
+    "m37_failure_status_preserved": true,
+    "m37_geometry_remains_unassessed": true,
+    "mock_end_to_end_contract_passes": true,
+    "no_existing_m37r_result_outputs": true,
+    "no_fit_optimization_bootstrap_or_training": true,
+    "open_voltages_exact": true,
+    "parameters_exact": true,
+    "scientific_thresholds_unchanged": true,
+    "sealed_13v_access_false": true,
+    "solvers_exact": true,
+    "steps_exact": true,
+    "wall_budget_at_most_two_hours": true,
+    "withheld_13v_numeric_access_forbidden": true,
+    "withheld_13v_path_absent": true,
+    "worktree_has_only_preregistration_changes": true
+  },
+  "registered_budget": {
+    "bootstrap": "forbidden",
+    "extra_parameter_search": "forbidden",
+    "extra_step_search": "forbidden",
+    "fitting": "forbidden",
+    "gpu_hours": 0,
+    "maximum_incremental_cpu_wall_hours": 2.0,
+    "optimization": "forbidden",
+    "pinn_training": "forbidden"
+  },
+  "registered_event_window_contract": {
+    "contract_id": "m37r_post_transient_reversal_signature_v1",
+    "expected_nominal_counts": {
+      "11": {
+        "full_horizon": 216,
+        "post_transient": 196
+      },
+      "15": {
+        "full_horizon": 381,
+        "post_transient": 344
+      },
+      "17": {
+        "full_horizon": 4,
+        "post_transient": 0
+      },
+      "9": {
+        "full_horizon": 0,
+        "post_transient": 0
+      }
+    },
+    "floating_tolerance_s": 0.0,
+    "full_horizon_role": "diagnostic_only_not_a_gate",
+    "interval": "[t0 + 0.1 * (T - t0), T]",
+    "lower_boundary": "inclusive",
+    "post_transient_role": "m36_reproduction_and_topology_gate",
+    "signature": "reversal_event_types_only",
+    "transient_fraction": 0.1,
+    "upper_boundary": "inclusive"
+  },
+  "registered_gates": {
+    "all_gates_required_for_qualified_support": true,
+    "dop853_radau_column_direction_cosine_min": 0.99,
+    "dop853_radau_retained_singular_value_relative_difference_max": 0.1,
+    "every_activity_class_exact": true,
+    "every_event_topology_compatible": true,
+    "every_state_finite": true,
+    "joint_required_rank": 2,
+    "joint_retained_condition_number_max": "1.0e4",
+    "relative_singular_value_rank_threshold": 0.05,
+    "static_oscillatory_top_right_direction_angle_deg_min": 20.0,
+    "two_finest_retained_left_subspace_angle_deg_max": 10.0,
+    "two_finest_white_jacobian_relative_change_max": 0.1
+  },
+  "registered_observation_contract": {
+    "accumulated_raw_time_phase_error_feature": "forbidden",
+    "dtw": "forbidden",
+    "feature_family_weighting": "equal_norm_per_feature_family",
+    "frequency_or_period_representation": "log_frequency_only_no_duplicate_period_weight",
+    "frequency_relative_scale": 0.005,
+    "groups": {
+      "joint": [
+        9.0,
+        11.0,
+        15.0,
+        17.0
+      ],
+      "oscillatory_only": [
+        11.0,
+        15.0
+      ],
+      "static_only": [
+        9.0,
+        17.0
+      ]
+    },
+    "joint_regime_weighting": "equal_norm_static_and_oscillatory",
+    "oscillatory_features": [
+      "log_frequency",
+      "peak_to_trough_current",
+      "duty_cycle",
+      "cycle_charge",
+      "cycle_energy",
+      "phase_normalized_current_waveform",
+      "phase_normalized_voltage_waveform"
+    ],
+    "phase_grid_points": 32,
+    "post_hoc_event_window_change": "forbidden",
+    "static_features": [
+      "steady_current",
+      "steady_voltage",
+      "total_charge",
+      "total_energy"
+    ],
+    "tail_fraction": 0.2,
+    "transient_fraction": 0.1,
+    "voltage_weighting": "equal_norm_per_voltage",
+    "waveform_family_weighting": "divide_each_sample_by_sqrt_phase_points"
+  },
+  "registered_parameter_coordinates": {
+    "analytic_quotient_to_raw_matrix": [
+      [
+        1.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ]
+    ],
+    "analytic_raw_to_quotient_matrix": [
+      [
+        1.0,
+        -1.0
+      ],
+      [
+        0.0,
+        1.0
+      ]
+    ],
+    "coordinate_names": [
+      "log_C_th",
+      "log_S_e"
+    ],
+    "gamma_sub_and_S_e_equivalence_claim": "forbidden",
+    "nominal_source": "configs/vo2_d0a_exact_source_v2.yaml",
+    "physical_mapping": {
+      "log_C_th": "C_th_J_per_K",
+      "log_S_e": "S_th_W_per_K"
+    },
+    "positive_log_perturbations": true,
+    "quotient_coordinate_names": [
+      "log_tau_th",
+      "log_S_e"
+    ],
+    "quotient_resimulation": "forbidden",
+    "relative_steps": [
+      0.01,
+      0.005,
+      0.0025
+    ],
+    "reversible_reparameterization_rank_increase_claim": "forbidden"
+  },
+  "schema_version": "m37r_continuous_event_observability_preregistration_v1",
+  "sealed_13v_access": false,
+  "solver_authorized_after_preregistration_commit": true,
+  "solver_must_run_on_later_clean_commit": true,
+  "stage_id": "M37R_CONTINUOUS_EVENT_CROSS_REGIME_OBSERVABILITY_REPAIR"
+}
