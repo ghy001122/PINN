@@ -36,6 +36,8 @@ A separate 2400-case calibrated-protocol stress audit identifies `calibrated_sho
 
 Status: `failed_but_informative`. Provenance, hashes and license separation are complete. The author code and SI rewrite agree for dynamic current, temperature and R-T semantics at the declared 10 ns step (NRMSE95 values below `5e-14`). However, the repository SI solver gives a 5 ns versus 2.5 ns full-trace current NRMSE95 of `0.163148`, above the preregistered `0.01` gate. Consequently no calibration was run, no fit lock was created and 13 V remains sealed. This is source-model reproduction evidence, not project experimental validation.
 
+A bounded continuous-event observability revisit repaired the event-count window and reproduced nominal DOP853/Radau full/post counts of `0/216/381/4` and `0/196/344/0`. It stopped before Jacobian construction when the 15 V `log_C_th=-1%`, `h=0.01` perturbation changed the post-window signature from `344` to `343` events with common prefix `0`, despite finite states and the same activity class. Thus no public-data rank, complementarity, quotient, fit, or PINN claim follows.
+
 ## R8. Complete 1D PINN Contract And Failed MVE
 
 Status: `failed_but_informative` for trained evidence. The architecture contract and constant-equilibrium manufactured test pass, with exact electrical endpoint conditions and zero manufactured normalized residuals. The fixed 1200-epoch single-seed MVE remains outside every training gate: port NRMSE95 is `0.123764` versus `0.10`, while `r_phi`, `r_c`, `r_T`, and `r_m` RMS values are `0.012564`, `0.020203`, `0.019372`, and `0.012172` versus `0.01`. Outputs remain finite and within physical state bounds. This supports an optimization/residual limitation, not a reliable full-PINN claim; N1-N3 were not run.

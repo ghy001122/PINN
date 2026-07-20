@@ -7,7 +7,7 @@
 - Frozen GT v1.1: unchanged and read-only.
 - Safe inverse mainline: constrained `gamma_sub`, calibration-gated rank-1, `qualified_supported` only under locked synthetic conditions.
 - Full PINN: mandatory architecture/paper scaffold; every bounded trained-forward route remains `failed_but_informative`, so sensitivity/inverse claims are `forbidden`.
-- Public VO2: M36 finite-step gates remain failed. M37 nominal DOP853/Radau results agree, but a full-horizon/post-transient count mismatch stops the run before perturbations; M38, fit, lock, and 13 V access remain absent.
+- Public VO2: M36 finite-step gates remain failed. M37R fixes the count-window contract and passes nominal parity, but a 15 V `log_C_th=-1%` perturbation changes post-transient event topology before Jacobian/SVD; M38, fit, lock, and 13 V access remain absent.
 - Project-generated experimental validation: absent.
 
 ## Current Gate Ledger
@@ -23,7 +23,8 @@
 | M35 D-FIT | `failed_but_informative`; refit `forbidden` | All four open voltages fail locked 5 ns versus 2.5 ns current/voltage NRMSE gates. Activity class, frequency, charge, and energy pass. Fit stops before Jacobian/optimization; no fit lock exists. |
 | M36 reference parity | `supported` numerical fact only | Independently integrated DOP853 and Radau traces pass every locked parity/event gate at 9/11/15/17 V. At 11/15 V, reversal counts are exactly `196/196` and `344/344`, maximum event-time disagreements are `9.47e-13 s` and `1.18e-13 s`, and cycle-shape NRMSE is `9.51e-8` and `1.62e-8`. This validates the continuous-event numerical reference, not the public fit or source parameters. |
 | M36 source-compatible Euler limit | `failed_but_informative`; public refit route closed | Only 9 V passes. At the finest `0.3125 ns`, 11 V fails event-time (`67.5 ns > 25 ns`), cycle-shape (`0.0548 > 0.05`), and peak (`0.0389 > 0.02`) gates; 15 V fails event-time (`248.8 ns > 25 ns`) and has coarse-grid event-sequence instability; 17 V fails maximum current/noise (`62.365 > 5`). No threshold was changed. |
-| M37 semantic/observability audit | wording correction `supported`; execution `failed_but_informative`; geometry `forbidden`/unassessed | M36's 11/15/17 V failures show positive error--step slopes but stay failed. Nominal DOP853/Radau agree; full-horizon counts (`0/216/381/4`) were incorrectly compared with post-transient counts (`0/196/344/0`). This is `implementation_contract_invalid`; no Jacobian, geometry, or M38 authorization exists. |
+| M37 semantic audit | wording correction `supported`; execution `failed_but_informative`; geometry `forbidden`/unassessed | M36's failed vote stays fixed; M37 exposes a full/post count-window mismatch and stops before perturbations. |
+| M37R repaired observability vote | `failed_but_informative`; geometry `forbidden`/unassessed | The inclusive interval `[t0+0.1(T-t0),T]` reproduces nominal full/post counts `0/216/381/4` and `0/196/344/0` for both solvers. The first 15 V `log_C_th=-1%`, `h=0.01` DOP853 perturbation is finite and keeps activity class but gives full/post `379/343` versus nominal `381/344`, common prefix `0`; execution stops after `11` forwards before Jacobian/SVD. |
 | D0b-D0d | completed evidence `forbidden` | No repository calibration, quotient audit, or 13 V evaluation. |
 | N0 contracts | `supported` implementation facts | Complete 1D states/residuals/closures/boundaries/ledgers exist; this is not trained accuracy or novelty. |
 | N0 v1-v3r | `failed_but_informative`; positive forward `forbidden` | Port-only improvements coexist with failed PDE/field/flux/ledger gates; v3r strong-Wolfe becomes non-finite. |
@@ -42,13 +43,13 @@
 | Deliverable | Current state | Remaining gap |
 | --- | --- | --- |
 | Synthetic inverse mainline | constrained `gamma_sub` evidence locked | Integrate supported claims, figures, limitations, and reviewer defense into the manuscript |
-| Public-data anchor | provenance/parity locked; finite-step gates fail; M37 geometry unassessed | Numerical limitation only; no public rank, fit, lock, or 13 V evaluation |
+| Public-data anchor | provenance/parity locked; M37R nominal window fixed but perturbation topology fails | Numerical/hybrid-event limitation only; no public rank, fit, lock, or 13 V evaluation |
 | Full 1D PINN | complete versioned scaffold; trained paths fail | Retain scaffold/failure boundary; no neural search until an independently justified route exists |
 | Sensitivity/quotient inverse | absent or rejected implementations | Requires public solver convergence, reliable PINN forward fidelity, and solver/PINN Jacobian agreement |
 | Submission package | incomplete | Assemble only locked supported/qualified claims and explicit negative boundaries |
 
 ## Current Single Priority
 
-Compress the manuscript around the rank-1 synthetic `gamma_sub` mainline, full-PINN contract/failure boundary, and M36/M37 numerical limitations. M37 supports no observability claim. Any revisit needs a new bounded preregistration with one event-count window; no fit or 13 V access is active.
+Compress the manuscript around the rank-1 synthetic `gamma_sub` mainline, full-PINN contract/failure boundary, and M36/M37R numerical limitations. M37R supports nominal window parity but no Jacobian or observability claim; its preregistered no-rescue rule closes this revisit. No fit, M38, or 13 V access is active.
 
 Compact routing: `docs/project_state/current_evidence_index.md`.

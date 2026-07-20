@@ -19,7 +19,7 @@ This is a routing index; current status remains authoritative in `PROJECT_STATE.
 | M36 preregistration | `supported` protocol/threshold/hash lock; not scientific outcome evidence | `outputs/tables/m36_event_resolved_orbit_preregistration.json`; `configs/m36_event_resolved_orbit_convergence.yaml` |
 | M36 independent event-resolved reference | `supported` numerical parity fact; no parameter or validation claim | `outputs/tables/m36_event_resolved_orbit_summary.json`; `outputs/tables/m36_orbit_convergence_metrics.csv`; DOP853/Radau pass at all four open voltages |
 | M36 source-compatible Euler convergence | `failed_but_informative`; public refit route closed | `outputs/tables/m36_event_times.csv`; `outputs/figures/m36_error_dt_convergence.png`; `outputs/figures/m36_event_time_drift.png`; only 9 V passes all primary gates; no Jacobian, fit, or lock |
-| M37 semantic/observability | wording correction `supported`; geometry `forbidden`/unassessed | `outputs/tables/m37_semantic_audit.json`; `outputs/tables/m37_cross_regime_jacobian.json`; nominal DOP853/Radau agree, but a full-horizon/post-transient count mismatch stops perturbations and M38 authorization |
+| M37/M37R observability | wording/window repair `supported`; execution `failed_but_informative`; geometry unassessed/`forbidden` | `outputs/tables/m37_cross_regime_jacobian.json`; `outputs/tables/m37r_cross_regime_jacobian.json`; nominal windows pass, then 15 V `log_C_th=-1%` changes topology before Jacobian/SVD |
 | D0b-D0d | not completed / positive claims `forbidden` | D0a/M35 convergence stop rules; 13 V sealed; no fit lock |
 | N0 architecture contracts | `supported` as implementation facts | `outputs/tables/full_pinn_contract_v1.json`; `src/pinnpcm/pinn/full_pinn_1d.py`; `src/pinnpcm/pinn/full_pinn_n0_cv_e.py` |
 | N0 v1 trained forward | `failed_but_informative` | `outputs/tables/full_pinn_single_seed_mve_v1.json` |
@@ -41,18 +41,7 @@ This is a routing index; current status remains authoritative in `PROJECT_STATE.
 | M32 SCIS | `failed_but_informative`; nominal coverage passes, mismatch refusal fails | `outputs/tables/gamma_sub_scis_preregistration.json`; `outputs/tables/gamma_sub_scis_cache_preflight.json`; `outputs/tables/gamma_sub_scis_summary.json`; `outputs/tables/gamma_sub_scis_cases.csv`; `outputs/figures/gamma_sub_scis_certificate_v1.png` |
 | N1-N3 / SC-LOS | not run / `forbidden` | failed upstream trained-forward and geometry gates |
 
-Current report: `docs/codex_reports/m37_continuous_event_observability_results.md`.
-
-Detailed reports:
-
-- `docs/codex_reports/n0_cv_e_v3r_optimizer_forensics.md`
-- `docs/codex_reports/sid_ec_oq_strict_review.md`
-
-Literature overlap audit: `docs/literature/n0_sid_optimizer_red_team.md`.
-
-Prompt-30 literature red team: `docs/literature/prompt30_cpcf_idea_red_team.md`.
-
-Prompt-31 QoI/event PINN red team: `docs/literature/prompt31_qoi_event_pinn_red_team.md`.
+Current report: `docs/codex_reports/m37r_continuous_event_observability_results.md`.
 
 ## Preserved extension ledger
 

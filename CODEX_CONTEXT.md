@@ -8,7 +8,7 @@ Read this file and `docs/research_strategy/active_phase.md` first. Load longer c
 - Phase ID: `Q2_MANUSCRIPT_EVIDENCE_COMPRESSION`
 - Current evidence: `docs/project_state/current_evidence_index.md`
 - Safe historical evidence lock: `d1121e16fa5015a297da468e3e6f0504b9e97d17`
-- Current report: `docs/codex_reports/m36_event_resolved_orbit_results_and_q2_assessment.md`
+- Current report: `docs/codex_reports/m37r_continuous_event_observability_results.md`
 
 ## Corrected North Star
 
@@ -18,14 +18,14 @@ The calibration-gated constrained `gamma_sub` rank-1 result is the safe `qualifi
 
 ## Single Active Bottleneck
 
-`Q2_MANUSCRIPT_EVIDENCE_COMPRESSION`: M36 validates the independent continuous-event reference but rejects the source-compatible cross-regime convergence gate before Jacobian or fitting. Compress the paper around locked evidence; no public-fit rescue, 13 V access, neural search, N1-N3, or expansion route is active.
+`Q2_MANUSCRIPT_EVIDENCE_COMPRESSION`: M37R repairs M37's count window and passes all nominal DOP853/Radau checks, but the first 15 V `log_C_th=-1%` perturbation changes the post-transient event sequence and stops before Jacobian/SVD. Compress the paper around locked evidence; no rescue, fit, 13 V access, neural search, N1-N3, or expansion route is active.
 
 ## Evidence Snapshot
 
 | Block | Current boundary |
 | --- | --- |
 | Frozen/P0-P4 | GT unchanged; P0/P3 qualified, P1/P2 failed, P4 forbidden. |
-| D0/M35/M36 | D0a and M35 remain failed. M36 DOP853/Radau parity passes all four open voltages, but only 9 V passes the source-compatible primary gate. No Jacobian, fit, fit lock, or 13 V access. |
+| D0/M35-M37R | D0a/M35 remain failed. M36 nominal solver parity passes; M37R reproduces full/post counts `0/216/381/4` and `0/196/344/0`, then stops on 15 V perturbation topology (`343` vs `344`, common prefix `0`). No Jacobian, fit, lock, or 13 V access. |
 | N0 v1-v3r | Operator audits pass, trained paths fail. v3r port `0.0955475` passes but physics/field/flux/ledger gates fail; strong-Wolfe becomes non-finite. |
 | M33/M34 | M33 training fails. M34's preregistered authorization gate fails; M34-A shows stable parity in `32/32` non-voting post-hoc directions and does not support an autograd error. No training is authorized. |
 | SID/EC-OQ | `failed_but_informative`; derivative `3/9`, event-window, stability, and geometry gates fail; inactive. |
@@ -40,4 +40,4 @@ Keep `public_external_raw`, `derived`, `interpolated`, `solver_generated`, `pinn
 
 ## Operating Rule
 
-Preserve negative artifacts and unchanged gates. M35 cannot be repaired retrospectively, and M36 closes the present public-refit route. M33-v1 is closed and M34 authorizes no training. Do not access 13 V, relabel failures, or restore isolated protocol-gain wording. Use only `supported`, `qualified_supported`, `failed_but_informative`, or `forbidden`.
+Preserve negative artifacts and unchanged gates. M37R closes the bounded public observability revisit before Jacobian; no smoothing, extra step, saltation rescue, fit, or M38 is active. M33-v1 is closed and M34 authorizes no training. Do not access 13 V, relabel failures, or restore isolated protocol-gain wording. Use only `supported`, `qualified_supported`, `failed_but_informative`, or `forbidden`.
