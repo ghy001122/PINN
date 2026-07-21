@@ -1,0 +1,30 @@
+{
+  "amendment_status": "supported",
+  "corrected_formal_vote_required": true,
+  "created_after_formal_result_inspection": true,
+  "effective_coordinate_preflight_authorized_from_original_run": false,
+  "holdout_digitization_defect": {
+    "author_simulation_contaminated_time_us": [7.85, 10.05],
+    "experimental_contaminated_time_us": [7.77, 10.21],
+    "formal_holdout_nrmse_scientific_vote": false,
+    "root_cause": "panel_legend_pixels_were_associated_with_data_traces"
+  },
+  "original_formal_result_path": "outputs/tables/e1f_qiu_author_validation.json",
+  "original_formal_status_superseded_by": "implementation_contract_invalid",
+  "original_stage_id": "Q2_E1F_QIU_AUTHOR_MODEL_EXTERNAL_ANCHOR_AND_BRIDGE_AUDIT",
+  "required_correction_contract": {
+    "curve_ids_unchanged": true,
+    "deterministic_legend_geometry_exclusion_only": true,
+    "gates_unchanged": true,
+    "parameters_unchanged": true,
+    "si_equation_s3_literal": "T_pr = delta*w/2 + T_c - (2*F(T_r)-1)/beta - T_r",
+    "time_windows_and_metrics_unchanged": true
+  },
+  "schema_version": "e1f_semantic_amendment_v1",
+  "scientific_vote_from_original_run": false,
+  "source_equation_defect": {
+    "implemented_term": "atanh(2*F(T_r)-1)/beta",
+    "reported_si_term": "(2*F(T_r)-1)/beta",
+    "source_locator": "Qiu_2024_supporting_information_page_4_equation_S3"
+  }
+}

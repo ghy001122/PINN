@@ -1,0 +1,310 @@
+{
+  "copyright_crop_images_committed": false,
+  "curves": [
+    {
+      "axis_calibration": {
+        "x_tick_pixel_value_pairs": [
+          [
+            1187.0,
+            0.0
+          ],
+          [
+            1931.0,
+            5.0
+          ],
+          [
+            2675.0,
+            10.0
+          ],
+          [
+            3419.0,
+            15.0
+          ],
+          [
+            4162.0,
+            20.0
+          ]
+        ],
+        "y_tick_pixel_value_pairs": [
+          [
+            2094.0,
+            0.0
+          ],
+          [
+            1323.0,
+            5.0
+          ]
+        ]
+      },
+      "crop_box_px_600dpi": [
+        1050,
+        850,
+        4250,
+        3400
+      ],
+      "crop_png_sha256_not_committed": "C4BA95B18C78BCAE511BD138CDA57DEEC7A38677A8E7A9F39759C091CF7AD624",
+      "csv_path": "data/external/qiu_2024_thermal_neuristor/derived/qiu_2024_si_fig_s1_12v_current.csv",
+      "curve_id": "qiu_2024_si_fig_s1_12v_current",
+      "digitized": true,
+      "mask": "red",
+      "mask_exclusion_boxes_px_600dpi": [],
+      "maximum_interpolated_gap_pixels": 4,
+      "observed_column_fraction": 0.9973118279569892,
+      "observed_point_count": 2968,
+      "panel": "Figure S1 upper current trace",
+      "point_count": 2976,
+      "semantics": "caption_does_not_identify_experiment_or_simulation",
+      "source_pdf_page_one_based": 7,
+      "source_pdf_role": "supporting_information",
+      "typical_observed_line_width_pixels": 19.0,
+      "value_name": "current_mA",
+      "value_unit": "mA"
+    },
+    {
+      "axis_calibration": {
+        "x_tick_pixel_value_pairs": [
+          [
+            1187.0,
+            0.0
+          ],
+          [
+            1931.0,
+            5.0
+          ],
+          [
+            2675.0,
+            10.0
+          ],
+          [
+            3419.0,
+            15.0
+          ],
+          [
+            4162.0,
+            20.0
+          ]
+        ],
+        "y_tick_pixel_value_pairs": [
+          [
+            3296.0,
+            0.0
+          ],
+          [
+            2525.0,
+            5.0
+          ]
+        ]
+      },
+      "crop_box_px_600dpi": [
+        1050,
+        850,
+        4250,
+        3400
+      ],
+      "crop_png_sha256_not_committed": "C4BA95B18C78BCAE511BD138CDA57DEEC7A38677A8E7A9F39759C091CF7AD624",
+      "csv_path": "data/external/qiu_2024_thermal_neuristor/derived/qiu_2024_si_fig_s1_12v_device_voltage.csv",
+      "curve_id": "qiu_2024_si_fig_s1_12v_device_voltage",
+      "digitized": true,
+      "mask": "red",
+      "mask_exclusion_boxes_px_600dpi": [],
+      "maximum_interpolated_gap_pixels": 4,
+      "observed_column_fraction": 0.9973118279569892,
+      "observed_point_count": 2968,
+      "panel": "Figure S1 lower VO2-voltage trace",
+      "point_count": 2976,
+      "semantics": "caption_does_not_identify_experiment_or_simulation",
+      "source_pdf_page_one_based": 7,
+      "source_pdf_role": "supporting_information",
+      "typical_observed_line_width_pixels": 40.0,
+      "value_name": "device_voltage_V",
+      "value_unit": "V"
+    },
+    {
+      "axis_calibration": {
+        "x_tick_pixel_value_pairs": [
+          [
+            2203.0,
+            0.0
+          ],
+          [
+            2396.0,
+            5.0
+          ],
+          [
+            2589.0,
+            10.0
+          ],
+          [
+            2782.0,
+            15.0
+          ],
+          [
+            2975.0,
+            20.0
+          ]
+        ],
+        "y_tick_pixel_value_pairs": [
+          [
+            1193.0,
+            0.0
+          ],
+          [
+            1059.0,
+            2.5
+          ],
+          [
+            924.0,
+            5.0
+          ],
+          [
+            790.0,
+            7.5
+          ]
+        ]
+      },
+      "crop_box_px_600dpi": [
+        2100,
+        650,
+        3050,
+        1300
+      ],
+      "crop_png_sha256_not_committed": "D4C8EB8DB55CE9ADB3696196C9A51DEAA0C0A3B336924A40469D22223427BA3F",
+      "csv_path": "data/external/qiu_2024_thermal_neuristor/derived/qiu_2024_main_fig2b_12p5v_experimental_current.csv",
+      "curve_id": "qiu_2024_main_fig2b_12p5v_experimental_current",
+      "digitized": true,
+      "mask": "blue",
+      "mask_exclusion_boxes_px_600dpi": [],
+      "maximum_interpolated_gap_pixels": 32,
+      "observed_column_fraction": 0.8796895213454075,
+      "observed_point_count": 680,
+      "panel": "Figure 2B solid blue experimental current",
+      "point_count": 773,
+      "semantics": "digitized_literature_curve_not_raw_data_same_paper_development_contamination_risk",
+      "source_pdf_page_one_based": 3,
+      "source_pdf_role": "main",
+      "typical_observed_line_width_pixels": 8.0,
+      "value_name": "current_mA",
+      "value_unit": "mA"
+    },
+    {
+      "axis_calibration": {
+        "x_tick_pixel_value_pairs": [
+          [
+            2203.0,
+            0.0
+          ],
+          [
+            2396.0,
+            5.0
+          ],
+          [
+            2589.0,
+            10.0
+          ],
+          [
+            2782.0,
+            15.0
+          ],
+          [
+            2975.0,
+            20.0
+          ]
+        ],
+        "y_tick_pixel_value_pairs": [
+          [
+            1193.0,
+            0.0
+          ],
+          [
+            1059.0,
+            2.5
+          ],
+          [
+            924.0,
+            5.0
+          ],
+          [
+            790.0,
+            7.5
+          ]
+        ]
+      },
+      "crop_box_px_600dpi": [
+        2100,
+        650,
+        3050,
+        1300
+      ],
+      "crop_png_sha256_not_committed": "D4C8EB8DB55CE9ADB3696196C9A51DEAA0C0A3B336924A40469D22223427BA3F",
+      "csv_path": "data/external/qiu_2024_thermal_neuristor/derived/qiu_2024_main_fig2b_12p5v_author_simulation_current.csv",
+      "curve_id": "qiu_2024_main_fig2b_12p5v_author_simulation_current",
+      "digitized": true,
+      "mask": "black_dashed",
+      "mask_exclusion_boxes_px_600dpi": [
+        [
+          2195,
+          700,
+          2210,
+          1225
+        ],
+        [
+          2968,
+          700,
+          2983,
+          1225
+        ],
+        [
+          2600,
+          715,
+          2960,
+          880
+        ]
+      ],
+      "maximum_interpolated_gap_pixels": 34,
+      "observed_column_fraction": 0.8085381630012937,
+      "observed_point_count": 625,
+      "panel": "Figure 2B dashed black author-simulation current",
+      "point_count": 773,
+      "semantics": "author_simulation_trace_digitized_from_same_panel",
+      "source_pdf_page_one_based": 3,
+      "source_pdf_role": "main",
+      "typical_observed_line_width_pixels": 8.0,
+      "value_name": "current_mA",
+      "value_unit": "mA"
+    }
+  ],
+  "evidence_kind": "derived_digitized_literature_curve",
+  "independent_external_holdout": false,
+  "method": {
+    "axis_calibration": "explicit_tick_pixel_pairs",
+    "calibration_pixel_half_width": 1.0,
+    "curve_sampling": "per_x_pixel_median_centerline",
+    "missing_columns": "linear_interpolation_with_trace_observed_flag_retained",
+    "monte_carlo_draws": 500,
+    "monte_carlo_seed": 20260721,
+    "raw_pixel_coordinates_preserved": true,
+    "trace_pixel_half_width_rule": "half_observed_line_width_plus_one_pixel",
+    "uncertainty_distribution": "independent_uniform_pixel_jitter_then_linear_axis_refit"
+  },
+  "raw_experimental_data": false,
+  "render": {
+    "dpi": 600,
+    "in_memory_crop_only": true,
+    "renderer": "pypdfium2_or_explicit_prerendered_page"
+  },
+  "same_paper_development_contamination_risk": true,
+  "schema_version": "e1f_qiu_digitization_v1",
+  "si_figure_s1_semantics_ambiguous": true,
+  "source_author_parameter_development_independence_known": false,
+  "source_files": {
+    "main_pdf": {
+      "path": "data/external/qiu_2024_thermal_neuristor/raw/qiu_2024_main.pdf",
+      "sha256": "D842E8BF1B5AC609AB504D8BF6104CFD3EFEA59697A5C7AC21664A99EB7D3C67"
+    },
+    "supporting_information_pdf": {
+      "path": "data/external/qiu_2024_thermal_neuristor/raw/qiu_2024_supporting_information.pdf",
+      "sha256": "D47ED95CD5782C3E632BBC440C1FCC681870E0FF303F0B05F8CD8F30CEC70BFD"
+    }
+  },
+  "stage_id": "Q2_E1F_QIU_AUTHOR_MODEL_EXTERNAL_ANCHOR_AND_BRIDGE_AUDIT"
+}

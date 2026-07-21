@@ -1,0 +1,13 @@
+block,case,metric,value,threshold,pass,digitization_envelope_min,digitization_envelope_max
+solver_parity,12V,current_nrmse,2.778071436656537e-07,0.001,True,,
+solver_parity,12V,voltage_nrmse,1.7118942171017554e-08,0.001,True,,
+solver_parity,12V,temperature_nrmse,3.166744001502567e-08,0.001,True,,
+solver_parity,12p5V,current_nrmse,3.285798401627285e-08,0.001,True,,
+solver_parity,12p5V,voltage_nrmse,6.781703167592875e-09,0.001,True,,
+solver_parity,12p5V,temperature_nrmse,9.731115361227758e-09,0.001,True,,
+curve_evaluation,setting_current,range_normalized_rmse,0.38515701874860303,0.1,False,0.34568517281293665,0.45331429651818766
+curve_evaluation,setting_voltage,range_normalized_rmse,0.6990907847757337,0.1,False,0.6396710925059184,0.7691247172125606
+curve_evaluation,holdout_experiment,range_normalized_rmse,0.49423859474659876,0.15,False,0.32189752173087827,0.49423859474659876
+curve_evaluation,holdout_author_simulation_diagnostic,range_normalized_rmse,0.4687144790155833,,,0.4160156016224006,0.6437290419021825
+curve_evaluation,baseline_no_hysteresis,range_normalized_rmse,0.49131433490373255,,,0.30408893978926665,0.49131433490373255
+curve_evaluation,baseline_fixed_heating,range_normalized_rmse,0.5031213857005846,,,0.33007365955435974,0.5031213857005846

@@ -1,0 +1,279 @@
+{
+  "base_snapshot": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa",
+  "bridge_audit": [
+    {
+      "audit_role": "read_only_source_to_local_pde_mismatch_not_parameter_transfer",
+      "interpretation": "topology_and_contact_dependent_diagnostic_not_universal_shape_factor",
+      "local_2d_value": 120639.51284927833,
+      "m40_or_m40r_solver_called": false,
+      "quantity": "electrical_resistance",
+      "ratio_local_over_source": 2.3302332075455143,
+      "ratio_source_over_local": 0.4291415969705976,
+      "scientific_vote": false,
+      "source_lumped_value": 51771.43320189423,
+      "unit": "ohm"
+    },
+    {
+      "audit_role": "read_only_source_to_local_pde_mismatch_not_parameter_transfer",
+      "interpretation": "source_value_is_device_level_lumped_equivalent_not_local_material_property",
+      "local_2d_value": 7.804699999999999e-14,
+      "m40_or_m40r_solver_called": false,
+      "quantity": "thermal_capacitance",
+      "ratio_local_over_source": 0.0015735282258064513,
+      "ratio_source_over_local": 635.5144976744783,
+      "scientific_vote": false,
+      "source_lumped_value": 4.96e-11,
+      "unit": "J_per_K"
+    },
+    {
+      "audit_role": "read_only_source_to_local_pde_mismatch_not_parameter_transfer",
+      "interpretation": "source_value_aggregates_device_electrodes_and_substrate_not_one_boundary",
+      "local_2d_value": 1e-06,
+      "m40_or_m40r_solver_called": false,
+      "quantity": "thermal_conductance",
+      "ratio_local_over_source": 0.0048543689320388345,
+      "ratio_source_over_local": 206.0,
+      "scientific_vote": false,
+      "source_lumped_value": 0.000206,
+      "unit": "W_per_K"
+    },
+    {
+      "audit_role": "read_only_source_to_local_pde_mismatch_not_parameter_transfer",
+      "interpretation": "aggregate_dynamic_scale_mismatch_not_direct_local_calibration_instruction",
+      "local_2d_value": 7.8047e-08,
+      "m40_or_m40r_solver_called": false,
+      "quantity": "thermal_time_constant",
+      "ratio_local_over_source": 0.324146814516129,
+      "ratio_source_over_local": 3.085021833371254,
+      "scientific_vote": false,
+      "source_lumped_value": 2.4077669902912624e-07,
+      "unit": "s"
+    }
+  ],
+  "claim_disposition": "The formal external-anchor vote failed at setting_curve, same_paper_holdout. Passed numerical/provenance sub-results and the bridge-refusal audit remain usable; no refit or replacement curve is authorized.",
+  "completed_at_utc": "2026-07-21T11:55:05.273920+00:00",
+  "digitized_author_simulation_diagnostic": {
+    "digitization_envelope_score_max": 0.6437290419021825,
+    "digitization_envelope_score_min": 0.4160156016224006,
+    "directly_observed_fraction": 0.8085381630012937,
+    "median_digitized_point_std": 5.4341093593e-05,
+    "no_phase_or_time_alignment": true,
+    "point_count": 773,
+    "range_normalized_rmse": 0.4687144790155833
+  },
+  "digitized_evidence_kind": "derived_digitized_literature_curve",
+  "digitized_manifest_sha256": "8BB8F8B459116A6F35ABEC4E98A208AF5704FF5E63E258311DA363B50048113C",
+  "effective_coordinate_preflight": {
+    "inverse_network_run": false,
+    "schema_version": "e1f_effective_coordinate_preflight_v1",
+    "scientific_claim_authorized": false,
+    "setting_curve_pass": false,
+    "solver_parity_pass": true,
+    "status": "not_run_upstream_gate_failed"
+  },
+  "environment": {
+    "numpy": "1.26.4",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.9",
+    "scipy": "1.13.1"
+  },
+  "exact_author_code_reproduction_status": "forbidden",
+  "execution_file_hashes": {
+    "configs/e1f_qiu_author_external_anchor.yaml": "7C049E98A6FA3FB184378379CB98FAE7724C05E736F8BC5307E2C2DC9D5A4941",
+    "data/external/qiu_2024_thermal_neuristor/digitized_manifest.json": "8BB8F8B459116A6F35ABEC4E98A208AF5704FF5E63E258311DA363B50048113C",
+    "scripts/digitize_qiu_author_curves.py": "51285C3656E95C5A04ED07D64D4AFE9012CFF2F7AB9304F2C2C77B3C8798C78D",
+    "scripts/run_e1f_qiu_author_anchor.py": "9CB98F726B11F1CDA4FBFF26C94814DBA0CD9CEF3998AEC40BE058C4358F4119",
+    "src/pinnpcm/physics/qiu_author_compact_model.py": "5F7DFC716538533B4136B2BBFEF3D4C38F9B597D1113149FCD4B9DC94771D6B1",
+    "src/pinnpcm/solvers/qiu_author_ode.py": "371091ADEA7B300757810B4987C6407CEFD79A247A55DB3A0817822B004260B4"
+  },
+  "formal_execution_attempt": 1,
+  "forward_integrations": 6,
+  "gates": {
+    "all_positive_anchor_gates_pass": false,
+    "holdout_curve_pass": false,
+    "setting_curve_pass": false,
+    "solver_parity_all_pass": true
+  },
+  "git_dirty_at_execution": true,
+  "governance": {
+    "allowed_success_wording": "A source-equation-constrained Qiu compact-model reimplementation achieved independent-solver parity and was evaluated against a repository-withheld, same-paper digitized literature curve under the declared source parameters and explicit reversal/initial-condition assumptions.",
+    "exact_author_code_reproduction_authorized": false,
+    "forbidden_wording": [
+      "exact author-code reproduction",
+      "independent experimental validation",
+      "Qiu real-device calibration",
+      "local 2D parameter validation",
+      "unique parameter recovery",
+      "trained PINN success"
+    ],
+    "frozen_gt_modification": "forbidden",
+    "further_m40r_execution_forbidden": true,
+    "m40r_formal_budget_consumed": true,
+    "m41_authorized": false,
+    "original_numeric_e0_passed": true,
+    "qiu_dynamic_source_bridge_passed": false,
+    "sealed_zhang_13v_access": false,
+    "strict_author_model_reproduction_status": "forbidden_until_executable_source_contract_is_complete"
+  },
+  "holdout_curve": {
+    "digitization_envelope_score_max": 0.49423859474659876,
+    "digitization_envelope_score_min": 0.32189752173087827,
+    "directly_observed_fraction": 0.8796895213454075,
+    "median_digitized_point_std": 5.4814604978400005e-05,
+    "no_phase_or_time_alignment": true,
+    "point_count": 773,
+    "range_normalized_rmse": 0.49423859474659876
+  },
+  "holdout_curve_nrmse": 0.49423859474659876,
+  "holdout_refit": false,
+  "independent_external_holdout": false,
+  "initial_conditions_and_event_update_are_declared_implementation_assumptions": true,
+  "inverse_network_run": false,
+  "m40_m40r_and_frozen_gt_hashes_reverified": true,
+  "m40_or_m40r_solver_rerun": false,
+  "m41_authorized": false,
+  "matched_baselines": {
+    "fixed_heating": {
+      "digitization_envelope_score_max": 0.5031213857005846,
+      "digitization_envelope_score_min": 0.33007365955435974,
+      "directly_observed_fraction": 0.8796895213454075,
+      "median_digitized_point_std": 5.4814604978400005e-05,
+      "no_phase_or_time_alignment": true,
+      "point_count": 773,
+      "range_normalized_rmse": 0.5031213857005846
+    },
+    "no_hysteresis": {
+      "digitization_envelope_score_max": 0.49131433490373255,
+      "digitization_envelope_score_min": 0.30408893978926665,
+      "directly_observed_fraction": 0.8796895213454075,
+      "median_digitized_point_std": 5.4814604978400005e-05,
+      "no_phase_or_time_alignment": true,
+      "point_count": 773,
+      "range_normalized_rmse": 0.49131433490373255
+    }
+  },
+  "next_route": "q2_manuscript_evidence_compression",
+  "pinn_training_run": false,
+  "preregistration_commit": "783f41ec2ddd01f055ac34e6424c403082132fdc",
+  "preregistration_sha256": "613E6B1E1051532C057B799C4A14E4BF507302F4B386C2D6B641CA5DA5C93A53",
+  "primary_12V_metrics": {
+    "activity_class": "sustained_oscillation",
+    "charge_C": 1.1947121713617881e-08,
+    "charge_per_last_cycle_C": 1.901706332331946e-09,
+    "cooling_to_heating_event_count": 6,
+    "energy_ledger_relative_imbalance": 3.386487337909877e-05,
+    "energy_ledger_residual_J": 3.1236288378221216e-12,
+    "energy_per_last_cycle_J": 7.2275889258478845e-09,
+    "event_count": 12,
+    "heating_to_cooling_event_count": 6,
+    "joule_energy_J": 4.6117447739445385e-08,
+    "median_period_s": 3.03579306792944e-06,
+    "minimum_current_A": 0.0,
+    "minimum_joule_power_W": 0.0,
+    "minimum_temperature_K": 325.0,
+    "outward_heat_J": 4.592721378349284e-08,
+    "peak_current_A": 0.005493563136722895,
+    "peak_temperature_K": 383.4695495227377,
+    "period_count": 5,
+    "thermal_storage_change_J": 1.9335758479036605e-10
+  },
+  "primary_12p5V_metrics": {
+    "activity_class": "sustained_oscillation",
+    "charge_C": 1.3232207482468637e-08,
+    "charge_per_last_cycle_C": 1.9513462005836792e-09,
+    "cooling_to_heating_event_count": 6,
+    "energy_ledger_relative_imbalance": 4.2415576375044466e-05,
+    "energy_ledger_residual_J": -4.382837460522613e-12,
+    "energy_per_last_cycle_J": 7.28786249741267e-09,
+    "event_count": 13,
+    "heating_to_cooling_event_count": 7,
+    "joule_energy_J": 5.166761524521502e-08,
+    "median_period_s": 2.8452059679444676e-06,
+    "minimum_current_A": 0.0,
+    "minimum_joule_power_W": 0.0,
+    "minimum_temperature_K": 325.0,
+    "outward_heat_J": 4.962988304940455e-08,
+    "peak_current_A": 0.005569918583775865,
+    "peak_temperature_K": 385.6841896186424,
+    "period_count": 6,
+    "thermal_storage_change_J": 2.0333493583499507e-09
+  },
+  "protected_record_counts": {
+    "frozen_gt_records": 9,
+    "m40_protected_records": 18,
+    "m40r_protected_records": 18
+  },
+  "same_paper_development_contamination_risk": true,
+  "schema_version": "e1f_qiu_author_validation_v1",
+  "sealed_zhang_13v_access": false,
+  "setting_curve": {
+    "current": {
+      "digitization_envelope_score_max": 0.45331429651818766,
+      "digitization_envelope_score_min": 0.34568517281293665,
+      "directly_observed_fraction": 0.9973118279569892,
+      "median_digitized_point_std": 4.032664140865e-05,
+      "no_phase_or_time_alignment": true,
+      "point_count": 2976,
+      "range_normalized_rmse": 0.38515701874860303
+    },
+    "voltage": {
+      "digitization_envelope_score_max": 0.7691247172125606,
+      "digitization_envelope_score_min": 0.6396710925059184,
+      "directly_observed_fraction": 0.9973118279569892,
+      "median_digitized_point_std": 0.07840379914904999,
+      "no_phase_or_time_alignment": true,
+      "point_count": 2976,
+      "range_normalized_rmse": 0.6990907847757337
+    }
+  },
+  "setting_curve_max_nrmse": 0.6990907847757337,
+  "solver_parity": {
+    "12V": {
+      "activity_class_match": true,
+      "current_nrmse": 2.778071436656537e-07,
+      "event_count_match": true,
+      "event_type_sequence_match": true,
+      "independent_activity_class": "sustained_oscillation",
+      "independent_event_count": 12,
+      "primary_activity_class": "sustained_oscillation",
+      "primary_event_count": 12,
+      "temperature_nrmse": 3.166744001502567e-08,
+      "voltage_nrmse": 1.7118942171017554e-08
+    },
+    "12p5V": {
+      "activity_class_match": true,
+      "current_nrmse": 3.285798401627285e-08,
+      "event_count_match": true,
+      "event_type_sequence_match": true,
+      "independent_activity_class": "sustained_oscillation",
+      "independent_event_count": 13,
+      "primary_activity_class": "sustained_oscillation",
+      "primary_event_count": 13,
+      "temperature_nrmse": 9.731115361227758e-09,
+      "voltage_nrmse": 6.781703167592875e-09
+    }
+  },
+  "solver_parity_checks": {
+    "12V": {
+      "activity_class": true,
+      "current": true,
+      "event_count": true,
+      "event_types": true,
+      "temperature": true,
+      "voltage": true
+    },
+    "12p5V": {
+      "activity_class": true,
+      "current": true,
+      "event_count": true,
+      "event_types": true,
+      "temperature": true,
+      "voltage": true
+    }
+  },
+  "solver_parity_worst_nrmse": 2.778071436656537e-07,
+  "source_contract_complete_for_exact_author_code_reproduction": false,
+  "stage_id": "Q2_E1F_QIU_AUTHOR_MODEL_EXTERNAL_ANCHOR_AND_BRIDGE_AUDIT",
+  "status": "failed_but_informative",
+  "wall_time_s": 38.657307800021954
+}
