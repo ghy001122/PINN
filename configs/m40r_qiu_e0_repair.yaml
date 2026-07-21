@@ -1,0 +1,136 @@
+task_id: Q2_M40R_QIU_E0_MESH_AND_ACTIVE_TRANSIENT_REPAIR
+schema_version: m40r_qiu_e0_repair_v1
+base_snapshot: 5e68d3bf25bcbe30bdce4840f9130c096a0177e1
+namespace: m40r_qiu_e0_repair
+parent_m40_config: configs/m40_qiu_vo2_real_device_2d.yaml
+old_m40:
+  summary: outputs/tables/m40_qiu_e0_summary.json
+  mesh_csv: outputs/tables/m40_qiu_mesh_convergence.csv
+  report: docs/codex_reports/m40_qiu_vo2_e0_results.md
+  required_status: failed_but_informative
+  required_main_current_change: 0.02478775649200631
+  required_field_p99_change: 0.11066382246828892
+
+execution_contract:
+  formal_execution_limit: 1
+  cpu_only: true
+  maximum_wall_clock_s: 1800
+  maximum_accepted_transient_steps_per_run: 20000
+  maximum_reject_fraction: 0.10
+  inverse: forbidden
+  pinn_training: forbidden
+  parameter_search: forbidden
+  public_curve_digitization: forbidden
+  m38: forbidden
+  m41_before_all_gates: forbidden
+  sealed_zhang_13v_access: forbidden
+  frozen_gt_write: forbidden
+
+source_semantics:
+  footprint_100_by_500_nm2: literature_reported
+  current_path_100nm_width_500nm: literature_derived_from_sigma_8e5_Sm_and_intrinsic_R_2p5ohm
+  current_path_assignment_is_measured: false
+  electrode_overlap_20nm: engineering-prior/unresolved
+  contact_area_mapping: engineering-prior/unresolved
+  terminal_boundary_representation: engineering-prior/unresolved
+  corner_rounding: none
+  nominal_protocol: source_composed_illustrative_not_measured_trace_reproduction
+
+mesh_forensics:
+  levels: [2, 4, 8, 16, 32]
+  convergence_triplet: [8, 16, 32]
+  safety_factor_gci: 1.25
+  reference_grid: {nx: 161, nz: 81}
+  probe_points_fraction_xz:
+    - [0.35, 0.25]
+    - [0.50, 0.50]
+    - [0.65, 0.75]
+  field_percentiles: [50, 90, 95, 99]
+  use_original_physical_window: true
+  result_is_non_voting: true
+
+repair_contract:
+  current_qoi: terminal_boundary_flux_integral
+  repaired_field_qoi: conservative_face_current_J_over_local_sigma_mapped_to_fixed_grid
+  legacy_field_estimator_role: diagnostic_only
+  repaired_field_statistic: p99
+  exclusion_window_changed: false
+  contact_rounding_added: false
+
+active_transient:
+  duration_rule: fixed_3_Rload_C
+  coarse:
+    refinement: 2
+    smooth_dt_max_s: 2.0e-8
+    switching_dt_max_s: 2.0e-9
+    history_substep_max_s: 1.0e-9
+  fine:
+    refinement: 2
+    smooth_dt_max_s: 1.0e-8
+    switching_dt_max_s: 1.0e-9
+    history_substep_max_s: 5.0e-10
+  switching_temperature_half_width_K: 7.193
+  source_R_T_domain_max_K: 360.0
+  terminate_on_source_R_T_domain_exceedance: true
+  # Numerical rejection control only: 2 K is below 0.3 of the 7.193 K
+  # hysteresis width.  Scientific convergence is still voted by the locked
+  # coarse/fine 2% gates below.
+  maximum_trial_temperature_change_K: 2.0
+  maximum_trial_history_change: 0.02
+  # Adaptive lower bound; it is not a fixed step and cannot be used to bypass
+  # the multirate requirement.  The value is locked before formal execution.
+  minimum_dt_s: 1.0e-12
+  accepted_steps_before_dt_growth: 10
+  dt_growth_factor: 1.5
+  picard_max_iterations: 4
+  picard_voltage_relative_tolerance: 1.0e-6
+  picard_temperature_absolute_tolerance_K: 1.0e-5
+  picard_history_absolute_tolerance: 1.0e-6
+  comparison_grid_points: 2001
+  current_nrmse_normalization: rms_fine
+  event_statistics_discard_Rload_C: 1.0
+  fine_pair_Tmean_QoI: time_average_temperature_rise
+  activity:
+    inactive_if_Tmax_below_Tc_or_h_range_below: true
+    current_peak_prominence_fraction: 0.05
+    sustained_min_peaks: 4
+    sustained_isi_cv_max: 0.10
+
+gates:
+  manufactured_electrical_relative_l2_max: 1.0e-10
+  layered_electrical_relative_error_max: 1.0e-10
+  layered_thermal_relative_error_max: 1.0e-10
+  electrical_contact_jump_relative_error_max: 1.0e-10
+  thermal_interface_jump_relative_error_max: 1.0e-10
+  substrate_invariance_relative_error_max: 1.0e-12
+  substrate_tamper_effect_relative_min: 1.0e-3
+  relative_current_imbalance_max: 1.0e-6
+  smooth_window_energy_imbalance_max: 1.0e-4
+  switching_window_energy_imbalance_max: 1.0e-3
+  main_qoi_mesh_change_max: 0.01
+  peak_field_mesh_change_max: 0.02
+  uniform_2d_to_reduced_error_max: 0.01
+  nominal_transient_requires_finite: true
+  nominal_duration_min_Rload_C_multiple: 3.0
+  nominal_Tmax_min_critical_temperature: true
+  nominal_history_range_min: 0.1
+  nominal_Tmax_within_source_R_T_domain: true
+  transient_current_nrmse_max: 0.02
+  transient_Tmax_relative_change_max: 0.02
+  transient_Tmean_relative_change_max: 0.02
+  transient_outward_heat_relative_change_max: 0.02
+  nominal_smooth_energy_imbalance_max: 1.0e-4
+  nominal_switching_energy_imbalance_max: 1.0e-3
+  all_required_gates_must_pass: true
+
+outputs:
+  forensics_json: outputs/tables/m40r_qiu_mesh_forensics.json
+  forensics_csv: outputs/tables/m40r_qiu_mesh_forensics.csv
+  forensics_report: docs/codex_reports/m40r_qiu_mesh_forensics.md
+  preregistration: outputs/tables/m40r_qiu_e0_preregistration.json
+  mesh_convergence: outputs/tables/m40r_qiu_mesh_convergence.csv
+  active_transient: outputs/tables/m40r_qiu_active_transient.json
+  summary: outputs/tables/m40r_qiu_e0_summary.json
+  mesh_figure: outputs/figures/m40r/mesh_and_field_convergence.png
+  transient_figure: outputs/figures/m40r/active_transient_and_ledgers.png
+  report: docs/codex_reports/m40r_qiu_e0_repair_results.md

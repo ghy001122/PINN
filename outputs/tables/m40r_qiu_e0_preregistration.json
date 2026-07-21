@@ -1,0 +1,198 @@
+{
+  "active_transient_contract": {
+    "accepted_steps_before_dt_growth": 10,
+    "activity": {
+      "current_peak_prominence_fraction": 0.05,
+      "inactive_if_Tmax_below_Tc_or_h_range_below": true,
+      "sustained_isi_cv_max": 0.1,
+      "sustained_min_peaks": 4
+    },
+    "coarse": {
+      "history_substep_max_s": 1e-09,
+      "refinement": 2,
+      "smooth_dt_max_s": 2e-08,
+      "switching_dt_max_s": 2e-09
+    },
+    "comparison_grid_points": 2001,
+    "current_nrmse_normalization": "rms_fine",
+    "dt_growth_factor": 1.5,
+    "duration_rule": "fixed_3_Rload_C",
+    "event_statistics_discard_Rload_C": 1.0,
+    "fine": {
+      "history_substep_max_s": 5e-10,
+      "refinement": 2,
+      "smooth_dt_max_s": 1e-08,
+      "switching_dt_max_s": 1e-09
+    },
+    "fine_pair_Tmean_QoI": "time_average_temperature_rise",
+    "maximum_trial_history_change": 0.02,
+    "maximum_trial_temperature_change_K": 2.0,
+    "minimum_dt_s": 1e-12,
+    "picard_history_absolute_tolerance": 1e-06,
+    "picard_max_iterations": 4,
+    "picard_temperature_absolute_tolerance_K": 1e-05,
+    "picard_voltage_relative_tolerance": 1e-06,
+    "source_R_T_domain_max_K": 360.0,
+    "switching_temperature_half_width_K": 7.193,
+    "terminate_on_source_R_T_domain_exceedance": true
+  },
+  "base_snapshot": "5e68d3bf25bcbe30bdce4840f9130c096a0177e1",
+  "created_at_utc": "2026-07-21T09:28:47.293292+00:00",
+  "forbidden_actions": [
+    "M41 execution before every gate passes",
+    "gamma_eff",
+    "inverse",
+    "PINN training",
+    "parameter fitting or search",
+    "public-curve digitization",
+    "M38",
+    "Zhang sealed 13 V access",
+    "frozen-GT modification",
+    "corner rounding without source evidence",
+    "threshold, percentile, or exclusion-window relaxation"
+  ],
+  "formal_execution_limit": 1,
+  "formal_solver_executed": false,
+  "frozen_gt_hashes": {
+    "configs/gt_v1_acceptance_ltp_ltd.yaml": "F1F71F21F1D0D27532EEAD23A3A4B71B0864E6B0966E564104DCFFD7040C1D93",
+    "configs/gt_v1_acceptance_triangle.yaml": "F2E6BEC6006827344BEBDDCF20519B5B87F923B349A8799596D06E9F254A2B02",
+    "data/processed/gt_v1_acceptance/gt_ltp_ltd.npz": "772D17178C77392BF8A0813ADA3DB4A7241C5FA4E6D72E091894271BFA13C247",
+    "data/processed/gt_v1_acceptance/gt_triangle.npz": "4E4814D9C66A79CBE86417296B0A797E53FFFF2CEE2BD881548FBCD35E05C9F8",
+    "data/processed/gt_v1_acceptance/manifest.json": "634554429B9E61A231E47BF35B9B5C66C1C316E5E11A86BDE0540B05FF5AE30F",
+    "data/processed/gt_v1_acceptance/obs_ltp_ltd_sparse.npz": "7155BFF7C406FAB49E9670FA8A73AB6D0063459A80FEB705138E3FE61A351645",
+    "data/processed/gt_v1_acceptance/obs_triangle_sparse.npz": "F45DAF53136A255B3666EBEB56E6298CE148A613C46FA596B795E7ADE68EA602",
+    "data/processed/gt_v1_acceptance/params_gt_v1.json": "1020E9B07466C8F3474762702AA354CF6A6B73DA26DEB31D3F75C7E54521D9FA",
+    "docs/gt_v1_acceptance_report.md": "0F72718AFFB84F727771F8D4A1A16AFB9D7C0D15BD7984632B3BEB8155F91643"
+  },
+  "gate_thresholds": {
+    "all_required_gates_must_pass": true,
+    "electrical_contact_jump_relative_error_max": 1e-10,
+    "layered_electrical_relative_error_max": 1e-10,
+    "layered_thermal_relative_error_max": 1e-10,
+    "main_qoi_mesh_change_max": 0.01,
+    "manufactured_electrical_relative_l2_max": 1e-10,
+    "nominal_Tmax_min_critical_temperature": true,
+    "nominal_Tmax_within_source_R_T_domain": true,
+    "nominal_duration_min_Rload_C_multiple": 3.0,
+    "nominal_history_range_min": 0.1,
+    "nominal_smooth_energy_imbalance_max": 0.0001,
+    "nominal_switching_energy_imbalance_max": 0.001,
+    "nominal_transient_requires_finite": true,
+    "peak_field_mesh_change_max": 0.02,
+    "relative_current_imbalance_max": 1e-06,
+    "smooth_window_energy_imbalance_max": 0.0001,
+    "substrate_invariance_relative_error_max": 1e-12,
+    "substrate_tamper_effect_relative_min": 0.001,
+    "switching_window_energy_imbalance_max": 0.001,
+    "thermal_interface_jump_relative_error_max": 1e-10,
+    "transient_Tmax_relative_change_max": 0.02,
+    "transient_Tmean_relative_change_max": 0.02,
+    "transient_current_nrmse_max": 0.02,
+    "transient_outward_heat_relative_change_max": 0.02,
+    "uniform_2d_to_reduced_error_max": 0.01
+  },
+  "head_before_preregistration_commit": "5e68d3bf25bcbe30bdce4840f9130c096a0177e1",
+  "locked_files": {
+    "configs/m40r_qiu_e0_repair.yaml": "F00122185238D1FF51BE46ADA2D0BE6F486AF1CA6860E422216B90FAFB264C1D",
+    "docs/codex_reports/m40r_qiu_mesh_forensics.md": "783F5412E06BA0362FA0B0C051C5535DF1E812987ABCF8E31C3437180C462546",
+    "outputs/tables/m40r_qiu_mesh_forensics.csv": "23F1C4865BC28DD3C023641678B238EFC13B2220A82CE1FE772CB02861397A57",
+    "outputs/tables/m40r_qiu_mesh_forensics.json": "95CF52D91AEE521098EBD8B83127DFD70F6E60C0C223C73C99CE10877001F64B",
+    "scripts/audit_m40r_qiu_mesh_forensics.py": "A696CBE8ECE187E658D68813CC4C85CF59E0706A8C56E85D700B0824A5A13629",
+    "scripts/run_m40r_qiu_e0_repair.py": "1D80A95549CC5FD7E802AEC9FEE707A17257DC24C1D80FB352D3016F24E2FF9B",
+    "src/pinnpcm/solvers/m40r_qiu_e0_repair.py": "20C2BCF506BECC8C8D861B5FA56D23B1DBBD32BE3656A64A80CA197469D83A3E",
+    "tests/test_m40r_qiu_active_transient.py": "78916E4B48C46630EAF8DC2999DA1CE2EA981F2A61DDB430144CA19F31D5EBB1",
+    "tests/test_m40r_qiu_field_reconstruction.py": "BD7C22D428BFDAC5043085BE8667F517B8639117BED294C9012414CE65E4F363",
+    "tests/test_m40r_qiu_mesh_convergence.py": "700485395F35A4E5D035CB1417556D73A92CC5212EC78EA819A4B31A800AFFAD"
+  },
+  "mesh_contract": {
+    "convergence_triplet": [
+      8,
+      16,
+      32
+    ],
+    "field_percentiles": [
+      50,
+      90,
+      95,
+      99
+    ],
+    "levels": [
+      2,
+      4,
+      8,
+      16,
+      32
+    ],
+    "probe_points_fraction_xz": [
+      [
+        0.35,
+        0.25
+      ],
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.65,
+        0.75
+      ]
+    ],
+    "reference_grid": {
+      "nx": 161,
+      "nz": 81
+    },
+    "result_is_non_voting": true,
+    "safety_factor_gci": 1.25,
+    "use_original_physical_window": true
+  },
+  "non_voting_forensic_sha256": "95CF52D91AEE521098EBD8B83127DFD70F6E60C0C223C73C99CE10877001F64B",
+  "old_m40_protected_hashes": {
+    "configs/m40_qiu_vo2_real_device_2d.yaml": "EA404EE217846553CDAA77644DB8FFB719DA4630240726C6F07FB92FC0F41CA9",
+    "data/external/qiu_2024_thermal_neuristor/manifest.json": "9FE009F6B4CD61243E6614FBB53210F6042D53D826FAD31B06C7CA7A6CDB253F",
+    "docs/codex_reports/m40_qiu_vo2_e0_results.md": "78E40F6609C1C2D84FCCF4A19A20C5FBED98A7C8273AE47DAB2D138146C9E935",
+    "docs/physics/m40_qiu_2d_equations.md": "00A3C69C4EA72C9A259FC35B5371345BFD51C6F3FFDA78071D89B006E09492AC",
+    "docs/physics/m40_qiu_model_responsibility.md": "DF6A4A1EFF318B7847FD59252D472BAEF4E582B43A06E2D619BCD3DDCF16696E",
+    "outputs/figures/m40/qiu_device_geometry.png": "819C3F58540D58671C63329D1E320E6639B23C4E28A94A221AAA1672D9113BFA",
+    "outputs/figures/m40/qiu_e0_field_maps.png": "9CBE2406DC2C6AB5B3989AF0E20BF037FE958EEE7064E0083E8B9E33901055FA",
+    "outputs/tables/m40_qiu_e0_preregistration.json": "90D44A553AB03DAAC0CDD7747DCBD1484BFF975BA01EA68D597CC672045CE003",
+    "outputs/tables/m40_qiu_e0_summary.json": "5B0E2B8B2C4AE073B137163CCF95CD98317E390928D8A57AE3C181A72AEAAAF7",
+    "outputs/tables/m40_qiu_mesh_convergence.csv": "F7246E2769282BE5561F61EA5490994F7096CC0C674895729A6A3D6A4C50D902",
+    "scripts/run_m40_qiu_vo2_2d_e0.py": "6D202777C2B601FF9DA6DBFB5E4651B28CE2A92B0580CCE533075DE6C9869604",
+    "src/pinnpcm/physics/qiu_vo2_device.py": "8DD7137BB1BB0E82AA2F02DBBC309981275B019BA72CD2F756B060C40B97C7D6",
+    "src/pinnpcm/solvers/qiu_vo2_2d_fvm.py": "3DCA44667B2FC581C52A8876F732B6CD8B46315F0A6CA6F58C39D525F9AB3A25",
+    "tests/test_m40_qiu_2d_fvm.py": "F2B8B82B77CB605616FB6060129A79F74AA1480CE09FF01518AAE71479E056ED",
+    "tests/test_m40_qiu_energy_ledger.py": "85D0483F6B1AFA658C66186D05B4509D7EDB2890FF04C0465F8EF43E2D559B3A",
+    "tests/test_m40_qiu_geometry.py": "27E2D1BA43D0C84F65D26E606442C8E868171BFB8F3639DA9D48F5A368A352FC",
+    "tests/test_m40_qiu_result_evidence.py": "CB15426F749EB43209704F3349BCFC5FE9EA5B24DF6530CB01E139DC9465CAE7"
+  },
+  "old_m40_summary": {
+    "e0_all_gates_pass": false,
+    "main_qoi_mesh_change": 0.02478775649200631,
+    "peak_field_mesh_change": 0.11066382246828892,
+    "status": "failed_but_informative"
+  },
+  "raw_source_hashes": {
+    "qiu_2024_main_drive_copy": "D842E8BF1B5AC609AB504D8BF6104CFD3EFEA59697A5C7AC21664A99EB7D3C67",
+    "qiu_2024_supporting_information_drive_copy": "D47ED95CD5782C3E632BBC440C1FCC681870E0FF303F0B05F8CD8F30CEC70BFD"
+  },
+  "repair_contract": {
+    "contact_rounding_added": false,
+    "current_qoi": "terminal_boundary_flux_integral",
+    "exclusion_window_changed": false,
+    "legacy_field_estimator_role": "diagnostic_only",
+    "repaired_field_qoi": "conservative_face_current_J_over_local_sigma_mapped_to_fixed_grid",
+    "repaired_field_statistic": "p99"
+  },
+  "schema_version": "m40r_qiu_e0_preregistration_v1",
+  "source_semantics": {
+    "contact_area_mapping": "engineering-prior/unresolved",
+    "corner_rounding": "none",
+    "current_path_100nm_width_500nm": "literature_derived_from_sigma_8e5_Sm_and_intrinsic_R_2p5ohm",
+    "current_path_assignment_is_measured": false,
+    "electrode_overlap_20nm": "engineering-prior/unresolved",
+    "footprint_100_by_500_nm2": "literature_reported",
+    "nominal_protocol": "source_composed_illustrative_not_measured_trace_reproduction",
+    "terminal_boundary_representation": "engineering-prior/unresolved"
+  },
+  "task_id": "Q2_M40R_QIU_E0_MESH_AND_ACTIVE_TRANSIENT_REPAIR"
+}
