@@ -11,7 +11,7 @@ SPEC.loader.exec_module(MODULE)
 
 
 def test_governance_audit_has_no_failed_checks() -> None:
-    summary = MODULE.run_audit(write_output=True)
+    summary = MODULE.run_audit(write_output=False)
     assert summary["overall_status"] in {"pass", "pass_with_manual_review"}
     assert summary["failed_checks"] == []
 

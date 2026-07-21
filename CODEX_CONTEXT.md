@@ -8,7 +8,7 @@ Read this file and `docs/research_strategy/active_phase.md` first. Load longer c
 - Phase ID: `Q2_MANUSCRIPT_EVIDENCE_COMPRESSION_AND_SUBMISSION_LOCK`
 - Current evidence: `docs/project_state/current_evidence_index.md`
 - Safe historical evidence lock: `d1121e16fa5015a297da468e3e6f0504b9e97d17`
-- Current report: `docs/codex_reports/e1fr_qiu_source_equation_correction_results.md`
+- Current report: `docs/codex_reports/source_contract_amendment_results.md`
 
 ## Corrected North Star
 
@@ -18,21 +18,20 @@ The calibration-gated constrained `gamma_sub` rank-1 result is the safe `qualifi
 
 ## Single Active Bottleneck
 
-`Q2_MANUSCRIPT_EVIDENCE_COMPRESSION_AND_SUBMISSION_LOCK`: the original E1F
-formal run is permanently `implementation_contract_invalid` because Eq. S3
-was mistranscribed and Fig. 2b digitization captured legend strokes. The
-single E1F-R correction uses the literal printed Eq. S3 and only the clean
-12 V SI Fig. S1 source curve. Independent-solver parity passes, but the locked
-setting gate fails, so no effective-coordinate preflight was run. Compress the
-locked synthetic positive result and all failure boundaries into a submission
-package. No new rescue experiment is active.
+`Q2_MANUSCRIPT_EVIDENCE_COMPRESSION_AND_SUBMISSION_LOCK`: the fallback-lock
+source-contract amendment separates the literal Qiu SI S3/S4 transcription,
+the analytic `atanh` inverse of the configured tanh anchor, a later explicit
+comparator, and repository history. Formula fidelity and realized-continuity
+gates pass without a device run. Original E1F still has no scientific vote;
+E1F-R remains a failed literal-S3 sensitivity. Assemble manuscript v2 and its
+submission package without reopening science.
 
 ## Evidence Snapshot
 
 | Block | Current boundary |
 | --- | --- |
 | M40 Qiu 2D E0 | `failed_but_informative`; 12/14 formal gates pass, but both mesh gates fail. Current/energy/interface/reduced checks pass. M41 is not authorized. |
-| E1F/E1F-R Qiu compact anchor | Original E1F is `implementation_contract_invalid` and has no scientific vote. E1F-R is `failed_but_informative`: parity passes (`2.23216e-7` worst NRMSE), but literal-S3 12 V setting current/voltage errors are `0.353154/0.815643`. Fig. 2b is invalid/unassessed and was not simulated or scored. Quantitative external validation and reduced-coordinate authorization are absent. |
+| E1F/E1F-R Qiu compact anchor | Original E1F has no scientific vote. The atanh term is supported only as the analytic inverse of the configured tanh anchor; full Qiu-author equivalence is unverified. E1F-R is `failed_but_informative`: parity passes (`2.23216e-7` worst NRMSE), but literal-S3 12 V setting current/voltage errors are `0.353154/0.815643`. Fig. 2b is invalid/unassessed. |
 | Frozen/P0-P4 | GT unchanged; P0/P3 qualified, P1/P2 failed, P4 forbidden. |
 | D0/M35-M37R | D0a/M35 remain failed. M36 nominal solver parity passes; M37R reproduces full/post counts `0/216/381/4` and `0/196/344/0`, then stops on 15 V perturbation topology (`343` vs `344`, common prefix `0`). No Jacobian, fit, lock, or 13 V access. |
 | N0 v1-v3r | Operator audits pass, trained paths fail. v3r port `0.0955475` passes but physics/field/flux/ledger gates fail; strong-Wolfe becomes non-finite. |
@@ -57,4 +56,5 @@ preflight, inverse network, PINN training, holdout refit, M38, or Zhang sealed-
 The Qiu SI does not publish a complete executable reversal update, numerical
 initial-condition contract, integrator, tolerances, author code, or raw arrays.
 Therefore exact author-code reproduction remains `forbidden`; E1F can support
-only a source-equation-constrained reimplementation.
+only a source-equation-constrained reimplementation. Do not describe the
+historical `atanh` term as an unreferenced insertion.

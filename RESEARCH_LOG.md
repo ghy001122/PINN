@@ -806,3 +806,10 @@ Date: 2026-07-17. Base commit: `a7c108e3980953ced24d2de86ce7afc340e65a88`. Prere
 - The H0-H3 hierarchy is preserved. H1 latent heat, H2 history state, and H3 2D geometry require external discrepancy triggers plus conservation, SI-unit, primary-literature, and independent-solver gates.
 
 Primary report: `docs/codex_reports/prompt30_a7c_audit_and_cpcf_report.md`.
+
+## 2026-07-22 — Layered E1F/LLP source-contract amendment
+
+- Visually verified Qiu SI PDF page 4, Eqs. S1–S4; third-party source and internal crop were hash-recorded but not redistributed.
+- Added an isolated formula-only audit. Both printed-S3 and tanh-anchor branches pass scalar/vector fidelity; the tanh-anchor branch passes realized reversal-continuity gates.
+- Preserved all E1F/E1F-R device outputs, protected physics modules, frozen GT, and manuscript v1 byte-for-byte.
+- Claim change: the historical `atanh` term is no longer described as unreferenced; it is supported only as a configured tanh-anchor inverse. No Qiu-author-code or external-validation claim was added.

@@ -15,14 +15,14 @@ This is the compact routing surface. Current status is authoritative in
 
 | Block | Status | Primary evidence |
 | --- | --- | --- |
+| Layered E1F/LLP source contract | Formula identity `supported`; no device-science vote | `outputs/tables/e1f_llp_source_contract_summary.json`; `outputs/tables/e1f_source_contract_amendment_v2.json`; `docs/physics/e1f_llp_source_contract.md` |
 | E1F semantic amendment | Original formal run `implementation_contract_invalid`; no curve vote | `outputs/tables/e1f_semantic_amendment.json`; `docs/codex_reports/e1f_semantic_amendment.md` |
 | E1F-R literal-S3 correction | `failed_but_informative`; solver parity passes, clean SI Fig. S1 current/voltage gates fail, Fig. 2b remains invalid/unassessed and unscored, coordinate preflight blocked | `outputs/tables/e1fr_qiu_source_equation_correction.json`; `outputs/tables/e1fr_qiu_source_equation_correction.csv`; `outputs/tables/e1fr_effective_coordinate_preflight.json`; `outputs/figures/e1fr/qiu_setting_correction.png`; `docs/codex_reports/e1fr_qiu_source_equation_correction_results.md` |
 | Source-to-PDE refusal | mapping-audit fact `supported`; no calibration claim | `outputs/tables/e1f_source_to_pde_bridge_mismatch.csv`; `outputs/figures/e1f/source_to_pde_bridge_mismatch.png` |
 | M40 Qiu 2D E0 | `failed_but_informative`; M41 not authorized | `outputs/tables/m40_qiu_e0_summary.json`; `outputs/tables/m40_qiu_mesh_convergence.csv`; `docs/codex_reports/m40_qiu_vo2_e0_results.md` |
 | M40R bounded repair | original numerical E0 sub-result passes; overall `failed_but_informative`; M41 not authorized | `outputs/tables/m40r_qiu_e0_summary.json`; `outputs/tables/m40r_qiu_active_transient.json`; `docs/codex_reports/m40r_qiu_e0_repair_results.md` |
 
-Current report:
-`docs/codex_reports/e1fr_qiu_source_equation_correction_results.md`.
+Current report: `docs/codex_reports/source_contract_amendment_results.md`.
 
 ## Main scientific evidence
 
@@ -70,7 +70,8 @@ Current report:
 
 ## Submission routing
 
-- Integrated draft: `docs/manuscript/main_submission_v1.md`.
+- Current manuscript entry: `docs/manuscript/README.md`; v1 remains immutable
+  historical content and v2 is the submission-lock assembly target.
 - Go/no-go: `docs/manuscript/submission_go_no_go.md`.
 - Figures/tables: `docs/paper/final_figure_list.md` and
   `docs/paper/final_table_list.md`.

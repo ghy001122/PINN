@@ -8,18 +8,17 @@ result remains the only positive rank-1 inverse mainline.
 
 ### Priority - submission lock from current evidence
 
-The original E1F run is permanently `implementation_contract_invalid`; its
-curve errors have no scientific vote. The one permitted E1F-R correction used
-the literal printed Eq. S3 and only the clean 12 V SI source curve. Solver
-parity passed, but current/voltage NRMSE `0.353154/0.815643` exceeded `0.10`,
-including the most favorable digitization envelopes. The conditional effective-
-coordinate audit was therefore not run. M40/M40R, E1F/E1F-R, and every trained
-full-PINN route are closed.
+The formula-only source-contract amendment is complete: literal-S3 and atanh
+anchor implementations pass independent fidelity checks, and the atanh branch
+passes realized-continuity gates. This changes provenance wording, not the
+scientific vote. Original E1F has no vote; E1F-R still fails the clean 12 V
+source curve. M40/M40R, E1F/E1F-R device runs, and trained full-PINN routes are
+closed.
 
 Execution order:
 
-1. freeze the positive `gamma_sub` chain and all negative boundaries;
-2. finish the integrated manuscript, supplementary failure-evidence table,
+1. preserve the protected-evidence manifest and immutable v1 manuscript;
+2. assemble manuscript v2, supplementary failure-evidence table,
    reproducibility statement, figures/tables, and reviewer-defense matrix;
 3. audit every sentence against the claim matrix and evidence taxonomy;
 4. perform journal-scope and submission go/no-go review;
@@ -36,7 +35,8 @@ NO-GO; seven-day submission lock GO).
 - No real-device calibration, exact Qiu reproduction, project experimental
   validation, or full hidden-field wording.
 - The source omits a complete executable reversal/initial-condition contract;
-  exact author-code reproduction remains `forbidden`. Main Fig. 2b is
+  exact author-code reproduction remains `forbidden`. The atanh term is not
+  an unreferenced insertion, but neither is it verified Qiu author code. Fig. 2b is
   `implementation_contract_invalid/unassessed` because legend pixels
   contaminated the extraction; it has no holdout vote and is not independent.
 - P1, M33/M34, M35-M37R, and frozen GT remain closed/read-only.

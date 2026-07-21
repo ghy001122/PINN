@@ -1,0 +1,69 @@
+schema_version: qiu_llp_source_contract_v1
+task_id: SOURCE_CONTRACT_AMENDMENT_AND_FALLBACK_SUBMISSION_LOCK_V2
+dtype: float64
+
+contracts:
+  - id: qiu_2024_si_printed_s3_transcription
+    responsibility: literal transcription of Qiu 2024 Supporting Information equations S3-S4
+    doi: 10.1002/adma.202306818
+    source_path: data/external/qiu_2024_thermal_neuristor/raw/qiu_2024_supporting_information.pdf
+    source_sha256: D47ED95CD5782C3E632BBC440C1FCC681870E0FF303F0B05F8CD8F30CEC70BFD
+    pdf_page_one_based: 4
+    printed_page: 3
+    equations: [S3, S4]
+    internal_crop_sha256_not_committed: 27A2E5CA875993CE1D73E25A128FD5F6E526AF270F7B87A5AB2CFD36557C4C0C
+  - id: tanh_llp_atanh_anchor_inverse_identity
+    responsibility: analytic inverse of the configured tanh limiting branch
+    lineage_dois: [10.1117/1.1501095, 10.1109/TMAG.2002.806344]
+    equation: T_pr = delta_new*w/2 + T_c - atanh(2*F_r-1)/beta - T_r
+    author_code_verified: false
+  - id: sena_de_almeida_2026_explicit_event_comparator
+    responsibility: later explicit comparator; not evidence of Qiu 2024 author implementation
+    doi: 10.1038/s41598-026-49919-9
+    zenodo_doi: 10.5281/zenodo.19462650
+    author_code_verified: false
+  - id: repository_e1f_historical_atanh_like_implementation
+    responsibility: historical repository implementation and audit lineage only
+    path: src/pinnpcm/physics/vo2_thermal_neuristor.py
+    qiu_author_equivalence: unverified
+
+parameters:
+  beta_per_K: 0.253
+  hysteresis_width_K: 7.193
+  critical_temperature_K: 332.8
+  proximity_gamma_dimensionless: 0.956
+
+fraction_grid:
+  minimum: 1.0e-4
+  maximum: 0.9999
+  points: 2001
+  old_branches: [-1, 1]
+
+gates:
+  source_transcription:
+    max_abs_state_discrepancy: 1.0e-12
+    max_abs_temperature_discrepancy_K: 1.0e-12
+    blocking: true
+  realized_reversal_continuity:
+    max_abs_phase_fraction_jump: 1.0e-6
+    max_abs_normalized_temperature_contract_residual: 1.0e-6
+    blocking: true
+  manufactured_hysteresis_properties:
+    blocking: false
+    claim_specific_blocking_only_if_claimed: [return_point_memory, wiping_out]
+
+manufactured_protocols:
+  step_refinements: [1, 2]
+  protocols:
+    - major_loop_parity
+    - first_reversal_continuity
+    - closed_minor_loop
+    - nested_loop
+    - return_point_memory
+    - wiping_out_continuation
+
+outputs:
+  summary: outputs/tables/e1f_llp_source_contract_summary.json
+  cases: outputs/tables/e1f_llp_source_contract_cases.csv
+  amendment: outputs/tables/e1f_source_contract_amendment_v2.json
+  protected_manifest: outputs/tables/submission_protected_evidence_manifest.json

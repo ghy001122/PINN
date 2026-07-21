@@ -761,3 +761,11 @@ Lightweight outputs:
 - `outputs/tables/adaptive_fourier_fsps_superiority_cases.csv`
 
 Claim result: multilayer forward, terminal-only rescue, low-dimensional sandwich inverse, holdout POD field recovery, and phase-aware STL are downgraded or remain negative/informative. Only `stiffness_gated_fourier` receives condition-limited qualified support; universal F-SPS/Fourier superiority remains forbidden.
+
+## Source-Contract Amendment And Fallback Submission Lock v2
+
+- Evidence type: formula-contract audit; no new claim-bearing device forward run.
+- Config: `configs/qiu_llp_source_contract.yaml`.
+- Outputs: `outputs/tables/e1f_llp_source_contract_summary.json`, `outputs/tables/e1f_llp_source_contract_cases.csv`, and `outputs/tables/e1f_source_contract_amendment_v2.json`.
+- Result: G1 source-transcription fidelity and G2 tanh-anchor realized continuity pass; G3 manufactured hysteresis properties remain non-blocking diagnostics.
+- Claim: `supported` only for the configured tanh-anchor inverse identity; Qiu-author equivalence and external validation remain `forbidden`.

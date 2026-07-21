@@ -1,0 +1,23 @@
+{
+  "e1f": {
+    "atanh_transform_reference_supported": true,
+    "fig2b_extraction_valid": false,
+    "full_qiu_author_algorithm_equivalence": "unverified",
+    "preregistered_literal_contract_compliance": false,
+    "scientific_vote": false
+  },
+  "e1fr": {
+    "canonical_or_general_llp_refuted": false,
+    "clean_s1_source_curve_match": "failed",
+    "external_quantitative_validation": "unsupported",
+    "role": "qiu_2024_printed_s3_sensitivity",
+    "solver_parity": "passed",
+    "status": "failed_but_informative"
+  },
+  "generated_at_utc": "2026-07-21T17:19:00.520395+00:00",
+  "main_submission_v1_byte_modified": false,
+  "qiu_author_code_verified": false,
+  "qiu_author_intent_inferred": false,
+  "root_cause_boundary": "The mismatch is non-identifying among the printed formula, reversal-event rules, undisclosed author implementation details, initial conditions, parameter applicability, and digitization error.",
+  "schema_version": "e1f_source_contract_amendment_v2"
+}
