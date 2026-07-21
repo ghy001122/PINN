@@ -1,0 +1,1038 @@
+validation_stage=C:\Users\CJ\AppData\Local\Temp\pinn_submission_validation_689a7a6b
+worktree=C:\Users\CJ\AppData\Local\Temp\pinn_submission_validation_689a7a6b\worktree
+validated_commit=689a7a6b218d4263bdc92f04ae52231e7439e752
+python=E:\Python demo\PINN\.venv\Scripts\python.exe
+pythonpath=C:\Users\CJ\AppData\Local\Temp\pinn_submission_validation_689a7a6b\worktree\src
+command=E:\Python demo\PINN\.venv\Scripts\python.exe -m pytest -vv -o cache_dir=C:\Users\CJ\AppData\Local\Temp\pinn_submission_validation_689a7a6b\pytest_cache
+started_at_utc=2026-07-21T17:54:53.2576478Z
+pinnpcm_origin=C:\Users\CJ\AppData\Local\Temp\pinn_submission_validation_689a7a6b\worktree\src\pinnpcm\__init__.py
+import_exit_code=0
+============================= test session starts =============================
+platform win32 -- Python 3.11.9, pytest-8.2.2, pluggy-1.6.0 -- E:\Python demo\PINN\.venv\Scripts\python.exe
+cachedir: C:\Users\CJ\AppData\Local\Temp\pinn_submission_validation_689a7a6b\pytest_cache
+rootdir: C:\Users\CJ\AppData\Local\Temp\pinn_submission_validation_689a7a6b\worktree
+configfile: pyproject.toml
+testpaths: tests
+collecting ... collected 428 items
+
+tests/test_active_protocol_design_v3.py::test_protocol_candidates_include_real_rc_parameters PASSED [  0%]
+tests/test_active_protocol_design_v3.py::test_noisy_target_is_reinverted PASSED [  0%]
+tests/test_active_protocol_identifiability.py::test_terminal_feature_vector_is_finite PASSED [  0%]
+tests/test_active_protocol_identifiability.py::test_active_protocol_smoke PASSED [  0%]
+tests/test_active_protocol_identifiability_v2.py::test_trace_features_use_terminal_traces_only PASSED [  1%]
+tests/test_active_protocol_identifiability_v2.py::test_active_protocol_v2_existing_summary_schema PASSED [  1%]
+tests/test_adaptive_fourier_fsps_superiority.py::test_adaptive_fourier_fsps_superiority_smoke PASSED [  1%]
+tests/test_claim_gate_resolution_matrix.py::test_claim_gate_resolution_matrix_builds PASSED [  1%]
+tests/test_claim_resolution_2d_field.py::test_claim_resolution_2d_field_smoke PASSED [  2%]
+tests/test_conductivity.py::test_conductivity_positive_and_shaped PASSED [  2%]
+tests/test_conservative_multilayer_forward.py::test_conservative_case_has_no_artificial_shortcuts PASSED [  2%]
+tests/test_conservative_multilayer_forward.py::test_conservation_checks_pass PASSED [  2%]
+tests/test_conservative_multilayer_forward.py::test_conservative_audit_smoke PASSED [  3%]
+tests/test_cv_multidomain_oasis_v10.py::test_control_volume_residuals_are_differentiable PASSED [  3%]
+tests/test_cv_multidomain_oasis_v10.py::test_one_sided_mortar_is_not_identity_zero PASSED [  3%]
+tests/test_cv_multidomain_oasis_v10.py::test_cv_training_smoke_writes_strict_gate PASSED [  3%]
+tests/test_data_shapes.py::test_sparse_observation_shapes PASSED         [  3%]
+tests/test_e1f_bridge_audit.py::test_e1f_bridge_values_and_semantics PASSED [  4%]
+tests/test_e1f_external_evidence.py::test_digitized_manifest_has_locked_semantics_and_finite_curves PASSED [  4%]
+tests/test_e1f_external_evidence.py::test_range_normalized_rmse_is_zero_for_identity_and_positive_for_shift PASSED [  4%]
+tests/test_e1f_preregistration.py::test_e1f_preregistration_is_leakage_safe_and_fail_closed FAILED [  4%]
+tests/test_e1f_protected_evidence.py::test_e1f_protected_files_match_preregistration FAILED [  5%]
+tests/test_e1f_qiu_author_equations.py::test_locked_source_parameters_load_from_preregistration PASSED [  5%]
+tests/test_e1f_qiu_author_equations.py::test_equations_s1_s2_and_s7_match_direct_major_branch_evaluation PASSED [  5%]
+tests/test_e1f_qiu_author_equations.py::test_llp_reversal_updates_only_the_ledger_with_literal_equation_s3 PASSED [  5%]
+tests/test_e1f_qiu_author_equations.py::test_equations_s5_s6_rhs_is_pure_and_matches_manual_formula PASSED [  6%]
+tests/test_e1f_qiu_author_equations.py::test_equation_s3_rejects_nonphysical_fraction_without_clipping[-0.1] PASSED [  6%]
+tests/test_e1f_qiu_author_equations.py::test_equation_s3_rejects_nonphysical_fraction_without_clipping[1.1] PASSED [  6%]
+tests/test_e1f_qiu_author_equations.py::test_equation_s3_rejects_nonphysical_fraction_without_clipping[nan] PASSED [  6%]
+tests/test_e1f_qiu_author_equations.py::test_equation_s3_accepts_source_domain_endpoints[0.0] PASSED [  7%]
+tests/test_e1f_qiu_author_equations.py::test_equation_s3_accepts_source_domain_endpoints[0.5] PASSED [  7%]
+tests/test_e1f_qiu_author_equations.py::test_equation_s3_accepts_source_domain_endpoints[1.0] PASSED [  7%]
+tests/test_e1f_qiu_author_equations.py::test_invalid_temperature_is_rejected_instead_of_silently_clipped PASSED [  7%]
+tests/test_e1f_qiu_author_equations.py::test_qiu_author_model_has_no_m40_or_local_conductivity_import PASSED [  7%]
+tests/test_e1f_qiu_solver_parity.py::test_dop853_and_radau_waveforms_and_event_topology_agree PASSED [  8%]
+tests/test_e1f_qiu_solver_parity.py::test_event_records_are_localized_ordered_and_alternating PASSED [  8%]
+tests/test_e1f_qiu_solver_parity.py::test_simulation_exposes_charge_energy_and_json_ready_evidence PASSED [  8%]
+tests/test_e1f_qiu_solver_parity.py::test_preregistered_baseline_variants_do_not_mutate_an_event_ledger[no_hysteresis] PASSED [  8%]
+tests/test_e1f_qiu_solver_parity.py::test_preregistered_baseline_variants_do_not_mutate_an_event_ledger[fixed_heating] PASSED [  9%]
+tests/test_e1f_result_evidence.py::test_e1f_formal_vote_fails_closed_at_the_curve_gates PASSED [  9%]
+tests/test_e1f_result_evidence.py::test_e1f_protected_boundaries_and_conditional_stop_are_locked PASSED [  9%]
+tests/test_e1f_result_evidence.py::test_e1f_machine_readable_outputs_and_bridge_refusal_exist PASSED [  9%]
+tests/test_e1f_semantic_amendment.py::test_first_e1f_vote_is_invalid_and_cannot_authorize_downstream_work PASSED [ 10%]
+tests/test_e1fr_contract.py::test_e1fr_locks_literal_s3_and_forbids_holdout_vote PASSED [ 10%]
+tests/test_e1fr_contract.py::test_e1fr_proximity_temperature_uses_printed_linear_fraction_term PASSED [ 10%]
+tests/test_e1fr_contract.py::test_e1fr_preregistration_is_hash_locked_when_present FAILED [ 10%]
+tests/test_e1fr_result_evidence.py::test_e1fr_result_fails_closed_without_a_holdout_vote PASSED [ 10%]
+tests/test_e1fr_result_evidence.py::test_e1fr_preserves_the_invalid_original_vote_and_semantic_amendment PASSED [ 11%]
+tests/test_electrostatics.py::test_cell_centered_phi_matches_voltage_drop_integral PASSED [ 11%]
+tests/test_electrostatics.py::test_phi_decreases_from_left_high_potential_to_right_low_potential PASSED [ 11%]
+tests/test_external_anchor_claim_stress_test.py::test_external_anchor_claim_stress_matrix PASSED [ 11%]
+tests/test_f_sps_balanced_medium_budget_benchmark.py::test_f_sps_balanced_config_scope PASSED [ 12%]
+tests/test_f_sps_balanced_medium_budget_benchmark.py::test_f_sps_balanced_smoke PASSED [ 12%]
+tests/test_f_sps_medium_budget_benchmark.py::test_f_sps_medium_budget_config_scope PASSED [ 12%]
+tests/test_f_sps_medium_budget_benchmark.py::test_f_sps_medium_budget_smoke PASSED [ 12%]
+tests/test_fourier_fsps_conditional_superiority.py::test_fourier_fsps_conditional_superiority_smoke PASSED [ 13%]
+tests/test_fourier_pyramid.py::test_fourier_pyramid_embedding_shape_for_matrix_and_grid PASSED [ 13%]
+tests/test_fourier_pyramid.py::test_fourier_pyramid_embedding_is_differentiable PASSED [ 13%]
+tests/test_fourier_pyramid.py::test_stiff_aware_mlp_is_opt_in_and_shape_stable PASSED [ 13%]
+tests/test_full_pinn_contract.py::test_full_pinn_has_state_network_and_physical_conductivity_closure PASSED [ 14%]
+tests/test_full_pinn_contract.py::test_hard_electrical_boundaries_and_frozen_initial_conditions PASSED [ 14%]
+tests/test_full_pinn_contract.py::test_terminal_operator_is_series_resistance_integral PASSED [ 14%]
+tests/test_full_pinn_contract.py::test_event_ledger_is_explicit_and_records_reversal PASSED [ 14%]
+tests/test_full_pinn_manufactured.py::test_constant_equilibrium_manufactured_solution_has_zero_residual PASSED [ 14%]
+tests/test_full_pinn_n0_split.py::test_split_parameter_budget_is_within_ten_percent_of_v1_baseline PASSED [ 15%]
+tests/test_full_pinn_n0_split.py::test_split_model_uses_teacher_electrode_orientation_and_hard_initial_states PASSED [ 15%]
+tests/test_full_pinn_n0_split.py::test_exact_interface_uses_independent_one_sided_traces PASSED [ 15%]
+tests/test_full_pinn_n0_split.py::test_layer_scales_include_all_preregistered_physical_terms PASSED [ 15%]
+tests/test_full_pinn_n0_split.py::test_split_residuals_are_finite_on_both_domains PASSED [ 16%]
+tests/test_gamma_sub_auxiliary_observability_sweep.py::test_auxiliary_observability_config_scope PASSED [ 16%]
+tests/test_gamma_sub_auxiliary_observability_sweep.py::test_auxiliary_observability_smoke PASSED [ 16%]
+tests/test_gamma_sub_calibrated_protocol_robustness_final.py::test_robustness_final_smoke PASSED [ 16%]
+tests/test_gamma_sub_calibrated_protocol_robustness_final.py::test_robustness_final_official_summary_schema PASSED [ 17%]
+tests/test_gamma_sub_calibrated_sequential_protocol_validation.py::test_calibrated_sequential_validation_smoke PASSED [ 17%]
+tests/test_gamma_sub_calibrated_sequential_protocol_validation.py::test_calibrated_sequential_official_summary_schema PASSED [ 17%]
+tests/test_gamma_sub_calibration_protocol_cost_frontier.py::test_cpcf_preregistered_pilot_scope_and_strategies PASSED [ 17%]
+tests/test_gamma_sub_calibration_protocol_cost_frontier.py::test_cpcf_locked_inputs_and_thresholds_are_unchanged FAILED [ 17%]
+tests/test_gamma_sub_calibration_protocol_cost_frontier.py::test_cpcf_resource_index_is_nonmonetary_and_monotone PASSED [ 18%]
+tests/test_gamma_sub_calibration_protocol_cost_frontier.py::test_cpcf_case_cache_resume_and_strict_json FAILED [ 18%]
+tests/test_gamma_sub_calibration_protocol_disentanglement.py::test_disentanglement_smoke PASSED [ 18%]
+tests/test_gamma_sub_calibration_protocol_disentanglement.py::test_disentanglement_official_summary_schema PASSED [ 18%]
+tests/test_gamma_sub_ceba_contract.py::test_ceba_preregistered_scope_and_budget_are_bounded PASSED [ 19%]
+tests/test_gamma_sub_ceba_contract.py::test_ceba_cache_keys_exclude_observation_noise_and_seed PASSED [ 19%]
+tests/test_gamma_sub_ceba_contract.py::test_ceba_objective_is_independent_but_numerically_equal_to_source PASSED [ 19%]
+tests/test_gamma_sub_ceba_contract.py::test_ceba_waveforms_are_exact_and_distinct PASSED [ 19%]
+tests/test_gamma_sub_ceba_contract.py::test_ceba_bracket_requires_direct_pass_below_and_failure_above PASSED [ 20%]
+tests/test_gamma_sub_ceba_contract.py::test_ceba_commit_ordered_registration_precedes_solver_results PASSED [ 20%]
+tests/test_gamma_sub_ceba_contract.py::test_ceba_locked_parity_results_pass_every_anchor_gate PASSED [ 20%]
+tests/test_gamma_sub_ceba_contract.py::test_ceba_locked_pilot_fails_closed_without_boundary_or_refinement PASSED [ 20%]
+tests/test_gamma_sub_ceba_contract.py::test_prompt31_final_validation_record_preserves_fail_closed_resolution PASSED [ 21%]
+tests/test_gamma_sub_ceba_evidence_schema.py::test_ceba_parity_summary_matches_locked_schema_contract PASSED [ 21%]
+tests/test_gamma_sub_ceba_evidence_schema.py::test_ceba_pilot_summary_matches_locked_schema_contract PASSED [ 21%]
+tests/test_gamma_sub_constrained.py::test_gamma_sub_constrained_config_scope PASSED [ 21%]
+tests/test_gamma_sub_constrained.py::test_gamma_sub_constrained_smoke PASSED [ 21%]
+tests/test_gamma_sub_continuous_refinement.py::test_continuous_refinement_smoke_schema_and_resimulation PASSED [ 22%]
+tests/test_gamma_sub_cpcf_evidence_schema.py::test_cpcf_summary_matches_locked_schema_contract PASSED [ 22%]
+tests/test_gamma_sub_evidence_lock.py::test_gamma_sub_evidence_lock_builds_without_touching_tracked_outputs PASSED [ 22%]
+tests/test_gamma_sub_evidence_lock.py::test_gamma_sub_evidence_lock_has_complete_mainline_chain PASSED [ 22%]
+tests/test_gamma_sub_evidence_lock.py::test_gamma_sub_evidence_lock_maps_direct_recovery_visual PASSED [ 23%]
+tests/test_gamma_sub_identifiability.py::test_gamma_sub_scan_smoke PASSED [ 23%]
+tests/test_gamma_sub_identifiability.py::test_gamma_sub_inversion_smoke PASSED [ 23%]
+tests/test_gamma_sub_identifiability.py::test_gamma_sub_confounding_smoke PASSED [ 23%]
+tests/test_gamma_sub_identifiability.py::test_gamma_sub_mismatch_smoke PASSED [ 24%]
+tests/test_gamma_sub_joint_inversion_boundary.py::test_joint_inversion_boundary_config_scope PASSED [ 24%]
+tests/test_gamma_sub_joint_inversion_boundary.py::test_joint_inversion_boundary_smoke PASSED [ 24%]
+tests/test_gamma_sub_multi_protocol_recoverability.py::test_multi_protocol_config_scope PASSED [ 24%]
+tests/test_gamma_sub_multi_protocol_recoverability.py::test_multi_protocol_recoverability_smoke PASSED [ 25%]
+tests/test_gamma_sub_observability_augmented.py::test_observability_augmented_config_scope PASSED [ 25%]
+tests/test_gamma_sub_observability_augmented.py::test_observability_augmented_smoke PASSED [ 25%]
+tests/test_gamma_sub_paper_readiness.py::test_paper_docs_exist_and_state_synthetic_boundary PASSED [ 25%]
+tests/test_gamma_sub_paper_readiness.py::test_paper_readiness_smoke_schema_and_frozen_hashes PASSED [ 25%]
+tests/test_gamma_sub_protocol_actual_inversion_validation.py::test_protocol_actual_validation_config_scope PASSED [ 26%]
+tests/test_gamma_sub_protocol_actual_inversion_validation.py::test_protocol_actual_validation_smoke PASSED [ 26%]
+tests/test_gamma_sub_protocol_observability_design.py::test_protocol_observability_design_config_scope PASSED [ 26%]
+tests/test_gamma_sub_protocol_observability_design.py::test_protocol_observability_design_smoke PASSED [ 26%]
+tests/test_gamma_sub_recoverability_phase_diagram.py::test_recoverability_phase_diagram_config_scope PASSED [ 27%]
+tests/test_gamma_sub_recoverability_phase_diagram.py::test_recoverability_phase_diagram_smoke PASSED [ 27%]
+tests/test_gamma_sub_response_surface_anchor_verification.py::test_anchor_verification_config_scope PASSED [ 27%]
+tests/test_gamma_sub_response_surface_anchor_verification.py::test_anchor_verification_smoke PASSED [ 27%]
+tests/test_gamma_sub_scalar_baselines.py::test_scalar_baseline_comparison_smoke PASSED [ 28%]
+tests/test_gamma_sub_scis_contract.py::test_scis_scope_seeds_and_gates_are_preregistered PASSED [ 28%]
+tests/test_gamma_sub_scis_contract.py::test_finite_sample_quantile_uses_locked_one_based_rank PASSED [ 28%]
+tests/test_gamma_sub_scis_contract.py::test_scis_inference_signature_and_decision_do_not_accept_truth PASSED [ 28%]
+tests/test_gamma_sub_scis_contract.py::test_scis_candidate_grid_deletion_is_an_explicit_decision_sensitivity PASSED [ 28%]
+tests/test_gamma_sub_scis_contract.py::test_scis_cache_preflight_is_complete_and_zero_solver FAILED [ 29%]
+tests/test_gamma_sub_scis_contract.py::test_scis_cache_miss_is_a_hard_stop_without_fallback PASSED [ 29%]
+tests/test_gamma_sub_scis_contract.py::test_scis_preregistration_locks_unmodified_ceba_hashes FAILED [ 29%]
+tests/test_gamma_sub_scis_contract.py::test_scis_locked_summary_fails_closed_on_mismatch_refusal PASSED [ 29%]
+tests/test_gamma_sub_sequential_protocol_design.py::test_sequential_protocol_design_config_scope PASSED [ 30%]
+tests/test_gamma_sub_sequential_protocol_design.py::test_sequential_protocol_design_smoke PASSED [ 30%]
+tests/test_gamma_sub_simulator_backed_sequential_protocol_validation.py::test_simulator_backed_sequential_config_scope PASSED [ 30%]
+tests/test_gamma_sub_simulator_backed_sequential_protocol_validation.py::test_simulator_backed_sequential_smoke PASSED [ 30%]
+tests/test_gamma_sub_statistical_robustness.py::test_statistical_robustness_config_scope PASSED [ 31%]
+tests/test_gamma_sub_statistical_robustness.py::test_statistical_robustness_smoke PASSED [ 31%]
+tests/test_gamma_sub_temperature_anchor_placement.py::test_temperature_anchor_placement_config_scope PASSED [ 31%]
+tests/test_gamma_sub_temperature_anchor_placement.py::test_temperature_anchor_placement_smoke PASSED [ 31%]
+tests/test_gamma_sub_tsw_calibration_necessity.py::test_tsw_calibration_necessity_config_cases PASSED [ 32%]
+tests/test_gamma_sub_tsw_calibration_necessity.py::test_tsw_calibration_necessity_smoke PASSED [ 32%]
+tests/test_gamma_sub_tsw_calibration_tolerance_sweep.py::test_tolerance_sweep_smoke PASSED [ 32%]
+tests/test_gamma_sub_tsw_calibration_tolerance_sweep.py::test_tolerance_sweep_official_summary_schema PASSED [ 32%]
+tests/test_gamma_sub_tsw_calibration_workflow.py::test_tsw_calibration_workflow_improves_recovery PASSED [ 32%]
+tests/test_gamma_sub_tsw_calibration_workflow.py::test_tsw_calibration_summary_schema PASSED [ 33%]
+tests/test_gamma_sub_tsw_confounding_phase_map.py::test_tsw_confounding_phase_map_config_scope PASSED [ 33%]
+tests/test_gamma_sub_tsw_confounding_phase_map.py::test_tsw_confounding_phase_map_smoke PASSED [ 33%]
+tests/test_gamma_sub_tsw_dense_profile_likelihood.py::test_dense_profile_config_budget PASSED [ 33%]
+tests/test_gamma_sub_tsw_dense_profile_likelihood.py::test_dense_profile_likelihood_smoke PASSED [ 34%]
+tests/test_gamma_sub_tsw_prior_width_sweep.py::test_tsw_prior_width_config_scope PASSED [ 34%]
+tests/test_gamma_sub_tsw_prior_width_sweep.py::test_tsw_prior_width_smoke PASSED [ 34%]
+tests/test_gamma_sub_tsw_profile_likelihood.py::test_tsw_profile_likelihood_config_scope PASSED [ 34%]
+tests/test_gamma_sub_tsw_profile_likelihood.py::test_tsw_profile_likelihood_smoke PASSED [ 35%]
+tests/test_gamma_sub_tsw_tolerance_ode_spotcheck.py::test_ode_spotcheck_smoke PASSED [ 35%]
+tests/test_gamma_sub_tsw_tolerance_ode_spotcheck.py::test_ode_spotcheck_summary_schema_if_generated PASSED [ 35%]
+tests/test_gamma_sub_weighted_protocol_objective.py::test_weighted_protocol_config_scope PASSED [ 35%]
+tests/test_gamma_sub_weighted_protocol_objective.py::test_weighted_protocol_objective_smoke PASSED [ 35%]
+tests/test_gt_profiles.py::test_bilayer_spatial_profiles_are_cell_wise PASSED [ 36%]
+tests/test_gt_profiles.py::test_gaussian_seed_initial_defect_profile PASSED [ 36%]
+tests/test_gt_quasi_2d_phase_transition_preflight.py::test_quasi_2d_gt_preflight_smoke PASSED [ 36%]
+tests/test_gt_solver_smoke.py::test_gt_solver_smoke_shapes_and_finite PASSED [ 36%]
+tests/test_gt_solver_smoke.py::test_gt_solver_initial_m_matches_equilibrium PASSED [ 37%]
+tests/test_gt_solver_smoke.py::test_gt_solver_default_v11_has_visible_state_evolution PASSED [ 37%]
+tests/test_high_risk_claim_ladder.py::test_high_risk_claim_ladder_quick_smoke PASSED [ 37%]
+tests/test_high_risk_claim_ladder.py::test_high_risk_extended_profile_configured PASSED [ 37%]
+tests/test_high_risk_claim_ladder.py::test_high_risk_actual_inverse_smoke PASSED [ 38%]
+tests/test_historical_evidence_manifest.py::test_historical_evidence_manifest_current_artifacts_are_locked PASSED [ 38%]
+tests/test_historical_evidence_manifest.py::test_historical_evidence_manifest_has_claim_scope_and_full_ids PASSED [ 38%]
+tests/test_imports.py::test_core_imports PASSED                          [ 38%]
+tests/test_integrated_stiffness_stl.py::test_integrated_stiffness_stl_smoke PASSED [ 39%]
+tests/test_literature_curve_fit_external_anchor.py::test_literature_curve_fit_config_boundary PASSED [ 39%]
+tests/test_literature_curve_fit_external_anchor.py::test_literature_curve_fit_blocked_without_digitized_data PASSED [ 39%]
+tests/test_literature_curve_fit_external_anchor_v2.py::test_curve_fit_v2_blocked_official_config PASSED [ 39%]
+tests/test_literature_curve_fit_external_anchor_v2.py::test_curve_fit_v2_fits_sample_curve PASSED [ 39%]
+tests/test_literature_curve_ingestion.py::test_curve_ingestion_blocked_without_curves PASSED [ 40%]
+tests/test_literature_curve_ingestion.py::test_curve_ingestion_normalizes_valid_curve PASSED [ 40%]
+tests/test_literature_phase_change_parameter_sanity.py::test_literature_parameter_sanity_config PASSED [ 40%]
+tests/test_literature_phase_change_parameter_sanity.py::test_literature_parameter_sanity_smoke PASSED [ 40%]
+tests/test_literature_prior_consistency.py::test_literature_prior_consistency PASSED [ 41%]
+tests/test_literature_targeted_curve_extraction_attempt.py::test_targeted_extraction_blocks_pdf_only PASSED [ 41%]
+tests/test_literature_targeted_curve_extraction_attempt.py::test_targeted_extraction_accepts_required_csv PASSED [ 41%]
+tests/test_literature_targeted_curve_extraction_attempt.py::test_targeted_extraction_official_summary_schema PASSED [ 41%]
+tests/test_loss_balancer.py::test_dynamic_residual_gate_weights_normalized_and_positive PASSED [ 42%]
+tests/test_loss_balancer.py::test_dynamic_residual_gate_anti_collapse_under_extreme_scales PASSED [ 42%]
+tests/test_loss_balancer.py::test_gated_residual_loss_backward_is_finite PASSED [ 42%]
+tests/test_m33_mixed_flux_contract.py::test_matched_parameter_budget_and_complete_outputs PASSED [ 42%]
+tests/test_m33_mixed_flux_contract.py::test_initial_flux_heads_equal_frozen_face_fluxes PASSED [ 42%]
+tests/test_m33_mixed_flux_contract.py::test_constant_equilibrium_manufactured_residual_is_zero PASSED [ 43%]
+tests/test_m33_mixed_flux_contract.py::test_nontrivial_frozen_fvm_trace_has_first_order_parity PASSED [ 43%]
+tests/test_m33_mixed_flux_contract.py::test_grouped_constraints_have_finite_gradients_and_detect_flux_tamper PASSED [ 43%]
+tests/test_m33_mixed_flux_gate_safety.py::test_single_route_budget_and_gate_contract_are_locked PASSED [ 43%]
+tests/test_m33_mixed_flux_gate_safety.py::test_training_implementation_has_no_label_or_optimizer_search_path PASSED [ 44%]
+tests/test_m33_mixed_flux_gate_safety.py::test_summary_schema_requires_fail_closed_claim_fields PASSED [ 44%]
+tests/test_m33_mixed_flux_gate_safety.py::test_preregistration_and_results_are_separate_artifacts PASSED [ 44%]
+tests/test_m33_result_evidence.py::test_preflight_is_complete_and_precedes_training PASSED [ 44%]
+tests/test_m33_result_evidence.py::test_single_training_result_fails_closed_without_aggregation PASSED [ 45%]
+tests/test_m33_result_evidence.py::test_training_ledger_cannot_override_independent_trajectory_ledger PASSED [ 45%]
+tests/test_m33_result_evidence.py::test_history_is_finite_and_records_no_post_result_change PASSED [ 45%]
+tests/test_m33_result_evidence.py::test_frozen_gt_hash_and_checkpoint_manifest_are_consistent PASSED [ 45%]
+tests/test_m34_contract_audit.py::test_toy_signed_alm_recovers_signed_duals_and_rms_does_not PASSED [ 46%]
+tests/test_m34_contract_audit.py::test_vector_alm_uses_signed_constraint_elements PASSED [ 46%]
+tests/test_m34_contract_audit.py::test_ledger_training_and_independent_fixed_scale_implementations_match PASSED [ 46%]
+tests/test_m34_contract_audit.py::test_audit_schema_separates_evidence_and_authorization PASSED [ 46%]
+tests/test_m34_gate_safety.py::test_corrected_run_is_single_seed_bounded_and_label_free PASSED [ 46%]
+tests/test_m34_gate_safety.py::test_training_source_has_no_hidden_label_or_search_path PASSED [ 47%]
+tests/test_m34_gate_safety.py::test_historical_outputs_are_inputs_not_write_targets PASSED [ 47%]
+tests/test_m34_result_evidence.py::test_m34_fails_closed_without_corrected_training PASSED [ 47%]
+tests/test_m34_result_evidence.py::test_m34_alm_classification_and_signed_dual_counterexample_are_locked PASSED [ 47%]
+tests/test_m34_result_evidence.py::test_gradient_parity_failure_cannot_be_hidden_by_pass_count PASSED [ 48%]
+tests/test_m34_result_evidence.py::test_ledger_reconciliation_preserves_historical_failure PASSED [ 48%]
+tests/test_m34_result_evidence.py::test_representability_smoke_has_no_scientific_vote PASSED [ 48%]
+tests/test_m34a_gradient_semantics.py::test_m34a_contract_is_diagnostic_only_and_cannot_authorize_training PASSED [ 48%]
+tests/test_m34a_gradient_semantics.py::test_m34a_original_failed_gate_is_hash_locked PASSED [ 49%]
+tests/test_m34a_gradient_semantics.py::test_longest_true_run_handles_fragmented_intervals PASSED [ 49%]
+tests/test_m35_public_multivoltage.py::test_open_voltage_and_lovo_roles_are_exact_and_13v_stays_metadata_only PASSED [ 49%]
+tests/test_m35_public_multivoltage.py::test_13v_loader_guard_fails_before_file_access PASSED [ 49%]
+tests/test_m35_public_multivoltage.py::test_open_trace_preprocessing_uses_raw_time_zero_and_baseline_only FAILED [ 50%]
+tests/test_m35_public_multivoltage.py::test_raw_and_quotient_coordinates_map_to_identical_physics PASSED [ 50%]
+tests/test_m35_public_multivoltage.py::test_activity_classifier_is_fixed_and_executable_for_quiescent_trace PASSED [ 50%]
+tests/test_m35_public_multivoltage.py::test_cross_model_mapping_refuses_direct_gamma_sub_validation PASSED [ 50%]
+tests/test_m35_result_evidence.py::test_preregistration_hashes_and_sealed_boundary_are_valid FAILED [ 50%]
+tests/test_m35_result_evidence.py::test_m34a_result_cannot_change_training_authorization PASSED [ 51%]
+tests/test_m35_result_evidence.py::test_fit_result_obeys_fail_closed_outputs_and_lock_semantics PASSED [ 51%]
+tests/test_m36_event_resolved_orbit.py::test_m36_voltage_roles_steps_and_sealed_boundary_are_exact PASSED [ 51%]
+tests/test_m36_event_resolved_orbit.py::test_continuous_and_sampled_event_semantics_are_not_mislabeled_as_identical PASSED [ 51%]
+tests/test_m36_event_resolved_orbit.py::test_dop853_and_radau_short_branch_reference_is_finite_and_consistent PASSED [ 52%]
+tests/test_m36_event_resolved_orbit.py::test_source_family_member_remains_explicitly_separate PASSED [ 52%]
+tests/test_m36_event_resolved_orbit.py::test_regime_feature_vectors_are_fixed_dimensional_and_finite PASSED [ 52%]
+tests/test_m36_event_resolved_orbit.py::test_convergence_slope_has_expected_sign PASSED [ 52%]
+tests/test_m36_event_resolved_orbit.py::test_schema_and_claim_boundary_forbid_rank_and_validation_overclaims PASSED [ 53%]
+tests/test_m36_result_evidence.py::test_m36_preregistration_is_hash_locked_and_sealed FAILED [ 53%]
+tests/test_m36_result_evidence.py::test_m36_result_is_complete_and_conditionally_fail_closed PASSED [ 53%]
+tests/test_m36_result_evidence.py::test_voltage_classifications_use_only_preregistered_categories PASSED [ 53%]
+tests/test_m37_continuous_event_observability.py::test_config_locks_exact_parameters_steps_groups_and_seal PASSED [ 53%]
+tests/test_m37_continuous_event_observability.py::test_event_topology_allows_only_one_terminal_horizon_difference PASSED [ 54%]
+tests/test_m37_continuous_event_observability.py::test_whitened_feature_contract_has_expected_dimensions_and_is_finite PASSED [ 54%]
+tests/test_m37_continuous_event_observability.py::test_analytic_quotient_transform_preserves_algebraic_rank PASSED [ 54%]
+tests/test_m37_continuous_event_observability.py::test_m36_broad_classifier_is_detected_without_changing_failure_vote PASSED [ 54%]
+tests/test_m37_continuous_event_observability.py::test_schema_forbids_positive_flags_for_sealed_or_fit_actions PASSED [ 55%]
+tests/test_m37_result_evidence.py::test_m37_preregistration_is_complete_hash_locked_and_sealed FAILED [ 55%]
+tests/test_m37_result_evidence.py::test_m36_semantic_audit_supersedes_wording_but_not_vote_or_artifacts FAILED [ 55%]
+tests/test_m37_result_evidence.py::test_m37_result_obeys_gates_and_cannot_authorize_fit_or_13v PASSED [ 55%]
+tests/test_m37_result_evidence.py::test_spectra_and_analytic_transform_are_complete_and_non_novelty_claiming PASSED [ 56%]
+tests/test_m37r_continuous_event_observability_repair.py::test_config_preserves_original_scientific_contract_and_seal PASSED [ 56%]
+tests/test_m37r_continuous_event_observability_repair.py::test_event_window_includes_both_boundaries_without_tolerance PASSED [ 56%]
+tests/test_m37r_continuous_event_observability_repair.py::test_registered_full_and_post_transient_counts_match_locked_m37_m36_facts PASSED [ 56%]
+tests/test_m37r_continuous_event_observability_repair.py::test_m36_reference_rows_pass_the_same_post_transient_helper FAILED [ 57%]
+tests/test_m37r_continuous_event_observability_repair.py::test_cache_key_includes_solver_voltage_parameter_step_context_and_window PASSED [ 57%]
+tests/test_m37r_continuous_event_observability_repair.py::test_topology_uses_post_transient_sequence_and_retains_terminal_rule PASSED [ 57%]
+tests/test_m37r_continuous_event_observability_repair.py::test_mock_pipeline_reaches_event_feature_jacobian_svd_and_schema PASSED [ 57%]
+tests/test_m37r_continuous_event_observability_repair.py::test_schema_forbids_fit_training_m38_and_13v_actions PASSED [ 57%]
+tests/test_m37r_result_evidence.py::test_m37r_preregistration_is_complete_hash_locked_and_sealed FAILED [ 58%]
+tests/test_m37r_result_evidence.py::test_m37r_result_is_single_run_fail_closed_and_forbidden_actions_absent PASSED [ 58%]
+tests/test_m37r_result_evidence.py::test_nominal_full_and_post_counts_are_reported_with_only_post_count_voting PASSED [ 58%]
+tests/test_m37r_result_evidence.py::test_event_audit_has_one_row_per_forward_and_all_topology_votes PASSED [ 58%]
+tests/test_m37r_result_evidence.py::test_spectra_jacobians_and_cross_solver_gates_are_complete_if_reached PASSED [ 59%]
+tests/test_m37r_result_evidence.py::test_required_figure_report_and_strict_machine_artifacts_exist PASSED [ 59%]
+tests/test_m40_qiu_2d_fvm.py::test_constant_coefficient_manufactured_solution_is_linear_and_conservative PASSED [ 59%]
+tests/test_m40_qiu_2d_fvm.py::test_layered_electrical_limit_matches_series_resistance PASSED [ 59%]
+tests/test_m40_qiu_2d_fvm.py::test_electrical_contact_jump_uses_area_specific_resistance_once PASSED [ 60%]
+tests/test_m40_qiu_2d_fvm.py::test_substrate_conductivity_cannot_leak_without_explicit_mask_tamper PASSED [ 60%]
+tests/test_m40_qiu_2d_fvm.py::test_current_ledger_gate_is_individual_and_not_hidden_by_power_balance PASSED [ 60%]
+tests/test_m40_qiu_energy_ledger.py::test_layered_thermal_analytic_limit_and_interface_jump PASSED [ 60%]
+tests/test_m40_qiu_energy_ledger.py::test_global_energy_ledger_closes_for_smooth_and_switching_windows[smooth_window-0.0002-0.0001] PASSED [ 60%]
+tests/test_m40_qiu_energy_ledger.py::test_global_energy_ledger_closes_for_smooth_and_switching_windows[switching_window-0.02-0.001] PASSED [ 61%]
+tests/test_m40_qiu_energy_ledger.py::test_zero_source_uniform_temperature_is_an_exact_thermal_fixed_point PASSED [ 61%]
+tests/test_m40_qiu_energy_ledger.py::test_implicit_rc_update_satisfies_the_declared_kcl_residual PASSED [ 61%]
+tests/test_m40_qiu_geometry.py::test_material_masks_encode_thermal_only_substrate_and_coplanar_terminals PASSED [ 61%]
+tests/test_m40_qiu_geometry.py::test_geometry_refinement_preserves_interfaces_and_physical_extent PASSED [ 62%]
+tests/test_m40_qiu_geometry.py::test_geometry_rejects_nonphysical_or_unresolved_dimensions PASSED [ 62%]
+tests/test_m40_qiu_geometry.py::test_continuous_history_closure_is_bounded_directional_and_differentiable PASSED [ 62%]
+tests/test_m40_qiu_geometry.py::test_conductivity_is_a_constitutive_closure_not_an_independent_state PASSED [ 62%]
+tests/test_m40_qiu_result_evidence.py::test_m40_hard_gates_are_preregistered_at_the_user_locked_values PASSED [ 63%]
+tests/test_m40_qiu_result_evidence.py::test_m40_result_is_formal_single_run_and_fail_closed_for_m41 PASSED [ 63%]
+tests/test_m40_qiu_result_evidence.py::test_m40_result_keeps_forbidden_actions_and_real_device_claims_closed PASSED [ 63%]
+tests/test_m40r_qiu_active_transient.py::test_history_is_exactly_invariant_without_temperature_drive PASSED [ 63%]
+tests/test_m40r_qiu_active_transient.py::test_history_update_is_bounded_and_directional PASSED [ 64%]
+tests/test_m40r_qiu_active_transient.py::test_excess_temperature_ledger_closes_at_zero_and_small_source PASSED [ 64%]
+tests/test_m40r_qiu_active_transient.py::test_shortened_rc_fixture_runs_to_exact_three_time_constants PASSED [ 64%]
+tests/test_m40r_qiu_active_transient.py::test_raw_time_fine_pair_metrics_use_locked_qoi_definitions PASSED [ 64%]
+tests/test_m40r_qiu_active_transient.py::test_source_R_T_domain_extrapolation_fails_closed PASSED [ 64%]
+tests/test_m40r_qiu_field_reconstruction.py::test_linear_field_and_terminal_flux_are_exact PASSED [ 65%]
+tests/test_m40r_qiu_field_reconstruction.py::test_quadratic_field_reconstruction_is_exact_on_nonuniform_interior PASSED [ 65%]
+tests/test_m40r_qiu_field_reconstruction.py::test_insulating_zero_flux_faces_participate_in_boundary_reconstruction PASSED [ 65%]
+tests/test_m40r_qiu_field_reconstruction.py::test_contact_face_current_is_continuous_but_bulk_fields_use_local_sigma PASSED [ 65%]
+tests/test_m40r_qiu_mesh_convergence.py::test_qiu_current_direction_is_derived_not_reported_or_measured PASSED [ 66%]
+tests/test_m40r_qiu_mesh_convergence.py::test_non_voting_forensics_reproduces_old_m40_and_supports_only_bounded_repair PASSED [ 66%]
+tests/test_m40r_qiu_mesh_convergence.py::test_forensic_triplet_is_asymptotic_only_for_repaired_quantities PASSED [ 66%]
+tests/test_m40r_qiu_mesh_convergence.py::test_terminal_and_contact_areas_do_not_change_with_refinement PASSED [ 66%]
+tests/test_m40r_qiu_result_evidence.py::test_m40r_formal_result_fails_closed_without_rewriting_m40 FAILED [ 67%]
+tests/test_m40r_qiu_result_evidence.py::test_m40r_required_outputs_and_active_stop_semantics_exist PASSED [ 67%]
+tests/test_manuscript_claim_stress_test.py::test_manuscript_claim_stress_test_smoke PASSED [ 67%]
+tests/test_multidomain_oasis_pinn.py::test_ordered_stack_encoder_and_layer_experts_backward PASSED [ 67%]
+tests/test_multidomain_oasis_pinn.py::test_interface_mortar_loss_finite PASSED [ 67%]
+tests/test_multidomain_oasis_pinn.py::test_multidomain_oasis_pinn_script_smoke PASSED [ 68%]
+tests/test_multidomain_oasis_training_v9.py::test_interface_mortar_loss_not_identity_zero PASSED [ 68%]
+tests/test_multidomain_oasis_training_v9.py::test_multidomain_training_v9_smoke PASSED [ 68%]
+tests/test_multilayer_sandwich_device.py::test_multilayer_single_case_finite_and_residuals_computed PASSED [ 68%]
+tests/test_multilayer_sandwich_device.py::test_multilayer_audit_smoke PASSED [ 69%]
+tests/test_multilayer_sandwich_low_dim_inverse.py::test_multilayer_sandwich_low_dim_inverse_smoke PASSED [ 69%]
+tests/test_multiterminal_yz_v10.py::test_uniform_limit_matches_series_stack PASSED [ 69%]
+tests/test_multiterminal_yz_v10.py::test_segmented_top_and_side_terminals_are_finite PASSED [ 69%]
+tests/test_n0_cv_e_v3_failure_evidence.py::test_v3_failure_is_fail_closed_without_checkpoint_or_follow_on_runs PASSED [ 70%]
+tests/test_n0_cv_e_v3_failure_evidence.py::test_v3_summary_closes_n0_and_preserves_claim_boundary PASSED [ 70%]
+tests/test_n0_cv_e_v3_failure_evidence.py::test_v3_checkpoint_manifest_explicitly_records_absence PASSED [ 70%]
+tests/test_n0_cv_e_v3_gate_safety.py::test_every_v3_gate_has_one_declared_result_key PASSED [ 70%]
+tests/test_n0_cv_e_v3_gate_safety.py::test_missing_and_nan_gate_results_fail_closed PASSED [ 71%]
+tests/test_n0_cv_e_v3_gate_safety.py::test_empty_and_nested_nonfinite_gate_payloads_fail_closed PASSED [ 71%]
+tests/test_n0_cv_e_v3_gate_safety.py::test_training_loss_uses_only_time_and_physics_no_labels PASSED [ 71%]
+tests/test_n0_cv_e_v3_gate_safety.py::test_generated_preflight_never_authorizes_training_on_a_failed_check PASSED [ 71%]
+tests/test_n0_cv_e_v3_operator.py::test_analytic_head_returns_complete_state_and_hard_constraints PASSED [ 71%]
+tests/test_n0_cv_e_v3_operator.py::test_torch_electrostatics_matches_numpy_float64 PASSED [ 72%]
+tests/test_n0_cv_e_v3_operator.py::test_torch_cv_rhs_matches_frozen_numpy_rhs PASSED [ 72%]
+tests/test_n0_cv_e_v3_operator.py::test_cv_residual_has_finite_nonzero_parameter_gradients PASSED [ 72%]
+tests/test_n0_cv_e_v3r_forensics.py::test_full_size_short_adam_to_lbfgs_transition_is_finite PASSED [ 72%]
+tests/test_n0_cv_e_v3r_forensics.py::test_injected_nonfinite_is_attributed_to_parameter PASSED [ 73%]
+tests/test_n0_cv_e_v3r_forensics.py::test_atomic_checkpoint_restore_reproduces_output PASSED [ 73%]
+tests/test_n0_cv_e_v3r_forensics.py::test_common_cv_score_self_reference_has_zero_face_flux_error PASSED [ 73%]
+tests/test_n0_cv_e_v3r_forensics.py::test_jsonl_telemetry_encodes_nonfinite_diagnostic_as_null PASSED [ 73%]
+tests/test_n0_cv_e_v3r_forensics.py::test_semantic_amendment_preserves_historical_failure_boundary PASSED [ 74%]
+tests/test_n0_cv_e_v3r_forensics.py::test_forensic_resolution_keeps_historical_and_replay_claims_separate PASSED [ 74%]
+tests/test_n0_fixed_diagnostics.py::test_fixed_points_are_reproducible_and_train_eval_are_disjoint PASSED [ 74%]
+tests/test_n0_fixed_diagnostics.py::test_gate_evaluation_cannot_hide_one_failed_residual_or_seed_metric PASSED [ 74%]
+tests/test_n0_r_v2_evidence_integrity.py::test_cross_platform_text_and_semantic_hashes_ignore_newline_and_key_order PASSED [ 75%]
+tests/test_n0_r_v2_evidence_integrity.py::test_deterministic_npz_bytes_are_stable_and_loadable PASSED [ 75%]
+tests/test_n0_r_v2_evidence_integrity.py::test_independent_adjacent_state_ledgers_pass_and_tampering_fails PASSED [ 75%]
+tests/test_n0_r_v2_evidence_integrity.py::test_v2_gate_coverage_fails_closed_without_rewriting_history PASSED [ 75%]
+tests/test_n0_repair_evidence.py::test_failed_repair_does_not_upgrade_n0_or_authorize_anchor PASSED [ 75%]
+tests/test_n0_repair_evidence.py::test_preregistration_hashes_bind_config_points_and_scientific_files PASSED [ 76%]
+tests/test_n0_repair_evidence.py::test_compatibility_and_repair_claim_boundaries_are_explicit PASSED [ 76%]
+tests/test_n0_teacher_equation_compatibility.py::test_nonzero_voltage_uniform_conduction_matches_analytic_solution PASSED [ 76%]
+tests/test_n0_teacher_equation_compatibility.py::test_heat_manufactured_case_exercises_storage_conduction_source_and_sink PASSED [ 76%]
+tests/test_n0_teacher_equation_compatibility.py::test_defect_manufactured_case_exercises_diffusion_drift_and_reaction PASSED [ 77%]
+tests/test_n0_teacher_equation_compatibility.py::test_bilayer_piecewise_solution_has_state_continuity_and_flux_continuity PASSED [ 77%]
+tests/test_n0_teacher_equation_compatibility.py::test_frozen_fvm_discrete_ledgers_close_without_differentiating_saved_fields PASSED [ 77%]
+tests/test_n0_teacher_equation_compatibility.py::test_frozen_cell_centres_do_not_place_face_exactly_at_declared_interface PASSED [ 77%]
+tests/test_oasis_2d_field_resolution.py::test_oasis_2d_field_resolution_blocks_without_electrode_bc PASSED [ 78%]
+tests/test_oasis_2d_field_resolution.py::test_oasis_2d_field_resolution_blocks_if_p0_fails PASSED [ 78%]
+tests/test_oasis_components.py::test_oasis_components_forward_and_backward PASSED [ 78%]
+tests/test_oasis_components.py::test_port_solver_modes_are_explicit PASSED [ 78%]
+tests/test_oasis_components.py::test_oasis_kernels_and_gate PASSED       [ 78%]
+tests/test_oasis_v10_gates.py::test_p4_blocks_when_strict_p1_gate_fails PASSED [ 79%]
+tests/test_oasis_v10_gates.py::test_v10_outputs_keep_claim_boundaries PASSED [ 79%]
+tests/test_oasis_v9_gates.py::test_oasis_2d_v2_blocks_without_electrode_solver PASSED [ 79%]
+tests/test_oasis_v9_gates.py::test_phase_activated_algorithms_v9_blocks_unimplemented_claims PASSED [ 79%]
+tests/test_oscillation_metrics.py::test_spectral_frequency_estimates_sine_frequency PASSED [ 80%]
+tests/test_oscillation_metrics.py::test_soft_pulse_width_estimate_is_reasonable PASSED [ 80%]
+tests/test_oscillation_metrics.py::test_oscillation_signature_loss_backward_is_finite PASSED [ 80%]
+tests/test_oscillation_metrics.py::test_zero_signal_frequency_loss_backward_is_finite PASSED [ 80%]
+tests/test_oscillation_metrics.py::test_frequency_loss_source_avoids_forbidden_main_path_ops PASSED [ 81%]
+tests/test_phase_activated_multilayer_forward.py::test_phase_activated_case_uses_realistic_v9_switching_priors PASSED [ 81%]
+tests/test_phase_activated_multilayer_forward.py::test_phase_activated_summary_gate_and_independent_checks PASSED [ 81%]
+tests/test_phase_activated_multilayer_forward.py::test_phase_activated_forward_script_smoke PASSED [ 81%]
+tests/test_phase_aware_stl_repair.py::test_phase_aware_stl_repair_smoke PASSED [ 82%]
+tests/test_phase_field_inverse_alignment_smoke.py::test_phase_field_inverse_alignment_smoke PASSED [ 82%]
+tests/test_phase_transition_stiffness_continuation.py::test_stiffness_continuation_smoke PASSED [ 82%]
+tests/test_physical_semantics_v10.py::test_electrical_and_thermal_domains_are_separate PASSED [ 82%]
+tests/test_physical_semantics_v10.py::test_vo2_profiles_are_not_mixed PASSED [ 82%]
+tests/test_physical_semantics_v10.py::test_zero_thresholds_never_pass PASSED [ 83%]
+tests/test_physical_semantics_v10.py::test_rc_protocol_uses_constant_source_and_dynamic_device_voltage PASSED [ 83%]
+tests/test_pinn_identifiability.py::test_identifiability_analysis_outputs PASSED [ 83%]
+tests/test_pinn_inverse_v0.py::test_inverse_v0_data_loader_reads_frozen_acceptance_data PASSED [ 83%]
+tests/test_pinn_inverse_v0.py::test_inverse_v0_model_forward_shapes_and_ranges PASSED [ 84%]
+tests/test_pinn_inverse_v0.py::test_conductance_reconstruction_is_finite PASSED [ 84%]
+tests/test_pinn_inverse_v0.py::test_train_pinn_inverse_v0_smoke PASSED   [ 84%]
+tests/test_pinn_inverse_v0.py::test_ablation_configs_are_readable_and_port_only_disables_anchor PASSED [ 84%]
+tests/test_pinn_inverse_v0.py::test_ablation_script_smoke PASSED         [ 85%]
+tests/test_pinn_inverse_v1.py::test_v1_configs_are_readable PASSED       [ 85%]
+tests/test_pinn_inverse_v1.py::test_v1_physics_residuals_are_finite PASSED [ 85%]
+tests/test_pinn_inverse_v1.py::test_v1_autograd_derivatives_exist PASSED [ 85%]
+tests/test_pinn_inverse_v1.py::test_train_pinn_inverse_v1_smoke PASSED   [ 85%]
+tests/test_pinn_inverse_v1.py::test_v1_1_configs_enable_balancing_and_schedule PASSED [ 86%]
+tests/test_pinn_inverse_v2_baseline.py::test_v2_baseline_config_can_load PASSED [ 86%]
+tests/test_pinn_inverse_v2_baseline.py::test_v2_baseline_script_runs_and_preserves_frozen_inputs PASSED [ 86%]
+tests/test_pinn_inverse_v2_fourier_ablation.py::test_fourier_ablation_config_can_load PASSED [ 86%]
+tests/test_pinn_inverse_v2_fourier_ablation.py::test_fourier_ablation_script_runs_and_preserves_frozen_inputs PASSED [ 87%]
+tests/test_pinn_inverse_v2_phase_transition_stress.py::test_phase_transition_stress_config_can_load PASSED [ 87%]
+tests/test_pinn_inverse_v2_phase_transition_stress.py::test_phase_transition_stress_script_runs_and_preserves_frozen_inputs PASSED [ 87%]
+tests/test_pinn_inverse_v2_smoke.py::test_v2_smoke_config_can_load PASSED [ 87%]
+tests/test_pinn_inverse_v2_smoke.py::test_v2_smoke_script_runs_and_preserves_frozen_inputs PASSED [ 88%]
+tests/test_pinn_quasi_2d_residual_preflight.py::test_quasi_2d_residual_preflight_smoke PASSED [ 88%]
+tests/test_port_physical_2d_inverse.py::test_port_physical_2d_inverse_smoke PASSED [ 88%]
+tests/test_project_governance.py::test_governance_audit_has_no_failed_checks PASSED [ 88%]
+tests/test_project_governance.py::test_frozen_gt_hashes_and_claim_vocabulary PASSED [ 89%]
+tests/test_project_governance.py::test_handoff_snapshot_context_budget_and_agents_hierarchy PASSED [ 89%]
+tests/test_project_governance.py::test_delivery_contract_and_claim_matrices_are_consistent PASSED [ 89%]
+tests/test_prompt30_a7c_evidence_audit.py::test_a7c_machine_audit_preserves_failure_scope PASSED [ 89%]
+tests/test_prompt30_a7c_evidence_audit.py::test_a7c_audit_has_all_required_evidence_classes PASSED [ 89%]
+tests/test_prompt31_cpcf_semantic_audit.py::test_cpcf_semantic_audit_supersedes_scientific_vote PASSED [ 90%]
+tests/test_prompt31_cpcf_semantic_audit.py::test_cpcf_protocol_solver_objective_and_pareto_contracts_fail PASSED [ 90%]
+tests/test_prompt32_semantic_audits.py::test_ceba_audit_separates_point_success_from_oracle_abstention FAILED [ 90%]
+tests/test_prompt32_semantic_audits.py::test_figure5_audit_has_complete_semantic_fields_and_downgrade PASSED [ 90%]
+tests/test_prompt32_semantic_audits.py::test_scis_schema_requires_zero_new_solver_and_pinn_runs PASSED [ 91%]
+tests/test_prompt32_semantic_audits.py::test_scis_zero_noise_rows_are_deterministic_sanity_only PASSED [ 91%]
+tests/test_qiu_llp_source_contract.py::test_kernel_zero_has_analytic_normalization_deficit PASSED [ 91%]
+tests/test_qiu_llp_source_contract.py::test_atanh_input_is_not_silently_clipped PASSED [ 91%]
+tests/test_qiu_llp_source_contract.py::test_blocking_source_contract_gates_pass_at_locked_thresholds PASSED [ 92%]
+tests/test_qiu_llp_source_contract.py::test_manufactured_protocols_keep_explicit_event_and_refinement_metadata PASSED [ 92%]
+tests/test_reduced_2d_observability_limited_inverse.py::test_reduced_2d_observability_limited_inverse_smoke PASSED [ 92%]
+tests/test_reduced_2d_phase_transition_forward.py::test_reduced_2d_forward_smoke PASSED [ 92%]
+tests/test_reviewer_defense_matrix.py::test_reviewer_defense_matrix_covers_locked_questions_without_tracked_side_effect PASSED [ 92%]
+tests/test_sid_ec_oq_event_geometry.py::test_event_windows_are_deterministic_nonempty_and_physically_routed PASSED [ 93%]
+tests/test_sid_ec_oq_event_geometry.py::test_h_over_two_and_richardson_gate_passes_for_second_order_error PASSED [ 93%]
+tests/test_sid_ec_oq_event_geometry.py::test_sid_and_ec_oq_decisions_are_independent_and_fail_closed PASSED [ 93%]
+tests/test_sid_ec_oq_event_geometry.py::test_recorded_discovery_result_deletes_both_labels PASSED [ 93%]
+tests/test_stiffness_2d_story_figures.py::test_stiffness_2d_story_figures_manifest PASSED [ 94%]
+tests/test_stiffness_aware_algorithm_benchmark.py::test_stiffness_aware_algorithm_benchmark_smoke PASSED [ 94%]
+tests/test_stiffness_gated_fourier_fsps.py::test_stiffness_gated_fourier_fsps_smoke PASSED [ 94%]
+tests/test_submission_readiness.py::test_citation_and_bibtex_parsers_resolve_pandoc_syntax PASSED [ 94%]
+tests/test_submission_readiness.py::test_content_go_remains_upload_no_go_without_journal_metadata PASSED [ 95%]
+tests/test_submission_readiness.py::test_any_blocking_technical_failure_fails_closed PASSED [ 95%]
+tests/test_submission_readiness.py::test_claim_rows_require_sentence_and_exact_evidence_hash PASSED [ 95%]
+tests/test_submission_readiness.py::test_pytest_log_parser_counts_smoke_nodes_and_exit_code PASSED [ 95%]
+tests/test_terminal_only_active_protocol_rescue.py::test_terminal_only_active_protocol_rescue_smoke PASSED [ 96%]
+tests/test_train_full_pinn_n0_repair.py::test_preregistered_loss_blocks_are_finite_and_use_no_labels PASSED [ 96%]
+tests/test_train_full_pinn_n0_repair.py::test_anchor_route_requires_physics_interface_current_and_energy_pass PASSED [ 96%]
+tests/test_train_full_pinn_n0_repair.py::test_sparse_anchor_preregistration_forbids_hidden_fields PASSED [ 96%]
+tests/test_validate_tracked_json.py::test_all_tracked_json_is_strictly_parseable PASSED [ 96%]
+tests/test_validation_workflow_contract.py::test_fast_validation_does_not_fetch_full_history PASSED [ 97%]
+tests/test_validation_workflow_contract.py::test_full_validation_alone_verifies_historic_blobs PASSED [ 97%]
+tests/test_vo2_constitutive.py::test_vo2_sigma_positive_and_backward PASSED [ 97%]
+tests/test_vo2_constitutive.py::test_vo2_sigma_extreme_temperature_inputs_are_finite PASSED [ 97%]
+tests/test_vo2_constitutive.py::test_phase_transition_creates_sharp_continuous_sigma_jump PASSED [ 98%]
+tests/test_vo2_constitutive.py::test_effective_medium_default_and_bruggeman_are_stable PASSED [ 98%]
+tests/test_vo2_d0_source_semantics.py::test_prelock_quarantine_does_not_extract_or_hash_13v PASSED [ 98%]
+tests/test_vo2_d0_source_semantics.py::test_sealed_access_requires_valid_canonical_fit_lock PASSED [ 98%]
+tests/test_vo2_d0_source_semantics.py::test_si_source_model_preserves_parameter_product_and_finite_dynamics PASSED [ 99%]
+tests/test_vo2_full_pinn_v2_evidence.py::test_d0a_failure_stops_fit_and_preserves_13v_seal PASSED [ 99%]
+tests/test_vo2_full_pinn_v2_evidence.py::test_n0_contract_and_training_claims_remain_separate PASSED [ 99%]
+tests/test_vo2_full_pinn_v2_evidence.py::test_data_semantics_are_not_collapsed PASSED [ 99%]
+tests/test_voltage_protocols.py::test_voltage_protocols_return_finite_values PASSED [100%]
+
+================================== FAILURES ===================================
+__________ test_e1f_preregistration_is_leakage_safe_and_fail_closed ___________
+
+    def test_e1f_preregistration_is_leakage_safe_and_fail_closed() -> None:
+        config = yaml.safe_load(CONFIG.read_text(encoding="utf-8"))
+        payload = json.loads(PREREG.read_text(encoding="utf-8"))
+        assert payload["all_preflight_checks_pass"] is True
+        assert all(payload["preflight_checks"].values())
+        holdout = payload["locked_source_contract"]["holdout_curve"]
+        assert holdout["curve_id"] == "qiu_2024_main_fig2b_12p5v"
+        assert holdout["numeric_ordinate_access_before_preregistration"] is False
+        assert holdout["independent_external_validation"] is False
+        assert holdout["source_author_parameter_development_independence_known"] is False
+        assert holdout["same_paper_development_contamination_risk"] is True
+        assert payload["locked_hysteresis_contract"][
+            "qiu_source_reports_complete_executable_update"
+        ] is False
+        assert payload["locked_hysteresis_contract"][
+            "exact_author_code_reproduction_authorized"
+        ] is False
+        assert payload["preregistration_implementation_records"]
+        assert payload["digitization_authorized_after_preregistration_commit"] is True
+        assert payload["formal_execution_limit"] == 1
+        assert payload["m41_authorized"] is False
+        assert payload["pinn_training_authorized"] is False
+        assert payload["sealed_zhang_13v_access"] is False
+        for group in ("m40_protected_records", "m40r_protected_records", "frozen_gt_records"):
+            assert payload[group]
+            for record in payload[group]:
+                path = ROOT / record["path"]
+                assert path.exists()
+>               assert _sha256(path) == record["sha256"]
+E               AssertionError: assert '57C6ABCE88993D451A3F855E2E3C7A008C61D7C3FD9132EC984A21DBD7058DE9' == 'F7246E2769282BE5561F61EA5490994F7096CC0C674895729A6A3D6A4C50D902'
+E
+E                 - F7246E2769282BE5561F61EA5490994F7096CC0C674895729A6A3D6A4C50D902
+E                 + 57C6ABCE88993D451A3F855E2E3C7A008C61D7C3FD9132EC984A21DBD7058DE9
+
+tests\test_e1f_preregistration.py:49: AssertionError
+_______________ test_e1f_protected_files_match_preregistration ________________
+
+    def test_e1f_protected_files_match_preregistration() -> None:
+        payload = json.loads(PREREG.read_text(encoding="utf-8"))
+        for group in (
+            "raw_source_records",
+            "m40_protected_records",
+            "m40r_protected_records",
+            "frozen_gt_records",
+        ):
+            records = payload[group]
+            assert records
+            for record in records:
+                path = ROOT / record["path"]
+                assert path.exists(), record["path"]
+>               assert path.stat().st_size == int(record["size_bytes"]), record["path"]
+E               AssertionError: outputs/tables/m40_qiu_mesh_convergence.csv
+E               assert 443 == 447
+E                +  where 443 = os.stat_result(st_mode=33206, st_ino=13792273859239381, st_dev=2123836344, st_nlink=1, st_uid=0, st_gid=0, st_size=443, st_atime=1784656564, st_mtime=1784656425, st_ctime=1784656425).st_size
+E                +    where os.stat_result(st_mode=33206, st_ino=13792273859239381, st_dev=2123836344, st_nlink=1, st_uid=0, st_gid=0, st_size=443, st_atime=1784656564, st_mtime=1784656425, st_ctime=1784656425) = <bound method Path.stat of WindowsPath('C:/Users/CJ/AppData/Local/Temp/pinn_submission_validation_689a7a6b/worktree/outputs/tables/m40_qiu_mesh_convergence.csv')>()
+E                +      where <bound method Path.stat of WindowsPath('C:/Users/CJ/AppData/Local/Temp/pinn_submission_validation_689a7a6b/worktree/outputs/tables/m40_qiu_mesh_convergence.csv')> = WindowsPath('C:/Users/CJ/AppData/Local/Temp/pinn_submission_validation_689a7a6b/worktree/outputs/tables/m40_qiu_mesh_convergence.csv').stat
+E                +  and   447 = int(447)
+
+tests\test_e1f_protected_evidence.py:35: AssertionError
+____________ test_e1fr_preregistration_is_hash_locked_when_present ____________
+
+    def test_e1fr_preregistration_is_hash_locked_when_present() -> None:
+        if not PREREG.exists():
+            pytest.skip("E1F-R preregistration has not yet been generated")
+        payload = json.loads(PREREG.read_text(encoding="utf-8"))
+        assert payload["all_preflight_checks_pass"] is True
+        assert all(payload["preflight_checks"].values())
+        assert payload["post_lock_corrective_audit"] is True
+        assert payload["independent_holdout"] is False
+        assert payload["main_fig2b_simulation_or_scoring_authorized"] is False
+        assert payload["original_e1f_scientific_vote"] is False
+        assert payload["formal_execution_limit"] == 1
+        assert payload["m41_authorized"] is False
+        assert payload["pinn_training_authorized"] is False
+        assert payload["sealed_zhang_13v_access"] is False
+        assert payload["implementation_records"]
+        for record in payload["implementation_records"]:
+            path = ROOT / record["path"]
+            assert path.exists()
+>           assert path.stat().st_size == record["size_bytes"]
+E           AssertionError: assert 8199 == 8509
+E            +  where 8199 = os.stat_result(st_mode=33206, st_ino=15199648742565425, st_dev=2123836344, st_nlink=1, st_uid=0, st_gid=0, st_size=8199, st_atime=1784656563, st_mtime=1784656424, st_ctime=1784656424).st_size
+E            +    where os.stat_result(st_mode=33206, st_ino=15199648742565425, st_dev=2123836344, st_nlink=1, st_uid=0, st_gid=0, st_size=8199, st_atime=1784656563, st_mtime=1784656424, st_ctime=1784656424) = <bound method Path.stat of WindowsPath('C:/Users/CJ/AppData/Local/Temp/pinn_submission_validation_689a7a6b/worktree/data/external/qiu_2024_thermal_neuristor/digitized_manifest.json')>()
+E            +      where <bound method Path.stat of WindowsPath('C:/Users/CJ/AppData/Local/Temp/pinn_submission_validation_689a7a6b/worktree/data/external/qiu_2024_thermal_neuristor/digitized_manifest.json')> = WindowsPath('C:/Users/CJ/AppData/Local/Temp/pinn_submission_validation_689a7a6b/worktree/data/external/qiu_2024_thermal_neuristor/digitized_manifest.json').stat
+
+tests\test_e1fr_contract.py:79: AssertionError
+____________ test_cpcf_locked_inputs_and_thresholds_are_unchanged _____________
+
+    def test_cpcf_locked_inputs_and_thresholds_are_unchanged() -> None:
+        config = _load_config(DEFAULT_CONFIG)
+>       hashes = _portable_input_hashes(config)
+
+tests\test_gamma_sub_calibration_protocol_cost_frontier.py:54:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_gamma_sub_calibration_protocol_cost_frontier.py:31: in _portable_input_hashes
+    return _input_hashes(config)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+config = {'allowed_claim_if_all_gates_pass': 'In the configured one-dimensional synthetic benchmark, the preregistered CPCF ide...gamma_sub_calibration_protocol_cost_frontier', 'evidence_type': 'synthetic numerical digital-twin decision audit', ...}
+
+    def _input_hashes(config: dict[str, Any]) -> dict[str, str]:
+        actual: dict[str, str] = {}
+        mismatches: dict[str, dict[str, str | None]] = {}
+        for item in config["inputs"]:
+            path = _resolve(item["path"])
+            expected = str(item["sha256"]).lower()
+            observed = _sha256(path).lower() if path.exists() else None
+            actual[str(item["path"])] = observed or "missing"
+            if observed != expected:
+                mismatches[str(item["path"])] = {"expected": expected, "observed": observed}
+        if mismatches:
+>           raise RuntimeError(f"CPCF input hash lock failed: {json.dumps(mismatches, sort_keys=True)}")
+E           RuntimeError: CPCF input hash lock failed: {"outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_cases.csv": {"expected": "ac48940bf5bd4dc32f2a523d6834510c4e40dd1e1227f69051d9d51864f27e99", "observed": "638829e39e3680beb784105aafec37a2a6816ea8c0d188d58d6c280117cdb6c6"}, "outputs/tables/gamma_sub_recoverability_phase_diagram_cases.csv": {"expected": "7d09b8003b2cfa1553e2a6f0d46d28525ea5b146e4346070e7dc20190852aeb1", "observed": "0f32f7b1d22341244c21d9291bdba9c41cf9ffef7353bce40b1a8f2ecbd0c11d"}, "outputs/tables/gamma_sub_response_surface_anchor_verification_cases.csv": {"expected": "3072ceb2bc0edea187cedcc1f51f4d932247bb2bde13fc2b12f7956420793870", "observed": "eb232d067d7f92d83c6d033bbf0ab068bb13142e5eb4601db77286da7a5f1538"}, "outputs/tables/gamma_sub_statistical_robustness_cases.csv": {"expected": "ad89459fb6c8c986345af5513429947c93ae553f4d948528bae1c54cd6c4b5b6", "observed": "fc99886b7f9a013976694ed2046dde2a1072c784bea4f40815ae88cf3e29b369"}, "outputs/tables/gamma_sub_tsw_confounding_phase_map_cases.csv": {"expected": "41befd6b96df5ef8827a0f7c1dbd03829f6204548f430a2df7ae84d20833bb4b", "observed": "913f67fa630c345c7aa1979ace25967da05483636b0878ae3db7d2980413c922"}, "outputs/tables/gamma_sub_tsw_profile_likelihood_grid.csv": {"expected": "0ade5506617bf7a0ccb19529c8c725ed999f91668e86dcf941ad4ac801b552c2", "observed": "bfcc2fcff4c552203a72dce2f7ec51153a98914391967c133ec0879c20f12272"}, "outputs/tables/gamma_sub_tsw_profile_likelihood_profiles.csv": {"expected": "ef5ffd3873bad8546ff7e7d88658bb7ddaa69c7a506f40d1a098660110015ce0", "observed": "5307d50dbf17bc171d78251fbb1f39fa9ce9d393f934a8a5e40beaff619b7c1e"}, "outputs/tables/gamma_sub_tsw_tolerance_ode_spotcheck_cases.csv": {"expected": "c47c3a8e5f571a2f2ed9bcd2fa256abdb0ad5106bea5b7c42b8e9f0e7a93ab28", "observed": "13d0fe74d31343403ef5a53aa0121d92c56790dd9249f04a2814191e549d6483"}}
+
+scripts\audit_gamma_sub_calibration_protocol_cost_frontier.py:176: RuntimeError
+_________________ test_cpcf_case_cache_resume_and_strict_json _________________
+
+tmp_path = WindowsPath('C:/Users/CJ/AppData/Local/Temp/pytest-of-CJ/pytest-76/test_cpcf_case_cache_resume_an0')
+
+    def test_cpcf_case_cache_resume_and_strict_json(tmp_path: Path) -> None:
+        config = _load_config(DEFAULT_CONFIG)
+        config["pilot"]["cache_dir"] = str(tmp_path / "cache")
+        spec = next(spec for spec in _pilot_specs(config) if not spec["fresh_solver_anchor"])
+>       input_hashes = _portable_input_hashes(config)
+
+tests\test_gamma_sub_calibration_protocol_cost_frontier.py:78:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_gamma_sub_calibration_protocol_cost_frontier.py:31: in _portable_input_hashes
+    return _input_hashes(config)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+config = {'allowed_claim_if_all_gates_pass': 'In the configured one-dimensional synthetic benchmark, the preregistered CPCF ide...gamma_sub_calibration_protocol_cost_frontier', 'evidence_type': 'synthetic numerical digital-twin decision audit', ...}
+
+    def _input_hashes(config: dict[str, Any]) -> dict[str, str]:
+        actual: dict[str, str] = {}
+        mismatches: dict[str, dict[str, str | None]] = {}
+        for item in config["inputs"]:
+            path = _resolve(item["path"])
+            expected = str(item["sha256"]).lower()
+            observed = _sha256(path).lower() if path.exists() else None
+            actual[str(item["path"])] = observed or "missing"
+            if observed != expected:
+                mismatches[str(item["path"])] = {"expected": expected, "observed": observed}
+        if mismatches:
+>           raise RuntimeError(f"CPCF input hash lock failed: {json.dumps(mismatches, sort_keys=True)}")
+E           RuntimeError: CPCF input hash lock failed: {"outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_cases.csv": {"expected": "ac48940bf5bd4dc32f2a523d6834510c4e40dd1e1227f69051d9d51864f27e99", "observed": "638829e39e3680beb784105aafec37a2a6816ea8c0d188d58d6c280117cdb6c6"}, "outputs/tables/gamma_sub_recoverability_phase_diagram_cases.csv": {"expected": "7d09b8003b2cfa1553e2a6f0d46d28525ea5b146e4346070e7dc20190852aeb1", "observed": "0f32f7b1d22341244c21d9291bdba9c41cf9ffef7353bce40b1a8f2ecbd0c11d"}, "outputs/tables/gamma_sub_response_surface_anchor_verification_cases.csv": {"expected": "3072ceb2bc0edea187cedcc1f51f4d932247bb2bde13fc2b12f7956420793870", "observed": "eb232d067d7f92d83c6d033bbf0ab068bb13142e5eb4601db77286da7a5f1538"}, "outputs/tables/gamma_sub_statistical_robustness_cases.csv": {"expected": "ad89459fb6c8c986345af5513429947c93ae553f4d948528bae1c54cd6c4b5b6", "observed": "fc99886b7f9a013976694ed2046dde2a1072c784bea4f40815ae88cf3e29b369"}, "outputs/tables/gamma_sub_tsw_confounding_phase_map_cases.csv": {"expected": "41befd6b96df5ef8827a0f7c1dbd03829f6204548f430a2df7ae84d20833bb4b", "observed": "913f67fa630c345c7aa1979ace25967da05483636b0878ae3db7d2980413c922"}, "outputs/tables/gamma_sub_tsw_profile_likelihood_grid.csv": {"expected": "0ade5506617bf7a0ccb19529c8c725ed999f91668e86dcf941ad4ac801b552c2", "observed": "bfcc2fcff4c552203a72dce2f7ec51153a98914391967c133ec0879c20f12272"}, "outputs/tables/gamma_sub_tsw_profile_likelihood_profiles.csv": {"expected": "ef5ffd3873bad8546ff7e7d88658bb7ddaa69c7a506f40d1a098660110015ce0", "observed": "5307d50dbf17bc171d78251fbb1f39fa9ce9d393f934a8a5e40beaff619b7c1e"}, "outputs/tables/gamma_sub_tsw_tolerance_ode_spotcheck_cases.csv": {"expected": "c47c3a8e5f571a2f2ed9bcd2fa256abdb0ad5106bea5b7c42b8e9f0e7a93ab28", "observed": "13d0fe74d31343403ef5a53aa0121d92c56790dd9249f04a2814191e549d6483"}}
+
+scripts\audit_gamma_sub_calibration_protocol_cost_frontier.py:176: RuntimeError
+____________ test_scis_cache_preflight_is_complete_and_zero_solver ____________
+
+    def test_scis_cache_preflight_is_complete_and_zero_solver() -> None:
+>       payload = cache_preflight(DEFAULT_CONFIG, write_output=False)
+
+tests\test_gamma_sub_scis_contract.py:87:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\run_gamma_sub_scis.py:295: in cache_preflight
+    store.load("candidate", protocol, gamma)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <scripts.run_gamma_sub_scis.CacheOnlyTrajectoryStore object at 0x000001E339895ED0>
+role = 'candidate', protocol = 'triangle', coordinate = 150000000.0
+
+    def load(self, role: str, protocol: str, coordinate: float) -> dict[str, np.ndarray]:
+        key, path = self.expected_entry(role, protocol, coordinate)
+        if not path.is_file():
+>           raise CacheMissStop(f"Required cached trajectory is missing; solver fallback forbidden: {path}")
+E           scripts.run_gamma_sub_scis.CacheMissStop: Required cached trajectory is missing; solver fallback forbidden: C:\Users\CJ\AppData\Local\Temp\pinn_submission_validation_689a7a6b\worktree\outputs\cache\gamma_sub_ceba\trajectories\1e3272792ad48dee41c4f3ebb69cd5a0b89864b19452c4e0f01ebcd2635e62cc.npz
+
+scripts\run_gamma_sub_scis.py:255: CacheMissStop
+___________ test_scis_preregistration_locks_unmodified_ceba_hashes ____________
+
+    def test_scis_preregistration_locks_unmodified_ceba_hashes() -> None:
+        prereg = json.loads((ROOT / "outputs/tables/gamma_sub_scis_preregistration.json").read_text(encoding="utf-8"))
+        assert prereg["no_scis_scoring_results"] is True
+        assert prereg["no_solver_run"] is True
+        assert prereg["new_ode_evaluations"] == 0
+        assert prereg["pinn_training_runs"] == 0
+        assert prereg["seeds_pairwise_disjoint"] is True
+        assert set(prereg["ceba_immutable_hashes"]) == set(CEBA_IMMUTABLE_PATHS)
+        for path, expected in prereg["ceba_immutable_hashes"].items():
+>           assert _sha256_file(_resolve(path)) == expected
+E           AssertionError: assert '09ae1903d38a07aa276f326e47c492fc11c02b04fa0b2c1bdf38ca4d227bb7bf' == '089ad6735658b11fbee3674ea0f78aca466b53cda982d2d02a83c420ceaad3f2'
+E
+E             - 089ad6735658b11fbee3674ea0f78aca466b53cda982d2d02a83c420ceaad3f2
+E             + 09ae1903d38a07aa276f326e47c492fc11c02b04fa0b2c1bdf38ca4d227bb7bf
+
+tests\test_gamma_sub_scis_contract.py:115: AssertionError
+_____ test_open_trace_preprocessing_uses_raw_time_zero_and_baseline_only ______
+
+    def test_open_trace_preprocessing_uses_raw_time_zero_and_baseline_only() -> None:
+        config = _config()
+        item = config["data"]["open_voltage_curves"][0]
+>       trace = preprocess_experiment(
+            Path(item["path"]),
+            voltage_V=float(item["voltage_V"]),
+            current_sense_ohm=float(config["data"]["current_sense_ohm"]),
+        )
+
+tests\test_m35_public_multivoltage.py:60:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\pinnpcm\external_data\vo2_multivoltage.py:51: in preprocess_experiment
+    loaded = load_tektronix_trace(path, current_sense_ohm=current_sense_ohm)
+src\pinnpcm\external_data\vo2_zhang.py:120: in load_tektronix_trace
+    lines = path.read_text(encoding="utf-8-sig").splitlines()
+D:\anaconda\envs\py311\Lib\pathlib.py:1058: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_9V.csv')
+mode = 'r', buffering = -1, encoding = 'utf-8-sig', errors = None
+newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: 'data\\external\\vo2_zhang_2024\\raw\\allowed_prelock\\Source Data\\Fig. 1\\Fig. 1c\\Experiment_9V.csv'
+
+D:\anaconda\envs\py311\Lib\pathlib.py:1044: FileNotFoundError
+__________ test_preregistration_hashes_and_sealed_boundary_are_valid __________
+
+    @pytest.mark.skipif(not PREREG_PATH.exists(), reason="M35 preregistration not generated yet")
+    def test_preregistration_hashes_and_sealed_boundary_are_valid() -> None:
+        payload = json.loads(PREREG_PATH.read_text(encoding="utf-8"))
+        assert payload["schema_version"] == "m35_public_multivoltage_preregistration_v1"
+        assert payload["all_preflight_checks_pass"] is True
+        assert payload["fit_authorized_after_preregistration_commit"] is True
+        assert payload["sealed_13v_access"] is False
+        assert all(payload["preflight_checks"].values())
+        provenance = Path(payload["provenance_manifest"])
+        assert compute_sha256(provenance) == payload["provenance_manifest_sha256"]
+        for path, expected in payload["locked_files"].items():
+>           assert compute_sha256(Path(path)) == expected
+E           AssertionError: assert 'B90EA2836AD18778DD02B69A36C166586AC681F0C4A5370AF431E5C68A62B447' == '3FD75E4D2871C302BA807E9CBE6F5A65E9587F33A610F933ED02441568633645'
+E
+E             - 3FD75E4D2871C302BA807E9CBE6F5A65E9587F33A610F933ED02441568633645
+E             + B90EA2836AD18778DD02B69A36C166586AC681F0C4A5370AF431E5C68A62B447
+
+tests\test_m35_result_evidence.py:37: AssertionError
+_____________ test_m36_preregistration_is_hash_locked_and_sealed ______________
+
+    @pytest.mark.skipif(not PREREG_PATH.exists(), reason="M36 preregistration not generated yet")
+    def test_m36_preregistration_is_hash_locked_and_sealed() -> None:
+        payload = json.loads(PREREG_PATH.read_text(encoding="utf-8"))
+        assert payload["schema_version"] == "m36_event_resolved_orbit_preregistration_v1"
+        assert payload["all_preflight_checks_pass"] is True
+        assert payload["solver_authorized_after_preregistration_commit"] is True
+        assert payload["sealed_13v_access"] is False
+        assert payload["pinn_training_performed"] is False
+        assert all(payload["preflight_checks"].values())
+        for path, expected in payload["locked_files"].items():
+>           assert compute_sha256(Path(path)) == expected
+E           AssertionError: assert 'B90EA2836AD18778DD02B69A36C166586AC681F0C4A5370AF431E5C68A62B447' == '3FD75E4D2871C302BA807E9CBE6F5A65E9587F33A610F933ED02441568633645'
+E
+E             - 3FD75E4D2871C302BA807E9CBE6F5A65E9587F33A610F933ED02441568633645
+E             + B90EA2836AD18778DD02B69A36C166586AC681F0C4A5370AF431E5C68A62B447
+
+tests\test_m36_result_evidence.py:32: AssertionError
+_________ test_m37_preregistration_is_complete_hash_locked_and_sealed _________
+
+    @pytest.mark.skipif(not PREREG_PATH.exists(), reason="M37 preregistration not generated")
+    def test_m37_preregistration_is_complete_hash_locked_and_sealed() -> None:
+        prereg = json.loads(PREREG_PATH.read_text(encoding="utf-8"))
+        assert prereg["schema_version"] == "m37_continuous_event_observability_preregistration_v1"
+        assert prereg["all_preflight_checks_pass"] is True
+        assert prereg["solver_authorized_after_preregistration_commit"] is True
+        assert prereg["fit_authorized"] is False
+        assert prereg["fit_lock_authorized"] is False
+        assert prereg["pinn_training_authorized"] is False
+        assert prereg["sealed_13v_access"] is False
+        assert all(prereg["preflight_checks"].values())
+        for path, expected in prereg["locked_files"].items():
+>           assert compute_sha256(Path(path)) == expected
+
+tests\test_m37_result_evidence.py:35:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\pinnpcm\external_data\vo2_zhang.py:33: in compute_sha256
+    with path.open("rb") as handle:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_11V.csv')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: 'data\\external\\vo2_zhang_2024\\raw\\allowed_prelock\\Source Data\\Fig. 1\\Fig. 1c\\Experiment_11V.csv'
+
+D:\anaconda\envs\py311\Lib\pathlib.py:1044: FileNotFoundError
+____ test_m36_semantic_audit_supersedes_wording_but_not_vote_or_artifacts _____
+
+    @pytest.mark.skipif(not AUDIT_PATH.exists(), reason="M37 semantic audit not generated")
+    def test_m36_semantic_audit_supersedes_wording_but_not_vote_or_artifacts() -> None:
+        audit = json.loads(AUDIT_PATH.read_text(encoding="utf-8"))
+        assert audit["broad_primary_failure_classifier_detected"] is True
+        assert audit["source_m36_outputs_modified"] is False
+        assert audit["source_m36_failure_vote_unchanged"] is True
+        assert audit["m36_primary_gates_pass"] is False
+        assert audit["voltage_audit"]["11"]["strict_pairwise_decrease"] is False
+        for voltage in ("11", "15", "17"):
+            record = audit["voltage_audit"][voltage]
+            assert record["m36_primary_gate_passed"] is False
+            assert record["observed_convergence_trend"] is True
+            assert record["superseding_semantic_wording"].startswith(
+                "finite_step_accuracy_gate_failed"
+            )
+        assert compute_sha256(Path(CONFIG["historical_inputs"]["m36_summary"])) == audit[
+            "source_summary_sha256"
+        ]
+>       assert compute_sha256(Path(CONFIG["historical_inputs"]["m36_metrics"])) == audit[
+            "source_metrics_sha256"
+        ]
+E       AssertionError: assert '6FB95E1EB3C5C21A99B03A1C541CC7B5F6932A9681070204DDD9B2A5131C26C0' == '90DEB1D95E013E383C2A255308C36BE92F819B07FC96CF15F41384B80C98FC16'
+E
+E         - 90DEB1D95E013E383C2A255308C36BE92F819B07FC96CF15F41384B80C98FC16
+E         + 6FB95E1EB3C5C21A99B03A1C541CC7B5F6932A9681070204DDD9B2A5131C26C0
+
+tests\test_m37_result_evidence.py:56: AssertionError
+_________ test_m36_reference_rows_pass_the_same_post_transient_helper _________
+
+    def test_m36_reference_rows_pass_the_same_post_transient_helper() -> None:
+        config = _config()
+        observations = {}
+        for item in config["data"]["open_voltage_curves"]:
+            voltage = float(item["voltage_V"])
+>           observations[voltage] = preprocess_experiment(
+                Path(item["path"]),
+                voltage_V=voltage,
+                current_sense_ohm=float(config["data"]["current_sense_ohm"]),
+            )
+
+tests\test_m37r_continuous_event_observability_repair.py:105:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\pinnpcm\external_data\vo2_multivoltage.py:51: in preprocess_experiment
+    loaded = load_tektronix_trace(path, current_sense_ohm=current_sense_ohm)
+src\pinnpcm\external_data\vo2_zhang.py:120: in load_tektronix_trace
+    lines = path.read_text(encoding="utf-8-sig").splitlines()
+D:\anaconda\envs\py311\Lib\pathlib.py:1058: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_9V.csv')
+mode = 'r', buffering = -1, encoding = 'utf-8-sig', errors = None
+newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: 'data\\external\\vo2_zhang_2024\\raw\\allowed_prelock\\Source Data\\Fig. 1\\Fig. 1c\\Experiment_9V.csv'
+
+D:\anaconda\envs\py311\Lib\pathlib.py:1044: FileNotFoundError
+________ test_m37r_preregistration_is_complete_hash_locked_and_sealed _________
+
+    @pytest.mark.skipif(not PREREG_PATH.exists(), reason="M37R preregistration not generated")
+    def test_m37r_preregistration_is_complete_hash_locked_and_sealed() -> None:
+        prereg = json.loads(PREREG_PATH.read_text(encoding="utf-8"))
+        assert prereg["schema_version"] == "m37r_continuous_event_observability_preregistration_v1"
+        assert prereg["all_preflight_checks_pass"] is True
+        assert prereg["solver_authorized_after_preregistration_commit"] is True
+        assert prereg["formal_execution_limit"] == 1
+        assert prereg["fit_authorized"] is False
+        assert prereg["fit_lock_authorized"] is False
+        assert prereg["pinn_training_authorized"] is False
+        assert prereg["m38_execution_authorized"] is False
+        assert prereg["sealed_13v_access"] is False
+        assert all(prereg["preflight_checks"].values())
+        assert prereg["mock_end_to_end_contract"]["all_pass"] is True
+        for path, expected in prereg["locked_files"].items():
+>           assert compute_sha256(Path(path)) == expected
+
+tests\test_m37r_result_evidence.py:41:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\pinnpcm\external_data\vo2_zhang.py:33: in compute_sha256
+    with path.open("rb") as handle:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_11V.csv')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: 'data\\external\\vo2_zhang_2024\\raw\\allowed_prelock\\Source Data\\Fig. 1\\Fig. 1c\\Experiment_11V.csv'
+
+D:\anaconda\envs\py311\Lib\pathlib.py:1044: FileNotFoundError
+_________ test_m40r_formal_result_fails_closed_without_rewriting_m40 __________
+
+    def test_m40r_formal_result_fails_closed_without_rewriting_m40() -> None:
+        config = yaml.safe_load(
+            (ROOT / "configs/m40r_qiu_e0_repair.yaml").read_text(encoding="utf-8")
+        )
+        prereg = _json(config["outputs"]["preregistration"])
+        summary = _json(config["outputs"]["summary"])
+
+        assert summary["formal_execution_attempt"] == 1
+        assert summary["preregistration_commit"] == "b935631c13ca288961e1bf72ed37782418693e54"
+        assert summary["old_m40_byte_for_byte_unchanged"] is True
+        assert summary["frozen_gt_unchanged"] is True
+        assert summary["original_numeric_e0_all_pass"] is True
+        assert all(summary["original_gate_results"].values())
+        assert summary["active_transient_all_pass"] is False
+        assert summary["m41_conservative_reduction_authorized"] is False
+        assert summary["return_to_manuscript_fallback"] is True
+        assert summary["status"] == "failed_but_informative"
+        assert summary["gate_values"]["main_qoi_mesh_change"] <= 0.01
+        assert summary["gate_values"]["peak_field_mesh_change"] <= 0.02
+        assert summary["gate_values"]["nominal_duration_Rload_C_multiple"] < 3.0
+        assert summary["gate_values"]["nominal_Tmax_K"] > 360.0
+        assert summary["gate_values"]["transient_current_nrmse"] > 0.02
+
+>       assert {
+            name: _sha256(name) for name in prereg["old_m40_protected_hashes"]
+        } == prereg["old_m40_protected_hashes"]
+E       AssertionError: assert {'configs/m40_qiu_vo2_real_device_2d.yaml': 'EA404EE217846553CDAA77644DB8FFB719DA4630240726C6F07FB92FC0F41CA9', 'data/external/qiu_2024_thermal_neuristor/manifest.json': '9FE009F6B4CD61243E6614FBB53210F6042D53D826FAD31B06C7CA7A6CDB253F', 'docs/codex_reports/m40_qiu_vo2_e0_results.md': '78E40F6609C1C2D84FCCF4A19A20C5FBED98A7C8273AE47DAB2D138146C9E935', 'docs/physics/m40_qiu_2d_equations.md': '00A3C69C4EA72C9A259FC35B5371345BFD51C6F3FFDA78071D89B006E09492AC', 'docs/physics/m40_qiu_model_responsibility.md': 'DF6A4A1EFF318B7847FD59252D472BAEF4E582B43A06E2D619BCD3DDCF16696E', 'outputs/figures/m40/qiu_device_geometry.png': '819C3F58540D58671C63329D1E320E6639B23C4E28A94A221AAA1672D9113BFA', 'outputs/figures/m40/qiu_e0_field_maps.png': '9CBE2406DC2C6AB5B3989AF0E20BF037FE958EEE7064E0083E8B9E33901055FA', 'outputs/tables/m40_qiu_e0_preregistration.json': '90D44A553AB03DAAC0CDD7747DCBD1484BFF975BA01EA68D597CC672045CE003', 'outputs/tables/m40_qiu_e0_summary.json': '5B0E2B8B2C4AE073B137163CCF95CD98317E390928D8A57AE3C181A72AEAAAF7', 'outputs/tables/m40_qiu_mesh_convergence.csv': '57C6ABCE88993D451A3F855E2E3C7A008C61D7C3FD9132EC984A21DBD7058DE9', 'scripts/run_m40_qiu_vo2_2d_e0.py': '6D202777C2B601FF9DA6DBFB5E4651B28CE2A92B0580CCE533075DE6C9869604', 'src/pinnpcm/physics/qiu_vo2_device.py': '8DD7137BB1BB0E82AA2F02DBBC309981275B019BA72CD2F756B060C40B97C7D6', 'src/pinnpcm/solvers/qiu_vo2_2d_fvm.py': '3DCA44667B2FC581C52A8876F732B6CD8B46315F0A6CA6F58C39D525F9AB3A25', 'tests/test_m40_qiu_2d_fvm.py': 'F2B8B82B77CB605616FB6060129A79F74AA1480CE09FF01518AAE71479E056ED', 'tests/test_m40_qiu_energy_ledger.py': '85D0483F6B1AFA658C66186D05B4509D7EDB2890FF04C0465F8EF43E2D559B3A', 'tests/test_m40_qiu_geometry.py': '27E2D1BA43D0C84F65D26E606442C8E868171BFB8F3639DA9D48F5A368A352FC', 'tests/test_m40_qiu_result_evidence.py': 'CB15426F749EB43209704F3349BCFC5FE9EA5B24DF6530CB01E139DC9465CAE7'} == {'configs/m40_qiu_vo2_real_device_2d.yaml': 'EA404EE217846553CDAA77644DB8FFB719DA4630240726C6F07FB92FC0F41CA9', 'data/external/qiu_2024_thermal_neuristor/manifest.json': '9FE009F6B4CD61243E6614FBB53210F6042D53D826FAD31B06C7CA7A6CDB253F', 'docs/codex_reports/m40_qiu_vo2_e0_results.md': '78E40F6609C1C2D84FCCF4A19A20C5FBED98A7C8273AE47DAB2D138146C9E935', 'docs/physics/m40_qiu_2d_equations.md': '00A3C69C4EA72C9A259FC35B5371345BFD51C6F3FFDA78071D89B006E09492AC', 'docs/physics/m40_qiu_model_responsibility.md': 'DF6A4A1EFF318B7847FD59252D472BAEF4E582B43A06E2D619BCD3DDCF16696E', 'outputs/figures/m40/qiu_device_geometry.png': '819C3F58540D58671C63329D1E320E6639B23C4E28A94A221AAA1672D9113BFA', 'outputs/figures/m40/qiu_e0_field_maps.png': '9CBE2406DC2C6AB5B3989AF0E20BF037FE958EEE7064E0083E8B9E33901055FA', 'outputs/tables/m40_qiu_e0_preregistration.json': '90D44A553AB03DAAC0CDD7747DCBD1484BFF975BA01EA68D597CC672045CE003', 'outputs/tables/m40_qiu_e0_summary.json': '5B0E2B8B2C4AE073B137163CCF95CD98317E390928D8A57AE3C181A72AEAAAF7', 'outputs/tables/m40_qiu_mesh_convergence.csv': 'F7246E2769282BE5561F61EA5490994F7096CC0C674895729A6A3D6A4C50D902', 'scripts/run_m40_qiu_vo2_2d_e0.py': '6D202777C2B601FF9DA6DBFB5E4651B28CE2A92B0580CCE533075DE6C9869604', 'src/pinnpcm/physics/qiu_vo2_device.py': '8DD7137BB1BB0E82AA2F02DBBC309981275B019BA72CD2F756B060C40B97C7D6', 'src/pinnpcm/solvers/qiu_vo2_2d_fvm.py': '3DCA44667B2FC581C52A8876F732B6CD8B46315F0A6CA6F58C39D525F9AB3A25', 'tests/test_m40_qiu_2d_fvm.py': 'F2B8B82B77CB605616FB6060129A79F74AA1480CE09FF01518AAE71479E056ED', 'tests/test_m40_qiu_energy_ledger.py': '85D0483F6B1AFA658C66186D05B4509D7EDB2890FF04C0465F8EF43E2D559B3A', 'tests/test_m40_qiu_geometry.py': '27E2D1BA43D0C84F65D26E606442C8E868171BFB8F3639DA9D48F5A368A352FC', 'tests/test_m40_qiu_result_evidence.py': 'CB15426F749EB43209704F3349BCFC5FE9EA5B24DF6530CB01E139DC9465CAE7'}
+E
+E         Common items:
+E         {'configs/m40_qiu_vo2_real_device_2d.yaml': 'EA404EE217846553CDAA77644DB8FFB719DA4630240726C6F07FB92FC0F41CA9',
+E          'data/external/qiu_2024_thermal_neuristor/manifest.json': '9FE009F6B4CD61243E6614FBB53210F6042D53D826FAD31B06C7CA7A6CDB253F',
+E          'docs/codex_reports/m40_qiu_vo2_e0_results.md': '78E40F6609C1C2D84FCCF4A19A20C5FBED98A7C8273AE47DAB2D138146C9E935',
+E          'docs/physics/m40_qiu_2d_equations.md': '00A3C69C4EA72C9A259FC35B5371345BFD51C6F3FFDA78071D89B006E09492AC',
+E          'docs/physics/m40_qiu_model_responsibility.md': 'DF6A4A1EFF318B7847FD59252D472BAEF4E582B43A06E2D619BCD3DDCF16696E',
+E          'outputs/figures/m40/qiu_device_geometry.png': '819C3F58540D58671C63329D1E320E6639B23C4E28A94A221AAA1672D9113BFA',
+E          'outputs/figures/m40/qiu_e0_field_maps.png': '9CBE2406DC2C6AB5B3989AF0E20BF037FE958EEE7064E0083E8B9E33901055FA',
+E          'outputs/tables/m40_qiu_e0_preregistration.json': '90D44A553AB03DAAC0CDD7747DCBD1484BFF975BA01EA68D597CC672045CE003',
+E          'outputs/tables/m40_qiu_e0_summary.json': '5B0E2B8B2C4AE073B137163CCF95CD98317E390928D8A57AE3C181A72AEAAAF7',
+E          'scripts/run_m40_qiu_vo2_2d_e0.py': '6D202777C2B601FF9DA6DBFB5E4651B28CE2A92B0580CCE533075DE6C9869604',
+E          'src/pinnpcm/physics/qiu_vo2_device.py': '8DD7137BB1BB0E82AA2F02DBBC309981275B019BA72CD2F756B060C40B97C7D6',
+E          'src/pinnpcm/solvers/qiu_vo2_2d_fvm.py': '3DCA44667B2FC581C52A8876F732B6CD8B46315F0A6CA6F58C39D525F9AB3A25',
+E          'tests/test_m40_qiu_2d_fvm.py': 'F2B8B82B77CB605616FB6060129A79F74AA1480CE09FF01518AAE71479E056ED',
+E          'tests/test_m40_qiu_energy_ledger.py': '85D0483F6B1AFA658C66186D05B4509D7EDB2890FF04C0465F8EF43E2D559B3A',
+E          'tests/test_m40_qiu_geometry.py': '27E2D1BA43D0C84F65D26E606442C8E868171BFB8F3639DA9D48F5A368A352FC',
+E          'tests/test_m40_qiu_result_evidence.py': 'CB15426F749EB43209704F3349BCFC5FE9EA5B24DF6530CB01E139DC9465CAE7'}
+E         Differing items:
+E         {'outputs/tables/m40_qiu_mesh_convergence.csv': '57C6ABCE88993D451A3F855E2E3C7A008C61D7C3FD9132EC984A21DBD7058DE9'} != {'outputs/tables/m40_qiu_mesh_convergence.csv': 'F7246E2769282BE5561F61EA5490994F7096CC0C674895729A6A3D6A4C50D902'}
+E
+E         Full diff:
+E           {
+E               'configs/m40_qiu_vo2_real_device_2d.yaml': 'EA404EE217846553CDAA77644DB8FFB719DA4630240726C6F07FB92FC0F41CA9',
+E               'data/external/qiu_2024_thermal_neuristor/manifest.json': '9FE009F6B4CD61243E6614FBB53210F6042D53D826FAD31B06C7CA7A6CDB253F',
+E               'docs/codex_reports/m40_qiu_vo2_e0_results.md': '78E40F6609C1C2D84FCCF4A19A20C5FBED98A7C8273AE47DAB2D138146C9E935',
+E               'docs/physics/m40_qiu_2d_equations.md': '00A3C69C4EA72C9A259FC35B5371345BFD51C6F3FFDA78071D89B006E09492AC',
+E               'docs/physics/m40_qiu_model_responsibility.md': 'DF6A4A1EFF318B7847FD59252D472BAEF4E582B43A06E2D619BCD3DDCF16696E',
+E               'outputs/figures/m40/qiu_device_geometry.png': '819C3F58540D58671C63329D1E320E6639B23C4E28A94A221AAA1672D9113BFA',
+E               'outputs/figures/m40/qiu_e0_field_maps.png': '9CBE2406DC2C6AB5B3989AF0E20BF037FE958EEE7064E0083E8B9E33901055FA',
+E               'outputs/tables/m40_qiu_e0_preregistration.json': '90D44A553AB03DAAC0CDD7747DCBD1484BFF975BA01EA68D597CC672045CE003',
+E               'outputs/tables/m40_qiu_e0_summary.json': '5B0E2B8B2C4AE073B137163CCF95CD98317E390928D8A57AE3C181A72AEAAAF7',
+E         -     'outputs/tables/m40_qiu_mesh_convergence.csv': 'F7246E2769282BE5561F61EA5490994F7096CC0C674895729A6A3D6A4C50D902',
+E         +     'outputs/tables/m40_qiu_mesh_convergence.csv': '57C6ABCE88993D451A3F855E2E3C7A008C61D7C3FD9132EC984A21DBD7058DE9',
+E               'scripts/run_m40_qiu_vo2_2d_e0.py': '6D202777C2B601FF9DA6DBFB5E4651B28CE2A92B0580CCE533075DE6C9869604',
+E               'src/pinnpcm/physics/qiu_vo2_device.py': '8DD7137BB1BB0E82AA2F02DBBC309981275B019BA72CD2F756B060C40B97C7D6',
+E               'src/pinnpcm/solvers/qiu_vo2_2d_fvm.py': '3DCA44667B2FC581C52A8876F732B6CD8B46315F0A6CA6F58C39D525F9AB3A25',
+E               'tests/test_m40_qiu_2d_fvm.py': 'F2B8B82B77CB605616FB6060129A79F74AA1480CE09FF01518AAE71479E056ED',
+E               'tests/test_m40_qiu_energy_ledger.py': '85D0483F6B1AFA658C66186D05B4509D7EDB2890FF04C0465F8EF43E2D559B3A',
+E               'tests/test_m40_qiu_geometry.py': '27E2D1BA43D0C84F65D26E606442C8E868171BFB8F3639DA9D48F5A368A352FC',
+E               'tests/test_m40_qiu_result_evidence.py': 'CB15426F749EB43209704F3349BCFC5FE9EA5B24DF6530CB01E139DC9465CAE7',
+E           }
+
+tests\test_m40r_qiu_result_evidence.py:50: AssertionError
+_______ test_ceba_audit_separates_point_success_from_oracle_abstention ________
+
+    def test_ceba_audit_separates_point_success_from_oracle_abstention() -> None:
+>       audit = build_ceba_audit()
+
+tests\test_prompt32_semantic_audits.py:14:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\audit_prompt32_semantics.py:66: in build_ceba_audit
+    candidate_traces = {gamma: store.load("candidate", protocol, gamma) for gamma in candidates}
+scripts\audit_prompt32_semantics.py:66: in <dictcomp>
+    candidate_traces = {gamma: store.load("candidate", protocol, gamma) for gamma in candidates}
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <scripts.run_gamma_sub_scis.CacheOnlyTrajectoryStore object at 0x000001E333133810>
+role = 'candidate', protocol = 'triangle', coordinate = 150000000.0
+
+    def load(self, role: str, protocol: str, coordinate: float) -> dict[str, np.ndarray]:
+        key, path = self.expected_entry(role, protocol, coordinate)
+        if not path.is_file():
+>           raise CacheMissStop(f"Required cached trajectory is missing; solver fallback forbidden: {path}")
+E           scripts.run_gamma_sub_scis.CacheMissStop: Required cached trajectory is missing; solver fallback forbidden: C:\Users\CJ\AppData\Local\Temp\pinn_submission_validation_689a7a6b\worktree\outputs\cache\gamma_sub_ceba\trajectories\1e3272792ad48dee41c4f3ebb69cd5a0b89864b19452c4e0f01ebcd2635e62cc.npz
+
+scripts\run_gamma_sub_scis.py:255: CacheMissStop
+=========================== short test summary info ===========================
+FAILED tests/test_e1f_preregistration.py::test_e1f_preregistration_is_leakage_safe_and_fail_closed - AssertionError: assert '57C6ABCE88993D451A3F855E2E3C7A008C61D7C3FD9132EC984A21DBD7058DE9' == 'F7246E2769282BE5561F61EA5490994F7096CC0C674895729A6A3D6A4C50D902'
+
+  - F7246E2769282BE5561F61EA5490994F7096CC0C674895729A6A3D6A4C50D902
+  + 57C6ABCE88993D451A3F855E2E3C7A008C61D7C3FD9132EC984A21DBD7058DE9
+FAILED tests/test_e1f_protected_evidence.py::test_e1f_protected_files_match_preregistration - AssertionError: outputs/tables/m40_qiu_mesh_convergence.csv
+assert 443 == 447
+ +  where 443 = os.stat_result(st_mode=33206, st_ino=13792273859239381, st_dev=2123836344, st_nlink=1, st_uid=0, st_gid=0, st_size=443, st_atime=1784656564, st_mtime=1784656425, st_ctime=1784656425).st_size
+ +    where os.stat_result(st_mode=33206, st_ino=13792273859239381, st_dev=2123836344, st_nlink=1, st_uid=0, st_gid=0, st_size=443, st_atime=1784656564, st_mtime=1784656425, st_ctime=1784656425) = <bound method Path.stat of WindowsPath('C:/Users/CJ/AppData/Local/Temp/pinn_submission_validation_689a7a6b/worktree/outputs/tables/m40_qiu_mesh_convergence.csv')>()
+ +      where <bound method Path.stat of WindowsPath('C:/Users/CJ/AppData/Local/Temp/pinn_submission_validation_689a7a6b/worktree/outputs/tables/m40_qiu_mesh_convergence.csv')> = WindowsPath('C:/Users/CJ/AppData/Local/Temp/pinn_submission_validation_689a7a6b/worktree/outputs/tables/m40_qiu_mesh_convergence.csv').stat
+ +  and   447 = int(447)
+FAILED tests/test_e1fr_contract.py::test_e1fr_preregistration_is_hash_locked_when_present - AssertionError: assert 8199 == 8509
+ +  where 8199 = os.stat_result(st_mode=33206, st_ino=15199648742565425, st_dev=2123836344, st_nlink=1, st_uid=0, st_gid=0, st_size=8199, st_atime=1784656563, st_mtime=1784656424, st_ctime=1784656424).st_size
+ +    where os.stat_result(st_mode=33206, st_ino=15199648742565425, st_dev=2123836344, st_nlink=1, st_uid=0, st_gid=0, st_size=8199, st_atime=1784656563, st_mtime=1784656424, st_ctime=1784656424) = <bound method Path.stat of WindowsPath('C:/Users/CJ/AppData/Local/Temp/pinn_submission_validation_689a7a6b/worktree/data/external/qiu_2024_thermal_neuristor/digitized_manifest.json')>()
+ +      where <bound method Path.stat of WindowsPath('C:/Users/CJ/AppData/Local/Temp/pinn_submission_validation_689a7a6b/worktree/data/external/qiu_2024_thermal_neuristor/digitized_manifest.json')> = WindowsPath('C:/Users/CJ/AppData/Local/Temp/pinn_submission_validation_689a7a6b/worktree/data/external/qiu_2024_thermal_neuristor/digitized_manifest.json').stat
+FAILED tests/test_gamma_sub_calibration_protocol_cost_frontier.py::test_cpcf_locked_inputs_and_thresholds_are_unchanged - RuntimeError: CPCF input hash lock failed: {"outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_cases.csv": {"expected": "ac48940bf5bd4dc32f2a523d6834510c4e40dd1e1227f69051d9d51864f27e99", "observed": "638829e39e3680beb784105aafec37a2a6816ea8c0d188d58d6c280117cdb6c6"}, "outputs/tables/gamma_sub_recoverability_phase_diagram_cases.csv": {"expected": "7d09b8003b2cfa1553e2a6f0d46d28525ea5b146e4346070e7dc20190852aeb1", "observed": "0f32f7b1d22341244c21d9291bdba9c41cf9ffef7353bce40b1a8f2ecbd0c11d"}, "outputs/tables/gamma_sub_response_surface_anchor_verification_cases.csv": {"expected": "3072ceb2bc0edea187cedcc1f51f4d932247bb2bde13fc2b12f7956420793870", "observed": "eb232d067d7f92d83c6d033bbf0ab068bb13142e5eb4601db77286da7a5f1538"}, "outputs/tables/gamma_sub_statistical_robustness_cases.csv": {"expected": "ad89459fb6c8c986345af5513429947c93ae553f4d948528bae1c54cd6c4b5b6", "observed": "fc99886b7f9a013976694ed2046dde2a1072c784bea4f40815ae88cf3e29b369"}, "outputs/tables/gamma_sub_tsw_confounding_phase_map_cases.csv": {"expected": "41befd6b96df5ef8827a0f7c1dbd03829f6204548f430a2df7ae84d20833bb4b", "observed": "913f67fa630c345c7aa1979ace25967da05483636b0878ae3db7d2980413c922"}, "outputs/tables/gamma_sub_tsw_profile_likelihood_grid.csv": {"expected": "0ade5506617bf7a0ccb19529c8c725ed999f91668e86dcf941ad4ac801b552c2", "observed": "bfcc2fcff4c552203a72dce2f7ec51153a98914391967c133ec0879c20f12272"}, "outputs/tables/gamma_sub_tsw_profile_likelihood_profiles.csv": {"expected": "ef5ffd3873bad8546ff7e7d88658bb7ddaa69c7a506f40d1a098660110015ce0", "observed": "5307d50dbf17bc171d78251fbb1f39fa9ce9d393f934a8a5e40beaff619b7c1e"}, "outputs/tables/gamma_sub_tsw_tolerance_ode_spotcheck_cases.csv": {"expected": "c47c3a8e5f571a2f2ed9bcd2fa256abdb0ad5106bea5b7c42b8e9f0e7a93ab28", "observed": "13d0fe74d31343403ef5a53aa0121d92c56790dd9249f04a2814191e549d6483"}}
+FAILED tests/test_gamma_sub_calibration_protocol_cost_frontier.py::test_cpcf_case_cache_resume_and_strict_json - RuntimeError: CPCF input hash lock failed: {"outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_cases.csv": {"expected": "ac48940bf5bd4dc32f2a523d6834510c4e40dd1e1227f69051d9d51864f27e99", "observed": "638829e39e3680beb784105aafec37a2a6816ea8c0d188d58d6c280117cdb6c6"}, "outputs/tables/gamma_sub_recoverability_phase_diagram_cases.csv": {"expected": "7d09b8003b2cfa1553e2a6f0d46d28525ea5b146e4346070e7dc20190852aeb1", "observed": "0f32f7b1d22341244c21d9291bdba9c41cf9ffef7353bce40b1a8f2ecbd0c11d"}, "outputs/tables/gamma_sub_response_surface_anchor_verification_cases.csv": {"expected": "3072ceb2bc0edea187cedcc1f51f4d932247bb2bde13fc2b12f7956420793870", "observed": "eb232d067d7f92d83c6d033bbf0ab068bb13142e5eb4601db77286da7a5f1538"}, "outputs/tables/gamma_sub_statistical_robustness_cases.csv": {"expected": "ad89459fb6c8c986345af5513429947c93ae553f4d948528bae1c54cd6c4b5b6", "observed": "fc99886b7f9a013976694ed2046dde2a1072c784bea4f40815ae88cf3e29b369"}, "outputs/tables/gamma_sub_tsw_confounding_phase_map_cases.csv": {"expected": "41befd6b96df5ef8827a0f7c1dbd03829f6204548f430a2df7ae84d20833bb4b", "observed": "913f67fa630c345c7aa1979ace25967da05483636b0878ae3db7d2980413c922"}, "outputs/tables/gamma_sub_tsw_profile_likelihood_grid.csv": {"expected": "0ade5506617bf7a0ccb19529c8c725ed999f91668e86dcf941ad4ac801b552c2", "observed": "bfcc2fcff4c552203a72dce2f7ec51153a98914391967c133ec0879c20f12272"}, "outputs/tables/gamma_sub_tsw_profile_likelihood_profiles.csv": {"expected": "ef5ffd3873bad8546ff7e7d88658bb7ddaa69c7a506f40d1a098660110015ce0", "observed": "5307d50dbf17bc171d78251fbb1f39fa9ce9d393f934a8a5e40beaff619b7c1e"}, "outputs/tables/gamma_sub_tsw_tolerance_ode_spotcheck_cases.csv": {"expected": "c47c3a8e5f571a2f2ed9bcd2fa256abdb0ad5106bea5b7c42b8e9f0e7a93ab28", "observed": "13d0fe74d31343403ef5a53aa0121d92c56790dd9249f04a2814191e549d6483"}}
+FAILED tests/test_gamma_sub_scis_contract.py::test_scis_cache_preflight_is_complete_and_zero_solver - scripts.run_gamma_sub_scis.CacheMissStop: Required cached trajectory is missing; solver fallback forbidden: C:\Users\CJ\AppData\Local\Temp\pinn_submission_validation_689a7a6b\worktree\outputs\cache\gamma_sub_ceba\trajectories\1e3272792ad48dee41c4f3ebb69cd5a0b89864b19452c4e0f01ebcd2635e62cc.npz
+FAILED tests/test_gamma_sub_scis_contract.py::test_scis_preregistration_locks_unmodified_ceba_hashes - AssertionError: assert '09ae1903d38a07aa276f326e47c492fc11c02b04fa0b2c1bdf38ca4d227bb7bf' == '089ad6735658b11fbee3674ea0f78aca466b53cda982d2d02a83c420ceaad3f2'
+
+  - 089ad6735658b11fbee3674ea0f78aca466b53cda982d2d02a83c420ceaad3f2
+  + 09ae1903d38a07aa276f326e47c492fc11c02b04fa0b2c1bdf38ca4d227bb7bf
+FAILED tests/test_m35_public_multivoltage.py::test_open_trace_preprocessing_uses_raw_time_zero_and_baseline_only - FileNotFoundError: [Errno 2] No such file or directory: 'data\\external\\vo2_zhang_2024\\raw\\allowed_prelock\\Source Data\\Fig. 1\\Fig. 1c\\Experiment_9V.csv'
+FAILED tests/test_m35_result_evidence.py::test_preregistration_hashes_and_sealed_boundary_are_valid - AssertionError: assert 'B90EA2836AD18778DD02B69A36C166586AC681F0C4A5370AF431E5C68A62B447' == '3FD75E4D2871C302BA807E9CBE6F5A65E9587F33A610F933ED02441568633645'
+
+  - 3FD75E4D2871C302BA807E9CBE6F5A65E9587F33A610F933ED02441568633645
+  + B90EA2836AD18778DD02B69A36C166586AC681F0C4A5370AF431E5C68A62B447
+FAILED tests/test_m36_result_evidence.py::test_m36_preregistration_is_hash_locked_and_sealed - AssertionError: assert 'B90EA2836AD18778DD02B69A36C166586AC681F0C4A5370AF431E5C68A62B447' == '3FD75E4D2871C302BA807E9CBE6F5A65E9587F33A610F933ED02441568633645'
+
+  - 3FD75E4D2871C302BA807E9CBE6F5A65E9587F33A610F933ED02441568633645
+  + B90EA2836AD18778DD02B69A36C166586AC681F0C4A5370AF431E5C68A62B447
+FAILED tests/test_m37_result_evidence.py::test_m37_preregistration_is_complete_hash_locked_and_sealed - FileNotFoundError: [Errno 2] No such file or directory: 'data\\external\\vo2_zhang_2024\\raw\\allowed_prelock\\Source Data\\Fig. 1\\Fig. 1c\\Experiment_11V.csv'
+FAILED tests/test_m37_result_evidence.py::test_m36_semantic_audit_supersedes_wording_but_not_vote_or_artifacts - AssertionError: assert '6FB95E1EB3C5C21A99B03A1C541CC7B5F6932A9681070204DDD9B2A5131C26C0' == '90DEB1D95E013E383C2A255308C36BE92F819B07FC96CF15F41384B80C98FC16'
+
+  - 90DEB1D95E013E383C2A255308C36BE92F819B07FC96CF15F41384B80C98FC16
+  + 6FB95E1EB3C5C21A99B03A1C541CC7B5F6932A9681070204DDD9B2A5131C26C0
+FAILED tests/test_m37r_continuous_event_observability_repair.py::test_m36_reference_rows_pass_the_same_post_transient_helper - FileNotFoundError: [Errno 2] No such file or directory: 'data\\external\\vo2_zhang_2024\\raw\\allowed_prelock\\Source Data\\Fig. 1\\Fig. 1c\\Experiment_9V.csv'
+FAILED tests/test_m37r_result_evidence.py::test_m37r_preregistration_is_complete_hash_locked_and_sealed - FileNotFoundError: [Errno 2] No such file or directory: 'data\\external\\vo2_zhang_2024\\raw\\allowed_prelock\\Source Data\\Fig. 1\\Fig. 1c\\Experiment_11V.csv'
+FAILED tests/test_m40r_qiu_result_evidence.py::test_m40r_formal_result_fails_closed_without_rewriting_m40 - AssertionError: assert {'configs/m40_qiu_vo2_real_device_2d.yaml': 'EA404EE217846553CDAA77644DB8FFB719DA4630240726C6F07FB92FC0F41CA9', 'data/external/qiu_2024_thermal_neuristor/manifest.json': '9FE009F6B4CD61243E6614FBB53210F6042D53D826FAD31B06C7CA7A6CDB253F', 'docs/codex_reports/m40_qiu_vo2_e0_results.md': '78E40F6609C1C2D84FCCF4A19A20C5FBED98A7C8273AE47DAB2D138146C9E935', 'docs/physics/m40_qiu_2d_equations.md': '00A3C69C4EA72C9A259FC35B5371345BFD51C6F3FFDA78071D89B006E09492AC', 'docs/physics/m40_qiu_model_responsibility.md': 'DF6A4A1EFF318B7847FD59252D472BAEF4E582B43A06E2D619BCD3DDCF16696E', 'outputs/figures/m40/qiu_device_geometry.png': '819C3F58540D58671C63329D1E320E6639B23C4E28A94A221AAA1672D9113BFA', 'outputs/figures/m40/qiu_e0_field_maps.png': '9CBE2406DC2C6AB5B3989AF0E20BF037FE958EEE7064E0083E8B9E33901055FA', 'outputs/tables/m40_qiu_e0_preregistration.json': '90D44A553AB03DAAC0CDD7747DCBD1484BFF975BA01EA68D597CC672045CE003', 'outputs/tables/m40_qiu_e0_summary.json': '5B0E2B8B2C4AE073B137163CCF95CD98317E390928D8A57AE3C181A72AEAAAF7', 'outputs/tables/m40_qiu_mesh_convergence.csv': '57C6ABCE88993D451A3F855E2E3C7A008C61D7C3FD9132EC984A21DBD7058DE9', 'scripts/run_m40_qiu_vo2_2d_e0.py': '6D202777C2B601FF9DA6DBFB5E4651B28CE2A92B0580CCE533075DE6C9869604', 'src/pinnpcm/physics/qiu_vo2_device.py': '8DD7137BB1BB0E82AA2F02DBBC309981275B019BA72CD2F756B060C40B97C7D6', 'src/pinnpcm/solvers/qiu_vo2_2d_fvm.py': '3DCA44667B2FC581C52A8876F732B6CD8B46315F0A6CA6F58C39D525F9AB3A25', 'tests/test_m40_qiu_2d_fvm.py': 'F2B8B82B77CB605616FB6060129A79F74AA1480CE09FF01518AAE71479E056ED', 'tests/test_m40_qiu_energy_ledger.py': '85D0483F6B1AFA658C66186D05B4509D7EDB2890FF04C0465F8EF43E2D559B3A', 'tests/test_m40_qiu_geometry.py': '27E2D1BA43D0C84F65D26E606442C8E868171BFB8F3639DA9D48F5A368A352FC', 'tests/test_m40_qiu_result_evidence.py': 'CB15426F749EB43209704F3349BCFC5FE9EA5B24DF6530CB01E139DC9465CAE7'} == {'configs/m40_qiu_vo2_real_device_2d.yaml': 'EA404EE217846553CDAA77644DB8FFB719DA4630240726C6F07FB92FC0F41CA9', 'data/external/qiu_2024_thermal_neuristor/manifest.json': '9FE009F6B4CD61243E6614FBB53210F6042D53D826FAD31B06C7CA7A6CDB253F', 'docs/codex_reports/m40_qiu_vo2_e0_results.md': '78E40F6609C1C2D84FCCF4A19A20C5FBED98A7C8273AE47DAB2D138146C9E935', 'docs/physics/m40_qiu_2d_equations.md': '00A3C69C4EA72C9A259FC35B5371345BFD51C6F3FFDA78071D89B006E09492AC', 'docs/physics/m40_qiu_model_responsibility.md': 'DF6A4A1EFF318B7847FD59252D472BAEF4E582B43A06E2D619BCD3DDCF16696E', 'outputs/figures/m40/qiu_device_geometry.png': '819C3F58540D58671C63329D1E320E6639B23C4E28A94A221AAA1672D9113BFA', 'outputs/figures/m40/qiu_e0_field_maps.png': '9CBE2406DC2C6AB5B3989AF0E20BF037FE958EEE7064E0083E8B9E33901055FA', 'outputs/tables/m40_qiu_e0_preregistration.json': '90D44A553AB03DAAC0CDD7747DCBD1484BFF975BA01EA68D597CC672045CE003', 'outputs/tables/m40_qiu_e0_summary.json': '5B0E2B8B2C4AE073B137163CCF95CD98317E390928D8A57AE3C181A72AEAAAF7', 'outputs/tables/m40_qiu_mesh_convergence.csv': 'F7246E2769282BE5561F61EA5490994F7096CC0C674895729A6A3D6A4C50D902', 'scripts/run_m40_qiu_vo2_2d_e0.py': '6D202777C2B601FF9DA6DBFB5E4651B28CE2A92B0580CCE533075DE6C9869604', 'src/pinnpcm/physics/qiu_vo2_device.py': '8DD7137BB1BB0E82AA2F02DBBC309981275B019BA72CD2F756B060C40B97C7D6', 'src/pinnpcm/solvers/qiu_vo2_2d_fvm.py': '3DCA44667B2FC581C52A8876F732B6CD8B46315F0A6CA6F58C39D525F9AB3A25', 'tests/test_m40_qiu_2d_fvm.py': 'F2B8B82B77CB605616FB6060129A79F74AA1480CE09FF01518AAE71479E056ED', 'tests/test_m40_qiu_energy_ledger.py': '85D0483F6B1AFA658C66186D05B4509D7EDB2890FF04C0465F8EF43E2D559B3A', 'tests/test_m40_qiu_geometry.py': '27E2D1BA43D0C84F65D26E606442C8E868171BFB8F3639DA9D48F5A368A352FC', 'tests/test_m40_qiu_result_evidence.py': 'CB15426F749EB43209704F3349BCFC5FE9EA5B24DF6530CB01E139DC9465CAE7'}
+
+  Common items:
+  {'configs/m40_qiu_vo2_real_device_2d.yaml': 'EA404EE217846553CDAA77644DB8FFB719DA4630240726C6F07FB92FC0F41CA9',
+   'data/external/qiu_2024_thermal_neuristor/manifest.json': '9FE009F6B4CD61243E6614FBB53210F6042D53D826FAD31B06C7CA7A6CDB253F',
+   'docs/codex_reports/m40_qiu_vo2_e0_results.md': '78E40F6609C1C2D84FCCF4A19A20C5FBED98A7C8273AE47DAB2D138146C9E935',
+   'docs/physics/m40_qiu_2d_equations.md': '00A3C69C4EA72C9A259FC35B5371345BFD51C6F3FFDA78071D89B006E09492AC',
+   'docs/physics/m40_qiu_model_responsibility.md': 'DF6A4A1EFF318B7847FD59252D472BAEF4E582B43A06E2D619BCD3DDCF16696E',
+   'outputs/figures/m40/qiu_device_geometry.png': '819C3F58540D58671C63329D1E320E6639B23C4E28A94A221AAA1672D9113BFA',
+   'outputs/figures/m40/qiu_e0_field_maps.png': '9CBE2406DC2C6AB5B3989AF0E20BF037FE958EEE7064E0083E8B9E33901055FA',
+   'outputs/tables/m40_qiu_e0_preregistration.json': '90D44A553AB03DAAC0CDD7747DCBD1484BFF975BA01EA68D597CC672045CE003',
+   'outputs/tables/m40_qiu_e0_summary.json': '5B0E2B8B2C4AE073B137163CCF95CD98317E390928D8A57AE3C181A72AEAAAF7',
+   'scripts/run_m40_qiu_vo2_2d_e0.py': '6D202777C2B601FF9DA6DBFB5E4651B28CE2A92B0580CCE533075DE6C9869604',
+   'src/pinnpcm/physics/qiu_vo2_device.py': '8DD7137BB1BB0E82AA2F02DBBC309981275B019BA72CD2F756B060C40B97C7D6',
+   'src/pinnpcm/solvers/qiu_vo2_2d_fvm.py': '3DCA44667B2FC581C52A8876F732B6CD8B46315F0A6CA6F58C39D525F9AB3A25',
+   'tests/test_m40_qiu_2d_fvm.py': 'F2B8B82B77CB605616FB6060129A79F74AA1480CE09FF01518AAE71479E056ED',
+   'tests/test_m40_qiu_energy_ledger.py': '85D0483F6B1AFA658C66186D05B4509D7EDB2890FF04C0465F8EF43E2D559B3A',
+   'tests/test_m40_qiu_geometry.py': '27E2D1BA43D0C84F65D26E606442C8E868171BFB8F3639DA9D48F5A368A352FC',
+   'tests/test_m40_qiu_result_evidence.py': 'CB15426F749EB43209704F3349BCFC5FE9EA5B24DF6530CB01E139DC9465CAE7'}
+  Differing items:
+  {'outputs/tables/m40_qiu_mesh_convergence.csv': '57C6ABCE88993D451A3F855E2E3C7A008C61D7C3FD9132EC984A21DBD7058DE9'} != {'outputs/tables/m40_qiu_mesh_convergence.csv': 'F7246E2769282BE5561F61EA5490994F7096CC0C674895729A6A3D6A4C50D902'}
+
+  Full diff:
+    {
+        'configs/m40_qiu_vo2_real_device_2d.yaml': 'EA404EE217846553CDAA77644DB8FFB719DA4630240726C6F07FB92FC0F41CA9',
+        'data/external/qiu_2024_thermal_neuristor/manifest.json': '9FE009F6B4CD61243E6614FBB53210F6042D53D826FAD31B06C7CA7A6CDB253F',
+        'docs/codex_reports/m40_qiu_vo2_e0_results.md': '78E40F6609C1C2D84FCCF4A19A20C5FBED98A7C8273AE47DAB2D138146C9E935',
+        'docs/physics/m40_qiu_2d_equations.md': '00A3C69C4EA72C9A259FC35B5371345BFD51C6F3FFDA78071D89B006E09492AC',
+        'docs/physics/m40_qiu_model_responsibility.md': 'DF6A4A1EFF318B7847FD59252D472BAEF4E582B43A06E2D619BCD3DDCF16696E',
+        'outputs/figures/m40/qiu_device_geometry.png': '819C3F58540D58671C63329D1E320E6639B23C4E28A94A221AAA1672D9113BFA',
+        'outputs/figures/m40/qiu_e0_field_maps.png': '9CBE2406DC2C6AB5B3989AF0E20BF037FE958EEE7064E0083E8B9E33901055FA',
+        'outputs/tables/m40_qiu_e0_preregistration.json': '90D44A553AB03DAAC0CDD7747DCBD1484BFF975BA01EA68D597CC672045CE003',
+        'outputs/tables/m40_qiu_e0_summary.json': '5B0E2B8B2C4AE073B137163CCF95CD98317E390928D8A57AE3C181A72AEAAAF7',
+  -     'outputs/tables/m40_qiu_mesh_convergence.csv': 'F7246E2769282BE5561F61EA5490994F7096CC0C674895729A6A3D6A4C50D902',
+  +     'outputs/tables/m40_qiu_mesh_convergence.csv': '57C6ABCE88993D451A3F855E2E3C7A008C61D7C3FD9132EC984A21DBD7058DE9',
+        'scripts/run_m40_qiu_vo2_2d_e0.py': '6D202777C2B601FF9DA6DBFB5E4651B28CE2A92B0580CCE533075DE6C9869604',
+        'src/pinnpcm/physics/qiu_vo2_device.py': '8DD7137BB1BB0E82AA2F02DBBC309981275B019BA72CD2F756B060C40B97C7D6',
+        'src/pinnpcm/solvers/qiu_vo2_2d_fvm.py': '3DCA44667B2FC581C52A8876F732B6CD8B46315F0A6CA6F58C39D525F9AB3A25',
+        'tests/test_m40_qiu_2d_fvm.py': 'F2B8B82B77CB605616FB6060129A79F74AA1480CE09FF01518AAE71479E056ED',
+        'tests/test_m40_qiu_energy_ledger.py': '85D0483F6B1AFA658C66186D05B4509D7EDB2890FF04C0465F8EF43E2D559B3A',
+        'tests/test_m40_qiu_geometry.py': '27E2D1BA43D0C84F65D26E606442C8E868171BFB8F3639DA9D48F5A368A352FC',
+        'tests/test_m40_qiu_result_evidence.py': 'CB15426F749EB43209704F3349BCFC5FE9EA5B24DF6530CB01E139DC9465CAE7',
+    }
+FAILED tests/test_prompt32_semantic_audits.py::test_ceba_audit_separates_point_success_from_oracle_abstention - scripts.run_gamma_sub_scis.CacheMissStop: Required cached trajectory is missing; solver fallback forbidden: C:\Users\CJ\AppData\Local\Temp\pinn_submission_validation_689a7a6b\worktree\outputs\cache\gamma_sub_ceba\trajectories\1e3272792ad48dee41c4f3ebb69cd5a0b89864b19452c4e0f01ebcd2635e62cc.npz
+================= 16 failed, 412 passed in 254.80s (0:04:14) ==================
+finished_at_utc=2026-07-21T17:59:10.0476798Z
+exit_code=1

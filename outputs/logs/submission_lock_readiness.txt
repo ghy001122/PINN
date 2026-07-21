@@ -1,0 +1,39 @@
+worktree=C:\Users\CJ\AppData\Local\Temp\pinn_submission_validation_689a7a6b\worktree
+validated_commit=689a7a6b218d4263bdc92f04ae52231e7439e752
+command=E:\Python demo\PINN\.venv\Scripts\python.exe scripts/audit_submission_readiness.py --local-clean-worktree-replay
+started_at_utc=2026-07-21T17:59:10.4944620Z
+python.exe : Traceback (most recent call last):
+@b(WMOn L�:2 W[&{: 2465
++ ... oding utf8; & $py scripts/audit_submission_readiness.py --root $wt -- ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+  File "C:\Users\CJ\AppData\Local\Temp\pinn_submission_validation_689a7a6b\worktree\scripts\audit_submission_readiness.
+py", line 441, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "C:\Users\CJ\AppData\Local\Temp\pinn_submission_validation_689a7a6b\worktree\scripts\audit_submission_readiness.
+py", line 429, in main
+    output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda\envs\py311\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "D:\anaconda\envs\py311\Lib\json\encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "D:\anaconda\envs\py311\Lib\json\encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "D:\anaconda\envs\py311\Lib\json\encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "D:\anaconda\envs\py311\Lib\json\encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "D:\anaconda\envs\py311\Lib\json\encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "D:\anaconda\envs\py311\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type date is not JSON serializable
+finished_at_utc=2026-07-21T17:59:11.5587377Z
+exit_code=1
