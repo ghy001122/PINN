@@ -1,0 +1,94 @@
+{
+  "dataset_id": "qiu_2024_thermal_neuristor_source_contract_v1",
+  "doi": "10.1002/adma.202306818",
+  "title": "Reconfigurable Cascaded Thermal Neuristors for Neuromorphic Computing",
+  "evidence_kind": "external_literature",
+  "machine_readable_measurement_data_available": false,
+  "source_code_available": false,
+  "acquired_at_utc": "2026-07-21T06:38:54Z",
+  "sources": [
+    {
+      "artifact_id": "qiu_2024_main_drive_copy",
+      "role": "publisher_version_main_article",
+      "drive_file_id": "1vyK6dRjry22jvFlOgAgPyHnncZlbYkCB",
+      "drive_url": "https://drive.google.com/file/d/1vyK6dRjry22jvFlOgAgPyHnncZlbYkCB/view",
+      "official_url": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202306818",
+      "local_raw_path": "data/external/qiu_2024_thermal_neuristor/raw/qiu_2024_main.pdf",
+      "sha256": "D842E8BF1B5AC609AB504D8BF6104CFD3EFEA59697A5C7AC21664A99EB7D3C67",
+      "bytes": 2575890,
+      "license_or_terms": "Wiley publisher terms; redistribution permission not established",
+      "redistribute_raw": false
+    },
+    {
+      "artifact_id": "qiu_2024_supporting_information_drive_copy",
+      "role": "official_supporting_information",
+      "drive_file_id": "1o-8ClbsQVzc6_PlNul9qyjfqXsMb0B5h",
+      "drive_url": "https://drive.google.com/file/d/1o-8ClbsQVzc6_PlNul9qyjfqXsMb0B5h/view",
+      "official_url": "https://advanced.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1002%2Fadma.202306818&file=adma202306818-sup-0001-SuppMat.pdf",
+      "local_raw_path": "data/external/qiu_2024_thermal_neuristor/raw/qiu_2024_supporting_information.pdf",
+      "sha256": "D47ED95CD5782C3E632BBC440C1FCC681870E0FF303F0B05F8CD8F30CEC70BFD",
+      "bytes": 3139723,
+      "license_or_terms": "Wiley supporting-information terms; redistribution permission not established",
+      "redistribute_raw": false
+    },
+    {
+      "artifact_id": "qiu_2024_author_arxiv",
+      "role": "author_manuscript_with_supporting_information",
+      "url": "https://arxiv.org/abs/2307.11256",
+      "pdf_url": "https://arxiv.org/pdf/2307.11256",
+      "local_raw_path": null,
+      "sha256_observed_2026_07_21": "CF4A0F0CCD56F638A984E47B8F3ACF48502679368DF168B96FE28E9AD48BD09E"
+    },
+    {
+      "artifact_id": "qiu_2024_osti_vor",
+      "role": "government_repository_copy",
+      "url": "https://www.osti.gov/servlets/purl/2575760",
+      "local_raw_path": null
+    }
+  ],
+  "source_contract": {
+    "reported": [
+      "VO2 thickness 100 nm",
+      "device footprint 100 x 500 nm2",
+      "adjacent-device gap 500 nm",
+      "Ti thickness 15 nm",
+      "Au thickness 40 nm",
+      "(012)-oriented Al2O3 substrate",
+      "series Rload and parallel parasitic capacitance topology",
+      "R-T major loop 320-360 K and minor reversals 330/335 K"
+    ],
+    "source_author_fitted": [
+      "R0=5.359e-3 ohm",
+      "Rm=262.5 ohm",
+      "Ea=5220 K",
+      "beta=0.253 K^-1",
+      "w=7.193 K",
+      "Tc=332.8 K",
+      "gamma=0.956",
+      "dynamic metallic factor k=4.90",
+      "C=145 pF",
+      "Sth=0.206 mW/K lumped equivalent",
+      "Cth=49.6 pJ/K lumped equivalent"
+    ],
+    "unresolved": [
+      "Al2O3 thickness and lateral truncation",
+      "Ti/Au lateral geometry and VO2 overlap",
+      "local Ti/Au/Al2O3 thermal properties",
+      "phase-dependent local VO2 thermal properties",
+      "individual electrical contact resistivity and asymmetric split",
+      "all thermal boundary resistances",
+      "remote thermal boundary condition",
+      "local differentiable history relaxation time",
+      "source time step/integrator and spatial initial conditions",
+      "filament location and width",
+      "raw R-T and I-t numeric arrays and instrument resolution"
+    ],
+    "critical_boundary": "Qiu Sth/Cth are lumped device-plus-electrode-plus-substrate equivalents and are not local 2D material or boundary parameters."
+  },
+  "holdout_lock": {
+    "curve_id": "qiu_2024_main_fig2b_12p5v",
+    "numeric_access_in_m40": false,
+    "digitization_in_m40": false,
+    "semantics": "repository-withheld future curve; not an independent external holdout"
+  }
+}

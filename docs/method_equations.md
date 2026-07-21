@@ -2,6 +2,12 @@
 
 All variables use SI units unless explicitly noted. The default parameters are literature-guided synthetic priors or order-of-magnitude priors, not measured material parameters.
 
+The independent Qiu-2024 M40 x-z electro-thermal-hysteresis-RC equations,
+masked Al2O3 topology, contact/TBR face conductances, RC coupling, and E0
+ledger are defined in `docs/physics/m40_qiu_2d_equations.md`. Those equations
+form a source-constrained external-literature bridge and do not replace or
+revise the frozen synthetic Ground Truth equations below.
+
 ## Domain and State Variables
 
 The one-dimensional effective device domain is:

@@ -24,7 +24,7 @@
     },
     "phase_consistency": {
       "status": "pass",
-      "active_phase_id": "Q2_MANUSCRIPT_EVIDENCE_COMPRESSION",
+      "active_phase_id": "Q2_M40_QIU_VO2_REAL_DEVICE_2D_BRIDGE_E0",
       "missing": []
     },
     "delivery_contract": {
@@ -67,13 +67,13 @@
     "low_token_context_budget": {
       "status": "pass",
       "limit_bytes": 24576,
-      "total_bytes": 24392,
+      "total_bytes": 23450,
       "files": {
-        "CODEX_CONTEXT.md": 3494,
-        "docs/research_strategy/active_phase.md": 3957,
-        "PROJECT_STATE.md": 7055,
-        "NEXT_ACTIONS.md": 1991,
-        "docs/project_state/current_evidence_index.md": 7895
+        "CODEX_CONTEXT.md": 3760,
+        "docs/research_strategy/active_phase.md": 2297,
+        "PROJECT_STATE.md": 7450,
+        "NEXT_ACTIONS.md": 1746,
+        "docs/project_state/current_evidence_index.md": 8197
       }
     },
     "retired_generator_guard": {

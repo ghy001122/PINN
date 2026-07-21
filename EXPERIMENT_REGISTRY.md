@@ -2,6 +2,20 @@
 
 > Do not load by default. Current claim/evidence routing is `docs/project_state/current_evidence_index.md`; use this file only to trace a named historical run.
 
+## M40 Qiu VO2 real-device 2D bridge E0 (2026-07-21)
+
+- Task: `Q2_M40_QIU_VO2_REAL_DEVICE_2D_BRIDGE_E0`.
+- Baseline: `e3d47edf7aa4cfc57b0272da20dd1f5654f8c877`.
+- Stage at registration: source contract, fixed config, solver implementation,
+  and E0 tests prepared; formal execution not yet run.
+- Source: Qiu et al. 2024 main article and Supporting Information, DOI
+  `10.1002/adma.202306818`; local raw copies are hash-locked and not tracked.
+- Boundary: no inverse, PINN training, parameter search, M38, Zhang sealed
+  13 V access, frozen-GT edit, or real-device calibration claim.
+- Planned evidence: `outputs/tables/m40_qiu_e0_preregistration.json`,
+  `outputs/tables/m40_qiu_e0_summary.json`, and
+  `outputs/tables/m40_qiu_mesh_convergence.csv`.
+
 ## M36 event-resolved orbit convergence and conditional public fit (2026-07-19)
 
 - Base snapshot: `31098e74156feb5ed83a0c14d037ffa8c22c24c2`; immutable preregistration commit: `661142c`.

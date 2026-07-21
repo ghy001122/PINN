@@ -15,10 +15,13 @@ data/processed/*
 data/external/vo2_zhang_2024/raw/*
 data/external/vo2_zhang_2024/sealed/*
 data/external/vo2_zhang_2024/access_log.jsonl
+data/external/qiu_2024_thermal_neuristor/raw/*
 outputs/figures/*
 !outputs/figures/.gitkeep
 !outputs/figures/vo2_d0a_source_semantics_v2.png
 !outputs/figures/full_pinn_n0_mve_gate_v1.png
+!outputs/figures/m40/qiu_device_geometry.png
+!outputs/figures/m40/qiu_e0_field_maps.png
 outputs/logs/*
 !outputs/logs/.gitkeep
 outputs/checkpoints/*
@@ -335,3 +338,8 @@ outputs/pinn_inverse_v1_1_smoke/*
 !outputs/tables/m35_public_multivoltage_fit_lock.json
 !outputs/tables/prompt35_final_validation.json
 !data/external/vo2_zhang_2024/multivoltage_prereg_manifest_v1.json
+
+# M40 Qiu-2024 source-contract and conservative 2D E0 evidence.
+!outputs/tables/m40_qiu_e0_preregistration.json
+!outputs/tables/m40_qiu_e0_summary.json
+!outputs/tables/m40_qiu_mesh_convergence.csv

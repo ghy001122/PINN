@@ -2,6 +2,14 @@
 
 > Do not load by default. The authoritative manuscript list is `docs/paper/final_figure_list.md`.
 
+## M40 Qiu VO2 conservative 2D E0 figures (planned, 2026-07-21)
+
+- `outputs/figures/m40/qiu_device_geometry.png`: reported material stack plus
+  explicitly labeled electrode-overlap/substrate-truncation priors.
+- `outputs/figures/m40/qiu_e0_field_maps.png`: solver-generated nominal smoke
+  fields; never measured data or calibrated reproduction.
+- Both figures remain planned until the formal E0 verifier creates them.
+
 ## Figure 1/2 evidence-map correction (2026-07-14)
 
 - Figure 1 is now titled `Sparse-port identifiability boundary`; its correlation heatmap is no longer described as directly showing target-space reduction.

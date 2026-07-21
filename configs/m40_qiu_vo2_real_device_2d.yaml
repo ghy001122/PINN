@@ -1,0 +1,189 @@
+task_id: Q2_M40_QIU_VO2_REAL_DEVICE_2D_BRIDGE_E0
+schema_version: m40_qiu_vo2_real_device_2d_v1
+base_snapshot: e3d47edf7aa4cfc57b0272da20dd1f5654f8c877
+namespace: qiu_2024_vo2_2d
+evidence_type: external_literature_constrained_solver_generated
+claim_scope: source_traceable_geometry_protocol_and_conservative_2d_e0_only
+
+execution_contract:
+  formal_execution_limit: 1
+  cpu_only: true
+  maximum_wall_clock_s: 1200
+  maximum_electrical_or_thermal_solves: 1000
+  inverse: forbidden
+  pinn_training: forbidden
+  parameter_search: forbidden
+  m38: forbidden
+  sealed_zhang_13v_access: forbidden
+  frozen_gt_write: forbidden
+
+source_contract:
+  manifest: data/external/qiu_2024_thermal_neuristor/manifest.json
+  doi: 10.1002/adma.202306818
+  main_title: Reconfigurable Cascaded Thermal Neuristors for Neuromorphic Computing
+  source_model_dimensionality: lumped_uniform_temperature_ode
+  raw_machine_data_publicly_available: false
+  qiu_source_code_publicly_available: false
+  exact_2d_device_calibration_possible: false
+  parameter_setting_lock:
+    name: qiu_source_constrained_e0_nominal_v1
+    use_role: solver_smoke_only_not_curve_fit
+    locked_before_formal_e0: true
+  nominal_protocol:
+    curve_id: qiu_2024_si_fig_s1_12v
+    input_kind: constant_voltage
+    input_voltage_V: 12.0
+    load_resistance_ohm: 12000.0
+    ambient_temperature_K: 325.0
+    source_locator: supporting_information_figure_S1_caption
+    use_role: nominal_forward_smoke_not_quantitative_reproduction
+  repository_withheld_future_curve:
+    curve_id: qiu_2024_main_fig2b_12p5v
+    input_voltage_V: 12.5
+    load_resistance_ohm: 12000.0
+    ambient_temperature_K: 325.0
+    numeric_access_in_m40: forbidden
+    digitization_in_m40: forbidden
+    semantics: repository_withheld_future_curve_not_independent_external_holdout
+
+geometry:
+  device_length_m: 1.0e-7
+  device_width_m: 5.0e-7
+  vo2_thickness_m: 1.0e-7
+  ti_thickness_m: 1.5e-8
+  au_thickness_m: 4.0e-8
+  substrate_depth_m: 4.0e-7
+  electrode_overlap_m: 2.0e-8
+  provenance:
+    device_length_m: {role: literature_reported, locator: main_Fig1A_and_SI_p2, coordinate_note: current_path_assignment_is_literature_derived}
+    device_width_m: {role: literature_reported, locator: main_Fig1A_and_SI_p2}
+    vo2_thickness_m: {role: literature_reported, locator: main_results_and_SI_p2}
+    ti_thickness_m: {role: literature_reported, locator: SI_p2}
+    au_thickness_m: {role: literature_reported, locator: SI_p2}
+    substrate_depth_m: {role: engineering-prior/unresolved, locator: not_reported_by_Qiu, use: finite_E0_domain_only}
+    electrode_overlap_m: {role: engineering-prior/unresolved, locator: lateral_contact_geometry_not_reported, use: finite_E0_topology_only}
+
+hysteresis:
+  resistance_prefactor_ohm: 5.359e-3
+  metallic_resistance_ohm: 262.5
+  activation_temperature_K: 5220.0
+  beta_per_K: 0.253
+  loop_width_K: 7.193
+  critical_temperature_K: 332.8
+  proximity_gamma: 0.956
+  dynamic_metallic_factor: 4.90
+  history_relaxation_s: 1.0e-9
+  direction_smoothing_K_per_s: 1.0e7
+  explicit_contact_total_ohm: 260.0
+  provenance:
+    source_fitted_parameters: {role: source-author-fitted, locator: SI_p3_Eqs_S1-S4_and_SI_p5_Eq_S7}
+    history_relaxation_s: {role: engineering-prior/unresolved, locator: Qiu_quasistatic_reversal_closure_has_no_local_tau}
+    direction_smoothing_K_per_s: {role: engineering-prior/unresolved, locator: differentiable_E0_regularization}
+    explicit_contact_total_ohm: {role: literature-derived, formula: 262.5_ohm_minus_2.5_ohm_intrinsic_metallic_estimate}
+  closure_boundary: >-
+    E0 uses a differentiable rate-smoothed h closure informed by the Qiu major-loop
+    branches. It does not claim exact reproduction of the source reversal ledger
+    in Eqs. S2-S4 or of measured minor loops.
+
+circuit:
+  load_resistance_ohm: 12000.0
+  parallel_capacitance_F: 1.45e-10
+  ambient_temperature_K: 325.0
+  input_voltage_V: 12.0
+  provenance:
+    topology: {role: literature-reported, locator: main_Fig1B_and_SI_Eq_S5}
+    load_resistance_ohm: {role: literature-reported, locator: SI_FigS1}
+    parallel_capacitance_F: {role: source-author-fitted, locator: SI_p5}
+    ambient_temperature_K: {role: literature-reported, locator: main_Fig2_and_SI_FigS1_context}
+
+materials:
+  vo2:
+    electrical_conductivity_S_m: 8.0e5
+    thermal_conductivity_W_mK: 4.0
+    volumetric_heat_capacity_J_m3K: 3.07e6
+    provenance:
+      electrical_conductivity_S_m: {role: literature-derived, locator: Qiu_SI_p3_reference_52, use: contact_estimate_only}
+      thermal_conductivity_W_mK: {role: engineering-prior/unresolved, locator: local_value_not_reported_by_Qiu}
+      volumetric_heat_capacity_J_m3K: {role: literature-derived, locator: Qiu_SI_p5_cited_336K_value}
+  ti:
+    electrical_conductivity_S_m: 2.38e6
+    thermal_conductivity_W_mK: 21.9
+    volumetric_heat_capacity_J_m3K: 2.35e6
+    provenance: {role: engineering-prior/unresolved, locator: local_values_not_reported_by_Qiu}
+  au:
+    electrical_conductivity_S_m: 4.10e7
+    thermal_conductivity_W_mK: 317.0
+    volumetric_heat_capacity_J_m3K: 2.49e6
+    provenance: {role: engineering-prior/unresolved, locator: local_values_not_reported_by_Qiu}
+  al2o3:
+    electrical_conductivity_S_m: 1.0e-14
+    thermal_conductivity_W_mK: 35.0
+    volumetric_heat_capacity_J_m3K: 3.00e6
+    provenance:
+      electrical_topology: {role: literature-reported, locator: main_text_electrically_isolated_thermally_coupled}
+      local_values: {role: engineering-prior/unresolved, locator: local_values_not_reported_by_Qiu}
+
+interfaces:
+  electrical_contact_resistance_m2_ohm:
+    vo2_ti: 1.30e-12
+    provenance:
+      role: engineering-prior/unresolved
+      derivation: equal_split_of_260_ohm_times_20nm_by_500nm_assumed_contact_area
+  thermal_boundary_resistance_m2K_W:
+    vo2_al2o3: 0.0
+    vo2_ti: 0.0
+    ti_au: 0.0
+    provenance:
+      role: engineering-prior/unresolved
+      semantics: ideal_interface_E0_baseline_values_are_not_Qiu_measurements
+  bottom_conductance_W_K: 1.0e-6
+  bottom_conductance_provenance:
+    role: engineering-prior/unresolved
+    warning: Qiu_fitted_Sth_0p206mW_per_K_is_lumped_and_is_not_used_as_local_boundary_data
+
+nominal_smoke:
+  refinement: 2
+  dt_s: 1.0e-10
+  steps: 50
+  initial_voltage_V: 0.0
+  initial_branch: heating
+
+verification:
+  mesh_refinement_levels: [2, 4, 8]
+  peak_field_definition:
+    statistic: p99
+    material: vo2
+    x_exclusion_from_contact_edge_m: 1.0e-8
+    z_exclusion_from_vo2_boundary_m: 1.0e-8
+    rationale: fixed_physical_window_excludes_ideal_electrode_corner_singularity
+  manufactured_grid: {nx: 12, nz: 6}
+  switching_fixture:
+    dt_s: 1.0e-9
+    pulse_temperature_rise_target_K: 20.0
+    steps: 4
+
+gates:
+  manufactured_electrical_relative_l2_max: 1.0e-10
+  layered_electrical_relative_error_max: 1.0e-10
+  layered_thermal_relative_error_max: 1.0e-10
+  electrical_contact_jump_relative_error_max: 1.0e-10
+  thermal_interface_jump_relative_error_max: 1.0e-10
+  substrate_invariance_relative_error_max: 1.0e-12
+  substrate_tamper_effect_relative_min: 1.0e-3
+  relative_current_imbalance_max: 1.0e-6
+  smooth_window_energy_imbalance_max: 1.0e-4
+  switching_window_energy_imbalance_max: 1.0e-3
+  main_qoi_mesh_change_max: 0.01
+  peak_field_mesh_change_max: 0.02
+  uniform_2d_to_reduced_error_max: 0.01
+  nominal_rc_residual_A_max: 1.0e-12
+  nominal_smoke_requires_finite: true
+  all_required_gates_must_pass: true
+
+outputs:
+  preregistration: outputs/tables/m40_qiu_e0_preregistration.json
+  summary: outputs/tables/m40_qiu_e0_summary.json
+  mesh_convergence: outputs/tables/m40_qiu_mesh_convergence.csv
+  geometry_figure: outputs/figures/m40/qiu_device_geometry.png
+  field_figure: outputs/figures/m40/qiu_e0_field_maps.png
+  report: docs/codex_reports/m40_qiu_vo2_e0_results.md
