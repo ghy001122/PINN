@@ -2,38 +2,28 @@
 
 ## Authoritative Current Queue
 
-Exactly one bottleneck is active:
-`Q2_M40_QIU_VO2_REAL_DEVICE_2D_BRIDGE_E0`. The constrained `gamma_sub`
-result remains the safe rank-1 synthetic inverse mainline and is unchanged.
+Exactly one bottleneck is active: `Q2_MANUSCRIPT_EVIDENCE_COMPRESSION`. The
+constrained `gamma_sub` result remains the safe rank-1 synthetic mainline.
 
-### Priority M40 - Qiu VO2 conservative 2D E0
+### Priority M-COMP - evidence-bounded manuscript compression
 
-Lock the Qiu main/SI hashes, reported and fitted quantities, unresolved local
-2D parameters, nominal smoke protocol, withheld future curve, equations,
-implementation, and fixed E0 thresholds in a separate preregistration commit.
-Then execute the formal verifier exactly once.
+M40 is closed `failed_but_informative`. It passes manufactured, layered,
+interface, substrate-tamper, current, energy, and reduced-limit checks, but
+fails both mesh gates. M41 is not authorized and the formal run is not repeated.
 
-Execution order:
+Next round:
 
-1. pass source/hash, geometry, constitutive, interface, and fail-closed tests;
-2. create the independent preregistration commit without formal results;
-3. run manufactured, layered, contact/TBR, substrate-tamper, current/energy,
-   three-mesh, reduced-limit, and nominal Qiu smoke checks;
-4. update evidence and authorize M41 only if every hard gate passes.
+1. retain `gamma_sub` as the only positive inverse mainline;
+2. retain full-PINN architecture facts and every trained-forward failure;
+3. use M36/M37R as numerical/hybrid-event limitations only;
+4. use M40 as a source-contract and mesh-convergence failure boundary only;
+5. complete main text, limitations, failure table, figure/table map, and
+   reviewer-defense matrix, then perform journal-fit/go-no-go review.
 
 ### Locked boundaries
 
-- **Full PINN:** M33/M34 and earlier trained paths remain
-  `failed_but_informative`; no neural run is authorized.
-- **Public VO2:** M35/M36 remain failed. M37R nominal window parity passes,
-  but perturbation topology fails before geometry. No M38 or fit is active.
-- **M40:** no inverse, PINN, fit, parameter search, M38, Zhang sealed 13 V,
-  `gamma_eff`, or real-device-calibrated wording.
-- **Other routes:** SID/EC-OQ, CPCF/CEBA/SCIS, N1-N3/SC-LOS, latent heat,
-  solver rescue, public parameter search, and new UQ remain inactive.
-
-## Non-negotiable boundaries
-
-No frozen-GT edits, 13 V access, post-hoc gate relaxation, hidden failures,
-synthetic-as-experimental wording, solver/PINN attribution mixing, or novelty
-claims for standard FVM, SVD/Fisher, event, mixed, or ALM components.
+- No M40 rerun, threshold change, M41, inverse, PINN, `gamma_eff`, M38, fit,
+  parameter search, or Zhang sealed 13 V access.
+- No real-device calibration, exact Qiu reproduction, project experimental
+  validation, or full hidden-field wording.
+- P1, M33/M34, M35-M37R, and frozen GT remain closed/read-only.

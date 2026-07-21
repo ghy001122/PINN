@@ -1,44 +1,42 @@
 # Active Phase
 
-Active phase ID: `Q2_M40_QIU_VO2_REAL_DEVICE_2D_BRIDGE_E0`
+Active phase ID: `Q2_MANUSCRIPT_EVIDENCE_COMPRESSION`
 
 ## Objective
 
-Build and formally verify one source-traceable Qiu et al. 2024 VO2 coplanar
-x-z electro-thermal-hysteresis-RC conservative solver. This is E0 numerical
-foundation work only: no inverse, PINN training, fit, parameter search, or
-positive real-device-result packaging. The constrained `gamma_sub` synthetic
-result remains the safe inverse mainline.
+Assemble the leanest defensible manuscript from locked evidence. The
+constrained `gamma_sub` synthetic result remains the safe inverse mainline; the
+complete PINN remains a mandatory architecture scaffold with failed trained
+forward evidence.
 
-Qiu's source is a lumped uniform-temperature ODE and leaves local 2D thermal,
-contact, substrate, and history-rate quantities unresolved. Therefore M40 can
-be `qualified_supported` only as a source-constrained implementation and E0
-verification, never as calibrated real-device reproduction.
+M40 is closed `failed_but_informative`. Its Qiu source contract and masked x-z
+implementation are reproducible facts, but formal E0 fails main-current mesh
+change (`0.0247878 > 0.01`) and fixed-window p99 field change
+(`0.110664 > 0.02`). M41 reduction, inverse, and PINN are not authorized.
 
 ## Evidence routing
 
 | Block | Status and boundary |
 | --- | --- |
-| M40 source contract | `supported` as preregistration input only after hashes/config are committed; no scientific outcome yet. |
-| M40 formal E0 | planned; all manufactured, interface, conservation, mesh, reduction, and nominal-smoke gates are fail-closed. |
-| D0/M35-M37R | Historical provenance/parity sub-results stay locked; source-compatible convergence, fit, and observability geometry remain failed or forbidden. No 13 V access. |
-| N0/M33/M34 | Architecture facts remain supported; every trained path and authorization gate remains `failed_but_informative`. No training is active. |
+| M40 source contract | `supported` provenance/implementation fact: reported geometry/protocol and unresolved local 2D quantities are explicit. |
+| M40 formal E0 | `failed_but_informative`; 12/14 gates pass, two mesh gates fail. No rerun or threshold change. |
+| D0/M35-M37R | Provenance/parity sub-results stay locked; convergence, fit, and observability geometry remain failed or forbidden. No 13 V access. |
+| N0/M33/M34 | Architecture facts remain supported; every trained path and authorization gate remains `failed_but_informative`. |
 | Other extensions | SID/EC-OQ and SCIS failed; CPCF frontier and N1-N3 remain `forbidden`; Figure 5 supports only bundled conditional performance. |
 
-Historical M35-M37R and N0 detail remains routed by the evidence index and is
-read-only in M40.
+Current M40 report: `docs/codex_reports/m40_qiu_vo2_e0_results.md`.
 
 ## Single bottleneck
 
-Complete the immutable M40 preregistration commit, execute the formal E0
-verifier exactly once, and route its actual pass/fail state through the
-evidence chain. Any hard-gate failure stops M41 reduction, inverse, and PINN.
+Compress the paper around the locked constrained `gamma_sub` inverse evidence,
+the full-PINN architecture/failure boundary, M36/M37R numerical limitation,
+and M40 mesh-convergence failure. No new solver rescue or neural search is
+active.
 
 ## Forbidden claims
 
-Qiu real-device calibrated, exact Qiu source-model reproduction, experimental
-validation, M40 inverse or PINN fidelity, `gamma_eff` relation before an actual
-conservative projection, completed public VO2 refit, valid fit lock, 13 V
-cross-voltage evaluation, quotient recovery, protocol rank/rotation, full
-hidden-field recovery, full STL reproduction, and universal Fourier/F-SPS
-superiority.
+Qiu real-device calibrated, exact Qiu reproduction, M40 E0 pass, M41
+authorization, experimental validation, M40 inverse/PINN fidelity,
+`gamma_eff`, completed public refit, 13 V evaluation, quotient recovery,
+protocol rank/rotation, full hidden-field recovery, full STL reproduction, and
+universal Fourier/F-SPS superiority.

@@ -12,7 +12,7 @@ This is a routing index; current status remains authoritative in `PROJECT_STATE.
 
 | Block | Status | Primary evidence |
 | --- | --- | --- |
-| M40 Qiu conservative 2D E0 | planned/preregistering; formal result absent | `configs/m40_qiu_vo2_real_device_2d.yaml`; `data/external/qiu_2024_thermal_neuristor/manifest.json`; `docs/physics/m40_qiu_model_responsibility.md`; no positive result until `outputs/tables/m40_qiu_e0_summary.json` exists |
+| M40 Qiu conservative 2D E0 | `failed_but_informative`; M41 not authorized | `outputs/tables/m40_qiu_e0_summary.json`; `outputs/tables/m40_qiu_mesh_convergence.csv`; `docs/codex_reports/m40_qiu_vo2_e0_results.md`; 12/14 gates pass, main QoI and p99 field mesh changes fail |
 | D0a provenance/source semantics | `qualified_supported` sub-result | `data/external/vo2_zhang_2024/manifest.json`; `outputs/tables/vo2_d0a_source_discrepancies.csv` |
 | D0a completion gate | `failed_but_informative` | `outputs/tables/vo2_d0a_source_reproduction.json`; `outputs/figures/vo2_d0a_source_semantics_v2.png` |
 | M35 D-PREG public multi-voltage lock | `supported` provenance/protocol fact; not fit evidence | `outputs/tables/m35_public_multivoltage_preregistration.json`; `data/external/vo2_zhang_2024/multivoltage_prereg_manifest_v1.json`; `configs/m35_public_multivoltage_fit.yaml` |

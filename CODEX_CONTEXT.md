@@ -5,10 +5,10 @@
 Read this file and `docs/research_strategy/active_phase.md` first. Load longer context through `docs/research_strategy/context_loading_policy.md`.
 
 - Authoritative goal: `PROJECT_GOAL.md`
-- Phase ID: `Q2_M40_QIU_VO2_REAL_DEVICE_2D_BRIDGE_E0`
+- Phase ID: `Q2_MANUSCRIPT_EVIDENCE_COMPRESSION`
 - Current evidence: `docs/project_state/current_evidence_index.md`
 - Safe historical evidence lock: `d1121e16fa5015a297da468e3e6f0504b9e97d17`
-- Current report: `docs/codex_reports/m40_qiu_vo2_e0_results.md` (formal E0 pending)
+- Current report: `docs/codex_reports/m40_qiu_vo2_e0_results.md`
 
 ## Corrected North Star
 
@@ -18,17 +18,17 @@ The calibration-gated constrained `gamma_sub` rank-1 result is the safe `qualifi
 
 ## Single Active Bottleneck
 
-`Q2_M40_QIU_VO2_REAL_DEVICE_2D_BRIDGE_E0`: preregister and execute one
-source-traceable Qiu-2024 VO2/Ti/Au/Al2O3 x-z electro-thermal-hysteresis-RC
-conservative solver verifier. M40 supersedes manuscript compression only for
-this bounded round. It does not alter the constrained `gamma_sub` safe
-mainline or any M35-M37R, P1, M33/M34, or frozen-GT evidence state.
+`Q2_MANUSCRIPT_EVIDENCE_COMPRESSION`: M40 is closed
+`failed_but_informative`; its main-current mesh change is `0.0247878 > 0.01`
+and its fixed-window p99 field change is `0.110664 > 0.02`. M41 is not
+authorized. Compress the manuscript around the constrained `gamma_sub` safe
+mainline and the explicit full-PINN/public-source/M40 failure boundaries.
 
 ## Evidence Snapshot
 
 | Block | Current boundary |
 | --- | --- |
-| M40 Qiu 2D E0 | Source/config/implementation preregistration in progress; no formal E0 result yet. Qiu local 2D thermal/contact data are incomplete, so real-device calibration remains forbidden. |
+| M40 Qiu 2D E0 | `failed_but_informative`; 12/14 formal gates pass, but both mesh gates fail. Current/energy/interface/reduced checks pass. M41 is not authorized. |
 | Frozen/P0-P4 | GT unchanged; P0/P3 qualified, P1/P2 failed, P4 forbidden. |
 | D0/M35-M37R | D0a/M35 remain failed. M36 nominal solver parity passes; M37R reproduces full/post counts `0/216/381/4` and `0/196/344/0`, then stops on 15 V perturbation topology (`343` vs `344`, common prefix `0`). No Jacobian, fit, lock, or 13 V access. |
 | N0 v1-v3r | Operator audits pass, trained paths fail. v3r port `0.0955475` passes but physics/field/flux/ledger gates fail; strong-Wolfe becomes non-finite. |
@@ -45,10 +45,9 @@ Keep `public_external_raw`, `derived`, `interpolated`, `solver_generated`, `pinn
 
 ## Operating Rule
 
-Run no inverse, PINN training, parameter search, M38, or Zhang sealed-13-V
-access. M40 must stop if any fixed E0 gate fails. Passing E0 can support only a
-source-constrained conservative-solver verification; it cannot support
-real-device calibration, exact Qiu reproduction, experimental validation, or
-hidden-field recovery. Preserve every historical negative artifact and use
-only `supported`, `qualified_supported`, `failed_but_informative`, or
-`forbidden`.
+Do not rerun or rescue M40 under the consumed preregistration. Run no M41,
+inverse, PINN training, parameter search, M38, or Zhang sealed-13-V access.
+M40 supports only an implementation/failure boundary, not calibrated-device,
+exact-reproduction, experimental-validation, or hidden-field claims. Preserve
+all negative artifacts and use only `supported`, `qualified_supported`,
+`failed_but_informative`, or `forbidden`.

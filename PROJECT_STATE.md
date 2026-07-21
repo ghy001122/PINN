@@ -3,21 +3,21 @@
 ## Authoritative Current Snapshot
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
-- Active phase: `Q2_M40_QIU_VO2_REAL_DEVICE_2D_BRIDGE_E0`.
+- Active phase: `Q2_MANUSCRIPT_EVIDENCE_COMPRESSION`.
 - Frozen GT v1.1: unchanged and read-only.
 - Safe inverse mainline: constrained `gamma_sub`, calibration-gated rank-1, `qualified_supported` only under locked synthetic conditions.
 - Full PINN: mandatory architecture/paper scaffold; every bounded trained-forward route remains `failed_but_informative`, so sensitivity/inverse claims are `forbidden`.
 - Public VO2: M36 finite-step gates remain failed. M37R fixes the count-window contract and passes nominal parity, but a 15 V `log_C_th=-1%` perturbation changes post-transient event topology before Jacobian/SVD; M38, fit, lock, and 13 V access remain absent.
 - Project-generated experimental validation: absent.
-- M40 Qiu bridge: source contract and E0 implementation are being
-  preregistered. Formal E0 has not run, and no positive M40 claim exists yet.
-  Qiu's local 2D thermal/contact parameters and raw numeric curves are absent.
+- M40 Qiu bridge: source contract and implementation facts are locked. Formal
+  E0 is `failed_but_informative`: main-current mesh change is `0.0247878` and
+  p99 field change is `0.110664`, both above their fixed gates. M41 is blocked.
 
 ## Current Gate Ledger
 
 | Gate | Status | Direct boundary |
 | --- | --- | --- |
-| M40 Qiu 2D E0 | planned / formal result absent | Source-locked geometry/protocol plus explicitly labeled unresolved priors. Passing E0 could support only conservative implementation verification; calibration and experimental validation remain forbidden. |
+| M40 Qiu 2D E0 | `failed_but_informative`; M41 `forbidden` | Current imbalance `2.45460e-8`, smooth/switching energy `1.42626e-8`/`2.32441e-12`, and reduced error `2.34910e-15` pass. Main QoI `0.0247878 > 0.01` and p99 field `0.110664 > 0.02` fail. |
 | Frozen GT v1.1 | `supported` integrity baseline | Equations, parameters, arrays, and acceptance files unchanged. |
 | P0 / P3 | `qualified_supported` | Reduced synthetic semantics; P3 is only a static pure-electrical three-parameter local-rank result. |
 | P1 / P2 | `failed_but_informative` | P1 retains `E_T=0.37563055753707886` and interface residual `106.15460205078125`; P2 thermal/material-block identifiability remains unresolved. P1 is required only for multidomain/interface claims. |
@@ -54,8 +54,8 @@
 
 ## Current Single Priority
 
-Lock and run M40 E0 once. Preserve the constrained `gamma_sub` rank-1
-synthetic mainline and every M35-M37R/P1/M33/M34 failure. If any M40 gate
-fails, stop before M41, inverse, or PINN; no M38, fit, or 13 V access is active.
+Resume evidence-bounded manuscript compression. Preserve the constrained
+`gamma_sub` rank-1 synthetic mainline and every M35-M37R/P1/M33/M34/M40
+failure. M40 is not rerun; no M41, M38, fit, PINN, or 13 V access is active.
 
 Compact routing: `docs/project_state/current_evidence_index.md`.

@@ -38,7 +38,12 @@ validation.
 
 ### 3.3 Qiu M40 E0 verification
 
-No positive sentence is authorized here until the formal E0 summary exists.
+The source-constrained implementation passes manufactured, layered,
+interface, current, energy, substrate-tamper, and uniform-reduction checks,
+but fails both preregistered mesh gates. Its finest-pair main-current and
+fixed-window p99 field changes are 0.0247878 and 0.110664, respectively,
+versus limits of 0.01 and 0.02. This is a numerical failure boundary; it is
+not real-device calibration or experimental validation.
 
 ## 4. Discussion
 

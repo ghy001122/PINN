@@ -6,13 +6,15 @@
 
 - Task: `Q2_M40_QIU_VO2_REAL_DEVICE_2D_BRIDGE_E0`.
 - Baseline: `e3d47edf7aa4cfc57b0272da20dd1f5654f8c877`.
-- Stage at registration: source contract, fixed config, solver implementation,
-  and E0 tests prepared; formal execution not yet run.
+- Preregistration commit: `017260194e42d94633bf64354c922b238dc40c79`.
+- Formal result: `failed_but_informative`; 12/14 gates pass. The finest-pair
+  main-current change is `0.0247878 > 0.01` and the fixed-window p99 field
+  change is `0.110664 > 0.02`. M41 is not authorized.
 - Source: Qiu et al. 2024 main article and Supporting Information, DOI
   `10.1002/adma.202306818`; local raw copies are hash-locked and not tracked.
 - Boundary: no inverse, PINN training, parameter search, M38, Zhang sealed
   13 V access, frozen-GT edit, or real-device calibration claim.
-- Planned evidence: `outputs/tables/m40_qiu_e0_preregistration.json`,
+- Evidence: `outputs/tables/m40_qiu_e0_preregistration.json`,
   `outputs/tables/m40_qiu_e0_summary.json`, and
   `outputs/tables/m40_qiu_mesh_convergence.csv`.
 
