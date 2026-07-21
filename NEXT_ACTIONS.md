@@ -2,31 +2,35 @@
 
 ## Authoritative Current Queue
 
-Exactly one bottleneck is active: `Q2_MANUSCRIPT_EVIDENCE_COMPRESSION`. The
-constrained `gamma_sub` result remains the safe rank-1 synthetic mainline.
+Exactly one bottleneck is active:
+`Q2_E1F_EXTERNAL_ANCHOR_WITH_MANUSCRIPT_COMPRESSION`. The constrained
+`gamma_sub` result remains the safe rank-1 synthetic mainline.
 
-### Priority M-COMP - evidence-bounded manuscript compression
+### Priority E1F - Qiu author-model external-literature anchor
 
-M40 and its single M40R repair are closed `failed_but_informative`. M40R
-repairs the conservative mesh/field gates, but the source-composed active run
-exits the Qiu R--T domain before `3 R_load C` and fails the current fine-pair
-gate. M41 is not authorized and no further repair is run.
+M40 and its single M40R repair remain closed `failed_but_informative`. E1F now
+implements the SI equations with declared LLP reversal and initial-condition
+assumptions, checks DOP853/Radau parity,
+evaluates the locked SI Fig. S1 setting trace and main Fig. 2b 12.5 V holdout,
+and audits the locked source-to-PDE scale mismatch without rerunning 2D code.
 
-Next round:
+Execution order:
 
-1. retain `gamma_sub` as the only positive inverse mainline;
-2. retain full-PINN architecture facts and every trained-forward failure;
-3. use M36/M37R as numerical/hybrid-event limitations only;
-4. use M40/M40R as a source-contract, sharp-corner, local-thermal-prior, and
-   active-transient/source-domain failure boundary only;
-5. complete main text, limitations, failure table, figure/table map, and
-   reviewer-defense matrix, then perform journal-fit/go-no-go review.
+1. preserve the independent preregistration and holdout leakage barrier;
+2. implement and test the author S1-S7 compact model;
+3. digitize only the locked setting and holdout panels with uncertainty;
+4. run the one formal E1F evaluation and conditional effective-coordinate
+   preflight;
+5. update the manuscript and current evidence chain once, then return to
+   manuscript compression.
 
 ### Locked boundaries
 
-- No further M40 repair/rerun, threshold change, M41, inverse, PINN,
-  `gamma_eff`, M38, fit,
+- No further M40/M40R repair/rerun, threshold change, M41, inverse network,
+  PINN, `gamma_eff`, M38, holdout fit,
   parameter search, or Zhang sealed 13 V access.
 - No real-device calibration, exact Qiu reproduction, project experimental
   validation, or full hidden-field wording.
+- The source omits a complete executable reversal/initial-condition contract;
+  exact author-code reproduction is therefore not an E1F success state.
 - P1, M33/M34, M35-M37R, and frozen GT remain closed/read-only.

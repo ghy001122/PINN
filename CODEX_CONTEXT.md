@@ -5,10 +5,10 @@
 Read this file and `docs/research_strategy/active_phase.md` first. Load longer context through `docs/research_strategy/context_loading_policy.md`.
 
 - Authoritative goal: `PROJECT_GOAL.md`
-- Phase ID: `Q2_MANUSCRIPT_EVIDENCE_COMPRESSION`
+- Phase ID: `Q2_E1F_EXTERNAL_ANCHOR_WITH_MANUSCRIPT_COMPRESSION`
 - Current evidence: `docs/project_state/current_evidence_index.md`
 - Safe historical evidence lock: `d1121e16fa5015a297da468e3e6f0504b9e97d17`
-- Current report: `docs/codex_reports/m40_qiu_vo2_e0_results.md`
+- Current report: `docs/codex_reports/m40r_qiu_e0_repair_results.md`
 
 ## Corrected North Star
 
@@ -18,11 +18,11 @@ The calibration-gated constrained `gamma_sub` rank-1 result is the safe `qualifi
 
 ## Single Active Bottleneck
 
-`Q2_MANUSCRIPT_EVIDENCE_COMPRESSION`: M40 is closed
-`failed_but_informative`; its main-current mesh change is `0.0247878 > 0.01`
-and its fixed-window p99 field change is `0.110664 > 0.02`. M41 is not
-authorized. Compress the manuscript around the constrained `gamma_sub` safe
-mainline and the explicit full-PINN/public-source/M40 failure boundaries.
+`Q2_E1F_EXTERNAL_ANCHOR_WITH_MANUSCRIPT_COMPRESSION`: preserve M40/M40R and
+run one source-equation-constrained Qiu compact-model external-literature anchor. M40R passes
+all 14 original numerical gates but fails three active-transient gates; M41 is
+not authorized. E1F cannot reopen M40, train a PINN, fit the holdout, or create
+an experimental-validation claim.
 
 ## Evidence Snapshot
 
@@ -45,9 +45,14 @@ Keep `public_external_raw`, `derived`, `interpolated`, `solver_generated`, `pinn
 
 ## Operating Rule
 
-Do not rerun or rescue M40 under the consumed preregistration. Run no M41,
-inverse, PINN training, parameter search, M38, or Zhang sealed-13-V access.
-M40 supports only an implementation/failure boundary, not calibrated-device,
-exact-reproduction, experimental-validation, or hidden-field claims. Preserve
-all negative artifacts and use only `supported`, `qualified_supported`,
-`failed_but_informative`, or `forbidden`.
+Do not rerun or rescue M40/M40R. E1F may implement only the SI-defined lumped
+equations with declared LLP reversal and initial-condition assumptions, then digitize the locked setting/holdout panels after the
+preregistration commit, and conditionally audit two effective coordinates. Run
+no M41, inverse network, PINN training, holdout refit, M38, or Zhang sealed-13-V
+access. Preserve all negative artifacts and use only `supported`,
+`qualified_supported`, `failed_but_informative`, or `forbidden`.
+
+The Qiu SI does not publish a complete executable reversal update, numerical
+initial-condition contract, integrator, tolerances, author code, or raw arrays.
+Therefore exact author-code reproduction remains `forbidden`; E1F can support
+only a source-equation-constrained reimplementation.

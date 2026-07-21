@@ -1,0 +1,643 @@
+{
+  "all_preflight_checks_pass": true,
+  "base_snapshot": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa",
+  "created_at_utc": "2026-07-21T11:18:51.390743+00:00",
+  "digitization_authorized_after_preregistration_commit": true,
+  "formal_execution_limit": 1,
+  "formal_result_paths_absent_at_lock": [
+    "outputs/tables/e1f_qiu_author_validation.json",
+    "outputs/tables/e1f_qiu_author_validation.csv",
+    "outputs/tables/e1f_source_to_pde_bridge_mismatch.csv",
+    "outputs/tables/e1f_effective_coordinate_preflight.json",
+    "outputs/figures/e1f/qiu_author_model_and_holdout.png",
+    "outputs/figures/e1f/source_to_pde_bridge_mismatch.png",
+    "docs/codex_reports/e1f_qiu_author_external_anchor_results.md"
+  ],
+  "frozen_gt_records": [
+    {
+      "git_blob_oid": "513ddedee7331b870b3d96253c7365315612942e",
+      "mtime_utc_informational": "2026-06-21T16:45:59.175752+00:00",
+      "path": "configs/gt_v1_acceptance_ltp_ltd.yaml",
+      "sha256": "F1F71F21F1D0D27532EEAD23A3A4B71B0864E6B0966E564104DCFFD7040C1D93",
+      "size_bytes": 1480,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "c9a19165124101d489a9e367e8fee8d452926532",
+      "mtime_utc_informational": "2026-06-21T16:45:58.957860+00:00",
+      "path": "configs/gt_v1_acceptance_triangle.yaml",
+      "sha256": "F2E6BEC6006827344BEBDDCF20519B5B87F923B349A8799596D06E9F254A2B02",
+      "size_bytes": 1471,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": null,
+      "mtime_utc_informational": "2026-06-21T16:47:56.825219+00:00",
+      "path": "data/processed/gt_v1_acceptance/gt_ltp_ltd.npz",
+      "sha256": "772D17178C77392BF8A0813ADA3DB4A7241C5FA4E6D72E091894271BFA13C247",
+      "size_bytes": 617768,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": null,
+      "mtime_utc_informational": "2026-06-21T16:47:54.118295+00:00",
+      "path": "data/processed/gt_v1_acceptance/gt_triangle.npz",
+      "sha256": "4E4814D9C66A79CBE86417296B0A797E53FFFF2CEE2BD881548FBCD35E05C9F8",
+      "size_bytes": 496603,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": null,
+      "mtime_utc_informational": "2026-06-21T16:47:59.046348+00:00",
+      "path": "data/processed/gt_v1_acceptance/manifest.json",
+      "sha256": "634554429B9E61A231E47BF35B9B5C66C1C316E5E11A86BDE0540B05FF5AE30F",
+      "size_bytes": 3563,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": null,
+      "mtime_utc_informational": "2026-06-21T16:47:56.827228+00:00",
+      "path": "data/processed/gt_v1_acceptance/obs_ltp_ltd_sparse.npz",
+      "sha256": "7155BFF7C406FAB49E9670FA8A73AB6D0063459A80FEB705138E3FE61A351645",
+      "size_bytes": 2705,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": null,
+      "mtime_utc_informational": "2026-06-21T16:47:54.121208+00:00",
+      "path": "data/processed/gt_v1_acceptance/obs_triangle_sparse.npz",
+      "sha256": "F45DAF53136A255B3666EBEB56E6298CE148A613C46FA596B795E7ADE68EA602",
+      "size_bytes": 2494,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": null,
+      "mtime_utc_informational": "2026-06-21T16:47:56.827228+00:00",
+      "path": "data/processed/gt_v1_acceptance/params_gt_v1.json",
+      "sha256": "1020E9B07466C8F3474762702AA354CF6A6B73DA26DEB31D3F75C7E54521D9FA",
+      "size_bytes": 1066,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "150b7a3c15295f2568bb0392b3ddd842bbbee572",
+      "mtime_utc_informational": "2026-06-22T03:41:29.353340+00:00",
+      "path": "docs/gt_v1_acceptance_report.md",
+      "sha256": "0F72718AFFB84F727771F8D4A1A16AFB9D7C0D15BD7984632B3BEB8155F91643",
+      "size_bytes": 2749,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    }
+  ],
+  "git_commit_before_preregistration": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa",
+  "git_dirty_before_preregistration": true,
+  "governance": {
+    "allowed_success_wording": "A source-equation-constrained Qiu compact-model reimplementation achieved independent-solver parity and was evaluated against a repository-withheld, same-paper digitized literature curve under the declared source parameters and explicit reversal/initial-condition assumptions.",
+    "exact_author_code_reproduction_authorized": false,
+    "forbidden_wording": [
+      "exact author-code reproduction",
+      "independent experimental validation",
+      "Qiu real-device calibration",
+      "local 2D parameter validation",
+      "unique parameter recovery",
+      "trained PINN success"
+    ],
+    "frozen_gt_modification": "forbidden",
+    "further_m40r_execution_forbidden": true,
+    "m40r_formal_budget_consumed": true,
+    "m41_authorized": false,
+    "original_numeric_e0_passed": true,
+    "qiu_dynamic_source_bridge_passed": false,
+    "sealed_zhang_13v_access": false,
+    "strict_author_model_reproduction_status": "forbidden_until_executable_source_contract_is_complete"
+  },
+  "locked_author_parameters": {
+    "activation_temperature_K": 5220.0,
+    "beta_per_K": 0.253,
+    "critical_temperature_K": 332.8,
+    "dynamic_metallic_factor": 4.9,
+    "hysteresis_width_K": 7.193,
+    "metallic_resistance_ohm": 262.5,
+    "parallel_capacitance_F": 1.45e-10,
+    "provenance_role": "source_author_fitted_lumped_equivalent",
+    "proximity_gamma_dimensionless": 0.956,
+    "resistance_prefactor_ohm": 0.005359,
+    "thermal_capacitance_J_per_K": 4.96e-11,
+    "thermal_conductance_W_per_K": 0.000206
+  },
+  "locked_baselines": [
+    "qiu_author_compact_hysteresis",
+    "single_rc_no_hysteresis_heating_branch",
+    "fixed_heating_branch"
+  ],
+  "locked_budget": {
+    "fitting": "forbidden",
+    "formal_execution_limit": 1,
+    "gpu_hours": 0.0,
+    "holdout_refit": "forbidden",
+    "maximum_cpu_wall_hours": 1.0,
+    "maximum_total_forward_integrations": 72,
+    "pinn_training": "forbidden"
+  },
+  "locked_digitization_contract": {
+    "axis_calibration": "explicit_tick_pixel_pairs",
+    "curve_sampling": "per_x_pixel_median_centerline",
+    "main_metric": {
+      "formula": "rmse_over_digitized_p95_minus_p5",
+      "full_plotted_time_interval": true,
+      "name": "range_normalized_rmse",
+      "no_phase_or_time_shift_alignment": true
+    },
+    "no_posthoc_axis_or_curve_selection": true,
+    "preserve_crop_sha256": true,
+    "preserve_raw_pixel_coordinates": true,
+    "render_dpi": 600,
+    "uncertainty": {
+      "calibration_pixel_half_width": 1.0,
+      "monte_carlo_draws": 500,
+      "propagate_axis_and_trace_uncertainty": true,
+      "seed": 20260721,
+      "trace_pixel_half_width_rule": "half_observed_line_width_plus_one_pixel"
+    }
+  },
+  "locked_effective_coordinate_preflight": {
+    "closure": "C_th_equals_tau_th_times_S_th",
+    "conditional_on_solver_and_setting_gate": true,
+    "coordinates": [
+      "log_S_th",
+      "log_tau_th"
+    ],
+    "inverse_network_forbidden": true,
+    "local_rank_is_not_global_identifiability": true,
+    "relative_singular_value_rank_threshold": 0.05,
+    "relative_steps": [
+      0.01,
+      0.005,
+      0.0025
+    ],
+    "retained_condition_number_max": "1.0e4",
+    "scalar_features": [
+      "period_s",
+      "peak_current_A",
+      "charge_per_cycle_C",
+      "energy_per_cycle_J"
+    ],
+    "topology_change_invalidates_central_column": true,
+    "topology_change_route": "one_sided_sensitivity_and_profile_objective",
+    "waveform_points": 501
+  },
+  "locked_gates": {
+    "all_required_setting_gates_must_pass_before_effective_coordinate_preflight": true,
+    "digitization_uncertainty_must_be_reported": true,
+    "dop853_radau_current_waveform_nrmse_max": 0.001,
+    "dop853_radau_temperature_waveform_nrmse_max": 0.001,
+    "dop853_radau_voltage_waveform_nrmse_max": 0.001,
+    "holdout_curve_nrmse_max": 0.15,
+    "setting_curve_nrmse_max": 0.1,
+    "solver_activity_class_must_match": true,
+    "solver_event_count_must_match": true
+  },
+  "locked_hysteresis_contract": {
+    "branch_delta_cooling": -1,
+    "branch_delta_heating": 1,
+    "exact_author_code_reproduction_authorized": false,
+    "insulating_fraction_symbol": "F",
+    "no_rate_smoothed_history_substitution": true,
+    "proximity_function": "equation_S4",
+    "qiu_source_reports_complete_executable_update": false,
+    "reference_support": {
+      "limiting_loop_proximity_doi": "10.1109/TMAG.2002.806344",
+      "qiu_reference_49_doi": "10.1117/1.1501095",
+      "supported_rule": "branch_parameters_change_only_at_reversal_points"
+    },
+    "reversal_definition": "LLP_reference_interpretation_of_temperature_derivative_sign_change_with_event_localization",
+    "reversal_temperature_ledger": "equations_S2_to_S4_with_reference_supported_event_updates",
+    "source_does_not_report_integrator_or_direction_deadband": true
+  },
+  "locked_initial_conditions": {
+    "capacitor_voltage_V": 0.0,
+    "device_temperature_K": 325.0,
+    "initial_branch_delta": 1,
+    "initial_branch_semantics": "heating_major_branch",
+    "provenance": "explicit_implementation_assumptions_not_reported_numerical_initial_conditions"
+  },
+  "locked_solver_contract": {
+    "atol_temperature_K": 1e-08,
+    "atol_voltage_V": 1e-10,
+    "comparison_points": 2001,
+    "independent_method": "Radau",
+    "maximum_reversal_restarts": 1000,
+    "maximum_step_s": 2e-08,
+    "primary_method": "DOP853",
+    "rtol": 1e-09
+  },
+  "locked_source_contract": {
+    "constitutive_curves": {
+      "locator": "main_pdf_page_2_figure_1_panel_c",
+      "must_not_be_used_as_holdout": true,
+      "role": "constitutive_parity_only"
+    },
+    "doi": "10.1002/adma.202306818",
+    "equations_locator": "supporting_information_pdf_pages_4_to_6_equations_S1_to_S7",
+    "holdout_curve": {
+      "ambient_temperature_K": 325.0,
+      "curve_id": "qiu_2024_main_fig2b_12p5v",
+      "independent_external_validation": false,
+      "input_voltage_V": 12.5,
+      "load_resistance_ohm": 12000.0,
+      "locator": "main_pdf_page_3_figure_2_panel_b",
+      "numeric_ordinate_access_before_preregistration": false,
+      "role": "repository_withheld_same_paper_digitized_curve_evaluation",
+      "same_paper_development_contamination_risk": true,
+      "source_author_parameter_development_independence_known": false
+    },
+    "main_pdf": "data/external/qiu_2024_thermal_neuristor/raw/qiu_2024_main.pdf",
+    "manifest": "data/external/qiu_2024_thermal_neuristor/manifest.json",
+    "setting_curve": {
+      "ambient_temperature_K": 325.0,
+      "ambient_temperature_provenance": "implementation_assumption_from_main_figure_context_not_reported_in_S1_caption",
+      "curve_id": "qiu_2024_si_fig_s1_12v",
+      "input_voltage_V": 12.0,
+      "load_resistance_ohm": 12000.0,
+      "locator": "supporting_information_pdf_page_7_figure_S1",
+      "panel_semantics": "not_identified_as_experiment_or_simulation_in_caption",
+      "role": "source_figure_implementation_check"
+    },
+    "supporting_information_pdf": "data/external/qiu_2024_thermal_neuristor/raw/qiu_2024_supporting_information.pdf"
+  },
+  "m40_protected_records": [
+    {
+      "git_blob_oid": "d0a605a5e7ab680e4127e6d528994056d671a3b9",
+      "mtime_utc_informational": "2026-07-21T06:57:08.822265+00:00",
+      "path": "configs/m40_qiu_vo2_real_device_2d.yaml",
+      "sha256": "EA404EE217846553CDAA77644DB8FFB719DA4630240726C6F07FB92FC0F41CA9",
+      "size_bytes": 7744,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "9df4119f5467e405015f573c812b21c65f4928ce",
+      "mtime_utc_informational": "2026-07-21T06:57:13.395349+00:00",
+      "path": "data/external/qiu_2024_thermal_neuristor/manifest.json",
+      "sha256": "9FE009F6B4CD61243E6614FBB53210F6042D53D826FAD31B06C7CA7A6CDB253F",
+      "size_bytes": 4103,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "f2502179c5b9a1bcee766533a02aa73e36dcb04b",
+      "mtime_utc_informational": "2026-07-21T07:15:50.692027+00:00",
+      "path": "docs/codex_reports/m40_qiu_vo2_e0_results.md",
+      "sha256": "78E40F6609C1C2D84FCCF4A19A20C5FBED98A7C8273AE47DAB2D138146C9E935",
+      "size_bytes": 2807,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "9cda797711da817682f2f7672d05cc93d2c5d77b",
+      "mtime_utc_informational": "2026-07-21T06:57:21.245162+00:00",
+      "path": "docs/physics/m40_qiu_2d_equations.md",
+      "sha256": "00A3C69C4EA72C9A259FC35B5371345BFD51C6F3FFDA78071D89B006E09492AC",
+      "size_bytes": 2646,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "c85c0a69be0d3dca6cdd9551ecda89e0bf337ad7",
+      "mtime_utc_informational": "2026-07-21T06:57:17.160924+00:00",
+      "path": "docs/physics/m40_qiu_model_responsibility.md",
+      "sha256": "DF6A4A1EFF318B7847FD59252D472BAEF4E582B43A06E2D619BCD3DDCF16696E",
+      "size_bytes": 2713,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "3df8846a0d79996564af693119c05c4cb0a3ad3b",
+      "mtime_utc_informational": "2026-07-21T07:12:13.148474+00:00",
+      "path": "outputs/figures/m40/qiu_device_geometry.png",
+      "sha256": "819C3F58540D58671C63329D1E320E6639B23C4E28A94A221AAA1672D9113BFA",
+      "size_bytes": 38457,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "6914b28af31ee45d3c3d45a5fa2ce3853ac698f8",
+      "mtime_utc_informational": "2026-07-21T07:12:14.658708+00:00",
+      "path": "outputs/figures/m40/qiu_e0_field_maps.png",
+      "sha256": "9CBE2406DC2C6AB5B3989AF0E20BF037FE958EEE7064E0083E8B9E33901055FA",
+      "size_bytes": 74518,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "611500fdfddbaa3032c8f3310c905b64d0981582",
+      "mtime_utc_informational": "2026-07-21T07:08:39.601203+00:00",
+      "path": "outputs/tables/m40_qiu_e0_preregistration.json",
+      "sha256": "90D44A553AB03DAAC0CDD7747DCBD1484BFF975BA01EA68D597CC672045CE003",
+      "size_bytes": 5977,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "708b3af34985337b01378e21a0a513745087d4d7",
+      "mtime_utc_informational": "2026-07-21T07:12:14.763349+00:00",
+      "path": "outputs/tables/m40_qiu_e0_summary.json",
+      "sha256": "5B0E2B8B2C4AE073B137163CCF95CD98317E390928D8A57AE3C181A72AEAAAF7",
+      "size_bytes": 6182,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "28fb9d4a62e97950ecae152812f96fb9899812fa",
+      "mtime_utc_informational": "2026-07-21T07:12:11.787515+00:00",
+      "path": "outputs/tables/m40_qiu_mesh_convergence.csv",
+      "sha256": "F7246E2769282BE5561F61EA5490994F7096CC0C674895729A6A3D6A4C50D902",
+      "size_bytes": 447,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "5e36985971e679b0a605c0e6f4de9b8b64c35a66",
+      "mtime_utc_informational": "2026-07-21T07:02:33.559222+00:00",
+      "path": "scripts/run_m40_qiu_vo2_2d_e0.py",
+      "sha256": "6D202777C2B601FF9DA6DBFB5E4651B28CE2A92B0580CCE533075DE6C9869604",
+      "size_bytes": 39284,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "0affc229c7b8d9b82701f764a520c8ace17b4e9f",
+      "mtime_utc_informational": "2026-07-21T06:53:09.871513+00:00",
+      "path": "src/pinnpcm/physics/qiu_vo2_device.py",
+      "sha256": "8DD7137BB1BB0E82AA2F02DBBC309981275B019BA72CD2F756B060C40B97C7D6",
+      "size_bytes": 9893,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "d545a391fbc0c2cd175df356bdea6d10767fd531",
+      "mtime_utc_informational": "2026-07-21T06:52:58.819377+00:00",
+      "path": "src/pinnpcm/solvers/__init__.py",
+      "sha256": "1B7F6825F39C63D19D6A7931271A4F758FF9D085C14FDCBF1BD1E577B46CB4D5",
+      "size_bytes": 122,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "e246b4d52cb6a08e5d12833a3764bcb222a04dd5",
+      "mtime_utc_informational": "2026-07-21T06:53:15.183565+00:00",
+      "path": "src/pinnpcm/solvers/qiu_vo2_2d_fvm.py",
+      "sha256": "3DCA44667B2FC581C52A8876F732B6CD8B46315F0A6CA6F58C39D525F9AB3A25",
+      "size_bytes": 17666,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "642c0e0963149e7acb34191332b1f33b77ffff9d",
+      "mtime_utc_informational": "2026-07-21T07:00:17.031070+00:00",
+      "path": "tests/test_m40_qiu_2d_fvm.py",
+      "sha256": "F2B8B82B77CB605616FB6060129A79F74AA1480CE09FF01518AAE71479E056ED",
+      "size_bytes": 6693,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "58d5d532a8359d3995ce25d4a57b9f0f6dcd9903",
+      "mtime_utc_informational": "2026-07-21T06:59:07.462534+00:00",
+      "path": "tests/test_m40_qiu_energy_ledger.py",
+      "sha256": "85D0483F6B1AFA658C66186D05B4509D7EDB2890FF04C0465F8EF43E2D559B3A",
+      "size_bytes": 5383,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "e15702ef79e5a36efe262dbf7dd0c768e04e4ffd",
+      "mtime_utc_informational": "2026-07-21T06:58:59.415999+00:00",
+      "path": "tests/test_m40_qiu_geometry.py",
+      "sha256": "27E2D1BA43D0C84F65D26E606442C8E868171BFB8F3639DA9D48F5A368A352FC",
+      "size_bytes": 5780,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "64642c738058554e26a97b2f48ffbcdff326cd73",
+      "mtime_utc_informational": "2026-07-21T07:02:45.487429+00:00",
+      "path": "tests/test_m40_qiu_result_evidence.py",
+      "sha256": "CB15426F749EB43209704F3349BCFC5FE9EA5B24DF6530CB01E139DC9465CAE7",
+      "size_bytes": 3766,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    }
+  ],
+  "m40r_protected_records": [
+    {
+      "git_blob_oid": "3f50740cb8f1250ccc9946ccf30a5f246cc6863d",
+      "mtime_utc_informational": "2026-07-21T09:22:11.380875+00:00",
+      "path": "configs/m40r_qiu_e0_repair.yaml",
+      "sha256": "F00122185238D1FF51BE46ADA2D0BE6F486AF1CA6860E422216B90FAFB264C1D",
+      "size_bytes": 5255,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "e6c3eaf0177c5beacfd86e6c5eb21f5e8f7354a3",
+      "mtime_utc_informational": "2026-07-21T09:53:25.983322+00:00",
+      "path": "docs/codex_reports/m40r_qiu_e0_repair_results.md",
+      "sha256": "4399EBE2C4FD36C92E993BB4E8ECF652A790846CCB0FF0872E848FE4169DFBAF",
+      "size_bytes": 4872,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "1ad203d319018c4aaa30821ab11a0d8ec95bd82c",
+      "mtime_utc_informational": "2026-07-21T09:25:09.770844+00:00",
+      "path": "docs/codex_reports/m40r_qiu_mesh_forensics.md",
+      "sha256": "783F5412E06BA0362FA0B0C051C5535DF1E812987ABCF8E31C3437180C462546",
+      "size_bytes": 1096,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "4af82c3723d4fdb9afa902ffccd67081b4383fa3",
+      "mtime_utc_informational": "2026-07-21T09:34:23.444370+00:00",
+      "path": "outputs/figures/m40r/active_transient_and_ledgers.png",
+      "sha256": "272A3F2404A8781294D6C23C75FA8591A8B40C7C3B4C9A39076484D46173FF10",
+      "size_bytes": 191995,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "b60d60294db589c9bca783d5b01c37eda821e224",
+      "mtime_utc_informational": "2026-07-21T09:34:25.194919+00:00",
+      "path": "outputs/figures/m40r/mesh_and_field_convergence.png",
+      "sha256": "D4FB844E4494C415D77CE9D2E5229594DCE100636C1D02E36F6F72F2FB11407D",
+      "size_bytes": 139478,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "b09bb88fccce0e8ce165e5ace69676a229dc7cfe",
+      "mtime_utc_informational": "2026-07-21T09:34:23.787723+00:00",
+      "path": "outputs/tables/m40r_qiu_active_transient.json",
+      "sha256": "666BDC0783BA5625E7B8B11251358CC35591C81DEB282D8B96808B7C9BC41F0C",
+      "size_bytes": 352615,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "23345f9f40102490691adfcac1352fea9aa494bf",
+      "mtime_utc_informational": "2026-07-21T09:28:47.542077+00:00",
+      "path": "outputs/tables/m40r_qiu_e0_preregistration.json",
+      "sha256": "29519C7A102A29F52104FE92355C850AF4D97832C26D5F9299E036AF809C67BE",
+      "size_bytes": 9581,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "a47dfe270458ecb0d8d166238274b7aef4a30a11",
+      "mtime_utc_informational": "2026-07-21T09:52:16.397410+00:00",
+      "path": "outputs/tables/m40r_qiu_e0_summary.json",
+      "sha256": "3333B463D74F6FC54B9E50BAFE0E4F37A4A22D141E9CDD5791E42E91DBFFBF2E",
+      "size_bytes": 13920,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "a86ed8fa4309fb1e79ec554700b91f780032169c",
+      "mtime_utc_informational": "2026-07-21T09:34:23.712268+00:00",
+      "path": "outputs/tables/m40r_qiu_mesh_convergence.csv",
+      "sha256": "348D855197B673904163544BE2B1DFE1C8228B15B298E349C3B6B0CBF241D2AB",
+      "size_bytes": 2089,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "f5a408ea7ca74156c204ea6621eff4bbae92b75b",
+      "mtime_utc_informational": "2026-07-21T09:25:09.760788+00:00",
+      "path": "outputs/tables/m40r_qiu_mesh_forensics.csv",
+      "sha256": "23F1C4865BC28DD3C023641678B238EFC13B2220A82CE1FE772CB02861397A57",
+      "size_bytes": 4162,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "0a0b46949038d5ec5d675bf345348d7fc5ad395c",
+      "mtime_utc_informational": "2026-07-21T09:25:09.768325+00:00",
+      "path": "outputs/tables/m40r_qiu_mesh_forensics.json",
+      "sha256": "95CF52D91AEE521098EBD8B83127DFD70F6E60C0C223C73C99CE10877001F64B",
+      "size_bytes": 15230,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "b7c3476e87e319d1dfa7a4101f9a3cb20d45fb9a",
+      "mtime_utc_informational": "2026-07-21T08:41:06.183583+00:00",
+      "path": "scripts/audit_m40r_qiu_mesh_forensics.py",
+      "sha256": "A696CBE8ECE187E658D68813CC4C85CF59E0706A8C56E85D700B0824A5A13629",
+      "size_bytes": 19249,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "a025d0e1a07a1eca49fad30271a9ada375f0a166",
+      "mtime_utc_informational": "2026-07-21T09:28:28.297288+00:00",
+      "path": "scripts/run_m40r_qiu_e0_repair.py",
+      "sha256": "1D80A95549CC5FD7E802AEC9FEE707A17257DC24C1D80FB352D3016F24E2FF9B",
+      "size_bytes": 48730,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "659d2746fa339fa97495e2ecb5f683ca235a14f7",
+      "mtime_utc_informational": "2026-07-21T09:22:16.405835+00:00",
+      "path": "src/pinnpcm/solvers/m40r_qiu_e0_repair.py",
+      "sha256": "20C2BCF506BECC8C8D861B5FA56D23B1DBBD32BE3656A64A80CA197469D83A3E",
+      "size_bytes": 40350,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "d30f8ab73794f610fc51bf18f87a6a35647a8ed6",
+      "mtime_utc_informational": "2026-07-21T09:10:09.985166+00:00",
+      "path": "tests/test_m40r_qiu_active_transient.py",
+      "sha256": "78916E4B48C46630EAF8DC2999DA1CE2EA981F2A61DDB430144CA19F31D5EBB1",
+      "size_bytes": 6714,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "3ce31b179b35937e3cf950a2df914bf7869b7f3c",
+      "mtime_utc_informational": "2026-07-21T09:08:53.879732+00:00",
+      "path": "tests/test_m40r_qiu_field_reconstruction.py",
+      "sha256": "BD7C22D428BFDAC5043085BE8667F517B8639117BED294C9012414CE65E4F363",
+      "size_bytes": 4227,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "c331458c11473c72a8ffbc4a0f578faa06d9a00d",
+      "mtime_utc_informational": "2026-07-21T08:47:56.789699+00:00",
+      "path": "tests/test_m40r_qiu_mesh_convergence.py",
+      "sha256": "700485395F35A4E5D035CB1417556D73A92CC5212EC78EA819A4B31A800AFFAD",
+      "size_bytes": 3723,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "5fdc9420cbb21870fdcac382b4d09163826af71e",
+      "mtime_utc_informational": "2026-07-21T09:41:53.341925+00:00",
+      "path": "tests/test_m40r_qiu_result_evidence.py",
+      "sha256": "AE1A4D246C9634EB1575FF13CD8A330025D3482746EDD2BC9D978CC9F988D02A",
+      "size_bytes": 2926,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    }
+  ],
+  "m41_authorized": false,
+  "missing_protected_inputs": [],
+  "pinn_training_authorized": false,
+  "preflight_checks": {
+    "all_protected_inputs_exist": true,
+    "base_snapshot_exact": true,
+    "e1f_governance_exact": true,
+    "formal_budget_locked": true,
+    "holdout_curve_locked_before_ordinate_access": true,
+    "holdout_development_independence_not_assumed": true,
+    "holdout_not_mislabeled_independent": true,
+    "m40r_history_preserved": true,
+    "no_fit_or_training": true,
+    "no_result_artifacts_before_lock": true,
+    "raw_main_hash_matches_manifest": true,
+    "raw_si_hash_matches_manifest": true,
+    "scientific_gates_locked": true,
+    "setting_curve_locked": true,
+    "solver_pair_locked": true,
+    "source_contract_limitations_declared": true,
+    "source_parameter_values_match_si": true
+  },
+  "preregistration_implementation_records": [
+    {
+      "git_blob_oid": null,
+      "mtime_utc_informational": "2026-07-21T11:16:26.652319+00:00",
+      "path": "configs/e1f_qiu_author_external_anchor.yaml",
+      "sha256": "7C049E98A6FA3FB184378379CB98FAE7724C05E736F8BC5307E2C2DC9D5A4941",
+      "size_bytes": 6761,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": null,
+      "mtime_utc_informational": "2026-07-21T11:16:45.632132+00:00",
+      "path": "scripts/preregister_e1f_qiu_author_anchor.py",
+      "sha256": "92255B2BD88454B013B4B4006E1898D2B69CDF6C7F91F352B6F8F104C167AB67",
+      "size_bytes": 11630,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": null,
+      "mtime_utc_informational": "2026-07-21T11:17:00.612027+00:00",
+      "path": "tests/test_e1f_preregistration.py",
+      "sha256": "7CD0BE263B3CC708337B8DE6DF8447AB3653F26B847AA9F4F017C5228E0A25E4",
+      "size_bytes": 2132,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "5ecff1f0f095581a08d518011c89f36cd54b6027",
+      "mtime_utc_informational": "2026-07-21T11:11:59.229096+00:00",
+      "path": "scripts/train_pinn_inverse_v1.py",
+      "sha256": "061930B0CEBAC5807061250696D6EF9110F132EC3C55F042685254622DFCBEC1",
+      "size_bytes": 22203,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": "212483d996984789699f99cc374502a011fde0e6",
+      "mtime_utc_informational": "2026-07-21T11:12:03.594219+00:00",
+      "path": "tests/test_pinn_inverse_v1.py",
+      "sha256": "804D366C75DAB149C8F2A38B73A9DBAC3FFF45757BBBE0B1ADC6B230D37EE972",
+      "size_bytes": 4768,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    }
+  ],
+  "raw_source_records": [
+    {
+      "git_blob_oid": null,
+      "mtime_utc_informational": "2026-07-21T06:38:53.007021+00:00",
+      "path": "data/external/qiu_2024_thermal_neuristor/raw/qiu_2024_main.pdf",
+      "sha256": "D842E8BF1B5AC609AB504D8BF6104CFD3EFEA59697A5C7AC21664A99EB7D3C67",
+      "size_bytes": 2575890,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    },
+    {
+      "git_blob_oid": null,
+      "mtime_utc_informational": "2026-07-21T06:39:12.549614+00:00",
+      "path": "data/external/qiu_2024_thermal_neuristor/raw/qiu_2024_supporting_information.pdf",
+      "sha256": "D47ED95CD5782C3E632BBC440C1FCC681870E0FF303F0B05F8CD8F30CEC70BFD",
+      "size_bytes": 3139723,
+      "source_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa"
+    }
+  ],
+  "schema_version": "e1f_qiu_author_anchor_preregistration_v1",
+  "sealed_zhang_13v_access": false,
+  "stage_id": "Q2_E1F_QIU_AUTHOR_MODEL_EXTERNAL_ANCHOR_AND_BRIDGE_AUDIT"
+}

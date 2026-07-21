@@ -3,7 +3,7 @@
 ## Authoritative Current Snapshot
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
-- Active phase: `Q2_MANUSCRIPT_EVIDENCE_COMPRESSION`.
+- Active phase: `Q2_E1F_EXTERNAL_ANCHOR_WITH_MANUSCRIPT_COMPRESSION`.
 - Frozen GT v1.1: unchanged and read-only.
 - Safe inverse mainline: constrained `gamma_sub`, calibration-gated rank-1, `qualified_supported` only under locked synthetic conditions.
 - Full PINN: mandatory architecture/paper scaffold; every bounded trained-forward route remains `failed_but_informative`, so sensitivity/inverse claims are `forbidden`.
@@ -17,6 +17,12 @@
   locked Qiu R--T domain at `360.22494 K` after only `0.0920339 R_load C` and
   has current fine-pair NRMSE `0.0342127 > 0.02`. Overall status remains
   `failed_but_informative`; M41 is blocked.
+- E1F Qiu author-model anchor: preregistered before holdout ordinate access.
+  Because the SI omits an executable reversal/initial-condition contract, it
+  may establish only a source-equation-constrained reimplementation and a
+  same-paper digitized-curve evaluation. It cannot establish exact author-code
+  reproduction, validate the M40/M40R local PDE bridge, or count as independent
+  experimental validation.
 
 ## Current Gate Ledger
 
@@ -60,10 +66,9 @@
 
 ## Current Single Priority
 
-Resume evidence-bounded manuscript compression. Preserve the constrained
-`gamma_sub` rank-1 synthetic mainline, the original M40 mesh failure, and the
-M40R active-transient/source-domain boundary together with every
-M35-M37R/P1/M33/M34 failure. No further M40 repair, M41, M38, fit, PINN, or
-13 V access is active.
+Complete the single-run E1F Qiu source-equation-constrained compact-model evaluation, locked
+same-paper setting/holdout evaluation, and read-only source-to-PDE mismatch
+audit. In parallel, compress only evidence already locked. No further M40/M40R
+repair, M41, M38, holdout refit, PINN, or Zhang 13 V access is active.
 
 Compact routing: `docs/project_state/current_evidence_index.md`.

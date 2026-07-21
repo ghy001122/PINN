@@ -38,6 +38,11 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--config", type=Path, default=Path("configs/pinn_inverse_v1_triangle_physics.yaml"))
     parser.add_argument("--epochs", type=int, default=None, help="Override epochs for smoke tests.")
     parser.add_argument("--output-dir", type=Path, default=None, help="Override output directory.")
+    parser.add_argument(
+        "--skip-figures",
+        action="store_true",
+        help="Skip diagnostic plots while preserving training and metrics output.",
+    )
     return parser
 
 
@@ -228,7 +233,13 @@ def _evaluate(
     return predictions, port_pred
 
 
-def train(config_path: Path, *, epochs_override: int | None = None, output_dir_override: Path | None = None) -> dict[str, Any]:
+def train(
+    config_path: Path,
+    *,
+    epochs_override: int | None = None,
+    output_dir_override: Path | None = None,
+    skip_figures: bool = False,
+) -> dict[str, Any]:
     """Train one v1 experiment and write all requested artifacts."""
 
     cfg = load_yaml(config_path)
@@ -453,8 +464,20 @@ def train(config_path: Path, *, epochs_override: int | None = None, output_dir_o
         "loss_schedule": schedule_cfg,
         "sigma_closure": "PINN inverse v1 uses a positive network sigma with approximate torch sigma-consistency regularization.",
     }
-    figure_paths = _save_figures(output_dir, history, data, predictions, port_pred, int(cfg.get("plot_dpi", 160)))
+    figure_paths = (
+        []
+        if skip_figures
+        else _save_figures(
+            output_dir,
+            history,
+            data,
+            predictions,
+            port_pred,
+            int(cfg.get("plot_dpi", 160)),
+        )
+    )
     metrics["figure_paths"] = figure_paths
+    metrics["figures_skipped"] = bool(skip_figures)
 
     write_json(
         output_dir / "train_history.json",
@@ -476,7 +499,12 @@ def main() -> None:
     """CLI entry point."""
 
     args = build_parser().parse_args()
-    train(args.config, epochs_override=args.epochs, output_dir_override=args.output_dir)
+    train(
+        args.config,
+        epochs_override=args.epochs,
+        output_dir_override=args.output_dir,
+        skip_figures=args.skip_figures,
+    )
 
 
 if __name__ == "__main__":

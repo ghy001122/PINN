@@ -1,0 +1,173 @@
+stage_id: Q2_E1F_QIU_AUTHOR_MODEL_EXTERNAL_ANCHOR_AND_BRIDGE_AUDIT
+base_snapshot: c277d0ecbf2199421caf588bbdfc4c80e535e7fa
+
+source:
+  doi: 10.1002/adma.202306818
+  main_pdf: data/external/qiu_2024_thermal_neuristor/raw/qiu_2024_main.pdf
+  supporting_information_pdf: data/external/qiu_2024_thermal_neuristor/raw/qiu_2024_supporting_information.pdf
+  manifest: data/external/qiu_2024_thermal_neuristor/manifest.json
+  equations_locator: supporting_information_pdf_pages_4_to_6_equations_S1_to_S7
+  setting_curve:
+    curve_id: qiu_2024_si_fig_s1_12v
+    locator: supporting_information_pdf_page_7_figure_S1
+    input_voltage_V: 12.0
+    load_resistance_ohm: 12000.0
+    ambient_temperature_K: 325.0
+    ambient_temperature_provenance: implementation_assumption_from_main_figure_context_not_reported_in_S1_caption
+    role: source_figure_implementation_check
+    panel_semantics: not_identified_as_experiment_or_simulation_in_caption
+  holdout_curve:
+    curve_id: qiu_2024_main_fig2b_12p5v
+    locator: main_pdf_page_3_figure_2_panel_b
+    input_voltage_V: 12.5
+    load_resistance_ohm: 12000.0
+    ambient_temperature_K: 325.0
+    role: repository_withheld_same_paper_digitized_curve_evaluation
+    numeric_ordinate_access_before_preregistration: false
+    independent_external_validation: false
+    source_author_parameter_development_independence_known: false
+    same_paper_development_contamination_risk: true
+  constitutive_curves:
+    locator: main_pdf_page_2_figure_1_panel_c
+    role: constitutive_parity_only
+    must_not_be_used_as_holdout: true
+
+author_parameters:
+  resistance_prefactor_ohm: 5.359e-3
+  metallic_resistance_ohm: 262.5
+  activation_temperature_K: 5220.0
+  beta_per_K: 0.253
+  hysteresis_width_K: 7.193
+  critical_temperature_K: 332.8
+  proximity_gamma_dimensionless: 0.956
+  dynamic_metallic_factor: 4.90
+  parallel_capacitance_F: 145.0e-12
+  thermal_conductance_W_per_K: 0.206e-3
+  thermal_capacitance_J_per_K: 49.6e-12
+  provenance_role: source_author_fitted_lumped_equivalent
+
+initial_conditions:
+  capacitor_voltage_V: 0.0
+  device_temperature_K: 325.0
+  initial_branch_delta: 1
+  initial_branch_semantics: heating_major_branch
+  provenance: explicit_implementation_assumptions_not_reported_numerical_initial_conditions
+
+hysteresis_contract:
+  insulating_fraction_symbol: F
+  branch_delta_heating: 1
+  branch_delta_cooling: -1
+  reversal_definition: LLP_reference_interpretation_of_temperature_derivative_sign_change_with_event_localization
+  reversal_temperature_ledger: equations_S2_to_S4_with_reference_supported_event_updates
+  proximity_function: equation_S4
+  qiu_source_reports_complete_executable_update: false
+  exact_author_code_reproduction_authorized: false
+  reference_support:
+    qiu_reference_49_doi: 10.1117/1.1501095
+    limiting_loop_proximity_doi: 10.1109/TMAG.2002.806344
+    supported_rule: branch_parameters_change_only_at_reversal_points
+  source_does_not_report_integrator_or_direction_deadband: true
+  no_rate_smoothed_history_substitution: true
+
+solvers:
+  primary_method: DOP853
+  independent_method: Radau
+  rtol: 1.0e-9
+  atol_voltage_V: 1.0e-10
+  atol_temperature_K: 1.0e-8
+  maximum_step_s: 2.0e-8
+  comparison_points: 2001
+  maximum_reversal_restarts: 1000
+
+digitization:
+  render_dpi: 600
+  curve_sampling: per_x_pixel_median_centerline
+  preserve_raw_pixel_coordinates: true
+  preserve_crop_sha256: true
+  axis_calibration: explicit_tick_pixel_pairs
+  no_posthoc_axis_or_curve_selection: true
+  uncertainty:
+    calibration_pixel_half_width: 1.0
+    trace_pixel_half_width_rule: half_observed_line_width_plus_one_pixel
+    monte_carlo_draws: 500
+    seed: 20260721
+    propagate_axis_and_trace_uncertainty: true
+  main_metric:
+    name: range_normalized_rmse
+    formula: rmse_over_digitized_p95_minus_p5
+    no_phase_or_time_shift_alignment: true
+    full_plotted_time_interval: true
+
+baselines:
+  - qiu_author_compact_hysteresis
+  - single_rc_no_hysteresis_heating_branch
+  - fixed_heating_branch
+
+gates:
+  dop853_radau_current_waveform_nrmse_max: 1.0e-3
+  dop853_radau_voltage_waveform_nrmse_max: 1.0e-3
+  dop853_radau_temperature_waveform_nrmse_max: 1.0e-3
+  solver_activity_class_must_match: true
+  solver_event_count_must_match: true
+  setting_curve_nrmse_max: 0.10
+  holdout_curve_nrmse_max: 0.15
+  digitization_uncertainty_must_be_reported: true
+  all_required_setting_gates_must_pass_before_effective_coordinate_preflight: true
+
+effective_coordinate_preflight:
+  conditional_on_solver_and_setting_gate: true
+  coordinates:
+    - log_S_th
+    - log_tau_th
+  closure: C_th_equals_tau_th_times_S_th
+  relative_steps: [0.01, 0.005, 0.0025]
+  waveform_points: 501
+  scalar_features: [period_s, peak_current_A, charge_per_cycle_C, energy_per_cycle_J]
+  relative_singular_value_rank_threshold: 0.05
+  retained_condition_number_max: 1.0e4
+  topology_change_invalidates_central_column: true
+  topology_change_route: one_sided_sensitivity_and_profile_objective
+  local_rank_is_not_global_identifiability: true
+  inverse_network_forbidden: true
+
+budget:
+  maximum_total_forward_integrations: 72
+  maximum_cpu_wall_hours: 1.0
+  gpu_hours: 0.0
+  formal_execution_limit: 1
+  fitting: forbidden
+  holdout_refit: forbidden
+  pinn_training: forbidden
+
+governance:
+  m40r_formal_budget_consumed: true
+  further_m40r_execution_forbidden: true
+  original_numeric_e0_passed: true
+  qiu_dynamic_source_bridge_passed: false
+  m41_authorized: false
+  exact_author_code_reproduction_authorized: false
+  strict_author_model_reproduction_status: forbidden_until_executable_source_contract_is_complete
+  sealed_zhang_13v_access: false
+  frozen_gt_modification: forbidden
+  allowed_success_wording: >-
+    A source-equation-constrained Qiu compact-model reimplementation achieved
+    independent-solver parity and was evaluated against a repository-withheld,
+    same-paper digitized literature curve under the declared source parameters
+    and explicit reversal/initial-condition assumptions.
+  forbidden_wording:
+    - exact author-code reproduction
+    - independent experimental validation
+    - Qiu real-device calibration
+    - local 2D parameter validation
+    - unique parameter recovery
+    - trained PINN success
+
+outputs:
+  preregistration: outputs/tables/e1f_qiu_author_anchor_preregistration.json
+  validation_json: outputs/tables/e1f_qiu_author_validation.json
+  validation_csv: outputs/tables/e1f_qiu_author_validation.csv
+  bridge_mismatch_csv: outputs/tables/e1f_source_to_pde_bridge_mismatch.csv
+  coordinate_preflight_json: outputs/tables/e1f_effective_coordinate_preflight.json
+  figure_validation: outputs/figures/e1f/qiu_author_model_and_holdout.png
+  figure_bridge: outputs/figures/e1f/source_to_pde_bridge_mismatch.png
+  report: docs/codex_reports/e1f_qiu_author_external_anchor_results.md

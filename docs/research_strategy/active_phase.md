@@ -1,12 +1,13 @@
 # Active Phase
 
-Active phase ID: `Q2_MANUSCRIPT_EVIDENCE_COMPRESSION`
+Active phase ID: `Q2_E1F_EXTERNAL_ANCHOR_WITH_MANUSCRIPT_COMPRESSION`
 
 ## Objective
 
-Assemble the leanest defensible manuscript from locked evidence. The
-constrained `gamma_sub` synthetic result remains the safe inverse mainline; the
-complete PINN remains a mandatory architecture scaffold with failed trained
+Run one source-equation-constrained, preregistered Qiu compact-model evaluation and
+same-paper digitized-curve evaluation while continuing manuscript compression.
+The constrained `gamma_sub` synthetic result remains the safe inverse mainline;
+the complete PINN remains a mandatory architecture scaffold with failed trained
 forward evidence.
 
 M40 remains closed `failed_but_informative`. The single versioned M40R repair
@@ -32,10 +33,21 @@ Current M40R report: `docs/codex_reports/m40r_qiu_e0_repair_results.md`.
 
 ## Single bottleneck
 
-Compress the paper around the locked constrained `gamma_sub` inverse evidence,
-the full-PINN architecture/failure boundary, M36/M37R numerical limitation,
-and the M40/M40R source-domain and transient-convergence boundary. No further
-M40 rescue or neural search is active.
+E1F tests whether the SI-defined lumped equations, combined with an explicitly
+declared reference-supported reversal interpretation, can reproduce the locked
+source trace and predict a
+repository-withheld 12.5 V curve from the same publication without refitting.
+The result is an external literature/source-protocol anchor, not independent
+experimental validation. M40/M40R remain immutable and no further 2D rescue or
+neural search is active.
+
+The SI does not provide an executable reversal update, full numerical initial
+conditions, integrator/tolerances, author code, or raw arrays. Exact author-code
+reproduction is therefore `forbidden` even if E1F numerical gates pass.
+
+Machine governance lock: `m40r_formal_budget_consumed=true`,
+`further_m40r_execution_forbidden=true`, `original_numeric_e0_passed=true`,
+and `qiu_dynamic_source_bridge_passed=false`.
 
 ## Forbidden claims
 

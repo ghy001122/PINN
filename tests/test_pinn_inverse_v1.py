@@ -107,6 +107,7 @@ def test_train_pinn_inverse_v1_smoke(tmp_path: Path) -> None:
             "2",
             "--output-dir",
             str(output_dir),
+            "--skip-figures",
         ],
         cwd=Path.cwd(),
         check=True,
@@ -117,6 +118,8 @@ def test_train_pinn_inverse_v1_smoke(tmp_path: Path) -> None:
 
     assert "Training PINN inverse v1" in result.stdout
     metrics = json.loads((output_dir / "metrics.json").read_text(encoding="utf-8"))
+    assert metrics["figures_skipped"] is True
+    assert metrics["figure_paths"] == []
     required_metrics = {
         "relative_G_error",
         "relative_I_error",
