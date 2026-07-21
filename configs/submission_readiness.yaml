@@ -1,0 +1,100 @@
+schema_version: submission_readiness_config_v1
+task_id: SOURCE_CONTRACT_AMENDMENT_AND_FALLBACK_SUBMISSION_LOCK_V2
+
+required_documents:
+  - docs/manuscript/main_submission_v2.md
+  - docs/manuscript/supplementary_information_v1.md
+  - docs/manuscript/references.bib
+  - docs/manuscript/failure_evidence_table.md
+  - docs/manuscript/data_code_availability.md
+  - docs/manuscript/reproducibility_statement.md
+  - docs/manuscript/reviewer_defense_matrix.md
+  - docs/manuscript/cover_letter_base_v1.md
+  - docs/manuscript/submission_checklist.md
+  - docs/manuscript/journal_scope_shortlist.md
+
+citation_documents:
+  - docs/manuscript/main_submission_v2.md
+  - docs/manuscript/supplementary_information_v1.md
+
+bibliography: docs/manuscript/references.bib
+required_dois:
+  - 10.1016/j.jcp.2018.10.045
+  - 10.1038/s42254-021-00314-5
+  - 10.1002/adma.202306818
+  - 10.1117/1.1501095
+  - 10.1109/TMAG.2002.806344
+  - 10.1038/s41598-026-49919-9
+
+figure_manifest: outputs/tables/main_submission_figure_manifest.json
+protected_manifest: outputs/tables/submission_protected_evidence_manifest.json
+source_contract_summary: outputs/tables/e1f_llp_source_contract_summary.json
+
+synthetic_disclosure_phrases:
+  - frozen one-dimensional synthetic numerical digital twin
+  - no measured device data
+  - not an experimental device identification
+  - All positive evidence is synthetic and one-dimensional
+
+data_boundary_phrases:
+  - local asset pack
+  - not redistributed
+  - reasonable request
+  - public clone
+
+forbidden_positive_assertions:
+  - we experimentally validate
+  - terminal-only two-dimensional inverse is solved
+  - full STL-PINN reproduction is achieved
+  - sparse ports uniquely recover all hidden fields
+
+core_claims:
+  - claim_id: configured_sparse_port_ambiguity_boundary
+    status: supported
+    sentence: Terminal conductance is strongly associated with integrated conductivity, yet port-only recovery of the complete configured hidden fields fails.
+    evidence:
+      - path: outputs/tables/pinn_identifiability_summary.json
+        sha256: B50D1CCD32BE0A35F1D17683871746FD0EECE171DDF8C6DC0DD7EEB139106D34
+      - path: outputs/tables/pinn_inverse_v0_ablation_summary.json
+        sha256: 19061ED8EEA2F83AF1439435E55C8FF5AF7A937BD85B449CCE769E7B9C27FE2E
+  - claim_id: calibration_gated_effective_heat_loss_recovery
+    status: qualified_supported
+    sentence: With microphysics fixed and switching temperature T_sw calibrated or tightly bounded, continuous off-grid, noise, observation-count, and simulator-backed audits support conditional recovery of gamma_sub.
+    evidence:
+      - path: outputs/tables/gamma_sub_continuous_refinement_summary.json
+        sha256: AC4DBEE30D0A6C7C969DEF2E8EA5EAC43E5C959813D423D9A253F5C63B436C00
+      - path: outputs/tables/gamma_sub_tsw_confounding_phase_map_summary.json
+        sha256: 278A06B63D7D3B1B3EA1558E776E66891F50822015C8776BC1449A85945A4C48
+  - claim_id: calibration_dominates_protocol
+    status: qualified_supported
+    sentence: A calibration--protocol disentanglement audit shows that calibration supplies nearly all of the tested gain; protocol variation is a secondary robustness modifier.
+    evidence:
+      - path: outputs/tables/gamma_sub_calibration_protocol_disentanglement_summary.json
+        sha256: F6537573D1795720CAA0B1A2F7BD828CA03D30DB4BCA4D70402960C330BF9397
+  - claim_id: configured_tolerance_spotcheck
+    status: qualified_supported
+    sentence: The 270-case simulator-backed spot audit supports the configured response-surface transition near the 0.1 K calibration-error marker.
+    evidence:
+      - path: outputs/tables/gamma_sub_tsw_tolerance_ode_spotcheck_summary.json
+        sha256: D23F1C4FCE28C0DE60667CF229F02551C451FB8956D7A3D7EE088DE0A54FDA2C
+  - claim_id: complete_pinn_joint_gate_failure
+    status: failed_but_informative
+    sentence: Every bounded trained route evaluated for this study misses at least one blocking gate.
+    evidence:
+      - path: outputs/tables/full_pinn_single_seed_mve_v1.json
+        sha256: AAF73F795713F8B9C39541D55C25600F374EECF0406C042E3449A659F583C5A9
+      - path: outputs/tables/m33_mixed_flux_final_summary.json
+        sha256: B0F3F25E3C54AD0C6096382193557EEEDD1E928A5896D1D07A69B7353A834EE4
+
+journal_scope:
+  status: blocked
+  selected_journal: null
+  article_type: null
+  retrieved_at: 2026-07-22
+  official_sources:
+    - https://onlinelibrary.wiley.com/page/journal/10991204/homepage/productinformation.html
+    - https://onlinelibrary.wiley.com/page/journal/10991204/homepage/forauthors.html
+    - https://link.springer.com/journal/10825/aims-and-scope
+    - https://link.springer.com/journal/10825/submission-guidelines
+    - https://www.sciencedirect.com/journal/mathematics-and-computers-in-simulation
+    - https://www.sciencedirect.com/journal/mathematics-and-computers-in-simulation/publish/guide-for-authors

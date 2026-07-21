@@ -348,6 +348,20 @@ outputs/pinn_inverse_v1_1_smoke/*
 !outputs/logs/submission_lock_governance.txt
 !outputs/logs/submission_lock_readiness.txt
 
+# Submission-v2 main figures are committed as immutable original bytes.
+!outputs/figures/pinn_identifiability/
+outputs/figures/pinn_identifiability/*
+!outputs/figures/pinn_identifiability/correlation_heatmap.png
+!outputs/figures/manuscript_ready_gamma_sub/
+outputs/figures/manuscript_ready_gamma_sub/*
+!outputs/figures/manuscript_ready_gamma_sub/main_figure_2_confounding_profile.png
+!outputs/figures/manuscript_ready_gamma_sub/main_figure_3_recoverability_phase_diagram.png
+!outputs/figures/manuscript_ready_gamma_sub/main_figure_4_anchor_verification.png
+!outputs/figures/manuscript_ready_gamma_sub/main_figure_6_statistical_robustness.png
+!outputs/figures/submission_ready_gamma_sub/
+outputs/figures/submission_ready_gamma_sub/*
+!outputs/figures/submission_ready_gamma_sub/figure_5_calibrated_protocol_validation.png
+
 # Local-only third-party PDF provenance renders; never redistribute.
 tmp/pdfs/qiu_si_pdf_page4.png
 tmp/pdfs/qiu_si_equations_crop.png

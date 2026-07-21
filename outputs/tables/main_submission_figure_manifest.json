@@ -1,0 +1,71 @@
+{
+  "schema_version": "main_submission_figure_manifest_v1",
+  "generated_at_utc": "2026-07-21T17:41:00.6045438Z",
+  "regenerated_during_submission_lock": false,
+  "synthetic_only": true,
+  "figures": [
+    {
+      "figure": 1,
+      "path": "outputs/figures/pinn_identifiability/correlation_heatmap.png",
+      "bytes": 161382,
+      "sha256": "2619A39E7C15DCD4CB0E6A56731DED6C195848830D6B2ED2782D64850C6B9A6A",
+      "source_data": [
+        {"path": "outputs/tables/pinn_identifiability_summary.json", "bytes": 5000, "sha256": "B50D1CCD32BE0A35F1D17683871746FD0EECE171DDF8C6DC0DD7EEB139106D34"},
+        {"path": "outputs/tables/pinn_inverse_v0_ablation_summary.json", "bytes": 6290, "sha256": "19061ED8EEA2F83AF1439435E55C8FF5AF7A937BD85B449CCE769E7B9C27FE2E"}
+      ]
+    },
+    {
+      "figure": 2,
+      "path": "outputs/figures/manuscript_ready_gamma_sub/main_figure_2_confounding_profile.png",
+      "bytes": 126254,
+      "sha256": "EDE6E14A30393BBA012AD1BB863E72FB4297B71614DBC3EFCB8372833AAC7BCA",
+      "source_data": [
+        {"path": "outputs/tables/gamma_sub_tsw_dense_profile_likelihood_grid.csv", "sha256": "91D5C440394BC821D3DD4B42BF16DF802621859C984DB9D0B2AFB5345020070D"},
+        {"path": "outputs/tables/gamma_sub_tsw_confounding_phase_map_summary.json", "sha256": "278A06B63D7D3B1B3EA1558E776E66891F50822015C8776BC1449A85945A4C48"},
+        {"path": "outputs/tables/gamma_sub_continuous_refinement_summary.json", "sha256": "AC4DBEE30D0A6C7C969DEF2E8EA5EAC43E5C959813D423D9A253F5C63B436C00"},
+        {"path": "outputs/tables/gamma_sub_continuous_refinement_cases.csv", "sha256": "481F7E6E3E910ECC4C0B017582BA885FE2B072A551B0CDA1F36A7351F04C7E20"}
+      ]
+    },
+    {
+      "figure": 3,
+      "path": "outputs/figures/manuscript_ready_gamma_sub/main_figure_3_recoverability_phase_diagram.png",
+      "bytes": 37833,
+      "sha256": "864100F7E37FB516E494940FE8448A690761F342C151B7F9F67A8D94CD658E38",
+      "source_data": [
+        {"path": "outputs/tables/gamma_sub_recoverability_phase_diagram_summary.json", "sha256": "4175CE24CA5E459C5A8BE3A0A09A4D4C2F056C33F267FB3592E0A407D86180D9"},
+        {"path": "outputs/tables/gamma_sub_recoverability_phase_diagram_cases.csv", "sha256": "7D09B8003B2CFA1553E2A6F0D46D28525EA5B146E4346070E7DC20190852AEB1"}
+      ]
+    },
+    {
+      "figure": 4,
+      "path": "outputs/figures/manuscript_ready_gamma_sub/main_figure_4_anchor_verification.png",
+      "bytes": 83334,
+      "sha256": "1661A9F3A228C7E912CF2401F0F71600901FB015DE73A530E37BC63EDDA6260E",
+      "source_data": [
+        {"path": "outputs/tables/gamma_sub_response_surface_anchor_verification_summary.json", "sha256": "919E0712F63F2F9E1EC197070B0860BB6A136694EDB0F8B3112D3D623E693C52"},
+        {"path": "outputs/tables/gamma_sub_response_surface_anchor_verification_cases.csv", "sha256": "3072CEB2BC0EDEA187CEDCC1F51F4D932247BB2BDE13FC2B12F7956420793870"}
+      ]
+    },
+    {
+      "figure": 5,
+      "path": "outputs/figures/submission_ready_gamma_sub/figure_5_calibrated_protocol_validation.png",
+      "bytes": 139767,
+      "sha256": "9FAAD097C0D42B43D717377E7B4EF3E2E359B9821693E6441D43DEBCAD24B675",
+      "source_data": [
+        {"path": "outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_summary.json", "sha256": "64F33D6DC3B8AB920617FEDBB10CAC29F3834B353484116C22ED5539AC81B040"},
+        {"path": "outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_cases.csv", "sha256": "AC48940BF5BD4DC32F2A523D6834510C4E40DD1E1227F69051D9D51864F27E99"},
+        {"path": "outputs/tables/prompt32_figure5_semantic_audit.json", "sha256": "6D298E50A09AB19B0060E59031BEBB2BDF5BF8ED56555D2B2452D13D2CB82BA9"}
+      ]
+    },
+    {
+      "figure": 6,
+      "path": "outputs/figures/manuscript_ready_gamma_sub/main_figure_6_statistical_robustness.png",
+      "bytes": 36318,
+      "sha256": "77AB344372842E8A485676474EBF9AC39A2BDC189AC7FEF24EC65C3A14C0B0AB",
+      "source_data": [
+        {"path": "outputs/tables/gamma_sub_statistical_robustness_summary.json", "sha256": "62AF4A9F55EBD102E7FDA8FCEDA6F1CA8896E1913896D791EFC7314DBCD40132"},
+        {"path": "outputs/tables/gamma_sub_statistical_robustness_cases.csv", "sha256": "AD89459FB6C8C986345AF5513429947C93AE553F4D948528BAE1C54CD6C4B5B6"}
+      ]
+    }
+  ]
+}

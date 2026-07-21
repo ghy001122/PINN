@@ -12,6 +12,9 @@ Tables report synthetic numerical digital-twin evidence unless explicitly marked
 | Table 6 | Bundled calibrated-configuration performance and semantic audit | `outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_summary.json`; `outputs/tables/prompt32_figure5_semantic_audit.json` |
 | Supplementary Table | SCIS nominal-coverage and mismatch-refusal gates | `outputs/tables/gamma_sub_scis_summary.json`; `outputs/tables/gamma_sub_scis_cases.csv` |
 | Supplementary Table | Reviewer-defense matrix | `docs/manuscript/reviewer_defense_matrix.md` |
+| Supplementary Table | Source-contract layers and LLP formula audit | `docs/manuscript/supplementary_information_v1.md`; `outputs/tables/e1f_llp_source_contract_summary.json` |
+| Supplementary Table | Failure and refusal evidence | `docs/manuscript/failure_evidence_table.md` |
+| Supplementary Table | Main-figure byte/source manifest | `outputs/tables/main_submission_figure_manifest.json` |
 | Supplementary Table | Quasi-2D literature-source registry and residual preflight | `outputs/tables/quasi_2d_literature_source_registry.json`; `outputs/tables/pinn_quasi_2d_residual_preflight_summary.json` |
 | Supplementary Table | F-SPS negative/small-run benchmark | `outputs/tables/f_sps_balanced_medium_budget_benchmark_summary.json` |
 

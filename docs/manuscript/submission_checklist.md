@@ -1,32 +1,29 @@
-# Submission Checklist
+# Submission checklist
 
-## Claim Boundary
+Status values are `complete`, `manual_unverified_high_risk`, or `blocked`.
 
-- [ ] Every result is labeled synthetic numerical digital-twin benchmark.
-- [ ] No measured experimental validation is claimed.
-- [ ] Full hidden-field recovery is stated as ill-posed for port-only observations.
-- [ ] `gamma_sub` recovery is stated as conditional on fixed or tightly bounded priors.
-- [ ] `T_sw` is treated as the dominant confounder and calibration boundary.
-- [ ] Figure 5 is described as bundled calibrated-configuration performance, not isolated protocol gain or protocol optimality.
-- [ ] CEBA abstention is identified as a true-gamma-dependent oracle diagnostic, not a deployable refusal rule.
-- [ ] SCIS nominal coverage and severe-mismatch refusal failure are both reported; no operational certificate is claimed.
-- [ ] Stiffness-continuation is described as preflight, not full STL-PINN.
-- [ ] Fourier/F-SPS superiority is not claimed.
-- [ ] Quasi-2D is described as extensibility and observability-boundary evidence only.
+| Item | Status | Required action |
+|---|---|---|
+| Technical manuscript v2 | `complete` | Keep aligned with claim matrix |
+| Supplementary Information | `complete` | Keep source-contract table compact |
+| BibTeX and DOI audit | `complete` | Recheck after journal formatting |
+| Six main figures, original bytes | `complete` | Do not regenerate during submission lock |
+| Figure/source hash manifest | `complete` | Validate in detached worktree |
+| Frozen/protected-evidence manifest | `complete` | Validate in detached worktree |
+| Synthetic-only disclosure | `complete` | Preserve in abstract, methods, limitations, availability |
+| Selected journal and article type | `blocked` | Authors must select after scope/risk review |
+| Journal quartile / Q2 adequacy | `manual_unverified_high_risk` | Verify against the institution's current indexing source |
+| Target journal source template | `blocked` | Obtain only after journal selection |
+| Rendered journal-format PDF and visual QA | `blocked` | Format and inspect every page |
+| Author names, affiliations, emails, ORCIDs | `blocked` | Obtain author-approved metadata |
+| CRediT roles | `blocked` | Replace placeholders with author-approved roles |
+| Funding statement | `blocked` | Replace placeholder |
+| Competing-interest statement | `blocked` | Replace placeholder |
+| AI-assistance disclosure | `blocked` | Apply selected journal policy and author approval |
+| Cover letter personalization | `blocked` | Add journal/editor/scope sentence and author signature |
+| Data repository or reasonable-request decision | `blocked` | Authors must approve the access mechanism for local assets |
+| Public clean-clone reproduction | `blocked` | Local asset pack is not currently public |
+| Submission-system upload | `blocked` | Requires all preceding upload gates |
 
-## Evidence Files
-
-- [ ] `docs/paper/final_claim_matrix.md`
-- [ ] `docs/paper/final_figure_list.md`
-- [ ] `docs/paper/final_table_list.md`
-- [ ] `docs/literature/drive_and_web_literature_evidence_lock.md`
-- [ ] `outputs/tables/stiffness_2d_story_figure_manifest.json`
-- [ ] `docs/manuscript/reviewer_defense_matrix.md`
-
-## Before Submission
-
-- [ ] Rebuild final figures from scripts.
-- [ ] Check figure captions against forbidden claims.
-- [ ] Confirm no untracked large files are staged.
-- [ ] Confirm frozen Ground Truth files are unchanged.
-- [ ] Run full pytest.
+The technical package may be content-ready while upload readiness remains
+`NO_GO`. No one should infer journal acceptance probability from this checklist.
