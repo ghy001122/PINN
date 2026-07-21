@@ -212,19 +212,19 @@ def proximity_temperature_from_reversal(
     reversal_temperature_K: float,
     params: QiuAuthorCompactParameters,
 ) -> float:
-    """Equation S3, evaluated without clipping the arctanh argument."""
+    """Equation S3 exactly as printed in the Qiu Supporting Information."""
 
     if delta not in (-1, 1):
         raise ValueError("reversal delta must be +1 or -1")
     fraction = float(reversal_fraction)
     argument = 2.0 * fraction - 1.0
-    if not np.isfinite(argument) or not -1.0 < argument < 1.0:
-        raise ValueError("Equation S3 requires 0 < F(T_r) < 1; clipping is forbidden")
+    if not np.isfinite(argument) or not 0.0 <= fraction <= 1.0:
+        raise ValueError("Equation S3 requires a finite fraction in [0, 1]")
     temperature = float(_positive_temperature(reversal_temperature_K))
     value = (
         delta * params.hysteresis_width_K / 2.0
         + params.critical_temperature_K
-        - np.arctanh(argument) / params.beta_per_K
+        - argument / params.beta_per_K
         - temperature
     )
     if not np.isfinite(value):

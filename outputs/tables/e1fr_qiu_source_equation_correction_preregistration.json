@@ -1,0 +1,245 @@
+{
+  "all_preflight_checks_pass": true,
+  "base_snapshot": "5e75cbfae505b801956df89bfce4a3c76989f659",
+  "created_at_utc": "2026-07-21T12:24:33.771998+00:00",
+  "formal_execution_limit": 1,
+  "formal_result_paths_absent_at_lock": [
+    "outputs/tables/e1fr_qiu_source_equation_correction.json",
+    "outputs/tables/e1fr_qiu_source_equation_correction.csv",
+    "outputs/tables/e1fr_effective_coordinate_preflight.json",
+    "outputs/figures/e1fr/qiu_setting_correction.png",
+    "docs/codex_reports/e1fr_qiu_source_equation_correction_results.md"
+  ],
+  "git_commit_before_preregistration": "5e75cbfae505b801956df89bfce4a3c76989f659",
+  "git_dirty_before_preregistration": true,
+  "implementation_records": [
+    {
+      "path": "configs/e1fr_qiu_source_equation_correction.yaml",
+      "sha256": "BBC34A9B573EE9B2EEEC9016FB7B6B0094180773572F3B904EA3A58E4DB57501",
+      "size_bytes": 4294
+    },
+    {
+      "path": "src/pinnpcm/physics/qiu_author_compact_model.py",
+      "sha256": "86CA82B08D29A7322394EE6DEB87FBD35735A2C15B29054899413C62F96B8E4D",
+      "size_bytes": 14351
+    },
+    {
+      "path": "src/pinnpcm/solvers/qiu_author_ode.py",
+      "sha256": "032408DA151E393FD5F81CF3551D5E74536D9933D3E31B40954534A5E84B40B9",
+      "size_bytes": 13487
+    },
+    {
+      "path": "scripts/run_e1f_qiu_author_anchor.py",
+      "sha256": "9CB98F726B11F1CDA4FBFF26C94814DBA0CD9CEF3998AEC40BE058C4358F4119",
+      "size_bytes": 33271
+    },
+    {
+      "path": "scripts/preregister_e1fr_qiu_source_equation_correction.py",
+      "sha256": "672B2D29E2F06C62851E7B87900F238C2E50878252D98E583C5FF7A16FCF208D",
+      "size_bytes": 7836
+    },
+    {
+      "path": "scripts/run_e1fr_qiu_source_equation_correction.py",
+      "sha256": "2F1CED3252ACA7775F2FBC6C11D298B320D332047354D97AE99E64EC06D5C7B8",
+      "size_bytes": 16899
+    },
+    {
+      "path": "tests/test_e1f_qiu_author_equations.py",
+      "sha256": "BAFCE45AF459A5370BD685B6958B0B046A774A65B4BF7309A75E5544BC9FEA6B",
+      "size_bytes": 7024
+    },
+    {
+      "path": "tests/test_e1fr_contract.py",
+      "sha256": "0F40944987BE2D9D7112B4204672E449A5BD1454A07FAC809DCDCC46D74EFC7B",
+      "size_bytes": 3201
+    },
+    {
+      "path": "data/external/qiu_2024_thermal_neuristor/digitized_manifest.json",
+      "sha256": "8BB8F8B459116A6F35ABEC4E98A208AF5704FF5E63E258311DA363B50048113C",
+      "size_bytes": 8509
+    },
+    {
+      "path": "data/external/qiu_2024_thermal_neuristor/derived/qiu_2024_si_fig_s1_12v_current.csv",
+      "sha256": "901E02A6D68C71A97BFC91AAF4C5AFDAC6414C3A59780573400A51168023D05D",
+      "size_bytes": 628640
+    },
+    {
+      "path": "data/external/qiu_2024_thermal_neuristor/derived/qiu_2024_si_fig_s1_12v_device_voltage.csv",
+      "sha256": "28F111ABF4AFB119EA37FC389EE4D7A74D62894ABA71CF3DA0824CB52987AFC3",
+      "size_bytes": 640100
+    },
+    {
+      "path": "outputs/tables/e1f_semantic_amendment.json",
+      "sha256": "D35A16AD28E854E00D96AEF2B0E83DB0C442BD13B24FFFC3181546934F9F6846",
+      "size_bytes": 1349
+    },
+    {
+      "path": "outputs/tables/e1f_qiu_author_validation.json",
+      "sha256": "0EFEC08003C7209F9A02188FB6CB3674ECB4B2E32DE64C968F34608765698FE7",
+      "size_bytes": 11760
+    }
+  ],
+  "independent_holdout": false,
+  "locked_config": {
+    "author_parameters": {
+      "activation_temperature_K": 5220.0,
+      "beta_per_K": 0.253,
+      "critical_temperature_K": 332.8,
+      "dynamic_metallic_factor": 4.9,
+      "hysteresis_width_K": 7.193,
+      "metallic_resistance_ohm": 262.5,
+      "parallel_capacitance_F": 1.45e-10,
+      "provenance_role": "source_author_fitted_lumped_equivalent",
+      "proximity_gamma_dimensionless": 0.956,
+      "resistance_prefactor_ohm": 0.005359,
+      "thermal_capacitance_J_per_K": 4.96e-11,
+      "thermal_conductance_W_per_K": 0.000206
+    },
+    "base_snapshot": "5e75cbfae505b801956df89bfce4a3c76989f659",
+    "budget": {
+      "fitting": "forbidden",
+      "formal_execution_limit": 1,
+      "gpu_hours": 0.0,
+      "holdout_refit": "forbidden",
+      "maximum_cpu_wall_hours": 1.0,
+      "maximum_total_forward_integrations": 72,
+      "pinn_training": "forbidden"
+    },
+    "correction_contract": {
+      "corrected_defect_only": true,
+      "independent_holdout": false,
+      "main_fig2b_simulation_or_scoring_forbidden": true,
+      "main_fig2b_status": "implementation_contract_invalid_unassessed",
+      "original_e1f_stage": "Q2_E1F_QIU_AUTHOR_MODEL_EXTERNAL_ANCHOR_AND_BRIDGE_AUDIT",
+      "original_formal_status": "implementation_contract_invalid",
+      "original_scientific_vote": false,
+      "post_lock_corrective_audit": true,
+      "source_equation_s3_literal": "T_pr = delta*w/2 + T_c - (2*F(T_r)-1)/beta - T_r"
+    },
+    "digitization": {
+      "full_plotted_time_interval": true,
+      "main_metric": "range_normalized_rmse",
+      "no_phase_or_time_shift_alignment": true,
+      "uncertainty_semantics": "conditional_pixel_jitter_sensitivity_not_confidence_interval"
+    },
+    "effective_coordinate_preflight": {
+      "closure": "C_th_equals_tau_th_times_S_th",
+      "conditional_on_solver_and_setting_gate": true,
+      "coordinates": [
+        "log_S_th",
+        "log_tau_th"
+      ],
+      "inverse_network_forbidden": true,
+      "local_rank_is_not_global_identifiability": true,
+      "relative_singular_value_rank_threshold": 0.05,
+      "relative_steps": [
+        0.01,
+        0.005,
+        0.0025
+      ],
+      "retained_condition_number_max": "1.0e4",
+      "scalar_features": [
+        "period_s",
+        "peak_current_A",
+        "charge_per_cycle_C",
+        "energy_per_cycle_J"
+      ],
+      "topology_change_invalidates_central_column": true,
+      "topology_change_route": "one_sided_sensitivity_and_profile_objective",
+      "waveform_points": 501
+    },
+    "gates": {
+      "all_required_setting_gates_must_pass_before_effective_coordinate_preflight": true,
+      "dop853_radau_current_waveform_nrmse_max": 0.001,
+      "dop853_radau_temperature_waveform_nrmse_max": 0.001,
+      "dop853_radau_voltage_waveform_nrmse_max": 0.001,
+      "setting_curve_nrmse_max": 0.1,
+      "solver_activity_class_must_match": true,
+      "solver_event_count_must_match": true
+    },
+    "governance": {
+      "exact_author_code_reproduction_authorized": false,
+      "frozen_gt_modification": "forbidden",
+      "m40_m40r_rerun": false,
+      "m41_authorized": false,
+      "sealed_zhang_13v_access": false
+    },
+    "initial_conditions": {
+      "capacitor_voltage_V": 0.0,
+      "device_temperature_K": 325.0,
+      "initial_branch_delta": 1,
+      "provenance": "explicit_implementation_assumptions_not_reported_numerical_initial_conditions"
+    },
+    "outputs": {
+      "coordinate_preflight_json": "outputs/tables/e1fr_effective_coordinate_preflight.json",
+      "figure_setting": "outputs/figures/e1fr/qiu_setting_correction.png",
+      "preregistration": "outputs/tables/e1fr_qiu_source_equation_correction_preregistration.json",
+      "report": "docs/codex_reports/e1fr_qiu_source_equation_correction_results.md",
+      "validation_csv": "outputs/tables/e1fr_qiu_source_equation_correction.csv",
+      "validation_json": "outputs/tables/e1fr_qiu_source_equation_correction.json"
+    },
+    "solvers": {
+      "atol_temperature_K": 1e-08,
+      "atol_voltage_V": 1e-10,
+      "comparison_points": 2001,
+      "independent_method": "Radau",
+      "maximum_reversal_restarts": 1000,
+      "maximum_step_s": 2e-08,
+      "primary_method": "DOP853",
+      "rtol": 1e-09
+    },
+    "source": {
+      "digitized_manifest": "data/external/qiu_2024_thermal_neuristor/digitized_manifest.json",
+      "doi": "10.1002/adma.202306818",
+      "manifest": "data/external/qiu_2024_thermal_neuristor/manifest.json",
+      "original_formal_result": "outputs/tables/e1f_qiu_author_validation.json",
+      "semantic_amendment": "outputs/tables/e1f_semantic_amendment.json",
+      "setting_curve": {
+        "ambient_temperature_K": 325.0,
+        "current_curve_id": "qiu_2024_si_fig_s1_12v_current",
+        "curve_id": "qiu_2024_si_fig_s1_12v",
+        "input_voltage_V": 12.0,
+        "load_resistance_ohm": 12000.0,
+        "panel_semantics": "not_identified_as_experiment_or_simulation_in_caption",
+        "role": "source_figure_implementation_check",
+        "voltage_curve_id": "qiu_2024_si_fig_s1_12v_device_voltage"
+      },
+      "supporting_information_pdf": "data/external/qiu_2024_thermal_neuristor/raw/qiu_2024_supporting_information.pdf"
+    },
+    "stage_id": "Q2_E1FR_QIU_SOURCE_EQUATION_CORRECTION"
+  },
+  "m41_authorized": false,
+  "main_fig2b_simulation_or_scoring_authorized": false,
+  "main_fig2b_status": "implementation_contract_invalid_unassessed",
+  "original_e1f_scientific_vote": false,
+  "pinn_training_authorized": false,
+  "post_lock_corrective_audit": true,
+  "preflight_checks": {
+    "amendment_requires_corrected_vote": true,
+    "base_snapshot_exact": true,
+    "holdout_invalid_and_forbidden": true,
+    "implementation_inputs_exist": true,
+    "literal_s3_locked": true,
+    "m41_and_13v_closed": true,
+    "no_fit_training_or_holdout": true,
+    "one_run_budget": true,
+    "original_e1f_prereg_passed": true,
+    "original_formal_preserved": true,
+    "original_protected_records_unchanged": true,
+    "original_vote_invalid": true,
+    "result_paths_absent": true,
+    "setting_gate_unchanged": true,
+    "setting_identity_unchanged": true,
+    "solver_gate_unchanged": true
+  },
+  "protected_groups_from_original_preregistration": [
+    "raw_source_records",
+    "m40_protected_records",
+    "m40r_protected_records",
+    "frozen_gt_records"
+  ],
+  "protected_record_count": 47,
+  "schema_version": "e1fr_qiu_source_equation_correction_preregistration_v1",
+  "sealed_zhang_13v_access": false,
+  "stage_id": "Q2_E1FR_QIU_SOURCE_EQUATION_CORRECTION"
+}

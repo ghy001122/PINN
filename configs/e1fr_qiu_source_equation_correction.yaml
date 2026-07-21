@@ -1,0 +1,113 @@
+stage_id: Q2_E1FR_QIU_SOURCE_EQUATION_CORRECTION
+base_snapshot: 5e75cbfae505b801956df89bfce4a3c76989f659
+
+correction_contract:
+  original_e1f_stage: Q2_E1F_QIU_AUTHOR_MODEL_EXTERNAL_ANCHOR_AND_BRIDGE_AUDIT
+  original_formal_status: implementation_contract_invalid
+  original_scientific_vote: false
+  source_equation_s3_literal: T_pr = delta*w/2 + T_c - (2*F(T_r)-1)/beta - T_r
+  corrected_defect_only: true
+  post_lock_corrective_audit: true
+  independent_holdout: false
+  main_fig2b_status: implementation_contract_invalid_unassessed
+  main_fig2b_simulation_or_scoring_forbidden: true
+
+source:
+  doi: 10.1002/adma.202306818
+  supporting_information_pdf: data/external/qiu_2024_thermal_neuristor/raw/qiu_2024_supporting_information.pdf
+  manifest: data/external/qiu_2024_thermal_neuristor/manifest.json
+  digitized_manifest: data/external/qiu_2024_thermal_neuristor/digitized_manifest.json
+  semantic_amendment: outputs/tables/e1f_semantic_amendment.json
+  original_formal_result: outputs/tables/e1f_qiu_author_validation.json
+  setting_curve:
+    curve_id: qiu_2024_si_fig_s1_12v
+    current_curve_id: qiu_2024_si_fig_s1_12v_current
+    voltage_curve_id: qiu_2024_si_fig_s1_12v_device_voltage
+    input_voltage_V: 12.0
+    load_resistance_ohm: 12000.0
+    ambient_temperature_K: 325.0
+    role: source_figure_implementation_check
+    panel_semantics: not_identified_as_experiment_or_simulation_in_caption
+
+author_parameters:
+  resistance_prefactor_ohm: 5.359e-3
+  metallic_resistance_ohm: 262.5
+  activation_temperature_K: 5220.0
+  beta_per_K: 0.253
+  hysteresis_width_K: 7.193
+  critical_temperature_K: 332.8
+  proximity_gamma_dimensionless: 0.956
+  dynamic_metallic_factor: 4.90
+  parallel_capacitance_F: 145.0e-12
+  thermal_conductance_W_per_K: 0.206e-3
+  thermal_capacitance_J_per_K: 49.6e-12
+  provenance_role: source_author_fitted_lumped_equivalent
+
+initial_conditions:
+  capacitor_voltage_V: 0.0
+  device_temperature_K: 325.0
+  initial_branch_delta: 1
+  provenance: explicit_implementation_assumptions_not_reported_numerical_initial_conditions
+
+solvers:
+  primary_method: DOP853
+  independent_method: Radau
+  rtol: 1.0e-9
+  atol_voltage_V: 1.0e-10
+  atol_temperature_K: 1.0e-8
+  maximum_step_s: 2.0e-8
+  comparison_points: 2001
+  maximum_reversal_restarts: 1000
+
+digitization:
+  main_metric: range_normalized_rmse
+  no_phase_or_time_shift_alignment: true
+  full_plotted_time_interval: true
+  uncertainty_semantics: conditional_pixel_jitter_sensitivity_not_confidence_interval
+
+gates:
+  dop853_radau_current_waveform_nrmse_max: 1.0e-3
+  dop853_radau_voltage_waveform_nrmse_max: 1.0e-3
+  dop853_radau_temperature_waveform_nrmse_max: 1.0e-3
+  solver_activity_class_must_match: true
+  solver_event_count_must_match: true
+  setting_curve_nrmse_max: 0.10
+  all_required_setting_gates_must_pass_before_effective_coordinate_preflight: true
+
+effective_coordinate_preflight:
+  conditional_on_solver_and_setting_gate: true
+  coordinates: [log_S_th, log_tau_th]
+  closure: C_th_equals_tau_th_times_S_th
+  relative_steps: [0.01, 0.005, 0.0025]
+  waveform_points: 501
+  scalar_features: [period_s, peak_current_A, charge_per_cycle_C, energy_per_cycle_J]
+  relative_singular_value_rank_threshold: 0.05
+  retained_condition_number_max: 1.0e4
+  topology_change_invalidates_central_column: true
+  topology_change_route: one_sided_sensitivity_and_profile_objective
+  local_rank_is_not_global_identifiability: true
+  inverse_network_forbidden: true
+
+budget:
+  maximum_total_forward_integrations: 72
+  maximum_cpu_wall_hours: 1.0
+  gpu_hours: 0.0
+  formal_execution_limit: 1
+  fitting: forbidden
+  holdout_refit: forbidden
+  pinn_training: forbidden
+
+governance:
+  m40_m40r_rerun: false
+  m41_authorized: false
+  exact_author_code_reproduction_authorized: false
+  sealed_zhang_13v_access: false
+  frozen_gt_modification: forbidden
+
+outputs:
+  preregistration: outputs/tables/e1fr_qiu_source_equation_correction_preregistration.json
+  validation_json: outputs/tables/e1fr_qiu_source_equation_correction.json
+  validation_csv: outputs/tables/e1fr_qiu_source_equation_correction.csv
+  coordinate_preflight_json: outputs/tables/e1fr_effective_coordinate_preflight.json
+  figure_setting: outputs/figures/e1fr/qiu_setting_correction.png
+  report: docs/codex_reports/e1fr_qiu_source_equation_correction_results.md

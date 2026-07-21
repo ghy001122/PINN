@@ -74,25 +74,26 @@ def test_equations_s1_s2_and_s7_match_direct_major_branch_evaluation() -> None:
     )
 
 
-def test_llp_reversal_updates_only_the_ledger_and_preserves_fraction() -> None:
+def test_llp_reversal_updates_only_the_ledger_with_literal_equation_s3() -> None:
     params = default_parameters()
     before = initialize_ledger(params)
     reversal_temperature = 340.0
     fraction_before = float(insulating_fraction(reversal_temperature, before, params))
 
     after = update_ledger_at_reversal(reversal_temperature, before, params)
-    fraction_after = float(insulating_fraction(reversal_temperature, after, params))
-
     assert before.delta == 1
     assert not before.reversed_once
     assert after.delta == -1
     assert after.reversed_once
     assert after.reversal_temperature_K == pytest.approx(reversal_temperature)
     assert after.reversal_fraction == pytest.approx(fraction_before)
-    assert after.proximity_temperature_K == pytest.approx(
-        -params.hysteresis_width_K, rel=1.0e-12
+    expected_t_pr = (
+        -params.hysteresis_width_K / 2.0
+        + params.critical_temperature_K
+        - (2.0 * fraction_before - 1.0) / params.beta_per_K
+        - reversal_temperature
     )
-    assert fraction_after == pytest.approx(fraction_before, abs=2.0e-9)
+    assert after.proximity_temperature_K == pytest.approx(expected_t_pr)
     # The frozen source ledger remains unchanged.
     assert before == initialize_ledger(params)
 
@@ -136,13 +137,26 @@ def test_equations_s5_s6_rhs_is_pure_and_matches_manual_formula() -> None:
     assert ledger.to_dict() == ledger_before
 
 
-@pytest.mark.parametrize("fraction", [0.0, 1.0, -0.1, 1.1, np.nan])
-def test_equation_s3_rejects_nonfinite_arctanh_domain_without_clipping(
+@pytest.mark.parametrize("fraction", [-0.1, 1.1, np.nan])
+def test_equation_s3_rejects_nonphysical_fraction_without_clipping(
     fraction: float,
 ) -> None:
     params = default_parameters()
-    with pytest.raises(ValueError, match="clipping is forbidden"):
+    with pytest.raises(ValueError, match="fraction in"):
         proximity_temperature_from_reversal(1, fraction, 335.0, params)
+
+
+@pytest.mark.parametrize("fraction", [0.0, 0.5, 1.0])
+def test_equation_s3_accepts_source_domain_endpoints(fraction: float) -> None:
+    params = default_parameters()
+    value = proximity_temperature_from_reversal(1, fraction, 335.0, params)
+    expected = (
+        params.hysteresis_width_K / 2.0
+        + params.critical_temperature_K
+        - (2.0 * fraction - 1.0) / params.beta_per_K
+        - 335.0
+    )
+    assert value == pytest.approx(expected)
 
 
 def test_invalid_temperature_is_rejected_instead_of_silently_clipped() -> None:
