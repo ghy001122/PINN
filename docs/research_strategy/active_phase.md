@@ -9,33 +9,38 @@ constrained `gamma_sub` synthetic result remains the safe inverse mainline; the
 complete PINN remains a mandatory architecture scaffold with failed trained
 forward evidence.
 
-M40 is closed `failed_but_informative`. Its Qiu source contract and masked x-z
-implementation are reproducible facts, but formal E0 fails main-current mesh
-change (`0.0247878 > 0.01`) and fixed-window p99 field change
-(`0.110664 > 0.02`). M41 reduction, inverse, and PINN are not authorized.
+M40 remains closed `failed_but_informative`. The single versioned M40R repair
+passes every original numerical E0 gate, including main-current mesh change
+(`0.00592586 <= 0.01`) and repaired fixed-grid p99 change
+(`0.00847419 <= 0.02`). Its active transient nevertheless fails closed after
+leaving the locked Qiu R--T source domain at `360.22494 K`, only
+`0.0920339 R_load C` into the required `3 R_load C` horizon; current fine-pair
+NRMSE is also `0.0342127 > 0.02`. M41 remains unauthorized.
 
 ## Evidence routing
 
 | Block | Status and boundary |
 | --- | --- |
 | M40 source contract | `supported` provenance/implementation fact: reported geometry/protocol and unresolved local 2D quantities are explicit. |
-| M40 formal E0 | `failed_but_informative`; 12/14 gates pass, two mesh gates fail. No rerun or threshold change. |
+| M40 formal E0 | `failed_but_informative`; 12/14 gates pass, two mesh gates fail. Historical result remains byte-for-byte unchanged. |
+| M40R bounded repair | `failed_but_informative`; 14/14 original numerical gates pass, but 3/11 active-transient gates fail. M41 is not authorized and manuscript fallback resumes. |
 | D0/M35-M37R | Provenance/parity sub-results stay locked; convergence, fit, and observability geometry remain failed or forbidden. No 13 V access. |
 | N0/M33/M34 | Architecture facts remain supported; every trained path and authorization gate remains `failed_but_informative`. |
 | Other extensions | SID/EC-OQ and SCIS failed; CPCF frontier and N1-N3 remain `forbidden`; Figure 5 supports only bundled conditional performance. |
 
-Current M40 report: `docs/codex_reports/m40_qiu_vo2_e0_results.md`.
+Current M40R report: `docs/codex_reports/m40r_qiu_e0_repair_results.md`.
 
 ## Single bottleneck
 
 Compress the paper around the locked constrained `gamma_sub` inverse evidence,
 the full-PINN architecture/failure boundary, M36/M37R numerical limitation,
-and M40 mesh-convergence failure. No new solver rescue or neural search is
-active.
+and the M40/M40R source-domain and transient-convergence boundary. No further
+M40 rescue or neural search is active.
 
 ## Forbidden claims
 
-Qiu real-device calibrated, exact Qiu reproduction, M40 E0 pass, M41
+Qiu real-device calibrated, exact Qiu reproduction, complete active-transient
+E0 pass, M41
 authorization, experimental validation, M40 inverse/PINN fidelity,
 `gamma_eff`, completed public refit, 13 V evaluation, quotient recovery,
 protocol rank/rotation, full hidden-field recovery, full STL reproduction, and

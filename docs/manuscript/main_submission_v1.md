@@ -7,9 +7,10 @@ phase-transition devices
 
 ## Abstract
 
-To be written only from locked evidence. M40 is currently an implementation
-and E0-verification route, not real-device calibration or experimental
-validation.
+To be written only from locked evidence. M40/M40R provide a provenance-backed
+source contract and implementation-level solver audit. The bounded repair
+restores every original numerical E0 gate but fails the preregistered active
+transient; it is not real-device calibration or experimental validation.
 
 ## 1. Introduction
 
@@ -36,24 +37,31 @@ validation.
 
 ### 3.2 Full-PINN trained-forward failure boundary
 
-### 3.3 Qiu M40 E0 verification
+### 3.3 Qiu M40/M40R E0 verification
 
-The source-constrained implementation passes manufactured, layered,
-interface, current, energy, substrate-tamper, and uniform-reduction checks,
-but fails both preregistered mesh gates. Its finest-pair main-current and
-fixed-window p99 field changes are 0.0247878 and 0.110664, respectively,
-versus limits of 0.01 and 0.02. This is a numerical failure boundary; it is
-not real-device calibration or experimental validation.
+The original M40 result is retained: it passed 12/14 checks but failed both
+mesh gates. A single preregistered M40R repair then used conservative face
+currents and a mesh-independent physical sampling grid. Its 8/16/32
+finest-pair current and fixed-grid p99 changes were 0.00592586 and 0.00847419,
+respectively, so all original numerical E0 checks passed. The source-composed
+12 V active run nevertheless left the locked Qiu R--T source domain at
+360.22494 K after only 0.0920339 of the required 3 Rload C horizon, and its
+coarse/fine current NRMSE was 0.0342127 versus a 0.02 limit. This supports a
+numerical implementation and failure boundary only; it is not real-device
+calibration, measured activity, experimental validation, or M41 authorization.
 
 ## 4. Discussion
 
 - What source-traceable geometry does and does not establish.
 - Why lumped author fits cannot silently become local 2D material parameters.
+- Why numerical conservation and mesh convergence do not by themselves
+  establish source-bounded active-device dynamics.
 - Trajectory, sensitivity, inverse, and experimental-validation boundaries.
 
 ## 5. Limitations
 
-No project-generated measurements; unresolved local Qiu parameters; no M40
+No project-generated measurements; unresolved local Qiu parameters; the M40R
+active trajectory exits the source-supported temperature domain; no M40
 inverse or PINN training; no full hidden-field recovery claim.
 
 ## 6. Code and data availability

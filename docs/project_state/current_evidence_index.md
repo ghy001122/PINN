@@ -12,6 +12,7 @@ This is a routing index; current status remains authoritative in `PROJECT_STATE.
 
 | Block | Status | Primary evidence |
 | --- | --- | --- |
+| M40R Qiu bounded E0 repair | original numerical E0 implementation evidence passes; overall `failed_but_informative`; M41 not authorized | `outputs/tables/m40r_qiu_e0_summary.json`; `outputs/tables/m40r_qiu_mesh_convergence.csv`; `outputs/tables/m40r_qiu_active_transient.json`; `docs/codex_reports/m40r_qiu_e0_repair_results.md`; 14/14 original gates pass, but active duration, source-domain, and current-refinement gates fail |
 | M40 Qiu conservative 2D E0 | `failed_but_informative`; M41 not authorized | `outputs/tables/m40_qiu_e0_summary.json`; `outputs/tables/m40_qiu_mesh_convergence.csv`; `docs/codex_reports/m40_qiu_vo2_e0_results.md`; 12/14 gates pass, main QoI and p99 field mesh changes fail |
 | D0a provenance/source semantics | `qualified_supported` sub-result | `data/external/vo2_zhang_2024/manifest.json`; `outputs/tables/vo2_d0a_source_discrepancies.csv` |
 | D0a completion gate | `failed_but_informative` | `outputs/tables/vo2_d0a_source_reproduction.json`; `outputs/figures/vo2_d0a_source_semantics_v2.png` |
@@ -42,7 +43,7 @@ This is a routing index; current status remains authoritative in `PROJECT_STATE.
 | M32 SCIS | `failed_but_informative`; nominal coverage passes, mismatch refusal fails | `outputs/tables/gamma_sub_scis_preregistration.json`; `outputs/tables/gamma_sub_scis_cache_preflight.json`; `outputs/tables/gamma_sub_scis_summary.json`; `outputs/tables/gamma_sub_scis_cases.csv`; `outputs/figures/gamma_sub_scis_certificate_v1.png` |
 | N1-N3 / SC-LOS | not run / `forbidden` | failed upstream trained-forward and geometry gates |
 
-Current report: `docs/codex_reports/m37r_continuous_event_observability_results.md`.
+Current round report: `docs/codex_reports/m40r_qiu_e0_repair_results.md`.
 
 ## Preserved extension ledger
 

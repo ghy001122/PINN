@@ -2,6 +2,25 @@
 
 > Do not load by default. Current claim/evidence routing is `docs/project_state/current_evidence_index.md`; use this file only to trace a named historical run.
 
+## M40R Qiu E0 mesh and active-transient repair (2026-07-21)
+
+- Task: `Q2_M40R_QIU_E0_MESH_AND_ACTIVE_TRANSIENT_REPAIR`.
+- Baseline: `5e68d3bf25bcbe30bdce4840f9130c096a0177e1`.
+- Preregistration commit: `b935631c13ca288961e1bf72ed37782418693e54`.
+- The original M40 result remains byte-for-byte `failed_but_informative`.
+- Repaired 8/16/32 current and fixed-grid p99 changes are `0.00592586` and
+  `0.00847419`; every original numerical E0 gate passes.
+- The source-composed active run fails closed at `360.22494 K` after
+  `0.0920339 R_load C`, and current fine-pair NRMSE is `0.0342127 > 0.02`.
+  M41 is not authorized; no parameter fit, inverse, PINN, or rescue rerun ran.
+- Repository validation: `387 passed, 1 failed, 0 skipped in 526.77 s`; the
+  sole failure is an allocation error in the historical PINN-v1 smoke
+  subprocess. The full suite was not rerun.
+- Evidence: `outputs/tables/m40r_qiu_e0_summary.json`,
+  `outputs/tables/m40r_qiu_mesh_convergence.csv`,
+  `outputs/tables/m40r_qiu_active_transient.json`, and
+  `docs/codex_reports/m40r_qiu_e0_repair_results.md`.
+
 ## M40 Qiu VO2 real-device 2D bridge E0 (2026-07-21)
 
 - Task: `Q2_M40_QIU_VO2_REAL_DEVICE_2D_BRIDGE_E0`.

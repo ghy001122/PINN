@@ -2,6 +2,17 @@
 
 > Do not load by default. The authoritative manuscript list is `docs/paper/final_figure_list.md`.
 
+## M40R Qiu E0 repair diagnostic figures (2026-07-21)
+
+- `outputs/figures/m40r/mesh_and_field_convergence.png`: repaired conservative
+  current and fixed-grid p99 convergence, plus the deliberately retained
+  non-convergent ideal sharp-corner maximum diagnostic.
+- `outputs/figures/m40r/active_transient_and_ledgers.png`: solver-generated
+  coarse/fine source-composed transient and sensible-heat/Joule/outflow
+  ledgers, terminated at the locked Qiu R--T source-domain boundary.
+- Both are failure/implementation diagnostics, not measured data, calibrated
+  reproduction, experimental validation, or M41 authorization evidence.
+
 ## M40 Qiu VO2 conservative 2D E0 diagnostic figures (2026-07-21)
 
 - `outputs/figures/m40/qiu_device_geometry.png`: reported material stack plus

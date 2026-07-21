@@ -10,14 +10,20 @@
 - Public VO2: M36 finite-step gates remain failed. M37R fixes the count-window contract and passes nominal parity, but a 15 V `log_C_th=-1%` perturbation changes post-transient event topology before Jacobian/SVD; M38, fit, lock, and 13 V access remain absent.
 - Project-generated experimental validation: absent.
 - M40 Qiu bridge: source contract and implementation facts are locked. Formal
-  E0 is `failed_but_informative`: main-current mesh change is `0.0247878` and
-  p99 field change is `0.110664`, both above their fixed gates. M41 is blocked.
+  E0 remains `failed_but_informative`: main-current mesh change is `0.0247878`
+  and p99 field change is `0.110664`, both above their fixed gates.
+- M40R bounded repair: historical M40 is byte-for-byte unchanged. The one-time
+  repair passes all 14 original numerical E0 gates, but the active run leaves the
+  locked Qiu R--T domain at `360.22494 K` after only `0.0920339 R_load C` and
+  has current fine-pair NRMSE `0.0342127 > 0.02`. Overall status remains
+  `failed_but_informative`; M41 is blocked.
 
 ## Current Gate Ledger
 
 | Gate | Status | Direct boundary |
 | --- | --- | --- |
 | M40 Qiu 2D E0 | `failed_but_informative`; M41 `forbidden` | Current imbalance `2.45460e-8`, smooth/switching energy `1.42626e-8`/`2.32441e-12`, and reduced error `2.34910e-15` pass. Main QoI `0.0247878 > 0.01` and p99 field `0.110664 > 0.02` fail. |
+| M40R Qiu 2D bounded repair | original numerical E0 implementation evidence passes; overall `failed_but_informative`; M41 `forbidden` | All 14 original gates pass. Active transient fails duration (`0.0920339 < 3`), source domain (`360.22494 > 360 K`), and current fine-pair NRMSE (`0.0342127 > 0.02`). |
 | Frozen GT v1.1 | `supported` integrity baseline | Equations, parameters, arrays, and acceptance files unchanged. |
 | P0 / P3 | `qualified_supported` | Reduced synthetic semantics; P3 is only a static pure-electrical three-parameter local-rank result. |
 | P1 / P2 | `failed_but_informative` | P1 retains `E_T=0.37563055753707886` and interface residual `106.15460205078125`; P2 thermal/material-block identifiability remains unresolved. P1 is required only for multidomain/interface claims. |
@@ -55,7 +61,9 @@
 ## Current Single Priority
 
 Resume evidence-bounded manuscript compression. Preserve the constrained
-`gamma_sub` rank-1 synthetic mainline and every M35-M37R/P1/M33/M34/M40
-failure. M40 is not rerun; no M41, M38, fit, PINN, or 13 V access is active.
+`gamma_sub` rank-1 synthetic mainline, the original M40 mesh failure, and the
+M40R active-transient/source-domain boundary together with every
+M35-M37R/P1/M33/M34 failure. No further M40 repair, M41, M38, fit, PINN, or
+13 V access is active.
 
 Compact routing: `docs/project_state/current_evidence_index.md`.
