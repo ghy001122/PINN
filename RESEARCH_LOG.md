@@ -2,6 +2,41 @@
 
 > Do not load by default. Use `PROJECT_STATE.md`, `NEXT_ACTIONS.md`, and the latest task report for current work.
 
+## E1F Source Audit And Literal-S3 Corrective Vote
+
+Date: 2026-07-21
+
+Implemented the Qiu source-equation compact-model audit requested by
+`Q2_E1F_QIU_AUTHOR_MODEL_EXTERNAL_ANCHOR_AND_BRIDGE_AUDIT`, then red-teamed its
+source transcription and digitized curves before accepting a claim. The first
+formal artifact was preserved as `implementation_contract_invalid`: SI Eq. S3
+contained an unreported `atanh`, and main Fig. 2b extraction captured legend
+strokes. None of its numerical curve errors votes. The read-only M40/M40R
+bridge ratios remain a valid refusal of direct lumped-to-local parameter
+transfer.
+
+Preregistered one post-lock E1F-R correction at commit
+`3792eb8d77cb1acab8644ea4a4a0a2a4d4552b2b`. It used literal printed Eq. S3,
+unchanged source parameters/12 V SI Fig. S1/time/metric/gate, and two formal
+integrations; it did not simulate or score Fig. 2b. DOP853/Radau parity passed
+with worst NRMSE `2.23216159e-07`, but current/voltage setting NRMSE
+`0.353154/0.815643` exceeded `0.10`, including favorable envelope scores
+`0.320963/0.732598`. The effective-coordinate preflight was blocked. Status is
+`failed_but_informative`; exact author-code reproduction, quantitative external
+validation, reduced identification, M41, and trained-PINN success remain
+`forbidden`.
+
+Distance and disposition: the round resolves a real ambiguity and strengthens
+reviewer defense, but adds no positive external or neural evidence. The only
+positive inverse mainline remains calibration-gated synthetic rank-1
+`gamma_sub`. All Qiu rescue experiments now stop; the active bottleneck returns
+to manuscript evidence compression, submission go/no-go, and journal-package
+lock.
+
+Validation: E1F/E1F-R targeted tests `25 passed`; final full CPU suite
+`419 passed in 375.64 s`; governance passed with no failed checks and frozen GT
+hashes unchanged.
+
 ## N0-R Frozen-GT Compatibility And Bounded Exact-Trace Repair
 
 Date: 2026-07-17

@@ -1,0 +1,250 @@
+{
+  "base_snapshot": "5e75cbfae505b801956df89bfce4a3c76989f659",
+  "claim_disposition": "The literal-S3 corrective audit failed at SI Fig. S1 setting curve. The result defines a source-equation implementation boundary; no refit, replacement curve, or downstream inverse route is authorized.",
+  "completed_at_utc": "2026-07-21T12:25:41.476645+00:00",
+  "effective_coordinate_preflight": {
+    "inverse_network_run": false,
+    "schema_version": "e1fr_effective_coordinate_preflight_v1",
+    "scientific_claim_authorized": false,
+    "setting_curve_pass": false,
+    "solver_parity_pass": true,
+    "status": "not_run_upstream_gate_failed"
+  },
+  "environment": {
+    "numpy": "1.26.4",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.9",
+    "scipy": "1.13.1"
+  },
+  "exact_author_code_reproduction_status": "forbidden",
+  "execution_file_hashes": {
+    "configs/e1fr_qiu_source_equation_correction.yaml": "BBC34A9B573EE9B2EEEC9016FB7B6B0094180773572F3B904EA3A58E4DB57501",
+    "data/external/qiu_2024_thermal_neuristor/derived/qiu_2024_si_fig_s1_12v_current.csv": "901E02A6D68C71A97BFC91AAF4C5AFDAC6414C3A59780573400A51168023D05D",
+    "data/external/qiu_2024_thermal_neuristor/derived/qiu_2024_si_fig_s1_12v_device_voltage.csv": "28F111ABF4AFB119EA37FC389EE4D7A74D62894ABA71CF3DA0824CB52987AFC3",
+    "data/external/qiu_2024_thermal_neuristor/digitized_manifest.json": "8BB8F8B459116A6F35ABEC4E98A208AF5704FF5E63E258311DA363B50048113C",
+    "outputs/tables/e1f_qiu_author_validation.json": "0EFEC08003C7209F9A02188FB6CB3674ECB4B2E32DE64C968F34608765698FE7",
+    "outputs/tables/e1f_semantic_amendment.json": "D35A16AD28E854E00D96AEF2B0E83DB0C442BD13B24FFFC3181546934F9F6846",
+    "scripts/preregister_e1fr_qiu_source_equation_correction.py": "672B2D29E2F06C62851E7B87900F238C2E50878252D98E583C5FF7A16FCF208D",
+    "scripts/run_e1f_qiu_author_anchor.py": "9CB98F726B11F1CDA4FBFF26C94814DBA0CD9CEF3998AEC40BE058C4358F4119",
+    "scripts/run_e1fr_qiu_source_equation_correction.py": "2F1CED3252ACA7775F2FBC6C11D298B320D332047354D97AE99E64EC06D5C7B8",
+    "src/pinnpcm/physics/qiu_author_compact_model.py": "86CA82B08D29A7322394EE6DEB87FBD35735A2C15B29054899413C62F96B8E4D",
+    "src/pinnpcm/solvers/qiu_author_ode.py": "032408DA151E393FD5F81CF3551D5E74536D9933D3E31B40954534A5E84B40B9",
+    "tests/test_e1f_qiu_author_equations.py": "BAFCE45AF459A5370BD685B6958B0B046A774A65B4BF7309A75E5544BC9FEA6B",
+    "tests/test_e1fr_contract.py": "0F40944987BE2D9D7112B4204672E449A5BD1454A07FAC809DCDCC46D74EFC7B"
+  },
+  "formal_budget_respected": true,
+  "formal_execution_attempt": 1,
+  "forward_integrations": 2,
+  "gates": {
+    "all_authorized_positive_gates_pass": false,
+    "setting_curve_pass": false,
+    "solver_parity_all_pass": true
+  },
+  "git_dirty_at_execution": true,
+  "holdout_refit": false,
+  "inverse_network_run": false,
+  "literal_source_equation_s3": "T_pr = delta*w/2 + T_c - (2*F(T_r)-1)/beta - T_r",
+  "m40_m40r_and_frozen_gt_hashes_reverified": true,
+  "m40_or_m40r_solver_rerun": false,
+  "m41_authorized": false,
+  "main_fig2b": {
+    "independent_holdout": false,
+    "scored": false,
+    "simulated": false,
+    "status": "implementation_contract_invalid_unassessed"
+  },
+  "next_route": "q2_manuscript_evidence_compression_and_submission_lock",
+  "original_e1f_scientific_vote": false,
+  "original_e1f_status": "implementation_contract_invalid",
+  "pinn_training_run": false,
+  "post_lock_corrective_audit": true,
+  "preregistration_commit": "3792eb8d77cb1acab8644ea4a4a0a2a4d4552b2b",
+  "preregistration_sha256": "B5BE756FC47E5CBCA4A5E1FDA233613BF2E4CDDA05332EDBC4505FE5E9F03811",
+  "primary_12V_metrics": {
+    "activity_class": "sustained_oscillation",
+    "charge_C": 1.0191357124495978e-08,
+    "charge_per_last_cycle_C": 1.4435516915902778e-09,
+    "cooling_to_heating_event_count": 6,
+    "energy_ledger_relative_imbalance": 0.000152270149519489,
+    "energy_ledger_residual_J": -1.6494990322040345e-11,
+    "energy_per_last_cycle_J": 7.675000721844448e-09,
+    "event_count": 13,
+    "heating_to_cooling_event_count": 7,
+    "joule_energy_J": 5.417181919352977e-08,
+    "median_period_s": 2.7875809920314705e-06,
+    "minimum_current_A": 0.0,
+    "minimum_joule_power_W": 0.0,
+    "minimum_temperature_K": 325.0,
+    "outward_heat_J": 5.2807292797626844e-08,
+    "peak_current_A": 0.005493563136722895,
+    "peak_temperature_K": 383.4695495227377,
+    "period_count": 6,
+    "thermal_storage_change_J": 1.3480314055808891e-09
+  },
+  "schema_version": "e1fr_qiu_source_equation_correction_v1",
+  "sealed_zhang_13v_access": false,
+  "setting_curve": {
+    "current": {
+      "digitization_envelope_score_max": 0.41992073099431926,
+      "digitization_envelope_score_min": 0.32096298161933423,
+      "directly_observed_fraction": 0.9973118279569892,
+      "median_digitized_point_std": 4.032664140865e-05,
+      "no_phase_or_time_alignment": true,
+      "point_count": 2976,
+      "range_normalized_rmse": 0.35315398662125713
+    },
+    "current_metadata": {
+      "axis_calibration": {
+        "x_tick_pixel_value_pairs": [
+          [
+            1187.0,
+            0.0
+          ],
+          [
+            1931.0,
+            5.0
+          ],
+          [
+            2675.0,
+            10.0
+          ],
+          [
+            3419.0,
+            15.0
+          ],
+          [
+            4162.0,
+            20.0
+          ]
+        ],
+        "y_tick_pixel_value_pairs": [
+          [
+            2094.0,
+            0.0
+          ],
+          [
+            1323.0,
+            5.0
+          ]
+        ]
+      },
+      "crop_box_px_600dpi": [
+        1050,
+        850,
+        4250,
+        3400
+      ],
+      "crop_png_sha256_not_committed": "C4BA95B18C78BCAE511BD138CDA57DEEC7A38677A8E7A9F39759C091CF7AD624",
+      "csv_path": "data/external/qiu_2024_thermal_neuristor/derived/qiu_2024_si_fig_s1_12v_current.csv",
+      "curve_id": "qiu_2024_si_fig_s1_12v_current",
+      "digitized": true,
+      "mask": "red",
+      "mask_exclusion_boxes_px_600dpi": [],
+      "maximum_interpolated_gap_pixels": 4,
+      "observed_column_fraction": 0.9973118279569892,
+      "observed_point_count": 2968,
+      "panel": "Figure S1 upper current trace",
+      "point_count": 2976,
+      "semantics": "caption_does_not_identify_experiment_or_simulation",
+      "source_pdf_page_one_based": 7,
+      "source_pdf_role": "supporting_information",
+      "typical_observed_line_width_pixels": 19.0,
+      "value_name": "current_mA",
+      "value_unit": "mA"
+    },
+    "voltage": {
+      "digitization_envelope_score_max": 0.909251129214834,
+      "digitization_envelope_score_min": 0.7325975215213316,
+      "directly_observed_fraction": 0.9973118279569892,
+      "median_digitized_point_std": 0.07840379914904999,
+      "no_phase_or_time_alignment": true,
+      "point_count": 2976,
+      "range_normalized_rmse": 0.8156427211418511
+    },
+    "voltage_metadata": {
+      "axis_calibration": {
+        "x_tick_pixel_value_pairs": [
+          [
+            1187.0,
+            0.0
+          ],
+          [
+            1931.0,
+            5.0
+          ],
+          [
+            2675.0,
+            10.0
+          ],
+          [
+            3419.0,
+            15.0
+          ],
+          [
+            4162.0,
+            20.0
+          ]
+        ],
+        "y_tick_pixel_value_pairs": [
+          [
+            3296.0,
+            0.0
+          ],
+          [
+            2525.0,
+            5.0
+          ]
+        ]
+      },
+      "crop_box_px_600dpi": [
+        1050,
+        850,
+        4250,
+        3400
+      ],
+      "crop_png_sha256_not_committed": "C4BA95B18C78BCAE511BD138CDA57DEEC7A38677A8E7A9F39759C091CF7AD624",
+      "csv_path": "data/external/qiu_2024_thermal_neuristor/derived/qiu_2024_si_fig_s1_12v_device_voltage.csv",
+      "curve_id": "qiu_2024_si_fig_s1_12v_device_voltage",
+      "digitized": true,
+      "mask": "red",
+      "mask_exclusion_boxes_px_600dpi": [],
+      "maximum_interpolated_gap_pixels": 4,
+      "observed_column_fraction": 0.9973118279569892,
+      "observed_point_count": 2968,
+      "panel": "Figure S1 lower VO2-voltage trace",
+      "point_count": 2976,
+      "semantics": "caption_does_not_identify_experiment_or_simulation",
+      "source_pdf_page_one_based": 7,
+      "source_pdf_role": "supporting_information",
+      "typical_observed_line_width_pixels": 40.0,
+      "value_name": "device_voltage_V",
+      "value_unit": "V"
+    }
+  },
+  "setting_curve_max_nrmse": 0.8156427211418511,
+  "solver_parity": {
+    "activity_class_match": true,
+    "current_nrmse": 2.2321615857215442e-07,
+    "event_count_match": true,
+    "event_type_sequence_match": true,
+    "independent_activity_class": "sustained_oscillation",
+    "independent_event_count": 13,
+    "primary_activity_class": "sustained_oscillation",
+    "primary_event_count": 13,
+    "temperature_nrmse": 2.012813697917251e-08,
+    "voltage_nrmse": 1.0591467524119374e-08
+  },
+  "solver_parity_checks": {
+    "activity_class": true,
+    "current": true,
+    "event_count": true,
+    "event_types": true,
+    "temperature": true,
+    "voltage": true
+  },
+  "solver_parity_worst_nrmse": 2.2321615857215442e-07,
+  "source_contract_complete_for_exact_author_code_reproduction": false,
+  "stage_id": "Q2_E1FR_QIU_SOURCE_EQUATION_CORRECTION",
+  "status": "failed_but_informative",
+  "wall_time_s": 7.1812072999891825
+}

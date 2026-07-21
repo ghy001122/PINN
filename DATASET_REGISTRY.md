@@ -2,6 +2,35 @@
 
 > Do not load by default. Current evidence routing is `docs/project_state/current_evidence_index.md`.
 
+## E1F Qiu 2024 publication-curve provenance (2026-07-21)
+
+- Source: Qiu et al., *Advanced Materials* (2024), DOI
+  `10.1002/adma.202306818`. The hash-locked local main/SI PDFs are
+  `external_literature_source_document` artifacts, not project measurements;
+  publisher redistribution permission is not assumed.
+- `data/external/qiu_2024_thermal_neuristor/digitized_manifest.json` records
+  source/page/panel and crop hashes, pixel coordinates, axis calibration,
+  converted coordinates, and digitization uncertainty. Its points are
+  `derived_digitized_literature_curve`, never raw experimental data.
+- SI Fig. S1 at 12 V is the preregistered setting/implementation curve; its
+  caption does not establish whether the panel is experiment or simulation.
+  Its extraction is sound. The original E1F curve scores are non-voting
+  because its Eq. S3 implementation was wrong; the literal-S3 E1F-R setting
+  gate failed with current/voltage NRMSE `0.353154/0.815643`.
+- Main Fig. 2b at 12.5 V was intended as a
+  `repository_withheld_same_paper_digitized_curve_evaluation`, but its blue
+  and black traces are contaminated by legend strokes over pixel ranges
+  `x=2503--2597` and `x=2506--2592`. It is therefore
+  `implementation_contract_invalid/unassessed`, not a holdout vote and not an
+  independent external holdout.
+- Compact-model trajectories are `solver_generated`. No refit or replacement
+  curve was used. E1F-R did not read, simulate, or score main Fig. 2b.
+- Identity clarification: this Qiu *Advanced Materials* source is distinct
+  from the Zhang/Sipling/Qiu *Nature Communications* source-data family used
+  by D0/M35--M37R; no data role, fitted parameter, or claim status transfers
+  between them.
+- Frozen GT v1.1 and all locked M40/M40R data remained unchanged.
+
 ## M35 public VO2 multi-voltage provenance lock (2026-07-18)
 
 - Manifest: `data/external/vo2_zhang_2024/multivoltage_prereg_manifest_v1.json`, derived only from the already-acquired publisher archive and existing D0a manifest.

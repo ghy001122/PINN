@@ -1,0 +1,6 @@
+block,case,metric,value,threshold,pass,digitization_envelope_min,digitization_envelope_max
+solver_parity,12V,current_nrmse,2.2321615857215442e-07,0.001,True,,
+solver_parity,12V,voltage_nrmse,1.0591467524119374e-08,0.001,True,,
+solver_parity,12V,temperature_nrmse,2.012813697917251e-08,0.001,True,,
+source_figure_setting,setting_current,range_normalized_rmse,0.35315398662125713,0.1,False,0.32096298161933423,0.41992073099431926
+source_figure_setting,setting_voltage,range_normalized_rmse,0.8156427211418511,0.1,False,0.7325975215213316,0.909251129214834

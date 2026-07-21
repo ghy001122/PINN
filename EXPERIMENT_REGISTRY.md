@@ -2,6 +2,40 @@
 
 > Do not load by default. Current claim/evidence routing is `docs/project_state/current_evidence_index.md`; use this file only to trace a named historical run.
 
+## E1F/E1F-R Qiu author compact audit (2026-07-21)
+
+- Original task: `Q2_E1F_QIU_AUTHOR_MODEL_EXTERNAL_ANCHOR_AND_BRIDGE_AUDIT`;
+  preregistration commit `783f41ec2ddd01f055ac34e6424c403082132fdc`;
+  preserved invalid-result commit `5e75cbfae505b801956df89bfce4a3c76989f659`.
+- A post-run source/figure audit found two vote-invalidating defects: SI Eq. S3
+  used an unreported `atanh`, and main Fig. 2b extraction captured blue/black
+  legend strokes. The original six-integration artifact is therefore
+  `implementation_contract_invalid`; none of its curve errors is a vote.
+- Corrective task: `Q2_E1FR_QIU_SOURCE_EQUATION_CORRECTION`; preregistration
+  commit `3792eb8d77cb1acab8644ea4a4a0a2a4d4552b2b`. It kept parameters,
+  12 V SI Fig. S1, time interval, metric, and `0.10` gate unchanged, implemented
+  literal printed Eq. S3, and did not simulate or score Fig. 2b.
+- Formal execution `1/1` used two forward integrations. DOP853/Radau parity
+  passed with worst waveform NRMSE `2.23216159e-07`; activity class, event
+  count, and event-type sequence agreed.
+- The corrected 12 V setting gate failed: current/voltage NRMSE were
+  `0.353154`/`0.815643`; favorable envelope scores `0.320963/0.732598` also
+  exceed `0.10`. Status is `failed_but_informative`; the conditional effective-
+  coordinate preflight was not run.
+- Main Fig. 2b remains `implementation_contract_invalid/unassessed`, not a
+  holdout vote and not independent external validation. No refit, replacement
+  curve, inverse, PINN training, or reduced-identifiability claim is authorized.
+- The read-only source-to-PDE audit records resistance, thermal-capacitance,
+  thermal-conductance, and timescale mismatch ratios of `2.330233`, `635.5145`,
+  `206`, and `3.085022`. It refuses direct lumped-to-local parameter transfer
+  and does not authorize another M40/M40R repair.
+- M40/M40R and frozen GT hashes were reverified without rerunning either 2D
+  solver. Evidence: `outputs/tables/e1fr_qiu_source_equation_correction.json`,
+  `outputs/tables/e1fr_qiu_source_equation_correction.csv`,
+  `outputs/tables/e1f_semantic_amendment.json`,
+  `outputs/tables/e1f_source_to_pde_bridge_mismatch.csv`, and
+  `docs/codex_reports/e1fr_qiu_source_equation_correction_results.md`.
+
 ## M40R Qiu E0 mesh and active-transient repair (2026-07-21)
 
 - Task: `Q2_M40R_QIU_E0_MESH_AND_ACTIVE_TRANSIENT_REPAIR`.

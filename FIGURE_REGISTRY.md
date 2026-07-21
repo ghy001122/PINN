@@ -2,6 +2,23 @@
 
 > Do not load by default. The authoritative manuscript list is `docs/paper/final_figure_list.md`.
 
+## E1F Qiu compact-model and bridge diagnostics (2026-07-21)
+
+- `outputs/figures/e1f/qiu_author_model_and_holdout.png`: a non-voting
+  implementation diagnostic from the invalid original E1F run. Both source-
+  curve scores are non-voting because Eq. S3 was mistranscribed; main Fig. 2b is
+  `implementation_contract_invalid/unassessed` because legend strokes
+  contaminate both extracted traces. This file is excluded from the scientific
+  figure roster; digitized points are not raw experimental data.
+- `outputs/figures/e1fr/qiu_setting_correction.png`: the voting literal-S3
+  E1F-R comparison against clean SI Fig. S1 current and voltage traces. It
+  records a failed source-figure implementation check, not validation or fit;
+  no Fig. 2b data appear.
+- `outputs/figures/e1f/source_to_pde_bridge_mismatch.png`: a supplementary
+  mapping-refusal diagnostic built only from locked source and M40/M40R
+  artifacts. It does not validate local PDE parameters, rescue M40R, or
+  authorize M41.
+
 ## M40R Qiu E0 repair diagnostic figures (2026-07-21)
 
 - `outputs/figures/m40r/mesh_and_field_convergence.png`: repaired conservative

@@ -1,0 +1,8 @@
+{
+  "inverse_network_run": false,
+  "schema_version": "e1fr_effective_coordinate_preflight_v1",
+  "scientific_claim_authorized": false,
+  "setting_curve_pass": false,
+  "solver_parity_pass": true,
+  "status": "not_run_upstream_gate_failed"
+}

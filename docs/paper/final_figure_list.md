@@ -1,6 +1,6 @@
 # Final Figure List
 
-All figures are generated from synthetic numerical digital-twin evidence; none is measured experimental data.
+Figures 1--6 use synthetic numerical digital-twin evidence. The E1F supplementary bridge figure is a read-only mapping diagnostic; the excluded original E1F image combines invalid/non-voting digitized-literature comparisons. The E1F-R setting figure is a failed source-equation implementation check. None is project-generated experimental measurement.
 
 | Figure | Title | Status | Primary data | Generated file | Builder | Reproduction command | Caption boundary |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -23,5 +23,9 @@ All figures are generated from synthetic numerical digital-twin evidence; none i
 | Figure S-CEBA-pilot | `failed_but_informative` | `outputs/tables/gamma_sub_ceba_pilot_summary.json`<br>`outputs/figures/gamma_sub_ceba_boundary_v1.png` | All source-parity gates pass, but no success/failure bracket exists because the locked ambiguity rule abstains at zero `T_sw` error. The figure records an unresolved boundary, not a calibration prescription. |
 | Figure S-SCIS-v1 | `failed_but_informative` | `outputs/tables/gamma_sub_scis_summary.json`<br>`outputs/figures/gamma_sub_scis_certificate_v1.png` | Nominal held-out coverage passes, but all severe `2 K` mismatch cases are accepted while point success is zero. The figure is a refusal-failure boundary, not an operational certificate. |
 | Figure S-M33-mixed-flux | `failed_but_informative` | `outputs/tables/m33_mixed_flux_final_summary.json`<br>`outputs/tables/m33_mixed_flux_v3r_comparison.csv`<br>`outputs/figures/m33_mixed_flux_forward_fidelity.png` | The mixed-flux contract reduces selected thermal/flux errors but fails port, constitutive, PDE, field, interface-flux, global-ledger, and no-regression gates. It is a final neural forward-fidelity failure boundary, not a positive method figure. |
+| Figure S-E1F-bridge | `supported` mapping-refusal audit | `outputs/tables/e1f_source_to_pde_bridge_mismatch.csv`<br>`outputs/figures/e1f/source_to_pde_bridge_mismatch.png` | Locked local/source projections disagree in resistance, thermal capacitance, thermal conductance, and timescale. This refuses direct lumped-to-local parameter transfer; it is not a scientific vote, M40R rescue, local-PDE validation, or M41 authorization. |
+| Figure S-E1F-R-setting | `failed_but_informative` | `outputs/tables/e1fr_qiu_source_equation_correction.json`<br>`outputs/figures/e1fr/qiu_setting_correction.png` | Literal-S3 DOP853/Radau parity passes, but clean SI Fig. S1 current and voltage traces fail the locked setting gate. It is a source-figure implementation boundary, not fit or validation evidence; Fig. 2b is absent. |
+
+The original E1F `outputs/figures/e1f/qiu_author_model_and_holdout.png` file is excluded from the scientific roster. Its Eq. S3 implementation was incorrect and main Fig. 2b extraction is `implementation_contract_invalid/unassessed` because legend strokes contaminate both traces; every displayed score has no scientific vote.
 
 The historical `outputs/figures/gamma_sub_cpcf_pareto_v1.png` remains hash-locked but is removed from the scientific figure roster. Its only label is **NON-VOTING PROXY-CONTRACT DIAGNOSTIC**.

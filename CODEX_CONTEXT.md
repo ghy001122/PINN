@@ -5,10 +5,10 @@
 Read this file and `docs/research_strategy/active_phase.md` first. Load longer context through `docs/research_strategy/context_loading_policy.md`.
 
 - Authoritative goal: `PROJECT_GOAL.md`
-- Phase ID: `Q2_E1F_EXTERNAL_ANCHOR_WITH_MANUSCRIPT_COMPRESSION`
+- Phase ID: `Q2_MANUSCRIPT_EVIDENCE_COMPRESSION_AND_SUBMISSION_LOCK`
 - Current evidence: `docs/project_state/current_evidence_index.md`
 - Safe historical evidence lock: `d1121e16fa5015a297da468e3e6f0504b9e97d17`
-- Current report: `docs/codex_reports/m40r_qiu_e0_repair_results.md`
+- Current report: `docs/codex_reports/e1fr_qiu_source_equation_correction_results.md`
 
 ## Corrected North Star
 
@@ -18,17 +18,21 @@ The calibration-gated constrained `gamma_sub` rank-1 result is the safe `qualifi
 
 ## Single Active Bottleneck
 
-`Q2_E1F_EXTERNAL_ANCHOR_WITH_MANUSCRIPT_COMPRESSION`: preserve M40/M40R and
-run one source-equation-constrained Qiu compact-model external-literature anchor. M40R passes
-all 14 original numerical gates but fails three active-transient gates; M41 is
-not authorized. E1F cannot reopen M40, train a PINN, fit the holdout, or create
-an experimental-validation claim.
+`Q2_MANUSCRIPT_EVIDENCE_COMPRESSION_AND_SUBMISSION_LOCK`: the original E1F
+formal run is permanently `implementation_contract_invalid` because Eq. S3
+was mistranscribed and Fig. 2b digitization captured legend strokes. The
+single E1F-R correction uses the literal printed Eq. S3 and only the clean
+12 V SI Fig. S1 source curve. Independent-solver parity passes, but the locked
+setting gate fails, so no effective-coordinate preflight was run. Compress the
+locked synthetic positive result and all failure boundaries into a submission
+package. No new rescue experiment is active.
 
 ## Evidence Snapshot
 
 | Block | Current boundary |
 | --- | --- |
 | M40 Qiu 2D E0 | `failed_but_informative`; 12/14 formal gates pass, but both mesh gates fail. Current/energy/interface/reduced checks pass. M41 is not authorized. |
+| E1F/E1F-R Qiu compact anchor | Original E1F is `implementation_contract_invalid` and has no scientific vote. E1F-R is `failed_but_informative`: parity passes (`2.23216e-7` worst NRMSE), but literal-S3 12 V setting current/voltage errors are `0.353154/0.815643`. Fig. 2b is invalid/unassessed and was not simulated or scored. Quantitative external validation and reduced-coordinate authorization are absent. |
 | Frozen/P0-P4 | GT unchanged; P0/P3 qualified, P1/P2 failed, P4 forbidden. |
 | D0/M35-M37R | D0a/M35 remain failed. M36 nominal solver parity passes; M37R reproduces full/post counts `0/216/381/4` and `0/196/344/0`, then stops on 15 V perturbation topology (`343` vs `344`, common prefix `0`). No Jacobian, fit, lock, or 13 V access. |
 | N0 v1-v3r | Operator audits pass, trained paths fail. v3r port `0.0955475` passes but physics/field/flux/ledger gates fail; strong-Wolfe becomes non-finite. |
@@ -45,11 +49,9 @@ Keep `public_external_raw`, `derived`, `interpolated`, `solver_generated`, `pinn
 
 ## Operating Rule
 
-Do not rerun or rescue M40/M40R. E1F may implement only the SI-defined lumped
-equations with declared LLP reversal and initial-condition assumptions, then digitize the locked setting/holdout panels after the
-preregistration commit, and conditionally audit two effective coordinates. Run
-no M41, inverse network, PINN training, holdout refit, M38, or Zhang sealed-13-V
-access. Preserve all negative artifacts and use only `supported`,
+Do not rerun or rescue E1F/E1F-R or M40/M40R. Run no M41, effective-coordinate
+preflight, inverse network, PINN training, holdout refit, M38, or Zhang sealed-
+13-V access. Preserve all negative artifacts and use only `supported`,
 `qualified_supported`, `failed_but_informative`, or `forbidden`.
 
 The Qiu SI does not publish a complete executable reversal update, numerical

@@ -1,6 +1,6 @@
 # Final Table List
 
-All tables report synthetic numerical digital-twin evidence unless explicitly marked as literature-prior metadata.
+Tables report synthetic numerical digital-twin evidence unless explicitly marked as external-literature or mapping-audit evidence. Digitized publication curves are not raw or project-generated experimental measurements.
 
 | Table | Content | Source |
 | --- | --- | --- |
@@ -24,6 +24,8 @@ All tables report synthetic numerical digital-twin evidence unless explicitly ma
 | Supplementary Table | N0 v3r optimizer forensics and current SID/EC-OQ implementation rejection | `outputs/tables/n0_cv_e_v3r_forensic_resolution.json`; `outputs/tables/sid_ec_oq_summary.json` |
 | Supplementary Table | M33 mixed-flux preflight, complete gate result, and matched v3r comparison | `outputs/tables/m33_mixed_flux_preflight.json`; `outputs/tables/m33_mixed_flux_final_summary.json`; `outputs/tables/m33_mixed_flux_v3r_comparison.csv` |
 | Supplementary Table | CEBA exact-source parity and preregistered abstention boundary | `outputs/tables/gamma_sub_ceba_parity_cases.csv`; `outputs/tables/gamma_sub_ceba_parity_summary.json`; `outputs/tables/gamma_sub_ceba_pilot_cases.csv`; `outputs/tables/gamma_sub_ceba_pilot_summary.json` |
+| Supplementary Table | Original E1F implementation-contract invalidation plus E1F-R solver parity and failed clean SI Fig. S1 setting gate | `outputs/tables/e1f_semantic_amendment.json`; `outputs/tables/e1fr_qiu_source_equation_correction.json`; `outputs/tables/e1fr_qiu_source_equation_correction.csv` |
+| Supplementary Table | E1F source-to-PDE mapping refusal and E1F-R upstream-blocked coordinate preflight | `outputs/tables/e1f_source_to_pde_bridge_mismatch.csv`; `outputs/tables/e1fr_effective_coordinate_preflight.json` |
 
 ## Non-voting software diagnostics
 

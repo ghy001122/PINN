@@ -10,6 +10,33 @@ Reserved for user-provided or lab raw data. No project-generated experimental da
 
 Contains public external literature artifacts only when source, version, license, hash and transformation semantics are recorded. These are not measurements performed by this project.
 
+### Qiu et al. VO2 publication-curve audit (2026-07-21)
+
+- Paper: Qiu et al., *Advanced Materials* (2024), DOI
+  `10.1002/adma.202306818`. The local publisher main/SI PDFs have SHA-256
+  `D842E8BF1B5AC609AB504D8BF6104CFD3EFEA59697A5C7AC21664A99EB7D3C67`
+  and `D47ED95CD5782C3E632BBC440C1FCC681870E0FF303F0B05F8CD8F30CEC70BFD`.
+  They are hash-locked source documents; redistribution permission is not
+  assumed. The publisher states that data are available on reasonable request,
+  so the repository does not describe digitized pixels as public raw arrays.
+- SI Fig. S1 current and voltage traces were digitized at 600 dpi with explicit
+  tick calibration, retained raw pixel coordinates, observed/interpolated
+  flags, crop hashes, and conditional pixel-jitter sensitivity envelopes.
+  Their CSV hashes are recorded in
+  `data/external/qiu_2024_thermal_neuristor/digitized_manifest.json`. These are
+  `derived_digitized_literature_curve`, not raw or project-generated data; the
+  caption does not establish whether the panel is experiment or simulation.
+- Main Fig. 2b extraction is `implementation_contract_invalid/unassessed`
+  because legend pixels contaminated both traces. It has no holdout vote and
+  was not read, simulated, or scored by the corrective E1F-R run.
+- The original E1F run also mistranscribed SI Eq. S3 and therefore has no
+  scientific curve vote. E1F-R used literal printed Eq. S3 and only clean SI
+  Fig. S1. No parameter fit, phase/time alignment, or replacement curve was
+  used. Its trajectories are `solver_generated`.
+- Neither audit is independent experimental validation, an exact author-code
+  reproduction, or evidence that author-fitted lumped quantities are local
+  PDE material/boundary parameters.
+
 ### Zhang et al. VO2 source package (2026-07-15)
 
 - Paper: Zhang, Sipling, Qiu et al., *Nature Communications* 15, 6986 (2024), DOI `10.1038/s41467-024-51254-4`.

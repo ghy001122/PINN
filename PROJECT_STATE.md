@@ -3,72 +3,57 @@
 ## Authoritative Current Snapshot
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
-- Active phase: `Q2_E1F_EXTERNAL_ANCHOR_WITH_MANUSCRIPT_COMPRESSION`.
-- Frozen GT v1.1: unchanged and read-only.
-- Safe inverse mainline: constrained `gamma_sub`, calibration-gated rank-1, `qualified_supported` only under locked synthetic conditions.
-- Full PINN: mandatory architecture/paper scaffold; every bounded trained-forward route remains `failed_but_informative`, so sensitivity/inverse claims are `forbidden`.
-- Public VO2: M36 finite-step gates remain failed. M37R fixes the count-window contract and passes nominal parity, but a 15 V `log_C_th=-1%` perturbation changes post-transient event topology before Jacobian/SVD; M38, fit, lock, and 13 V access remain absent.
-- Project-generated experimental validation: absent.
-- M40 Qiu bridge: source contract and implementation facts are locked. Formal
-  E0 remains `failed_but_informative`: main-current mesh change is `0.0247878`
-  and p99 field change is `0.110664`, both above their fixed gates.
-- M40R bounded repair: historical M40 is byte-for-byte unchanged. The one-time
-  repair passes all 14 original numerical E0 gates, but the active run leaves the
-  locked Qiu R--T domain at `360.22494 K` after only `0.0920339 R_load C` and
-  has current fine-pair NRMSE `0.0342127 > 0.02`. Overall status remains
-  `failed_but_informative`; M41 is blocked.
-- E1F Qiu author-model anchor: preregistered before holdout ordinate access.
-  Because the SI omits an executable reversal/initial-condition contract, it
-  may establish only a source-equation-constrained reimplementation and a
-  same-paper digitized-curve evaluation. It cannot establish exact author-code
-  reproduction, validate the M40/M40R local PDE bridge, or count as independent
-  experimental validation.
+- Active phase: `Q2_MANUSCRIPT_EVIDENCE_COMPRESSION_AND_SUBMISSION_LOCK`.
+- Frozen GT v1.1 is unchanged and read-only.
+- The constrained `gamma_sub` result is the only positive inverse mainline:
+  calibration-gated, rank-1, synthetic, and `qualified_supported` only under
+  its locked priors/protocols.
+- Complete PINN contracts are `supported` implementation facts; every bounded
+  trained-forward route is `failed_but_informative`, so forward-accuracy,
+  sensitivity, and inverse claims remain `forbidden`.
+- No project-generated measurement, positive public-data fit, valid external
+  holdout, experimental validation, or 13 V evaluation exists.
+- M40/M40R establish a source-traceable 2D implementation and static numerical
+  checks, but the active dynamic bridge fails; M41 remains unauthorized.
+- Original E1F is `implementation_contract_invalid`. Corrected E1F-R passes
+  DOP853/Radau parity but fails clean SI Fig. S1 current/voltage gates; Fig. 2b
+  remains invalid/unassessed and unscored.
 
 ## Current Gate Ledger
 
 | Gate | Status | Direct boundary |
 | --- | --- | --- |
-| M40 Qiu 2D E0 | `failed_but_informative`; M41 `forbidden` | Current imbalance `2.45460e-8`, smooth/switching energy `1.42626e-8`/`2.32441e-12`, and reduced error `2.34910e-15` pass. Main QoI `0.0247878 > 0.01` and p99 field `0.110664 > 0.02` fail. |
-| M40R Qiu 2D bounded repair | original numerical E0 implementation evidence passes; overall `failed_but_informative`; M41 `forbidden` | All 14 original gates pass. Active transient fails duration (`0.0920339 < 3`), source domain (`360.22494 > 360 K`), and current fine-pair NRMSE (`0.0342127 > 0.02`). |
-| Frozen GT v1.1 | `supported` integrity baseline | Equations, parameters, arrays, and acceptance files unchanged. |
-| P0 / P3 | `qualified_supported` | Reduced synthetic semantics; P3 is only a static pure-electrical three-parameter local-rank result. |
-| P1 / P2 | `failed_but_informative` | P1 retains `E_T=0.37563055753707886` and interface residual `106.15460205078125`; P2 thermal/material-block identifiability remains unresolved. P1 is required only for multidomain/interface claims. |
-| P4 | `forbidden` | No full STL or universal Fourier/F-SPS superiority. |
-| D0a | `failed_but_informative` | Source/SI parity passes; time-step NRMSE95 `0.163148 > 0.01`. |
-| M35 D-PREG | `supported` protocol/provenance fact | R-T and 9/11/15/17 V hashes, roles, equations, units, licenses, metrics, LOVO, eight starts, stop rules, and 13 V sealing are locked. Not fit evidence. |
-| M35 D-FIT | `failed_but_informative`; refit `forbidden` | All four open voltages fail locked 5 ns versus 2.5 ns current/voltage NRMSE gates. Activity class, frequency, charge, and energy pass. Fit stops before Jacobian/optimization; no fit lock exists. |
-| M36 reference parity | `supported` numerical fact only | Independently integrated DOP853 and Radau traces pass every locked parity/event gate at 9/11/15/17 V. At 11/15 V, reversal counts are exactly `196/196` and `344/344`, maximum event-time disagreements are `9.47e-13 s` and `1.18e-13 s`, and cycle-shape NRMSE is `9.51e-8` and `1.62e-8`. This validates the continuous-event numerical reference, not the public fit or source parameters. |
-| M36 source-compatible Euler limit | `failed_but_informative`; public refit route closed | Only 9 V passes. At the finest `0.3125 ns`, 11 V fails event-time (`67.5 ns > 25 ns`), cycle-shape (`0.0548 > 0.05`), and peak (`0.0389 > 0.02`) gates; 15 V fails event-time (`248.8 ns > 25 ns`) and has coarse-grid event-sequence instability; 17 V fails maximum current/noise (`62.365 > 5`). No threshold was changed. |
-| M37 semantic audit | wording correction `supported`; execution `failed_but_informative`; geometry `forbidden`/unassessed | M36's failed vote stays fixed; M37 exposes a full/post count-window mismatch and stops before perturbations. |
-| M37R repaired observability vote | `failed_but_informative`; geometry `forbidden`/unassessed | The inclusive interval `[t0+0.1(T-t0),T]` reproduces nominal full/post counts `0/216/381/4` and `0/196/344/0` for both solvers. The first 15 V `log_C_th=-1%`, `h=0.01` DOP853 perturbation is finite and keeps activity class but gives full/post `379/343` versus nominal `381/344`, common prefix `0`; execution stops after `11` forwards before Jacobian/SVD. |
-| D0b-D0d | completed evidence `forbidden` | No repository calibration, quotient audit, or 13 V evaluation. |
-| N0 contracts | `supported` implementation facts | Complete 1D states/residuals/closures/boundaries/ledgers exist; this is not trained accuracy or novelty. |
-| N0 v1-v3r | `failed_but_informative`; positive forward `forbidden` | Port-only improvements coexist with failed PDE/field/flux/ledger gates; v3r strong-Wolfe becomes non-finite. |
-| M33 mixed state-flux PINN | preflight `supported`; training `failed_but_informative` | `16/16` no-training checks pass; the sole 1500-step seed fails port, PDE, constitutive, interface, ledger, and no-regression gates. |
-| M34 contract audit | implementation facts `supported`; authorization `failed_but_informative` | M33 used adaptive group-norm exact penalties, not signed/vector ALM. The preregistered all-nonzero derivative gate fails (`30/44`, max error `0.0918561`); no corrected run. |
-| M34-A amendment | diagnostic fact `supported`; no scientific vote | `32/32` float64 group-normalized directions show stable parity and second-order Taylor behavior. Neither autograd-error nor scale-cancellation classification is supported; training remains unauthorized. |
-| SID/EC-OQ | `failed_but_informative`; implementation inactive | Derivative `3/9`; event-window, stability, and dual-geometry gates fail. |
-| CPCF | frontier `forbidden`; software audit `failed_but_informative` | All 48 votes are contract-non-equivalent proxy diagnostics, not scientific frontier evidence. |
-| CEBA | parity `supported`; boundary `failed_but_informative` | `6/6` direct-solver anchors pass, but the pilot abstains before a bracket; oracle/grid-dependent refusal is not deployable. |
-| Figure 5 | bundled result `qualified_supported`; isolated protocol gain `forbidden` | Waveform, duration, and calibration error vary together; configured prior width is unused. |
-| SCIS | `failed_but_informative` | Pooled nominal coverage `0.93233`, but 2 K mismatch acceptance is `1.0` with point success `0.0`. |
-| N1-N3 / SC-LOS | `forbidden` | Upstream trained-forward, public-solver, and geometry gates have not passed. |
+| `gamma_sub` inverse | `qualified_supported` | Target reduction plus tight `T_sw` calibration support the frozen synthetic rank-1 inverse; wide mismatch is retained as failure. `gamma_sub` is not a measured material constant. |
+| P0 / P3 | `qualified_supported` | Reduced synthetic semantics; P3 is a static pure-electrical three-parameter local-rank result, not arbitrary 2D field recovery. |
+| P1 / P2 | `failed_but_informative` | P1 retains `E_T=0.37563055753707886` and interface residual `106.15460205078125`; P2 full thermal/material identifiability remains unresolved. |
+| P4 | `forbidden` | No full STL reproduction or universal Fourier/F-SPS superiority. |
+| Full PINN N0/M33/M34 | Contracts `supported`; trained evidence `failed_but_informative` | Operator/manufactured checks pass, but port, field, PDE, interface, and independent ledger gates do not pass jointly. N1-N3 and SC-LOS are `forbidden`. |
+| M40 Qiu 2D E0 | `failed_but_informative` | Original E0 passes 12/14 checks but fails current/field mesh convergence. |
+| M40R bounded repair | Static numerical sub-result `supported`; overall `failed_but_informative` | All 14 original numerical checks pass, but the active run reaches `360.22494 K` after `0.0920339 R_load C` and current fine-pair NRMSE is `0.0342127 > 0.02`; M41 is `forbidden`. |
+| E1F original | `implementation_contract_invalid`; no vote | SI Eq. S3 was mistranscribed and Fig. 2b extraction captured legend strokes. Historical outputs remain immutable audit artifacts. |
+| E1F-R correction | `failed_but_informative` | Literal-S3 solver parity worst NRMSE is `2.23216e-7`; clean 12 V SI current/voltage NRMSE are `0.353154/0.815643 > 0.10`, with favorable envelopes `0.320963/0.732598`. Coordinate preflight is blocked. |
+| Source-to-PDE bridge | mapping-refusal fact `supported` | Source/local resistance factor `2.330233`; source/local heat-capacity, conductance, and time-scale ratios `635.5145`, `206`, and `3.085022`. These reject direct transfer but identify no local parameter. |
+| D0/M35-M37R | provenance/parity facts mixed with `failed_but_informative` stop gates | M36 nominal parity passes; M37R stops when the first 15 V perturbation changes post-window event topology (`344 -> 343`). No Jacobian, fit lock, quotient, or 13 V access follows. |
+| SID/EC-OQ, CPCF, CEBA/SCIS | inactive or negative | SID derivative/geometry gates fail; CPCF frontier is `forbidden`; CEBA parity passes but deployable refusal does not; SCIS severe-mismatch refusal fails. |
+
+Detailed paths are routed by
+`docs/project_state/current_evidence_index.md`; cumulative history remains in
+the registries and Git.
 
 ## Distance to Delivery Goal
 
 | Deliverable | Current state | Remaining gap |
 | --- | --- | --- |
-| Synthetic inverse mainline | constrained `gamma_sub` evidence locked | Integrate supported claims, figures, limitations, and reviewer defense into the manuscript |
-| Public-data anchor | provenance/parity locked; M37R nominal window fixed but perturbation topology fails | Numerical/hybrid-event limitation only; no public rank, fit, lock, or 13 V evaluation |
-| Full 1D PINN | complete versioned scaffold; trained paths fail | Retain scaffold/failure boundary; no neural search until an independently justified route exists |
-| Sensitivity/quotient inverse | absent or rejected implementations | Requires public solver convergence, reliable PINN forward fidelity, and solver/PINN Jacobian agreement |
-| Submission package | incomplete | Assemble only locked supported/qualified claims and explicit negative boundaries |
+| Synthetic inverse mainline | Locked and reproducible | Integrate only supported/qualified claims, limitations, figures, and reviewer defense. |
+| Real/public anchor | Provenance and numerical-parity boundaries only | No positive external quantitative validation; do not rescue with unregistered fitting. |
+| Complete PINN | Full scaffold, failed trained routes | Retain as architecture/failure evidence; do not claim neural success. |
+| Integrated manuscript | `docs/manuscript/main_submission_v1.md` exists | Verify references, captions, supplement, sentence-level claims, journal scope, and formatting. |
+| Submission decision | Immediate upload NO-GO; seven-day lock GO | Follow `docs/manuscript/submission_go_no_go.md`; no new science may delay the lock. |
 
 ## Current Single Priority
 
-Complete the single-run E1F Qiu source-equation-constrained compact-model evaluation, locked
-same-paper setting/holdout evaluation, and read-only source-to-PDE mismatch
-audit. In parallel, compress only evidence already locked. No further M40/M40R
-repair, M41, M38, holdout refit, PINN, or Zhang 13 V access is active.
-
-Compact routing: `docs/project_state/current_evidence_index.md`.
+Complete the manuscript, supplement, reproducibility package, reviewer-defense
+matrix, claim audit, and journal-scope go/no-go from locked evidence. E1F/E1F-R,
+M40/M40R, M37R, public inverse, effective-coordinate identification, and neural
+rescue are closed. Submission/preprint timing is controllable; journal
+acceptance or publication within one month is not.
