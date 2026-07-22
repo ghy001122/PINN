@@ -1,0 +1,193 @@
+task_id: Q2_M43_FINITE_WIDTH_THERMAL_SPREADING_CLOSURE
+schema_version: m43_finite_width_thermal_spreading_v1
+base_commit: 0dc103f391d1206fe02c100987ecab68ed1d741d
+required_ancestor: 3474499636165f7477ceceff3cf85da8a5adba08
+namespace: m43_finite_width_thermal_spreading
+run_class: terminal_thermal_component_closure
+
+budget:
+  cpu_only: true
+  maximum_unique_pde_forwards: 16
+  preregistered_pde_forwards: 15
+  maximum_wall_clock_s: 28800
+  maximum_cpu_time_s: 28800
+  maximum_confirmatory_attempts: 1
+  no_parameter_search: true
+  no_rescue_round: true
+  identical_case_rerun_forbidden: true
+
+evidence_boundary:
+  evidence_type: solver_generated_manufactured_component_closure
+  qiu_device_validation: false
+  external_validation: false
+  scientific_device_forwards: 0
+  inverse_runs: 0
+  pinn_training_runs: 0
+  sealed_13V_accessed: false
+  upstream_source_local_resistance_error: 1.330233207545514
+  upstream_latent_heat_status: unresolved_and_unassessed
+
+sources:
+  yovanovich_muzychka_culham_1999:
+    doi: 10.2514/2.6467
+    url: https://www.mhtlab.uwaterloo.ca/pdf_papers/mhtl99-2.pdf
+    role: steady_isoflux_rectangle_half_space_equation_21
+  yovanovich_1997:
+    doi: 10.2514/6.1997-2458
+    url: https://www.mhtlab.uwaterloo.ca/pdf_papers/mhtl97-8.pdf
+    role: transient_half_space_surface_point_source_and_area_average
+  jain_2024:
+    doi: 10.1016/j.ijheatmasstransfer.2023.124946
+    role: finite_thickness_steady_isothermal_scope_boundary_only
+    mandatory_gate: false
+
+geometry:
+  coordinate_contract: x_is_short_100nm_y_is_long_500nm
+  source_full_x_m: 1.0e-7
+  source_full_y_m: 5.0e-7
+  source_half_short_b_m: 5.0e-8
+  source_half_long_a_m: 2.5e-7
+  source_aspect_ratio_rho: 5.0
+  source_area_m2: 5.0e-14
+  quarter_source_area_m2: 1.25e-14
+  quarter_symmetry: true
+  full_power_W: 1.0
+  quarter_power_W: 0.25
+  xz_extrusion_width_m: 5.0e-7
+  xz_half_domain_power_W: 0.5
+
+material:
+  thermal_conductivity_W_mK: 35.0
+  mass_density_kg_m3: 4000.0
+  specific_heat_J_kgK: 750.0
+  volumetric_heat_capacity_J_m3K: 3.0e6
+  thermal_diffusivity_m2_s: 1.1666666666666667e-5
+  provenance: m42_constant_property_engineering_prior_with_bookkeeping_factorization
+  physical_claim: homogeneous_isotropic_component_only
+
+time:
+  Rload_C_reference_s: 1.74e-6
+  maximum_time_s: 5.22e-6
+  maximum_time_Rload_C: 3.0
+  diffusion_length_definition: sqrt(alpha*t)
+  maximum_diffusion_length_m: 7.803845206050667e-6
+  green_early_Fo_A: 1.0e-8
+  green_long_Fo_A: 1218.0
+  fvm_comparison_Fo_A: [0.1, 0.3, 1.0, 3.0, 10.0, 30.0, 100.0, 300.0, 1218.0]
+  fvm_comparison_times_s: [4.285714285714286e-10, 1.2857142857142857e-9, 4.285714285714286e-9, 1.2857142857142857e-8, 4.285714285714286e-8, 1.2857142857142858e-7, 4.285714285714286e-7, 1.2857142857142857e-6, 5.22e-6]
+  backward_euler_steps_per_output:
+    base: 128
+    fine: 256
+  transient_error_normalization: steady_Rs_reference
+  transient_time_pair_metric: max_abs_Z_base_minus_fine_over_steady_Rs_reference
+  steady_mesh_domain_pair_metric: abs_Theta_coarse_minus_fine_over_abs_Theta_fine
+  finite_width_bias_definition: abs(Z_xz-Z_3d)/Z_3d
+  finite_width_bias_pair_metric: max_abs_bias_curve_difference
+  near_zero_outflow_pair: rho5_transient_M3D3_base_vs_rho5_transient_M3D3_fine
+  near_zero_outflow_metric: max_of_abs_Qout_difference_over_quarter_input_power_and_abs_cumulative_outflow_difference_over_quarter_input_energy
+
+reference:
+  steady_dimensionless_definition: Theta=k*sqrt(As)*Rs
+  transient_definition: Zth=(T_source_surface_mean-T0)/P_full
+  green_diffusion_length_definition: sqrt(alpha*t)
+  green_quadrature:
+    method: adaptive_Gauss_Kronrod_dimensionless_overlap
+    base_epsabs: 1.0e-9
+    base_epsrel: 1.0e-9
+    fine_epsabs: 1.0e-11
+    fine_epsrel: 1.0e-11
+  golden:
+    rho_1: 0.47320100440933854
+    rho_5: 0.4082084030088908
+
+boundary_contract:
+  top_source: explicit_Neumann_heat_flux
+  top_outside_source: adiabatic
+  symmetry_x0_y0: zero_flux
+  far_x_y_bottom: fixed_T0
+  source_surface_temperature: T_first_cell_plus_qflux_dz_over_2k
+  source_edge_exactly_face_aligned: true
+  source_smearing_forbidden: true
+  source_area_integral_error_definition: abs(A_discrete-A_expected)/A_expected
+  source_power_integral_error_definition: abs(P_discrete-P_expected)/P_expected
+  quarter_normalization: solve_P_over_4_report_Tmean_over_full_P
+  xz_normalization: solve_P_over_2_per_full_width_report_Tmean_over_full_P
+  half_space_Rs_already_includes_spreading: true
+  add_R1D_to_half_space_Rs: false
+
+grid:
+  domain_multipliers_of_maximum_diffusion_length: [2.0, 4.0, 6.0]
+  domain_construction: append_only_master_edge_prefix
+  outer_cell_growth_ratio: 1.3
+  mesh_profiles:
+    M1:
+      square_quarter_source_cells_xy: [4, 4]
+      rho5_quarter_source_cells_xy: [2, 10]
+      square_source_depth_cells: 4
+      rho5_source_depth_cells: 2
+    M2:
+      square_quarter_source_cells_xy: [8, 8]
+      rho5_quarter_source_cells_xy: [4, 20]
+      square_source_depth_cells: 8
+      rho5_source_depth_cells: 4
+    M3:
+      square_quarter_source_cells_xy: [16, 16]
+      rho5_quarter_source_cells_xy: [8, 40]
+      square_source_depth_cells: 16
+      rho5_source_depth_cells: 8
+  mesh_pair: [M2D3, M3D3]
+  domain_pair: [M3D2, M3D3]
+  time_pair: [M3D3_base, M3D3_fine]
+
+forward_matrix:
+  - {case_id: square_steady_M1D3, geometry: rho1, mode: steady, mesh: M1, domain: D3}
+  - {case_id: square_steady_M2D3, geometry: rho1, mode: steady, mesh: M2, domain: D3}
+  - {case_id: square_steady_M3D3, geometry: rho1, mode: steady, mesh: M3, domain: D3}
+  - {case_id: square_steady_M3D1, geometry: rho1, mode: steady, mesh: M3, domain: D1}
+  - {case_id: square_steady_M3D2, geometry: rho1, mode: steady, mesh: M3, domain: D2}
+  - {case_id: rho5_steady_M2D3, geometry: rho5, mode: steady, mesh: M2, domain: D3}
+  - {case_id: rho5_steady_M3D3, geometry: rho5, mode: steady, mesh: M3, domain: D3}
+  - {case_id: rho5_steady_M3D2, geometry: rho5, mode: steady, mesh: M3, domain: D2}
+  - {case_id: rho5_transient_M2D3_base, geometry: rho5, mode: transient_3d, mesh: M2, domain: D3, time: base}
+  - {case_id: rho5_transient_M3D3_base, geometry: rho5, mode: transient_3d, mesh: M3, domain: D3, time: base}
+  - {case_id: rho5_transient_M3D2_base, geometry: rho5, mode: transient_3d, mesh: M3, domain: D2, time: base}
+  - {case_id: rho5_transient_M3D3_fine, geometry: rho5, mode: transient_3d, mesh: M3, domain: D3, time: fine}
+  - {case_id: rho5_xz_M2D3_base, geometry: rho5, mode: transient_xz, mesh: M2, domain: D3, time: base}
+  - {case_id: rho5_xz_M3D3_base, geometry: rho5, mode: transient_xz, mesh: M3, domain: D3, time: base}
+  - {case_id: rho5_xz_M3D2_base, geometry: rho5, mode: transient_xz, mesh: M3, domain: D2, time: base}
+
+gates:
+  eq21_rho1_relative_error_max: 1.0e-4
+  eq21_rho5_relative_error_max: 1.0e-4
+  steady_rho1_reference_error_max: 0.02
+  steady_rho5_reference_error_max: 0.02
+  rho5_mesh_pair_change_max: 0.02
+  rho5_domain_pair_change_max: 0.02
+  steady_normalized_power_imbalance_max: 1.0e-6
+  green_early_limit_error_max: 0.01
+  green_long_limit_error_max: 0.01
+  green_quadrature_refinement_change_max: 1.0e-4
+  transient_3d_green_normalized_max_error_max: 0.02
+  transient_time_pair_change_max: 0.02
+  transient_normalized_sensible_energy_imbalance_max: 1.0e-4
+  finite_width_bias_mesh_pair_absolute_change_max: 0.02
+  finite_width_bias_domain_pair_absolute_change_max: 0.02
+  source_area_integral_error_max: 1.0e-10
+  source_power_integral_error_max: 1.0e-10
+  near_zero_outflow_normalized_change_max: 0.02
+  finite_nan_clip_source_smearing_unit_error: false
+
+decision:
+  all_mandatory_gates_pass: M43_THERMAL_CLOSURE_GO_COMPONENT_ONLY
+  any_mandatory_gate_fails: M43_STOP_C_FREEZE_1D
+  threshold_change_after_results: forbidden
+  second_solver_after_failure: forbidden
+  m43_repair_round: forbidden
+
+outputs:
+  summary: outputs/tables/m43_finite_width_thermal_spreading_summary.json
+  cases: outputs/tables/m43_finite_width_thermal_spreading_cases.csv
+  transient_reference: outputs/tables/m43_transient_green_reference.csv
+  figure: outputs/figures/m43/m43_thermal_spreading_closure.png
+  report: docs/codex_reports/m43_finite_width_thermal_spreading_closure.md
+  execution_receipt: outputs/tables/m43_execution_receipt.json
