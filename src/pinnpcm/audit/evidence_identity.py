@@ -8,7 +8,9 @@ having a different raw SHA-256.  This module accepts only these identities:
 1. the exact preregistered raw bytes; or
 2. a clean current or historical Git object whose bytes differ from that raw
    lock only by LF/CRLF encoding; or
-3. an exact, declared legacy exception for a non-scientific routing file whose
+3. an exact declared raw/canonical pair for a tracked text artifact whose
+   original Windows bytes used mixed line endings; or
+4. an exact, declared legacy exception for a non-scientific routing file whose
    lost worktree byte sequence was never stored as a Git object.
 
 It never normalizes whitespace, JSON, CSV fields, ordering, or numeric text.
@@ -126,6 +128,28 @@ def _declared_legacy_exception(
 
 
 @lru_cache(maxsize=None)
+def _declared_portable_text_identity(
+    root_text: str, relative: str, expected_sha256: str
+) -> dict[str, Any] | None:
+    path = Path(root_text) / "configs/portable_text_lock_identities_v1.json"
+    if not path.is_file():
+        return None
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if payload.get("schema_version") != "portable_text_lock_identities_v1":
+        raise ValueError("Unsupported portable text identity schema")
+    for record in payload.get("records", []):
+        if (
+            record.get("path") == relative
+            and str(record.get("raw_sha256", "")).upper() == expected_sha256.upper()
+            and record.get("raw_bytes_observed_during_contract_creation") is True
+            and record.get("raw_hash_rewritten") is False
+            and record.get("allowed_transformation") == "line_endings_only"
+        ):
+            return dict(record)
+    return None
+
+
+@lru_cache(maxsize=None)
 def _find_historical_blob(
     root_text: str,
     relative: str,
@@ -223,6 +247,28 @@ def verify_evidence_lock(
                 }
             )
             return result
+        declared_text = _declared_portable_text_identity(root_text, relative, expected)
+        if current_matches_head and declared_text is not None:
+            canonical_sha = sha256_bytes(canonical_lf_bytes(head_payload))
+            declared_raw_size = int(declared_text["raw_byte_size"])
+            declared_canonical_size = int(declared_text["canonical_lf_byte_size"])
+            raw_size_matches = expected_size is None or declared_raw_size == int(expected_size)
+            if (
+                canonical_sha == str(declared_text["canonical_lf_sha256"]).upper()
+                and len(canonical_lf_bytes(head_payload)) == declared_canonical_size
+                and raw_size_matches
+            ):
+                result.update(
+                    {
+                        "passed": True,
+                        "mode": "declared_mixed_newline_equivalent",
+                        "matched_commit": head_commit,
+                        "git_blob_oid": head_oid,
+                        "canonical_sha256": canonical_sha,
+                        "raw_bytes_observed_during_contract_creation": True,
+                    }
+                )
+                return result
 
     # A historical definition can explain a preregistered lock only from a
     # clean checkout.  Otherwise an arbitrary dirty replacement could inherit

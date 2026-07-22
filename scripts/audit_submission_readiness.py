@@ -90,6 +90,17 @@ def parse_pytest_counts(text: str) -> dict[str, int]:
     }
 
 
+def read_portable_log(path: Path) -> str:
+    """Read UTF-8 or native Windows PowerShell UTF-16 evidence logs."""
+
+    payload = path.read_bytes()
+    if payload.startswith((b"\xff\xfe", b"\xfe\xff")):
+        return payload.decode("utf-16")
+    if payload.startswith(b"\xef\xbb\xbf"):
+        return payload.decode("utf-8-sig")
+    return payload.decode("utf-8", errors="replace")
+
+
 def git_is_tracked(root: Path, relative_path: str) -> bool:
     result = subprocess.run(
         ["git", "ls-files", "--error-unmatch", "--", relative_path],
@@ -107,15 +118,23 @@ def audit_claim_rows(root: Path, manuscript_text: str, claims: list[dict[str, An
     for claim in claims:
         evidence_paths: list[str] = []
         evidence_hashes: list[str] = []
+        evidence_modes: list[str] = []
         evidence_verified = True
         for record in claim["evidence"]:
             relative = record["path"]
             expected = record["sha256"].upper()
             path = root / relative
             actual = sha256_file(path) if path.is_file() else "MISSING"
+            identity = verify_evidence_lock(
+                path,
+                expected,
+                root=root,
+                allow_historical_revision=False,
+            )
             evidence_paths.append(relative)
             evidence_hashes.append(actual)
-            evidence_verified &= actual == expected
+            evidence_modes.append(str(identity["mode"]))
+            evidence_verified &= bool(identity["passed"])
         sentence_found = normalized_text(claim["sentence"]) in normalized_manuscript
         rows.append(
             {
@@ -125,6 +144,7 @@ def audit_claim_rows(root: Path, manuscript_text: str, claims: list[dict[str, An
                 "sentence_found": sentence_found,
                 "evidence_paths": ";".join(evidence_paths),
                 "evidence_sha256": ";".join(evidence_hashes),
+                "evidence_identity_modes": ";".join(evidence_modes),
                 "evidence_verified": evidence_verified,
                 "gate_pass": sentence_found and evidence_verified and claim["status"] in CLAIM_STATUSES,
             }
@@ -134,30 +154,37 @@ def audit_claim_rows(root: Path, manuscript_text: str, claims: list[dict[str, An
 
 def audit_figure_manifest(root: Path, manifest: dict[str, Any]) -> dict[str, Any]:
     failures: list[str] = []
-    for figure in manifest.get("figures", []):
-        path = root / figure["path"]
+    identity_modes: dict[str, int] = {}
+
+    def verify_record(record: dict[str, Any]) -> None:
+        relative = str(record["path"])
+        path = root / relative
         if not path.is_file():
-            failures.append(f"missing:{figure['path']}")
-            continue
-        if path.stat().st_size != int(figure["bytes"]):
-            failures.append(f"size:{figure['path']}")
-        if sha256_file(path) != figure["sha256"].upper():
-            failures.append(f"hash:{figure['path']}")
+            failures.append(f"missing:{relative}")
+            return
+        identity = verify_evidence_lock(
+            path,
+            str(record["sha256"]),
+            expected_size=record.get("bytes"),
+            root=root,
+            allow_historical_revision=False,
+        )
+        mode = str(identity["mode"])
+        identity_modes[mode] = identity_modes.get(mode, 0) + 1
+        if not identity["passed"]:
+            failures.append(f"identity:{relative}")
+
+    for figure in manifest.get("figures", []):
+        verify_record(figure)
         if not git_is_tracked(root, figure["path"]):
             failures.append(f"untracked:{figure['path']}")
         for source in figure.get("source_data", []):
-            source_path = root / source["path"]
-            if not source_path.is_file():
-                failures.append(f"missing:{source['path']}")
-                continue
-            if "bytes" in source and source_path.stat().st_size != int(source["bytes"]):
-                failures.append(f"size:{source['path']}")
-            if sha256_file(source_path) != source["sha256"].upper():
-                failures.append(f"hash:{source['path']}")
+            verify_record(source)
     return {
         "status": "pass" if not failures and len(manifest.get("figures", [])) == 6 else "fail",
         "figure_count": len(manifest.get("figures", [])),
         "original_bytes_preserved": manifest.get("regenerated_during_submission_lock") is False,
+        "identity_modes": identity_modes,
         "failures": sorted(failures),
     }
 
@@ -211,6 +238,7 @@ def evaluate_readiness(facts: dict[str, bool]) -> dict[str, Any]:
         "protected_evidence",
         "local_assets",
         "portable_identity",
+        "source_artifact_integrity",
         "tests",
         "governance",
         "local_replay",
@@ -246,6 +274,7 @@ def write_claim_csv(path: Path, rows: list[dict[str, Any]]) -> None:
         "sentence_found",
         "evidence_paths",
         "evidence_sha256",
+        "evidence_identity_modes",
         "evidence_verified",
         "gate_pass",
     ]
@@ -296,9 +325,15 @@ def build_readiness(
         if portable_identity_path.is_file()
         else {"all_passed": False, "failures": ["audit_missing"]}
     )
+    source_integrity_path = root / config["continuous_refinement_integrity_audit"]
+    source_integrity = (
+        json.loads(source_integrity_path.read_text(encoding="utf-8"))
+        if source_integrity_path.is_file()
+        else {"all_passed": False, "failures": ["audit_missing"]}
+    )
 
-    pytest_text = full_pytest_log.read_text(encoding="utf-8", errors="replace")
-    governance_text = governance_log.read_text(encoding="utf-8", errors="replace")
+    pytest_text = read_portable_log(full_pytest_log)
+    governance_text = read_portable_log(governance_log)
     pytest_exit = parse_exit_code(pytest_text)
     governance_exit = parse_exit_code(governance_text)
     pytest_counts = parse_pytest_counts(pytest_text)
@@ -329,6 +364,7 @@ def build_readiness(
         "local_assets": bool(asset_validation.get("all_passed"))
         and int(asset_validation.get("verified_asset_count", -1)) == 50,
         "portable_identity": bool(portable_identity.get("all_passed")),
+        "source_artifact_integrity": bool(source_integrity.get("all_passed")),
         "tests": pytest_exit == 0 and pytest_counts["failed"] == 0 and pytest_counts["passed"] > 0,
         "governance": governance_exit == 0,
         "local_replay": local_replay,
@@ -344,8 +380,9 @@ def build_readiness(
     if not readiness_gate["technical_content_package_ready"]:
         blocked_reasons.extend(f"technical_gate_failed:{key}" for key in facts if key in {
             "required_documents", "citations", "claim_mapping", "synthetic_disclosure", "source_contract",
-            "figures", "protected_evidence", "local_assets", "portable_identity", "tests",
-            "governance", "local_replay", "data_statement"
+            "figures", "protected_evidence", "local_assets", "portable_identity",
+            "source_artifact_integrity", "tests", "governance", "local_replay",
+            "data_statement"
         } and not facts[key])
     blocked_reasons.extend(
         [
@@ -432,6 +469,17 @@ def build_readiness(
             "lock_count": portable_identity.get("lock_count"),
             "mode_counts": portable_identity.get("mode_counts", {}),
             "failures": portable_identity.get("failures", []),
+        },
+        "source_artifact_integrity": {
+            "status": "pass" if facts["source_artifact_integrity"] else "fail",
+            "summary_sha256": source_integrity.get("summary_sha256"),
+            "summary_canonical_lf_sha256": source_integrity.get(
+                "summary_canonical_lf_sha256"
+            ),
+            "cases_sha256": source_integrity.get("cases_sha256"),
+            "row_count": source_integrity.get("row_count"),
+            "scientific_forward_runs": source_integrity.get("scientific_forward_runs"),
+            "failures": source_integrity.get("failures", []),
         },
         "tests": {
             "status": "pass" if facts["tests"] else "fail",

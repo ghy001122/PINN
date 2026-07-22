@@ -23,6 +23,7 @@ def _passing_facts() -> dict[str, bool]:
         "protected_evidence": True,
         "local_assets": True,
         "portable_identity": True,
+        "source_artifact_integrity": True,
         "tests": True,
         "governance": True,
         "local_replay": True,
@@ -87,6 +88,14 @@ def test_pytest_log_parser_counts_smoke_nodes_and_exit_code() -> None:
     text = "tests/test_a.py::test_smoke PASSED\n12 passed in 1.0s\nexit_code=0\n"
     assert MODULE.parse_exit_code(text) == 0
     assert MODULE.parse_pytest_counts(text) == {"passed": 12, "failed": 0, "test_only_smoke_runs": 1}
+
+
+def test_portable_log_reader_accepts_powershell_utf16(tmp_path: Path) -> None:
+    log = tmp_path / "validation.txt"
+    log.write_text("436 passed in 1.0s\nexit_code=0\n", encoding="utf-16")
+    text = MODULE.read_portable_log(log)
+    assert MODULE.parse_exit_code(text) == 0
+    assert MODULE.parse_pytest_counts(text)["passed"] == 436
 
 
 def test_json_ready_serializes_yaml_dates_deterministically() -> None:

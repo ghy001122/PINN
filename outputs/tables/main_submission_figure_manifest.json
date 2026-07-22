@@ -1,8 +1,18 @@
 {
-  "schema_version": "main_submission_figure_manifest_v1",
+  "schema_version": "main_submission_figure_manifest_v2",
   "generated_at_utc": "2026-07-21T17:41:00.6045438Z",
   "regenerated_during_submission_lock": false,
   "synthetic_only": true,
+  "amendments": [
+    {
+      "path": "outputs/tables/gamma_sub_continuous_refinement_summary.json",
+      "raw_windows_worktree_sha256": "AC4DBEE30D0A6C7C969DEF2E8EA5EAC43E5C959813D423D9A253F5C63B436C00",
+      "canonical_lf_sha256": "E0770153A9DF30B512F08B66B7972BD390C27D4B615DD45D43015B421C5683E8",
+      "reason": "The v1 lock captured a mixed-CRLF/LF Windows worktree artifact. Portable verification retains that raw lock and separately verifies the canonical-LF Git identity; no simulation or figure regeneration was performed.",
+      "scientific_forward_runs": 0,
+      "figure_regenerated": false
+    }
+  ],
   "figures": [
     {
       "figure": 1,
@@ -22,7 +32,7 @@
       "source_data": [
         {"path": "outputs/tables/gamma_sub_tsw_dense_profile_likelihood_grid.csv", "sha256": "91D5C440394BC821D3DD4B42BF16DF802621859C984DB9D0B2AFB5345020070D"},
         {"path": "outputs/tables/gamma_sub_tsw_confounding_phase_map_summary.json", "sha256": "278A06B63D7D3B1B3EA1558E776E66891F50822015C8776BC1449A85945A4C48"},
-        {"path": "outputs/tables/gamma_sub_continuous_refinement_summary.json", "sha256": "AC4DBEE30D0A6C7C969DEF2E8EA5EAC43E5C959813D423D9A253F5C63B436C00"},
+        {"path": "outputs/tables/gamma_sub_continuous_refinement_summary.json", "bytes": 46251, "sha256": "AC4DBEE30D0A6C7C969DEF2E8EA5EAC43E5C959813D423D9A253F5C63B436C00"},
         {"path": "outputs/tables/gamma_sub_continuous_refinement_cases.csv", "sha256": "481F7E6E3E910ECC4C0B017582BA885FE2B072A551B0CDA1F36A7351F04C7E20"}
       ]
     },

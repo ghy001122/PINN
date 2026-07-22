@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import subprocess
 from pathlib import Path
 
@@ -88,3 +89,44 @@ def test_newline_portability_and_historical_lock_require_clean_checkout(
     )
     assert dirty["passed"] is False
     assert dirty["mode"] == "identity_mismatch"
+
+
+def test_declared_mixed_newline_identity_preserves_raw_lock(tmp_path: Path) -> None:
+    _git(tmp_path, "init")
+    _git(tmp_path, "config", "core.autocrlf", "false")
+    definition = tmp_path / "mixed.json"
+    canonical = b'{\n  "a": 1,\n  "b": 2\n}\n'
+    definition.write_bytes(canonical)
+    _git(tmp_path, "add", "mixed.json")
+    _commit(tmp_path, "mixed text")
+    mixed = b'{\r\n  "a": 1,\n  "b": 2\r\n}\r\n'
+    config = tmp_path / "configs" / "portable_text_lock_identities_v1.json"
+    config.parent.mkdir(parents=True)
+    config.write_text(
+        json.dumps(
+            {
+                "schema_version": "portable_text_lock_identities_v1",
+                "records": [
+                    {
+                        "path": "mixed.json",
+                        "raw_sha256": sha256_bytes(mixed),
+                        "raw_byte_size": len(mixed),
+                        "canonical_lf_sha256": sha256_bytes(canonical),
+                        "canonical_lf_byte_size": len(canonical),
+                        "allowed_transformation": "line_endings_only",
+                        "raw_bytes_observed_during_contract_creation": True,
+                        "raw_hash_rewritten": False,
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+    result = verify_evidence_lock(
+        definition,
+        sha256_bytes(mixed),
+        expected_size=len(mixed),
+        root=tmp_path,
+    )
+    assert result["passed"] is True
+    assert result["mode"] == "declared_mixed_newline_equivalent"
