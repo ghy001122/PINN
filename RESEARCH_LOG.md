@@ -2,6 +2,30 @@
 
 > Do not load by default. Use `PROJECT_STATE.md`, `NEXT_ACTIONS.md`, and the latest task report for current work.
 
+## M43 Finite-Width Thermal-Spreading Closure
+
+Date: 2026-07-23
+
+- Preregistered a terminal, thermal-only component audit at commit
+  `a1f229a25b4392422af3ced7e354ada0b5605365`, using a 500 nm by 100 nm
+  uniform-isoflux source on a homogeneous isotropic half-space. The independent
+  steady and transient contracts follow DOI `10.2514/2.6467` and DOI
+  `10.2514/6.1997-2458`.
+- Executed exactly 15 unique PDE forwards in one confirmatory attempt. All
+  21 gates passed; the largest grid contained 94,461 cells. The rho=5 steady
+  error was `0.00936891`, transient Green-normalized maximum error
+  `0.01095066`, mesh change `0.01027616`, domain change `0.000816181`, and
+  normalized sensible-energy imbalance `3.87656e-09`.
+- Selected `M43_THERMAL_CLOSURE_GO_COMPONENT_ONLY` with status
+  `qualified_supported`. The evidence supports only the declared manufactured
+  finite-source thermal component. It does not validate Qiu dynamics, a real
+  device, multilayer or phase-change physics, x-z quantitative use, inverse
+  recovery, or a PINN.
+- Preserved the upstream M42 source/local resistance error `1.330233` and the
+  unresolved latent-heat gap. The only conditionally authorized research step
+  is M44: compare 1-RC, 2-RC, and causal thermal kernels and map their validity
+  and abstention boundaries.
+
 ## M42 Hermetic Replay And Qiu Dimensional Closure
 
 Date: 2026-07-22

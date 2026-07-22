@@ -1,0 +1,18 @@
+{
+  "bias_contract": "rho5_xz_M3D3_base versus rho5_transient_M3D3_base",
+  "builder_sha256": "A5911DC5D96731D7B2317B7FD9BC7D7557E4D8A6E0AB3DEB9B05A4744804DBC5",
+  "cases_csv_changed": false,
+  "evidence_role": "visualization_only_non_voting_amendment",
+  "final_figure_sha256": "A42CE3ECD3F3FE169F89B89D376AB25517023B08136C4B067E77B4D9EAB1A4A5",
+  "formal_figure_sha256": "E0A21E7EDD2ED7992C3238B4676A8BABEFE4BCDA6D65E1AEC64F9CF45015C6F4",
+  "gate_values_changed": false,
+  "intermediate_figure_sha256": "429C6FBB4801BF9A79E890F6DC67630873C682A276573D92CAEEAF5FD6143F18",
+  "locked_input_sha256": {
+    "cases": "C31D231A323F1D990C1B5D9031F0AE3865F26246056FC2A486BC194939458A11",
+    "reference_code": "B0983D9D17B079001564D57CF3830473C6C7EC7ECC63C8A8AFF1E098C613792E",
+    "transient_reference": "991D6B9E272F46E100D3F9070ED525B507DED3AF6E728686C527007B95DFF31B"
+  },
+  "pde_forwards": 0,
+  "schema_version": "m43_figure_postprocessing_manifest_v1",
+  "transient_reference_csv_changed": false
+}

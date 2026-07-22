@@ -1,0 +1,50 @@
+{
+  "schema_version": "m43_final_validation_v1",
+  "task_id": "Q2_M43_FINITE_WIDTH_THERMAL_SPREADING_CLOSURE",
+  "validated_commit_before_amend": "7c9e648c93a3f72caaecc00e5ea35fd74f078887",
+  "full_pytest": {
+    "command": ".\\.venv\\Scripts\\python.exe -m pytest",
+    "collected": 499,
+    "passed": 497,
+    "failed": 2,
+    "skipped": 0,
+    "duration_s": 471.03,
+    "status": "precommit_identity_failures_only",
+    "failure_paths": [
+      "tests/test_m35_result_evidence.py::test_preregistration_hashes_and_sealed_boundary_are_valid",
+      "tests/test_m36_result_evidence.py::test_m36_preregistration_is_hash_locked_and_sealed"
+    ],
+    "failure_cause": "The M43 .gitignore revision was not yet committed, so historical-revision lookup could not resolve its current hash.",
+    "log": "outputs/logs/m43_full_pytest.txt"
+  },
+  "postcommit_identity_and_result_closure": {
+    "command": ".\\.venv\\Scripts\\python.exe -m pytest tests\\test_m35_result_evidence.py::test_preregistration_hashes_and_sealed_boundary_are_valid tests\\test_m36_result_evidence.py::test_m36_preregistration_is_hash_locked_and_sealed tests\\test_m43_result.py -q",
+    "passed": 6,
+    "failed": 0,
+    "duration_s": 16.78,
+    "status": "pass",
+    "log": "outputs/logs/m43_postcommit_identity_tests.txt"
+  },
+  "m43_targeted_before_finalization": {
+    "passed": 52,
+    "failed": 0,
+    "duration_s": 10.03,
+    "status": "pass"
+  },
+  "governance": {
+    "status": "pass_with_manual_review",
+    "failed_checks": 0,
+    "manual_review": [
+      "codex_rules",
+      "frozen_gt_integrity_mtime"
+    ]
+  },
+  "strict_json_audit": {
+    "tracked_and_final_validation_files": 206,
+    "passed": 206,
+    "failed": 0
+  },
+  "full_suite_rerun_performed": false,
+  "full_suite_rerun_reason": "The prompt permits only one final full-suite invocation; the two precommit-only failures were closed by targeted postcommit tests.",
+  "scientific_forward_rerun_performed": false
+}

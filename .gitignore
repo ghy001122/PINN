@@ -372,3 +372,16 @@ outputs/figures/submission_ready_gamma_sub/*
 # Local-only third-party PDF provenance renders; never redistribute.
 tmp/pdfs/qiu_si_pdf_page4.png
 tmp/pdfs/qiu_si_equations_crop.png
+
+# M43 terminal finite-width thermal-spreading closure (exact allowlist).
+!outputs/tables/m43_finite_width_thermal_spreading_summary.json
+!outputs/tables/m43_finite_width_thermal_spreading_cases.csv
+!outputs/tables/m43_transient_green_reference.csv
+!outputs/tables/m43_execution_receipt.json
+!outputs/tables/m43_figure_postprocessing_manifest.json
+!outputs/tables/m43_final_validation.json
+!outputs/figures/m43/
+outputs/figures/m43/*
+!outputs/figures/m43/m43_thermal_spreading_closure.png
+!outputs/logs/m43_full_pytest.txt
+!outputs/logs/m43_postcommit_identity_tests.txt

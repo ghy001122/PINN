@@ -1,21 +1,23 @@
 # Active Phase
 
-Active phase ID: `Q2_M43_FINITE_WIDTH_THERMAL_SPREADING_CLOSURE`
+Active phase ID: `Q2_M44_THERMAL_REDUCTION_VALIDITY_AND_REFUSAL`
 
 ## Objective and manuscript use
 
-Run one bounded thermal-only closure audit required by M42 decision B. The
-question is whether finite-source spreading can be represented by a converged,
-source-auditable 2.5D thermal impedance/kernel. A pass may support a physically
-meaningful reduction boundary; a failure terminates the 2D route and becomes a
-reviewer-defense limitation. It cannot validate Qiu dynamics or a PINN.
-The constrained `gamma_sub` mainline remains frozen and unchanged.
+Run one bounded component-level reduction audit against the locked M43
+finite-source thermal-spreading evidence. Compare one-RC, two-RC, and causal
+thermal-kernel descriptions under matched data, physical-admissibility, and
+complexity rules. Determine the region in which a scalar thermal coordinate is
+sufficient, the region in which additional memory is required, and the region
+in which inference or prediction must be refused.
 
-## Upstream decision
+A pass may support a qualified reduced-component validity/refusal map. A
+failure is a useful model-reduction boundary. Neither outcome validates Qiu
+dynamics, a real device, an inverse method, or a PINN. The constrained `gamma_sub` mainline remains frozen and unchanged.
 
-M42 passed its detached hermetic replay (`442 passed`, clean status, external
-asset injection) and consumed `22/40` preflight forward calls. Its result is
-`failed_but_informative`, decision B:
+## Upstream decisions
+
+M42 remains `failed_but_informative`, decision B:
 
 - source/local resistance error `1.33023`;
 - domain sensitivity `0.84235`;
@@ -25,31 +27,38 @@ asset injection) and consumed `22/40` preflight forward calls. Its result is
 - smooth discrete enthalpy ledger `2.58e-14`;
 - switching enthalpy unassessed because latent heat is not source-locked.
 
-Thus pure x-z quantitative modeling and formal dynamic GT are not authorized.
+M43 is `qualified_supported`, decision
+`M43_THERMAL_CLOSURE_GO_COMPONENT_ONLY`: `15` unique thermal PDE forwards and
+all `21/21` preregistered gates passed for a manufactured finite rectangular
+isoflux source on a homogeneous isotropic half-space. This does not supersede
+any M42 failure or provide device/external evidence.
 
-## Allowed M43 scope
+## Allowed M44 scope
 
-- analytic/series finite-source spreading benchmark;
-- conservative finite-width thermal FVM with registered geometry and material
-  priors;
-- domain, mesh, time, and boundary-condition convergence;
-- separation of spreading, one-dimensional, and contact/interface resistance;
-- a bounded comparison to a 2.5D thermal-impedance representation.
+- one-RC and positive two-RC thermal-impedance reductions;
+- a causal, passive thermal-kernel comparator based only on the locked M43
+  component evidence;
+- preregistered fit/calibration versus held-out time/Fourier-number regimes;
+- matched waveform, energy, asymptotic, stability, complexity, and runtime
+  metrics;
+- an explicit component-level sufficient/extra-memory/refusal map.
 
-Before execution, lock the new budget and thresholds. M42 thresholds may not
-be retroactively changed. Use primary spreading-resistance literature only as
-an equation/benchmark source, not as device evidence.
+Before execution, lock the data hashes, split, fitting budget, physical
+constraints, thresholds, decision logic, and exact allowed/forbidden wording.
+No post-result threshold or regime change is permitted.
 
 ## Stop rule
 
-If closure requires unregistered geometry/material values, or independent-
-reference/domain/mesh errors remain above the new preregistered limits, select
-C, stop all 2D development, and return immediately to manuscript submission.
-No second repair round is allowed.
+M44 is one bounded comparison, not a model-search campaign. If the preferred
+reduction is unstable across held-out regimes, violates causality/passivity, or
+cannot meet its preregistered accuracy/complexity gates, preserve the failure
+and define the refusal region. Then freeze the scientific results and return to
+submission; no second reduction-repair round is authorized.
 
 ## Forbidden
 
-Qiu parameter fitting or author-code equivalence; M40/M40R rerun; lumped
-`Cth/Sth` as local PDE coefficients; unsourced latent heat; active hysteretic
-device forward; M41; inverse or PINN; Zhang 13 V; external-validation,
-experimental, arbitrary-field, or successful-neural claims.
+Qiu parameter fitting, device coupling, author-code equivalence, M40/M40R rerun,
+M41, local use of lumped `Cth/Sth`, unsourced latent heat, active hysteretic
+device forward, `gamma_eff` or new `gamma_sub` claim, inverse or PINN, Zhang
+13 V, external-validation, experimental, arbitrary-field, or successful-neural
+claims.

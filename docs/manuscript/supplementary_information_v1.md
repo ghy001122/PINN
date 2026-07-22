@@ -150,7 +150,73 @@ validation worktree. Public-clone reproduction without that asset pack is not
 claimed. The asset pack can be supplied on reasonable request where policy and
 licensing permit.
 
-## S9. Additional forbidden claims
+## S9. Manufactured finite-width thermal-spreading closure
+
+A separate preregistered audit tested only a homogeneous, isotropic,
+constant-property half-space under a centered 500 nm by 100 nm uniform-isoflux
+surface source. It used no device electrical model, measured curve, phase
+transition, inverse calculation, or neural network. The steady source-area
+mean reference was independently implemented from the rectangular isoflux
+half-space solution of Yovanovich, Muzychka, and Culham
+[@yovanovich1999]; the transient source-area mean reference used the half-space
+surface-source Green function of Yovanovich [@yovanovich1997]. Neither
+reference imported the finite-volume grid, operator, or ledger implementation.
+
+For source area \(A_s\), full input power \(P_0\), conductivity \(k\), and
+source-mean temperature rise \(\overline{\Delta T}_s\), the locked quantities
+were
+
+\[
+\Theta=k\sqrt{A_s}\,\frac{\overline{\Delta T}_s}{P_0},
+\qquad
+Z_{\mathrm{th}}(t)=\frac{\overline{\Delta T}_s(t)}{P_0}.
+\]
+
+The quarter-domain finite-volume model received \(P_0/4\) through an exactly
+aligned top-face Neumann flux while reporting temperature over the full
+\(P_0\). Far boundaries were fixed at the reference temperature; symmetry and
+top faces outside the source were adiabatic. The x-z extrusion was retained
+only as a comparator for finite-width bias and did not receive a quantitative
+model claim.
+
+| Preregistered diagnostic | Value | Maximum | Result |
+|---|---:|---:|---|
+| Steady Eq. (21), \(\rho=1\), golden relative error | 0 | \(10^{-4}\) | pass |
+| Steady Eq. (21), \(\rho=5\), golden relative error | \(1.36\times10^{-16}\) | \(10^{-4}\) | pass |
+| 3D steady reference error, \(\rho=1\) | 0.007572 | 0.02 | pass |
+| 3D steady reference error, \(\rho=5\) | 0.009369 | 0.02 | pass |
+| \(\rho=5\) mesh-pair change | 0.010276 | 0.02 | pass |
+| \(\rho=5\) domain-pair change | 0.000816 | 0.02 | pass |
+| Steady normalized power imbalance | \(9.18\times10^{-11}\) | \(10^{-6}\) | pass |
+| Green early-limit error | 0.000151 | 0.01 | pass |
+| Green long-limit error | 0.006303 | 0.01 | pass |
+| 3D transient Green-normalized maximum error | 0.010951 | 0.02 | pass |
+| Transient time-pair change | 0.000272 | 0.02 | pass |
+| Normalized sensible-energy imbalance | \(3.88\times10^{-9}\) | \(10^{-4}\) | pass |
+| Finite-width-bias mesh-pair absolute change | 0.013687 | 0.02 | pass |
+| Finite-width-bias domain-pair absolute change | \(1.53\times10^{-7}\) | 0.02 | pass |
+| Source area/power integration errors | \(1.26/2.22\times10^{-16}\) | \(10^{-10}\) | pass |
+
+All 21 gates, including finite-value, no-clipping/no-smearing, near-zero
+outflow, and execution-budget checks, passed in one formal invocation with 15
+unique thermal-only PDE forwards. The largest grid contained 94,461 cells.
+The machine-readable evidence is
+`outputs/tables/m43_finite_width_thermal_spreading_summary.json`,
+`outputs/tables/m43_finite_width_thermal_spreading_cases.csv`, and
+`outputs/tables/m43_transient_green_reference.csv`; the locked config is
+`configs/m43_finite_width_thermal_spreading.yaml`, the figure is
+`outputs/figures/m43/m43_thermal_spreading_closure.png`, and the report is
+`docs/codex_reports/m43_finite_width_thermal_spreading_closure.md`.
+
+This `qualified_supported` result establishes only numerical closure of the
+registered manufactured thermal component. It does not repair the M42
+source/local resistance mismatch, supply phase-change latent heat, validate a
+Qiu or other physical device, authorize the x-z comparator as a quantitative
+model, or support inverse/PINN claims. It conditionally authorizes only an M44
+comparison of one-RC, two-RC, and causal-kernel reductions with explicit
+validity and abstention boundaries.
+
+## S10. Additional forbidden claims
 
 The evidence does not support real experimental validation, unconditional
 \(\gamma_{\mathrm{sub}}\) identifiability, complete two-dimensional hidden-field

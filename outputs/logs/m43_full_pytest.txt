@@ -1,0 +1,282 @@
+============================= test session starts =============================
+platform win32 -- Python 3.11.9, pytest-8.2.2, pluggy-1.6.0
+rootdir: E:\Python demo\PINN
+configfile: pyproject.toml
+testpaths: tests
+collected 499 items
+
+tests\test_active_protocol_design_v3.py ..                               [  0%]
+tests\test_active_protocol_identifiability.py ..                         [  0%]
+tests\test_active_protocol_identifiability_v2.py ..                      [  1%]
+tests\test_adaptive_fourier_fsps_superiority.py .                        [  1%]
+tests\test_claim_gate_resolution_matrix.py .                             [  1%]
+tests\test_claim_resolution_2d_field.py .                                [  1%]
+tests\test_conductivity.py .                                             [  2%]
+tests\test_conservative_multilayer_forward.py ...                        [  2%]
+tests\test_cv_multidomain_oasis_v10.py ...                               [  3%]
+tests\test_data_shapes.py .                                              [  3%]
+tests\test_e1f_bridge_audit.py .                                         [  3%]
+tests\test_e1f_external_evidence.py ..                                   [  4%]
+tests\test_e1f_preregistration.py .                                      [  4%]
+tests\test_e1f_protected_evidence.py .                                   [  4%]
+tests\test_e1f_qiu_author_equations.py ............                      [  6%]
+tests\test_e1f_qiu_solver_parity.py .....                                [  7%]
+tests\test_e1f_result_evidence.py ...                                    [  8%]
+tests\test_e1f_semantic_amendment.py .                                   [  8%]
+tests\test_e1fr_contract.py ...                                          [  9%]
+tests\test_e1fr_result_evidence.py ..                                    [  9%]
+tests\test_electrostatics.py ..                                          [ 10%]
+tests\test_external_anchor_claim_stress_test.py .                        [ 10%]
+tests\test_f_sps_balanced_medium_budget_benchmark.py ..                  [ 10%]
+tests\test_f_sps_medium_budget_benchmark.py ..                           [ 11%]
+tests\test_fourier_fsps_conditional_superiority.py .                     [ 11%]
+tests\test_fourier_pyramid.py ...                                        [ 11%]
+tests\test_full_pinn_contract.py ....                                    [ 12%]
+tests\test_full_pinn_manufactured.py .                                   [ 12%]
+tests\test_full_pinn_n0_split.py .....                                   [ 13%]
+tests\test_gamma_sub_auxiliary_observability_sweep.py ..                 [ 14%]
+tests\test_gamma_sub_calibrated_protocol_robustness_final.py ..          [ 14%]
+tests\test_gamma_sub_calibrated_sequential_protocol_validation.py ..     [ 15%]
+tests\test_gamma_sub_calibration_protocol_cost_frontier.py ....          [ 15%]
+tests\test_gamma_sub_calibration_protocol_disentanglement.py ..          [ 16%]
+tests\test_gamma_sub_ceba_contract.py .........                          [ 18%]
+tests\test_gamma_sub_ceba_evidence_schema.py ..                          [ 18%]
+tests\test_gamma_sub_constrained.py ..                                   [ 18%]
+tests\test_gamma_sub_continuous_refinement.py .                          [ 19%]
+tests\test_gamma_sub_continuous_refinement_integrity.py ..               [ 19%]
+tests\test_gamma_sub_cpcf_evidence_schema.py .                           [ 19%]
+tests\test_gamma_sub_evidence_lock.py ...                                [ 20%]
+tests\test_gamma_sub_identifiability.py ....                             [ 21%]
+tests\test_gamma_sub_joint_inversion_boundary.py ..                      [ 21%]
+tests\test_gamma_sub_multi_protocol_recoverability.py ..                 [ 21%]
+tests\test_gamma_sub_observability_augmented.py ..                       [ 22%]
+tests\test_gamma_sub_paper_readiness.py ..                               [ 22%]
+tests\test_gamma_sub_protocol_actual_inversion_validation.py ..          [ 23%]
+tests\test_gamma_sub_protocol_observability_design.py ..                 [ 23%]
+tests\test_gamma_sub_recoverability_phase_diagram.py ..                  [ 23%]
+tests\test_gamma_sub_response_surface_anchor_verification.py ..          [ 24%]
+tests\test_gamma_sub_scalar_baselines.py .                               [ 24%]
+tests\test_gamma_sub_scis_contract.py ........                           [ 26%]
+tests\test_gamma_sub_sequential_protocol_design.py ..                    [ 26%]
+tests\test_gamma_sub_simulator_backed_sequential_protocol_validation.py . [ 26%]
+.                                                                        [ 26%]
+tests\test_gamma_sub_statistical_robustness.py ..                        [ 27%]
+tests\test_gamma_sub_temperature_anchor_placement.py ..                  [ 27%]
+tests\test_gamma_sub_tsw_calibration_necessity.py ..                     [ 28%]
+tests\test_gamma_sub_tsw_calibration_tolerance_sweep.py ..               [ 28%]
+tests\test_gamma_sub_tsw_calibration_workflow.py ..                      [ 28%]
+tests\test_gamma_sub_tsw_confounding_phase_map.py ..                     [ 29%]
+tests\test_gamma_sub_tsw_dense_profile_likelihood.py ..                  [ 29%]
+tests\test_gamma_sub_tsw_prior_width_sweep.py ..                         [ 30%]
+tests\test_gamma_sub_tsw_profile_likelihood.py ..                        [ 30%]
+tests\test_gamma_sub_tsw_tolerance_ode_spotcheck.py ..                   [ 30%]
+tests\test_gamma_sub_weighted_protocol_objective.py ..                   [ 31%]
+tests\test_gt_profiles.py ..                                             [ 31%]
+tests\test_gt_quasi_2d_phase_transition_preflight.py .                   [ 31%]
+tests\test_gt_solver_smoke.py ...                                        [ 32%]
+tests\test_high_risk_claim_ladder.py ...                                 [ 33%]
+tests\test_historical_evidence_manifest.py ..                            [ 33%]
+tests\test_imports.py .                                                  [ 33%]
+tests\test_integrated_stiffness_stl.py .                                 [ 33%]
+tests\test_literature_curve_fit_external_anchor.py ..                    [ 34%]
+tests\test_literature_curve_fit_external_anchor_v2.py ..                 [ 34%]
+tests\test_literature_curve_ingestion.py ..                              [ 35%]
+tests\test_literature_phase_change_parameter_sanity.py ..                [ 35%]
+tests\test_literature_prior_consistency.py .                             [ 35%]
+tests\test_literature_targeted_curve_extraction_attempt.py ...           [ 36%]
+tests\test_local_replay_assets.py .....                                  [ 37%]
+tests\test_loss_balancer.py ...                                          [ 37%]
+tests\test_m33_mixed_flux_contract.py .....                              [ 38%]
+tests\test_m33_mixed_flux_gate_safety.py ....                            [ 39%]
+tests\test_m33_result_evidence.py .....                                  [ 40%]
+tests\test_m34_contract_audit.py ....                                    [ 41%]
+tests\test_m34_gate_safety.py ...                                        [ 42%]
+tests\test_m34_result_evidence.py .....                                  [ 43%]
+tests\test_m34a_gradient_semantics.py ...                                [ 43%]
+tests\test_m35_public_multivoltage.py ......                             [ 44%]
+tests\test_m35_result_evidence.py F..                                    [ 45%]
+tests\test_m36_event_resolved_orbit.py .......                           [ 46%]
+tests\test_m36_result_evidence.py F..                                    [ 47%]
+tests\test_m37_continuous_event_observability.py ......                  [ 48%]
+tests\test_m37_result_evidence.py ....                                   [ 49%]
+tests\test_m37r_continuous_event_observability_repair.py ........        [ 51%]
+tests\test_m37r_result_evidence.py ......                                [ 52%]
+tests\test_m40_qiu_2d_fvm.py .....                                       [ 53%]
+tests\test_m40_qiu_energy_ledger.py .....                                [ 54%]
+tests\test_m40_qiu_geometry.py .....                                     [ 55%]
+tests\test_m40_qiu_result_evidence.py ...                                [ 55%]
+tests\test_m40r_qiu_active_transient.py ......                           [ 57%]
+tests\test_m40r_qiu_field_reconstruction.py ....                         [ 57%]
+tests\test_m40r_qiu_mesh_convergence.py ....                             [ 58%]
+tests\test_m40r_qiu_result_evidence.py ..                                [ 59%]
+tests\test_m42_hermetic_replay.py ..                                     [ 59%]
+tests\test_m42_qiu_foundation.py ..                                      [ 59%]
+tests\test_m42_qiu_preflight_result.py ..                                [ 60%]
+tests\test_m42_qiu_thermal_closure.py .                                  [ 60%]
+tests\test_m43_green_reference.py ...............                        [ 63%]
+tests\test_m43_quarter_grid.py .........                                 [ 65%]
+tests\test_m43_result.py ....                                            [ 66%]
+tests\test_m43_runner_contract.py .........                              [ 67%]
+tests\test_m43_runner_failure.py .                                       [ 68%]
+tests\test_m43_spreading_reference.py ........                           [ 69%]
+tests\test_m43_thermal_solver.py ......                                  [ 70%]
+tests\test_manuscript_claim_stress_test.py .                             [ 71%]
+tests\test_multidomain_oasis_pinn.py ...                                 [ 71%]
+tests\test_multidomain_oasis_training_v9.py ..                           [ 72%]
+tests\test_multilayer_sandwich_device.py ..                              [ 72%]
+tests\test_multilayer_sandwich_low_dim_inverse.py .                      [ 72%]
+tests\test_multiterminal_yz_v10.py ..                                    [ 73%]
+tests\test_n0_cv_e_v3_failure_evidence.py ...                            [ 73%]
+tests\test_n0_cv_e_v3_gate_safety.py .....                               [ 74%]
+tests\test_n0_cv_e_v3_operator.py ....                                   [ 75%]
+tests\test_n0_cv_e_v3r_forensics.py .......                              [ 76%]
+tests\test_n0_fixed_diagnostics.py ..                                    [ 77%]
+tests\test_n0_r_v2_evidence_integrity.py ....                            [ 78%]
+tests\test_n0_repair_evidence.py ...                                     [ 78%]
+tests\test_n0_teacher_equation_compatibility.py ......                   [ 79%]
+tests\test_oasis_2d_field_resolution.py ..                               [ 80%]
+tests\test_oasis_components.py ...                                       [ 80%]
+tests\test_oasis_v10_gates.py ..                                         [ 81%]
+tests\test_oasis_v9_gates.py ..                                          [ 81%]
+tests\test_oscillation_metrics.py .....                                  [ 82%]
+tests\test_phase_activated_multilayer_forward.py ...                     [ 83%]
+tests\test_phase_aware_stl_repair.py .                                   [ 83%]
+tests\test_phase_field_inverse_alignment_smoke.py .                      [ 83%]
+tests\test_phase_transition_stiffness_continuation.py .                  [ 83%]
+tests\test_physical_semantics_v10.py ....                                [ 84%]
+tests\test_pinn_identifiability.py .                                     [ 84%]
+tests\test_pinn_inverse_v0.py ......                                     [ 86%]
+tests\test_pinn_inverse_v1.py .....                                      [ 87%]
+tests\test_pinn_inverse_v2_baseline.py ..                                [ 87%]
+tests\test_pinn_inverse_v2_fourier_ablation.py ..                        [ 87%]
+tests\test_pinn_inverse_v2_phase_transition_stress.py ..                 [ 88%]
+tests\test_pinn_inverse_v2_smoke.py ..                                   [ 88%]
+tests\test_pinn_quasi_2d_residual_preflight.py .                         [ 88%]
+tests\test_port_physical_2d_inverse.py .                                 [ 89%]
+tests\test_portable_evidence_identity.py ...                             [ 89%]
+tests\test_project_governance.py ....                                    [ 90%]
+tests\test_prompt30_a7c_evidence_audit.py ..                             [ 90%]
+tests\test_prompt31_cpcf_semantic_audit.py ..                            [ 91%]
+tests\test_prompt32_semantic_audits.py ....                              [ 92%]
+tests\test_qiu_llp_source_contract.py ....                               [ 92%]
+tests\test_reduced_2d_observability_limited_inverse.py .                 [ 93%]
+tests\test_reduced_2d_phase_transition_forward.py .                      [ 93%]
+tests\test_reviewer_defense_matrix.py .                                  [ 93%]
+tests\test_sid_ec_oq_event_geometry.py ....                              [ 94%]
+tests\test_stiffness_2d_story_figures.py .                               [ 94%]
+tests\test_stiffness_aware_algorithm_benchmark.py .                      [ 94%]
+tests\test_stiffness_gated_fourier_fsps.py .                             [ 94%]
+tests\test_submission_readiness.py .......                               [ 96%]
+tests\test_terminal_only_active_protocol_rescue.py .                     [ 96%]
+tests\test_train_full_pinn_n0_repair.py ...                              [ 97%]
+tests\test_validate_tracked_json.py .                                    [ 97%]
+tests\test_validation_workflow_contract.py ..                            [ 97%]
+tests\test_vo2_constitutive.py ....                                      [ 98%]
+tests\test_vo2_d0_source_semantics.py ...                                [ 99%]
+tests\test_vo2_full_pinn_v2_evidence.py ...                              [ 99%]
+tests\test_voltage_protocols.py .                                        [100%]
+
+================================== FAILURES ===================================
+__________ test_preregistration_hashes_and_sealed_boundary_are_valid __________
+
+    @pytest.mark.skipif(not PREREG_PATH.exists(), reason="M35 preregistration not generated yet")
+    def test_preregistration_hashes_and_sealed_boundary_are_valid() -> None:
+        payload = json.loads(PREREG_PATH.read_text(encoding="utf-8"))
+        assert payload["schema_version"] == "m35_public_multivoltage_preregistration_v1"
+        assert payload["all_preflight_checks_pass"] is True
+        assert payload["fit_authorized_after_preregistration_commit"] is True
+        assert payload["sealed_13v_access"] is False
+        assert all(payload["preflight_checks"].values())
+        provenance = Path(payload["provenance_manifest"])
+        assert_evidence_lock(provenance, payload["provenance_manifest_sha256"])
+        for path, expected in payload["locked_files"].items():
+            definition = path == ".gitignore" or path.startswith(
+                ("configs/", "scripts/", "src/", "tests/")
+            )
+>           assert_evidence_lock(
+                path,
+                expected,
+                allow_historical_revision=definition,
+            )
+
+tests\test_m35_result_evidence.py:40:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = '.gitignore'
+expected_sha256 = '3FD75E4D2871C302BA807E9CBE6F5A65E9587F33A610F933ED02441568633645'
+
+    def assert_evidence_lock(
+        path: Path | str,
+        expected_sha256: str,
+        *,
+        expected_size: int | None = None,
+        root: Path = ROOT,
+        allow_historical_revision: bool = False,
+    ) -> dict[str, Any]:
+        result = verify_evidence_lock(
+            path,
+            expected_sha256,
+            expected_size=expected_size,
+            root=root,
+            allow_historical_revision=allow_historical_revision,
+        )
+        if not result["passed"]:
+>           raise AssertionError(
+                f"Evidence identity mismatch for {result['path']}: "
+                f"expected={result['expected_sha256']} observed={result.get('current_sha256', 'MISSING')}"
+            )
+E           AssertionError: Evidence identity mismatch for .gitignore: expected=3FD75E4D2871C302BA807E9CBE6F5A65E9587F33A610F933ED02441568633645 observed=F799DADB44DBF51ADDDB39FAA2958F608DE887DB9EEFCA3E360C8A283AB9C787
+
+src\pinnpcm\audit\evidence_identity.py:323: AssertionError
+_____________ test_m36_preregistration_is_hash_locked_and_sealed ______________
+
+    @pytest.mark.skipif(not PREREG_PATH.exists(), reason="M36 preregistration not generated yet")
+    def test_m36_preregistration_is_hash_locked_and_sealed() -> None:
+        payload = json.loads(PREREG_PATH.read_text(encoding="utf-8"))
+        assert payload["schema_version"] == "m36_event_resolved_orbit_preregistration_v1"
+        assert payload["all_preflight_checks_pass"] is True
+        assert payload["solver_authorized_after_preregistration_commit"] is True
+        assert payload["sealed_13v_access"] is False
+        assert payload["pinn_training_performed"] is False
+        assert all(payload["preflight_checks"].values())
+        for path, expected in payload["locked_files"].items():
+>           assert_evidence_lock(
+                path,
+                expected,
+                allow_historical_revision=path == ".gitignore"
+                or path.startswith(("configs/", "scripts/", "src/", "tests/")),
+            )
+
+tests\test_m36_result_evidence.py:32:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = '.gitignore'
+expected_sha256 = '3FD75E4D2871C302BA807E9CBE6F5A65E9587F33A610F933ED02441568633645'
+
+    def assert_evidence_lock(
+        path: Path | str,
+        expected_sha256: str,
+        *,
+        expected_size: int | None = None,
+        root: Path = ROOT,
+        allow_historical_revision: bool = False,
+    ) -> dict[str, Any]:
+        result = verify_evidence_lock(
+            path,
+            expected_sha256,
+            expected_size=expected_size,
+            root=root,
+            allow_historical_revision=allow_historical_revision,
+        )
+        if not result["passed"]:
+>           raise AssertionError(
+                f"Evidence identity mismatch for {result['path']}: "
+                f"expected={result['expected_sha256']} observed={result.get('current_sha256', 'MISSING')}"
+            )
+E           AssertionError: Evidence identity mismatch for .gitignore: expected=3FD75E4D2871C302BA807E9CBE6F5A65E9587F33A610F933ED02441568633645 observed=F799DADB44DBF51ADDDB39FAA2958F608DE887DB9EEFCA3E360C8A283AB9C787
+
+src\pinnpcm\audit\evidence_identity.py:323: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_m35_result_evidence.py::test_preregistration_hashes_and_sealed_boundary_are_valid
+FAILED tests/test_m36_result_evidence.py::test_m36_preregistration_is_hash_locked_and_sealed
+================== 2 failed, 497 passed in 471.03s (0:07:51) ==================

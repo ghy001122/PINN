@@ -319,6 +319,12 @@ two- or three-dimensional models would increase the number of confounded
 fields and would require additional observables or stronger priors before an
 inverse claim could be made.
 
+A separate preregistered homogeneous-half-space manufactured audit found a
+conservative three-dimensional finite-volume response within 1.10% of an
+independent transient Green-function reference and within 0.94% of the steady
+rectangular-source reference, supporting only component-level numerical
+thermal-spreading closure (Supplementary Section S9).
+
 The results also suggest a practical experimental-design hierarchy. Improving
 the calibration of the dominant nuisance coordinate is more valuable, within
 the tested range, than adding waveform complexity while leaving that nuisance

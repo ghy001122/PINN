@@ -2,6 +2,43 @@
 
 > Do not load by default. Current claim/evidence routing is `docs/project_state/current_evidence_index.md`; use this file only to trace a named historical run.
 
+## M43 finite-width thermal-spreading closure (2026-07-23)
+
+- Task: `Q2_M43_FINITE_WIDTH_THERMAL_SPREADING_CLOSURE`; evidence type:
+  `solver_generated_manufactured_component_closure`; status:
+  `qualified_supported`; decision: `M43_THERMAL_CLOSURE_GO_COMPONENT_ONLY`.
+- Base commit: `0dc103f391d1206fe02c100987ecab68ed1d741d`;
+  preregistration commit: `a1f229a25b4392422af3ced7e354ada0b5605365`.
+- Primary references: Yovanovich--Muzychka--Culham steady rectangular
+  isoflux half-space solution, DOI `10.2514/2.6467`, and Yovanovich transient
+  half-space surface-source Green function, DOI `10.2514/6.1997-2458`.
+- Locked config: `configs/m43_finite_width_thermal_spreading.yaml`
+  (SHA-256 `EFE348ED365208A86891EBD63FDD9E62A7650E028937C595C3474F18D3C61B5B`).
+- Implementations: `src/pinnpcm/physics/m43_thermal_spreading_reference.py`,
+  `src/pinnpcm/solvers/m43_finite_width_thermal.py`, and
+  `scripts/run_m43_finite_width_thermal_spreading.py`.
+- Evidence: `outputs/tables/m43_finite_width_thermal_spreading_summary.json`,
+  `outputs/tables/m43_execution_receipt.json`,
+  `outputs/tables/m43_finite_width_thermal_spreading_cases.csv`,
+  `outputs/tables/m43_transient_green_reference.csv`,
+  `outputs/tables/m43_figure_postprocessing_manifest.json`,
+  `outputs/figures/m43/m43_thermal_spreading_closure.png`, and
+  `docs/codex_reports/m43_finite_width_thermal_spreading_closure.md`.
+- Formal execution used 15/15 unique thermal-only PDE forwards, one
+  confirmatory attempt, 9.404 s wall time, 2.500 s CPU time, and at most
+  94,461 cells. All 21 preregistered gates passed. The rho=5 steady-reference,
+  transient Green-reference, mesh-pair, and domain-pair errors were
+  `0.00936891`, `0.01095066`, `0.01027616`, and `0.000816181`.
+- Permitted claim: the registered homogeneous, isotropic, constant-property
+  half-space finite-source thermal component closes against independent steady
+  and transient references within the preregistered limits.
+- Forbidden extensions: Qiu-device or experimental validation, multilayer
+  physics, pure x-z quantitative use, phase-change enthalpy, thermal-parameter
+  fitting, inverse identification, or PINN success. M42's source/local
+  resistance error `1.330233` and unresolved latent heat remain blockers.
+  The result authorizes only a conditional M44 comparison of 1-RC, 2-RC, and
+  causal thermal-kernel reductions with validity and abstention boundaries.
+
 ## M42 hermetic replay and dimensional closure (2026-07-22)
 
 - Preregistration commit: `3474499636165f7477ceceff3cf85da8a5adba08`.

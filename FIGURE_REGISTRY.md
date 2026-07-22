@@ -2,6 +2,27 @@
 
 > Do not load by default. The authoritative manuscript list is `docs/paper/final_figure_list.md`.
 
+## M43 manufactured thermal-spreading closure (2026-07-23)
+
+- `outputs/figures/m43/m43_thermal_spreading_closure.png` (SHA-256
+  `A42CE3ECD3F3FE169F89B89D376AB25517023B08136C4B067E77B4D9EAB1A4A5`):
+  panel A compares the independent steady Eq. (21) values with quarter-domain
+  3D finite-volume results; panel B compares the independent transient Green
+  reference, 3D response, x-z comparator, and matched-base finite-width-bias
+  magnitude.
+- Visualization-only builder: `scripts/build_m43_figure_from_artifacts.py`;
+  source tables:
+  `outputs/tables/m43_finite_width_thermal_spreading_cases.csv` and
+  `outputs/tables/m43_transient_green_reference.csv`.
+- The formal-run figure SHA, intermediate SHA, final SHA, builder hash, and
+  zero-PDE/no-gate-change declaration are recorded in
+  `outputs/tables/m43_figure_postprocessing_manifest.json`.
+- Primary formula sources: DOI `10.2514/2.6467` and DOI
+  `10.2514/6.1997-2458`.
+- Evidence type: solver-generated manufactured component closure; status:
+  `qualified_supported`. This is a supplementary numerical-method figure, not
+  Qiu-device, experimental, phase-change, inverse, or PINN evidence.
+
 ## M42 dimensional-closure diagnostic (2026-07-22)
 
 - `outputs/figures/m42/qiu_scale_domain_mesh_preflight.png`: solver-generated

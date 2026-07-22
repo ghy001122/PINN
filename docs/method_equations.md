@@ -574,3 +574,52 @@ the assembled ledger. The unit load makes $\theta/P$ a thermal impedance; its
 absolute temperature is not a Qiu prediction. Latent heat is disabled because
 no source-locked local value exists, so switching enthalpy fails closed rather
 than treating the real latent heat as zero.
+
+## M43 Finite-Width Thermal-Spreading Closure
+
+M43 is a manufactured, homogeneous, isotropic thermal component audit. It is
+not a Qiu-device simulation and contains no electrical, hysteretic, phase,
+inverse, or neural equation. For a centered uniform-isoflux rectangle
+$2a\times2b$ on a half-space, with $A_s=4ab$ and
+$\rho=\max(a,b)/\min(a,b)\ge1$, the independent steady reference is
+
+$$
+\Theta_\infty(\rho)=\frac{\sqrt{\rho}}{\pi}\left[
+\operatorname{asinh}\!\left(\rho^{-1}\right)
++\rho^{-1}\operatorname{asinh}(\rho)
++\frac{\rho}{3}\left(1+\rho^{-3}-(1+\rho^{-2})^{3/2}\right)
+\right],
+$$
+
+where $\Theta_\infty=k\sqrt{A_s}R_s$. The transient source-area mean
+step response is evaluated independently from
+
+$$
+Z_{\mathrm{th}}(t)=\frac{1}{2\pi kA_s^2}
+\int_{A_s}\!\int_{A_s}
+\frac{\operatorname{erfc}\!\left(
+\lVert\mathbf r-\mathbf r'\rVert/(2\sqrt{\alpha t})\right)}
+{\lVert\mathbf r-\mathbf r'\rVert}
+\,dA'\,dA,
+\qquad \alpha=\frac{k}{\rho_m c_p}.
+$$
+
+The quarter-domain finite-volume comparator receives $P_0/4$ but reports
+$Z_{\mathrm{th}}=(\overline T_s-T_0)/P_0$. It applies the source as an
+explicit top-face Neumann flux and reconstructs the source-face temperature
+from the first cell center as
+
+$$
+T_f=T_c+\frac{q''\Delta z}{2k}.
+$$
+
+The discrete transient ledger is
+
+$$
+\frac{P_0t}{4}=U_{\mathrm{box}}(t)
++\int_0^t Q_{\mathrm{boundary}}(\tau)\,d\tau,
+$$
+
+using right-endpoint quadrature for backward Euler. These terms are numerical
+sensible-heat bookkeeping and must not be interpreted as device $C_{\rm th}$,
+$G_{\rm th}$, phase-change enthalpy, or experimental evidence.

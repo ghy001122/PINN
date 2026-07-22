@@ -1,0 +1,688 @@
+{
+  "cases": [
+    {
+      "canonical_case_sha256": "A76C87A5464BB96E589D26FC5A931FFF4C6A2F05E9E387EF6BF0CDF32EBAB98B",
+      "case_id": "square_steady_M1D3",
+      "cell_count": 19683,
+      "status": "completed"
+    },
+    {
+      "canonical_case_sha256": "4BD8D7731F4AD35D9CCC5B0D73D89FADE320E389692355D8B1E05868A7E2D684",
+      "case_id": "square_steady_M2D3",
+      "cell_count": 39304,
+      "status": "completed"
+    },
+    {
+      "canonical_case_sha256": "DC6026AEAF7097D175C3F79DA8DDE36B2C185F378F517742395C2D5B814DAC3B",
+      "case_id": "square_steady_M3D3",
+      "cell_count": 85184,
+      "status": "completed"
+    },
+    {
+      "canonical_case_sha256": "0BE12A57F299512012353642E59FA40414B1641186529B83554FF4F4E50369A3",
+      "case_id": "square_steady_M3D1",
+      "cell_count": 64000,
+      "status": "completed"
+    },
+    {
+      "canonical_case_sha256": "C2E9FE9564310B7CF06D2DAD5FA4E1F77DDF999309ACE57884B8166883096627",
+      "case_id": "square_steady_M3D2",
+      "cell_count": 79507,
+      "status": "completed"
+    },
+    {
+      "canonical_case_sha256": "64C11E97DA94E92265757A1B886E97318E506F11AC0D2DE85B03588B7B9B86C6",
+      "case_id": "rho5_steady_M2D3",
+      "cell_count": 41400,
+      "status": "completed"
+    },
+    {
+      "canonical_case_sha256": "AB420725BE70DA84D6DDF2586D613206E333A25ED8BC74F0802492DE486CC485",
+      "case_id": "rho5_steady_M3D3",
+      "cell_count": 94461,
+      "status": "completed"
+    },
+    {
+      "canonical_case_sha256": "2FD9C2282973E301CCFCB419BF385A49690EF2714E632A3AD5D2B33AFCE70A4E",
+      "case_id": "rho5_steady_M3D2",
+      "cell_count": 82075,
+      "status": "completed"
+    },
+    {
+      "canonical_case_sha256": "2FB59E778028DABC9DEFCA30387F21275204BB7CFE32FD8B8130D9EC2B67FB2A",
+      "case_id": "rho5_transient_M2D3_base",
+      "cell_count": 41400,
+      "status": "completed"
+    },
+    {
+      "canonical_case_sha256": "743A7FCEB7013DB40679F6B54AD04A38BC569CF756B72E5C552C572127A3EFE5",
+      "case_id": "rho5_transient_M3D3_base",
+      "cell_count": 94461,
+      "status": "completed"
+    },
+    {
+      "canonical_case_sha256": "B884D6DFE7AE668E6549AED026DE9A30D44F58C2985F78D8C2F80591DCBE0220",
+      "case_id": "rho5_transient_M3D2_base",
+      "cell_count": 82075,
+      "status": "completed"
+    },
+    {
+      "canonical_case_sha256": "43618DAABB3E9D5672F24A9779A00A559B51E541D5751150979BB9DB609C882C",
+      "case_id": "rho5_transient_M3D3_fine",
+      "cell_count": 94461,
+      "status": "completed"
+    },
+    {
+      "canonical_case_sha256": "AA2D5546425101F59B809EF2E81965AC7DD753A23CD14439E09FF4E56D4991AF",
+      "case_id": "rho5_xz_M2D3_base",
+      "cell_count": 900,
+      "status": "completed"
+    },
+    {
+      "canonical_case_sha256": "864ACE46EAD8964866788EB7427A48C4DC19BD716CE4C32AF208C59417EBF98C",
+      "case_id": "rho5_xz_M3D3_base",
+      "cell_count": 1369,
+      "status": "completed"
+    },
+    {
+      "canonical_case_sha256": "6F6C24DC9B3105DA91C6F35BBE4F32D6BB62F7E3D6A6117E4BA7EB3E18AB6A10",
+      "case_id": "rho5_xz_M3D2_base",
+      "cell_count": 1225,
+      "status": "completed"
+    }
+  ],
+  "config_sha256": "EFE348ED365208A86891EBD63FDD9E62A7650E028937C595C3474F18D3C61B5B",
+  "confirmatory_completed": true,
+  "confirmatory_stage_entered": true,
+  "cpu_started_process_time_s": 1.25,
+  "formal_runner_invocations": 1,
+  "forward_invocations_attempted": 15,
+  "forward_invocations_completed": 15,
+  "preregistration_commit": "a1f229a25b4392422af3ced7e354ada0b5605365",
+  "preregistration_file_sha256": {
+    "configs/m43_finite_width_thermal_spreading.yaml": "EFE348ED365208A86891EBD63FDD9E62A7650E028937C595C3474F18D3C61B5B",
+    "docs/physics/m43_thermal_spreading_source_contract.md": "D698BB7659B8FEC67079437649822918533383FF83695BB68FD7D215C0316C4E",
+    "docs/research_strategy/m43_finite_width_thermal_spreading_preregistration.md": "9BE31DE2CE65CD95863244158E10ABD038ADE1054E440108C9FA8295D1F8FFFA"
+  },
+  "protected_evidence_before": {
+    "configs/e1f_qiu_author_external_anchor.yaml": {
+      "bytes": 6761,
+      "mtime_ns": 1784632586652319200,
+      "sha256": "7C049E98A6FA3FB184378379CB98FAE7724C05E736F8BC5307E2C2DC9D5A4941"
+    },
+    "configs/e1fr_qiu_source_equation_correction.yaml": {
+      "bytes": 4294,
+      "mtime_ns": 1784636452790545100,
+      "sha256": "BBC34A9B573EE9B2EEEC9016FB7B6B0094180773572F3B904EA3A58E4DB57501"
+    },
+    "configs/gt_v1_acceptance_ltp_ltd.yaml": {
+      "bytes": 1480,
+      "mtime_ns": 1782060359175752300,
+      "sha256": "F1F71F21F1D0D27532EEAD23A3A4B71B0864E6B0966E564104DCFFD7040C1D93"
+    },
+    "configs/gt_v1_acceptance_triangle.yaml": {
+      "bytes": 1471,
+      "mtime_ns": 1782060358957859600,
+      "sha256": "F2E6BEC6006827344BEBDDCF20519B5B87F923B349A8799596D06E9F254A2B02"
+    },
+    "configs/m40_qiu_vo2_real_device_2d.yaml": {
+      "bytes": 7744,
+      "mtime_ns": 1784617028822264800,
+      "sha256": "EA404EE217846553CDAA77644DB8FFB719DA4630240726C6F07FB92FC0F41CA9"
+    },
+    "configs/m40r_qiu_e0_repair.yaml": {
+      "bytes": 5255,
+      "mtime_ns": 1784625731380874600,
+      "sha256": "F00122185238D1FF51BE46ADA2D0BE6F486AF1CA6860E422216B90FAFB264C1D"
+    },
+    "configs/m42_qiu_2d_preflight.yaml": {
+      "bytes": 4982,
+      "mtime_ns": 1784722009907403100,
+      "sha256": "DBD45FAB44D798CE2911055C756D63B6CC4E18C12D81A35F556B20F57BFD7435"
+    },
+    "data/external/qiu_2024_thermal_neuristor/derived/qiu_2024_si_fig_s1_12v_current.csv": {
+      "bytes": 628640,
+      "mtime_ns": 1784633965754248500,
+      "sha256": "901E02A6D68C71A97BFC91AAF4C5AFDAC6414C3A59780573400A51168023D05D"
+    },
+    "data/external/qiu_2024_thermal_neuristor/derived/qiu_2024_si_fig_s1_12v_device_voltage.csv": {
+      "bytes": 640100,
+      "mtime_ns": 1784633970730687000,
+      "sha256": "28F111ABF4AFB119EA37FC389EE4D7A74D62894ABA71CF3DA0824CB52987AFC3"
+    },
+    "data/external/qiu_2024_thermal_neuristor/digitized_manifest.json": {
+      "bytes": 8509,
+      "mtime_ns": 1784633978082115100,
+      "sha256": "8BB8F8B459116A6F35ABEC4E98A208AF5704FF5E63E258311DA363B50048113C"
+    },
+    "data/external/qiu_2024_thermal_neuristor/manifest.json": {
+      "bytes": 4103,
+      "mtime_ns": 1784617033395348600,
+      "sha256": "9FE009F6B4CD61243E6614FBB53210F6042D53D826FAD31B06C7CA7A6CDB253F"
+    },
+    "data/external/qiu_2024_thermal_neuristor/raw/qiu_2024_main.pdf": {
+      "bytes": 2575890,
+      "mtime_ns": 1784615933007020600,
+      "sha256": "D842E8BF1B5AC609AB504D8BF6104CFD3EFEA59697A5C7AC21664A99EB7D3C67"
+    },
+    "data/external/qiu_2024_thermal_neuristor/raw/qiu_2024_supporting_information.pdf": {
+      "bytes": 3139723,
+      "mtime_ns": 1784615952549614000,
+      "sha256": "D47ED95CD5782C3E632BBC440C1FCC681870E0FF303F0B05F8CD8F30CEC70BFD"
+    },
+    "data/processed/gt_v1_acceptance/gt_ltp_ltd.npz": {
+      "bytes": 617768,
+      "mtime_ns": 1782060476825218700,
+      "sha256": "772D17178C77392BF8A0813ADA3DB4A7241C5FA4E6D72E091894271BFA13C247"
+    },
+    "data/processed/gt_v1_acceptance/gt_triangle.npz": {
+      "bytes": 496603,
+      "mtime_ns": 1782060474118294900,
+      "sha256": "4E4814D9C66A79CBE86417296B0A797E53FFFF2CEE2BD881548FBCD35E05C9F8"
+    },
+    "data/processed/gt_v1_acceptance/manifest.json": {
+      "bytes": 3563,
+      "mtime_ns": 1782060479046347700,
+      "sha256": "634554429B9E61A231E47BF35B9B5C66C1C316E5E11A86BDE0540B05FF5AE30F"
+    },
+    "data/processed/gt_v1_acceptance/obs_ltp_ltd_sparse.npz": {
+      "bytes": 2705,
+      "mtime_ns": 1782060476827228200,
+      "sha256": "7155BFF7C406FAB49E9670FA8A73AB6D0063459A80FEB705138E3FE61A351645"
+    },
+    "data/processed/gt_v1_acceptance/obs_triangle_sparse.npz": {
+      "bytes": 2494,
+      "mtime_ns": 1782060474121208000,
+      "sha256": "F45DAF53136A255B3666EBEB56E6298CE148A613C46FA596B795E7ADE68EA602"
+    },
+    "data/processed/gt_v1_acceptance/params_gt_v1.json": {
+      "bytes": 1066,
+      "mtime_ns": 1782060476827228200,
+      "sha256": "1020E9B07466C8F3474762702AA354CF6A6B73DA26DEB31D3F75C7E54521D9FA"
+    },
+    "docs/codex_reports/e1f_qiu_author_external_anchor_results.md": {
+      "bytes": 1793,
+      "mtime_ns": 1784634905685448200,
+      "sha256": "82DB252534E27C9B02B3378135BFDBCE326D2C08300A9B52116C04296E12A93F"
+    },
+    "docs/codex_reports/e1f_semantic_amendment.md": {
+      "bytes": 1204,
+      "mtime_ns": 1784635801951404300,
+      "sha256": "0A82BF7569A254C80A199B3F9D215C44E9C7A0A44DA4836A5858F19DAE25CFB0"
+    },
+    "docs/codex_reports/e1fr_qiu_source_equation_correction_results.md": {
+      "bytes": 5089,
+      "mtime_ns": 1784638035024651100,
+      "sha256": "9FD75AD6BA9682E15F81C5F7774B589C2DA0D74F4CD4DDCDFA0A36B96BDC9648"
+    },
+    "docs/codex_reports/m40_qiu_vo2_e0_results.md": {
+      "bytes": 2807,
+      "mtime_ns": 1784618150692027000,
+      "sha256": "78E40F6609C1C2D84FCCF4A19A20C5FBED98A7C8273AE47DAB2D138146C9E935"
+    },
+    "docs/codex_reports/m40r_qiu_e0_repair_results.md": {
+      "bytes": 4872,
+      "mtime_ns": 1784627605983321900,
+      "sha256": "4399EBE2C4FD36C92E993BB4E8ECF652A790846CCB0FF0872E848FE4169DFBAF"
+    },
+    "docs/codex_reports/m40r_qiu_mesh_forensics.md": {
+      "bytes": 1096,
+      "mtime_ns": 1784625909770843800,
+      "sha256": "783F5412E06BA0362FA0B0C051C5535DF1E812987ABCF8E31C3437180C462546"
+    },
+    "docs/codex_reports/m42_qiu_2d_physics_foundation_preflight.md": {
+      "bytes": 3185,
+      "mtime_ns": 1784724515955772200,
+      "sha256": "DCB9F1CB09921744C61E05395FC0D395498FF44F28BEFFD7906BCC08ADDDD49C"
+    },
+    "docs/gt_v1_acceptance_report.md": {
+      "bytes": 2749,
+      "mtime_ns": 1782099689353339700,
+      "sha256": "0F72718AFFB84F727771F8D4A1A16AFB9D7C0D15BD7984632B3BEB8155F91643"
+    },
+    "docs/manuscript/main_submission_v1.md": {
+      "bytes": 14838,
+      "mtime_ns": 1784637097942732900,
+      "sha256": "EBE0E7C90C00EB65635EE068F5E0E736505524F52BE31CC4D5BB720C88B8D45D"
+    },
+    "docs/paper/gamma_sub_evidence_lock.md": {
+      "bytes": 12211,
+      "mtime_ns": 1784357559381385100,
+      "sha256": "94A465990EF46764185961C1EA585107C759C1C8263C0730AE87B351216DA37C"
+    },
+    "docs/physics/m40_qiu_2d_equations.md": {
+      "bytes": 2646,
+      "mtime_ns": 1784617041245161500,
+      "sha256": "00A3C69C4EA72C9A259FC35B5371345BFD51C6F3FFDA78071D89B006E09492AC"
+    },
+    "docs/physics/m40_qiu_model_responsibility.md": {
+      "bytes": 2713,
+      "mtime_ns": 1784617037160924000,
+      "sha256": "DF6A4A1EFF318B7847FD59252D472BAEF4E582B43A06E2D619BCD3DDCF16696E"
+    },
+    "docs/research_strategy/m42_reference_and_2d_preregistration.md": {
+      "bytes": 5474,
+      "mtime_ns": 1784722016767354000,
+      "sha256": "F282C53878938D9C508B5532E8244906DAC80448ACA8D2862311DB5FCB9D572E"
+    },
+    "outputs/figures/m40/qiu_device_geometry.png": {
+      "bytes": 38457,
+      "mtime_ns": 1784617933148474400,
+      "sha256": "819C3F58540D58671C63329D1E320E6639B23C4E28A94A221AAA1672D9113BFA"
+    },
+    "outputs/figures/m40/qiu_e0_field_maps.png": {
+      "bytes": 74518,
+      "mtime_ns": 1784617934658707900,
+      "sha256": "9CBE2406DC2C6AB5B3989AF0E20BF037FE958EEE7064E0083E8B9E33901055FA"
+    },
+    "outputs/figures/m40r/active_transient_and_ledgers.png": {
+      "bytes": 191995,
+      "mtime_ns": 1784626463444369500,
+      "sha256": "272A3F2404A8781294D6C23C75FA8591A8B40C7C3B4C9A39076484D46173FF10"
+    },
+    "outputs/figures/m40r/mesh_and_field_convergence.png": {
+      "bytes": 139478,
+      "mtime_ns": 1784626465194919300,
+      "sha256": "D4FB844E4494C415D77CE9D2E5229594DCE100636C1D02E36F6F72F2FB11407D"
+    },
+    "outputs/figures/m42/qiu_scale_domain_mesh_preflight.png": {
+      "bytes": 127975,
+      "mtime_ns": 1784723928554172400,
+      "sha256": "95AD35E34412417258CA52D607A4802C306EA4A2A1C2706FD190964EC6A665AD"
+    },
+    "outputs/figures/manuscript_ready_gamma_sub/main_figure_2_confounding_profile.png": {
+      "bytes": 126254,
+      "mtime_ns": 1784028333745539100,
+      "sha256": "EDE6E14A30393BBA012AD1BB863E72FB4297B71614DBC3EFCB8372833AAC7BCA"
+    },
+    "outputs/figures/manuscript_ready_gamma_sub/main_figure_3_recoverability_phase_diagram.png": {
+      "bytes": 37833,
+      "mtime_ns": 1784028333868945300,
+      "sha256": "864100F7E37FB516E494940FE8448A690761F342C151B7F9F67A8D94CD658E38"
+    },
+    "outputs/figures/manuscript_ready_gamma_sub/main_figure_4_anchor_verification.png": {
+      "bytes": 83334,
+      "mtime_ns": 1784028334024945300,
+      "sha256": "1661A9F3A228C7E912CF2401F0F71600901FB015DE73A530E37BC63EDDA6260E"
+    },
+    "outputs/figures/manuscript_ready_gamma_sub/main_figure_6_statistical_robustness.png": {
+      "bytes": 36318,
+      "mtime_ns": 1784028334269270600,
+      "sha256": "77AB344372842E8A485676474EBF9AC39A2BDC189AC7FEF24EC65C3A14C0B0AB"
+    },
+    "outputs/figures/pinn_identifiability/correlation_heatmap.png": {
+      "bytes": 161382,
+      "mtime_ns": 1782197357832969700,
+      "sha256": "2619A39E7C15DCD4CB0E6A56731DED6C195848830D6B2ED2782D64850C6B9A6A"
+    },
+    "outputs/figures/submission_ready_gamma_sub/figure_5_calibrated_protocol_validation.png": {
+      "bytes": 139767,
+      "mtime_ns": 1784357619901593800,
+      "sha256": "9FAAD097C0D42B43D717377E7B4EF3E2E359B9821693E6441D43DEBCAD24B675"
+    },
+    "outputs/tables/e1f_effective_coordinate_preflight.json": {
+      "bytes": 241,
+      "mtime_ns": 1784634900973591200,
+      "sha256": "B0C1B02117C7912C0C1D673C21EA59A2ADD1F6DF3E7E74D1946A0FC25B0D4395"
+    },
+    "outputs/tables/e1f_llp_source_contract_cases.csv": {
+      "bytes": 978899,
+      "mtime_ns": 1784654340582686800,
+      "sha256": "6F6F79658D2A622127B6E28F57D0270932F9BAEE1C76FA2CD08F471BE9B15A8E"
+    },
+    "outputs/tables/e1f_llp_source_contract_summary.json": {
+      "bytes": 10614,
+      "mtime_ns": 1784654340522556100,
+      "sha256": "03CF6A3E8A705C414E13CFB6467D1EF7D93671C71722F31C0F0F8F4F6DE6A2DD"
+    },
+    "outputs/tables/e1f_qiu_author_anchor_preregistration.json": {
+      "bytes": 28658,
+      "mtime_ns": 1784632744030595100,
+      "sha256": "613E6B1E1051532C057B799C4A14E4BF507302F4B386C2D6B641CA5DA5C93A53"
+    },
+    "outputs/tables/e1f_qiu_author_validation.csv": {
+      "bytes": 1278,
+      "mtime_ns": 1784634905665439100,
+      "sha256": "8DF064C31D01254813E4CB43900CB89FD5B41D04707E6557F3C7FE3734D15128"
+    },
+    "outputs/tables/e1f_qiu_author_validation.json": {
+      "bytes": 11760,
+      "mtime_ns": 1784634905672447800,
+      "sha256": "0EFEC08003C7209F9A02188FB6CB3674ECB4B2E32DE64C968F34608765698FE7"
+    },
+    "outputs/tables/e1f_semantic_amendment.json": {
+      "bytes": 1349,
+      "mtime_ns": 1784635800038719600,
+      "sha256": "D35A16AD28E854E00D96AEF2B0E83DB0C442BD13B24FFFC3181546934F9F6846"
+    },
+    "outputs/tables/e1f_source_contract_amendment_v2.json": {
+      "bytes": 1009,
+      "mtime_ns": 1784654340583687300,
+      "sha256": "8FA32AA4A5C2A60BC9B6BF5833FFF60E04ABEEC4E4943D19726A6AC4D6E5797D"
+    },
+    "outputs/tables/e1f_source_to_pde_bridge_mismatch.csv": {
+      "bytes": 1122,
+      "mtime_ns": 1784634901033630400,
+      "sha256": "F7B20F1956FA74601FF9E483A31F9A724F7B8BB749D3699D6B05C40BEEFD1231"
+    },
+    "outputs/tables/e1fr_effective_coordinate_preflight.json": {
+      "bytes": 242,
+      "mtime_ns": 1784636740720813700,
+      "sha256": "C2CD85E585ED1017C34C2614FDCC58A6453D2AAB7BF0F79B1BEDD046ECFB6370"
+    },
+    "outputs/tables/e1fr_qiu_source_equation_correction.csv": {
+      "bytes": 560,
+      "mtime_ns": 1784636741476645800,
+      "sha256": "4E24D4292FDF389AECFDDAE368757B400EA700C973605101CD2278ECB3624F6F"
+    },
+    "outputs/tables/e1fr_qiu_source_equation_correction.json": {
+      "bytes": 9356,
+      "mtime_ns": 1784636741730993600,
+      "sha256": "10879517F921ED90BA062B20A6AA64B4DD098541BE2C861604AF772DB6CCC63C"
+    },
+    "outputs/tables/e1fr_qiu_source_equation_correction_preregistration.json": {
+      "bytes": 9785,
+      "mtime_ns": 1784636673868998800,
+      "sha256": "B5BE756FC47E5CBCA4A5E1FDA233613BF2E4CDDA05332EDBC4505FE5E9F03811"
+    },
+    "outputs/tables/gamma_sub_calibrated_protocol_robustness_final_summary.json": {
+      "bytes": 4237,
+      "mtime_ns": 1782990596050672300,
+      "sha256": "9B1257FCE8ABC540F1BA55802C45278F5B398F9397F52B84B9458D9DBFE2566A"
+    },
+    "outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_cases.csv": {
+      "bytes": 180287,
+      "mtime_ns": 1782913564825001300,
+      "sha256": "AC48940BF5BD4DC32F2A523D6834510C4E40DD1E1227F69051D9D51864F27E99"
+    },
+    "outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_summary.json": {
+      "bytes": 3632,
+      "mtime_ns": 1782913564827089900,
+      "sha256": "64F33D6DC3B8AB920617FEDBB10CAC29F3834B353484116C22ED5539AC81B040"
+    },
+    "outputs/tables/gamma_sub_calibration_protocol_disentanglement_summary.json": {
+      "bytes": 1220,
+      "mtime_ns": 1782990541056952300,
+      "sha256": "F6537573D1795720CAA0B1A2F7BD828CA03D30DB4BCA4D70402960C330BF9397"
+    },
+    "outputs/tables/gamma_sub_continuous_refinement_cases.csv": {
+      "bytes": 9067,
+      "mtime_ns": 1782660899896036500,
+      "sha256": "481F7E6E3E910ECC4C0B017582BA885FE2B072A551B0CDA1F36A7351F04C7E20"
+    },
+    "outputs/tables/gamma_sub_continuous_refinement_summary.json": {
+      "bytes": 46251,
+      "mtime_ns": 1784038165768765500,
+      "sha256": "AC4DBEE30D0A6C7C969DEF2E8EA5EAC43E5C959813D423D9A253F5C63B436C00"
+    },
+    "outputs/tables/gamma_sub_evidence_lock_summary.json": {
+      "bytes": 19393,
+      "mtime_ns": 1784028332698901600,
+      "sha256": "D6C812CD62E59BB9F4CC60165EEECFE877F8E5A2FBBAB8DFA832A1E10E8462FF"
+    },
+    "outputs/tables/gamma_sub_recoverability_phase_diagram_cases.csv": {
+      "bytes": 344665,
+      "mtime_ns": 1782890330644774300,
+      "sha256": "7D09B8003B2CFA1553E2A6F0D46D28525EA5B146E4346070E7DC20190852AEB1"
+    },
+    "outputs/tables/gamma_sub_recoverability_phase_diagram_summary.json": {
+      "bytes": 2445,
+      "mtime_ns": 1782890330627782000,
+      "sha256": "4175CE24CA5E459C5A8BE3A0A09A4D4C2F056C33F267FB3592E0A407D86180D9"
+    },
+    "outputs/tables/gamma_sub_response_surface_anchor_verification_cases.csv": {
+      "bytes": 11945,
+      "mtime_ns": 1782892892154254000,
+      "sha256": "3072CEB2BC0EDEA187CEDCC1F51F4D932247BB2BDE13FC2B12F7956420793870"
+    },
+    "outputs/tables/gamma_sub_response_surface_anchor_verification_summary.json": {
+      "bytes": 1274,
+      "mtime_ns": 1782892892157385100,
+      "sha256": "919E0712F63F2F9E1EC197070B0860BB6A136694EDB0F8B3112D3D623E693C52"
+    },
+    "outputs/tables/gamma_sub_statistical_robustness_cases.csv": {
+      "bytes": 71993,
+      "mtime_ns": 1782890349369220200,
+      "sha256": "AD89459FB6C8C986345AF5513429947C93AE553F4D948528BAE1C54CD6C4B5B6"
+    },
+    "outputs/tables/gamma_sub_statistical_robustness_summary.json": {
+      "bytes": 7895,
+      "mtime_ns": 1782890349363782600,
+      "sha256": "62AF4A9F55EBD102E7FDA8FCEDA6F1CA8896E1913896D791EFC7314DBCD40132"
+    },
+    "outputs/tables/gamma_sub_tsw_calibration_tolerance_sweep_summary.json": {
+      "bytes": 2085,
+      "mtime_ns": 1782990557035983900,
+      "sha256": "6B31C381B90E89588A87A933AE25DBBE999E26B0BBA5A8D8C8721A0F982591DA"
+    },
+    "outputs/tables/gamma_sub_tsw_confounding_phase_map_summary.json": {
+      "bytes": 27688,
+      "mtime_ns": 1782826558011632400,
+      "sha256": "278A06B63D7D3B1B3EA1558E776E66891F50822015C8776BC1449A85945A4C48"
+    },
+    "outputs/tables/gamma_sub_tsw_dense_profile_likelihood_grid.csv": {
+      "bytes": 360932,
+      "mtime_ns": 1782890322460059100,
+      "sha256": "91D5C440394BC821D3DD4B42BF16DF802621859C984DB9D0B2AFB5345020070D"
+    },
+    "outputs/tables/m40_qiu_e0_preregistration.json": {
+      "bytes": 5977,
+      "mtime_ns": 1784617719601202900,
+      "sha256": "90D44A553AB03DAAC0CDD7747DCBD1484BFF975BA01EA68D597CC672045CE003"
+    },
+    "outputs/tables/m40_qiu_e0_summary.json": {
+      "bytes": 6182,
+      "mtime_ns": 1784617934763349300,
+      "sha256": "5B0E2B8B2C4AE073B137163CCF95CD98317E390928D8A57AE3C181A72AEAAAF7"
+    },
+    "outputs/tables/m40_qiu_mesh_convergence.csv": {
+      "bytes": 447,
+      "mtime_ns": 1784617931787514600,
+      "sha256": "F7246E2769282BE5561F61EA5490994F7096CC0C674895729A6A3D6A4C50D902"
+    },
+    "outputs/tables/m40r_qiu_active_transient.json": {
+      "bytes": 352615,
+      "mtime_ns": 1784626463787723000,
+      "sha256": "666BDC0783BA5625E7B8B11251358CC35591C81DEB282D8B96808B7C9BC41F0C"
+    },
+    "outputs/tables/m40r_qiu_e0_preregistration.json": {
+      "bytes": 9581,
+      "mtime_ns": 1784626127542076800,
+      "sha256": "29519C7A102A29F52104FE92355C850AF4D97832C26D5F9299E036AF809C67BE"
+    },
+    "outputs/tables/m40r_qiu_e0_summary.json": {
+      "bytes": 13920,
+      "mtime_ns": 1784627536397409700,
+      "sha256": "3333B463D74F6FC54B9E50BAFE0E4F37A4A22D141E9CDD5791E42E91DBFFBF2E"
+    },
+    "outputs/tables/m40r_qiu_mesh_convergence.csv": {
+      "bytes": 2089,
+      "mtime_ns": 1784626463712268300,
+      "sha256": "348D855197B673904163544BE2B1DFE1C8228B15B298E349C3B6B0CBF241D2AB"
+    },
+    "outputs/tables/m40r_qiu_mesh_forensics.csv": {
+      "bytes": 4162,
+      "mtime_ns": 1784625909760788300,
+      "sha256": "23F1C4865BC28DD3C023641678B238EFC13B2220A82CE1FE772CB02861397A57"
+    },
+    "outputs/tables/m40r_qiu_mesh_forensics.json": {
+      "bytes": 15230,
+      "mtime_ns": 1784625909768324500,
+      "sha256": "95CF52D91AEE521098EBD8B83127DFD70F6E60C0C223C73C99CE10877001F64B"
+    },
+    "outputs/tables/m42_qiu_2d_preflight_cases.csv": {
+      "bytes": 4151,
+      "mtime_ns": 1784723927609166000,
+      "sha256": "6CB805737E3727FA6BFADB06702697CB64CA0F1FFDE3CB62DEF3C3274D81D7EF"
+    },
+    "outputs/tables/m42_qiu_2d_preflight_summary.json": {
+      "bytes": 7915,
+      "mtime_ns": 1784724515947525800,
+      "sha256": "32EDACC42D8F09E7A7C460911606383E6BFD75F06F5CA324F8C615B98EFCD6CA"
+    },
+    "outputs/tables/main_submission_figure_manifest.json": {
+      "bytes": 4905,
+      "mtime_ns": 1784713408972453000,
+      "sha256": "462C9FD02B4FB152B3D0FC5CFE94048B72F8E4B63B6B1D34F0267EF0D40F2FF3"
+    },
+    "outputs/tables/pinn_identifiability_summary.json": {
+      "bytes": 5000,
+      "mtime_ns": 1782197358308359600,
+      "sha256": "B50D1CCD32BE0A35F1D17683871746FD0EECE171DDF8C6DC0DD7EEB139106D34"
+    },
+    "outputs/tables/pinn_inverse_v0_ablation_summary.json": {
+      "bytes": 6290,
+      "mtime_ns": 1782117767733716200,
+      "sha256": "19061ED8EEA2F83AF1439435E55C8FF5AF7A937BD85B449CCE769E7B9C27FE2E"
+    },
+    "outputs/tables/prompt32_figure5_semantic_audit.json": {
+      "bytes": 5819,
+      "mtime_ns": 1784357194154422800,
+      "sha256": "6D298E50A09AB19B0060E59031BEBB2BDF5BF8ED56555D2B2452D13D2CB82BA9"
+    },
+    "outputs/tables/submission_protected_evidence_manifest.json": {
+      "bytes": 42172,
+      "mtime_ns": 1784654347734437800,
+      "sha256": "3CCB46F345DF4AC38017B2FE45B77C25F2EF5F20B2AB98952873E995DDDC7AA1"
+    },
+    "scripts/audit_m40r_qiu_mesh_forensics.py": {
+      "bytes": 19249,
+      "mtime_ns": 1784623266183583200,
+      "sha256": "A696CBE8ECE187E658D68813CC4C85CF59E0706A8C56E85D700B0824A5A13629"
+    },
+    "scripts/preregister_e1f_qiu_author_anchor.py": {
+      "bytes": 11630,
+      "mtime_ns": 1784632605632131600,
+      "sha256": "92255B2BD88454B013B4B4006E1898D2B69CDF6C7F91F352B6F8F104C167AB67"
+    },
+    "scripts/preregister_e1fr_qiu_source_equation_correction.py": {
+      "bytes": 7836,
+      "mtime_ns": 1784636519411506600,
+      "sha256": "672B2D29E2F06C62851E7B87900F238C2E50878252D98E583C5FF7A16FCF208D"
+    },
+    "scripts/run_e1f_qiu_author_anchor.py": {
+      "bytes": 33271,
+      "mtime_ns": 1784634849518421700,
+      "sha256": "9CB98F726B11F1CDA4FBFF26C94814DBA0CD9CEF3998AEC40BE058C4358F4119"
+    },
+    "scripts/run_e1fr_qiu_source_equation_correction.py": {
+      "bytes": 16899,
+      "mtime_ns": 1784636630981740100,
+      "sha256": "2F1CED3252ACA7775F2FBC6C11D298B320D332047354D97AE99E64EC06D5C7B8"
+    },
+    "scripts/run_m40_qiu_vo2_2d_e0.py": {
+      "bytes": 39284,
+      "mtime_ns": 1784617353559222500,
+      "sha256": "6D202777C2B601FF9DA6DBFB5E4651B28CE2A92B0580CCE533075DE6C9869604"
+    },
+    "scripts/run_m40r_qiu_e0_repair.py": {
+      "bytes": 48730,
+      "mtime_ns": 1784626108297288500,
+      "sha256": "1D80A95549CC5FD7E802AEC9FEE707A17257DC24C1D80FB352D3016F24E2FF9B"
+    },
+    "scripts/train_pinn_inverse_v1.py": {
+      "bytes": 22203,
+      "mtime_ns": 1784632319229096200,
+      "sha256": "061930B0CEBAC5807061250696D6EF9110F132EC3C55F042685254622DFCBEC1"
+    },
+    "src/pinnpcm/physics/qiu_author_compact_model.py": {
+      "bytes": 14351,
+      "mtime_ns": 1784635991813521500,
+      "sha256": "86CA82B08D29A7322394EE6DEB87FBD35735A2C15B29054899413C62F96B8E4D"
+    },
+    "src/pinnpcm/physics/qiu_vo2_device.py": {
+      "bytes": 9893,
+      "mtime_ns": 1784616789871513000,
+      "sha256": "8DD7137BB1BB0E82AA2F02DBBC309981275B019BA72CD2F756B060C40B97C7D6"
+    },
+    "src/pinnpcm/physics/vo2_thermal_neuristor.py": {
+      "bytes": 8914,
+      "mtime_ns": 1784128733184353600,
+      "sha256": "469801F1F5FFA0F20E987FF2C7C3E57FA856AD652CAED08B7ABFCE0FFFA553BE"
+    },
+    "src/pinnpcm/solvers/__init__.py": {
+      "bytes": 122,
+      "mtime_ns": 1784616778819376800,
+      "sha256": "1B7F6825F39C63D19D6A7931271A4F758FF9D085C14FDCBF1BD1E577B46CB4D5"
+    },
+    "src/pinnpcm/solvers/m40r_qiu_e0_repair.py": {
+      "bytes": 40350,
+      "mtime_ns": 1784625736405835300,
+      "sha256": "20C2BCF506BECC8C8D861B5FA56D23B1DBBD32BE3656A64A80CA197469D83A3E"
+    },
+    "src/pinnpcm/solvers/qiu_author_ode.py": {
+      "bytes": 13487,
+      "mtime_ns": 1784635885907495600,
+      "sha256": "032408DA151E393FD5F81CF3551D5E74536D9933D3E31B40954534A5E84B40B9"
+    },
+    "src/pinnpcm/solvers/qiu_vo2_2d_fvm.py": {
+      "bytes": 17666,
+      "mtime_ns": 1784616795183565100,
+      "sha256": "3DCA44667B2FC581C52A8876F732B6CD8B46315F0A6CA6F58C39D525F9AB3A25"
+    },
+    "tests/test_e1f_preregistration.py": {
+      "bytes": 2374,
+      "mtime_ns": 1784710658159832000,
+      "sha256": "6F08689C04B9CECABB205B1C0055F371EB56CE4BE1F6A7F3763D6223C8E77978"
+    },
+    "tests/test_e1f_qiu_author_equations.py": {
+      "bytes": 7024,
+      "mtime_ns": 1784635994666804900,
+      "sha256": "BAFCE45AF459A5370BD685B6958B0B046A774A65B4BF7309A75E5544BC9FEA6B"
+    },
+    "tests/test_e1fr_contract.py": {
+      "bytes": 3252,
+      "mtime_ns": 1784710667658878600,
+      "sha256": "2B49FF4A6C6ACC90D88446B9E597522BA2355F1AD27FBE73E927F96099CB6F7F"
+    },
+    "tests/test_m40_qiu_2d_fvm.py": {
+      "bytes": 6693,
+      "mtime_ns": 1784617217031070500,
+      "sha256": "F2B8B82B77CB605616FB6060129A79F74AA1480CE09FF01518AAE71479E056ED"
+    },
+    "tests/test_m40_qiu_energy_ledger.py": {
+      "bytes": 5383,
+      "mtime_ns": 1784617147462534500,
+      "sha256": "85D0483F6B1AFA658C66186D05B4509D7EDB2890FF04C0465F8EF43E2D559B3A"
+    },
+    "tests/test_m40_qiu_geometry.py": {
+      "bytes": 5780,
+      "mtime_ns": 1784617139415999400,
+      "sha256": "27E2D1BA43D0C84F65D26E606442C8E868171BFB8F3639DA9D48F5A368A352FC"
+    },
+    "tests/test_m40_qiu_result_evidence.py": {
+      "bytes": 3766,
+      "mtime_ns": 1784617365487428800,
+      "sha256": "CB15426F749EB43209704F3349BCFC5FE9EA5B24DF6530CB01E139DC9465CAE7"
+    },
+    "tests/test_m40r_qiu_active_transient.py": {
+      "bytes": 6714,
+      "mtime_ns": 1784625009985166100,
+      "sha256": "78916E4B48C46630EAF8DC2999DA1CE2EA981F2A61DDB430144CA19F31D5EBB1"
+    },
+    "tests/test_m40r_qiu_field_reconstruction.py": {
+      "bytes": 4227,
+      "mtime_ns": 1784624933879731600,
+      "sha256": "BD7C22D428BFDAC5043085BE8667F517B8639117BED294C9012414CE65E4F363"
+    },
+    "tests/test_m40r_qiu_mesh_convergence.py": {
+      "bytes": 3723,
+      "mtime_ns": 1784623676789698800,
+      "sha256": "700485395F35A4E5D035CB1417556D73A92CC5212EC78EA819A4B31A800AFFAD"
+    },
+    "tests/test_m40r_qiu_result_evidence.py": {
+      "bytes": 2901,
+      "mtime_ns": 1784710698716570200,
+      "sha256": "7F9E93F1AB0D6CCDF613E72872C0225D8AFAC2B0E95310E67F780D702B3694EB"
+    },
+    "tests/test_pinn_inverse_v1.py": {
+      "bytes": 4768,
+      "mtime_ns": 1784632323594219000,
+      "sha256": "804D366C75DAB149C8F2A38B73A9DBAC3FFF45757BBBE0B1ADC6B230D37EE972"
+    }
+  },
+  "schema_version": "m43_one_shot_execution_receipt_v1",
+  "status": "completed",
+  "terminal_rerun_forbidden": true,
+  "wall_started_perf_counter_s": 591174.8884972
+}
