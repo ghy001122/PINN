@@ -3,16 +3,22 @@
 ## Authoritative Current Queue
 
 Exactly one bottleneck is active:
-`Q2_MANUSCRIPT_EVIDENCE_COMPRESSION_AND_SUBMISSION_LOCK`. The constrained `gamma_sub`
-result remains the only positive rank-1 inverse mainline.
+`Q2_M42_HERMETIC_REPLAY_AND_QIU_2D_REFERENCE_FOUNDATION`. The constrained `gamma_sub`
+result remains the only positive rank-1 inverse mainline; M42 is a
+non-neural solver preflight and cannot upgrade it.
 
-### Priority - journal upload lock from the validated content package
+### Priority - hermetic replay, then bounded dimensional-closure decision
 
-The formula-only source-contract amendment and technical local replay are
-complete. All 50 required local assets, 157 historical evidence locks, the
-36-row continuous-refinement summary, frozen GT, governance checks, and the
-440-test detached replay pass. Readiness is `CONTENT_GO_UPLOAD_NO_GO`: no
-scientific gate changed, but the previous portability P0 is closed locally.
+1. Commit the M42 preregistration and hermetic replay contract.
+2. In a detached checkout, inject all 50 assets only from an explicit external
+   read-only root; prove HEAD/root/import/status identity and run the single
+   full replay.
+3. Only after P0-A passes, run the formula, contact-power, total-enthalpy,
+   diffusion-length, domain, mesh/time, and finite-width preflight.
+4. End with decision A, B, or C. No PINN, inverse, M41, curve fit, or parameter
+   search is allowed.
+
+The journal-upload items remain queued after this one bounded round.
 
 Execution order:
 

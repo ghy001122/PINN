@@ -27,4 +27,9 @@ def test_full_validation_alone_verifies_historic_blobs() -> None:
     assert "timeout-minutes:" in workflow
     assert "runs-on: [self-hosted, windows, pinn-trusted-replay]" in workflow
     assert "verify_local_replay_assets.py" in workflow
+    assert "PINN_LOCAL_REPLAY_ASSET_ROOT" in workflow
+    assert "RUNNER_TEMP" in workflow
+    assert "audit_hermetic_replay.py" in workflow
+    assert "git status --porcelain=v1 --untracked-files=all" in workflow
+    assert "git diff --exit-code" in workflow
     assert "run_gt_v1_acceptance.py" not in workflow

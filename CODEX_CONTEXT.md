@@ -5,10 +5,10 @@
 Read this file and `docs/research_strategy/active_phase.md` first. Load longer context through `docs/research_strategy/context_loading_policy.md`.
 
 - Authoritative goal: `PROJECT_GOAL.md`
-- Phase ID: `Q2_MANUSCRIPT_EVIDENCE_COMPRESSION_AND_SUBMISSION_LOCK`
+- Phase ID: `Q2_M42_HERMETIC_REPLAY_AND_QIU_2D_REFERENCE_FOUNDATION`
 - Current evidence: `docs/project_state/current_evidence_index.md`
 - Safe historical evidence lock: `d1121e16fa5015a297da468e3e6f0504b9e97d17`
-- Current report: `docs/codex_reports/p0_clean_replay_portability_and_asset_closure_2026-07-22.md`
+- Current preregistration: `docs/research_strategy/m42_reference_and_2d_preregistration.md`
 
 ## Corrected North Star
 
@@ -18,12 +18,12 @@ The calibration-gated constrained `gamma_sub` rank-1 result is the safe `qualifi
 
 ## Single Active Bottleneck
 
-`Q2_MANUSCRIPT_EVIDENCE_COMPRESSION_AND_SUBMISSION_LOCK`: the source-contract
-amendment and local clean replay are complete. The verified local asset pack is
-`50/50`, portable evidence identity is `157/157`, detached pytest is `440/440`,
-and readiness is `CONTENT_GO_UPLOAD_NO_GO`. Select the journal/article type,
-complete author declarations, render and visually inspect the locked package,
-and close the public/restricted asset route without reopening science.
+`Q2_M42_HERMETIC_REPLAY_AND_QIU_2D_REFERENCE_FOUNDATION`: first prove a
+detached, externally asset-injected replay at HEAD, then execute one
+40-forward/8-hour maximum Qiu dimensional-closure preflight. The only outcomes
+are A (formal 2D reference authorized), B (only 2.5D/3D closure authorized), or
+C (stop 2D and return to the locked 1D manuscript). No inverse or PINN is
+authorized.
 
 ## Evidence Snapshot
 
@@ -47,9 +47,10 @@ Keep `public_external_raw`, `derived`, `interpolated`, `solver_generated`, `pinn
 
 ## Operating Rule
 
-Do not rerun or rescue E1F/E1F-R or M40/M40R. Run no M41, effective-coordinate
-preflight, inverse network, PINN training, holdout refit, M38, or Zhang sealed-
-13-V access. Preserve all negative artifacts and use only `supported`,
+Do not rerun or rescue E1F/E1F-R or M40/M40R. M42 may read their locked
+artifacts and run only its newly preregistered manufactured and finite-width
+preflight. Run no M41, inverse network, PINN training, holdout refit, M38, or
+Zhang sealed-13-V access. Preserve all negative artifacts and use only `supported`,
 `qualified_supported`, `failed_but_informative`, or `forbidden`.
 
 The Qiu SI does not publish a complete executable reversal update, numerical

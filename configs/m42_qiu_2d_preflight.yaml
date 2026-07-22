@@ -1,0 +1,136 @@
+task_id: Q2_M42_HERMETIC_REPLAY_AND_QIU_2D_REFERENCE_FOUNDATION
+schema_version: m42_qiu_2d_preflight_v1
+base_commit: a3095e1928c305ade13a1549cd950c9412a449ad
+namespace: m42_qiu_2d_reference_foundation
+run_class: bounded_solver_preflight
+
+budget:
+  cpu_only: true
+  maximum_forward_solves: 40
+  maximum_wall_clock_s: 28800
+  maximum_formal_attempts: 1
+  no_parameter_search: true
+
+hermetic_replay:
+  external_asset_environment_variable: PINN_LOCAL_REPLAY_ASSET_ROOT
+  runtime_output_root: RUNNER_TEMP
+  require_detached_head: true
+  require_clean_tracked_and_untracked_before_after: true
+  required_checkout_paths:
+    - configs/local_replay_asset_manifest_v1.json
+    - configs/m42_qiu_2d_preflight.yaml
+    - docs/research_strategy/m42_reference_and_2d_preregistration.md
+    - outputs/tables/local_replay_asset_validation.json
+    - outputs/tables/portable_evidence_identity_audit.json
+    - outputs/tables/submission_readiness.json
+
+literature_roles:
+  qiu_2024:
+    doi: 10.1002/adma.202306818
+    role: primary_geometry_hysteresis_and_lumped_circuit_source
+    forbidden: exact_author_code_or_independent_holdout_claim
+  zhang_2024:
+    doi: 10.1038/s41467-024-51254-4
+    role: discrete_author_code_and_public_source_semantics_comparator
+    forbidden: independent_physics_validation_or_13V_access
+  chen_2025:
+    doi: 10.1002/adfm.202423800
+    role: future_cross_material_trend_only
+    forbidden: NbO2_or_SnSe_parameter_transfer_into_Qiu_VO2
+  liu_2024:
+    doi: 10.1109/LED.2024.3362829
+    role: future_geometry_family_holdout_only
+    forbidden: NbOx_parameter_transfer_or_current_quantitative_validation
+
+hypothesis: >-
+  A finite-width Qiu-class VO2 device can be promoted from the failed M40 x-z
+  extrusion to a quantitative two-dimensional reference only if source-level
+  electrical resistance, contact-power closure, enthalpy conservation, domain
+  truncation, mesh/time convergence, and out-of-plane heat spreading all pass
+  before any inverse or PINN is attempted.
+
+evidence_levels:
+  - formula_identity
+  - author_code_parity
+  - numerical_convergence
+  - literature_curve_agreement
+  - independent_holdout
+source_contract:
+  qiu_author_code_available: false
+  qiu_raw_numeric_arrays_available: false
+  exact_author_code_reproduction: forbidden
+  project_generated_measurement: false
+  external_quantitative_validation: forbidden
+
+geometry:
+  device_length_m: 1.0e-7
+  device_width_m: 5.0e-7
+  vo2_thickness_m: 1.0e-7
+  ti_thickness_m: 1.5e-8
+  au_thickness_m: 4.0e-8
+  reported_active_volume_m3: 5.0e-21
+  reported_footprint_area_m2: 5.0e-14
+  provenance: qiu_main_and_supporting_information
+
+circuit:
+  load_resistance_ohm: 1.2e4
+  parallel_capacitance_F: 1.45e-10
+  input_voltage_V: 12.0
+  ambient_temperature_K: 325.0
+  duration_Rload_C: 3.0
+
+engineering_priors:
+  sapphire_thermal_conductivity_W_mK: 35.0
+  sapphire_volumetric_heat_capacity_J_m3K: 3.0e6
+  latent_heat_J_m3: 0.0
+  latent_heat_role: unresolved_disabled_not_assumed_zero_in_real_device
+  inherited_from: m40_qiu_vo2_real_device_2d_engineering_prior
+
+scale_preflight:
+  diffusion_length_definition: sqrt(alpha*t)
+  time_horizon_Rload_C: 3.0
+  domain_multipliers: [1.0, 1.5, 2.0]
+  mesh_levels: [1, 2, 3]
+  timestep_divisors_per_Rload_C: [10, 20, 40]
+  finite_width_thermal_spots_max: 3
+  pure_2d_extrusion_comparator: true
+
+physics_contract:
+  electrical_domain: [vo2, ti, au]
+  thermal_domain: [vo2, ti, au, al2o3]
+  terminal_current: electrode_boundary_flux_integral
+  contact_condition: explicit_potential_jump_and_contact_power
+  energy_state: total_enthalpy
+  hysteresis_default: qiu_S1_to_S4_path_dependent_operator
+  hysteresis_relaxation_tau: extension_only_forbidden_in_default
+  secant_tangent_dynamic_heat_capacity_separated: true
+
+splits:
+  parameter_setting: qiu_reported_geometry_and_lumped_circuit_only
+  numerical_validation: manufactured_electrical_thermal_and_ledger_cases
+  domain_holdout: largest_diffusion_length_domain
+  literature_curve: not_used_in_m42
+  independent_holdout: unavailable
+
+gates:
+  relative_current_imbalance_max: 1.0e-6
+  smooth_enthalpy_imbalance_max: 1.0e-4
+  switching_enthalpy_imbalance_max: 1.0e-3
+  finest_pair_I_Tmean_Tmax_Qout_change_max: 0.02
+  domain_sensitivity_max: 0.02
+  uniform_2d_source_resistance_error_max: 0.01
+  out_of_plane_or_domain_closure_for_pure_2d_max: 0.10
+  dynamic_duration_Rload_C_min: 3.0
+  no_clip_nan_or_unregistered_extrapolation: true
+
+decision:
+  A: authorize_formal_2d_dynamic_ground_truth_only_if_all_gates_pass
+  B: authorize_only_2p5d_or_coarse_3d_closure_preflight_if_out_of_plane_or_domain_error_exceeds_0p10
+  C: stop_2d_and_return_to_1d_manuscript_if_foundation_is_nonrecoverable_or_unregistered
+  threshold_changes_after_results: forbidden
+
+outputs:
+  summary: outputs/tables/m42_qiu_2d_preflight_summary.json
+  cases: outputs/tables/m42_qiu_2d_preflight_cases.csv
+  figure: outputs/figures/m42/qiu_scale_domain_mesh_preflight.png
+  report: docs/codex_reports/m42_qiu_2d_physics_foundation_preflight.md

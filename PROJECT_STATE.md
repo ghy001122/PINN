@@ -3,7 +3,7 @@
 ## Authoritative Current Snapshot
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
-- Active phase: `Q2_MANUSCRIPT_EVIDENCE_COMPRESSION_AND_SUBMISSION_LOCK`.
+- Active phase: `Q2_M42_HERMETIC_REPLAY_AND_QIU_2D_REFERENCE_FOUNDATION`.
 - Frozen GT v1.1 is unchanged and read-only.
 - The constrained `gamma_sub` result is the only positive inverse mainline:
   calibration-gated, rank-1, synthetic, and `qualified_supported` only under
@@ -22,6 +22,9 @@
 - Local replay is technically closed: assets `50/50`, portable locks `157/157`,
   detached tests `440/440`, and sealed 13 V untouched. This changes no claim;
   public replay still requires a lawful asset route.
+- M42 is preregistered but has not yet produced a scientific result. It first
+  rechecks replay hermeticity at its own detached HEAD, then decides whether
+  pure 2D, 2.5D/3D closure, or manuscript fallback is warranted.
 
 ## Current Gate Ledger
 
@@ -57,10 +60,8 @@ the registries and Git.
 
 ## Current Single Priority
 
-Select one scope-compatible journal and article type, complete author metadata
-and declarations, render the locked content package in that template, perform
-visual QA, and establish a lawful public archive or an explicit restricted-
-asset reproduction route. E1F/E1F-R, M40/M40R, M37R, public inverse,
-effective-coordinate identification, and neural rescue remain closed.
-Submission/preprint timing is controllable; journal acceptance or publication
-within one month is not.
+Complete the M42 detached replay and dimensional-closure preflight without
+reopening M40R, inverse, or neural training. After the mandatory A/B/C decision,
+return immediately to journal selection, template rendering, declarations,
+visual QA, and the lawful asset route. Submission timing is controllable;
+journal acceptance is not.

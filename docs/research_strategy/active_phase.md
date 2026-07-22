@@ -1,8 +1,18 @@
 # Active Phase
 
-Active phase ID: `Q2_MANUSCRIPT_EVIDENCE_COMPRESSION_AND_SUBMISSION_LOCK`
+Active phase ID: `Q2_M42_HERMETIC_REPLAY_AND_QIU_2D_REFERENCE_FOUNDATION`
 
 ## Objective
+
+Execute one bounded, preregistered foundation audit requested after the
+submission-content lock: first prove a detached, externally asset-injected
+replay; then determine whether finite-width/domain physics permit a formal Qiu
+2D reference, require 2.5D/3D closure, or require return to the locked 1D
+manuscript. No inverse or neural training is authorized.
+
+This user-authorized round does not alter historical evidence or reopen M40R.
+
+## Preserved submission state
 
 Complete and lock the manuscript, supplement, reproducibility package, and
 reviewer-defense material from the current evidence. The constrained `gamma_sub`
@@ -42,24 +52,10 @@ asset routing remains open and no claim is upgraded.
 
 ## Single bottleneck
 
-Freeze the current scientific result set and finish only the journal-upload
-layer: select journal/article type, complete author declarations, render and
-visually inspect the template, and close the lawful archive/restricted-asset
-route. E1F/E1F-R, M40/M40R, M37R, public inverse, and neural rescue are closed;
-no new experiment may delay submission without a new explicit evidence-based
-authorization.
-
-The original six-integration E1F artifact has no scientific vote. The corrected
-E1F-R vote used two integrations. Solver parity passed with worst NRMSE
-`2.23216e-7`, but setting-current/voltage NRMSE were `0.353154/0.815643`
-versus `0.10`; their most favorable digitization-envelope scores were
-`0.320963/0.732598`. Main Fig. 2b is invalid/unassessed and was not simulated
-or scored. Exact author-code reproduction and quantitative external validation
-remain `forbidden`.
-
-Machine governance lock: `m40r_formal_budget_consumed=true`,
-`further_m40r_execution_forbidden=true`, `original_numeric_e0_passed=true`,
-and `qiu_dynamic_source_bridge_passed=false`.
+Pass P0-A hermetic replay, then execute only the M42 formula/scale/domain/
+finite-width preflight under the locked 40-forward and 8-hour budget. The
+round must end in exactly A, B, or C as defined in
+`docs/research_strategy/m42_reference_and_2d_preregistration.md`.
 
 ## Forbidden claims
 

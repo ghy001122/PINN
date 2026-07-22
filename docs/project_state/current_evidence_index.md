@@ -13,6 +13,11 @@ This is the compact routing surface. Current status is authoritative in
 
 ## Active round and Qiu bridge
 
+M42 is preregistered at
+`docs/research_strategy/m42_reference_and_2d_preregistration.md`. Until its
+detached replay and bounded preflight run, it is a planned audit with no
+scientific vote and no claim upgrade.
+
 | Block | Status | Primary evidence |
 | --- | --- | --- |
 | Layered E1F/LLP source contract | Formula identity `supported`; no device-science vote | `outputs/tables/e1f_llp_source_contract_summary.json`; `outputs/tables/e1f_source_contract_amendment_v2.json`; `docs/physics/e1f_llp_source_contract.md` |

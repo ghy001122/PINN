@@ -34,8 +34,25 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
           python -m pip install -e .
-      - name: Verify exact local replay asset pack
-        run: python scripts/verify_local_replay_assets.py --output outputs/tables/local_replay_asset_validation.json
+      - name: Capture clean status and inject exact local replay assets
+        shell: powershell
+        run: |
+          if (-not $env:PINN_LOCAL_REPLAY_ASSET_ROOT) {
+            throw "PINN_LOCAL_REPLAY_ASSET_ROOT must point to the external read-only asset pack"
+          }
+          [IO.File]::WriteAllText(
+            "$env:RUNNER_TEMP\git-status-before.txt",
+            (git status --porcelain=v1 --untracked-files=all | Out-String).TrimEnd()
+          )
+          python scripts/verify_local_replay_assets.py `
+            --root "$env:PINN_LOCAL_REPLAY_ASSET_ROOT" `
+            --manifest "${{ github.workspace }}\configs\local_replay_asset_manifest_v1.json" `
+            --copy-to "${{ github.workspace }}" `
+            --output "$env:RUNNER_TEMP\asset-copy.json"
+          python scripts/verify_local_replay_assets.py `
+            --root "${{ github.workspace }}" `
+            --manifest "${{ github.workspace }}\configs\local_replay_asset_manifest_v1.json" `
+            --output "$env:RUNNER_TEMP\asset-verify.json"
       - name: Full test suite
         run: python -m pytest -q
       - name: Verify immutable historic blobs
@@ -44,5 +61,19 @@ jobs:
         run: python scripts/audit_project_governance.py --no-write
       - name: Strict tracked JSON parse
         run: python scripts/validate_tracked_json.py
-      - name: Confirm no tracked mutation
-        run: git diff --exit-code -- . ':!outputs/figures/**'
+      - name: Confirm detached hermetic replay and no checkout mutation
+        shell: powershell
+        run: |
+          [IO.File]::WriteAllText(
+            "$env:RUNNER_TEMP\git-status-after.txt",
+            (git status --porcelain=v1 --untracked-files=all | Out-String).TrimEnd()
+          )
+          python scripts/audit_hermetic_replay.py `
+            --root "${{ github.workspace }}" `
+            --config configs/m42_qiu_2d_preflight.yaml `
+            --expected-commit "${{ github.sha }}" `
+            --asset-source-root "$env:PINN_LOCAL_REPLAY_ASSET_ROOT" `
+            --status-before "$env:RUNNER_TEMP\git-status-before.txt" `
+            --status-after "$env:RUNNER_TEMP\git-status-after.txt" `
+            --output "$env:RUNNER_TEMP\m42-hermetic-replay.json"
+          git diff --exit-code
