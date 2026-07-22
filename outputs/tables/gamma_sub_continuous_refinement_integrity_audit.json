@@ -1,0 +1,14 @@
+{
+  "all_passed": true,
+  "cases_path": "outputs/tables/gamma_sub_continuous_refinement_cases.csv",
+  "cases_sha256": "E67620689AC9D918F65FF36F0EA0F33B62F5C9DC83408A1EAF2D26A0C0078E70",
+  "failures": [],
+  "figure_regenerated": false,
+  "generated_at_utc": "2026-07-22T10:17:18.118515+00:00",
+  "row_count": 36,
+  "schema_version": "gamma_sub_continuous_refinement_integrity_audit_v1",
+  "scientific_forward_runs": 0,
+  "summary_canonical_lf_sha256": "E0770153A9DF30B512F08B66B7972BD390C27D4B615DD45D43015B421C5683E8",
+  "summary_path": "outputs/tables/gamma_sub_continuous_refinement_summary.json",
+  "summary_sha256": "E0770153A9DF30B512F08B66B7972BD390C27D4B615DD45D43015B421C5683E8"
+}

@@ -1,50 +1,22 @@
 {
-  "schema_version": "1.0",
-  "task_id": "SOURCE_CONTRACT_AMENDMENT_AND_FALLBACK_SUBMISSION_LOCK_V2",
-  "base_commit": "76970488118612f6ccf9c3cbf6cb17946ca0d999",
-  "validated_content_commit": "689a7a6b218d4263bdc92f04ae52231e7439e752",
-  "generated_at_utc": "2026-07-21T17:59:11.5587377Z",
-  "environment": {
-    "python": "3.11.9",
-    "validation_mode": "detached clean worktree with local read-only asset pack",
-    "pinnpcm_import_from_validated_worktree": true,
-    "pandoc_available": false
-  },
-  "new_formal_scientific_experiments": 0,
-  "new_claim_bearing_device_forward_runs": 0,
-  "formula_contract_evaluations": 4002,
-  "test_only_smoke_runs": 70,
-  "test_only_smoke_runs_definition": "unique passed pytest node IDs containing 'smoke' in the single full-suite log",
-  "external_validation": false,
-  "qiu_author_intent_inferred": false,
-  "qiu_author_code_verified": false,
-  "requires_local_asset_pack": true,
-  "clean_clone_reproducible": false,
-  "scientific_claim_integrity": {
-    "status": "manual_unverified_high_risk",
-    "core_claim_sentence_hash_mapping_passed_before_content_commit": true,
-    "reason": "The claim map and citations pass static checks, but the required clean-worktree regression gate failed."
-  },
-  "synthetic_only_disclosure": {
-    "status": "pass",
-    "main_text_disclosure_present": true,
-    "supplementary_disclosure_present": true,
-    "experimental_validation_claimed": false
-  },
-  "mainline_evidence_sufficiency": {
-    "status": "manual_unverified_high_risk",
-    "boundary": "synthetic reduced inverse under fixed or tightly bounded priors",
-    "reason": "Historical claim evidence remains unchanged, but the release-level clean-worktree replay is not closed."
-  },
-  "source_contract": {
-    "status": "pass",
-    "claim_status": "supported",
-    "blocking_gates_pass": true,
-    "formula_contract_evaluations": 4002,
-    "qiu_author_equivalence": "forbidden"
-  },
+  "base_commit": "50bf5dca55966663bc6063e07913a6359a380872",
+  "blocked_reasons": [
+    "selected_journal_not_locked",
+    "article_type_not_locked",
+    "target_format_not_rendered_or_visually_checked",
+    "author_metadata_and_declarations_incomplete",
+    "public_reproduction_assets_not_archived",
+    "q2_target_adequacy_requires_manual_judgment"
+  ],
   "citations": {
-    "status": "pass",
+    "bibtex_keys": [
+      "dealmeida2002",
+      "dealmeida2003",
+      "karniadakis2021",
+      "qiu2024",
+      "raissi2019",
+      "sena2026"
+    ],
     "citation_keys": [
       "dealmeida2002",
       "dealmeida2003",
@@ -54,68 +26,46 @@
       "sena2026"
     ],
     "missing_citations": [],
-    "missing_required_dois": []
+    "missing_required_dois": [],
+    "status": "pass"
   },
   "claim_sentence_mapping": {
-    "status": "pass",
-    "mapped_claims": 5,
     "failed_claim_ids": [],
-    "output": "outputs/tables/manuscript_claim_sentence_audit.csv"
+    "mapped_claims": 5,
+    "status": "pass"
   },
+  "clean_clone_reproducible": false,
+  "disposition": "CONTENT_GO_UPLOAD_NO_GO",
+  "environment": {
+    "cwd": "C:\\Users\\CJ\\AppData\\Local\\Temp\\PINN_detached_readiness_ba966b3_019f88f2",
+    "executable": "E:\\Python demo\\PINN\\.venv\\Scripts\\python.exe",
+    "pandoc_available": false,
+    "pinnpcm_origin": "E:\\Python demo\\PINN\\src\\pinnpcm\\__init__.py",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.9",
+    "pythonpath": ""
+  },
+  "external_validation": false,
   "figure_table_integrity": {
-    "status": "pass",
+    "failures": [],
     "figure_count": 6,
+    "identity_modes": {
+      "current_git_blob_newline_equivalent": 14,
+      "current_raw_exact": 6,
+      "declared_mixed_newline_equivalent": 1
+    },
     "original_bytes_preserved": true,
-    "manifest": "outputs/tables/main_submission_figure_manifest.json"
+    "status": "pass"
   },
-  "protected_evidence": {
-    "status": "fail",
-    "manifest_record_count": 74,
-    "declared_copy_required_count": 8,
-    "failure_class": "non-portable working-tree byte locks and incomplete local asset closure",
-    "line_ending_hash_lock_failures": 10,
-    "missing_local_asset_failures": 6
-  },
-  "tests": {
-    "status": "fail",
-    "exit_code": 1,
-    "passed": 412,
-    "failed": 16,
-    "log": "outputs/logs/submission_lock_full_pytest.txt",
-    "single_full_suite_execution": true
-  },
+  "formula_contract_evaluations": 4002,
+  "generated_at_utc": "2026-07-22T10:18:11.861638+00:00",
   "governance": {
-    "status": "pass",
     "exit_code": 0,
-    "write_output": false,
-    "log": "outputs/logs/submission_lock_governance.txt"
+    "log": "C:\\Users\\CJ\\AppData\\Local\\Temp\\PINN_submission_lock_governance_d052405.txt",
+    "status": "pass"
   },
-  "readiness_audit_execution": {
-    "status": "fail",
-    "exit_code": 1,
-    "log": "outputs/logs/submission_lock_readiness.txt",
-    "error": "TypeError: Object of type date is not JSON serializable",
-    "note": "This file is the fail-closed C3 reconstruction from the preserved logs; the C2 audit produced no final JSON."
-  },
-  "worktree_integrity": {
-    "git_diff_exit_code_against_validated_commit": 0,
-    "git_normalized_content_diff_clean": true,
-    "git_status_clean": false,
-    "tracked_paths_rewritten_by_tests": 14,
-    "copied_local_assets": 8,
-    "unexpected_untracked_figures_generated_by_tests": 6
-  },
-  "public_reproducibility": {
-    "local_clean_worktree_replay": false,
-    "requires_local_asset_pack": true,
-    "public_reproduction_assets_available": false,
-    "clean_clone_reproducible": false,
-    "third_party_redistribution_allowed": false,
-    "data_availability_statement_consistent": true
-  },
+  "journal_format_ready": false,
   "journal_scope": {
-    "status": "blocked",
-    "selected_journal": null,
     "article_type": null,
     "official_sources": [
       "https://onlinelibrary.wiley.com/page/journal/10991204/homepage/productinformation.html",
@@ -125,26 +75,109 @@
       "https://www.sciencedirect.com/journal/mathematics-and-computers-in-simulation",
       "https://www.sciencedirect.com/journal/mathematics-and-computers-in-simulation/publish/guide-for-authors"
     ],
-    "retrieved_at": "2026-07-22"
+    "retrieved_at": "2026-07-22",
+    "selected_journal": null,
+    "status": "blocked"
   },
-  "technical_content_package_ready": false,
-  "journal_format_ready": false,
   "journal_upload_ready": false,
-  "q2_target_adequacy": "manual_unverified_high_risk",
+  "local_replay_assets": {
+    "failures": [],
+    "required_asset_count": 50,
+    "sealed_member_payload_accessed": false,
+    "status": "pass",
+    "verified_asset_count": 50
+  },
+  "mainline_evidence_sufficiency": {
+    "boundary": "synthetic reduced inverse under fixed or tightly bounded priors",
+    "status": "qualified_supported"
+  },
+  "new_claim_bearing_device_forward_runs": 0,
+  "new_formal_scientific_experiments": 0,
   "overall_status": "NO_GO",
-  "disposition": "CONTENT_NO_GO",
-  "blocked_reasons": [
-    "full_pytest_failed_16_tests",
-    "protected_text_hashes_depend_on_active_worktree_line_endings",
-    "required_ceba_cache_assets_missing_from_copy_manifest",
-    "required_zhang_raw_assets_missing_from_copy_manifest",
-    "full_tests_rewrote_14_evidence_paths_and_generated_6_untracked_figures",
-    "readiness_json_serialization_failed_for_yaml_date",
-    "selected_journal_not_locked",
-    "article_type_not_locked",
-    "target_format_not_rendered_or_visually_checked",
-    "author_metadata_and_declarations_incomplete",
-    "public_reproduction_assets_not_archived",
-    "q2_target_adequacy_requires_manual_judgment"
-  ]
+  "portable_evidence_identity": {
+    "failures": [],
+    "lock_count": 157,
+    "mode_counts": {
+      "current_git_blob_newline_equivalent": 29,
+      "current_raw_exact": 120,
+      "declared_nonportable_legacy_exception": 1,
+      "historical_git_object": 7
+    },
+    "status": "pass"
+  },
+  "protected_evidence": {
+    "copy_required_count": 8,
+    "copy_required_paths": [
+      "data/external/qiu_2024_thermal_neuristor/raw/qiu_2024_main.pdf",
+      "data/external/qiu_2024_thermal_neuristor/raw/qiu_2024_supporting_information.pdf",
+      "data/processed/gt_v1_acceptance/gt_ltp_ltd.npz",
+      "data/processed/gt_v1_acceptance/gt_triangle.npz",
+      "data/processed/gt_v1_acceptance/manifest.json",
+      "data/processed/gt_v1_acceptance/obs_ltp_ltd_sparse.npz",
+      "data/processed/gt_v1_acceptance/obs_triangle_sparse.npz",
+      "data/processed/gt_v1_acceptance/params_gt_v1.json"
+    ],
+    "failures": [],
+    "identity_modes": {
+      "current_git_blob_newline_equivalent": 10,
+      "current_raw_exact": 61,
+      "historical_git_object": 3
+    },
+    "record_count": 74,
+    "status": "pass"
+  },
+  "public_reproducibility": {
+    "clean_clone_reproducible": false,
+    "data_availability_statement_consistent": true,
+    "detached_replay_with_verified_local_assets": true,
+    "local_clean_worktree_replay": true,
+    "missing_data_boundary_phrases": [],
+    "public_reproduction_assets_available": false,
+    "requires_local_asset_pack": true,
+    "third_party_redistribution_allowed": false,
+    "verified_local_asset_pack_complete": true
+  },
+  "q2_target_adequacy": "manual_unverified_high_risk",
+  "qiu_author_code_verified": false,
+  "qiu_author_intent_inferred": false,
+  "required_document_failures": [],
+  "requires_local_asset_pack": true,
+  "schema_version": "1.0",
+  "scientific_claim_integrity": {
+    "all_claim_gates_pass": true,
+    "core_claim_count": 5,
+    "status": "pass"
+  },
+  "source_artifact_integrity": {
+    "cases_sha256": "E67620689AC9D918F65FF36F0EA0F33B62F5C9DC83408A1EAF2D26A0C0078E70",
+    "failures": [],
+    "row_count": 36,
+    "scientific_forward_runs": 0,
+    "status": "pass",
+    "summary_canonical_lf_sha256": "E0770153A9DF30B512F08B66B7972BD390C27D4B615DD45D43015B421C5683E8",
+    "summary_sha256": "E0770153A9DF30B512F08B66B7972BD390C27D4B615DD45D43015B421C5683E8"
+  },
+  "source_contract": {
+    "blocking_gates_pass": true,
+    "claim_status": "supported",
+    "formula_contract_evaluations": 4002,
+    "status": "pass"
+  },
+  "synthetic_only_disclosure": {
+    "forbidden_positive_assertions_found": [],
+    "missing_phrases": [],
+    "status": "pass"
+  },
+  "task_id": "SOURCE_CONTRACT_AMENDMENT_AND_FALLBACK_SUBMISSION_LOCK_V2",
+  "technical_content_package_ready": true,
+  "test_only_smoke_runs": 0,
+  "tests": {
+    "exit_code": 0,
+    "failed": 0,
+    "log": "C:\\Users\\CJ\\AppData\\Local\\Temp\\PINN_submission_lock_full_pytest_d052405.txt",
+    "passed": 440,
+    "status": "pass",
+    "test_only_smoke_runs": 0
+  },
+  "validated_content_commit": "d05240508fe630202bc8ce22f461d412b3a1eb03"
 }

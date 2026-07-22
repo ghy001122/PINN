@@ -2,6 +2,8 @@
 
 Date: 2026-07-22
 
+Validated content commit: `d05240508fe630202bc8ce22f461d412b3a1eb03`.
+
 ## Outcome
 
 The local clean-replay P0 is technically closed. This round restored and
@@ -24,7 +26,7 @@ No scientific forward, fit, inverse, PINN training, threshold change, or sealed
 | Portable historical locks | `157/157` pass |
 | Continuous-refinement source integrity | 36/36 case rows, aggregates, groups, and frozen-hash pair agree; scientific forward runs `0` |
 | Targeted portability/readiness tests | pass |
-| Detached full pytest | `440 passed in 455.02 s` on the validated code content |
+| Detached full pytest | `440 passed in 402.68 s` on the validated content commit |
 | Governance | `pass_with_manual_review`; no failed check; frozen-GT hashes unchanged |
 | Test pollution | historical 14-file rewrite and six unintended figures eliminated; designated validation logs are intentional evidence outputs |
 | Readiness | technical content package `true`; journal upload `false`; disposition `CONTENT_GO_UPLOAD_NO_GO` |

@@ -1,0 +1,2706 @@
+{
+  "all_passed": true,
+  "contract": {
+    "historical_definition_revisions_resolved_through_git_objects": true,
+    "newline_equivalence_only": true,
+    "raw_sha256_changed": false,
+    "whitespace_or_semantic_normalization_allowed": false
+  },
+  "failures": [],
+  "generated_at_utc": "2026-07-22T10:17:17.623585+00:00",
+  "lock_count": 157,
+  "mode_counts": {
+    "current_git_blob_newline_equivalent": 29,
+    "current_raw_exact": 120,
+    "declared_nonportable_legacy_exception": 1,
+    "historical_git_object": 7
+  },
+  "records": [
+    {
+      "allow_historical_revision": true,
+      "current_matches_head": true,
+      "current_sha256": "B90EA2836AD18778DD02B69A36C166586AC681F0C4A5370AF431E5C68A62B447",
+      "current_size": 18506,
+      "evidence_role": "historical_definition",
+      "exception_reason": "The preregistered Windows worktree byte sequence was never stored as a Git object and cannot be reconstructed from repository history. The file is a routing surface, not scientific code, data, a gate, or a result.",
+      "exception_status": "failed_but_informative_non_scientific_definition_lock",
+      "expected_sha256": "3FD75E4D2871C302BA807E9CBE6F5A65E9587F33A610F933ED02441568633645",
+      "expected_size": null,
+      "mode": "declared_nonportable_legacy_exception",
+      "passed": true,
+      "path": ".gitignore",
+      "scientific_vote_changed": false,
+      "sources": [
+        "outputs/tables/m35_public_multivoltage_preregistration.json:locked_files",
+        "outputs/tables/m36_event_resolved_orbit_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "7C049E98A6FA3FB184378379CB98FAE7724C05E736F8BC5307E2C2DC9D5A4941",
+      "current_size": 6761,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "7C049E98A6FA3FB184378379CB98FAE7724C05E736F8BC5307E2C2DC9D5A4941",
+      "expected_size": 6761,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "configs/e1f_qiu_author_external_anchor.yaml",
+      "sources": [
+        "submission_protected_evidence_manifest"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "BBC34A9B573EE9B2EEEC9016FB7B6B0094180773572F3B904EA3A58E4DB57501",
+      "current_size": 4294,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "BBC34A9B573EE9B2EEEC9016FB7B6B0094180773572F3B904EA3A58E4DB57501",
+      "expected_size": 4294,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "configs/e1fr_qiu_source_equation_correction.yaml",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1fr_qiu_source_equation_correction_preregistration.json:implementation_records"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "20BD298AEF3276E1D537FFAE73966B25684CAC3C080A1E549D9D2388E3E00BC5",
+      "current_size": 4702,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "20BD298AEF3276E1D537FFAE73966B25684CAC3C080A1E549D9D2388E3E00BC5",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "configs/gamma_sub_ceba_v1.yaml",
+      "sources": [
+        "outputs/tables/gamma_sub_scis_preregistration.json:ceba_immutable_hashes"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "136C7431CA97C7D1864667033D917CB8EC54BF49A1C7F2C216DF824D4DCD205E",
+      "current_size": 16804,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "136C7431CA97C7D1864667033D917CB8EC54BF49A1C7F2C216DF824D4DCD205E",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "configs/gamma_sub_evidence_lock.yaml",
+      "sources": [
+        "cpcf_input_lock"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "F1F71F21F1D0D27532EEAD23A3A4B71B0864E6B0966E564104DCFFD7040C1D93",
+      "current_size": 1480,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "F1F71F21F1D0D27532EEAD23A3A4B71B0864E6B0966E564104DCFFD7040C1D93",
+      "expected_size": 1480,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "configs/gt_v1_acceptance_ltp_ltd.yaml",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:frozen_gt_records"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "F2E6BEC6006827344BEBDDCF20519B5B87F923B349A8799596D06E9F254A2B02",
+      "current_size": 1471,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "F2E6BEC6006827344BEBDDCF20519B5B87F923B349A8799596D06E9F254A2B02",
+      "expected_size": 1471,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "configs/gt_v1_acceptance_triangle.yaml",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:frozen_gt_records"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "9C36BF4FF252958FBA13717FD4D557C918E51B104B331A544CB3CA91722B2441",
+      "current_size": 9429,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "9C36BF4FF252958FBA13717FD4D557C918E51B104B331A544CB3CA91722B2441",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "configs/m35_public_multivoltage_fit.yaml",
+      "sources": [
+        "outputs/tables/m35_public_multivoltage_preregistration.json:locked_files",
+        "outputs/tables/m36_event_resolved_orbit_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "3F817834E12C118C11460CCB1A1DC8F9817499E878431338B8C999F3B3DD1FC0",
+      "current_size": 10807,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "3F817834E12C118C11460CCB1A1DC8F9817499E878431338B8C999F3B3DD1FC0",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "configs/m36_event_resolved_orbit_convergence.yaml",
+      "sources": [
+        "outputs/tables/m36_event_resolved_orbit_preregistration.json:locked_files",
+        "outputs/tables/m37_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "E693C593F7A5D7722DBA098590A0F6EAF143CF901F0BF53CC3851C04A08C204D",
+      "current_size": 6420,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "E693C593F7A5D7722DBA098590A0F6EAF143CF901F0BF53CC3851C04A08C204D",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "configs/m37_continuous_event_observability.yaml",
+      "sources": [
+        "outputs/tables/m37_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "FDF5D403D6FB415B54E1134288F2EFA2D15F8D6F2DF04EB11D4624E04DDCB00C",
+      "current_size": 6740,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "FDF5D403D6FB415B54E1134288F2EFA2D15F8D6F2DF04EB11D4624E04DDCB00C",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "configs/m37r_continuous_event_observability_repair.yaml",
+      "sources": [
+        "outputs/tables/m37r_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "EA404EE217846553CDAA77644DB8FFB719DA4630240726C6F07FB92FC0F41CA9",
+      "current_size": 7744,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "EA404EE217846553CDAA77644DB8FFB719DA4630240726C6F07FB92FC0F41CA9",
+      "expected_size": 7744,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "configs/m40_qiu_vo2_real_device_2d.yaml",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40_protected_records",
+        "outputs/tables/m40r_qiu_e0_preregistration.json:old_m40_protected_hashes"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "F00122185238D1FF51BE46ADA2D0BE6F486AF1CA6860E422216B90FAFB264C1D",
+      "current_size": 5255,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "F00122185238D1FF51BE46ADA2D0BE6F486AF1CA6860E422216B90FAFB264C1D",
+      "expected_size": 5255,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "configs/m40r_qiu_e0_repair.yaml",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40r_protected_records",
+        "outputs/tables/m40r_qiu_e0_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "F4EDA82DEF46CCBC031CCE6DB6AC4427DC1D376268A4A9A12EE48DFBE6667F28",
+      "current_size": 3986,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "F4EDA82DEF46CCBC031CCE6DB6AC4427DC1D376268A4A9A12EE48DFBE6667F28",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "configs/vo2_d0a_exact_source_v2.yaml",
+      "sources": [
+        "outputs/tables/m35_public_multivoltage_preregistration.json:locked_files",
+        "outputs/tables/m36_event_resolved_orbit_preregistration.json:locked_files",
+        "outputs/tables/m37_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "canonical_sha256": "BCD355FA890AA2A9AB3AA1ED6E3587A3FCC32CF24DDAB9B541CA14414E34E2C9",
+      "current_matches_head": true,
+      "current_sha256": "BCD355FA890AA2A9AB3AA1ED6E3587A3FCC32CF24DDAB9B541CA14414E34E2C9",
+      "current_size": 625663,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "901E02A6D68C71A97BFC91AAF4C5AFDAC6414C3A59780573400A51168023D05D",
+      "expected_size": 628640,
+      "git_blob_oid": "30b9aacbfec0b8e768ce0642cf72556089422a74",
+      "matched_commit": "d05240508fe630202bc8ce22f461d412b3a1eb03",
+      "mode": "current_git_blob_newline_equivalent",
+      "passed": true,
+      "path": "data/external/qiu_2024_thermal_neuristor/derived/qiu_2024_si_fig_s1_12v_current.csv",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1fr_qiu_source_equation_correction_preregistration.json:implementation_records"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "canonical_sha256": "C264053B078BEAF5BF2999EBF53427625BBD8FEDC121D69C8A9697F39805101C",
+      "current_matches_head": true,
+      "current_sha256": "C264053B078BEAF5BF2999EBF53427625BBD8FEDC121D69C8A9697F39805101C",
+      "current_size": 637123,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "28F111ABF4AFB119EA37FC389EE4D7A74D62894ABA71CF3DA0824CB52987AFC3",
+      "expected_size": 640100,
+      "git_blob_oid": "026bbe670b5ccaa7d8ccd4c46642b5f8d0730570",
+      "matched_commit": "d05240508fe630202bc8ce22f461d412b3a1eb03",
+      "mode": "current_git_blob_newline_equivalent",
+      "passed": true,
+      "path": "data/external/qiu_2024_thermal_neuristor/derived/qiu_2024_si_fig_s1_12v_device_voltage.csv",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1fr_qiu_source_equation_correction_preregistration.json:implementation_records"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "canonical_sha256": "F084568FC161F3B01C13EC3A0A319DC489E77B217E0E4CE713FAC83328D75342",
+      "current_matches_head": true,
+      "current_sha256": "F084568FC161F3B01C13EC3A0A319DC489E77B217E0E4CE713FAC83328D75342",
+      "current_size": 8199,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "8BB8F8B459116A6F35ABEC4E98A208AF5704FF5E63E258311DA363B50048113C",
+      "expected_size": 8509,
+      "git_blob_oid": "829603ebd523097db3765c4dfc04deafe0b797b1",
+      "matched_commit": "d05240508fe630202bc8ce22f461d412b3a1eb03",
+      "mode": "current_git_blob_newline_equivalent",
+      "passed": true,
+      "path": "data/external/qiu_2024_thermal_neuristor/digitized_manifest.json",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1fr_qiu_source_equation_correction_preregistration.json:implementation_records"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "9FE009F6B4CD61243E6614FBB53210F6042D53D826FAD31B06C7CA7A6CDB253F",
+      "current_size": 4103,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "9FE009F6B4CD61243E6614FBB53210F6042D53D826FAD31B06C7CA7A6CDB253F",
+      "expected_size": 4103,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "data/external/qiu_2024_thermal_neuristor/manifest.json",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40_protected_records",
+        "outputs/tables/m40r_qiu_e0_preregistration.json:old_m40_protected_hashes"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "D842E8BF1B5AC609AB504D8BF6104CFD3EFEA59697A5C7AC21664A99EB7D3C67",
+      "current_size": 2575890,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "D842E8BF1B5AC609AB504D8BF6104CFD3EFEA59697A5C7AC21664A99EB7D3C67",
+      "expected_size": 2575890,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "data/external/qiu_2024_thermal_neuristor/raw/qiu_2024_main.pdf",
+      "sources": [
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:raw_source_records"
+      ],
+      "text_newline_portability": false
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "D47ED95CD5782C3E632BBC440C1FCC681870E0FF303F0B05F8CD8F30CEC70BFD",
+      "current_size": 3139723,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "D47ED95CD5782C3E632BBC440C1FCC681870E0FF303F0B05F8CD8F30CEC70BFD",
+      "expected_size": 3139723,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "data/external/qiu_2024_thermal_neuristor/raw/qiu_2024_supporting_information.pdf",
+      "sources": [
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:raw_source_records"
+      ],
+      "text_newline_portability": false
+    },
+    {
+      "allow_historical_revision": false,
+      "canonical_sha256": "04AF0949948BE5668588091D5473A7598F2EEA81F17110E86205D21BEA0D94E4",
+      "current_matches_head": true,
+      "current_sha256": "04AF0949948BE5668588091D5473A7598F2EEA81F17110E86205D21BEA0D94E4",
+      "current_size": 43627,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "FAC763A49B0D8315A6E25C8CDB63C993451E41F66AF4AC375AE288BDB8E08EF5",
+      "expected_size": null,
+      "git_blob_oid": "00eaa86de75688fea5950603fed16577e07275e2",
+      "matched_commit": "d05240508fe630202bc8ce22f461d412b3a1eb03",
+      "mode": "current_git_blob_newline_equivalent",
+      "passed": true,
+      "path": "data/external/vo2_zhang_2024/manifest.json",
+      "sources": [
+        "outputs/tables/m35_public_multivoltage_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "F3C408E98A11ED18659BDF00C443B40F76F5F7DDED7DA46E438ABBEB873850F9",
+      "current_size": 30484,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "F3C408E98A11ED18659BDF00C443B40F76F5F7DDED7DA46E438ABBEB873850F9",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1b.csv",
+      "sources": [
+        "outputs/tables/m35_public_multivoltage_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "42E29D10EDD707A79A51938C928FCB45B321D1B103114F2CECAB3B5063F18D51",
+      "current_size": 5757780,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "42E29D10EDD707A79A51938C928FCB45B321D1B103114F2CECAB3B5063F18D51",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_11V.csv",
+      "sources": [
+        "outputs/tables/m35_public_multivoltage_preregistration.json:locked_files",
+        "outputs/tables/m36_event_resolved_orbit_preregistration.json:locked_files",
+        "outputs/tables/m37_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "DD7872C980B982CA32CB459313939B03777769D4C0B42A600C5B97966CF6A923",
+      "current_size": 5757765,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "DD7872C980B982CA32CB459313939B03777769D4C0B42A600C5B97966CF6A923",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_15V.csv",
+      "sources": [
+        "outputs/tables/m35_public_multivoltage_preregistration.json:locked_files",
+        "outputs/tables/m36_event_resolved_orbit_preregistration.json:locked_files",
+        "outputs/tables/m37_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "B8219F9C5E6A73E9C4526A9A01DDB5281F6CC7755343E6D166B0006D819CD6A6",
+      "current_size": 5757855,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "B8219F9C5E6A73E9C4526A9A01DDB5281F6CC7755343E6D166B0006D819CD6A6",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_17V.csv",
+      "sources": [
+        "outputs/tables/m35_public_multivoltage_preregistration.json:locked_files",
+        "outputs/tables/m36_event_resolved_orbit_preregistration.json:locked_files",
+        "outputs/tables/m37_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "A8A2F2F6BF43EB49A7CED7E06F6A72E52CFA49B0AEB19119A9AB9834A6ADDF56",
+      "current_size": 5758342,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "A8A2F2F6BF43EB49A7CED7E06F6A72E52CFA49B0AEB19119A9AB9834A6ADDF56",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_9V.csv",
+      "sources": [
+        "outputs/tables/m35_public_multivoltage_preregistration.json:locked_files",
+        "outputs/tables/m36_event_resolved_orbit_preregistration.json:locked_files",
+        "outputs/tables/m37_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "E8916E1B0861C7947119C3F175CEB2E625B197BC32B6B5602F1016823222FFE3",
+      "current_size": 8161176,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "E8916E1B0861C7947119C3F175CEB2E625B197BC32B6B5602F1016823222FFE3",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "data/external/vo2_zhang_2024/raw/nature_source_data.zip",
+      "sources": [
+        "outputs/tables/m35_public_multivoltage_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": false
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "772D17178C77392BF8A0813ADA3DB4A7241C5FA4E6D72E091894271BFA13C247",
+      "current_size": 617768,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "772D17178C77392BF8A0813ADA3DB4A7241C5FA4E6D72E091894271BFA13C247",
+      "expected_size": 617768,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "data/processed/gt_v1_acceptance/gt_ltp_ltd.npz",
+      "sources": [
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:frozen_gt_records"
+      ],
+      "text_newline_portability": false
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "4E4814D9C66A79CBE86417296B0A797E53FFFF2CEE2BD881548FBCD35E05C9F8",
+      "current_size": 496603,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "4E4814D9C66A79CBE86417296B0A797E53FFFF2CEE2BD881548FBCD35E05C9F8",
+      "expected_size": 496603,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "data/processed/gt_v1_acceptance/gt_triangle.npz",
+      "sources": [
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:frozen_gt_records",
+        "cpcf_input_lock"
+      ],
+      "text_newline_portability": false
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "634554429B9E61A231E47BF35B9B5C66C1C316E5E11A86BDE0540B05FF5AE30F",
+      "current_size": 3563,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "634554429B9E61A231E47BF35B9B5C66C1C316E5E11A86BDE0540B05FF5AE30F",
+      "expected_size": 3563,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "data/processed/gt_v1_acceptance/manifest.json",
+      "sources": [
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:frozen_gt_records"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "7155BFF7C406FAB49E9670FA8A73AB6D0063459A80FEB705138E3FE61A351645",
+      "current_size": 2705,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "7155BFF7C406FAB49E9670FA8A73AB6D0063459A80FEB705138E3FE61A351645",
+      "expected_size": 2705,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "data/processed/gt_v1_acceptance/obs_ltp_ltd_sparse.npz",
+      "sources": [
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:frozen_gt_records"
+      ],
+      "text_newline_portability": false
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "F45DAF53136A255B3666EBEB56E6298CE148A613C46FA596B795E7ADE68EA602",
+      "current_size": 2494,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "F45DAF53136A255B3666EBEB56E6298CE148A613C46FA596B795E7ADE68EA602",
+      "expected_size": 2494,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "data/processed/gt_v1_acceptance/obs_triangle_sparse.npz",
+      "sources": [
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:frozen_gt_records",
+        "cpcf_input_lock"
+      ],
+      "text_newline_portability": false
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "1020E9B07466C8F3474762702AA354CF6A6B73DA26DEB31D3F75C7E54521D9FA",
+      "current_size": 1066,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "1020E9B07466C8F3474762702AA354CF6A6B73DA26DEB31D3F75C7E54521D9FA",
+      "expected_size": 1066,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "data/processed/gt_v1_acceptance/params_gt_v1.json",
+      "sources": [
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:frozen_gt_records"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "9FD75AD6BA9682E15F81C5F7774B589C2DA0D74F4CD4DDCDFA0A36B96BDC9648",
+      "current_size": 5089,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "9FD75AD6BA9682E15F81C5F7774B589C2DA0D74F4CD4DDCDFA0A36B96BDC9648",
+      "expected_size": 5089,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "docs/codex_reports/e1fr_qiu_source_equation_correction_results.md",
+      "sources": [
+        "submission_protected_evidence_manifest"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "6CEF8AFBAD601E2D38395A12D08BF73A11EB73CB6A3F261AA035F645EFE773A1",
+      "current_size": 14403,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "6CEF8AFBAD601E2D38395A12D08BF73A11EB73CB6A3F261AA035F645EFE773A1",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "docs/codex_reports/m35_public_multivoltage_fit_and_gradient_amendment.md",
+      "sources": [
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "72DBD4D64DCD08E4195CEA7376D552200ADC865B0FE7596978DFC81DEC9B2C56",
+      "current_size": 2957,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "72DBD4D64DCD08E4195CEA7376D552200ADC865B0FE7596978DFC81DEC9B2C56",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "docs/codex_reports/m36_event_resolved_orbit_and_conditional_fit.md",
+      "sources": [
+        "outputs/tables/m36_event_resolved_orbit_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "3BEA38C57B992DEC5E049CBBD4B1E81C3F559108F85B300846B21EE8A1A87FEE",
+      "current_size": 10132,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "3BEA38C57B992DEC5E049CBBD4B1E81C3F559108F85B300846B21EE8A1A87FEE",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "docs/codex_reports/m36_event_resolved_orbit_results_and_q2_assessment.md",
+      "sources": [
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "55F58B81021A4419682BF35DE8DDD48907316C8C1A0445D7FA5FD7FEE0FBC862",
+      "current_size": 5922,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "55F58B81021A4419682BF35DE8DDD48907316C8C1A0445D7FA5FD7FEE0FBC862",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "docs/codex_reports/m37_continuous_event_observability_results.md",
+      "sources": [
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "78E40F6609C1C2D84FCCF4A19A20C5FBED98A7C8273AE47DAB2D138146C9E935",
+      "current_size": 2807,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "78E40F6609C1C2D84FCCF4A19A20C5FBED98A7C8273AE47DAB2D138146C9E935",
+      "expected_size": 2807,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "docs/codex_reports/m40_qiu_vo2_e0_results.md",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40_protected_records",
+        "outputs/tables/m40r_qiu_e0_preregistration.json:old_m40_protected_hashes"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "4399EBE2C4FD36C92E993BB4E8ECF652A790846CCB0FF0872E848FE4169DFBAF",
+      "current_size": 4872,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "4399EBE2C4FD36C92E993BB4E8ECF652A790846CCB0FF0872E848FE4169DFBAF",
+      "expected_size": 4872,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "docs/codex_reports/m40r_qiu_e0_repair_results.md",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40r_protected_records"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "783F5412E06BA0362FA0B0C051C5535DF1E812987ABCF8E31C3437180C462546",
+      "current_size": 1096,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "783F5412E06BA0362FA0B0C051C5535DF1E812987ABCF8E31C3437180C462546",
+      "expected_size": 1096,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "docs/codex_reports/m40r_qiu_mesh_forensics.md",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40r_protected_records",
+        "outputs/tables/m40r_qiu_e0_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "0F72718AFFB84F727771F8D4A1A16AFB9D7C0D15BD7984632B3BEB8155F91643",
+      "current_size": 2749,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "0F72718AFFB84F727771F8D4A1A16AFB9D7C0D15BD7984632B3BEB8155F91643",
+      "expected_size": 2749,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "docs/gt_v1_acceptance_report.md",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:frozen_gt_records"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "EBE0E7C90C00EB65635EE068F5E0E736505524F52BE31CC4D5BB720C88B8D45D",
+      "current_size": 14838,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "EBE0E7C90C00EB65635EE068F5E0E736505524F52BE31CC4D5BB720C88B8D45D",
+      "expected_size": 14838,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "docs/manuscript/main_submission_v1.md",
+      "sources": [
+        "submission_protected_evidence_manifest"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "00A3C69C4EA72C9A259FC35B5371345BFD51C6F3FFDA78071D89B006E09492AC",
+      "current_size": 2646,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "00A3C69C4EA72C9A259FC35B5371345BFD51C6F3FFDA78071D89B006E09492AC",
+      "expected_size": 2646,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "docs/physics/m40_qiu_2d_equations.md",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40_protected_records",
+        "outputs/tables/m40r_qiu_e0_preregistration.json:old_m40_protected_hashes"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "DF6A4A1EFF318B7847FD59252D472BAEF4E582B43A06E2D619BCD3DDCF16696E",
+      "current_size": 2713,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "DF6A4A1EFF318B7847FD59252D472BAEF4E582B43A06E2D619BCD3DDCF16696E",
+      "expected_size": 2713,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "docs/physics/m40_qiu_model_responsibility.md",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40_protected_records",
+        "outputs/tables/m40r_qiu_e0_preregistration.json:old_m40_protected_hashes"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "B78775C0C54D9B2C78D57D3A5C57A35634B5A67024D88C434CAE82715EDE7DE2",
+      "current_size": 1309,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "B78775C0C54D9B2C78D57D3A5C57A35634B5A67024D88C434CAE82715EDE7DE2",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "docs/schemas/m35_public_multivoltage_preregistration_v1.schema.json",
+      "sources": [
+        "outputs/tables/m35_public_multivoltage_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "859FAF45076085826654EDA5FF9B9D6EDD5857CC7075CACAC5279A24C68CA136",
+      "current_size": 2077,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "859FAF45076085826654EDA5FF9B9D6EDD5857CC7075CACAC5279A24C68CA136",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "docs/schemas/m36_event_resolved_orbit_evidence_v1.schema.json",
+      "sources": [
+        "outputs/tables/m36_event_resolved_orbit_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "A26293D97F634DEF95E6B03B225DCDFE064B3BD552D34F58660786933BA5FAE2",
+      "current_size": 1488,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "A26293D97F634DEF95E6B03B225DCDFE064B3BD552D34F58660786933BA5FAE2",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "docs/schemas/m37_continuous_event_observability_evidence_v1.schema.json",
+      "sources": [
+        "outputs/tables/m37_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "C4EEEA9E28D0A54C4B90EA2D4F9029A10513E0F9A80A6620A958DA2830B10AB4",
+      "current_size": 2223,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "C4EEEA9E28D0A54C4B90EA2D4F9029A10513E0F9A80A6620A958DA2830B10AB4",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "docs/schemas/m37r_continuous_event_observability_evidence_v1.schema.json",
+      "sources": [
+        "outputs/tables/m37r_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "0F645F56D407DB4B813C5FBD0BD557DB6D7A287AD60A6900C36E87E9C18DC244",
+      "current_size": 37118,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "0F645F56D407DB4B813C5FBD0BD557DB6D7A287AD60A6900C36E87E9C18DC244",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "outputs/figures/gamma_sub_ceba_boundary_v1.png",
+      "sources": [
+        "outputs/tables/gamma_sub_scis_preregistration.json:ceba_immutable_hashes"
+      ],
+      "text_newline_portability": false
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "E265A981C9FF9DC12400DD6ABEC185D4EE6DAACDE09E09E988FB1520992D8802",
+      "current_size": 71771,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "E265A981C9FF9DC12400DD6ABEC185D4EE6DAACDE09E09E988FB1520992D8802",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "outputs/figures/m36_error_dt_convergence.png",
+      "sources": [
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": false
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "A934C08B3568754592DD8B450F0EED25E4730DF9668940E9D6A6819D56E45035",
+      "current_size": 82696,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "A934C08B3568754592DD8B450F0EED25E4730DF9668940E9D6A6819D56E45035",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "outputs/figures/m36_event_time_drift.png",
+      "sources": [
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": false
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "74E32BA49C073E55ABFA07577AAB1DC87576564FEFCACBEF56B6F58C0122A21D",
+      "current_size": 93014,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "74E32BA49C073E55ABFA07577AAB1DC87576564FEFCACBEF56B6F58C0122A21D",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "outputs/figures/m36_phase_cycle_overlay.png",
+      "sources": [
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": false
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "E1CC688D44BEC7A96EF0355D53E233C71DA25F4DA8D0145809B27478B5DCB00B",
+      "current_size": 44234,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "E1CC688D44BEC7A96EF0355D53E233C71DA25F4DA8D0145809B27478B5DCB00B",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "outputs/figures/m36_static_absolute_noise_error.png",
+      "sources": [
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": false
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "B3490E1A860C3EC5CCCDCC40AE59CB6414C751E9498141E34097FA38B31D5D83",
+      "current_size": 50899,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "B3490E1A860C3EC5CCCDCC40AE59CB6414C751E9498141E34097FA38B31D5D83",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "outputs/figures/m37_cross_regime_observability.png",
+      "sources": [
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": false
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "819C3F58540D58671C63329D1E320E6639B23C4E28A94A221AAA1672D9113BFA",
+      "current_size": 38457,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "819C3F58540D58671C63329D1E320E6639B23C4E28A94A221AAA1672D9113BFA",
+      "expected_size": 38457,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "outputs/figures/m40/qiu_device_geometry.png",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40_protected_records",
+        "outputs/tables/m40r_qiu_e0_preregistration.json:old_m40_protected_hashes"
+      ],
+      "text_newline_portability": false
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "9CBE2406DC2C6AB5B3989AF0E20BF037FE958EEE7064E0083E8B9E33901055FA",
+      "current_size": 74518,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "9CBE2406DC2C6AB5B3989AF0E20BF037FE958EEE7064E0083E8B9E33901055FA",
+      "expected_size": 74518,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "outputs/figures/m40/qiu_e0_field_maps.png",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40_protected_records",
+        "outputs/tables/m40r_qiu_e0_preregistration.json:old_m40_protected_hashes"
+      ],
+      "text_newline_portability": false
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "272A3F2404A8781294D6C23C75FA8591A8B40C7C3B4C9A39076484D46173FF10",
+      "current_size": 191995,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "272A3F2404A8781294D6C23C75FA8591A8B40C7C3B4C9A39076484D46173FF10",
+      "expected_size": 191995,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "outputs/figures/m40r/active_transient_and_ledgers.png",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40r_protected_records"
+      ],
+      "text_newline_portability": false
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "D4FB844E4494C415D77CE9D2E5229594DCE100636C1D02E36F6F72F2FB11407D",
+      "current_size": 139478,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "D4FB844E4494C415D77CE9D2E5229594DCE100636C1D02E36F6F72F2FB11407D",
+      "expected_size": 139478,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "outputs/figures/m40r/mesh_and_field_convergence.png",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40r_protected_records"
+      ],
+      "text_newline_portability": false
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "0EFEC08003C7209F9A02188FB6CB3674ECB4B2E32DE64C968F34608765698FE7",
+      "current_size": 11760,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "0EFEC08003C7209F9A02188FB6CB3674ECB4B2E32DE64C968F34608765698FE7",
+      "expected_size": 11760,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "outputs/tables/e1f_qiu_author_validation.json",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1fr_qiu_source_equation_correction_preregistration.json:implementation_records"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "D35A16AD28E854E00D96AEF2B0E83DB0C442BD13B24FFFC3181546934F9F6846",
+      "current_size": 1349,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "D35A16AD28E854E00D96AEF2B0E83DB0C442BD13B24FFFC3181546934F9F6846",
+      "expected_size": 1349,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "outputs/tables/e1f_semantic_amendment.json",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1fr_qiu_source_equation_correction_preregistration.json:implementation_records"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "C2CD85E585ED1017C34C2614FDCC58A6453D2AAB7BF0F79B1BEDD046ECFB6370",
+      "current_size": 242,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "C2CD85E585ED1017C34C2614FDCC58A6453D2AAB7BF0F79B1BEDD046ECFB6370",
+      "expected_size": 242,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "outputs/tables/e1fr_effective_coordinate_preflight.json",
+      "sources": [
+        "submission_protected_evidence_manifest"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "canonical_sha256": "B7F887B4BEB73B6FAC2E9C050AC5D1A4AE0F28F5AD74A36A82617E731C681467",
+      "current_matches_head": true,
+      "current_sha256": "B7F887B4BEB73B6FAC2E9C050AC5D1A4AE0F28F5AD74A36A82617E731C681467",
+      "current_size": 554,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "4E24D4292FDF389AECFDDAE368757B400EA700C973605101CD2278ECB3624F6F",
+      "expected_size": 560,
+      "git_blob_oid": "7dc9c322ddccc3dd694a6c0943af0b91c3a37ae6",
+      "matched_commit": "d05240508fe630202bc8ce22f461d412b3a1eb03",
+      "mode": "current_git_blob_newline_equivalent",
+      "passed": true,
+      "path": "outputs/tables/e1fr_qiu_source_equation_correction.csv",
+      "sources": [
+        "submission_protected_evidence_manifest"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "10879517F921ED90BA062B20A6AA64B4DD098541BE2C861604AF772DB6CCC63C",
+      "current_size": 9356,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "10879517F921ED90BA062B20A6AA64B4DD098541BE2C861604AF772DB6CCC63C",
+      "expected_size": 9356,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "outputs/tables/e1fr_qiu_source_equation_correction.json",
+      "sources": [
+        "submission_protected_evidence_manifest"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "canonical_sha256": "17C3EA45D10D0575BCCECC5A1ECEEE05491FB4E5EA76192313324580E7331662",
+      "current_matches_head": true,
+      "current_sha256": "17C3EA45D10D0575BCCECC5A1ECEEE05491FB4E5EA76192313324580E7331662",
+      "current_size": 4142,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "9B1257FCE8ABC540F1BA55802C45278F5B398F9397F52B84B9458D9DBFE2566A",
+      "expected_size": 4237,
+      "git_blob_oid": "a6dd8eb1e6cc84f45a598c48b6b09602a5f06211",
+      "matched_commit": "d05240508fe630202bc8ce22f461d412b3a1eb03",
+      "mode": "current_git_blob_newline_equivalent",
+      "passed": true,
+      "path": "outputs/tables/gamma_sub_calibrated_protocol_robustness_final_summary.json",
+      "sources": [
+        "submission_protected_evidence_manifest"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "canonical_sha256": "638829E39E3680BEB784105AAFEC37A2A6816EA8C0D188D58D6C280117CDB6C6",
+      "current_matches_head": true,
+      "current_sha256": "638829E39E3680BEB784105AAFEC37A2A6816EA8C0D188D58D6C280117CDB6C6",
+      "current_size": 179566,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "AC48940BF5BD4DC32F2A523D6834510C4E40DD1E1227F69051D9D51864F27E99",
+      "expected_size": null,
+      "git_blob_oid": "39c80b938f7682f9b6600a7be9c7deafc650af3c",
+      "matched_commit": "d05240508fe630202bc8ce22f461d412b3a1eb03",
+      "mode": "current_git_blob_newline_equivalent",
+      "passed": true,
+      "path": "outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_cases.csv",
+      "sources": [
+        "cpcf_input_lock"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "canonical_sha256": "83DEAFAC78E2B41B217F08A59BA73CA4DF54F1B776BFD496E71DD5C64CB84904",
+      "current_matches_head": true,
+      "current_sha256": "83DEAFAC78E2B41B217F08A59BA73CA4DF54F1B776BFD496E71DD5C64CB84904",
+      "current_size": 1199,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "F6537573D1795720CAA0B1A2F7BD828CA03D30DB4BCA4D70402960C330BF9397",
+      "expected_size": 1220,
+      "git_blob_oid": "c1cd783d79715ebfb0307cc5c60c789dfcdd8c3d",
+      "matched_commit": "d05240508fe630202bc8ce22f461d412b3a1eb03",
+      "mode": "current_git_blob_newline_equivalent",
+      "passed": true,
+      "path": "outputs/tables/gamma_sub_calibration_protocol_disentanglement_summary.json",
+      "sources": [
+        "submission_protected_evidence_manifest"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "canonical_sha256": "09AE1903D38A07AA276F326E47C492FC11C02B04FA0B2C1BDF38CA4D227BB7BF",
+      "current_matches_head": true,
+      "current_sha256": "09AE1903D38A07AA276F326E47C492FC11C02B04FA0B2C1BDF38CA4D227BB7BF",
+      "current_size": 1398,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "089AD6735658B11FBEE3674EA0F78ACA466B53CDA982D2D02A83C420CEAAD3F2",
+      "expected_size": null,
+      "git_blob_oid": "e2dd9371b4055fde2b1979b4efc26548893e3d19",
+      "matched_commit": "d05240508fe630202bc8ce22f461d412b3a1eb03",
+      "mode": "current_git_blob_newline_equivalent",
+      "passed": true,
+      "path": "outputs/tables/gamma_sub_ceba_parity_cases.csv",
+      "sources": [
+        "outputs/tables/gamma_sub_scis_preregistration.json:ceba_immutable_hashes"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "canonical_sha256": "99A637D1F4B8BDE35BBF2F3A9F4DD4B9FEC4AA5B49A751534D711A733DAB39CA",
+      "current_matches_head": true,
+      "current_sha256": "99A637D1F4B8BDE35BBF2F3A9F4DD4B9FEC4AA5B49A751534D711A733DAB39CA",
+      "current_size": 1034,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "AACB61A569C24F204266384D188C2693665329FC813D611440A5D71FBA84FC67",
+      "expected_size": null,
+      "git_blob_oid": "7d2263ab8c4960ab61359f97ddc911718c63818b",
+      "matched_commit": "d05240508fe630202bc8ce22f461d412b3a1eb03",
+      "mode": "current_git_blob_newline_equivalent",
+      "passed": true,
+      "path": "outputs/tables/gamma_sub_ceba_parity_summary.json",
+      "sources": [
+        "outputs/tables/gamma_sub_scis_preregistration.json:ceba_immutable_hashes"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "canonical_sha256": "3C010F9F62C9D221BFB0086E02D8FEFE01AF9910570587C89B8BD512D1A22A3A",
+      "current_matches_head": true,
+      "current_sha256": "3C010F9F62C9D221BFB0086E02D8FEFE01AF9910570587C89B8BD512D1A22A3A",
+      "current_size": 18648,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "8555165D3ACA32BAA2915B76019BC0B6E44767916133DD72B905E18775466AC8",
+      "expected_size": null,
+      "git_blob_oid": "85ce9a4e257ad7cafc37d50a98d1de3cd66b85f6",
+      "matched_commit": "d05240508fe630202bc8ce22f461d412b3a1eb03",
+      "mode": "current_git_blob_newline_equivalent",
+      "passed": true,
+      "path": "outputs/tables/gamma_sub_ceba_pilot_cases.csv",
+      "sources": [
+        "outputs/tables/gamma_sub_scis_preregistration.json:ceba_immutable_hashes"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "canonical_sha256": "E9589D72C8305FDCBED73CD32939E0D1A413A32613DD835D1D0EFB0E56021214",
+      "current_matches_head": true,
+      "current_sha256": "E9589D72C8305FDCBED73CD32939E0D1A413A32613DD835D1D0EFB0E56021214",
+      "current_size": 7893,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "8C3A4799512AE9E4437B60F1D48BF25E2117EC7E19FBC568F95124855643EA0D",
+      "expected_size": null,
+      "git_blob_oid": "1615bcdea66435a83619a2f281c28d0b60017117",
+      "matched_commit": "d05240508fe630202bc8ce22f461d412b3a1eb03",
+      "mode": "current_git_blob_newline_equivalent",
+      "passed": true,
+      "path": "outputs/tables/gamma_sub_ceba_pilot_summary.json",
+      "sources": [
+        "outputs/tables/gamma_sub_scis_preregistration.json:ceba_immutable_hashes"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "canonical_sha256": "E4D003AD486510D0A0019B1E29ADF0CF59EB8DF1853C456DB69BE95BF8B6F0C9",
+      "current_matches_head": true,
+      "current_sha256": "E4D003AD486510D0A0019B1E29ADF0CF59EB8DF1853C456DB69BE95BF8B6F0C9",
+      "current_size": 14543,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "E6037A5DDDE712D3CBD962574454A3729E09E4FC0C99CC1EED6192058F56CF53",
+      "expected_size": null,
+      "git_blob_oid": "2571eacab562787dcdde529de2d24e667327215b",
+      "matched_commit": "d05240508fe630202bc8ce22f461d412b3a1eb03",
+      "mode": "current_git_blob_newline_equivalent",
+      "passed": true,
+      "path": "outputs/tables/gamma_sub_ceba_preregistration.json",
+      "sources": [
+        "outputs/tables/gamma_sub_scis_preregistration.json:ceba_immutable_hashes"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "canonical_sha256": "0F32F7B1D22341244C21D9291BDBA9C41CF9FFEF7353BCE40B1A8F2ECBD0C11D",
+      "current_matches_head": true,
+      "current_sha256": "0F32F7B1D22341244C21D9291BDBA9C41CF9FFEF7353BCE40B1A8F2ECBD0C11D",
+      "current_size": 341976,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "7D09B8003B2CFA1553E2A6F0D46D28525EA5B146E4346070E7DC20190852AEB1",
+      "expected_size": null,
+      "git_blob_oid": "eaf0afe3592ed01fc0eff03bbadc1b42b0305b19",
+      "matched_commit": "d05240508fe630202bc8ce22f461d412b3a1eb03",
+      "mode": "current_git_blob_newline_equivalent",
+      "passed": true,
+      "path": "outputs/tables/gamma_sub_recoverability_phase_diagram_cases.csv",
+      "sources": [
+        "cpcf_input_lock"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "canonical_sha256": "EB232D067D7F92D83C6D033BBF0AB068BB13142E5EB4601DB77286DA7A5F1538",
+      "current_matches_head": true,
+      "current_sha256": "EB232D067D7F92D83C6D033BBF0AB068BB13142E5EB4601DB77286DA7A5F1538",
+      "current_size": 11884,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "3072CEB2BC0EDEA187CEDCC1F51F4D932247BB2BDE13FC2B12F7956420793870",
+      "expected_size": null,
+      "git_blob_oid": "7ee44971398bb383e3970d79bda21b97c888f280",
+      "matched_commit": "d05240508fe630202bc8ce22f461d412b3a1eb03",
+      "mode": "current_git_blob_newline_equivalent",
+      "passed": true,
+      "path": "outputs/tables/gamma_sub_response_surface_anchor_verification_cases.csv",
+      "sources": [
+        "cpcf_input_lock"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "canonical_sha256": "FC99886B7F9A013976694ED2046DDE2A1072C784BEA4F40815AE88CF3E29B369",
+      "current_matches_head": true,
+      "current_sha256": "FC99886B7F9A013976694ED2046DDE2A1072C784BEA4F40815AE88CF3E29B369",
+      "current_size": 71512,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "AD89459FB6C8C986345AF5513429947C93AE553F4D948528BAE1C54CD6C4B5B6",
+      "expected_size": null,
+      "git_blob_oid": "304ea21ea6b4ab21f6c296c1929e60e3f8d1e00a",
+      "matched_commit": "d05240508fe630202bc8ce22f461d412b3a1eb03",
+      "mode": "current_git_blob_newline_equivalent",
+      "passed": true,
+      "path": "outputs/tables/gamma_sub_statistical_robustness_cases.csv",
+      "sources": [
+        "cpcf_input_lock"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "canonical_sha256": "3EB045D36BFBD776D0385BE6FE86DBBD70CA23667259CE8DD0322F355173F758",
+      "current_matches_head": true,
+      "current_sha256": "3EB045D36BFBD776D0385BE6FE86DBBD70CA23667259CE8DD0322F355173F758",
+      "current_size": 2031,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "6B31C381B90E89588A87A933AE25DBBE999E26B0BBA5A8D8C8721A0F982591DA",
+      "expected_size": 2085,
+      "git_blob_oid": "cd0ecf5d8f5db8a390f27cbd9a06f82e9efa4c92",
+      "matched_commit": "d05240508fe630202bc8ce22f461d412b3a1eb03",
+      "mode": "current_git_blob_newline_equivalent",
+      "passed": true,
+      "path": "outputs/tables/gamma_sub_tsw_calibration_tolerance_sweep_summary.json",
+      "sources": [
+        "submission_protected_evidence_manifest"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "canonical_sha256": "913F67FA630C345C7AA1979ACE25967DA05483636B0878AE3DB7D2980413C922",
+      "current_matches_head": true,
+      "current_sha256": "913F67FA630C345C7AA1979ACE25967DA05483636B0878AE3DB7D2980413C922",
+      "current_size": 5797,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "41BEFD6B96DF5EF8827A0F7C1DBD03829F6204548F430A2DF7AE84D20833BB4B",
+      "expected_size": null,
+      "git_blob_oid": "c7671b09e44ee5b6c2076a17077aaaef9de9ee71",
+      "matched_commit": "d05240508fe630202bc8ce22f461d412b3a1eb03",
+      "mode": "current_git_blob_newline_equivalent",
+      "passed": true,
+      "path": "outputs/tables/gamma_sub_tsw_confounding_phase_map_cases.csv",
+      "sources": [
+        "cpcf_input_lock"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "canonical_sha256": "BFCC2FCFF4C552203A72DCE2F7EC51153A98914391967C133EC0879C20F12272",
+      "current_matches_head": true,
+      "current_sha256": "BFCC2FCFF4C552203A72DCE2F7EC51153A98914391967C133EC0879C20F12272",
+      "current_size": 6796,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "0ADE5506617BF7A0CCB19529C8C725ED999F91668E86DCF941AD4AC801B552C2",
+      "expected_size": null,
+      "git_blob_oid": "9c8eb74c086ea4c0d21763db2710e8027e241590",
+      "matched_commit": "d05240508fe630202bc8ce22f461d412b3a1eb03",
+      "mode": "current_git_blob_newline_equivalent",
+      "passed": true,
+      "path": "outputs/tables/gamma_sub_tsw_profile_likelihood_grid.csv",
+      "sources": [
+        "cpcf_input_lock"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "canonical_sha256": "5307D50DBF17BC171D78251FBB1F39FA9CE9D393F934A8A5E40BEAFF619B7C1E",
+      "current_matches_head": true,
+      "current_sha256": "5307D50DBF17BC171D78251FBB1F39FA9CE9D393F934A8A5E40BEAFF619B7C1E",
+      "current_size": 1943,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "EF5FFD3873BAD8546FF7E7D88658BB7DDAA69C7A506F40D1A098660110015CE0",
+      "expected_size": null,
+      "git_blob_oid": "233536326f56fe614b3f10705b23f540233a6673",
+      "matched_commit": "d05240508fe630202bc8ce22f461d412b3a1eb03",
+      "mode": "current_git_blob_newline_equivalent",
+      "passed": true,
+      "path": "outputs/tables/gamma_sub_tsw_profile_likelihood_profiles.csv",
+      "sources": [
+        "cpcf_input_lock"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "canonical_sha256": "13D0FE74D31343403EF5A53AA0121D92C56790DD9249F04A2814191E549D6483",
+      "current_matches_head": true,
+      "current_sha256": "13D0FE74D31343403EF5A53AA0121D92C56790DD9249F04A2814191E549D6483",
+      "current_size": 49907,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "C47C3A8E5F571A2F2ED9BCD2FA256ABDB0AD5106BEA5B7C42B8E9F0E7A93AB28",
+      "expected_size": null,
+      "git_blob_oid": "101b4457067680b4c965dcb42d54f4b5fe35d250",
+      "matched_commit": "d05240508fe630202bc8ce22f461d412b3a1eb03",
+      "mode": "current_git_blob_newline_equivalent",
+      "passed": true,
+      "path": "outputs/tables/gamma_sub_tsw_tolerance_ode_spotcheck_cases.csv",
+      "sources": [
+        "cpcf_input_lock"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "DE97D61DE886BFF1DCBBBDA201CEB9C6FDBE4AA091B8ABA7DCC4A10214B9B4B3",
+      "current_size": 24246,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "DE97D61DE886BFF1DCBBBDA201CEB9C6FDBE4AA091B8ABA7DCC4A10214B9B4B3",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "outputs/tables/m34_contract_audit_summary.json",
+      "sources": [
+        "outputs/tables/m35_public_multivoltage_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "4134A69AEF09A9064FC5D438E63182F114FB69F20325B6F52B75AE0DE612DC71",
+      "current_size": 18329,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "4134A69AEF09A9064FC5D438E63182F114FB69F20325B6F52B75AE0DE612DC71",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "outputs/tables/m34a_gradient_semantics_amendment.json",
+      "sources": [
+        "outputs/tables/m36_event_resolved_orbit_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "30A6A8A7192915F81C699A6AEF91A9476FAAB38F1EEC9A0E0E541DCA04552159",
+      "current_size": 2126,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "30A6A8A7192915F81C699A6AEF91A9476FAAB38F1EEC9A0E0E541DCA04552159",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "outputs/tables/m35_public_multivoltage_fit_summary.json",
+      "sources": [
+        "outputs/tables/m36_event_resolved_orbit_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "50FF336E82293991EDBC4FF73AFF53425790B9279812CCE84100EC0C21069868",
+      "current_size": 5211,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "50FF336E82293991EDBC4FF73AFF53425790B9279812CCE84100EC0C21069868",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "outputs/tables/m35_public_multivoltage_preregistration.json",
+      "sources": [
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "canonical_sha256": "52682ADE1157FDC4A326BC9EBFC57413A74E70909EE8495AD7E94C88CE5EE652",
+      "current_matches_head": true,
+      "current_sha256": "52682ADE1157FDC4A326BC9EBFC57413A74E70909EE8495AD7E94C88CE5EE652",
+      "current_size": 2387,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "AE78EB5952209B265931F0307E310E73332E1D2B6607055C28DFC922EB3DC551",
+      "expected_size": null,
+      "git_blob_oid": "425ab41cd747f22cf29a661c3e366c6c5174a4f7",
+      "matched_commit": "d05240508fe630202bc8ce22f461d412b3a1eb03",
+      "mode": "current_git_blob_newline_equivalent",
+      "passed": true,
+      "path": "outputs/tables/m35_solver_convergence.csv",
+      "sources": [
+        "outputs/tables/m36_event_resolved_orbit_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "CCFE99B9FD819DCD965A020B45B378A900463A272B8DBDC5381A2E465910150C",
+      "current_size": 13024,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "CCFE99B9FD819DCD965A020B45B378A900463A272B8DBDC5381A2E465910150C",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "outputs/tables/m36_event_resolved_orbit_preregistration.json",
+      "sources": [
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "4C04A9C30C5DE78320C6C63F98D33A2DEB944EBB80048FBD9D5BB2095595AD3C",
+      "current_size": 29437,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "4C04A9C30C5DE78320C6C63F98D33A2DEB944EBB80048FBD9D5BB2095595AD3C",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "outputs/tables/m36_event_resolved_orbit_summary.json",
+      "sources": [
+        "outputs/tables/m37_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files",
+        "m37_semantic_audit_source_summary"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "canonical_sha256": "F16403BE4A402190EC39996EF9236739E3EFEC4CF541A23822C1CAD1708C264E",
+      "current_matches_head": true,
+      "current_sha256": "F16403BE4A402190EC39996EF9236739E3EFEC4CF541A23822C1CAD1708C264E",
+      "current_size": 357856,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "62DC7E64B8BC3C1F8480787CB3E23AC6424473230CC1D853F5168318E663B0FE",
+      "expected_size": null,
+      "git_blob_oid": "eec6befe5babde88e2338c4e058e5d44f97ac4c8",
+      "matched_commit": "d05240508fe630202bc8ce22f461d412b3a1eb03",
+      "mode": "current_git_blob_newline_equivalent",
+      "passed": true,
+      "path": "outputs/tables/m36_event_times.csv",
+      "sources": [
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "canonical_sha256": "6FB95E1EB3C5C21A99B03A1C541CC7B5F6932A9681070204DDD9B2A5131C26C0",
+      "current_matches_head": true,
+      "current_sha256": "6FB95E1EB3C5C21A99B03A1C541CC7B5F6932A9681070204DDD9B2A5131C26C0",
+      "current_size": 17872,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "90DEB1D95E013E383C2A255308C36BE92F819B07FC96CF15F41384B80C98FC16",
+      "expected_size": null,
+      "git_blob_oid": "0c529eae5ce5222abc3bed440a83f91e035a157d",
+      "matched_commit": "d05240508fe630202bc8ce22f461d412b3a1eb03",
+      "mode": "current_git_blob_newline_equivalent",
+      "passed": true,
+      "path": "outputs/tables/m36_orbit_convergence_metrics.csv",
+      "sources": [
+        "outputs/tables/m37_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files",
+        "m37_semantic_audit_source_metrics"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "F12FF77CDB06AE49948F7D7053D66585F48D496A67493E0EA10C93CD3880DE07",
+      "current_size": 3306,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "F12FF77CDB06AE49948F7D7053D66585F48D496A67493E0EA10C93CD3880DE07",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "outputs/tables/m37_cross_regime_jacobian.json",
+      "sources": [
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "canonical_sha256": "A1431CC791FBE4815AA460DCD082B472862C1892883D445B630211AE3B02EEFE",
+      "current_matches_head": true,
+      "current_sha256": "A1431CC791FBE4815AA460DCD082B472862C1892883D445B630211AE3B02EEFE",
+      "current_size": 233,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "0C4FEB9B6B9BBEC1D2EB10AB425EE2AD34795EBE7685C832CBB94BCCAA0B7441",
+      "expected_size": null,
+      "git_blob_oid": "75cdc0b172a2587c143a7f686fb030ae0562b98e",
+      "matched_commit": "d05240508fe630202bc8ce22f461d412b3a1eb03",
+      "mode": "current_git_blob_newline_equivalent",
+      "passed": true,
+      "path": "outputs/tables/m37_jacobian_spectra.csv",
+      "sources": [
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "0B059F71806D727152656DCE2CA9204F3D689D42736C763A4C01C52437342301",
+      "current_size": 11825,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "0B059F71806D727152656DCE2CA9204F3D689D42736C763A4C01C52437342301",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "outputs/tables/m37_preregistration.json",
+      "sources": [
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "260DA10F8A7C5A1C66E98B7FD5BA1F9AA5192BA78AB5A4419652B94FF82A2762",
+      "current_size": 3843,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "260DA10F8A7C5A1C66E98B7FD5BA1F9AA5192BA78AB5A4419652B94FF82A2762",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "outputs/tables/m37_semantic_audit.json",
+      "sources": [
+        "outputs/tables/m37_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "90D44A553AB03DAAC0CDD7747DCBD1484BFF975BA01EA68D597CC672045CE003",
+      "current_size": 5977,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "90D44A553AB03DAAC0CDD7747DCBD1484BFF975BA01EA68D597CC672045CE003",
+      "expected_size": 5977,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "outputs/tables/m40_qiu_e0_preregistration.json",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40_protected_records",
+        "outputs/tables/m40r_qiu_e0_preregistration.json:old_m40_protected_hashes"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "5B0E2B8B2C4AE073B137163CCF95CD98317E390928D8A57AE3C181A72AEAAAF7",
+      "current_size": 6182,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "5B0E2B8B2C4AE073B137163CCF95CD98317E390928D8A57AE3C181A72AEAAAF7",
+      "expected_size": 6182,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "outputs/tables/m40_qiu_e0_summary.json",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40_protected_records",
+        "outputs/tables/m40r_qiu_e0_preregistration.json:old_m40_protected_hashes"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "canonical_sha256": "57C6ABCE88993D451A3F855E2E3C7A008C61D7C3FD9132EC984A21DBD7058DE9",
+      "current_matches_head": true,
+      "current_sha256": "57C6ABCE88993D451A3F855E2E3C7A008C61D7C3FD9132EC984A21DBD7058DE9",
+      "current_size": 443,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "F7246E2769282BE5561F61EA5490994F7096CC0C674895729A6A3D6A4C50D902",
+      "expected_size": 447,
+      "git_blob_oid": "28fb9d4a62e97950ecae152812f96fb9899812fa",
+      "matched_commit": "d05240508fe630202bc8ce22f461d412b3a1eb03",
+      "mode": "current_git_blob_newline_equivalent",
+      "passed": true,
+      "path": "outputs/tables/m40_qiu_mesh_convergence.csv",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40_protected_records",
+        "outputs/tables/m40r_qiu_e0_preregistration.json:old_m40_protected_hashes"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "666BDC0783BA5625E7B8B11251358CC35591C81DEB282D8B96808B7C9BC41F0C",
+      "current_size": 352615,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "666BDC0783BA5625E7B8B11251358CC35591C81DEB282D8B96808B7C9BC41F0C",
+      "expected_size": 352615,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "outputs/tables/m40r_qiu_active_transient.json",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40r_protected_records"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "29519C7A102A29F52104FE92355C850AF4D97832C26D5F9299E036AF809C67BE",
+      "current_size": 9581,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "29519C7A102A29F52104FE92355C850AF4D97832C26D5F9299E036AF809C67BE",
+      "expected_size": 9581,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "outputs/tables/m40r_qiu_e0_preregistration.json",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40r_protected_records"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "3333B463D74F6FC54B9E50BAFE0E4F37A4A22D141E9CDD5791E42E91DBFFBF2E",
+      "current_size": 13920,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "3333B463D74F6FC54B9E50BAFE0E4F37A4A22D141E9CDD5791E42E91DBFFBF2E",
+      "expected_size": 13920,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "outputs/tables/m40r_qiu_e0_summary.json",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40r_protected_records"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "canonical_sha256": "08A0BB230DD4FCEF1156626653A1C040B3858F424C42FD402EE6DA317CCA9B4E",
+      "current_matches_head": true,
+      "current_sha256": "08A0BB230DD4FCEF1156626653A1C040B3858F424C42FD402EE6DA317CCA9B4E",
+      "current_size": 2085,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "348D855197B673904163544BE2B1DFE1C8228B15B298E349C3B6B0CBF241D2AB",
+      "expected_size": 2089,
+      "git_blob_oid": "a86ed8fa4309fb1e79ec554700b91f780032169c",
+      "matched_commit": "d05240508fe630202bc8ce22f461d412b3a1eb03",
+      "mode": "current_git_blob_newline_equivalent",
+      "passed": true,
+      "path": "outputs/tables/m40r_qiu_mesh_convergence.csv",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40r_protected_records"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "canonical_sha256": "765A4C9075C9E6F037187B70805650EED3B87B19829B7C79B9210B7A8C94ED93",
+      "current_matches_head": true,
+      "current_sha256": "765A4C9075C9E6F037187B70805650EED3B87B19829B7C79B9210B7A8C94ED93",
+      "current_size": 4156,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "23F1C4865BC28DD3C023641678B238EFC13B2220A82CE1FE772CB02861397A57",
+      "expected_size": 4162,
+      "git_blob_oid": "f5a408ea7ca74156c204ea6621eff4bbae92b75b",
+      "matched_commit": "d05240508fe630202bc8ce22f461d412b3a1eb03",
+      "mode": "current_git_blob_newline_equivalent",
+      "passed": true,
+      "path": "outputs/tables/m40r_qiu_mesh_forensics.csv",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40r_protected_records",
+        "outputs/tables/m40r_qiu_e0_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "current_sha256": "95CF52D91AEE521098EBD8B83127DFD70F6E60C0C223C73C99CE10877001F64B",
+      "current_size": 15230,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "95CF52D91AEE521098EBD8B83127DFD70F6E60C0C223C73C99CE10877001F64B",
+      "expected_size": 15230,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "outputs/tables/m40r_qiu_mesh_forensics.json",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40r_protected_records",
+        "outputs/tables/m40r_qiu_e0_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": false,
+      "canonical_sha256": "5FB762CECCE32F27FC9B142130DC723DC72221DB1E12173D957FC4053454CD8F",
+      "current_matches_head": true,
+      "current_sha256": "5FB762CECCE32F27FC9B142130DC723DC72221DB1E12173D957FC4053454CD8F",
+      "current_size": 4466,
+      "evidence_role": "preserved_artifact",
+      "expected_sha256": "8540999E0716B226CB697AD879B985B1D5630EC2636B34A9FF77AF57DCADB70D",
+      "expected_size": null,
+      "git_blob_oid": "9f50b6beadfc90acb3c51e340560d6bf2ddd3407",
+      "matched_commit": "d05240508fe630202bc8ce22f461d412b3a1eb03",
+      "mode": "current_git_blob_newline_equivalent",
+      "passed": true,
+      "path": "outputs/tables/vo2_d0a_source_reproduction.json",
+      "sources": [
+        "outputs/tables/m35_public_multivoltage_preregistration.json:locked_files",
+        "outputs/tables/m36_event_resolved_orbit_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "A696CBE8ECE187E658D68813CC4C85CF59E0706A8C56E85D700B0824A5A13629",
+      "current_size": 19249,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "A696CBE8ECE187E658D68813CC4C85CF59E0706A8C56E85D700B0824A5A13629",
+      "expected_size": 19249,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "scripts/audit_m40r_qiu_mesh_forensics.py",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40r_protected_records",
+        "outputs/tables/m40r_qiu_e0_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "92255B2BD88454B013B4B4006E1898D2B69CDF6C7F91F352B6F8F104C167AB67",
+      "current_size": 11630,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "92255B2BD88454B013B4B4006E1898D2B69CDF6C7F91F352B6F8F104C167AB67",
+      "expected_size": 11630,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "scripts/preregister_e1f_qiu_author_anchor.py",
+      "sources": [
+        "submission_protected_evidence_manifest"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "672B2D29E2F06C62851E7B87900F238C2E50878252D98E583C5FF7A16FCF208D",
+      "current_size": 7836,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "672B2D29E2F06C62851E7B87900F238C2E50878252D98E583C5FF7A16FCF208D",
+      "expected_size": 7836,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "scripts/preregister_e1fr_qiu_source_equation_correction.py",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1fr_qiu_source_equation_correction_preregistration.json:implementation_records"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "07630597FBA0CDC21788B855DB7A6DD1C9560E9F7631CF75700B917024B07142",
+      "current_size": 14590,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "07630597FBA0CDC21788B855DB7A6DD1C9560E9F7631CF75700B917024B07142",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "scripts/preregister_m35_public_multivoltage.py",
+      "sources": [
+        "outputs/tables/m35_public_multivoltage_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "58F950F7D5E598B95F695A000CCE3E0483E9C35C0200AE5F96CFEF741B61B5D2",
+      "current_size": 12084,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "58F950F7D5E598B95F695A000CCE3E0483E9C35C0200AE5F96CFEF741B61B5D2",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "scripts/preregister_m36_event_resolved_orbit.py",
+      "sources": [
+        "outputs/tables/m36_event_resolved_orbit_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "A32510BC93A65FD9D3B0DEBF39E79395C3C037E22E49A267A9A746219D994587",
+      "current_size": 10235,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "A32510BC93A65FD9D3B0DEBF39E79395C3C037E22E49A267A9A746219D994587",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "scripts/preregister_m37_continuous_event_observability.py",
+      "sources": [
+        "outputs/tables/m37_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "1F83E95DDA092DEAE08D913E2A1F60CC4916456902940DE91A8AFF88E9663D97",
+      "current_size": 13711,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "1F83E95DDA092DEAE08D913E2A1F60CC4916456902940DE91A8AFF88E9663D97",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "scripts/preregister_m37r_continuous_event_observability.py",
+      "sources": [
+        "outputs/tables/m37r_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "9CB98F726B11F1CDA4FBFF26C94814DBA0CD9CEF3998AEC40BE058C4358F4119",
+      "current_size": 33271,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "9CB98F726B11F1CDA4FBFF26C94814DBA0CD9CEF3998AEC40BE058C4358F4119",
+      "expected_size": 33271,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "scripts/run_e1f_qiu_author_anchor.py",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1fr_qiu_source_equation_correction_preregistration.json:implementation_records"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "2F1CED3252ACA7775F2FBC6C11D298B320D332047354D97AE99E64EC06D5C7B8",
+      "current_size": 16899,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "2F1CED3252ACA7775F2FBC6C11D298B320D332047354D97AE99E64EC06D5C7B8",
+      "expected_size": 16899,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "scripts/run_e1fr_qiu_source_equation_correction.py",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1fr_qiu_source_equation_correction_preregistration.json:implementation_records"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "5324B933C6469E355C301F08D521FDF12818DAEA0F0C59391FDD5E16D454841D",
+      "current_size": 47779,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "5324B933C6469E355C301F08D521FDF12818DAEA0F0C59391FDD5E16D454841D",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "scripts/run_gamma_sub_ceba.py",
+      "sources": [
+        "outputs/tables/gamma_sub_scis_preregistration.json:ceba_immutable_hashes"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "7E833C4ADE18BF0D2BED7092616D689650AE17672218FF6779DA23A28B89067E",
+      "current_size": 4723,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "7E833C4ADE18BF0D2BED7092616D689650AE17672218FF6779DA23A28B89067E",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "scripts/run_m34a_gradient_semantics.py",
+      "sources": [
+        "outputs/tables/m35_public_multivoltage_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "0C8939A39BF42782A807C8E19B1C9AB098803992C2E38DD1792257545F795C07",
+      "current_size": 22141,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "0C8939A39BF42782A807C8E19B1C9AB098803992C2E38DD1792257545F795C07",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "scripts/run_m35_public_multivoltage_fit.py",
+      "sources": [
+        "outputs/tables/m35_public_multivoltage_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "A30FADE424CB9DAF512C57D6E87DFD305D8ABF808D82EA928A04935CC77EF881",
+      "current_size": 37579,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "A30FADE424CB9DAF512C57D6E87DFD305D8ABF808D82EA928A04935CC77EF881",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "scripts/run_m36_event_resolved_orbit.py",
+      "sources": [
+        "outputs/tables/m36_event_resolved_orbit_preregistration.json:locked_files",
+        "outputs/tables/m37_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "9DB45E4B8571D320648420AAA521425F08077A1E0A5120BDEDAB916FC6414862",
+      "current_size": 16724,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "9DB45E4B8571D320648420AAA521425F08077A1E0A5120BDEDAB916FC6414862",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "scripts/run_m37_continuous_event_observability.py",
+      "sources": [
+        "outputs/tables/m37_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "D396C5F522683496775C07EA17B9BEB9ECFD806E330630FDC1323BA7F4D59011",
+      "current_size": 21798,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "D396C5F522683496775C07EA17B9BEB9ECFD806E330630FDC1323BA7F4D59011",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "scripts/run_m37r_continuous_event_observability.py",
+      "sources": [
+        "outputs/tables/m37r_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "6D202777C2B601FF9DA6DBFB5E4651B28CE2A92B0580CCE533075DE6C9869604",
+      "current_size": 39284,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "6D202777C2B601FF9DA6DBFB5E4651B28CE2A92B0580CCE533075DE6C9869604",
+      "expected_size": 39284,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "scripts/run_m40_qiu_vo2_2d_e0.py",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40_protected_records",
+        "outputs/tables/m40r_qiu_e0_preregistration.json:old_m40_protected_hashes"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "1D80A95549CC5FD7E802AEC9FEE707A17257DC24C1D80FB352D3016F24E2FF9B",
+      "current_size": 48730,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "1D80A95549CC5FD7E802AEC9FEE707A17257DC24C1D80FB352D3016F24E2FF9B",
+      "expected_size": 48730,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "scripts/run_m40r_qiu_e0_repair.py",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40r_protected_records",
+        "outputs/tables/m40r_qiu_e0_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "061930B0CEBAC5807061250696D6EF9110F132EC3C55F042685254622DFCBEC1",
+      "current_size": 22203,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "061930B0CEBAC5807061250696D6EF9110F132EC3C55F042685254622DFCBEC1",
+      "expected_size": 22203,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "scripts/train_pinn_inverse_v1.py",
+      "sources": [
+        "submission_protected_evidence_manifest"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "5307BEE558579E1D1AD04122C96AE857B338312512201AF79B4FF77CC0B0A84C",
+      "current_size": 40278,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "5307BEE558579E1D1AD04122C96AE857B338312512201AF79B4FF77CC0B0A84C",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "src/pinnpcm/external_data/vo2_cross_regime_observability.py",
+      "sources": [
+        "outputs/tables/m37_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "803367E13C7247DFE832181F9EC336A6D99FC5FC05B19049EEB120569F81567A",
+      "current_size": 52319,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "803367E13C7247DFE832181F9EC336A6D99FC5FC05B19049EEB120569F81567A",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "src/pinnpcm/external_data/vo2_cross_regime_observability_repair.py",
+      "sources": [
+        "outputs/tables/m37r_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "934F9EEC67C3380AA07FAB329253E6549AFC3DE28A5765A7A86215BA83BA3F51",
+      "current_size": 31599,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "934F9EEC67C3380AA07FAB329253E6549AFC3DE28A5765A7A86215BA83BA3F51",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "src/pinnpcm/external_data/vo2_multivoltage.py",
+      "sources": [
+        "outputs/tables/m35_public_multivoltage_preregistration.json:locked_files",
+        "outputs/tables/m36_event_resolved_orbit_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "4D031154803E77A38F75B8C453D1C1E63BFCC45454953B889D16FBEFEB7B088C",
+      "current_size": 19765,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "4D031154803E77A38F75B8C453D1C1E63BFCC45454953B889D16FBEFEB7B088C",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "src/pinnpcm/external_data/vo2_orbit_convergence.py",
+      "sources": [
+        "outputs/tables/m36_event_resolved_orbit_preregistration.json:locked_files",
+        "outputs/tables/m37_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "9733BCE5601EE4AFC88150781E92F18691F43D8DA55117FEBC3FB99727938874",
+      "current_size": 28244,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "9733BCE5601EE4AFC88150781E92F18691F43D8DA55117FEBC3FB99727938874",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "src/pinnpcm/external_data/vo2_orbit_fit.py",
+      "sources": [
+        "outputs/tables/m36_event_resolved_orbit_preregistration.json:locked_files",
+        "outputs/tables/m37_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "3F08448496F2C0F0D828F3D9FD48A8062D885CF6E1C668303B645187E9D52156",
+      "current_size": 4938,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "3F08448496F2C0F0D828F3D9FD48A8062D885CF6E1C668303B645187E9D52156",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "src/pinnpcm/external_data/vo2_zhang.py",
+      "sources": [
+        "outputs/tables/m35_public_multivoltage_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "86CA82B08D29A7322394EE6DEB87FBD35735A2C15B29054899413C62F96B8E4D",
+      "current_size": 14351,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "86CA82B08D29A7322394EE6DEB87FBD35735A2C15B29054899413C62F96B8E4D",
+      "expected_size": 14351,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "src/pinnpcm/physics/qiu_author_compact_model.py",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1fr_qiu_source_equation_correction_preregistration.json:implementation_records"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "8DD7137BB1BB0E82AA2F02DBBC309981275B019BA72CD2F756B060C40B97C7D6",
+      "current_size": 9893,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "8DD7137BB1BB0E82AA2F02DBBC309981275B019BA72CD2F756B060C40B97C7D6",
+      "expected_size": 9893,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "src/pinnpcm/physics/qiu_vo2_device.py",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40_protected_records",
+        "outputs/tables/m40r_qiu_e0_preregistration.json:old_m40_protected_hashes"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "07272C94689E2F0F324E3F060E2A02E2ADEDBF0238F0D2F0511304801FD0F44C",
+      "current_size": 14926,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "07272C94689E2F0F324E3F060E2A02E2ADEDBF0238F0D2F0511304801FD0F44C",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "src/pinnpcm/physics/vo2_event_resolved.py",
+      "sources": [
+        "outputs/tables/m36_event_resolved_orbit_preregistration.json:locked_files",
+        "outputs/tables/m37_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "469801F1F5FFA0F20E987FF2C7C3E57FA856AD652CAED08B7ABFCE0FFFA553BE",
+      "current_size": 8914,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "469801F1F5FFA0F20E987FF2C7C3E57FA856AD652CAED08B7ABFCE0FFFA553BE",
+      "expected_size": 8914,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "src/pinnpcm/physics/vo2_thermal_neuristor.py",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/m35_public_multivoltage_preregistration.json:locked_files",
+        "outputs/tables/m36_event_resolved_orbit_preregistration.json:locked_files",
+        "outputs/tables/m37_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "E47C7CE3B6841980DEA2760D112709D052BA0BF5BB0FCDEFD329E14F4089FE1F",
+      "current_size": 14839,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "E47C7CE3B6841980DEA2760D112709D052BA0BF5BB0FCDEFD329E14F4089FE1F",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "src/pinnpcm/pinn/m34a_gradient_semantics.py",
+      "sources": [
+        "outputs/tables/m35_public_multivoltage_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "1B7F6825F39C63D19D6A7931271A4F758FF9D085C14FDCBF1BD1E577B46CB4D5",
+      "current_size": 122,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "1B7F6825F39C63D19D6A7931271A4F758FF9D085C14FDCBF1BD1E577B46CB4D5",
+      "expected_size": 122,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "src/pinnpcm/solvers/__init__.py",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40_protected_records"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "20C2BCF506BECC8C8D861B5FA56D23B1DBBD32BE3656A64A80CA197469D83A3E",
+      "current_size": 40350,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "20C2BCF506BECC8C8D861B5FA56D23B1DBBD32BE3656A64A80CA197469D83A3E",
+      "expected_size": 40350,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "src/pinnpcm/solvers/m40r_qiu_e0_repair.py",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40r_protected_records",
+        "outputs/tables/m40r_qiu_e0_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "032408DA151E393FD5F81CF3551D5E74536D9933D3E31B40954534A5E84B40B9",
+      "current_size": 13487,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "032408DA151E393FD5F81CF3551D5E74536D9933D3E31B40954534A5E84B40B9",
+      "expected_size": 13487,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "src/pinnpcm/solvers/qiu_author_ode.py",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1fr_qiu_source_equation_correction_preregistration.json:implementation_records"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "3DCA44667B2FC581C52A8876F732B6CD8B46315F0A6CA6F58C39D525F9AB3A25",
+      "current_size": 17666,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "3DCA44667B2FC581C52A8876F732B6CD8B46315F0A6CA6F58C39D525F9AB3A25",
+      "expected_size": 17666,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "src/pinnpcm/solvers/qiu_vo2_2d_fvm.py",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40_protected_records",
+        "outputs/tables/m40r_qiu_e0_preregistration.json:old_m40_protected_hashes"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "canonical_sha256": "7CD0BE263B3CC708337B8DE6DF8447AB3653F26B847AA9F4F017C5228E0A25E4",
+      "current_matches_head": true,
+      "current_sha256": "6F08689C04B9CECABB205B1C0055F371EB56CE4BE1F6A7F3763D6223C8E77978",
+      "current_size": 2374,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "7CD0BE263B3CC708337B8DE6DF8447AB3653F26B847AA9F4F017C5228E0A25E4",
+      "expected_size": 2132,
+      "git_blob_oid": "87019315bb6f57989a9a4b260490fcf3b4e4d8a0",
+      "matched_commit": "783f41ec2ddd01f055ac34e6424c403082132fdc",
+      "mode": "historical_git_object",
+      "passed": true,
+      "path": "tests/test_e1f_preregistration.py",
+      "sources": [
+        "submission_protected_evidence_manifest"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "BAFCE45AF459A5370BD685B6958B0B046A774A65B4BF7309A75E5544BC9FEA6B",
+      "current_size": 7024,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "BAFCE45AF459A5370BD685B6958B0B046A774A65B4BF7309A75E5544BC9FEA6B",
+      "expected_size": 7024,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "tests/test_e1f_qiu_author_equations.py",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1fr_qiu_source_equation_correction_preregistration.json:implementation_records"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "canonical_sha256": "0F40944987BE2D9D7112B4204672E449A5BD1454A07FAC809DCDCC46D74EFC7B",
+      "current_matches_head": true,
+      "current_sha256": "2B49FF4A6C6ACC90D88446B9E597522BA2355F1AD27FBE73E927F96099CB6F7F",
+      "current_size": 3252,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "0F40944987BE2D9D7112B4204672E449A5BD1454A07FAC809DCDCC46D74EFC7B",
+      "expected_size": 3201,
+      "git_blob_oid": "335baaefbc3fd3ebc7d73ef6a08627fa9c6e5524",
+      "matched_commit": "3792eb8d77cb1acab8644ea4a4a0a2a4d4552b2b",
+      "mode": "historical_git_object",
+      "passed": true,
+      "path": "tests/test_e1fr_contract.py",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1fr_qiu_source_equation_correction_preregistration.json:implementation_records"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "436A26C93AE069F78B1C18B35378FAA2E8F03764AFADD2B3EADBA710020E1147",
+      "current_size": 1580,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "436A26C93AE069F78B1C18B35378FAA2E8F03764AFADD2B3EADBA710020E1147",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "tests/test_m34a_gradient_semantics.py",
+      "sources": [
+        "outputs/tables/m35_public_multivoltage_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "DF8C852459985AE6882BC39ACB1D4C4239E9A13D2693975E2554380B4E7CEF18",
+      "current_size": 4199,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "DF8C852459985AE6882BC39ACB1D4C4239E9A13D2693975E2554380B4E7CEF18",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "tests/test_m35_public_multivoltage.py",
+      "sources": [
+        "outputs/tables/m35_public_multivoltage_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "canonical_sha256": "B1318A643819814840DA73CD64ED03BAABB0F28F66165C616D2960EC4F97B210",
+      "current_matches_head": true,
+      "current_sha256": "F8D9529EC6FD5A3CCA67AFDA44FE4BEA68A10EE4257A637A4B64AB0F6E112B2A",
+      "current_size": 4042,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "B1318A643819814840DA73CD64ED03BAABB0F28F66165C616D2960EC4F97B210",
+      "expected_size": null,
+      "git_blob_oid": "889bc9baf7d6ab1ccf194e6c2e68306ebb4a3bb3",
+      "matched_commit": "22c14aa401c45df4a36bbd09c7bb61a637079aef",
+      "mode": "historical_git_object",
+      "passed": true,
+      "path": "tests/test_m35_result_evidence.py",
+      "sources": [
+        "outputs/tables/m35_public_multivoltage_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "6B93D481BB778C1D5F461CB7BA7F1717260B86A23441A0F57C27E2C466DB3FD6",
+      "current_size": 5192,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "6B93D481BB778C1D5F461CB7BA7F1717260B86A23441A0F57C27E2C466DB3FD6",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "tests/test_m36_event_resolved_orbit.py",
+      "sources": [
+        "outputs/tables/m36_event_resolved_orbit_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "canonical_sha256": "D3DEE37CE91F65344D296D20B28DC6C7AC3D3F09EFBBCC61FC21E6655C6B2943",
+      "current_matches_head": true,
+      "current_sha256": "EA3A33D85926A23486F316FC9B8ECE905D0631713ED334C491F011DFF94319B5",
+      "current_size": 4264,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "D3DEE37CE91F65344D296D20B28DC6C7AC3D3F09EFBBCC61FC21E6655C6B2943",
+      "expected_size": null,
+      "git_blob_oid": "27354cbe4acdc2cda5dfea7b1fc301d4e8aef55b",
+      "matched_commit": "661142c634867796e607427fe8efffe8bcb47e55",
+      "mode": "historical_git_object",
+      "passed": true,
+      "path": "tests/test_m36_result_evidence.py",
+      "sources": [
+        "outputs/tables/m36_event_resolved_orbit_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "8F601717258C4409E2287EE020F2035609886E0B4675DAF228838B1206116E06",
+      "current_size": 6644,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "8F601717258C4409E2287EE020F2035609886E0B4675DAF228838B1206116E06",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "tests/test_m37_continuous_event_observability.py",
+      "sources": [
+        "outputs/tables/m37_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "canonical_sha256": "16EF39E6DBF2D3F8F751C6DFD3404AA5F3156C9AC35ACAC89E6E8A114A013F5D",
+      "current_matches_head": true,
+      "current_sha256": "473E05CF81423A95094F48F3459EA29144ACC0A189621D6E3AB8E4A9DCAC9059",
+      "current_size": 4715,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "16EF39E6DBF2D3F8F751C6DFD3404AA5F3156C9AC35ACAC89E6E8A114A013F5D",
+      "expected_size": null,
+      "git_blob_oid": "03d5c7b2db7e40406059e892defa6a985ac49cab",
+      "matched_commit": "c4c3b7fe2936c7734d1d302dbfe1fc91c3627a4c",
+      "mode": "historical_git_object",
+      "passed": true,
+      "path": "tests/test_m37_result_evidence.py",
+      "sources": [
+        "outputs/tables/m37_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:locked_files",
+        "outputs/tables/m37r_preregistration.json:historical_read_only_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "030D8A684BC9FA22C7A2E1AA5DAB29AD55CADFE9399D5072CE90B1DD519825FE",
+      "current_size": 7796,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "030D8A684BC9FA22C7A2E1AA5DAB29AD55CADFE9399D5072CE90B1DD519825FE",
+      "expected_size": null,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "tests/test_m37r_continuous_event_observability_repair.py",
+      "sources": [
+        "outputs/tables/m37r_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "canonical_sha256": "1E99B746E57FA608FE579FF47D67AE09FAAECB112D17A575E9FA6AE100F48F19",
+      "current_matches_head": true,
+      "current_sha256": "78EF11BA36C944E1796ED8AD91FD508900C09867192DEFF476E281805D812126",
+      "current_size": 7588,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "1E99B746E57FA608FE579FF47D67AE09FAAECB112D17A575E9FA6AE100F48F19",
+      "expected_size": null,
+      "git_blob_oid": "39c538fa85bddabde6b6f66d9d374356a0e9b81e",
+      "matched_commit": "beb5e3d8aefa1b2ae1b90263224121c38914fe96",
+      "mode": "historical_git_object",
+      "passed": true,
+      "path": "tests/test_m37r_result_evidence.py",
+      "sources": [
+        "outputs/tables/m37r_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "F2B8B82B77CB605616FB6060129A79F74AA1480CE09FF01518AAE71479E056ED",
+      "current_size": 6693,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "F2B8B82B77CB605616FB6060129A79F74AA1480CE09FF01518AAE71479E056ED",
+      "expected_size": 6693,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "tests/test_m40_qiu_2d_fvm.py",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40_protected_records",
+        "outputs/tables/m40r_qiu_e0_preregistration.json:old_m40_protected_hashes"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "85D0483F6B1AFA658C66186D05B4509D7EDB2890FF04C0465F8EF43E2D559B3A",
+      "current_size": 5383,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "85D0483F6B1AFA658C66186D05B4509D7EDB2890FF04C0465F8EF43E2D559B3A",
+      "expected_size": 5383,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "tests/test_m40_qiu_energy_ledger.py",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40_protected_records",
+        "outputs/tables/m40r_qiu_e0_preregistration.json:old_m40_protected_hashes"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "27E2D1BA43D0C84F65D26E606442C8E868171BFB8F3639DA9D48F5A368A352FC",
+      "current_size": 5780,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "27E2D1BA43D0C84F65D26E606442C8E868171BFB8F3639DA9D48F5A368A352FC",
+      "expected_size": 5780,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "tests/test_m40_qiu_geometry.py",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40_protected_records",
+        "outputs/tables/m40r_qiu_e0_preregistration.json:old_m40_protected_hashes"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "CB15426F749EB43209704F3349BCFC5FE9EA5B24DF6530CB01E139DC9465CAE7",
+      "current_size": 3766,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "CB15426F749EB43209704F3349BCFC5FE9EA5B24DF6530CB01E139DC9465CAE7",
+      "expected_size": 3766,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "tests/test_m40_qiu_result_evidence.py",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40_protected_records",
+        "outputs/tables/m40r_qiu_e0_preregistration.json:old_m40_protected_hashes"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "78916E4B48C46630EAF8DC2999DA1CE2EA981F2A61DDB430144CA19F31D5EBB1",
+      "current_size": 6714,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "78916E4B48C46630EAF8DC2999DA1CE2EA981F2A61DDB430144CA19F31D5EBB1",
+      "expected_size": 6714,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "tests/test_m40r_qiu_active_transient.py",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40r_protected_records",
+        "outputs/tables/m40r_qiu_e0_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "BD7C22D428BFDAC5043085BE8667F517B8639117BED294C9012414CE65E4F363",
+      "current_size": 4227,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "BD7C22D428BFDAC5043085BE8667F517B8639117BED294C9012414CE65E4F363",
+      "expected_size": 4227,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "tests/test_m40r_qiu_field_reconstruction.py",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40r_protected_records",
+        "outputs/tables/m40r_qiu_e0_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "700485395F35A4E5D035CB1417556D73A92CC5212EC78EA819A4B31A800AFFAD",
+      "current_size": 3723,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "700485395F35A4E5D035CB1417556D73A92CC5212EC78EA819A4B31A800AFFAD",
+      "expected_size": 3723,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "tests/test_m40r_qiu_mesh_convergence.py",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40r_protected_records",
+        "outputs/tables/m40r_qiu_e0_preregistration.json:locked_files"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "canonical_sha256": "AE1A4D246C9634EB1575FF13CD8A330025D3482746EDD2BC9D978CC9F988D02A",
+      "current_matches_head": true,
+      "current_sha256": "7F9E93F1AB0D6CCDF613E72872C0225D8AFAC2B0E95310E67F780D702B3694EB",
+      "current_size": 2901,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "AE1A4D246C9634EB1575FF13CD8A330025D3482746EDD2BC9D978CC9F988D02A",
+      "expected_size": 2926,
+      "git_blob_oid": "5fdc9420cbb21870fdcac382b4d09163826af71e",
+      "matched_commit": "c277d0ecbf2199421caf588bbdfc4c80e535e7fa",
+      "mode": "historical_git_object",
+      "passed": true,
+      "path": "tests/test_m40r_qiu_result_evidence.py",
+      "sources": [
+        "submission_protected_evidence_manifest",
+        "outputs/tables/e1f_qiu_author_anchor_preregistration.json:m40r_protected_records"
+      ],
+      "text_newline_portability": true
+    },
+    {
+      "allow_historical_revision": true,
+      "current_sha256": "804D366C75DAB149C8F2A38B73A9DBAC3FFF45757BBBE0B1ADC6B230D37EE972",
+      "current_size": 4768,
+      "evidence_role": "historical_definition",
+      "expected_sha256": "804D366C75DAB149C8F2A38B73A9DBAC3FFF45757BBBE0B1ADC6B230D37EE972",
+      "expected_size": 4768,
+      "mode": "current_raw_exact",
+      "passed": true,
+      "path": "tests/test_pinn_inverse_v1.py",
+      "sources": [
+        "submission_protected_evidence_manifest"
+      ],
+      "text_newline_portability": true
+    }
+  ],
+  "schema_version": "portable_evidence_identity_audit_v1"
+}

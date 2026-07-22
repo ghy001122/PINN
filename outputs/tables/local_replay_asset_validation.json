@@ -1,0 +1,324 @@
+{
+  "all_passed": true,
+  "checks": [
+    {
+      "asset_class": "qiu_third_party_pdf",
+      "failures": [],
+      "passed": true,
+      "path": "data/external/qiu_2024_thermal_neuristor/raw/qiu_2024_main.pdf"
+    },
+    {
+      "asset_class": "qiu_third_party_pdf",
+      "failures": [],
+      "passed": true,
+      "path": "data/external/qiu_2024_thermal_neuristor/raw/qiu_2024_supporting_information.pdf"
+    },
+    {
+      "asset_class": "zhang_open_public_input",
+      "failures": [],
+      "passed": true,
+      "path": "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1b.csv"
+    },
+    {
+      "asset_class": "zhang_open_public_input",
+      "failures": [],
+      "passed": true,
+      "path": "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_11V.csv"
+    },
+    {
+      "asset_class": "zhang_open_public_input",
+      "failures": [],
+      "passed": true,
+      "path": "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_15V.csv"
+    },
+    {
+      "asset_class": "zhang_open_public_input",
+      "failures": [],
+      "passed": true,
+      "path": "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_17V.csv"
+    },
+    {
+      "asset_class": "zhang_open_public_input",
+      "failures": [],
+      "passed": true,
+      "path": "data/external/vo2_zhang_2024/raw/allowed_prelock/Source Data/Fig. 1/Fig. 1c/Experiment_9V.csv"
+    },
+    {
+      "asset_class": "zhang_open_public_input",
+      "failures": [],
+      "passed": true,
+      "path": "data/external/vo2_zhang_2024/raw/nature_source_data.zip"
+    },
+    {
+      "asset_class": "frozen_gt_v1_1",
+      "failures": [],
+      "passed": true,
+      "path": "data/processed/gt_v1_acceptance/gt_ltp_ltd.npz"
+    },
+    {
+      "asset_class": "frozen_gt_v1_1",
+      "failures": [],
+      "passed": true,
+      "path": "data/processed/gt_v1_acceptance/gt_triangle.npz"
+    },
+    {
+      "asset_class": "frozen_gt_v1_1",
+      "failures": [],
+      "passed": true,
+      "path": "data/processed/gt_v1_acceptance/manifest.json"
+    },
+    {
+      "asset_class": "frozen_gt_v1_1",
+      "failures": [],
+      "passed": true,
+      "path": "data/processed/gt_v1_acceptance/obs_ltp_ltd_sparse.npz"
+    },
+    {
+      "asset_class": "frozen_gt_v1_1",
+      "failures": [],
+      "passed": true,
+      "path": "data/processed/gt_v1_acceptance/obs_triangle_sparse.npz"
+    },
+    {
+      "asset_class": "frozen_gt_v1_1",
+      "failures": [],
+      "passed": true,
+      "path": "data/processed/gt_v1_acceptance/params_gt_v1.json"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/0f57b8e4d1b57aea01150c076f8976dc077ac2419651dff76a6c94f583b0bd92.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/171e459dd825ce8338db0e2701227863dc0dc2fdabcffda7c060bfb93897dc78.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/18068310edd15849e7b5067ace1e40b21405bb7c5ddbbbbd6a31505970b8950a.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/1884a88778212983e767d4dce16a0d307068d57cc0a5d6120cba61d9a1cfc467.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/19ec0b49a6f1e74437c8fa35844e178f89c55883ce1bad95b98cc016174b5d7a.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/1a72817d41f91345ed0125fb94ecb3d35398556a9dd853192efefa9032852fd6.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/1e3272792ad48dee41c4f3ebb69cd5a0b89864b19452c4e0f01ebcd2635e62cc.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/1e376dd6b2a82f5fd84401f438c5f42bf557c9145888c2d9bff5775a339a9c8e.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/23d228123bd721b832a293090b81bfd3bf3c2cddd97096fdb9412e00f8050ee5.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/651f61ef97974d3d4369d1e81994e3244dcaf9d3a14021089566a2c5c03b48be.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/74bb93b1bd6c8cf7ade8e8b6b87a980773b60dcbb16f457dbfa7dc53de26dcda.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/76dec47277753960ecf09ef8eee0377d6cda915f5e232bd0abb2e5e402abc8d9.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/79ef7c8059b07cb35c9c6ba0eb3470577bdfbd5cfd4c53c4e745668a172da330.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/8627c81eaee6ba4771a39d56495eb09e852eaec2e22309697e37e31eacc95fe8.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/8a29ffce5cb340af3a833ab05d0a38c4d989eabef4afa951a4b7e2be12e38020.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/8e9db77f8128beedec777740182de40c1176e6f5cf3e25dd31aedfac78ee7256.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/96b95b5ff7b87111bc429363d6fb78861bce118757ea731d873a65eae88a4cf9.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/a3f1b85d97e597b5a9d1524d9ac66120ebc1b0c3c8547c628d9adb7cf83c107b.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/b44d27725b0e55c56ef73f4c8ffb04e2ca1c6e3c3b3b626a7edcd67429870d89.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/bdbb438bc79139ac0b27c489fdd6e49fce8e8488b6935ab057b475243f455ad5.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/bf1786fdc9ef6e59d659536e3644846c0f662c21452d78bc7fe7e80ac121c30b.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/c135ff153d9615100088c7a84f4e94eb955ce3c8baac8a4ed812ffb279191bc4.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/c6e355478a4b334f354df901d9daca6bb367a509fe572f5505faab3eec31f018.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/ca64352a72517eff543edf8d26259b1f297100f7376a5b902489d78f6dd0a01a.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/cfafdcac8ac5540c0e0f8dc9936d73b6b8de64594ddd80d6321330fcdec56df2.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/d69f92dfefbf2c18f738321a65a5ecacc4f21f428135308afde71cd5571bde01.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/d6a707d2fcdc80ad3b9f1c2209d55409363f570696ebdb80127b04b3b245c196.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/d783e7bf3b4ea1a5da8ac493e2d639cf22b4d75bba90a0910fda7bb607fc2635.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/d96449325616fcce8a7202ea16eb8e81b800d3f769a0ed3fbc8699f280ab09ad.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/dabfb01231bba78c57fda61e278db5569c9a0ec11b0e2edbc11464f99d1e734e.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/dacde2675a3e8d293a37e2c415ca78c9e0bc6798b49e8d94e7ab7ac57c9bd939.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/ddf770029a352d592410f96a34057bc66b71b5a62d720468ddc149e8e5b3a763.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/e27d936cb5a554668f8039a8f6963d9bc7cd4681bce1f38326e7f18706510d31.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/f1cb04bc97c133b148080e041b37772181b47a215f920a4e5cb7fea19dcab659.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/f6f5e1a051de301d00537aae381dd8fcea8f5ff67082e34b73fff7519eec67ae.npz"
+    },
+    {
+      "asset_class": "ceba_solver_generated_trajectory",
+      "failures": [],
+      "passed": true,
+      "path": "outputs/cache/gamma_sub_ceba/trajectories/f88bed885cd2ab7ab1859c8a233e5f564461e0c39fb66d959ad14f653cdb0558.npz"
+    }
+  ],
+  "copied_asset_count": 0,
+  "copy_target": null,
+  "failures": [],
+  "generated_at_utc": "2026-07-22T10:16:36.201686+00:00",
+  "manifest": "C:\\Users\\CJ\\AppData\\Local\\Temp\\PINN_detached_readiness_ba966b3_019f88f2\\configs\\local_replay_asset_manifest_v1.json",
+  "required_asset_count": 50,
+  "schema_version": "local_replay_asset_validation_v1",
+  "sealed_member_payload_accessed": false,
+  "sealed_metadata_checks": [
+    {
+      "member_name": "Source Data/Fig. 1/Fig. 1c/Experiment_13V.csv",
+      "passed": true
+    },
+    {
+      "member_name": "Source Data/Fig. 1/Fig. 1c/Theory_13V.csv",
+      "passed": true
+    }
+  ],
+  "verified_asset_count": 50
+}
