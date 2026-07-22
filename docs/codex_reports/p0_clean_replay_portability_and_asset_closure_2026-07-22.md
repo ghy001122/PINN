@@ -31,6 +31,19 @@ No scientific forward, fit, inverse, PINN training, threshold change, or sealed
 | Test pollution | historical 14-file rewrite and six unintended figures eliminated; designated validation logs are intentional evidence outputs |
 | Readiness | technical content package `true`; journal upload `false`; disposition `CONTENT_GO_UPLOAD_NO_GO` |
 
+## Public CI contract
+
+The first public fast-validation run (`29911571350`) failed because two CPCF
+tests consumed frozen-GT NPZ files that are intentionally absent from a public
+Git checkout. This was a workflow-contract defect, not a scientific regression.
+Commit `b17945a0be511c0974acd24ef27e05b8790adc30` makes the public-checkout role
+explicit: only missing assets registered in the exact local replay manifest are
+skipped, while any undeclared missing input remains a failure. The trusted full
+workflow now verifies the exact asset pack on a labeled self-hosted runner and
+no longer regenerates frozen GT. The matching asset-free checkout gives
+`24 passed, 2 skipped`; GitHub run `29912015106` passes all fast-validation
+steps.
+
 The two mixed-newline Windows artifacts retain their original raw SHA-256
 locks and separately declare canonical-LF Git identities. Verification accepts
 only an exact current Git blob with the registered raw/canonical pair; it does
