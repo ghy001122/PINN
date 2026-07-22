@@ -6,26 +6,28 @@ Exactly one bottleneck is active:
 `Q2_MANUSCRIPT_EVIDENCE_COMPRESSION_AND_SUBMISSION_LOCK`. The constrained `gamma_sub`
 result remains the only positive rank-1 inverse mainline.
 
-### Priority - submission lock from current evidence
+### Priority - journal upload lock from the validated content package
 
-The formula-only source-contract amendment is complete: literal-S3 and atanh
-anchor implementations pass independent fidelity checks, and the atanh branch
-passes realized-continuity gates. This changes provenance wording, not the
-scientific vote. Original E1F has no vote; E1F-R still fails the clean 12 V
-source curve. M40/M40R, E1F/E1F-R device runs, and trained full-PINN routes are
-closed.
+The formula-only source-contract amendment and technical local replay are
+complete. All 50 required local assets, 157 historical evidence locks, the
+36-row continuous-refinement summary, frozen GT, governance checks, and the
+440-test detached replay pass. Readiness is `CONTENT_GO_UPLOAD_NO_GO`: no
+scientific gate changed, but the previous portability P0 is closed locally.
 
 Execution order:
 
-1. preserve the protected-evidence manifest and immutable v1 manuscript;
-2. assemble manuscript v2, supplementary failure-evidence table,
-   reproducibility statement, figures/tables, and reviewer-defense matrix;
-3. audit every sentence against the claim matrix and evidence taxonomy;
-4. perform journal-scope and submission go/no-go review;
-5. run one final validation/evidence lock and prepare the submission package.
+1. choose one scope-compatible journal and article type from current official
+   information; do not infer quartile or format from memory;
+2. add author metadata, competing-interest/funding/ethics/AI-use declarations,
+   and the final data/code availability wording;
+3. render manuscript v2 and SI in the selected template and visually inspect
+   every page, equation, citation, figure, and table;
+4. create a lawful public archive for redistributable assets and an explicit
+   restricted-asset acquisition route for third-party PDFs;
+5. rerun only the affected readiness checks, then upload. Do not reopen science.
 
-Current go/no-go: `docs/manuscript/submission_go_no_go.md` (immediate upload
-NO-GO; seven-day submission lock GO).
+Current go/no-go: `docs/manuscript/submission_go_no_go.md` (technical content
+package GO; journal upload NO-GO until the five items above are closed).
 
 ### Locked boundaries
 

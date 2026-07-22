@@ -8,7 +8,7 @@ Read this file and `docs/research_strategy/active_phase.md` first. Load longer c
 - Phase ID: `Q2_MANUSCRIPT_EVIDENCE_COMPRESSION_AND_SUBMISSION_LOCK`
 - Current evidence: `docs/project_state/current_evidence_index.md`
 - Safe historical evidence lock: `d1121e16fa5015a297da468e3e6f0504b9e97d17`
-- Current report: `docs/codex_reports/source_contract_amendment_results.md`
+- Current report: `docs/codex_reports/p0_clean_replay_portability_and_asset_closure_2026-07-22.md`
 
 ## Corrected North Star
 
@@ -18,13 +18,12 @@ The calibration-gated constrained `gamma_sub` rank-1 result is the safe `qualifi
 
 ## Single Active Bottleneck
 
-`Q2_MANUSCRIPT_EVIDENCE_COMPRESSION_AND_SUBMISSION_LOCK`: the fallback-lock
-source-contract amendment separates the literal Qiu SI S3/S4 transcription,
-the analytic `atanh` inverse of the configured tanh anchor, a later explicit
-comparator, and repository history. Formula fidelity and realized-continuity
-gates pass without a device run. Original E1F still has no scientific vote;
-E1F-R remains a failed literal-S3 sensitivity. Assemble manuscript v2 and its
-submission package without reopening science.
+`Q2_MANUSCRIPT_EVIDENCE_COMPRESSION_AND_SUBMISSION_LOCK`: the source-contract
+amendment and local clean replay are complete. The verified local asset pack is
+`50/50`, portable evidence identity is `157/157`, detached pytest is `440/440`,
+and readiness is `CONTENT_GO_UPLOAD_NO_GO`. Select the journal/article type,
+complete author declarations, render and visually inspect the locked package,
+and close the public/restricted asset route without reopening science.
 
 ## Evidence Snapshot
 

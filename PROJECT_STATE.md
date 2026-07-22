@@ -19,6 +19,9 @@
   analytic tanh-anchor `atanh` inverse. G1 fidelity and G2 realized continuity
   pass; this does not verify Qiu author code. Original E1F has no scientific
   vote, while E1F-R remains a failed literal-S3 sensitivity.
+- Local replay is technically closed: assets `50/50`, portable locks `157/157`,
+  detached tests `440/440`, and sealed 13 V untouched. This changes no claim;
+  public replay still requires a lawful asset route.
 
 ## Current Gate Ledger
 
@@ -36,6 +39,7 @@
 | Source-to-PDE bridge | mapping-refusal fact `supported` | Source/local resistance factor `2.330233`; source/local heat-capacity, conductance, and time-scale ratios `635.5145`, `206`, and `3.085022`. These reject direct transfer but identify no local parameter. |
 | D0/M35-M37R | provenance/parity facts mixed with `failed_but_informative` stop gates | M36 nominal parity passes; M37R stops when the first 15 V perturbation changes post-window event topology (`344 -> 343`). No Jacobian, fit lock, quotient, or 13 V access follows. |
 | SID/EC-OQ, CPCF, CEBA/SCIS | inactive or negative | SID derivative/geometry gates fail; CPCF frontier is `forbidden`; CEBA parity passes but deployable refusal does not; SCIS severe-mismatch refusal fails. |
+| Submission replay | implementation/reproducibility fact `supported` | Verified local pack `50/50`; portable locks `157/157`; continuous-refinement summary agrees with all 36 case rows; detached pytest `440 passed`; readiness is `CONTENT_GO_UPLOAD_NO_GO`. No scientific vote changes. |
 
 Detailed paths are routed by
 `docs/project_state/current_evidence_index.md`; cumulative history remains in
@@ -48,13 +52,15 @@ the registries and Git.
 | Synthetic inverse mainline | Locked and reproducible | Integrate only supported/qualified claims, limitations, figures, and reviewer defense. |
 | Real/public anchor | Provenance and numerical-parity boundaries only | No positive external quantitative validation; do not rescue with unregistered fitting. |
 | Complete PINN | Full scaffold, failed trained routes | Retain as architecture/failure evidence; do not claim neural success. |
-| Integrated manuscript | v1 is immutable and superseded for current assembly | Create v2, SI, verified references, captions, sentence-level audit, scope shortlist, and readiness record. |
-| Submission decision | Immediate upload NO-GO; seven-day lock GO | Follow `docs/manuscript/submission_go_no_go.md`; no new science may delay the lock. |
+| Integrated manuscript | v1 is immutable; v2, SI, references, captions, sentence-level audit, scope shortlist, and readiness record are assembled | Render and visually inspect only the selected journal version. |
+| Submission decision | Technical content package GO; journal upload NO-GO | Lock journal/article type, author metadata/declarations, template rendering, visual QA, and lawful public-asset/archive boundary. |
 
 ## Current Single Priority
 
-Complete manuscript v2, supplement, reproducibility package, reviewer-defense
-matrix, claim audit, and journal-scope go/no-go from locked evidence. E1F/E1F-R,
-M40/M40R, M37R, public inverse, effective-coordinate identification, and neural
-rescue are closed. Submission/preprint timing is controllable; journal
-acceptance or publication within one month is not.
+Select one scope-compatible journal and article type, complete author metadata
+and declarations, render the locked content package in that template, perform
+visual QA, and establish a lawful public archive or an explicit restricted-
+asset reproduction route. E1F/E1F-R, M40/M40R, M37R, public inverse,
+effective-coordinate identification, and neural rescue remain closed.
+Submission/preprint timing is controllable; journal acceptance or publication
+within one month is not.

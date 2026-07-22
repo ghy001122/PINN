@@ -807,6 +807,26 @@ Date: 2026-07-17. Base commit: `a7c108e3980953ced24d2de86ce7afc340e65a88`. Prere
 
 Primary report: `docs/codex_reports/prompt30_a7c_audit_and_cpcf_report.md`.
 
+## 2026-07-22 - Clean-replay portability and local asset closure
+
+- Recovered and exact-byte verified all 50 required local replay assets while
+  retaining Zhang 13 V as a metadata-only sealed record.
+- Replaced nonportable raw-text assumptions with fail-closed raw/canonical Git
+  identities. All 157 historical locks pass without rewriting scientific
+  hashes or normalizing scientific content.
+- Added an independent 36-row continuous-refinement integrity audit and removed
+  the historical test side effects that rewrote 14 tracked artifacts and
+  generated six unintended figures.
+- A detached checkout passes all 440 tests; governance has no failed check;
+  frozen GT is unchanged.
+- Submission readiness changes from `CONTENT_NO_GO` to
+  `CONTENT_GO_UPLOAD_NO_GO`. This closes the local technical P0 but does not
+  upgrade any scientific claim. The single next priority is journal/template,
+  author declarations, visual QA, and lawful public/restricted asset routing.
+
+Primary report:
+`docs/codex_reports/p0_clean_replay_portability_and_asset_closure_2026-07-22.md`.
+
 ## 2026-07-22 — Layered E1F/LLP source-contract amendment
 
 - Visually verified Qiu SI PDF page 4, Eqs. S1–S4; third-party source and internal crop were hash-recorded but not redistributed.

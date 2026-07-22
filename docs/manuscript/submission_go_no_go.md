@@ -1,14 +1,18 @@
-# Submission go/no-go after E1F-R
+# Submission go/no-go after clean-replay closure
 
-Date: 2026-07-21
+Date: 2026-07-22
 
 ## Decision
 
-**Immediate journal upload: NO-GO. Seven-day submission lock: GO.**
+**Technical content package: GO. Journal upload: NO-GO.**
 
-The scientific result set is now frozen. No further Qiu, M40/M40R, M37R,
-public-inverse, or full-PINN rescue is authorized. The remaining work is a
-bounded manuscript and submission-package task, not another research branch.
+The scientific result set is frozen. A detached checkout with the exact local
+asset pack passes all 440 tests, governance has no failed check, all 157
+portable evidence locks resolve, and the sentence/figure/evidence audits pass.
+No further Qiu, M40/M40R, M37R, public-inverse, or full-PINN rescue is
+authorized. Upload remains blocked by journal/article-type selection, author
+metadata and declarations, selected-template rendering and visual QA, and the
+public/restricted asset-distribution boundary.
 
 ## Defensible paper identity
 
@@ -37,19 +41,19 @@ whose current scope accepts numerical inverse methods, physics-informed
 digital twins, and rigorous identifiability/limitation studies. Journal scope
 and current quartile must be checked immediately before submission.
 
-## Mandatory seven-day closeout
+## Mandatory upload closeout
 
-1. Merge the integrated manuscript with a verified bibliography and replace
-   every uncited factual statement with a primary-source citation or remove it.
-2. Freeze six main figures, supplementary failure figures, captions, and the
-   claim-to-evidence table; visually inspect every exported panel.
-3. Finish the supplementary methods/failure table, data/code availability,
-   reproducibility statement, and reviewer-defense matrix.
-4. Run one sentence-level claim audit against
-   `docs/paper/final_claim_matrix.md`; any unsupported sentence is deleted or
-   qualified, not rescued by new experiments.
-5. Run one final full test/governance/clean-clone validation, lock artifact
-   hashes, select the scope-compatible journal, format, and submit.
+1. Lock one scope-compatible journal and article type using current official
+   sources; record the verification date and leave quartile unverified unless a
+   reliable current source is available.
+2. Complete author affiliations, contributions, funding, competing interests,
+   ethics/data/code/AI-use declarations, and corresponding-author details.
+3. Render the already locked manuscript and supplement in the selected
+   template; visually inspect every page, equation, citation, figure, and table.
+4. Archive redistributable code/data and document how authorized readers obtain
+   third-party PDFs; never redistribute assets without a confirmed license.
+5. Rerun only the affected readiness checks and submit. No new experiment may
+   be used to conceal an upload-package defect.
 
 ## Stop rule
 

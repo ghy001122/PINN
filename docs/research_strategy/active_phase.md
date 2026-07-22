@@ -33,13 +33,21 @@ NRMSE is also `0.0342127 > 0.02`. M41 remains unauthorized.
 Current report: `docs/codex_reports/source_contract_amendment_results.md`.
 Submission decision: `docs/manuscript/submission_go_no_go.md`.
 
+## Submission replay closure
+
+Without a new scientific run, local assets verify `50/50`, portable locks
+`157/157`, continuous-refinement rows `36/36`, detached tests `440/440`, and
+sealed 13 V remains untouched. Readiness is `CONTENT_GO_UPLOAD_NO_GO`; public
+asset routing remains open and no claim is upgraded.
+
 ## Single bottleneck
 
-Freeze the current scientific result set, finish manuscript v2 and
-supplement, map every sentence and visual to the claim matrix, perform the
-submission go/no-go audit, and prepare the journal package. E1F/E1F-R, M40/M40R,
-M37R, public inverse, and neural rescue are closed; no new experiment may delay
-the submission lock without a new explicit evidence-based authorization.
+Freeze the current scientific result set and finish only the journal-upload
+layer: select journal/article type, complete author declarations, render and
+visually inspect the template, and close the lawful archive/restricted-asset
+route. E1F/E1F-R, M40/M40R, M37R, public inverse, and neural rescue are closed;
+no new experiment may delay submission without a new explicit evidence-based
+authorization.
 
 The original six-integration E1F artifact has no scientific vote. The corrected
 E1F-R vote used two integrations. Solver parity passed with worst NRMSE

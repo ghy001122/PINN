@@ -71,10 +71,15 @@ Current report: `docs/codex_reports/source_contract_amendment_results.md`.
 ## Submission routing
 
 - Current manuscript entry: `docs/manuscript/README.md`; v1 remains immutable
-  historical content and v2 is the submission-lock assembly target.
+  historical content and v2 is the validated content-package target.
 - Go/no-go: `docs/manuscript/submission_go_no_go.md`.
 - Figures/tables: `docs/paper/final_figure_list.md` and
   `docs/paper/final_table_list.md`.
-- Current single priority: finish references, supplement, captions, claim audit,
-  reproducibility, journal-scope check, and final validation without reopening
-  failed science.
+- Local replay evidence: `configs/local_replay_asset_manifest_v1.json`,
+  `outputs/tables/local_replay_asset_validation.json`,
+  `outputs/tables/portable_evidence_identity_audit.json`,
+  `outputs/tables/gamma_sub_continuous_refinement_integrity_audit.json`, and
+  `outputs/tables/submission_readiness.json`.
+- Current single priority: lock journal/article type, author declarations,
+  template rendering/visual QA, and the public/restricted asset route without
+  reopening failed science.
