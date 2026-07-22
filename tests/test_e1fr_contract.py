@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 
-import hashlib
 import json
 from pathlib import Path
 
 import pytest
 import yaml
 
+from pinnpcm.audit.evidence_identity import assert_evidence_lock
 from pinnpcm.physics.qiu_author_compact_model import (
     default_parameters,
     proximity_temperature_from_reversal,
@@ -18,10 +18,6 @@ from pinnpcm.physics.qiu_author_compact_model import (
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = ROOT / "configs/e1fr_qiu_source_equation_correction.yaml"
 PREREG = ROOT / "outputs/tables/e1fr_qiu_source_equation_correction_preregistration.json"
-
-
-def _sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest().upper()
 
 
 def test_e1fr_locks_literal_s3_and_forbids_holdout_vote() -> None:
@@ -76,5 +72,10 @@ def test_e1fr_preregistration_is_hash_locked_when_present() -> None:
     for record in payload["implementation_records"]:
         path = ROOT / record["path"]
         assert path.exists()
-        assert path.stat().st_size == record["size_bytes"]
-        assert _sha256(path) == record["sha256"]
+        assert_evidence_lock(
+            path,
+            record["sha256"],
+            expected_size=int(record["size_bytes"]),
+            root=ROOT,
+            allow_historical_revision=True,
+        )

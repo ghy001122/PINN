@@ -1,15 +1,11 @@
 ﻿from __future__ import annotations
 
-from scripts.audit_reduced_2d_phase_transition_forward import run_forward_benchmark
-from scripts.audit_reduced_2d_observability_limited_inverse import run_observability_audit
-from scripts.audit_stiffness_aware_algorithm_benchmark import run_stiffness_algorithm_benchmark
 from scripts.build_claim_gate_resolution_matrix import build_claim_gate_matrix
 
 
 def test_claim_gate_resolution_matrix_builds(tmp_path) -> None:
-    run_forward_benchmark()
-    run_observability_audit()
-    run_stiffness_algorithm_benchmark()
+    # The matrix consumes committed evidence. Re-running three historical
+    # benchmarks here rewrites tracked evidence and creates six figures.
     out = tmp_path / "claim_gate.md"
     build_claim_gate_matrix(out_path=out)
     text = out.read_text(encoding="utf-8")

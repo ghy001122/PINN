@@ -6,6 +6,7 @@ from pathlib import Path
 
 import pytest
 
+from pinnpcm.audit.evidence_identity import assert_evidence_lock
 from scripts.run_gamma_sub_scis import (
     CEBA_IMMUTABLE_PATHS,
     DEFAULT_CONFIG,
@@ -13,7 +14,6 @@ from scripts.run_gamma_sub_scis import (
     CacheOnlyTrajectoryStore,
     _load_yaml,
     _resolve,
-    _sha256_file,
     cache_preflight,
     expand_seed_block,
     finite_sample_quantile,
@@ -112,7 +112,7 @@ def test_scis_preregistration_locks_unmodified_ceba_hashes() -> None:
     assert prereg["seeds_pairwise_disjoint"] is True
     assert set(prereg["ceba_immutable_hashes"]) == set(CEBA_IMMUTABLE_PATHS)
     for path, expected in prereg["ceba_immutable_hashes"].items():
-        assert _sha256_file(_resolve(path)) == expected
+        assert_evidence_lock(_resolve(path), expected, root=ROOT)
 
 
 def test_scis_locked_summary_fails_closed_on_mismatch_refusal() -> None:

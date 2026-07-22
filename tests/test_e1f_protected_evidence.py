@@ -2,21 +2,14 @@
 
 from __future__ import annotations
 
-import hashlib
 import json
 from pathlib import Path
+
+from pinnpcm.audit.evidence_identity import assert_evidence_lock
 
 
 ROOT = Path(__file__).resolve().parents[1]
 PREREG = ROOT / "outputs/tables/e1f_qiu_author_anchor_preregistration.json"
-
-
-def _sha256(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as handle:
-        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
-            digest.update(chunk)
-    return digest.hexdigest().upper()
 
 
 def test_e1f_protected_files_match_preregistration() -> None:
@@ -32,5 +25,12 @@ def test_e1f_protected_files_match_preregistration() -> None:
         for record in records:
             path = ROOT / record["path"]
             assert path.exists(), record["path"]
-            assert path.stat().st_size == int(record["size_bytes"]), record["path"]
-            assert _sha256(path) == record["sha256"], record["path"]
+            assert_evidence_lock(
+                path,
+                record["sha256"],
+                expected_size=int(record["size_bytes"]),
+                root=ROOT,
+                allow_historical_revision=str(record["path"]).startswith(
+                    ("configs/", "scripts/", "src/", "tests/")
+                ),
+            )

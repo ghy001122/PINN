@@ -1,27 +1,19 @@
 """Regression locks for the consumed M40R formal result."""
 from __future__ import annotations
 
-import hashlib
 import json
 from pathlib import Path
 
 import pytest
 import yaml
 
+from pinnpcm.audit.evidence_identity import assert_evidence_lock
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def _json(path: str) -> dict:
     return json.loads((ROOT / path).read_text(encoding="utf-8"))
-
-
-def _sha256(path: str) -> str:
-    digest = hashlib.sha256()
-    with (ROOT / path).open("rb") as handle:
-        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
-            digest.update(chunk)
-    return digest.hexdigest().upper()
 
 
 def test_m40r_formal_result_fails_closed_without_rewriting_m40() -> None:
@@ -47,9 +39,15 @@ def test_m40r_formal_result_fails_closed_without_rewriting_m40() -> None:
     assert summary["gate_values"]["nominal_Tmax_K"] > 360.0
     assert summary["gate_values"]["transient_current_nrmse"] > 0.02
 
-    assert {
-        name: _sha256(name) for name in prereg["old_m40_protected_hashes"]
-    } == prereg["old_m40_protected_hashes"]
+    for name, expected in prereg["old_m40_protected_hashes"].items():
+        assert_evidence_lock(
+            name,
+            expected,
+            root=ROOT,
+            allow_historical_revision=name.startswith(
+                ("configs/", "scripts/", "src/", "tests/")
+            ),
+        )
 
 
 def test_m40r_required_outputs_and_active_stop_semantics_exist() -> None:

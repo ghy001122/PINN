@@ -1,0 +1,15 @@
+{
+  "schema_version": "legacy_nonportable_lock_exceptions_v1",
+  "exceptions": [
+    {
+      "path": ".gitignore",
+      "expected_sha256": "3FD75E4D2871C302BA807E9CBE6F5A65E9587F33A610F933ED02441568633645",
+      "origin": "M35/M36/M37 preregistration definition lock",
+      "status": "failed_but_informative_non_scientific_definition_lock",
+      "reason": "The preregistered Windows worktree byte sequence was never stored as a Git object and cannot be reconstructed from repository history. The file is a routing surface, not scientific code, data, a gate, or a result.",
+      "replacement_contract": "Current ignored-asset routing is validated through configs/local_replay_asset_manifest_v1.json and scripts/verify_local_replay_assets.py.",
+      "scientific_vote_changed": false,
+      "raw_hash_rewritten": false
+    }
+  ]
+}

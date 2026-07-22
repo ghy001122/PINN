@@ -21,6 +21,8 @@ def _passing_facts() -> dict[str, bool]:
         "source_contract": True,
         "figures": True,
         "protected_evidence": True,
+        "local_assets": True,
+        "portable_identity": True,
         "tests": True,
         "governance": True,
         "local_replay": True,
@@ -85,3 +87,10 @@ def test_pytest_log_parser_counts_smoke_nodes_and_exit_code() -> None:
     text = "tests/test_a.py::test_smoke PASSED\n12 passed in 1.0s\nexit_code=0\n"
     assert MODULE.parse_exit_code(text) == 0
     assert MODULE.parse_pytest_counts(text) == {"passed": 12, "failed": 0, "test_only_smoke_runs": 1}
+
+
+def test_json_ready_serializes_yaml_dates_deterministically() -> None:
+    import datetime
+
+    payload = MODULE.json_ready({"retrieved_at": datetime.date(2026, 7, 22)})
+    assert payload == {"retrieved_at": "2026-07-22"}

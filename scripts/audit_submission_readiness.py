@@ -11,11 +11,13 @@ import re
 import shutil
 import subprocess
 import sys
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any
 
 import yaml
+
+from pinnpcm.audit.evidence_identity import verify_evidence_lock
 
 
 DEFAULT_ROOT = Path(__file__).resolve().parents[1]
@@ -25,6 +27,22 @@ CLAIM_STATUSES = {
     "failed_but_informative",
     "forbidden",
 }
+
+
+def json_ready(value: Any) -> Any:
+    """Convert YAML/Python scalar types to strict deterministic JSON values."""
+
+    if isinstance(value, dict):
+        return {str(key): json_ready(item) for key, item in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [json_ready(item) for item in value]
+    if isinstance(value, (date, datetime)):
+        return value.isoformat()
+    if isinstance(value, Path):
+        return str(value)
+    if value is None or isinstance(value, (str, int, float, bool)):
+        return value
+    raise TypeError(f"Unsupported readiness JSON type: {type(value).__name__}")
 
 
 def sha256_file(path: Path) -> str:
@@ -147,6 +165,7 @@ def audit_figure_manifest(root: Path, manifest: dict[str, Any]) -> dict[str, Any
 def audit_protected_manifest(root: Path, manifest: dict[str, Any]) -> dict[str, Any]:
     failures: list[str] = []
     copy_required: list[str] = []
+    identity_modes: dict[str, int] = {}
     for record in manifest.get("records", []):
         relative = record["path"]
         path = root / relative
@@ -155,10 +174,20 @@ def audit_protected_manifest(root: Path, manifest: dict[str, Any]) -> dict[str, 
         if not path.is_file():
             failures.append(f"missing:{relative}")
             continue
-        if path.stat().st_size != int(record["byte_size"]):
-            failures.append(f"size:{relative}")
-        if sha256_file(path) != record["sha256"].upper():
-            failures.append(f"hash:{relative}")
+        definition = relative == ".gitignore" or relative.startswith(
+            ("configs/", "scripts/", "src/", "tests/", ".github/")
+        )
+        identity = verify_evidence_lock(
+            path,
+            record["sha256"],
+            expected_size=int(record["byte_size"]),
+            root=root,
+            allow_historical_revision=definition,
+        )
+        mode = str(identity["mode"])
+        identity_modes[mode] = identity_modes.get(mode, 0) + 1
+        if not identity["passed"]:
+            failures.append(f"identity:{relative}")
         if path.is_symlink():
             failures.append(f"symlink:{relative}")
     return {
@@ -166,6 +195,7 @@ def audit_protected_manifest(root: Path, manifest: dict[str, Any]) -> dict[str, 
         "record_count": len(manifest.get("records", [])),
         "copy_required_count": len(copy_required),
         "copy_required_paths": copy_required,
+        "identity_modes": identity_modes,
         "failures": sorted(failures),
     }
 
@@ -179,6 +209,8 @@ def evaluate_readiness(facts: dict[str, bool]) -> dict[str, Any]:
         "source_contract",
         "figures",
         "protected_evidence",
+        "local_assets",
+        "portable_identity",
         "tests",
         "governance",
         "local_replay",
@@ -252,6 +284,18 @@ def build_readiness(
     protected_manifest = json.loads((root / config["protected_manifest"]).read_text(encoding="utf-8"))
     protected_result = audit_protected_manifest(root, protected_manifest)
     source_contract = json.loads((root / config["source_contract_summary"]).read_text(encoding="utf-8"))
+    asset_validation_path = root / config["local_replay_asset_validation"]
+    asset_validation = (
+        json.loads(asset_validation_path.read_text(encoding="utf-8"))
+        if asset_validation_path.is_file()
+        else {"all_passed": False, "failures": ["validation_missing"]}
+    )
+    portable_identity_path = root / config["portable_evidence_identity_audit"]
+    portable_identity = (
+        json.loads(portable_identity_path.read_text(encoding="utf-8"))
+        if portable_identity_path.is_file()
+        else {"all_passed": False, "failures": ["audit_missing"]}
+    )
 
     pytest_text = full_pytest_log.read_text(encoding="utf-8", errors="replace")
     governance_text = governance_log.read_text(encoding="utf-8", errors="replace")
@@ -282,6 +326,9 @@ def build_readiness(
         "source_contract": source_pass,
         "figures": figure_result["status"] == "pass",
         "protected_evidence": protected_result["status"] == "pass",
+        "local_assets": bool(asset_validation.get("all_passed"))
+        and int(asset_validation.get("verified_asset_count", -1)) == 50,
+        "portable_identity": bool(portable_identity.get("all_passed")),
         "tests": pytest_exit == 0 and pytest_counts["failed"] == 0 and pytest_counts["passed"] > 0,
         "governance": governance_exit == 0,
         "local_replay": local_replay,
@@ -297,7 +344,8 @@ def build_readiness(
     if not readiness_gate["technical_content_package_ready"]:
         blocked_reasons.extend(f"technical_gate_failed:{key}" for key in facts if key in {
             "required_documents", "citations", "claim_mapping", "synthetic_disclosure", "source_contract",
-            "figures", "protected_evidence", "tests", "governance", "local_replay", "data_statement"
+            "figures", "protected_evidence", "local_assets", "portable_identity", "tests",
+            "governance", "local_replay", "data_statement"
         } and not facts[key])
     blocked_reasons.extend(
         [
@@ -370,6 +418,21 @@ def build_readiness(
         },
         "figure_table_integrity": figure_result,
         "protected_evidence": protected_result,
+        "local_replay_assets": {
+            "status": "pass" if facts["local_assets"] else "fail",
+            "required_asset_count": asset_validation.get("required_asset_count"),
+            "verified_asset_count": asset_validation.get("verified_asset_count"),
+            "sealed_member_payload_accessed": asset_validation.get(
+                "sealed_member_payload_accessed"
+            ),
+            "failures": asset_validation.get("failures", []),
+        },
+        "portable_evidence_identity": {
+            "status": "pass" if facts["portable_identity"] else "fail",
+            "lock_count": portable_identity.get("lock_count"),
+            "mode_counts": portable_identity.get("mode_counts", {}),
+            "failures": portable_identity.get("failures", []),
+        },
         "tests": {
             "status": "pass" if facts["tests"] else "fail",
             "exit_code": pytest_exit,
@@ -384,6 +447,8 @@ def build_readiness(
         "public_reproducibility": {
             "local_clean_worktree_replay": local_replay,
             "requires_local_asset_pack": True,
+            "verified_local_asset_pack_complete": facts["local_assets"],
+            "detached_replay_with_verified_local_assets": local_replay and facts["local_assets"],
             "public_reproduction_assets_available": False,
             "clean_clone_reproducible": False,
             "third_party_redistribution_allowed": False,
@@ -426,7 +491,10 @@ def main() -> int:
     )
     output = args.output.resolve()
     output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    output.write_text(
+        json.dumps(json_ready(result), indent=2, sort_keys=True, allow_nan=False) + "\n",
+        encoding="utf-8",
+    )
     write_claim_csv(args.claim_output.resolve(), claim_rows)
     print(json.dumps({
         "overall_status": result["overall_status"],

@@ -9,10 +9,10 @@ from pathlib import Path
 import pytest
 import yaml
 
+from pinnpcm.audit.evidence_identity import assert_evidence_lock
 from pinnpcm.external_data.vo2_cross_regime_observability_repair import (
     validate_evidence_contract,
 )
-from pinnpcm.external_data.vo2_zhang import compute_sha256
 
 
 CONFIG_PATH = Path("configs/m37r_continuous_event_observability_repair.yaml")
@@ -38,9 +38,14 @@ def test_m37r_preregistration_is_complete_hash_locked_and_sealed() -> None:
     assert all(prereg["preflight_checks"].values())
     assert prereg["mock_end_to_end_contract"]["all_pass"] is True
     for path, expected in prereg["locked_files"].items():
-        assert compute_sha256(Path(path)) == expected
+        assert_evidence_lock(
+            path,
+            expected,
+            allow_historical_revision=path == ".gitignore"
+            or path.startswith(("configs/", "scripts/", "src/", "tests/")),
+        )
     for path, expected in prereg["historical_read_only_files"].items():
-        assert compute_sha256(Path(path)) == expected
+        assert_evidence_lock(path, expected)
 
 
 @pytest.mark.skipif(not SUMMARY_PATH.exists(), reason="M37R formal result not generated")

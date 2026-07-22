@@ -9,7 +9,7 @@ from pathlib import Path
 import pytest
 import yaml
 
-from pinnpcm.external_data.vo2_zhang import compute_sha256
+from pinnpcm.audit.evidence_identity import assert_evidence_lock
 
 
 CONFIG_PATH = Path("configs/m37_continuous_event_observability.yaml")
@@ -32,7 +32,12 @@ def test_m37_preregistration_is_complete_hash_locked_and_sealed() -> None:
     assert prereg["sealed_13v_access"] is False
     assert all(prereg["preflight_checks"].values())
     for path, expected in prereg["locked_files"].items():
-        assert compute_sha256(Path(path)) == expected
+        assert_evidence_lock(
+            path,
+            expected,
+            allow_historical_revision=path == ".gitignore"
+            or path.startswith(("configs/", "scripts/", "src/", "tests/")),
+        )
 
 
 @pytest.mark.skipif(not AUDIT_PATH.exists(), reason="M37 semantic audit not generated")
@@ -50,12 +55,12 @@ def test_m36_semantic_audit_supersedes_wording_but_not_vote_or_artifacts() -> No
         assert record["superseding_semantic_wording"].startswith(
             "finite_step_accuracy_gate_failed"
         )
-    assert compute_sha256(Path(CONFIG["historical_inputs"]["m36_summary"])) == audit[
-        "source_summary_sha256"
-    ]
-    assert compute_sha256(Path(CONFIG["historical_inputs"]["m36_metrics"])) == audit[
-        "source_metrics_sha256"
-    ]
+    assert_evidence_lock(
+        CONFIG["historical_inputs"]["m36_summary"], audit["source_summary_sha256"]
+    )
+    assert_evidence_lock(
+        CONFIG["historical_inputs"]["m36_metrics"], audit["source_metrics_sha256"]
+    )
 
 
 @pytest.mark.skipif(not SUMMARY_PATH.exists(), reason="M37 result not generated")

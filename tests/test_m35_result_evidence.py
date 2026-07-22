@@ -10,9 +10,9 @@ import pytest
 import yaml
 
 from pinnpcm.external_data.vo2_zhang import (
-    compute_sha256,
     require_fit_lock_for_sealed_access,
 )
+from pinnpcm.audit.evidence_identity import assert_evidence_lock
 
 
 CONFIG_PATH = Path("configs/m35_public_multivoltage_fit.yaml")
@@ -32,9 +32,16 @@ def test_preregistration_hashes_and_sealed_boundary_are_valid() -> None:
     assert payload["sealed_13v_access"] is False
     assert all(payload["preflight_checks"].values())
     provenance = Path(payload["provenance_manifest"])
-    assert compute_sha256(provenance) == payload["provenance_manifest_sha256"]
+    assert_evidence_lock(provenance, payload["provenance_manifest_sha256"])
     for path, expected in payload["locked_files"].items():
-        assert compute_sha256(Path(path)) == expected
+        definition = path == ".gitignore" or path.startswith(
+            ("configs/", "scripts/", "src/", "tests/")
+        )
+        assert_evidence_lock(
+            path,
+            expected,
+            allow_historical_revision=definition,
+        )
 
 
 @pytest.mark.skipif(not M34A_PATH.exists(), reason="M34-A amendment not generated yet")

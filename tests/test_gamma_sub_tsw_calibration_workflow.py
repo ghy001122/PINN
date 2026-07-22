@@ -8,8 +8,15 @@ import yaml
 from scripts.audit_gamma_sub_tsw_calibration_workflow import run_tsw_calibration_workflow
 
 
-def test_tsw_calibration_workflow_improves_recovery() -> None:
-    summary = run_tsw_calibration_workflow(Path("configs/gamma_sub_tsw_calibration_workflow.yaml"))
+def test_tsw_calibration_workflow_improves_recovery(tmp_path: Path) -> None:
+    config = yaml.safe_load(
+        Path("configs/gamma_sub_tsw_calibration_workflow.yaml").read_text(encoding="utf-8")
+    )
+    config["summary_json"] = str(tmp_path / "summary.json")
+    config["cases_csv"] = str(tmp_path / "cases.csv")
+    config_path = tmp_path / "config.yaml"
+    config_path.write_text(yaml.safe_dump(config, sort_keys=False), encoding="utf-8")
+    summary = run_tsw_calibration_workflow(config_path)
     rows = {row["workflow"]: row for row in summary["rows"]}
     assert summary["all_finite_results"] is True
     assert summary["whether_calibration_before_inversion_improves_recovery"] is True

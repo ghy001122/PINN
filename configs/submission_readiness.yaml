@@ -29,6 +29,9 @@ required_dois:
 figure_manifest: outputs/tables/main_submission_figure_manifest.json
 protected_manifest: outputs/tables/submission_protected_evidence_manifest.json
 source_contract_summary: outputs/tables/e1f_llp_source_contract_summary.json
+local_replay_asset_manifest: configs/local_replay_asset_manifest_v1.json
+local_replay_asset_validation: outputs/tables/local_replay_asset_validation.json
+portable_evidence_identity_audit: outputs/tables/portable_evidence_identity_audit.json
 
 synthetic_disclosure_phrases:
   - frozen one-dimensional synthetic numerical digital twin
@@ -90,7 +93,7 @@ journal_scope:
   status: blocked
   selected_journal: null
   article_type: null
-  retrieved_at: 2026-07-22
+  retrieved_at: "2026-07-22"
   official_sources:
     - https://onlinelibrary.wiley.com/page/journal/10991204/homepage/productinformation.html
     - https://onlinelibrary.wiley.com/page/journal/10991204/homepage/forauthors.html

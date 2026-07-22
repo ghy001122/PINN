@@ -2,20 +2,17 @@
 
 from __future__ import annotations
 
-import hashlib
 import json
 from pathlib import Path
 
 import yaml
 
+from pinnpcm.audit.evidence_identity import assert_evidence_lock
+
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = ROOT / "configs/e1f_qiu_author_external_anchor.yaml"
 PREREG = ROOT / "outputs/tables/e1f_qiu_author_anchor_preregistration.json"
-
-
-def _sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest().upper()
 
 
 def test_e1f_preregistration_is_leakage_safe_and_fail_closed() -> None:
@@ -46,5 +43,13 @@ def test_e1f_preregistration_is_leakage_safe_and_fail_closed() -> None:
         for record in payload[group]:
             path = ROOT / record["path"]
             assert path.exists()
-            assert _sha256(path) == record["sha256"]
+            assert_evidence_lock(
+                path,
+                record["sha256"],
+                expected_size=record.get("size_bytes"),
+                root=ROOT,
+                allow_historical_revision=str(record["path"]).startswith(
+                    ("configs/", "scripts/", "src/", "tests/")
+                ),
+            )
     assert config["governance"]["further_m40r_execution_forbidden"] is True

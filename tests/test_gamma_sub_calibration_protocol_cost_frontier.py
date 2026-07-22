@@ -5,11 +5,11 @@ from pathlib import Path
 
 import numpy as np
 
+from pinnpcm.audit.evidence_identity import assert_evidence_lock
 from scripts.audit_gamma_sub_calibration_protocol_cost_frontier import (
     DEFAULT_CONFIG,
     _evaluate_case,
     _full_specs,
-    _input_hashes,
     _load_config,
     _pilot_specs,
     _resource_components,
@@ -20,16 +20,15 @@ from scripts.audit_gamma_sub_calibration_protocol_cost_frontier import (
 
 
 def _portable_input_hashes(config: dict) -> dict[str, str]:
-    """Use verified hashes locally and locked declarations in a clean checkout.
+    """Verify exact assets or newline-equivalent tracked historical locks."""
 
-    The large frozen arrays are intentionally ignored by Git and are reconstructed
-    by the full workflow. Fast validation still exercises the CPCF logic without
-    weakening the full frozen-payload hash gate.
-    """
-
-    if all(Path(item["path"]).exists() for item in config["inputs"]):
-        return _input_hashes(config)
-    return {str(item["path"]): str(item["sha256"]) for item in config["inputs"]}
+    result: dict[str, str] = {}
+    for item in config["inputs"]:
+        path = str(item["path"])
+        expected = str(item["sha256"])
+        assert_evidence_lock(path, expected, root=Path.cwd())
+        result[path] = expected
+    return result
 
 
 def test_cpcf_preregistered_pilot_scope_and_strategies() -> None:

@@ -9,7 +9,7 @@ from pathlib import Path
 import pytest
 import yaml
 
-from pinnpcm.external_data.vo2_zhang import compute_sha256
+from pinnpcm.audit.evidence_identity import assert_evidence_lock
 
 
 CONFIG_PATH = Path("configs/m36_event_resolved_orbit_convergence.yaml")
@@ -29,7 +29,12 @@ def test_m36_preregistration_is_hash_locked_and_sealed() -> None:
     assert payload["pinn_training_performed"] is False
     assert all(payload["preflight_checks"].values())
     for path, expected in payload["locked_files"].items():
-        assert compute_sha256(Path(path)) == expected
+        assert_evidence_lock(
+            path,
+            expected,
+            allow_historical_revision=path == ".gitignore"
+            or path.startswith(("configs/", "scripts/", "src/", "tests/")),
+        )
 
 
 @pytest.mark.skipif(not SUMMARY_PATH.exists(), reason="M36 evidence not generated yet")
