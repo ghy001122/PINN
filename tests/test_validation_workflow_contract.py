@@ -15,6 +15,7 @@ def test_fast_validation_does_not_fetch_full_history() -> None:
     assert "cache: pip" in workflow
     assert "cancel-in-progress: true" in workflow
     assert "timeout-minutes:" in workflow
+    assert 'PINN_PUBLIC_CHECKOUT: "1"' in workflow
 
 
 def test_full_validation_alone_verifies_historic_blobs() -> None:
@@ -24,3 +25,6 @@ def test_full_validation_alone_verifies_historic_blobs() -> None:
     assert "cache: pip" in workflow
     assert "cancel-in-progress: true" in workflow
     assert "timeout-minutes:" in workflow
+    assert "runs-on: [self-hosted, windows, pinn-trusted-replay]" in workflow
+    assert "verify_local_replay_assets.py" in workflow
+    assert "run_gt_v1_acceptance.py" not in workflow

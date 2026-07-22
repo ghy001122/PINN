@@ -7,8 +7,6 @@ on:
         description: "Reason for full claim-bearing validation"
         required: false
         default: "manual claim-bearing verification"
-  schedule:
-    - cron: "23 3 * * 1"
 
 permissions:
   contents: read
@@ -19,7 +17,7 @@ concurrency:
 
 jobs:
   full:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, windows, pinn-trusted-replay]
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
@@ -36,8 +34,8 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
           python -m pip install -e .
-      - name: Reproduce ignored frozen GT fixtures in clean runner
-        run: python scripts/run_gt_v1_acceptance.py
+      - name: Verify exact local replay asset pack
+        run: python scripts/verify_local_replay_assets.py --output outputs/tables/local_replay_asset_validation.json
       - name: Full test suite
         run: python -m pytest -q
       - name: Verify immutable historic blobs

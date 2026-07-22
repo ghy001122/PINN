@@ -51,6 +51,8 @@ jobs:
   focused:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      PINN_PUBLIC_CHECKOUT: "1"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

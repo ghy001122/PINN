@@ -1,9 +1,11 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 
 import numpy as np
+import pytest
 
 from pinnpcm.audit.evidence_identity import assert_evidence_lock
 from scripts.audit_gamma_sub_calibration_protocol_cost_frontier import (
@@ -21,6 +23,29 @@ from scripts.audit_gamma_sub_calibration_protocol_cost_frontier import (
 
 def _portable_input_hashes(config: dict) -> dict[str, str]:
     """Verify exact assets or newline-equivalent tracked historical locks."""
+
+    missing = [str(item["path"]) for item in config["inputs"] if not Path(item["path"]).is_file()]
+    if missing:
+        manifest = json.loads(
+            Path("configs/local_replay_asset_manifest_v1.json").read_text(encoding="utf-8")
+        )
+        declared = {
+            str(record["path"]): str(record["sha256"]).upper()
+            for record in manifest["records"]
+            if record.get("required_for_local_replay") is True
+        }
+        expected = {str(item["path"]): str(item["sha256"]).upper() for item in config["inputs"]}
+        unexpected = [
+            path for path in missing if declared.get(path) != expected.get(path)
+        ]
+        if unexpected:
+            raise AssertionError(f"Undeclared missing CPCF inputs: {unexpected}")
+        if os.environ.get("PINN_PUBLIC_CHECKOUT") == "1":
+            pytest.skip(
+                "public checkout intentionally excludes exact local replay assets: "
+                + ", ".join(missing)
+            )
+        raise AssertionError(f"Required local replay assets are missing: {missing}")
 
     result: dict[str, str] = {}
     for item in config["inputs"]:
