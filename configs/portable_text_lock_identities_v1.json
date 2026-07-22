@@ -2,6 +2,18 @@
   "schema_version": "portable_text_lock_identities_v1",
   "records": [
     {
+      "path": "outputs/tables/full_pinn_single_seed_mve_v1.json",
+      "raw_sha256": "AAF73F795713F8B9C39541D55C25600F374EECF0406C042E3449A659F583C5A9",
+      "raw_byte_size": 4302,
+      "canonical_lf_sha256": "473874B9B2FE0B3D9619892A47B639D0FBBCB4FCD02A9E0301612ABA61FBEC5A",
+      "canonical_lf_byte_size": 4178,
+      "allowed_transformation": "line_endings_only",
+      "raw_bytes_observed_during_contract_creation": true,
+      "raw_hash_rewritten": false,
+      "evidence_role": "scientific_full_pinn_mve_artifact",
+      "reason": "The locked Windows worktree artifact contains mixed CRLF/LF endings. Git stores the exact same text as LF, so portable verification requires both the original raw identity and its canonical-LF identity."
+    },
+    {
       "path": "outputs/tables/gamma_sub_continuous_refinement_summary.json",
       "raw_sha256": "AC4DBEE30D0A6C7C969DEF2E8EA5EAC43E5C959813D423D9A253F5C63B436C00",
       "raw_byte_size": 46251,
