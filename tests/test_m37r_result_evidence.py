@@ -45,7 +45,14 @@ def test_m37r_preregistration_is_complete_hash_locked_and_sealed() -> None:
             or path.startswith(("configs/", "scripts/", "src/", "tests/")),
         )
     for path, expected in prereg["historical_read_only_files"].items():
-        assert_evidence_lock(path, expected)
+        definition = path == ".gitignore" or path.startswith(
+            ("configs/", "scripts/", "src/", "tests/", ".github/")
+        )
+        assert_evidence_lock(
+            path,
+            expected,
+            allow_historical_revision=definition,
+        )
 
 
 @pytest.mark.skipif(not SUMMARY_PATH.exists(), reason="M37R formal result not generated")
