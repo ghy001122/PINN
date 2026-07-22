@@ -19,6 +19,12 @@ jobs:
   full:
     runs-on: [self-hosted, windows, pinn-trusted-replay]
     timeout-minutes: 60
+    env:
+      # Preserve repository-local hermeticity when the sandbox account differs
+      # from the Windows worktree owner; do not mutate global Git config.
+      GIT_CONFIG_COUNT: "1"
+      GIT_CONFIG_KEY_0: safe.directory
+      GIT_CONFIG_VALUE_0: ${{ github.workspace }}
     steps:
       - uses: actions/checkout@v4
         with:

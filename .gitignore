@@ -348,6 +348,13 @@ outputs/pinn_inverse_v1_1_smoke/*
 !outputs/logs/submission_lock_governance.txt
 !outputs/logs/submission_lock_readiness.txt
 
+# M42 bounded dimensional-closure preflight (exact allowlist).
+!outputs/tables/m42_qiu_2d_preflight_summary.json
+!outputs/tables/m42_qiu_2d_preflight_cases.csv
+!outputs/figures/m42/
+outputs/figures/m42/*
+!outputs/figures/m42/qiu_scale_domain_mesh_preflight.png
+
 # Submission-v2 main figures are committed as immutable original bytes.
 !outputs/figures/pinn_identifiability/
 outputs/figures/pinn_identifiability/*

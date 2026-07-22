@@ -527,3 +527,50 @@ global-ledger violations in independently updated augmented-Lagrangian blocks.
 Mixed formulations and augmented Lagrangians are established components and
 carry no standalone novelty claim. Any trained claim remains conditional on
 the unchanged v3r port, field, PDE, interface, and conservation gates.
+
+## M42 Dimensional-Closure Preflight
+
+M42 does not solve a calibrated Qiu device. It audits scales and conservation
+with manufactured electrical/circuit cases and a linear unit-load thermal
+problem. The registered horizon and substrate diffusion length are
+
+$$
+t_h=3R_{\mathrm{load}}C,\qquad
+\ell_d=\sqrt{\alpha t_h},\qquad \alpha=\frac{k}{\rho c_p}.
+$$
+
+For a source-level series electrical comparator with unresolved contact split,
+
+$$
+I=\frac{V}{R_{\mathrm{tot}}},\qquad
+P_{\mathrm{port}}=VI=I^2R_{\mathrm{bulk}}+I^2R_{\mathrm{contact}}.
+$$
+
+The fixed-resistance RC manufactured case uses
+
+$$
+C\frac{dV_1}{dt}=\frac{V_{\mathrm{in}}-V_1}{R_{\mathrm{load}}}
+-\frac{V_1}{R_{\mathrm{device}}}.
+$$
+
+The finite-width substrate comparator solves the constant-property sensible-
+enthalpy equation
+
+$$
+\rho c_p\frac{\partial \theta}{\partial t}=\nabla\cdot(k\nabla\theta)+q,
+$$
+
+with an adiabatic source plane outside the registered isoflux footprint and
+far-field Dirichlet boundaries. Backward Euler and conservative face
+conductances give
+
+$$
+\frac{C_i}{\Delta t}(\theta_i^{n+1}-\theta_i^n)
++\sum_f G_{if}(\theta_i^{n+1}-\theta_f^{n+1})=Q_i.
+$$
+
+Boundary heat is recomputed through a separate face loop and compared with
+the assembled ledger. The unit load makes $\theta/P$ a thermal impedance; its
+absolute temperature is not a Qiu prediction. Latent heat is disabled because
+no source-locked local value exists, so switching enthalpy fails closed rather
+than treating the real latent heat as zero.

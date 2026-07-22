@@ -3,65 +3,62 @@
 ## Authoritative Current Snapshot
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
-- Active phase: `Q2_M42_HERMETIC_REPLAY_AND_QIU_2D_REFERENCE_FOUNDATION`.
-- Frozen GT v1.1 is unchanged and read-only.
-- The constrained `gamma_sub` result is the only positive inverse mainline:
-  calibration-gated, rank-1, synthetic, and `qualified_supported` only under
-  its locked priors/protocols.
-- Complete PINN contracts are `supported` implementation facts; every bounded
-  trained-forward route is `failed_but_informative`, so forward-accuracy,
-  sensitivity, and inverse claims remain `forbidden`.
-- No project-generated measurement, positive public-data fit, valid external
-  holdout, experimental validation, or 13 V evaluation exists.
-- M40/M40R establish a source-traceable 2D implementation and static numerical
-  checks, but the active dynamic bridge fails; M41 remains unauthorized.
-- A layered formula-only source audit separates printed Qiu S3/S4 from the
-  analytic tanh-anchor `atanh` inverse. G1 fidelity and G2 realized continuity
-  pass; this does not verify Qiu author code. Original E1F has no scientific
-  vote, while E1F-R remains a failed literal-S3 sensitivity.
-- Local replay is technically closed: assets `50/50`, portable locks `157/157`,
-  detached tests `440/440`, and sealed 13 V untouched. This changes no claim;
-  public replay still requires a lawful asset route.
-- M42 is preregistered but has not yet produced a scientific result. It first
-  rechecks replay hermeticity at its own detached HEAD, then decides whether
-  pure 2D, 2.5D/3D closure, or manuscript fallback is warranted.
+- Active phase: `Q2_M43_FINITE_WIDTH_THERMAL_SPREADING_CLOSURE` (planned,
+  bounded successor to M42 decision B).
+- Frozen GT v1.1 and all M40/M40R/E1F historical evidence are unchanged.
+- The sole positive inverse mainline is the synthetic, tight-`T_sw`-calibrated,
+  constrained `gamma_sub` rank-1 result (`qualified_supported`). It is not a material
+  constant or experimental estimate.
+- Complete PINN contracts exist, but every trained full-PINN route is
+  `failed_but_informative`; forward, sensitivity, and inverse success claims
+  remain `forbidden`.
+- No project measurement, independent external quantitative validation, valid
+  Qiu author-code reproduction, or Zhang 13 V evaluation exists.
+- Historical P0/P3 are qualified synthetic sub-results. P1 remains
+  `failed_but_informative` with field error `0.37563055753707886` and interface
+  residual `106.15460205078125`; P2 remains failed and P4 remains `forbidden`.
 
-## Current Gate Ledger
+## M42 closeout
 
-| Gate | Status | Direct boundary |
+M42 used a preregistered CPU-only dimensional-closure audit. A first detached
+replay abort was caused by Git owner/sandbox `safe.directory` rejection plus an
+incorrect guessed full SHA; it has no scientific vote. Process-local Git
+configuration then produced a clean detached replay with `442 passed` and
+external injection of all 50 assets.
+
+The pilot/formal audit consumed `22/40` forward calls across 11 unique
+manufactured or unit-load cases. It ran no claim-bearing device forward, curve
+fit, inverse, PINN, or sealed-data access.
+
+| M42 gate | Value | Limit | Result |
+| --- | ---: | ---: | --- |
+| current imbalance | `0` | `1e-6` | pass |
+| contact-power closure | `4.20e-17` | `1e-6` | pass |
+| smooth sensible-enthalpy ledger | `2.58e-14` | `1e-4` | pass; discrete bookkeeping only |
+| switching enthalpy | unassessed | `1e-3` | fail closed; no sourced latent heat |
+| finest-pair maximum | `0.13813` | `0.02` | fail |
+| domain sensitivity maximum | `0.84235` | `0.02` | fail |
+| source/local resistance error | `1.33023` | `0.01` | fail |
+| finite-width/x-z closure maximum | `0.67058` | `0.10` | fail |
+| time fine-pair maximum | `0.00886` | `0.02` | pass sub-result |
+
+Final status: `failed_but_informative`, decision **B**. Pure x-z extrusion and
+formal dynamic 2D GT are unauthorized. The result supports only the need for a
+bounded finite-width/2.5D or coarse-3D thermal-spreading closure.
+
+## Delivery distance
+
+| Deliverable | State | Gap |
 | --- | --- | --- |
-| `gamma_sub` inverse | `qualified_supported` | Target reduction plus tight `T_sw` calibration support the frozen synthetic rank-1 inverse; wide mismatch is retained as failure. `gamma_sub` is not a measured material constant. |
-| P0 / P3 | `qualified_supported` | Reduced synthetic semantics; P3 is a static pure-electrical three-parameter local-rank result, not arbitrary 2D field recovery. |
-| P1 / P2 | `failed_but_informative` | P1 retains `E_T=0.37563055753707886` and interface residual `106.15460205078125`; P2 full thermal/material identifiability remains unresolved. |
-| P4 | `forbidden` | No full STL reproduction or universal Fourier/F-SPS superiority. |
-| Full PINN N0/M33/M34 | Contracts `supported`; trained evidence `failed_but_informative` | Operator/manufactured checks pass, but port, field, PDE, interface, and independent ledger gates do not pass jointly. N1-N3 and SC-LOS are `forbidden`. |
-| M40 Qiu 2D E0 | `failed_but_informative` | Original E0 passes 12/14 checks but fails current/field mesh convergence. |
-| M40R bounded repair | Static numerical sub-result `supported`; overall `failed_but_informative` | All 14 original numerical checks pass, but the active run reaches `360.22494 K` after `0.0920339 R_load C` and current fine-pair NRMSE is `0.0342127 > 0.02`; M41 is `forbidden`. |
-| E1F source-contract amendment | Formula identity `supported`; historical E1F has no vote | G1/G2 pass over 4002 formula evaluations. The atanh term is source-supported as the configured tanh-anchor inverse, but full Qiu-author equivalence is unverified and Fig. 2b remains invalid. |
-| E1F-R correction | `failed_but_informative` | Literal-S3 solver parity worst NRMSE is `2.23216e-7`; clean 12 V SI current/voltage NRMSE are `0.353154/0.815643 > 0.10`, with favorable envelopes `0.320963/0.732598`. Coordinate preflight is blocked. |
-| Source-to-PDE bridge | mapping-refusal fact `supported` | Source/local resistance factor `2.330233`; source/local heat-capacity, conductance, and time-scale ratios `635.5145`, `206`, and `3.085022`. These reject direct transfer but identify no local parameter. |
-| D0/M35-M37R | provenance/parity facts mixed with `failed_but_informative` stop gates | M36 nominal parity passes; M37R stops when the first 15 V perturbation changes post-window event topology (`344 -> 343`). No Jacobian, fit lock, quotient, or 13 V access follows. |
-| SID/EC-OQ, CPCF, CEBA/SCIS | inactive or negative | SID derivative/geometry gates fail; CPCF frontier is `forbidden`; CEBA parity passes but deployable refusal does not; SCIS severe-mismatch refusal fails. |
-| Submission replay | implementation/reproducibility fact `supported` | Verified local pack `50/50`; portable locks `157/157`; continuous-refinement summary agrees with all 36 case rows; detached pytest `440 passed`; readiness is `CONTENT_GO_UPLOAD_NO_GO`. No scientific vote changes. |
+| Synthetic inverse mainline | locked/reproducible | manuscript integration and reviewer defense only |
+| Real-device structure | source-traceable geometry, failed local bridge | no calibrated local parameters or positive dynamic validation |
+| 2D/2.5D physics | M42 quantifies large closure errors | one final thermal-spreading closure or stop |
+| PINN | architecture scaffold plus negative training evidence | no positive neural claim |
+| Submission | content package assembled | journal template, declarations, visual QA, lawful archive route |
 
-Detailed paths are routed by
-`docs/project_state/current_evidence_index.md`; cumulative history remains in
-the registries and Git.
+## Single priority
 
-## Distance to Delivery Goal
-
-| Deliverable | Current state | Remaining gap |
-| --- | --- | --- |
-| Synthetic inverse mainline | Locked and reproducible | Integrate only supported/qualified claims, limitations, figures, and reviewer defense. |
-| Real/public anchor | Provenance and numerical-parity boundaries only | No positive external quantitative validation; do not rescue with unregistered fitting. |
-| Complete PINN | Full scaffold, failed trained routes | Retain as architecture/failure evidence; do not claim neural success. |
-| Integrated manuscript | v1 is immutable; v2, SI, references, captions, sentence-level audit, scope shortlist, and readiness record are assembled | Render and visually inspect only the selected journal version. |
-| Submission decision | Technical content package GO; journal upload NO-GO | Lock journal/article type, author metadata/declarations, template rendering, visual QA, and lawful public-asset/archive boundary. |
-
-## Current Single Priority
-
-Complete the M42 detached replay and dimensional-closure preflight without
-reopening M40R, inverse, or neural training. After the mandatory A/B/C decision,
-return immediately to journal selection, template rendering, declarations,
-visual QA, and the lawful asset route. Submission timing is controllable;
-journal acceptance is not.
+Preregister and run one low-cost M43 thermal-spreading closure using an
+independent analytical/series benchmark and a refined finite-width solver. If
+it cannot reduce domain and mesh uncertainty below locked limits without new
+unsourced parameters, terminate the 2D route and freeze the 1D manuscript.

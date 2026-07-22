@@ -2,6 +2,22 @@
 
 > Do not load by default. Current claim/evidence routing is `docs/project_state/current_evidence_index.md`; use this file only to trace a named historical run.
 
+## M42 hermetic replay and dimensional closure (2026-07-22)
+
+- Preregistration commit: `3474499636165f7477ceceff3cf85da8a5adba08`.
+- Corrected detached replay: `442 passed`; external assets only; clean status
+  before/after. The retained initial abort was an environment/control-input
+  error and has no scientific vote.
+- Eleven unique manufactured/unit-load cases were run once as a development
+  pilot and once formally (`22/40` calls). No device fit, inverse, PINN, or
+  sealed 13 V was executed.
+- Result: `failed_but_informative`, decision B. Source resistance, domain,
+  mesh, out-of-plane, and switching-enthalpy gates fail; only a bounded
+  finite-width/2.5D thermal-spreading closure is authorized.
+- Evidence: `outputs/tables/m42_qiu_2d_preflight_summary.json`,
+  `outputs/tables/m42_qiu_2d_preflight_cases.csv`, and
+  `docs/codex_reports/m42_qiu_2d_physics_foundation_preflight.md`.
+
 ## E1F/E1F-R Qiu author compact audit (2026-07-21)
 
 - Original task: `Q2_E1F_QIU_AUTHOR_MODEL_EXTERNAL_ANCHOR_AND_BRIDGE_AUDIT`;

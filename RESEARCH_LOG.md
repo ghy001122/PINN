@@ -2,6 +2,22 @@
 
 > Do not load by default. Use `PROJECT_STATE.md`, `NEXT_ACTIONS.md`, and the latest task report for current work.
 
+## M42 Hermetic Replay And Qiu Dimensional Closure
+
+Date: 2026-07-22
+
+- Committed the M42 source/evidence responsibility matrix and locked A/B/C
+  preflight. A corrected detached external-asset replay passed all 442 tests.
+- Ran 11 unique preflight cases in pilot and formal modes (22 calls total,
+  below the locked 40-call budget). Frozen GT and M40/M40R evidence hashes and
+  mtimes were unchanged.
+- Contact power and discrete sensible-enthalpy bookkeeping pass. Source/local
+  resistance error is 1.33023; domain, mesh, time, and finite-width/x-z maxima
+  are 0.84235, 0.13813, 0.00886, and 0.67058.
+- Closed M42 `failed_but_informative` with decision B. Formal 2D dynamic GT,
+  inverse, PINN, and external-validation claims remain forbidden. The next and
+  final research round is a bounded finite-source thermal-spreading closure.
+
 ## E1F Source Audit And Literal-S3 Corrective Vote
 
 Date: 2026-07-21

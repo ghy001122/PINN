@@ -1,67 +1,55 @@
 # Active Phase
 
-Active phase ID: `Q2_M42_HERMETIC_REPLAY_AND_QIU_2D_REFERENCE_FOUNDATION`
+Active phase ID: `Q2_M43_FINITE_WIDTH_THERMAL_SPREADING_CLOSURE`
 
-## Objective
+## Objective and manuscript use
 
-Execute one bounded, preregistered foundation audit requested after the
-submission-content lock: first prove a detached, externally asset-injected
-replay; then determine whether finite-width/domain physics permit a formal Qiu
-2D reference, require 2.5D/3D closure, or require return to the locked 1D
-manuscript. No inverse or neural training is authorized.
+Run one bounded thermal-only closure audit required by M42 decision B. The
+question is whether finite-source spreading can be represented by a converged,
+source-auditable 2.5D thermal impedance/kernel. A pass may support a physically
+meaningful reduction boundary; a failure terminates the 2D route and becomes a
+reviewer-defense limitation. It cannot validate Qiu dynamics or a PINN.
+The constrained `gamma_sub` mainline remains frozen and unchanged.
 
-This user-authorized round does not alter historical evidence or reopen M40R.
+## Upstream decision
 
-## Preserved submission state
+M42 passed its detached hermetic replay (`442 passed`, clean status, external
+asset injection) and consumed `22/40` preflight forward calls. Its result is
+`failed_but_informative`, decision B:
 
-Complete and lock the manuscript, supplement, reproducibility package, and
-reviewer-defense material from the current evidence. The constrained `gamma_sub`
-synthetic result is the only positive inverse mainline; the complete
-PINN remains a mandatory architecture scaffold with failed trained-forward
-evidence.
+- source/local resistance error `1.33023`;
+- domain sensitivity `0.84235`;
+- mesh fine-pair sensitivity `0.13813`;
+- time fine-pair sensitivity `0.00886`;
+- finite-width/x-z closure error `0.67058`;
+- smooth discrete enthalpy ledger `2.58e-14`;
+- switching enthalpy unassessed because latent heat is not source-locked.
 
-M40 remains closed `failed_but_informative`. The single versioned M40R repair
-passes every original numerical E0 gate, including main-current mesh change
-(`0.00592586 <= 0.01`) and repaired fixed-grid p99 change
-(`0.00847419 <= 0.02`). Its active transient nevertheless fails closed after
-leaving the locked Qiu R--T source domain at `360.22494 K`, only
-`0.0920339 R_load C` into the required `3 R_load C` horizon; current fine-pair
-NRMSE is also `0.0342127 > 0.02`. M41 remains unauthorized.
+Thus pure x-z quantitative modeling and formal dynamic GT are not authorized.
 
-## Evidence routing
+## Allowed M43 scope
 
-| Block | Status and boundary |
-| --- | --- |
-| M40 source contract | `supported` provenance/implementation fact: reported geometry/protocol and unresolved local 2D quantities are explicit. |
-| M40 formal E0 | `failed_but_informative`; 12/14 gates pass, two mesh gates fail. Historical result remains byte-for-byte unchanged. |
-| M40R bounded repair | `failed_but_informative`; 14/14 original numerical gates pass, but 3/11 active-transient gates fail. M41 is not authorized and manuscript fallback resumes. |
-| E1F/E1F-R compact anchor | The layered source-contract amendment passes formula-fidelity and tanh-anchor continuity gates. It supports `atanh` only as an analytic anchor inverse, not Qiu author code. Original E1F has no scientific vote. E1F-R remains `failed_but_informative`: literal-S3 parity passes, but clean 12 V setting traces fail; Fig. 2b remains invalid/unassessed. |
-| D0/M35-M37R | Provenance/parity sub-results stay locked; convergence, fit, and observability geometry remain failed or forbidden. No 13 V access. |
-| N0/M33/M34 | Architecture facts remain supported; every trained path and authorization gate remains `failed_but_informative`. |
-| Other extensions | SID/EC-OQ and SCIS failed; CPCF frontier and N1-N3 remain `forbidden`; Figure 5 supports only bundled conditional performance. |
+- analytic/series finite-source spreading benchmark;
+- conservative finite-width thermal FVM with registered geometry and material
+  priors;
+- domain, mesh, time, and boundary-condition convergence;
+- separation of spreading, one-dimensional, and contact/interface resistance;
+- a bounded comparison to a 2.5D thermal-impedance representation.
 
-Current report: `docs/codex_reports/source_contract_amendment_results.md`.
-Submission decision: `docs/manuscript/submission_go_no_go.md`.
+Before execution, lock the new budget and thresholds. M42 thresholds may not
+be retroactively changed. Use primary spreading-resistance literature only as
+an equation/benchmark source, not as device evidence.
 
-## Submission replay closure
+## Stop rule
 
-Without a new scientific run, local assets verify `50/50`, portable locks
-`157/157`, continuous-refinement rows `36/36`, detached tests `440/440`, and
-sealed 13 V remains untouched. Readiness is `CONTENT_GO_UPLOAD_NO_GO`; public
-asset routing remains open and no claim is upgraded.
+If closure requires unregistered geometry/material values, or independent-
+reference/domain/mesh errors remain above the new preregistered limits, select
+C, stop all 2D development, and return immediately to manuscript submission.
+No second repair round is allowed.
 
-## Single bottleneck
+## Forbidden
 
-Pass P0-A hermetic replay, then execute only the M42 formula/scale/domain/
-finite-width preflight under the locked 40-forward and 8-hour budget. The
-round must end in exactly A, B, or C as defined in
-`docs/research_strategy/m42_reference_and_2d_preregistration.md`.
-
-## Forbidden claims
-
-Qiu real-device calibrated, exact Qiu reproduction, complete active-transient
-E0 pass, M41
-authorization, experimental validation, M40 inverse/PINN fidelity,
-`gamma_eff`, completed public refit, 13 V evaluation, quotient recovery,
-protocol rank/rotation, full hidden-field recovery, full STL reproduction, and
-universal Fourier/F-SPS superiority.
+Qiu parameter fitting or author-code equivalence; M40/M40R rerun; lumped
+`Cth/Sth` as local PDE coefficients; unsourced latent heat; active hysteretic
+device forward; M41; inverse or PINN; Zhang 13 V; external-validation,
+experimental, arbitrary-field, or successful-neural claims.

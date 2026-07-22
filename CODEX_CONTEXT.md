@@ -1,60 +1,48 @@
 # Codex Context
 
-## Low-Token First Read
+## First read
 
-Read this file and `docs/research_strategy/active_phase.md` first. Load longer context through `docs/research_strategy/context_loading_policy.md`.
+Read this file with `docs/research_strategy/active_phase.md`, then use
+`docs/research_strategy/context_loading_policy.md` for deeper history.
 
-- Authoritative goal: `PROJECT_GOAL.md`
-- Phase ID: `Q2_M42_HERMETIC_REPLAY_AND_QIU_2D_REFERENCE_FOUNDATION`
-- Current evidence: `docs/project_state/current_evidence_index.md`
-- Safe historical evidence lock: `d1121e16fa5015a297da468e3e6f0504b9e97d17`
-- Current preregistration: `docs/research_strategy/m42_reference_and_2d_preregistration.md`
+- Goal: `PROJECT_GOAL.md`
+- Active phase: `Q2_M43_FINITE_WIDTH_THERMAL_SPREADING_CLOSURE`
+- Evidence router: `docs/project_state/current_evidence_index.md`
+- Safe inverse lock: `docs/paper/gamma_sub_evidence_lock.md`
+- M42 result: `outputs/tables/m42_qiu_2d_preflight_summary.json`
 
-## Corrected North Star
+## Current scientific position
 
-A complete phase-transition PINN remains an indispensable scaffold; an independent solver is the reference judge. Positive PINN claims are evidence-gated. The public-data quotient hypothesis remains untested.
+The only positive inverse mainline is the frozen, synthetic, calibration-gated
+constrained `gamma_sub` rank-1 result (`qualified_supported`). Complete PINN architecture
+contracts are implementation facts; all trained full-PINN routes fail joint
+field/PDE/interface/ledger gates. Experimental validation, exact Qiu-author
+reproduction, and terminal-only 2D inverse remain `forbidden`.
 
-The calibration-gated constrained `gamma_sub` rank-1 result is the safe `qualified_supported` inverse mainline. D0 is a reality/identifiability bridge, not a substitute for PINN contribution or experimental validation.
+M42 closed `failed_but_informative` with decision **B**. Its detached external-
+asset replay passed (`442 passed`, clean before/after). Eleven unique bounded
+preflight cases were executed once as a development pilot and once formally
+(`22/40` forward-call budget; no device fit, inverse, PINN, or sealed 13 V).
+The source/local resistance error is `1.33023`; domain, mesh, time, and finite-
+width/x-z maxima are `0.84235`, `0.13813`, `0.00886`, and `0.67058`.
+Consequently pure x-z 2D cannot be quantitative and formal dynamic GT is not
+authorized. Only a one-round finite-width/thermal-spreading closure is allowed.
 
-## Single Active Bottleneck
+## Compact gate snapshot
 
-`Q2_M42_HERMETIC_REPLAY_AND_QIU_2D_REFERENCE_FOUNDATION`: first prove a
-detached, externally asset-injected replay at HEAD, then execute one
-40-forward/8-hour maximum Qiu dimensional-closure preflight. The only outcomes
-are A (formal 2D reference authorized), B (only 2.5D/3D closure authorized), or
-C (stop 2D and return to the locked 1D manuscript). No inverse or PINN is
-authorized.
-
-## Evidence Snapshot
-
-| Block | Current boundary |
+| Block | Boundary |
 | --- | --- |
-| M40 Qiu 2D E0 | `failed_but_informative`; 12/14 formal gates pass, but both mesh gates fail. Current/energy/interface/reduced checks pass. M41 is not authorized. |
-| E1F/E1F-R Qiu compact anchor | Original E1F has no scientific vote. The atanh term is supported only as the analytic inverse of the configured tanh anchor; full Qiu-author equivalence is unverified. E1F-R is `failed_but_informative`: parity passes (`2.23216e-7` worst NRMSE), but literal-S3 12 V setting current/voltage errors are `0.353154/0.815643`. Fig. 2b is invalid/unassessed. |
-| Frozen/P0-P4 | GT unchanged; P0/P3 qualified, P1/P2 failed, P4 forbidden. |
-| D0/M35-M37R | D0a/M35 remain failed. M36 nominal solver parity passes; M37R reproduces full/post counts `0/216/381/4` and `0/196/344/0`, then stops on 15 V perturbation topology (`343` vs `344`, common prefix `0`). No Jacobian, fit, lock, or 13 V access. |
-| N0 v1-v3r | Operator audits pass, trained paths fail. v3r port `0.0955475` passes but physics/field/flux/ledger gates fail; strong-Wolfe becomes non-finite. |
-| M33/M34 | M33 training fails. M34's preregistered authorization gate fails; M34-A shows stable parity in `32/32` non-voting post-hoc directions and does not support an autograd error. No training is authorized. |
-| SID/EC-OQ | `failed_but_informative`; derivative `3/9`, event-window, stability, and geometry gates fail; inactive. |
-| CPCF | Frontier `forbidden`; 48 proxy votes are non-equivalent, non-voting diagnostics. |
-| CEBA/SCIS | CEBA parity `supported` but abstention is oracle/grid-dependent; SCIS nominal coverage `0.93233` passes while severe-mismatch refusal fails. |
-| Figure 5 | Bundled performance `qualified_supported`; isolated protocol gain/optimality `forbidden`. |
-| N1-N3 | Unrun; reliable full-PINN forward, sensitivity, and inverse claims `forbidden`. |
+| Frozen GT / `gamma_sub` | GT unchanged; rank-1 inverse is synthetic and calibration-qualified only. |
+| M40/M40R | Static numerics partly pass; active source bridge fails. Closed/read-only. |
+| E1F/E1F-R | Formula identity/parity facts only; source curves fail and no author code/raw holdout exists. |
+| M42 | Hermetic replay passes; contact/discrete enthalpy bookkeeping passes; source mapping, domain, mesh, switching-enthalpy, and out-of-plane gates fail. Decision B. |
+| Full PINN / N1-N3 | Trained forward, sensitivity, and inverse claims remain forbidden. |
+| Submission | Technical content exists; journal/template/declarations/public asset route remain open. |
 
-## Evidence Semantics
+## Operating rule
 
-Keep `public_external_raw`, `derived`, `interpolated`, `solver_generated`, `pinn_predicted`, and `synthetic_gt` distinct. Zhang Methods states source parameters were optimized against experimental results, so 13 V can at most become a `repository-withheld, preregistered cross-voltage evaluation`; it cannot be called an independent external holdout.
-
-## Operating Rule
-
-Do not rerun or rescue E1F/E1F-R or M40/M40R. M42 may read their locked
-artifacts and run only its newly preregistered manufactured and finite-width
-preflight. Run no M41, inverse network, PINN training, holdout refit, M38, or
-Zhang sealed-13-V access. Preserve all negative artifacts and use only `supported`,
-`qualified_supported`, `failed_but_informative`, or `forbidden`.
-
-The Qiu SI does not publish a complete executable reversal update, numerical
-initial-condition contract, integrator, tolerances, author code, or raw arrays.
-Therefore exact author-code reproduction remains `forbidden`; E1F can support
-only a source-equation-constrained reimplementation. Do not describe the
-historical `atanh` term as an unreferenced insertion.
+M43 may test only analytic/finite-width thermal spreading closure with a strict
+one-day budget. It must not refit Qiu, localize lumped `Cth/Sth`, add unsourced
+latent heat, run inverse/PINN, access Zhang 13 V, or reopen M40/M40R. If domain
+and mesh closure cannot pass without unregistered assumptions, select C and
+return immediately to the locked 1D manuscript/submission route.

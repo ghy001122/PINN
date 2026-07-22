@@ -2,6 +2,13 @@
 
 > Do not load by default. The authoritative manuscript list is `docs/paper/final_figure_list.md`.
 
+## M42 dimensional-closure diagnostic (2026-07-22)
+
+- `outputs/figures/m42/qiu_scale_domain_mesh_preflight.png`: solver-generated
+  unit-load domain/mesh/time and finite-width-vs-x-z diagnostic. It supports
+  decision B only; it is not experimental data, a Qiu fit, a formal device
+  field, or a positive manuscript main figure.
+
 ## E1F Qiu compact-model and bridge diagnostics (2026-07-21)
 
 - `outputs/figures/e1f/qiu_author_model_and_holdout.png`: a non-voting

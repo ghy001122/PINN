@@ -2,49 +2,41 @@
 
 ## Authoritative Current Queue
 
-Exactly one bottleneck is active:
-`Q2_M42_HERMETIC_REPLAY_AND_QIU_2D_REFERENCE_FOUNDATION`. The constrained `gamma_sub`
-result remains the only positive rank-1 inverse mainline; M42 is a
-non-neural solver preflight and cannot upgrade it.
+`Q2_M43_FINITE_WIDTH_THERMAL_SPREADING_CLOSURE` is the only research task.
+M42 decision B allows a final thermal-only closure audit; it does not authorize
+formal Qiu dynamics, inverse identification, or PINN training.
+The constrained `gamma_sub` mainline stays locked and is not rerun.
 
-### Priority - hermetic replay, then bounded dimensional-closure decision
+### Bounded M43 package (one day maximum)
 
-1. Commit the M42 preregistration and hermetic replay contract.
-2. In a detached checkout, inject all 50 assets only from an explicit external
-   read-only root; prove HEAD/root/import/status identity and run the single
-   full replay.
-3. Only after P0-A passes, run the formula, contact-power, total-enthalpy,
-   diffusion-length, domain, mesh/time, and finite-width preflight.
-4. End with decision A, B, or C. No PINN, inverse, M41, curve fit, or parameter
-   search is allowed.
+1. Preregister an isoflux finite-source thermal-spreading benchmark, domain and
+   mesh ladder, evidence roles, fixed gates, and a strict CPU-call budget.
+2. Compare the conservative finite-width FVM with an independent analytical or
+   converged series reference for a finite source on a finite/half-space body.
+3. Separate spreading resistance, one-dimensional resistance, finite-domain
+   truncation, and transient storage; do not use Qiu lumped `Cth/Sth` locally.
+4. Test only geometry/material ranges already source-registered. No curve fit,
+   latent-heat insertion, hysteretic dynamic, inverse, or neural model.
+5. If domain, mesh, and independent-reference gates pass, retain a 2.5D thermal
+   impedance/kernel as a later model component. Otherwise choose C and stop 2D.
 
-The journal-upload items remain queued after this one bounded round.
+The relevant physical basis is finite-source thermal spreading, not another
+network architecture. Jain (2024, DOI `10.1016/j.ijheatmasstransfer.2023.124946`)
+provides a finite-thickness spreading-resistance reference and explicitly
+separates total and one-dimensional resistance. Its steady/isothermal scope is
+only a benchmark boundary, not a Qiu transient validation.
 
-Execution order:
+## Submission queue after M43
 
-1. choose one scope-compatible journal and article type from current official
-   information; do not infer quartile or format from memory;
-2. add author metadata, competing-interest/funding/ethics/AI-use declarations,
-   and the final data/code availability wording;
-3. render manuscript v2 and SI in the selected template and visually inspect
-   every page, equation, citation, figure, and table;
-4. create a lawful public archive for redistributable assets and an explicit
-   restricted-asset acquisition route for third-party PDFs;
-5. rerun only the affected readiness checks, then upload. Do not reopen science.
+Select the target journal/article type from official sources; add author and
+funding/conflict/AI-use declarations; render and visually inspect manuscript
+and SI; publish redistributable assets and document restricted third-party
+asset acquisition. Do not reopen science to fix formatting or scope concerns.
 
-Current go/no-go: `docs/manuscript/submission_go_no_go.md` (technical content
-package GO; journal upload NO-GO until the five items above are closed).
+## Locked prohibitions
 
-### Locked boundaries
-
-- No E1F/E1F-R rescue/refit, further M40/M40R repair/rerun, threshold change, M41,
-  inverse network, PINN, `gamma_eff`, M38, holdout fit,
-  parameter search, or Zhang sealed 13 V access.
-- No real-device calibration, exact Qiu reproduction, project experimental
-  validation, or full hidden-field wording.
-- The source omits a complete executable reversal/initial-condition contract;
-  exact author-code reproduction remains `forbidden`. The atanh term is not
-  an unreferenced insertion, but neither is it verified Qiu author code. Fig. 2b is
-  `implementation_contract_invalid/unassessed` because legend pixels
-  contaminated the extraction; it has no holdout vote and is not independent.
-- P1, M33/M34, M35-M37R, and frozen GT remain closed/read-only.
+No M40/M40R/E1F rescue, Qiu refit, Zhang 13 V, M41, `gamma_eff` claim, device
+dynamic GT, inverse/PINN, STL/Fourier/F-SPS expansion, threshold relaxation,
+or transfer of NbO2/NbOx parameters into VO2. Exact Qiu reproduction,
+experimental validation, arbitrary 2D field recovery, and successful trained
+full-PINN wording remain `forbidden`.

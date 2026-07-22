@@ -1,0 +1,201 @@
+{
+  "allowed_claims": [
+    "M42 measured dimensional-closure errors for a source-constrained manufactured/unit-load preflight.",
+    "The result selects only the preregistered A/B/C routing decision."
+  ],
+  "artifact_sha256": {
+    "cases": "6CB805737E3727FA6BFADB06702697CB64CA0F1FFDE3CB62DEF3C3274D81D7EF",
+    "figure": "95AD35E34412417258CA52D607A4802C306EA4A2A1C2706FD190964EC6A665AD"
+  },
+  "base_commit": "a3095e1928c305ade13a1549cd950c9412a449ad",
+  "claim_bearing_device_forward_runs": 0,
+  "curve_fit_runs": 0,
+  "decision": "B",
+  "diagnostics": {
+    "circuit_I_fine_pair_change": 0.0014843454636774185,
+    "contact_power_imbalance": 4.202493841322213e-17,
+    "domain_changes": {
+      "Qout": 0.8423533466521732,
+      "Tmax": 0.1624113625150317,
+      "Tmean": 0.1683918553144117
+    },
+    "domain_sensitivity_max": 0.8423533466521732,
+    "maximum_smooth_enthalpy_imbalance": 2.5757174171304294e-14,
+    "mesh_changes": {
+      "Qout": 0.006780812896967836,
+      "Tmax": 0.11989654280939174,
+      "Tmean": 0.13812905763956299
+    },
+    "mesh_fine_pair_max": 0.13812905763956299,
+    "out_of_plane_changes": {
+      "Qout": 0.25058213268448,
+      "Tmax": 0.5871158089086619,
+      "Tmean": 0.6705793985868671
+    },
+    "out_of_plane_closure_max": 0.6705793985868671,
+    "source_resistance_mapping_error": 1.330233207545514,
+    "time_changes": {
+      "Qout": 0.008856827199146036,
+      "Tmax": 1.3109121207608242e-05,
+      "Tmean": 1.3950697234751626e-05
+    },
+    "time_fine_pair_max": 0.008856827199146036
+  },
+  "evidence_type": "solver_generated_manufactured_and_unit_load_preflight",
+  "execution_class": "bounded_solver_preflight",
+  "external_validation": false,
+  "forbidden_claims": [
+    "calibrated Qiu device reproduction",
+    "independent external validation",
+    "formal 2D dynamic ground truth unless decision A",
+    "terminal-only 2D inverse",
+    "trained 2D PINN"
+  ],
+  "forward_accounting": {
+    "development_pilot_attempts": 1,
+    "development_pilot_forward_solves": 11,
+    "formal_attempts": 1,
+    "formal_preflight_forward_solves": 11,
+    "manufactured_circuit_forwards": 6,
+    "maximum_forward_solves": 40,
+    "preflight_forward_solves": 22,
+    "total_forward_solves": 22,
+    "unique_preflight_case_count": 11,
+    "unit_load_thermal_forwards": 16,
+    "wall_clock_s": 2.5836731999879703
+  },
+  "gate_pass_count": 5,
+  "gate_total_count": 10,
+  "gates": {
+    "contact_power_closure": {
+      "passed": true,
+      "relation": "max",
+      "threshold": 1e-06,
+      "value": 4.202493841322213e-17
+    },
+    "domain_sensitivity": {
+      "passed": false,
+      "relation": "max",
+      "threshold": 0.02,
+      "value": 0.8423533466521732
+    },
+    "dynamic_duration_Rload_C": {
+      "passed": true,
+      "relation": "min",
+      "threshold": 3.0,
+      "value": 3.0
+    },
+    "finest_pair_I_Tmean_Tmax_Qout": {
+      "passed": false,
+      "relation": "max",
+      "threshold": 0.02,
+      "value": 0.13812905763956299
+    },
+    "no_clip_nan_or_unregistered_extrapolation": {
+      "passed": true,
+      "relation": "equal",
+      "threshold": true,
+      "value": true
+    },
+    "pure_2d_out_of_plane_closure": {
+      "passed": false,
+      "relation": "max",
+      "threshold": 0.1,
+      "value": 0.6705793985868671
+    },
+    "relative_current_imbalance": {
+      "passed": true,
+      "relation": "max",
+      "threshold": 1e-06,
+      "value": 0.0
+    },
+    "smooth_enthalpy_imbalance": {
+      "passed": true,
+      "relation": "max",
+      "threshold": 0.0001,
+      "value": 2.5757174171304294e-14
+    },
+    "switching_enthalpy_imbalance": {
+      "passed": false,
+      "relation": "max",
+      "threshold": 0.001,
+      "value": null
+    },
+    "uniform_2d_source_resistance": {
+      "passed": false,
+      "relation": "max",
+      "threshold": 0.01,
+      "value": 1.330233207545514
+    }
+  },
+  "geometry_audit": {
+    "computed_active_volume_m3": 4.999999999999999e-21,
+    "computed_footprint_area_m2": 4.9999999999999995e-14,
+    "finite_width_m": 5e-07,
+    "relative_active_volume_error": 1.504632769052528e-16,
+    "relative_footprint_error": 1.262177448353619e-16,
+    "reported_active_volume_m3": 5e-21,
+    "reported_footprint_area_m2": 5e-14
+  },
+  "hermetic_replay": {
+    "artifact_sha256": "6FCF9A8000728652F526A2255C27843BE87C3516979344CC9B8A99B37186D162",
+    "environment_only_abort_retained": true,
+    "initial_aborted_attempt": {
+      "artifact_sha256": "99387B7A4B20D62D1F0FA43DF24CD672CBE95AD96D7A80EED0EBCBCF31BBF885",
+      "expected_commit_was_incorrect": true,
+      "failures": [
+        "actual_git_root_is_requested_root",
+        "actual_head_matches_expected"
+      ],
+      "git_safe_directory_rejected_owner_mismatch": true,
+      "scientific_vote": false,
+      "status": "fail"
+    },
+    "passed": true,
+    "pytest_log_sha256": "F3EE7A1CB6BA35EA13511352AC42450F8C52EED9332B41021F05676C8DC600D3",
+    "pytest_passed": 442
+  },
+  "highest_risk_assumptions": [
+    "Qiu device-level resistance does not uniquely determine local conductivity or contact partition.",
+    "Constant-property sapphire and zero registered latent heat are numerical preflight closures, not real-device calibration.",
+    "The x-z extrusion suppresses finite-width spreading and cannot be quantitative unless the explicit closure gate passes."
+  ],
+  "inverse_runs": 0,
+  "metadata_correction": {
+    "reason": "correct replay-key interpretation and binary floating comparison only",
+    "scientific_forward_runs": 0
+  },
+  "pinn_training_runs": 0,
+  "preregistration_commit": "3474499636165f7477ceceff3cf85da8a5adba08",
+  "protected_evidence_mtime_unchanged": true,
+  "protected_evidence_sha256": {
+    "configs/gt_v1_acceptance_ltp_ltd.yaml": "F1F71F21F1D0D27532EEAD23A3A4B71B0864E6B0966E564104DCFFD7040C1D93",
+    "configs/gt_v1_acceptance_triangle.yaml": "F2E6BEC6006827344BEBDDCF20519B5B87F923B349A8799596D06E9F254A2B02",
+    "data/processed/gt_v1_acceptance/gt_ltp_ltd.npz": "772D17178C77392BF8A0813ADA3DB4A7241C5FA4E6D72E091894271BFA13C247",
+    "data/processed/gt_v1_acceptance/gt_triangle.npz": "4E4814D9C66A79CBE86417296B0A797E53FFFF2CEE2BD881548FBCD35E05C9F8",
+    "data/processed/gt_v1_acceptance/manifest.json": "634554429B9E61A231E47BF35B9B5C66C1C316E5E11A86BDE0540B05FF5AE30F",
+    "data/processed/gt_v1_acceptance/obs_ltp_ltd_sparse.npz": "7155BFF7C406FAB49E9670FA8A73AB6D0063459A80FEB705138E3FE61A351645",
+    "data/processed/gt_v1_acceptance/obs_triangle_sparse.npz": "F45DAF53136A255B3666EBEB56E6298CE148A613C46FA596B795E7ADE68EA602",
+    "data/processed/gt_v1_acceptance/params_gt_v1.json": "1020E9B07466C8F3474762702AA354CF6A6B73DA26DEB31D3F75C7E54521D9FA",
+    "docs/gt_v1_acceptance_report.md": "0F72718AFFB84F727771F8D4A1A16AFB9D7C0D15BD7984632B3BEB8155F91643",
+    "outputs/tables/e1f_source_to_pde_bridge_mismatch.csv": "F7B20F1956FA74601FF9E483A31F9A724F7B8BB749D3699D6B05C40BEEFD1231",
+    "outputs/tables/m40_qiu_e0_summary.json": "5B0E2B8B2C4AE073B137163CCF95CD98317E390928D8A57AE3C181A72AEAAAF7",
+    "outputs/tables/m40r_qiu_active_transient.json": "666BDC0783BA5625E7B8B11251358CC35591C81DEB282D8B96808B7C9BC41F0C",
+    "outputs/tables/m40r_qiu_e0_summary.json": "3333B463D74F6FC54B9E50BAFE0E4F37A4A22D141E9CDD5791E42E91DBFFBF2E"
+  },
+  "protected_evidence_unchanged": true,
+  "runtime_head": "3474499636165f7477ceceff3cf85da8a5adba08",
+  "scale_audit": {
+    "Rload_C_s": 1.7399999999999999e-06,
+    "duration_Rload_C": 2.9999999999999996,
+    "duration_s": 5.219999999999999e-06,
+    "sapphire_diffusion_length_m": 7.803845206050667e-06,
+    "unit_load_role": "linear_normalization_not_a_Qiu_device_temperature_prediction",
+    "unit_thermal_load_W": 1.0
+  },
+  "schema_version": "m42_qiu_2d_preflight_v1",
+  "scientific_forward_runs": 0,
+  "sealed_13V_accessed": false,
+  "status": "failed_but_informative",
+  "task_id": "Q2_M42_HERMETIC_REPLAY_AND_QIU_2D_REFERENCE_FOUNDATION"
+}
