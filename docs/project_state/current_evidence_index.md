@@ -23,15 +23,17 @@ No item above is experimental evidence or a measured material constant.
 | Source-to-PDE mapping | refusal fact `supported`; no local calibration | `outputs/tables/e1f_source_to_pde_bridge_mismatch.csv` |
 | M40/M40R | static implementation/numerical subfacts; active bridge `failed_but_informative` | `outputs/tables/m40r_qiu_e0_summary.json`; `outputs/tables/m40r_qiu_active_transient.json` |
 | M42 foundation | `failed_but_informative`, decision B; no claim upgrade | `outputs/tables/m42_qiu_2d_preflight_summary.json`; `outputs/tables/m42_qiu_2d_preflight_cases.csv`; `outputs/figures/m42/qiu_scale_domain_mesh_preflight.png`; `docs/codex_reports/m42_qiu_2d_physics_foundation_preflight.md` |
-| M43 finite-width thermal component | manufactured/component-only `qualified_supported`; no device claim | `outputs/tables/m43_finite_width_thermal_spreading_summary.json`; `outputs/tables/m43_execution_receipt.json`; `outputs/tables/m43_finite_width_thermal_spreading_cases.csv`; `outputs/tables/m43_transient_green_reference.csv`; `outputs/tables/m43_figure_postprocessing_manifest.json`; `outputs/figures/m43/m43_thermal_spreading_closure.png`; `docs/codex_reports/m43_finite_width_thermal_spreading_closure.md` |
+| M43 finite-width thermal component | manufactured/component-only `qualified_supported`; no device claim | `outputs/tables/m43_finite_width_thermal_spreading_summary.json`; `outputs/tables/m43_execution_receipt.json`; `outputs/tables/m43_finite_width_thermal_spreading_cases.csv`; `outputs/tables/m43_transient_green_reference.csv`; `outputs/tables/m43_figure_postprocessing_manifest.json`; `outputs/tables/m43_postcommit_attestation.json`; `outputs/figures/m43/m43_thermal_spreading_closure.png`; `docs/codex_reports/m43_finite_width_thermal_spreading_closure.md` |
+| Classic reproduction closeout | formula/code/curve/validation responsibility locked; no new run | `outputs/tables/m44_classic_reproduction_closeout.json`; `docs/literature/m44_classic_reproduction_closeout_matrix.md` |
 
 M42 replay passed `442` tests, but its source/local resistance mismatch remains
 `1.33023` and switching enthalpy remains unresolved/unassessed. M43 executed 15
 unique thermal-only PDE forwards and passed `21/21` gates for a manufactured
 finite-source homogeneous-half-space component. It does not repair the Qiu
-source bridge or authorize device dynamics. Only a bounded M44 comparison of
-one-RC, two-RC, and causal-kernel reductions with an explicit validity/refusal
-map is authorized.
+source bridge or authorize device dynamics. Only the preregistered M44
+heterogeneous 3D thermal-only geometry/source-nuisance bridge is authorized.
+The one-RC/two-RC/causal-kernel validity/refusal comparison is deferred to
+conditional M45.
 
 ## Neural and high-risk boundaries
 
@@ -55,5 +57,6 @@ holdout, full STL reproduction, and universal Fourier/F-SPS superiority remain
 - Manuscript: `docs/manuscript/main_submission_v2.md` and
   `docs/manuscript/supplementary_information_v1.md`.
 
-After the one-round M44 decision, only journal/template/declaration/visual-QA
-and lawful archive work may delay submission.
+After the one-round M44 decision, M45 is allowed only when M44 numerical gates
+authorize a source-aware validity/refusal audit; otherwise only journal,
+template, declaration, visual-QA, and lawful archive work may delay submission.

@@ -1,0 +1,111 @@
+{
+  "schema_version": "m44_classic_reproduction_closeout_v1",
+  "task_id": "Q2_M44_QIU_HETEROGENEOUS_3D_THERMAL_BRIDGE_AND_REPRODUCTION_CLOSEOUT",
+  "closeout_date": "2026-07-23",
+  "no_new_reproduction_runs": true,
+  "entries": [
+    {
+      "source_id": "yovanovich_muzychka_culham_1999",
+      "source": "Yovanovich, Muzychka and Culham, DOI 10.2514/2.6467",
+      "reproduction_object": "steady rectangular isoflux half-space Eq. 21",
+      "formula_identity": "supported",
+      "author_code_behavior_parity": "forbidden",
+      "numerical_convergence": "qualified_supported",
+      "literature_curve_agreement": "not_applicable",
+      "independent_validation": "forbidden",
+      "missing_assets": ["author executable code", "independent experiment used by this repository"],
+      "allowed_claim": "positive mathematical formula reproduction and independent-reference component check",
+      "forbidden_claim": "experimental or real-device validation",
+      "final_status": "qualified_supported"
+    },
+    {
+      "source_id": "yovanovich_1997_transient",
+      "source": "Yovanovich transient half-space Green-function reference, DOI 10.2514/6.1997-2458",
+      "reproduction_object": "transient point-source kernel and rectangular area average",
+      "formula_identity": "supported",
+      "author_code_behavior_parity": "forbidden",
+      "numerical_convergence": "qualified_supported",
+      "literature_curve_agreement": "not_applicable",
+      "independent_validation": "forbidden",
+      "missing_assets": ["author executable code", "device data"],
+      "allowed_claim": "positive mathematical reference implementation",
+      "forbidden_claim": "Qiu-device or experimental validation",
+      "final_status": "qualified_supported"
+    },
+    {
+      "source_id": "qiu_2024",
+      "source": "Qiu et al., DOI 10.1002/adma.202306818",
+      "reproduction_object": "printed S1-S4 compact model and SI Fig. S1 setting curve",
+      "formula_identity": "supported",
+      "author_code_behavior_parity": "forbidden",
+      "numerical_convergence": "supported",
+      "literature_curve_agreement": "failed_but_informative",
+      "independent_validation": "forbidden",
+      "missing_assets": ["author code", "raw numeric arrays", "complete reversal update", "numeric initial conditions", "event deadband"],
+      "allowed_claim": "source-equation-constrained reimplementation with dual-solver parity and failed source-curve agreement",
+      "forbidden_claim": "exact author-code reproduction, quantitative external validation, or parameter refit",
+      "final_status": "failed_but_informative",
+      "locked_metrics": {
+        "dual_solver_worst_nrmse": 2.23216159e-7,
+        "si_s1_current_nrmse": 0.353154,
+        "si_s1_voltage_nrmse": 0.815643,
+        "historical_atanh_e1f_scientific_vote": false
+      }
+    },
+    {
+      "source_id": "zhang_2024",
+      "source": "Zhang et al., DOI 10.1038/s41467-024-51254-4; Zenodo 10.5281/zenodo.13119587",
+      "reproduction_object": "nominal author-code discrete behavior and event-resolved continuous reference",
+      "formula_identity": "supported",
+      "author_code_behavior_parity": "supported",
+      "numerical_convergence": "failed_but_informative",
+      "literature_curve_agreement": "failed_but_informative",
+      "independent_validation": "forbidden",
+      "missing_assets": ["independent experimental holdout", "stable common event topology near all perturbations"],
+      "allowed_claim": "nominal discrete author-code behavior parity with failed source-curve agreement and conditional event-resolved numerical boundaries",
+      "forbidden_claim": "independent physical validation, public inverse success, or sealed 13 V access",
+      "final_status": "failed_but_informative",
+      "locked_metrics": {
+        "nominal_current_nrmse": 4.55e-14,
+        "nominal_temperature_nrmse": 1.45e-14,
+        "nominal_voltage_nrmse": 9.36e-15,
+        "rt_nrmse": 4.86e-16,
+        "event_counts": [32, 32],
+        "author_code_to_experiment_11V_nrmse": 0.446114,
+        "time_step_convergence_nrmse": 0.163148,
+        "perturbed_event_count_change": [344, 343]
+      }
+    },
+    {
+      "source_id": "chen_2025",
+      "source": "Chen et al., DOI 10.1002/adfm.202423800",
+      "reproduction_object": "future NbO2 cross-model trend reference",
+      "formula_identity": "forbidden",
+      "author_code_behavior_parity": "forbidden",
+      "numerical_convergence": "forbidden",
+      "literature_curve_agreement": "forbidden",
+      "independent_validation": "forbidden",
+      "missing_assets": ["complete executable dynamic contract", "public raw arrays"],
+      "allowed_claim": "background or future cross-model trend context only",
+      "forbidden_claim": "transfer of NbO2 parameters to Qiu VO2",
+      "final_status": "forbidden",
+      "execution_fact": "not_run"
+    },
+    {
+      "source_id": "liu_2024",
+      "source": "Liu et al., DOI 10.1109/LED.2024.3362829",
+      "reproduction_object": "future NbOx geometry-family context",
+      "formula_identity": "forbidden",
+      "author_code_behavior_parity": "forbidden",
+      "numerical_convergence": "forbidden",
+      "literature_curve_agreement": "forbidden",
+      "independent_validation": "forbidden",
+      "missing_assets": ["matching material model", "executable source model", "public raw arrays"],
+      "allowed_claim": "future geometry-family context only",
+      "forbidden_claim": "transfer of NbOx parameters to Qiu VO2",
+      "final_status": "forbidden",
+      "execution_fact": "not_run"
+    }
+  ],
+  "terminal_rule": "No further Qiu or Zhang reproduction rescue is authorized unless genuinely new author code or raw data become available."
+}

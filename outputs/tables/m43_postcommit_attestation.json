@@ -1,0 +1,61 @@
+{
+  "schema_version": "m43_postcommit_attestation_v1",
+  "task_id": "Q2_M43_FINITE_WIDTH_THERMAL_SPREADING_CLOSURE",
+  "attestation_date": "2026-07-23",
+  "attested_remote_branch": "research/m43-finite-width-thermal-closure",
+  "attested_remote_head": "e433fe900cb4376b5e1d5cfe81333e527f5454a5",
+  "preregistration_commit": "a1f229a25b4392422af3ced7e354ada0b5605365",
+  "m42_result_ancestor": "0dc103f391d1206fe02c100987ecab68ed1d741d",
+  "status": "qualified_supported",
+  "decision": "M43_THERMAL_CLOSURE_GO_COMPONENT_ONLY",
+  "evidence_boundary": "manufactured_homogeneous_isotropic_half_space_component_only",
+  "artifact_sha256": {
+    "outputs/tables/m43_finite_width_thermal_spreading_summary.json": "A3CD3BAEAF3A498DF908B85C3E97DB14FC23EE01A56F849B3B84A716381B62DF",
+    "outputs/tables/m43_execution_receipt.json": "E1886381C1CE6B763A71DDF0295856ED0A9067E3F0A1C81EFDFC97F3A7251941",
+    "outputs/tables/m43_finite_width_thermal_spreading_cases.csv": "8BFE801696BD68606D910768681253FA6F4A5BBCEFBDCCF8A87744266F9DF42B",
+    "outputs/tables/m43_transient_green_reference.csv": "4E23DCF04A5B7547C3178A163AEFFE1B24B95A31A0978AC0F612AFF36F188A76",
+    "outputs/tables/m43_final_validation.json": "EA8A96C052DC68347EDCB79768F2A36CEBEE132B850970ADC7A913E0BA661570",
+    "outputs/figures/m43/m43_thermal_spreading_closure.png": "A42CE3ECD3F3FE169F89B89D376AB25517023B08136C4B067E77B4D9EAB1A4A5",
+    "docs/codex_reports/m43_finite_width_thermal_spreading_closure.md": "B08D6A670B73FDB6341F816D6C209A7A74727331CD759B5B869711B7BACA1D51"
+  },
+  "newline_portability": {
+    "outputs/tables/m43_finite_width_thermal_spreading_cases.csv": {
+      "runtime_crlf_sha256": "C31D231A323F1D990C1B5D9031F0AE3865F26246056FC2A486BC194939458A11",
+      "committed_lf_sha256": "8BFE801696BD68606D910768681253FA6F4A5BBCEFBDCCF8A87744266F9DF42B",
+      "canonical_lf_equivalent": true
+    },
+    "outputs/tables/m43_transient_green_reference.csv": {
+      "runtime_crlf_sha256": "991D6B9E272F46E100D3F9070ED525B507DED3AF6E728686C527007B95DFF31B",
+      "committed_lf_sha256": "4E23DCF04A5B7547C3178A163AEFFE1B24B95A31A0978AC0F612AFF36F188A76",
+      "canonical_lf_equivalent": true
+    }
+  },
+  "execution": {
+    "unique_thermal_pde_forwards": 15,
+    "scientific_or_contract_gates": 19,
+    "budget_gates": 2,
+    "total_gates": 21,
+    "targeted_tests_passed": 52,
+    "targeted_tests_failed": 0,
+    "full_suite_passed": 497,
+    "full_suite_failed": 2,
+    "full_suite_rerun_on_final_head": false,
+    "postcommit_identity_tests_passed": 6,
+    "postcommit_identity_tests_failed": 0,
+    "formal_transient_comparison_Fo_A_min": 0.1,
+    "formal_transient_comparison_Fo_A_max": 1218.0
+  },
+  "governance": {
+    "status": "pass_with_manual_review",
+    "failed_checks": 0,
+    "final_result_json_self_binds_final_head": false,
+    "attestation_is_additive": true,
+    "frozen_m43_artifacts_rewritten": false
+  },
+  "clarifications": [
+    "The 21 gates comprise 19 scientific or contract gates and 2 budget gates.",
+    "The early sqrt(t) limit checks the Green reference; formal 3D-to-Green comparison starts at Fo_A=0.1.",
+    "The complete suite was not rerun after the final visualization amendment.",
+    "M43 is not Qiu-device, inverse, PINN, phase-change-enthalpy, or experimental validation."
+  ]
+}

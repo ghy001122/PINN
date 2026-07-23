@@ -2,36 +2,46 @@
 
 ## Authoritative Current Queue
 
-`Q2_M44_THERMAL_REDUCTION_VALIDITY_AND_REFUSAL` is the only research task.
-M43 is `qualified_supported` for its manufactured homogeneous-half-space
-thermal-spreading component only. It authorizes a bounded reduction comparison;
-it does not authorize Qiu dynamics, inverse identification, or PINN training.
-The constrained `gamma_sub` mainline stays locked and is not rerun.
+`Q2_M44_QIU_HETEROGENEOUS_3D_THERMAL_BRIDGE_AND_REPRODUCTION_CLOSEOUT` is the
+only research task. M43 is `qualified_supported` for its manufactured
+homogeneous-half-space thermal-spreading component only. The latest research
+instruction requires one bounded heterogeneous 3D thermal-only bridge before
+any reduction comparison. It does not authorize Qiu dynamics, inverse
+identification, or PINN training. The constrained `gamma_sub` mainline stays
+locked and is not rerun.
 
 ### Bounded M44 package (one round)
 
-1. Before evaluating formal results, preregister a matched comparison of a
-   one-RC response, a positive two-RC response, and a causal thermal kernel
-   against the locked M43 steady/transient reference artifacts.
-2. Freeze fit/calibration and held-out time/Fourier-number regimes, normalization,
-   complexity accounting, physical admissibility checks, error gates, and the
-   refusal rule. Random time-point splits may not substitute for held-out
-   physical regimes.
-3. Report short- and long-time behavior, waveform and energy errors, causality,
-   passivity/positivity, parameter stability, complexity, and runtime under the
-   same component-level evidence contract.
-4. Produce an explicit validity map: one-RC sufficient, two-RC or kernel memory
-   required, or reject/abstain. A more flexible model wins only if it improves a
-   held-out physical regime under the locked complexity and admissibility rules.
-5. Stop after the preregistered comparison. Failure to establish a stable
-   reduced domain becomes a `failed_but_informative` refusal boundary and sends
-   the project directly to submission work.
+1. Additively attest the final M43 commit and close the Qiu/Zhang/Yovanovich/
+   Chen/Liu reproduction-responsibility matrix without new reproduction runs.
+2. Before any formal thermal forward, freeze Qiu-reported dimensions, all
+   literature-derived and engineering-prior material/source assumptions, the
+   31-case one-factor matrix, convergence gates, source envelope, and terminal
+   decision.
+3. Verify the new conservative 3D thermal FVM against both the M43 homogeneous
+   half-space component and an independently assembled layered 1D reference.
+4. Compare equal-power bulk, end-localized engineering-prior, and mixed source
+   families; report VO2-volume-mean impedance, source mean, Tmax, power/energy
+   ledgers, and matched x-z bias with provenance.
+5. Stop with exactly one result: robust within the registered family,
+   conditional/abstain because source location dominates, or stop the real-
+   geometry upgrade because an independent-reference/provenance/convergence
+   gate fails. There is no M44 repair round.
 
 M44 must preserve M42's `1.33023` source/local resistance mismatch and the
-unresolved/unassessed phase-change latent heat. The M43 component cannot be
-relabelled as a Qiu device model or an experimental anchor.
+unresolved/unassessed phase-change latent heat. The M43 component and the M44
+geometry family cannot be relabelled as a calibrated Qiu device or an
+experimental anchor. The prior 1-RC/2-RC/kernel task is deferred to M45 only if
+M44 authorizes a source-aware validity/refusal audit.
 
-## Submission queue after M44
+## Conditional queue after M44
+
+If M44 numerical gates pass, M45 may compare 1-RC, positive 2-RC, and a causal
+passive thermal kernel across the M43/M44 source family while carrying source
+nuisance or abstention. If M44 stops the upgrade, skip M45 and return directly
+to submission.
+
+## Submission queue
 
 Select the target journal/article type from official sources; add author and
 funding/conflict/AI-use declarations; render and visually inspect manuscript
@@ -40,9 +50,10 @@ asset acquisition. Do not reopen science to fix formatting or scope concerns.
 
 ## Locked prohibitions
 
-No M40/M40R/E1F rescue, Qiu refit or device coupling, Zhang 13 V, M41,
-`gamma_eff` or new `gamma_sub` claim, device dynamic GT, inverse/PINN,
-STL/Fourier/F-SPS expansion, threshold relaxation, unsourced latent heat, or
-transfer of NbO2/NbOx parameters into VO2. Exact Qiu reproduction,
+No M40/M40R/E1F/M43 rescue, Qiu refit, local electrical/Joule-map inference or
+device coupling, Zhang 13 V, M41, RC/kernel fitting during M44, `gamma_eff` or
+new `gamma_sub` claim, device dynamic GT, inverse/PINN, STL/Fourier/F-SPS
+expansion, threshold relaxation, unsourced latent heat, or transfer of
+NbO2/NbOx parameters into VO2. Exact Qiu reproduction,
 experimental validation, arbitrary 2D field recovery, and successful trained
 full-PINN wording remain `forbidden`.

@@ -6,7 +6,7 @@ Read this file with `docs/research_strategy/active_phase.md`, then use
 `docs/research_strategy/context_loading_policy.md` for deeper history.
 
 - Goal: `PROJECT_GOAL.md`
-- Active phase: `Q2_M44_THERMAL_REDUCTION_VALIDITY_AND_REFUSAL`
+- Active phase: `Q2_M44_QIU_HETEROGENEOUS_3D_THERMAL_BRIDGE_AND_REPRODUCTION_CLOSEOUT`
 - Evidence router: `docs/project_state/current_evidence_index.md`
 - Safe inverse lock: `docs/paper/gamma_sub_evidence_lock.md`
 - M42 result: `outputs/tables/m42_qiu_2d_preflight_summary.json`
@@ -46,9 +46,11 @@ device bridge or authorize pure x-z quantitative use.
 
 ## Operating rule
 
-M44 may compare only one-RC, positive two-RC, and a causal/passive thermal
-kernel against the locked M43 component evidence. It must preregister held-out
-physical regimes and an explicit refusal rule. It must not refit Qiu, localize
-lumped `Cth/Sth`, add unsourced latent heat, run inverse/PINN, access Zhang
-13 V, or reopen M40/M40R. Failure to establish a stable reduced validity domain
-returns immediately to the locked one-dimensional manuscript/submission route.
+M44 may run only the preregistered constant-property heterogeneous 3D thermal-
+only bridge and matched x-z comparator after additive M43 attestation and
+classic-reproduction closeout. It must preserve unresolved local Joule-source,
+electrode-overlap, material, TBR, substrate, and latent-heat quantities as
+explicit nuisance assumptions. It must not refit Qiu, localize lumped
+`Cth/Sth`, run RC/kernel fitting, inverse/PINN, access Zhang 13 V, or reopen
+M40/M40R/M43. Numerical success supports at most a literature-scale-constrained
+thermal family; source dominance requires conditional/abstention wording.

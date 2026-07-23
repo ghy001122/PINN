@@ -3,8 +3,9 @@
 ## Authoritative Current Snapshot
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
-- Active phase: `Q2_M44_THERMAL_REDUCTION_VALIDITY_AND_REFUSAL` (planned,
-  bounded successor to the M43 component-only GO decision).
+- Active phase:
+  `Q2_M44_QIU_HETEROGENEOUS_3D_THERMAL_BRIDGE_AND_REPRODUCTION_CLOSEOUT`
+  (preregistered successor to the M43 component-only GO decision).
 - Frozen GT v1.1 and all M40/M40R/E1F historical evidence are unchanged.
 - The sole positive inverse mainline is the synthetic, tight-`T_sw`-calibrated,
   constrained `gamma_sub` rank-1 result (`qualified_supported`). It is not a material
@@ -65,11 +66,12 @@ conservative quarter-domain finite-volume solver.
 
 Final status: `qualified_supported`, decision
 `M43_THERMAL_CLOSURE_GO_COMPONENT_ONLY`. This supports only the manufactured
-finite-width thermal-spreading component and authorizes a bounded M44 reduction
-comparison. It does not repair M42's `1.33023` source/local resistance mismatch,
-resolve phase-change latent heat, validate a Qiu device, establish
-`gamma_sub/gamma_eff`, or authorize device dynamics, inverse identification, or
-PINN training.
+finite-width thermal-spreading component. The latest research instruction
+routes M44 first through a source-graded heterogeneous 3D thermal-only bridge;
+the prior reduction comparison is deferred to conditional M45. M43 does not
+repair M42's `1.33023` source/local resistance mismatch, resolve phase-change
+latent heat, validate a Qiu device, establish `gamma_sub/gamma_eff`, or
+authorize device dynamics, inverse identification, or PINN training.
 
 ## Delivery distance
 
@@ -77,14 +79,16 @@ PINN training.
 | --- | --- | --- |
 | Synthetic inverse mainline | locked/reproducible | manuscript integration and reviewer defense only |
 | Real-device structure | source-traceable geometry, failed local bridge | no calibrated local parameters or positive dynamic validation |
-| Thermal component physics | M43 finite-source homogeneous-half-space closure is `qualified_supported` | compare 1-RC/2-RC/kernel reductions and map validity/refusal; no device claim |
+| Thermal component physics | M43 finite-source homogeneous-half-space closure is `qualified_supported` | test heterogeneous finite-width source/material nuisance before any reduction; no device claim |
 | PINN | architecture scaffold plus negative training evidence | no positive neural claim |
 | Submission | content package assembled | journal template, declarations, visual QA, lawful archive route |
 
 ## Single priority
 
-Preregister and run one bounded M44 component-level comparison of a one-RC,
-two-RC, and causal thermal-kernel reduction against the locked M43 reference.
-Map where a scalar thermal coordinate is sufficient, where additional memory is
-required, and where the model must abstain. M44 cannot use Qiu device curves,
-repair M42, run inverse identification, or train a PINN.
+Preregister and run one bounded M44 heterogeneous 3D thermal-only bridge using
+Qiu-reported dimensions and explicitly graded material, geometry, and source
+nuisance assumptions. Independently recover homogeneous and layered limits,
+quantify matched x-z error and source-location envelope, and close the classic-
+reproduction responsibility. M44 cannot use Qiu device curves, repair M42's
+electrical localization, fit an RC/kernel, run inverse identification, or train
+a PINN.

@@ -1,0 +1,231 @@
+task_id: Q2_M44_QIU_HETEROGENEOUS_3D_THERMAL_BRIDGE_AND_REPRODUCTION_CLOSEOUT
+schema_version: m44_qiu_heterogeneous_3d_thermal_v1
+base_commit: e433fe900cb4376b5e1d5cfe81333e527f5454a5
+required_ancestors:
+  - a1f229a25b4392422af3ced7e354ada0b5605365
+  - 0dc103f391d1206fe02c100987ecab68ed1d741d
+namespace: m44_qiu_heterogeneous_3d_thermal
+run_class: bounded_heterogeneous_thermal_component_bridge
+
+budget:
+  cpu_only: true
+  maximum_unique_thermal_forwards: 32
+  preregistered_unique_thermal_forwards: 31
+  maximum_cpu_time_s: 43200
+  maximum_formal_attempts: 1
+  no_parameter_search: true
+  no_rescue_round: true
+  identical_case_rerun_forbidden: true
+
+evidence_boundary:
+  evidence_type: external_literature_scale_anchored_engineering_prior_solver_generated
+  qiu_device_validation: false
+  external_validation: false
+  electrical_forward_runs: 0
+  inverse_runs: 0
+  pinn_training_runs: 0
+  sealed_13V_accessed: false
+  latent_heat_status: outside_validated_scope_unresolved
+  m42_source_local_resistance_error: 1.330233207545514
+
+sources:
+  qiu_2024:
+    doi: 10.1002/adma.202306818
+    manifest: data/external/qiu_2024_thermal_neuristor/manifest.json
+  layered_reference_method:
+    doi: 10.1016/j.ijthermalsci.2014.02.007
+    role: primary_multilayer_reference_locator_independent_modal_1d_implementation
+  vo2_thermal_conductivity:
+    doi: 10.7567/JJAP.54.053201
+    role: primary_literature_range_not_Qiu_device_measurement
+  sapphire_thermal_conductivity:
+    doi: 10.1038/s42005-020-0383-6
+    role: non_orientation_matched_primary_literature_bracket
+  m43_locked:
+    summary: outputs/tables/m43_finite_width_thermal_spreading_summary.json
+    transient: outputs/tables/m43_transient_green_reference.csv
+
+geometry:
+  coordinate_contract: x_is_reported_100nm_current_path_y_is_reported_500nm_width
+  vo2_full_x_m: 1.0e-7
+  vo2_full_y_m: 5.0e-7
+  vo2_thickness_m: 1.0e-7
+  ti_thickness_m: 1.5e-8
+  au_thickness_m: 4.0e-8
+  full_power_W: 1.0e-6
+  quarter_power_W: 2.5e-7
+  xz_half_domain_power_W: 5.0e-7
+  contact_support_fraction_of_half_x: 0.20
+  contact_support_fraction_preregistered_bounds: [0.10, 0.30]
+  contact_support_provenance: engineering-prior
+  contact_support_axis: x_literature_derived_not_Qiu_reported
+  alternate_axis_status: unassessed_non_voting
+  reported_geometry_provenance:
+    footprint: Qiu_main_Fig1_and_supporting_information_device_fabrication
+    vo2_thickness: Qiu_main_and_supporting_information
+    ti_au_thickness: Qiu_supporting_information_device_fabrication
+    substrate: Qiu_reported_012_Al2O3
+  unresolved:
+    - electrode_overlap_beyond_locked_source_support
+    - exact_contact_length
+    - substrate_physical_thickness
+    - remote_boundary_condition
+
+materials:
+  vo2:
+    thermal_conductivity_W_mK: 4.0
+    mass_density_kg_m3: null
+    specific_heat_J_kgK: null
+    volumetric_heat_capacity_J_m3K: 3.07e6
+    provenance: Qiu_SI_quoted_capacity_at_336K_and_primary_literature_derived_locked_k_branch
+    voting: true
+  ti:
+    thermal_conductivity_W_mK: 21.9
+    mass_density_kg_m3: null
+    specific_heat_J_kgK: null
+    volumetric_heat_capacity_J_m3K: 2.35e6
+    provenance: engineering-prior_not_reported_by_Qiu
+    voting: true
+  au:
+    thermal_conductivity_W_mK: 317.0
+    mass_density_kg_m3: null
+    specific_heat_J_kgK: null
+    volumetric_heat_capacity_J_m3K: 2.49e6
+    provenance: engineering-prior_not_reported_by_Qiu
+    voting: true
+  al2o3:
+    thermal_conductivity_W_mK: 35.0
+    mass_density_kg_m3: null
+    specific_heat_J_kgK: null
+    volumetric_heat_capacity_J_m3K: 3.0e6
+    thermal_diffusivity_m2_s: 1.1666666666666667e-5
+    provenance: non_orientation_matched_primary_literature_k_bracket_and_engineering_prior_capacity_inherited_from_M43
+    voting: true
+
+interfaces:
+  voting_thermal_boundary_resistance_m2K_W: 0.0
+  voting_contract: perfect_contact
+  nonzero_TBR: non_voting_not_executed
+
+boundary_contract:
+  symmetry_x0_y0: zero_flux
+  exposed_top_and_material_sides: zero_flux
+  far_x_y_bottom: fixed_T0
+  material_face_conductance: harmonic_series_resistance
+  source_and_material_interfaces_face_aligned: true
+
+time:
+  source_area_m2: 5.0e-14
+  maximum_time_s: 5.22e-6
+  maximum_diffusion_length_m: 7.803845206050667e-6
+  output_Fo_A: [0.1, 0.3, 1.0, 3.0, 10.0, 30.0, 100.0, 300.0, 1218.0]
+  output_times_s: [4.285714285714286e-10, 1.2857142857142857e-9, 4.285714285714286e-9, 1.2857142857142858e-8, 4.285714285714286e-8, 1.2857142857142858e-7, 4.285714285714286e-7, 1.2857142857142857e-6, 5.22e-6]
+  base_backward_euler_substeps_per_interval: 4
+  fine_backward_euler_substeps_per_interval: 8
+
+grid:
+  domain_multipliers_of_maximum_diffusion_length:
+    D2: 4.0
+    D3: 6.0
+  outer_cell_growth_ratio: 1.35
+  mesh_profiles:
+    M1: {vo2_half_x_cells: 4, vo2_half_y_cells: 6, vo2_z_cells: 3, substrate_near_cells: 3}
+    M2: {vo2_half_x_cells: 10, vo2_half_y_cells: 10, vo2_z_cells: 4, substrate_near_cells: 4}
+    M3: {vo2_half_x_cells: 15, vo2_half_y_cells: 15, vo2_z_cells: 6, substrate_near_cells: 6}
+  mesh_pair: [M2D2, M3D2]
+  domain_pair: [M3D2, M3D3]
+  time_pair: [M3D2_base, M3D2_fine]
+
+layered_reference:
+  stack_top_to_bottom: [au, ti, vo2, al2o3]
+  substrate_reference_depth_m: 3.121538082420267e-5
+  bottom_temperature: fixed_T0
+  top_input: unit_step_isoflux
+  steady_reference: sum_L_over_k
+  transient_reference: independent_exact_modal_1d_finite_element
+  reference_mesh_elements_per_layer_base: [16, 8, 8, 96]
+  reference_mesh_elements_per_layer_fine: [32, 16, 16, 192]
+  self_refinement_change_max: 0.002
+  single_slab_analytic_series_terms: 400
+  comparison_times_s: [1.0e-10, 3.0e-10, 1.0e-9, 3.0e-9, 1.0e-8, 3.0e-8, 1.0e-7, 3.0e-7, 1.0e-6]
+
+source_families:
+  - {id: S_bulk, kind: uniform_vo2_volume, weight_bulk: 1.0, weight_contact: 0.0, voting: true}
+  - {id: S_contact, kind: symmetric_vo2_end_volume, weight_bulk: 0.0, weight_contact: 1.0, voting: true}
+  - {id: S_mixed, kind: fifty_fifty_bulk_contact, weight_bulk: 0.5, weight_contact: 0.5, voting: true}
+  - {id: S_surface_anchor, kind: full_footprint_surface_isoflux, voting: false, role: homogeneous_solver_anchor_only}
+
+reference:
+  m43_steady_R_ref_K_W: 52158.95646368626
+  m43_rho5_dimensionless_theta: 0.40820840300889083
+  homogeneous_steady_comparator: M43_Eq21_rho5
+  homogeneous_transient_comparator: M43_locked_Green_reference
+  main_heterogeneous_observable: vo2_volume_mean_temperature_over_full_power
+  source_envelope_normalization: m43_steady_R_ref_K_W
+  xz_bias_definition: abs_Zxz_minus_Z3d_over_m43_R_ref
+
+forward_matrix:
+  fixed_cases:
+    - {id: homogeneous_steady_M3D3, mode: homogeneous, kind: steady, mesh: M3, domain: D3}
+    - {id: homogeneous_transient_M3D3, mode: homogeneous, kind: transient, mesh: M3, domain: D3, time: base}
+    - {id: layered1d_steady, mode: layered1d, kind: steady}
+    - {id: layered1d_transient, mode: layered1d, kind: transient, time: reference}
+  heterogeneous_3d_templates:
+    source_ids: [S_bulk, S_contact, S_mixed]
+    cases:
+      - {suffix: steady_M2D2, kind: steady, mesh: M2, domain: D2}
+      - {suffix: transient_M2D2_base, kind: transient, mesh: M2, domain: D2, time: base}
+      - {suffix: steady_M3D2, kind: steady, mesh: M3, domain: D2}
+      - {suffix: transient_M3D2_base, kind: transient, mesh: M3, domain: D2, time: base}
+      - {suffix: transient_M3D3_base, kind: transient, mesh: M3, domain: D3, time: base}
+      - {suffix: transient_M3D2_fine, kind: transient, mesh: M3, domain: D2, time: fine}
+  xz_templates:
+    source_ids: [S_bulk, S_contact, S_mixed]
+    cases:
+      - {suffix: xz_transient_M2D2, kind: transient, mesh: M2, domain: D2, time: base}
+      - {suffix: xz_transient_M3D2, kind: transient, mesh: M3, domain: D2, time: base}
+      - {suffix: xz_transient_M3D3, kind: transient, mesh: M3, domain: D3, time: base}
+
+gates:
+  homogeneous_steady_recovery_error_max: 0.02
+  homogeneous_transient_recovery_error_max: 0.02
+  layered_1d_steady_reference_error_max: 0.02
+  layered_1d_transient_reference_error_max: 0.02
+  source_geometry_integration_error_max: 1.0e-10
+  source_power_integration_error_max: 1.0e-10
+  steady_normalized_power_imbalance_max: 1.0e-6
+  transient_normalized_sensible_energy_imbalance_max: 1.0e-4
+  zth_mesh_pair_change_max: 0.02
+  zth_domain_pair_change_max: 0.02
+  zth_time_pair_change_max: 0.02
+  vo2_mean_temperature_pair_change_max: 0.02
+  vo2_tmax_pair_change_max: 0.05
+  xz_bias_mesh_pair_absolute_change_max: 0.02
+  xz_bias_domain_pair_absolute_change_max: 0.02
+  causal_positive_monotone_finite_steady_required: true
+  missing_voting_provenance_allowed: false
+  finite_nan_clip_negative_property_unit_source_smearing_error: false
+
+source_envelope:
+  robust_max: 0.05
+  conditional_max: 0.15
+  above_conditional: source_location_dominated_conditional_or_abstain
+
+decision:
+  all_gates_pass_and_source_envelope_le_0p05: M44_HET3D_GO_ROBUST
+  all_gates_pass_and_source_envelope_gt_0p05: M44_HET3D_GO_CONDITIONAL_OR_ABSTAIN
+  any_gate_fails: M44_STOP_REAL_GEOMETRY_UPGRADE
+  threshold_change_after_results: forbidden
+  repair_round: forbidden
+  unique_Qiu_device_kernel_claim: forbidden_for_all_outcomes
+
+outputs:
+  summary: outputs/tables/m44_qiu_heterogeneous_3d_thermal_summary.json
+  cases: outputs/tables/m44_qiu_heterogeneous_3d_thermal_cases.csv
+  layered_reference: outputs/tables/m44_layered_modal_reference.csv
+  provenance: outputs/tables/m44_geometry_material_source_provenance.csv
+  execution_receipt: outputs/tables/m44_execution_receipt.json
+  final_validation: outputs/tables/m44_final_validation.json
+  full_test_log: outputs/logs/m44_full_pytest.txt
+  figure: outputs/figures/m44/m44_qiu_heterogeneous_3d_thermal_bridge.png
+  report: docs/codex_reports/m44_qiu_heterogeneous_3d_thermal_bridge.md

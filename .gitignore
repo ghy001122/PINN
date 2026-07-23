@@ -385,3 +385,17 @@ outputs/figures/m43/*
 !outputs/figures/m43/m43_thermal_spreading_closure.png
 !outputs/logs/m43_full_pytest.txt
 !outputs/logs/m43_postcommit_identity_tests.txt
+
+# M44 heterogeneous 3D thermal bridge and reproduction closeout (exact allowlist).
+!outputs/tables/m43_postcommit_attestation.json
+!outputs/tables/m44_classic_reproduction_closeout.json
+!outputs/tables/m44_qiu_heterogeneous_3d_thermal_summary.json
+!outputs/tables/m44_qiu_heterogeneous_3d_thermal_cases.csv
+!outputs/tables/m44_layered_modal_reference.csv
+!outputs/tables/m44_geometry_material_source_provenance.csv
+!outputs/tables/m44_execution_receipt.json
+!outputs/tables/m44_final_validation.json
+!outputs/figures/m44/
+outputs/figures/m44/*
+!outputs/figures/m44/m44_qiu_heterogeneous_3d_thermal_bridge.png
+!outputs/logs/m44_full_pytest.txt

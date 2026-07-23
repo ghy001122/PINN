@@ -67,6 +67,19 @@ def _sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest().upper()
 
 
+def _portable_text_sha256_variants(path: Path) -> set[str]:
+    """Return exact LF/CRLF byte identities without changing the artifact."""
+
+    raw = path.read_bytes()
+    canonical_lf = raw.replace(b"\r\n", b"\n")
+    runtime_crlf = canonical_lf.replace(b"\n", b"\r\n")
+    return {
+        hashlib.sha256(raw).hexdigest().upper(),
+        hashlib.sha256(canonical_lf).hexdigest().upper(),
+        hashlib.sha256(runtime_crlf).hexdigest().upper(),
+    }
+
+
 def _summary() -> dict:
     return json.loads(SUMMARY.read_text(encoding="utf-8"))
 
@@ -168,7 +181,11 @@ def test_m43_result_receipt_cases_and_hashes_are_consistent() -> None:
     assert set(summary["artifact_sha256"]) == set(output_paths)
     for key, path in output_paths.items():
         assert path.is_file() and path.stat().st_size > 0
-        assert summary["artifact_sha256"][key] == _sha256(path)
+        expected = summary["artifact_sha256"][key]
+        if path.suffix.lower() == ".csv":
+            assert expected in _portable_text_sha256_variants(path)
+        else:
+            assert expected == _sha256(path)
 
     postprocessing = json.loads(POSTPROCESSING.read_text(encoding="utf-8"))
     amendment = summary["visualization_only_amendment"]
@@ -197,8 +214,16 @@ def test_m43_result_receipt_cases_and_hashes_are_consistent() -> None:
     for relative, record in summary["protected_evidence"].items():
         path = ROOT / relative
         assert path.is_file()
-        assert _sha256(path) == record["sha256"]
-        assert path.stat().st_size == record["bytes"]
+        if path.suffix.lower() in {".csv", ".json", ".md", ".txt", ".yaml", ".yml"}:
+            assert record["sha256"] in _portable_text_sha256_variants(path)
+            canonical_lf = path.read_bytes().replace(b"\r\n", b"\n")
+            assert record["bytes"] in {
+                path.stat().st_size,
+                len(canonical_lf.replace(b"\n", b"\r\n")),
+            }
+        else:
+            assert _sha256(path) == record["sha256"]
+            assert path.stat().st_size == record["bytes"]
 
     assert REPORT.is_file() and REPORT.stat().st_size > 0
     report = REPORT.read_text(encoding="utf-8")
