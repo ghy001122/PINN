@@ -25,10 +25,21 @@ The [Nature Communications article](https://www.nature.com/articles/s41467-024-5
 | Jurj, *IEEE Access* (2026), DOI `10.1109/ACCESS.2026.3658220` | Supports physics-regularized surrogate comparisons, variability/noise tests, and digitized external curves; its literature-calibrated synthetic evidence must not be relabeled experimental. |
 | Li et al., *Nature* 652, 643–650 (2026), user Drive | Supports material-specific composable emulators when only device outputs are needed; also warns that a PINN is not automatically the best surrogate when terminal outputs suffice. |
 
-## Consequences For Planning
+## Consequences For The Active GeoPhase Route
 
-1. Separate VO2 hysteretic and NbO2 Poole–Frenkel kernels.
-2. Keep numerical solvers as the trusted forward reference.
-3. Require a measurable neural advantage—amortized inverse speed, uncertainty, assimilation, or within-family OOD—before making a neural architecture a main claim.
-4. Treat full STL, universal Fourier/F-SPS superiority, and arbitrary 2D field recovery as `forbidden` until their exact gates pass.
-5. Use the Nature source-data package for the first external fit/holdout audit; use Chen/Qiu/Liu primarily for mechanism, topology, and reviewer-defense positioning.
+1. Use Qiu as the primary source for coplanar x-y geometry, circuit topology,
+   and VO2 hysteresis motivation, not as proof of local 2.5D fields or exact
+   author-code reproduction.
+2. Use Chen only for a separate SnSe/NbO2 Poole--Frenkel/electrothermal kernel
+   and cross-model numerical trend test; do not share VO2 parameters or state
+   semantics.
+3. Keep the independent numerical solver as the trusted forward and sensitivity
+   judge. A PINN trajectory cannot authorize inverse use until its derivative
+   subspace agrees with that solver.
+4. Require a measurable neural advantage in field/port/ledger fidelity,
+   transition-regime success, within-family OOD, or inverse/refusal performance.
+5. Treat full STL, universal Fourier superiority, exact Qiu reproduction,
+   zero-shot material transfer, and terminal-only arbitrary 2D field recovery
+   as `forbidden` until their exact gates pass.
+6. Any future digitized literature curve needs a preregistered fit/holdout split
+   and remains external `derived` data, not project experimental validation.

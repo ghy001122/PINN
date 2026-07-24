@@ -2,18 +2,27 @@
 
 A reproducible Python 3.11 research codebase for sparse-observation inverse identification, identifiability audits, and physics-informed digital twins of oxide memristive and phase-transition devices.
 
-The project contains two connected lines:
+The selected research line is `GeoPhase-OQ-PINN`: a Qiu-inspired coplanar VO2
+device resolved in the true x-y plane, a passive K-state reduction of vertical
+thermal transport, a phase-transition-localized PINN, stiffness homotopy, and
+solver-gated observation-quotient inversion. A Chen-inspired SnSe/NbO2 device
+is reserved for material-specific cross-model numerical validation.
 
-- main manuscript: calibration-gated constrained `gamma_sub` inversion on a frozen 1D synthetic benchmark;
-- extension: VO2/NbO2 multilayer OASIS models, segmented terminals, stiffness audits, and strict neural-solver claim gates.
-
-The historical frozen benchmark is Nb/NbOx/V2O5/Ni-inspired. It is not the whole current scope, and it is not a fabricated-device replica.
+The historical frozen Nb/NbOx/V2O5/Ni-inspired 1D benchmark, constrained
+`gamma_sub` inverse, complete-PINN failures, and M40/M40R source bridge remain
+read-only baselines and reviewer-defense evidence. They are not the intended
+final structure and are not fabricated-device replicas.
 
 ## Evidence Boundary
 
 All repository Ground Truth and model outputs are synthetic numerical digital-twin evidence unless a provenance-backed external or experimental dataset is explicitly identified. Experimental validation is currently absent. Literature-guided and engineering priors are not measured material parameters.
 
-Current high-risk claims such as full 2D hidden-field recovery, terminal-only 2D inverse solved, full STL reproduction, universal F-SPS/Fourier superiority, and device-grade FEM/3D reproduction are not established.
+The GeoPhase route is currently a preregistered research design. No positive
+2.5D reference, GeoPhase training, architecture benefit, geometry
+generalization, sensitivity fidelity, observation quotient, refusal, or
+cross-model result exists yet. Full 2D hidden-field recovery, terminal-only
+raw-parameter inverse, full STL reproduction, universal Fourier superiority,
+and device-grade FEM/3D reproduction remain unestablished.
 
 ## Goal And Context
 
@@ -24,6 +33,7 @@ The persistent delivery target is a complete, reproducible, ethically bounded Q2
 - Current phase: [active_phase.md](docs/research_strategy/active_phase.md)
 - Current evidence: [current_evidence_index.md](docs/project_state/current_evidence_index.md)
 - SCI pipeline: [sci_delivery_pipeline.md](docs/research_strategy/sci_delivery_pipeline.md)
+- GeoPhase execution contract: [geophase_oq_pinn_execution_contract.md](docs/research_strategy/geophase_oq_pinn_execution_contract.md)
 - Innovation portfolio: [innovation_portfolio.md](docs/research_strategy/innovation_portfolio.md)
 - Governance: [AGENTS.md](AGENTS.md)
 
@@ -67,6 +77,7 @@ Current evidence entrypoints are indexed in `docs/project_state/current_evidence
 ```text
 configs/                 versioned experiment and physics configuration
 src/pinnpcm/physics/     physical models, solvers, parameters, topology
+src/pinnpcm/solvers/     independent numerical judges; do not share PINN residual code
 src/pinnpcm/pinn/        neural fields, transforms, residuals, losses
 scripts/                 config-driven CLI and audit entrypoints
 tests/                   unit, behavior, integrity, and claim-gate tests
@@ -79,7 +90,12 @@ docs/                    equations, strategy, reports, manuscript evidence
 
 ## Current Scientific Interpretation
 
-Sparse terminal observations constrain integrated conductance strongly but do not uniquely determine all hidden thermal, defect, phase, and conductivity fields. The most defensible result is therefore reduced-target inverse identification under calibrated or tightly bounded priors. OASIS v10 adds a credible multilayer and segmented-terminal scaffold, but strict CV neural training and thermal inverse blocks remain failed or incomplete.
+Sparse terminal observations constrain integrated device behavior but do not
+uniquely determine arbitrary hidden fields. The new route therefore requires a
+positive field/port/ledger GeoPhase forward result before inverse work, then
+compares only solver-supported observation quotients and refuses unsupported
+raw recovery. The current active task is the independent G0/E0 2.5D reference;
+no PINN training is authorized before it passes.
 
 ## Academic Ethics
 

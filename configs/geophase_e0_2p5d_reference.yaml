@@ -1,0 +1,225 @@
+task_id: Q2_GEOPHASE_E0_2P5D_REFERENCE
+schema_version: geophase_e0_2p5d_reference_v1
+phase_id: Q2_GEOPHASE_E0_REFERENCE_SOLVER_FOUNDATION
+status: preregistered_pending_implementation
+evidence_type: literature_guided_solver_generated_synthetic_numerical_digital_twin
+manuscript_use: independent_reference_and_conservation_judge_for_later_geophase_pinn
+
+execution_contract:
+  formal_execution_limit: 1
+  cpu_only: true
+  maximum_wall_clock_s: 14400
+  maximum_solver_cases: 96
+  maximum_reduced_k_order: 3
+  pinn_training: forbidden
+  inverse: forbidden
+  parameter_fit: forbidden
+  literature_curve_digitization: forbidden
+  gpu_use: forbidden
+  frozen_gt_write: forbidden
+  m44_repair: forbidden
+  full_3d: forbidden
+
+source_contract:
+  primary_device:
+    family: VO2
+    role: primary_geometry_and_mechanism_anchor
+    citation: Qiu_et_al_Advanced_Materials_2024
+    doi: 10.1002/adma.202306818
+    inherited_provenance_config: configs/m40_qiu_vo2_real_device_2d.yaml
+    exact_author_code_reproduction: forbidden
+    quantitative_real_device_calibration: forbidden
+  auxiliary_device:
+    family: SnSe_NbO2
+    role: future_material_specific_cross_model_validation_only
+    citation: Chen_et_al_Advanced_Functional_Materials_2025
+    doi: 10.1002/adfm.202423800
+    execution_in_e0: forbidden
+    zero_shot_transfer: forbidden
+  historical_results:
+    inherit_m40_m40r_numeric_vote: false
+    inherit_m44_numeric_vote: false
+    note: source facts and implementation lessons may be reused; old fields and outcomes do not validate E0
+
+coordinate_contract:
+  resolved_plane: [x, y]
+  x_role: current_path
+  y_role: device_width_and_interdevice_separation
+  vertical_role: reduced_passive_thermal_memory
+  full_vertical_mesh: false
+  si_units_required: true
+
+geometry:
+  primary_single_device:
+    vo2_length_m: 1.0e-7
+    vo2_width_m: 5.0e-7
+    vo2_thickness_m: 1.0e-7
+    ti_thickness_m: 1.5e-8
+    au_thickness_m: 4.0e-8
+    contact_overlap_nominal_m: 2.0e-8
+    contact_overlap_audit_m: [1.0e-8, 2.0e-8, 3.0e-8]
+  dual_device:
+    reported_spacing_m: 5.0e-7
+    placement_interpretation: engineering_prior_pending_exact_edge_or_center_semantics
+    coupling_off_conductance_W_m2K: 0.0
+  provenance:
+    vo2_length_m: literature_reported_coordinate_assignment_literature_derived
+    vo2_width_m: literature_reported
+    vo2_thickness_m: literature_reported
+    ti_thickness_m: literature_reported
+    au_thickness_m: literature_reported
+    contact_overlap_nominal_m: engineering_prior_unresolved
+    reported_spacing_m: literature_reported_value_with_unresolved_placement_semantics
+
+state_contract:
+  active_fields:
+    potential_V: phi
+    temperature_K: T
+    conductive_state_dimensionless: s
+    branch_memory_dimensionless: b
+  thermal_memory_fields: [z1, z2, z3]
+  conductive_state_semantics: effective_conductive_state_coordinate_not_measured_phase_fraction
+  branch_closure:
+    kind: smoothed_temperature_rate_memory
+    equation_role: project_engineering_closure_not_literal_Qiu_S3_S4
+    bounded_range: [-1.0, 1.0]
+  free_log_conductivity_head: forbidden
+  oxygen_vacancy_field: forbidden
+
+parameter_contract:
+  lock_status: locked_for_synthetic_e0_not_device_calibration
+  vo2_phase_shape:
+    T_c_up_K: 336.4
+    T_c_down_K: 329.2
+    transition_width_K: 7.19
+    state_relaxation_s: 1.0e-9
+    branch_relaxation_s: 1.0e-9
+    branch_rate_scale_K_s: 1.0e7
+    provenance: literature_shape_mapping_plus_engineering_dynamic_priors
+  vo2_conductivity:
+    reference_temperature_K: 325.0
+    sigma_ins_ref_S_m: 1.0e-2
+    sigma_met_ref_S_m: 10000.0
+    insulating_activation_eV: 0.12
+    metallic_temperature_coefficient_K_inv: 1.0e-3
+    provenance: existing_generic_vo2_engineering_prior_not_Qiu_local_measurement
+  active_plane_thermal:
+    thermal_conductivity_W_mK: 4.0
+    volumetric_heat_capacity_J_m3K: 3.07e6
+    provenance: inherited_literature_guided_and_engineering_priors_from_m40_source_contract
+  validity:
+    temperature_K: [300.0, 380.0]
+    require_positive_metallic_denominator: true
+    extrapolation_outside_range: forbidden
+
+physics_contract:
+  electrical:
+    model: in_plane_sheet_current_conservation
+    electrode_bc: finite_contact_dirichlet
+    noncontact_bc: insulating
+    terminal_current: boundary_integral_of_sheet_current
+  thermal:
+    model: in_plane_areal_energy_balance
+    outer_lateral_bc: no_flux
+    vertical_sink: passive_k_state_memory
+    ambient_temperature_K: 325.0
+  phase:
+    vo2_conductivity: logarithmic_insulating_metallic_mix
+    state_relaxation: first_order_to_branch_conditioned_equilibrium
+    hysteresis: differentiable_branch_conditioned_threshold
+  circuit:
+    topology: source_series_load_with_parallel_device_capacitance
+    load_resistance_ohm: 12000.0
+    parallel_capacitance_F: 1.45e-10
+  ledger:
+    include_active_plane_storage: true
+    include_all_k_state_storage: true
+    include_joule_input: true
+    include_vertical_terminal_sink: true
+    include_lateral_boundary_flux: true
+
+vertical_reduction:
+  candidate_orders: [2, 3]
+  ablation_order: 1
+  reference_order: 8
+  selection_rule: choose_the_smallest_candidate_order_passing_all_step_impulse_frequency_and_passivity_gates
+  if_no_candidate_passes: fail_e0_and_block_e1
+  positive_capacities_required: true
+  positive_conductances_required: true
+  stable_real_poles_required: true
+
+vertical_reference:
+  kind: independent_1d_multilayer_finite_volume_diffusion
+  stack_top_to_bottom: [VO2, Ti_Au_effective_contact_region, Al2O3]
+  substrate_depth_nominal_m: 4.0e-7
+  substrate_depth_audit_m: [4.0e-7, 8.0e-7]
+  top_bc: applied_areal_heat_flux
+  bottom_bc: fixed_ambient_temperature
+  lateral_physics_in_reference: none
+  spatial_cells_per_layer_min: 8
+  fine_pair_multiplier: 2
+  reduction_fit: nonnegative_passive_least_squares_on_step_impulse_frequency_responses
+  provenance: layer_properties_are_literature_guided_or_engineering_priors_not_measurements
+
+reference_solver:
+  spatial_discretization: conservative_cell_centered_finite_volume
+  time_discretization: implicit_backward_euler_with_independent_time_refinement
+  nonlinear_coupling: damped_newton_or_fail_closed_fixed_point
+  pinn_residual_code_reuse: forbidden
+  formal_spatial_refinement_levels: [1, 2, 4]
+  formal_time_step_divisors: [1, 2, 4]
+  fixed_physical_field_comparison_grid_required: true
+
+verification_matrix:
+  manufactured: [electrical_linear_field, thermal_diffusion_with_source, k_state_step_response]
+  conservation: [terminal_current, active_plane_energy, full_plane_plus_memory_energy]
+  convergence: [spatial_fine_pair, temporal_fine_pair]
+  limits: [zero_drive, uniform_conductivity, k_state_zero_coupling, dual_device_decoupled, dual_device_symmetric]
+  reduction: [step_response, impulse_response, frequency_response]
+  failure_paths: [negative_capacity, negative_conductance, nonfinite_newton, ledger_tamper, coordinate_swap]
+
+gates:
+  manufactured_electrical_relative_l2_max: 1.0e-8
+  manufactured_thermal_relative_l2_max: 1.0e-6
+  terminal_current_relative_imbalance_max: 1.0e-6
+  energy_ledger_relative_residual_max: 1.0e-2
+  spatial_terminal_fine_pair_nrmse_max: 1.0e-2
+  spatial_temperature_fine_pair_nrmse_max: 2.0e-2
+  spatial_state_fine_pair_nrmse_max: 2.0e-2
+  temporal_terminal_fine_pair_nrmse_max: 1.0e-2
+  temporal_temperature_fine_pair_nrmse_max: 2.0e-2
+  temporal_state_fine_pair_nrmse_max: 2.0e-2
+  k_state_step_response_nrmse_max: 5.0e-2
+  k_state_impulse_response_nrmse_max: 5.0e-2
+  k_state_frequency_log_magnitude_rmse_max: 5.0e-2
+  zero_drive_temperature_drift_K_max: 1.0e-8
+  dual_device_decoupled_relative_error_max: 1.0e-6
+  dual_device_symmetry_relative_error_max: 1.0e-6
+  all_required_gates_must_pass: true
+
+unlock:
+  e1_forward_pinn: all_required_e0_gates_pass
+  architecture_ablation: forbidden_until_e1_baseline_exists
+  observation_quotient: forbidden_until_solver_derivative_convergence_and_forward_pinn_pass
+  nbo2_cross_model: forbidden_until_vo2_forward_and_generalization_route_is_dispositioned
+
+outputs:
+  preregistration: outputs/tables/geophase_e0/preregistration.json
+  summary: outputs/tables/geophase_e0/summary.json
+  convergence_csv: outputs/tables/geophase_e0/convergence.csv
+  k_state_csv: outputs/tables/geophase_e0/k_state_reduction.csv
+  geometry_figure: outputs/figures/geophase_e0/qiu_xy_geometry.png
+  field_figure: outputs/figures/geophase_e0/reference_fields.png
+  convergence_figure: outputs/figures/geophase_e0/convergence_and_ledgers.png
+  report: docs/codex_reports/geophase_e0_reference_results.md
+
+claim_boundary:
+  success_wording: a literature-guided synthetic 2.5D reference benchmark passed the preregistered numerical and conservation gates
+  failure_wording: the proposed 2.5D reduction or implementation failed one or more preregistered gates and cannot judge a PINN
+  forbidden_wording:
+    - Qiu_real_device_reproduced_or_calibrated
+    - experimental_validation
+    - successful_GeoPhase_PINN
+    - observation_quotient_recovered
+    - full_3D_or_FEM_validation
+    - VO2_to_NbO2_zero_shot_generalization

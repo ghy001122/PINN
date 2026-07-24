@@ -2,7 +2,22 @@
 
 This matrix is authoritative for the current manuscript state. Historical claim evolution is archived and remains provenance only. Entries are synthetic numerical digital-twin evidence unless explicitly labeled public external reproduction evidence.
 
-## Mainline Claims
+## GeoPhase Candidate Claims
+
+These rows govern the revised manuscript route. The equation/config/route
+documents are supported implementation-governance facts only; no positive
+GeoPhase scientific result exists yet.
+
+| ID | Candidate claim | Status | Required direct evidence | Allowed now | Forbidden wording |
+| --- | --- | --- | --- | --- | --- |
+| G0_geophase_reference | A Qiu-inspired x-y device plane with passive K-state vertical thermal memory is a converged conservative 2.5D reference judge. | `forbidden` | E0 manufactured, current, full-energy, spatial/time, passivity, reduction, and limit gates | The equations and preregistration exist; implementation/result pending. | E0 passed, calibrated Qiu model, experimental or full-3D validation. |
+| G1_geophase_forward | A complete or explicitly hybrid GeoPhase PINN reproduces fields, ports, phase events, interfaces, and ledgers on fresh E0 cases. | `forbidden` | Passed E0 plus fixed-seed forward training and joint field/port/event/ledger gates | Candidate architecture only. | Successful PINN, hidden-field recovery, or port fit as physical fidelity. |
+| G2_transition_localized_method | Transition-localized spectral allocation and joint phase/Joule homotopy improve sharp-regime success without smooth-region or ledger regression. | `forbidden` | Matched-budget vanilla, global-Fourier, continuation, component, and multi-seed ablations | Prior-art-aware design hypothesis. | Universal Fourier superiority, full STL reproduction, or best-seed-only success. |
+| G3_geometry_generalization | GeoPhase generalizes within the locked VO2 geometry/protocol family without full-network test refitting. | `forbidden` | Held-out factor and joint-OOD splits with field/port/ledger metrics | Planned within-family test only. | Cross-device, cross-material, or arbitrary geometry generalization. |
+| G4_observation_quotient | Event-canonicalized branch/protocol quotient recovery with refusal is more faithful than raw-parameter inverse. | `forbidden` | Converged solver Jacobians, stable quotient geometry, PINN sensitivity fidelity, fresh nonlinear/noisy inverse, and refusal gates | Historical non-identifiability motivates the test. | Quotient recovered, protocol rank/rotation, unique parameters, or deployable refusal. |
+| G5_nbo2_cross_model | The shared framework preserves a Chen-inspired SnSe/NbO2 thermal-engineering trend after replacing the material kernel. | `forbidden` | Separate material-specific solver/PINN contract and trend-gated cross-model run | Literature motivates a future auxiliary test. | Experimental validation, shared VO2/NbO2 parameters, or zero-shot material transfer. |
+
+## Retained Historical Mainline Claims
 
 | ID | Claim | Status | Evidence | Required qualification | Forbidden wording |
 | --- | --- | --- | --- | --- | --- |
@@ -39,6 +54,6 @@ This matrix is authoritative for the current manuscript state. Historical claim 
 
 ## Absolute Manuscript Boundary
 
-Experimental validation, independent 13 V external holdout, exact Qiu author-code reproduction, Qiu quantitative external validation, validated Qiu lumped-to-local-PDE parameter transfer, unique raw-parameter recovery, protocol-dependent quotient identifiability, SID dual geometry, PINN sensitivity fidelity, any CPCF frontier inference, a positive CEBA boundary/resource claim, an operational CEBA/SCIS refusal certificate, isolated Figure 5 protocol gain, terminal-only arbitrary full-field recovery, full or Seiler-style STL reproduction, universal Fourier/F-SPS superiority, and device-grade FEM/3D reproduction remain `forbidden` without new direct evidence.
+Positive G0--G5 results, experimental validation, independent 13 V external holdout, exact Qiu author-code reproduction, Qiu quantitative external validation, validated Qiu lumped-to-local-PDE parameter transfer, unique raw-parameter recovery, protocol-dependent quotient identifiability, SID dual geometry, PINN sensitivity fidelity, any CPCF frontier inference, a positive CEBA boundary/resource claim, an operational CEBA/SCIS refusal certificate, isolated Figure 5 protocol gain, terminal-only arbitrary full-field recovery, full or Seiler-style STL reproduction, universal Fourier/F-SPS superiority, VO2-to-NbO2 zero-shot generalization, and device-grade FEM/3D reproduction remain `forbidden` without new direct evidence.
 
 See `docs/paper/gamma_sub_evidence_lock.md` for equations, configs, scripts, tests, artifacts, figures, limitations, manuscript sentences, and reproduction commands.

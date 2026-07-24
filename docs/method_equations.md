@@ -8,6 +8,156 @@ ledger are defined in `docs/physics/m40_qiu_2d_equations.md`. Those equations
 form a source-constrained external-literature bridge and do not replace or
 revise the frozen synthetic Ground Truth equations below.
 
+## Active GeoPhase 2.5D Candidate Contract
+
+This section defines the G0/E0 reference and later GeoPhase PINN equation
+contract. It is a preregistered model, not a completed solver or positive
+method result. The resolved device plane is \(\Omega\subset\mathbb R^2\) with
+coordinates \((x,y)\); vertical transport is reduced to passive areal thermal
+memory. The Qiu-inspired geometry is literature anchored, while unresolved
+contact and local material quantities remain engineering priors.
+
+Let \(t_{\mathrm{pcm}}\,[\mathrm m]\) be the active-film thickness,
+\(\phi\,[\mathrm V]\) the potential, \(\mathbf E=-\nabla_\parallel\phi\)
+\([\mathrm{V\,m^{-1}}]\), and \(\mathbf K\,[\mathrm{A\,m^{-1}}]\) the sheet
+current. In-plane charge conservation is
+
+$$
+\nabla_\parallel\!\cdot\mathbf K=0,
+\qquad
+\mathbf K=-t_{\mathrm{pcm}}\sigma(T,s,|\mathbf E|)
+\nabla_\parallel\phi .
+$$
+
+Finite electrode contacts \(\Gamma_p\) use prescribed terminal potentials in
+the E0 baseline; non-contact boundaries are electrically insulating. The
+observable terminal current is not a free network output:
+
+$$
+I_p(t)=\int_{\Gamma_p}\mathbf K\cdot\mathbf n\,d\ell .
+$$
+
+The active-plane energy equation is written per unit area so every term has
+units \(\mathrm{W\,m^{-2}}\):
+
+$$
+\rho c_p t_{\mathrm{pcm}}\,\partial_t T
+=\nabla_\parallel\!\cdot
+\left(k_\parallel t_{\mathrm{pcm}}\nabla_\parallel T\right)
++t_{\mathrm{pcm}}\sigma|\nabla_\parallel\phi|^2
+-q_z+q_{\mathrm{couple}} .
+$$
+
+The vertical reduction uses local areal capacities
+\(c_k^A\,[\mathrm{J\,m^{-2}\,K^{-1}}]\), conductances
+\(g_k\,[\mathrm{W\,m^{-2}\,K^{-1}}]\), and temperatures
+\(z_k\,[\mathrm K]\). With \(z_0=T\) and \(z_{K+1}=T_0\),
+
+$$
+c_k^A\partial_t z_k
+=g_{k-1}(z_{k-1}-z_k)-g_k(z_k-z_{k+1}),
+\qquad k=1,\ldots,K,
+$$
+
+$$
+q_z=g_0(T-z_1).
+$$
+
+For a paired-device reduced model, a declared symmetric lateral exchange may
+be added through the first thermal-memory state,
+
+$$
+q_{\mathrm{couple},i}=\sum_{j\ne i}
+g^{\mathrm{lat}}_{ij}(z_{1,j}-z_{1,i}),
+\qquad g^{\mathrm{lat}}_{ij}=g^{\mathrm{lat}}_{ji}\ge0,
+$$
+
+where \(g^{\mathrm{lat}}_{ij}\) has units
+\(\mathrm{W\,m^{-2}\,K^{-1}}\); paired exchange must cancel in the global
+ledger.
+
+All \(c_k^A\) and \(g_k\) must be positive and the thermal subsystem must be
+stable and passive. E0 selects the smallest passing \(K\in\{2,3\}\) against a
+higher-order reference; \(K=1\) is an ablation, not the default model.
+
+The VO2 conductivity is a white-box logarithmic mixture:
+
+$$
+\sigma_{\mathrm{VO_2}}(T,s)
+=\exp\!\left[(1-s)\log\sigma_{\mathrm{ins}}(T)
++s\log\sigma_{\mathrm{met}}(T)\right],
+$$
+
+$$
+\sigma_{\mathrm{ins}}(T)=\sigma_{i0}
+\exp\!\left[-\frac{E_a}{k_B}
+\left(\frac{1}{T}-\frac{1}{T_0}\right)\right],
+\qquad
+\sigma_{\mathrm{met}}(T)=
+\frac{\sigma_{m0}}{1+\alpha_m(T-T_0)} .
+$$
+
+The configured temperature domain must keep the metallic denominator positive;
+out-of-domain extrapolation is fail-closed.
+
+The bounded conductive-state coordinate and differentiable branch memory obey
+
+$$
+\tau_s\partial_t s=s_{\mathrm{eq}}(T,b)-s,
+\qquad
+s_{\mathrm{eq}}(T,b)=
+\operatorname{sigmoid}\!\left(\frac{T-T_c(b)}{w_T}\right),
+$$
+
+$$
+T_c(b)=\frac{1+b}{2}T_c^\uparrow+
+\frac{1-b}{2}T_c^\downarrow,
+\qquad
+\tau_b\partial_t b=
+\tanh\!\left(\frac{\partial_tT}{r_b}\right)-b .
+$$
+
+Here \(s\in[0,1]\) is an effective conductive-state coordinate and
+\(b\in[-1,1]\) is a project engineering closure for heating/cooling memory.
+The branch equation is not a literal implementation of Qiu equations S3--S4
+and cannot support an exact-author-model claim.
+
+The external circuit closes the device field and terminal observation:
+
+$$
+C_p\frac{dV_d}{dt}
+=\frac{V_{\mathrm{in}}-V_d}{R_L}-I_{\mathrm{dev}}(t).
+$$
+
+Initial conditions are \(T=z_k=T_0\), a declared initial branch \(b_0\), and
+\(s=s_{\mathrm{eq}}(T_0,b_0)\). The E0 lateral thermal baseline is no-flux;
+any later contact-resistance, thermal-boundary-resistance, or lateral-coupling
+term requires explicit units, provenance, and interface tests.
+
+The independent energy ledger includes both active-plane and K-state storage:
+
+$$
+\frac{d}{dt}\int_\Omega\left[
+\rho c_p t_{\mathrm{pcm}}(T-T_0)
++\sum_{k=1}^{K}c_k^A(z_k-T_0)
+\right]dA
+=P_J-P_{\mathrm{sink}}-P_{\partial\Omega}.
+$$
+
+Here
+\(P_J=\int_\Omega t_{\mathrm{pcm}}\sigma|\nabla_\parallel\phi|^2dA\),
+\(P_{\mathrm{sink}}=\int_\Omega g_K(z_K-T_0)dA\), and
+\(P_{\partial\Omega}\) is the outward lateral heat flux. Symmetric device-
+device coupling is internal exchange and must not appear as a net source.
+
+The independent FVM judge and the PINN residual implementation must not share
+the same discrete residual code. Later PINN losses may include charge, active
+energy, each K-state ODE, phase-state, branch-memory, RC, boundary/interface,
+port, and global-ledger residuals, but smoothness alone is not a physics
+residual. The SnSe/NbO2 auxiliary route replaces the VO2 conductivity/state
+kernel with a Poole--Frenkel/electrothermal-runaway kernel; it does not reuse
+VO2 thresholds, state semantics, or parameter values.
+
 ## Domain and State Variables
 
 The one-dimensional effective device domain is:

@@ -7,7 +7,20 @@
 .\.venv\Scripts\python.exe -m pytest tests\test_project_governance.py -q
 ```
 
-## Locked Mainline
+## Active GeoPhase E0 Contract
+
+The current phase is preregistration/foundation work. The following validates
+the route and config only; it is not a solver run or scientific result:
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest tests\test_geophase_e0_preregistration.py -q
+```
+
+The future formal E0 command will be added only with the implemented
+`scripts/run_geophase_e0_reference.py`. Do not invent an entrypoint or begin
+PINN training before the reference solver and preflight tests exist.
+
+## Locked Historical Mainline
 
 ```powershell
 .\.venv\Scripts\python.exe -m pytest tests\test_gamma_sub_evidence_lock.py tests\test_gamma_sub_continuous_refinement.py tests\test_gamma_sub_calibrated_sequential_protocol_validation.py -q

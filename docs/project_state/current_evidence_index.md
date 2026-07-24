@@ -1,85 +1,75 @@
 # Current Evidence Index
 
 This is the compact routing surface. Current status is authoritative in
-`PROJECT_STATE.md`; cumulative history remains in the registries and Git.
+`PROJECT_STATE.md`; authorization is authoritative in
+`docs/research_strategy/active_phase.md`. Cumulative history remains in the
+registries and Git.
 
-## Locked safe mainline
+## Active GeoPhase Route
 
-- Evidence lock: `docs/paper/gamma_sub_evidence_lock.md`.
-- Claim matrix: `docs/paper/final_claim_matrix.md`.
-- Safe wording: calibration-gated rank-1 `gamma_sub`, synthetic and prior-
-  qualified. No measured-material, experimental-validation, or successful-
-  trained-PINN wording is permitted.
+| Item | Status | Primary artifact |
+| --- | --- | --- |
+| Revised research contract | planning/governance fact `supported`; no scientific vote | `docs/research_strategy/geophase_oq_pinn_execution_contract.md` |
+| Active 2.5D equations | preregistered method contract `supported`; implementation/result `forbidden` | `docs/method_equations.md` |
+| G0/E0 configuration | preregistration fact `supported`; formal result `forbidden` | `configs/geophase_e0_2p5d_reference.yaml` |
+| G0 x-y/K-state reference | unimplemented; positive result `forbidden` | planned `src/pinnpcm/physics/geophase_2p5d.py`, `src/pinnpcm/solvers/geophase_2p5d_fvm.py`, and E0 outputs |
+| G1-G3 forward/architecture/generalization | unimplemented/unrun; `forbidden` | unlock only after every E0 gate passes |
+| G4 quotient/sensitivity/refusal | unrun; `forbidden` | unlock only after solver derivatives converge and the forward PINN passes |
+| G5 SnSe/NbO2 cross-model | unrun; `forbidden` | auxiliary material-specific validation after VO2 route disposition |
 
-## Active round and Qiu bridge
+No K-state thermal-memory implementation or transition-localized GeoPhase
+network exists in live `main` at route activation. Related historical modules
+are reusable patterns or baselines only.
+
+## Retained Safe Historical Mainline
+
+- Frozen GT: `docs/gt_v1_acceptance_report.md` and
+  `data/processed/gt_v1_acceptance/manifest.json`.
+- Sparse-port hidden-field boundary: `outputs/tables/pinn_identifiability_summary.json`
+  and `outputs/tables/pinn_inverse_v0_ablation_summary.json` (`supported` only
+  in the configured frozen synthetic benchmark).
+- Constrained `gamma_sub`: `docs/paper/gamma_sub_evidence_lock.md` and
+  `outputs/tables/gamma_sub_evidence_lock_summary.json`
+  (`qualified_supported` under its locked 1D priors and calibration).
+- Historical claim matrix: `docs/paper/final_claim_matrix.md`; GeoPhase rows are
+  candidate claims and remain `forbidden` until direct evidence exists.
+
+## Reusable Components Without Claim Transfer
+
+| Component | Current use boundary |
+| --- | --- |
+| `configs/m40_qiu_vo2_real_device_2d.yaml`, `src/pinnpcm/physics/qiu_vo2_device.py` | Qiu source/provenance and geometry facts; x-z fields/results do not validate x-y E0. |
+| `src/pinnpcm/solvers/qiu_vo2_2d_fvm.py`, `src/pinnpcm/solvers/m40r_qiu_e0_repair.py` | face-flux, RC, ledger, and comparison patterns only. |
+| `src/pinnpcm/physics/vo2_constitutive.py`, `vo2_thermal_neuristor.py` | candidate VO2 components subject to the new state/unit contract; no exact-Qiu status. |
+| `src/pinnpcm/physics/multilayer_sandwich.py`, `src/pinnpcm/pinn/oasis_components.py` | material/interface/CV patterns and baselines; historical P1/P2 failures remain. |
+| `src/pinnpcm/pinn/network.py`, `mixed_flux_pinn.py` | Fourier/mixed-form baselines; no localized-expert or success claim. |
+| `src/pinnpcm/identifiability.py` | SVD/principal-angle utilities after derivative convergence; historical SID/EC-OQ remains negative. |
+
+## Closed Historical Boundaries
 
 | Block | Status | Primary evidence |
 | --- | --- | --- |
-| Layered E1F/LLP source contract | Formula identity `supported`; no device-science vote | `outputs/tables/e1f_llp_source_contract_summary.json`; `outputs/tables/e1f_source_contract_amendment_v2.json`; `docs/physics/e1f_llp_source_contract.md` |
-| E1F semantic amendment | Original formal run `implementation_contract_invalid`; no curve vote | `outputs/tables/e1f_semantic_amendment.json`; `docs/codex_reports/e1f_semantic_amendment.md` |
-| E1F-R literal-S3 correction | `failed_but_informative`; solver parity passes, clean SI Fig. S1 current/voltage gates fail, Fig. 2b remains invalid/unassessed and unscored, coordinate preflight blocked | `outputs/tables/e1fr_qiu_source_equation_correction.json`; `outputs/tables/e1fr_qiu_source_equation_correction.csv`; `outputs/tables/e1fr_effective_coordinate_preflight.json`; `outputs/figures/e1fr/qiu_setting_correction.png`; `docs/codex_reports/e1fr_qiu_source_equation_correction_results.md` |
-| Source-to-PDE refusal | mapping-audit fact `supported`; no calibration claim | `outputs/tables/e1f_source_to_pde_bridge_mismatch.csv`; `outputs/figures/e1f/source_to_pde_bridge_mismatch.png` |
-| M40 Qiu 2D E0 | `failed_but_informative`; M41 not authorized | `outputs/tables/m40_qiu_e0_summary.json`; `outputs/tables/m40_qiu_mesh_convergence.csv`; `docs/codex_reports/m40_qiu_vo2_e0_results.md` |
-| M40R bounded repair | original numerical E0 sub-result passes; overall `failed_but_informative`; M41 not authorized | `outputs/tables/m40r_qiu_e0_summary.json`; `outputs/tables/m40r_qiu_active_transient.json`; `docs/codex_reports/m40r_qiu_e0_repair_results.md` |
+| Complete 1D PINN | contracts `supported`; trained routes `failed_but_informative` | `outputs/tables/full_pinn_contract_v1.json`; `outputs/tables/n0_cv_e_v3r_forensic_resolution.json`; `outputs/tables/m33_mixed_flux_final_summary.json` |
+| M40/M40R Qiu x-z bridge | `failed_but_informative`; no M41 | `outputs/tables/m40_qiu_e0_summary.json`; `outputs/tables/m40r_qiu_e0_summary.json`; associated reports |
+| E1F/E1F-R Qiu compact source | formula subfacts plus `failed_but_informative` setting checks | `outputs/tables/e1f_llp_source_contract_summary.json`; `outputs/tables/e1fr_qiu_source_equation_correction.json` |
+| Zhang D0/M35-M37R | provenance/parity subfacts; quotient/fit/13 V unavailable | `data/external/vo2_zhang_2024/manifest.json`; M35-M37R summaries |
+| P1/P2/P4 and SID/EC-OQ | negative or `forbidden` | historical OASIS, active-protocol, algorithm, and SID summaries |
+| M44 3D bridge | retired historical `failed_but_informative`, non-voting | absent from live implementation after rollback; do not repair or cite as current capability |
 
-Current report: `docs/codex_reports/source_contract_amendment_results.md`.
-
-## Main scientific evidence
-
-| Block | Status | Primary evidence |
-| --- | --- | --- |
-| Frozen GT v1.1 | integrity `supported` | `docs/gt_v1_acceptance_report.md`; `data/processed/gt_v1_acceptance/manifest.json` |
-| Sparse-port hidden-field boundary | `supported` in the configured synthetic benchmark | `outputs/tables/pinn_identifiability_summary.json`; `outputs/tables/pinn_inverse_v0_ablation_summary.json` |
-| Constrained `gamma_sub` inverse | `qualified_supported` under fixed/tightly bounded microphysics and calibration | `outputs/tables/gamma_sub_evidence_lock_summary.json`; `docs/paper/gamma_sub_evidence_lock.md` |
-| Calibration/confounding boundary | `qualified_supported` with retained failures | `outputs/tables/gamma_sub_tsw_confounding_phase_map_summary.json`; `outputs/tables/gamma_sub_tsw_calibration_tolerance_sweep_summary.json`; `outputs/tables/gamma_sub_tsw_tolerance_ode_spotcheck_summary.json` |
-| Conditional robustness | `qualified_supported`; wide mismatch retained | `outputs/tables/gamma_sub_recoverability_phase_diagram_summary.json`; `outputs/tables/gamma_sub_statistical_robustness_summary.json`; `outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_summary.json`; `outputs/tables/prompt32_figure5_semantic_audit.json` |
-
-## Full-PINN and public-data boundaries
-
-| Block | Status | Primary evidence |
-| --- | --- | --- |
-| Full-PINN contracts | `supported` implementation facts | `outputs/tables/full_pinn_contract_v1.json`; `src/pinnpcm/pinn/full_pinn_1d.py`; `src/pinnpcm/pinn/full_pinn_n0_cv_e.py`; `src/pinnpcm/pinn/mixed_flux_pinn.py` |
-| Trained full-PINN routes | `failed_but_informative`; positive forward/sensitivity/inverse `forbidden` | `outputs/tables/full_pinn_single_seed_mve_v1.json`; `outputs/tables/n0_full_pinn_bounded_repair_v2_summary.json`; `outputs/tables/n0_cv_e_v3r_forensic_resolution.json`; `outputs/tables/m33_mixed_flux_final_summary.json`; `outputs/tables/m34_contract_audit_summary.json` |
-| Zhang D0/M35 | provenance/source semantics retained; fit route `failed_but_informative` | `data/external/vo2_zhang_2024/manifest.json`; `outputs/tables/vo2_d0a_source_reproduction.json`; `outputs/tables/m35_public_multivoltage_fit_summary.json` |
-| M36 numerical reference | nominal parity fact `supported`; source-compatible convergence fails | `outputs/tables/m36_event_resolved_orbit_summary.json`; `outputs/tables/m36_orbit_convergence_metrics.csv` |
-| M37/M37R observability | window repair fact `supported`; geometry unassessed/`forbidden` | `outputs/tables/m37_cross_regime_jacobian.json`; `outputs/tables/m37r_cross_regime_jacobian.json`; `outputs/tables/m37r_event_window_audit.csv` |
-| D0b-D0d / N1-N3 / SC-LOS | unrun or blocked; positive claims `forbidden` | failed upstream convergence, trained-forward, and topology gates; 13 V remains sealed |
-
-## Extension boundaries
-
-| Block | Status | Primary evidence |
-| --- | --- | --- |
-| P0 / P3 | `qualified_supported` reduced synthetic results | `outputs/tables/multiterminal_yz_forward_summary.json`; claim matrix |
-| P1 / P2 | `failed_but_informative` | `outputs/tables/cv_multidomain_oasis_training_summary.json`; `outputs/tables/active_protocol_design_v3_summary.json`; `outputs/tables/sequential_terminal_inverse_v3_summary.json` |
-| P4 | `forbidden` | `outputs/tables/oasis_algorithm_gate_v10_summary.json` |
-| SID/EC-OQ | `failed_but_informative`; inactive | `outputs/tables/sid_ec_oq_summary.json`; `outputs/tables/sid_ec_oq_cases.csv` |
-| CPCF | frontier inference `forbidden`; proxy audit non-voting | `outputs/tables/prompt31_cpcf_semantic_audit.json`; `outputs/tables/gamma_sub_cpcf_superseding_claim_record.json` |
-| CEBA / SCIS | parity subfacts retained; deployable boundary/refusal unsupported | `outputs/tables/gamma_sub_ceba_parity_summary.json`; `outputs/tables/gamma_sub_ceba_pilot_summary.json`; `outputs/tables/gamma_sub_scis_summary.json` |
-
-## Evidence taxonomy
+## Evidence Taxonomy
 
 - `synthetic_gt`: frozen benchmark arrays; not measured data.
-- `public_external_raw`: publisher-supplied numeric source data with provenance.
-- `external_literature_source_document`: hash-locked publisher PDFs; not project
-  measurements and not assumed redistributable.
-- `derived` / `interpolated`: transformations retaining parent hashes. Qiu
-  digitized traces are derived publication curves; Fig. 2b is
-  `implementation_contract_invalid/unassessed`.
-- `solver_generated`: numerical trajectories and audits.
-- `pinn_predicted`: neural outputs only; solver outputs must never be relabeled.
+- `solver_generated`: independent numerical trajectories and audits.
+- `pinn_predicted`: neural outputs only; never relabel solver output.
+- `public_external_raw`: publisher-supplied numeric data with provenance.
+- `external_literature_source_document`: source paper/SI; not project data.
+- `derived` / `interpolated`: transformations retaining parent identity.
 
-## Submission routing
+## Manuscript And Submission Routing
 
-- Current manuscript entry: `docs/manuscript/README.md`; v1 remains immutable
-  historical content and v2 is the validated content-package target.
-- Go/no-go: `docs/manuscript/submission_go_no_go.md`.
-- Figures/tables: `docs/paper/final_figure_list.md` and
-  `docs/paper/final_table_list.md`.
-- Local replay evidence: `configs/local_replay_asset_manifest_v1.json`,
-  `outputs/tables/local_replay_asset_validation.json`,
-  `outputs/tables/portable_evidence_identity_audit.json`,
-  `outputs/tables/gamma_sub_continuous_refinement_integrity_audit.json`, and
-  `outputs/tables/submission_readiness.json`.
-- Current single priority: lock journal/article type, author declarations,
-  template rendering/visual QA, and the public/restricted asset route without
-  reopening failed science.
+- `docs/manuscript/main_submission_v1.md` and `main_submission_v2.md` are
+  historical snapshots for the old route.
+- Current go/no-go: `docs/manuscript/submission_go_no_go.md`.
+- Current research contract: `docs/research_strategy/geophase_oq_pinn_execution_contract.md`.
+- Current single priority: pass G0/E0. No new manuscript result, figure roster,
+  GPU training, or inverse/cross-model claim is authorized before that gate.

@@ -19,12 +19,15 @@ REQUIRED = [
     "README.md",
     "docs/AGENTS.md",
     "docs/research_strategy/active_phase.md",
+    "docs/research_strategy/geophase_oq_pinn_execution_contract.md",
+    "docs/experiment_plan.md",
     "docs/research_strategy/sci_delivery_pipeline.md",
     "docs/research_strategy/innovation_portfolio.md",
     "docs/research_strategy/legacy_document_index.md",
     "docs/research_strategy/durable_project_memory.md",
     "docs/research_strategy/memory_policy.md",
     "docs/project_state/current_evidence_index.md",
+    "configs/geophase_e0_2p5d_reference.yaml",
     "docs/project_state/reproduction_quickstart.md",
     "docs/templates/codex_final_report.md",
     "src/pinnpcm/physics/AGENTS.md",
@@ -44,6 +47,8 @@ CRITICAL_MARKDOWN = [
     "NEXT_ACTIONS.md",
     "docs/project_state/current_evidence_index.md",
     "docs/research_strategy/sci_delivery_pipeline.md",
+    "docs/research_strategy/geophase_oq_pinn_execution_contract.md",
+    "docs/experiment_plan.md",
     "docs/research_strategy/context_index.md",
     "docs/research_strategy/current_research_handoff.md",
     "docs/research_strategy/memory_policy.md",
@@ -98,22 +103,31 @@ def check_phase_consistency() -> dict:
     context = (ROOT / "CODEX_CONTEXT.md").read_text(encoding="utf-8")
     state = (ROOT / "PROJECT_STATE.md").read_text(encoding="utf-8")
     queue = (ROOT / "NEXT_ACTIONS.md").read_text(encoding="utf-8")
+    plan = (ROOT / "docs/experiment_plan.md").read_text(encoding="utf-8")
     active_id = _phase_id(active)
     missing: list[str] = []
     if active_id is None:
         missing.append("active_phase:Active phase ID")
     else:
-        for name, text in {"context": context, "project_state": state, "next_actions": queue}.items():
+        for name, text in {
+            "context": context,
+            "project_state": state,
+            "next_actions": queue,
+            "experiment_plan": plan,
+        }.items():
             if active_id not in text:
                 missing.append(f"{name}:{active_id}")
-    for gate in ["P0", "P1", "P2", "P3", "P4"]:
-        if gate not in state:
-            missing.append(f"project_state:{gate}")
-    for marker in ["0.37563055753707886", "106.15460205078125", "failed_but_informative"]:
+    for gate in ["G0", "G1", "G2", "G3", "G4", "G5"]:
+        for name, text in {
+            "active_phase": active,
+            "project_state": state,
+            "experiment_plan": plan,
+        }.items():
+            if gate not in text:
+                missing.append(f"{name}:{gate}")
+    for marker in ["GeoPhase-OQ-PINN", "failed_but_informative", "forbidden"]:
         if marker not in state:
             missing.append(f"project_state:{marker}")
-    if "P4" in state and "forbidden" not in state:
-        missing.append("project_state:P4 claim boundary")
     return {
         "status": "pass" if not missing else "fail",
         "active_phase_id": active_id,
@@ -127,12 +141,16 @@ def check_delivery_contract() -> dict:
     context = (ROOT / "CODEX_CONTEXT.md").read_text(encoding="utf-8")
     state = (ROOT / "PROJECT_STATE.md").read_text(encoding="utf-8")
     queue = (ROOT / "NEXT_ACTIONS.md").read_text(encoding="utf-8")
+    plan = (ROOT / "docs/experiment_plan.md").read_text(encoding="utf-8")
+    contract = (ROOT / "docs/research_strategy/geophase_oq_pinn_execution_contract.md").read_text(encoding="utf-8")
     required_goal_markers = [
         "Q2_SCI_DELIVERY_MODE",
         "North-Star Scientific Claim",
         "Mandatory Research Filter",
         "Stable Delivery Lanes",
         "Must-Have Definition Of Done",
+        "GeoPhase-OQ-PINN",
+        "G0",
         "public-data source-reproduction/identifiability bridge",
         "complete phase-transition PINN",
         "User Confirmation Boundary",
@@ -140,16 +158,27 @@ def check_delivery_contract() -> dict:
     ]
     missing = [f"PROJECT_GOAL.md:{marker}" for marker in required_goal_markers if marker not in goal]
     active_id = _phase_id(active)
-    active_markers = ["constrained `gamma_sub`"] + ([active_id] if active_id else [])
+    active_markers = ["GeoPhase"] + ([active_id] if active_id else [])
     for name, text in {
         "active_phase": active,
         "context": context,
         "project_state": state,
         "next_actions": queue,
+        "experiment_plan": plan,
     }.items():
         for marker in active_markers:
             if marker not in text:
                 missing.append(f"{name}:{marker}")
+    authorization_markers = {
+        "AGENTS.md": ("Historical stop votes", (ROOT / "AGENTS.md").read_text(encoding="utf-8")),
+        "active_phase": ("must still be activated", active),
+        "next_actions": ("not globally prohibited research topics", queue),
+        "experiment_plan": ("do not permanently prohibit", plan),
+        "execution_contract": ("do **not** permanently prohibit", contract),
+    }
+    for name, (marker, text) in authorization_markers.items():
+        if marker not in text:
+            missing.append(f"{name}:{marker}")
     return {"status": "pass" if not missing else "fail", "missing": missing}
 
 

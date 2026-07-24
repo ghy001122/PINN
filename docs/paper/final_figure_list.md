@@ -1,5 +1,10 @@
 # Final Figure List
 
+> Historical v2 roster. These figures remain locked evidence for the former
+> 1D submission route; they are not the active GeoPhase manuscript roster and
+> provide no vote on G0--G5. A new roster is created only after G0 and a
+> positive G1 route pass.
+
 Figures 1--6 use synthetic numerical digital-twin evidence. The E1F supplementary bridge figure is a read-only mapping diagnostic; the excluded original E1F image combines invalid/non-voting digitized-literature comparisons. The E1F-R setting figure is a failed source-equation implementation check. None is project-generated experimental measurement.
 
 | Figure | Title | Status | Primary data | Generated file | Builder | Reproduction command | Caption boundary |

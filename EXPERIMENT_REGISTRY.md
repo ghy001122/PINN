@@ -769,3 +769,21 @@ Claim result: multilayer forward, terminal-only rescue, low-dimensional sandwich
 - Outputs: `outputs/tables/e1f_llp_source_contract_summary.json`, `outputs/tables/e1f_llp_source_contract_cases.csv`, and `outputs/tables/e1f_source_contract_amendment_v2.json`.
 - Result: G1 source-transcription fidelity and G2 tanh-anchor realized continuity pass; G3 manufactured hysteresis properties remain non-blocking diagnostics.
 - Claim: `supported` only for the configured tanh-anchor inverse identity; Qiu-author equivalence and external validation remain `forbidden`.
+
+## GeoPhase G0/E0 2.5D Reference Foundation
+
+- Date: 2026-07-24.
+- Phase: `Q2_GEOPHASE_E0_REFERENCE_SOLVER_FOUNDATION`.
+- Status: `preregistered_pending_implementation`; no solver execution, PINN
+  training, fit, inverse, or scientific claim upgrade occurred in the route-
+  activation round.
+- Evidence type: documentation/configuration fact only; planned outputs are
+  literature-guided solver-generated synthetic numerical digital-twin evidence.
+- Config: `configs/geophase_e0_2p5d_reference.yaml`.
+- Method/route: `docs/method_equations.md` and
+  `docs/research_strategy/geophase_oq_pinn_execution_contract.md`.
+- Static validation: `tests/test_geophase_e0_preregistration.py`.
+- Unlock: G1 forward PINN remains `forbidden` until every manufactured,
+  current/energy, mesh/time, K-state passivity/reduction, and limit gate passes
+  in the single formal E0 run.
+- Frozen GT: read-only and unchanged.

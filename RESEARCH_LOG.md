@@ -833,3 +833,45 @@ Primary report:
 - Added an isolated formula-only audit. Both printed-S3 and tanh-anchor branches pass scalar/vector fidelity; the tanh-anchor branch passes realized reversal-continuity gates.
 - Preserved all E1F/E1F-R device outputs, protected physics modules, frozen GT, and manuscript v1 byte-for-byte.
 - Claim change: the historical `atanh` term is no longer described as unreferenced; it is supported only as a configured tanh-anchor inverse. No Qiu-author-code or external-validation claim was added.
+
+## 2026-07-24 - GeoPhase Route Activation And E0 Preregistration
+
+- The user explicitly replaced the historical 1D submission-lock core line
+  with a positive PINN-plus-phase-transition-material route on a 2D-or-higher
+  physical structure.
+- Activated `Q2_GEOPHASE_E0_REFERENCE_SOLVER_FOUNDATION` and adopted the
+  Qiu-inspired x-y plus passive K-state vertical-memory 2.5D model. Chen-inspired
+  SnSe/NbO2 remains a separate future cross-model numerical validation.
+- Audited live `main`: Qiu/provenance, FVM/ledger, constitutive, Fourier,
+  interface, and SVD utilities are reusable patterns, but no K-state thermal-
+  memory implementation, transition-localized GeoPhase MoE, positive GeoPhase
+  training, sensitivity-fidelity result, quotient inverse, refusal model, or
+  NbO2 cross-model result exists.
+- Added the detailed execution/equation contract, fail-closed E0 YAML, static
+  contract tests, new candidate claim rows, and updated current governance and
+  manuscript routing. Historical v1/v2 manuscript assets remain unchanged as
+  snapshots and all old scientific statuses remain unchanged.
+- No solver run, PINN training, GPU use, curve digitization, fit, inverse, or
+  scientific claim upgrade occurred. Frozen GT remained read-only.
+- Next single priority: implement and validate the independent G0/E0 reference;
+  G1--G5 remain `forbidden` until their upstream gates pass.
+
+## 2026-07-25 - GeoPhase Planning Consistency Closeout
+
+- Audited the current-authority chain and found three stale semantics: the
+  experiment plan still selected manuscript-only closure, the GeoPhase contract
+  mixed historical route stops with universal research bans, and governance
+  still centered old P0--P4 markers.
+- Replaced the active plan with G0/E0 execution and sequential G1--G5
+  authorization. Historical M40/M44/N0/D0 stops remain binding only to their
+  named contracts and no longer prohibit scientifically distinct GeoPhase work.
+- Clarified that E0 blocks downstream execution only for the current phase.
+  Directions outside G0--G5 require a separately activated bounded audit.
+- Extended governance checks for the current plan, explicit G0--G5 consistency,
+  and phase-versus-claim authorization semantics.
+- Validation: targeted tests 11 passed; full regression 447 passed; governance
+  pass_with_manual_review with zero failures; all eight frozen GT hashes and
+  git diff checks passed.
+- Claim change: none. Route/config existence is supported; positive GeoPhase
+  results remain forbidden pending direct evidence.
+- Next priority: implement and validate G0/E0. Disposition: continue.

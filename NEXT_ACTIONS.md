@@ -3,42 +3,65 @@
 ## Authoritative Current Queue
 
 Exactly one bottleneck is active:
-`Q2_MANUSCRIPT_EVIDENCE_COMPRESSION_AND_SUBMISSION_LOCK`. The constrained `gamma_sub`
-result remains the only positive rank-1 inverse mainline.
+`Q2_GEOPHASE_E0_REFERENCE_SOLVER_FOUNDATION`.
 
-### Priority - journal upload lock from the validated content package
+The revised paper requires a positive PINN method on a source-traceable 2.5D
+phase-transition-device benchmark. The constrained `gamma_sub` result remains
+a historical baseline, not the active manuscript core.
 
-The formula-only source-contract amendment and technical local replay are
-complete. All 50 required local assets, 157 historical evidence locks, the
-36-row continuous-refinement summary, frozen GT, governance checks, and the
-440-test detached replay pass. Readiness is `CONTENT_GO_UPLOAD_NO_GO`: no
-scientific gate changed, but the previous portability P0 is closed locally.
+### Priority - G0/E0 independent 2.5D judge
+
+Manuscript use: create the trustworthy numerical reference and conservation
+contract without which no GeoPhase field, architecture, generalization, or
+inverse claim can be scored.
 
 Execution order:
 
-1. choose one scope-compatible journal and article type from current official
-   information; do not infer quartile or format from memory;
-2. add author metadata, competing-interest/funding/ethics/AI-use declarations,
-   and the final data/code availability wording;
-3. render manuscript v2 and SI in the selected template and visually inspect
-   every page, equation, citation, figure, and table;
-4. create a lawful public archive for redistributable assets and an explicit
-   restricted-asset acquisition route for third-party PDFs;
-5. rerun only the affected readiness checks, then upload. Do not reopen science.
+1. validate `configs/geophase_e0_2p5d_reference.yaml` and the active equations,
+   units, x-y coordinates, Qiu/engineering-prior split, branch closure,
+   boundary conditions, K-state passivity, and output schema;
+2. implement `src/pinnpcm/physics/geophase_2p5d.py` and an independent
+   `src/pinnpcm/solvers/geophase_2p5d_fvm.py`; do not reuse PINN residual code
+   as the reference judge;
+3. add CPU tests for manufactured electrical/thermal solutions, port-current
+   conservation, energy accounting, zero-drive/uniform limits, K-state
+   passivity and reduction, coordinate/contact semantics, and failure paths;
+4. run smoke/preflight cases and inspect convergence before consuming the one
+   formal E0 run;
+5. execute the bounded formal grid/time/K-order/single-dual-device matrix and
+   write JSON/CSV, figures, report, claim-matrix update, and E1 go/no-go.
 
-Current go/no-go: `docs/manuscript/submission_go_no_go.md` (technical content
-package GO; journal upload NO-GO until the five items above are closed).
+All configured E0 gates must pass. Conservation without independent mesh/time
+convergence is not sufficient. If a physics, topology, coordinate, or ledger
+defect appears, repair the foundation before the formal run. If a valid formal
+gate fails, preserve `failed_but_informative` evidence and do not train E1.
 
-### Locked boundaries
+### Locked downstream order
 
-- No E1F/E1F-R rescue/refit, further M40/M40R repair/rerun, threshold change, M41,
-  inverse network, PINN, `gamma_eff`, M38, holdout fit,
-  parameter search, or Zhang sealed 13 V access.
-- No real-device calibration, exact Qiu reproduction, project experimental
-  validation, or full hidden-field wording.
-- The source omits a complete executable reversal/initial-condition contract;
-  exact author-code reproduction remains `forbidden`. The atanh term is not
-  an unreferenced insertion, but neither is it verified Qiu author code. Fig. 2b is
-  `implementation_contract_invalid/unassessed` because legend pixels
-  contaminated the extraction; it has no holdout vote and is not independent.
-- P1, M33/M34, M35-M37R, and frozen GT remain closed/read-only.
+Only after E0 passes:
+
+1. G1: complete/hybrid GeoPhase forward PINN;
+2. G2: transition-localized spectral experts plus phase/Joule homotopy with
+   vanilla, global-Fourier, continuation, domain-decomposition, and pure-
+   surrogate baselines;
+3. G3: held-out within-family geometry/protocol generalization;
+4. G4: solver-first event-canonicalized quotient geometry, PINN sensitivity
+   fidelity, fresh-case inverse, and refusal;
+5. G5: Chen-inspired SnSe/NbO2 material-kernel replacement and cross-model
+   numerical trend validation;
+6. manuscript route selection from passed evidence.
+
+### Current E0 execution boundary
+
+- During E0, no M44 repair, old 1D retraining, full 3D, full
+  Landau/phase-field, oxygen-vacancy PDE, or terminal-only full-field program.
+  Directions outside G0--G5 require a separately activated future phase; they
+  are not globally prohibited research topics.
+- No GeoPhase training, GPU rental, inverse head, literature-curve refit, or
+  NbO2 run before E0 passes and the next phase is explicitly activated.
+- No free `log_sigma`, no shared VO2/NbO2 constitutive parameters, no best-seed
+  reporting without failures, and no port-only success criterion.
+- No claim of exact Qiu reproduction, experimental validation, full STL,
+  universal Fourier superiority, world-first novelty, or zero-shot material
+  generalization without direct evidence. `forbidden` is a manuscript claim
+  status, not a ban on a later bounded, preregistered audit.

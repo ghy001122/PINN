@@ -7,21 +7,23 @@ This file stores stable project facts, not current HEADs, transient metrics, or 
 ## Durable Delivery Contract
 
 - The delivery target is a defensible, reproducible, ethically bounded Q2 SCI manuscript draft, submission package, supplementary material, provenance package, and reviewer-defense matrix; acceptance is not guaranteed.
-- The North-star claim is that sparse electrical terminal observations do not uniquely recover full hidden fields in the current synthetic benchmark, while identifiability audit, prior calibration, target-space reduction, active protocols, multilayer devices, and multi-terminal observations can define conditionally solvable regions.
+- The selected North-star route is a positive 2.5D phase-transition PINN on source-traceable real in-plane geometry, with independent-solver field/ledger fidelity, transition-localized architecture, stiffness homotopy, within-family geometry generalization, and sensitivity-gated observation-quotient inverse/refusal. Sparse-port non-uniqueness remains a supported historical boundary.
 - Only one highest-value bottleneck is active per round. Stretch-goal failure cannot block manuscript delivery.
 - Every positive manuscript claim must be `supported` or `qualified_supported`.
 - User confirmation is required only for frozen-GT changes, destructive handling of uncommitted user files, major dependencies, core-line changes, unclear external data, budget overruns, force-push/history rewrite, or irreversible operations. Other in-scope work is autonomous.
 
 ## Stable User And Project Constraints
 
-- The user needs an efficient, software-first path to a defensible Q2 SCI submission and has limited short-term access to fabrication and device measurement.
+- The user needs an efficient, software-first path to a defensible Q2 SCI submission and has no available project experimental data; literature and independently generated synthetic data must remain clearly separated.
+- PINN must be a positive core method with a substantive architecture or training contribution, and the final physical structure must resolve at least a real two-dimensional geometry.
+- The primary benchmark is Qiu-inspired coplanar VO2 in a conservative 2.5D reduction; Chen-inspired SnSe/NbO2 is auxiliary cross-model numerical validation with separate material physics.
 - Research must balance novelty, workload, reproducibility, physical credibility, and delivery time.
 - Negative evidence is valuable when converted into a clear observability, stiffness, calibration, or applicability boundary.
 - High-risk ideas should be explored through bounded audits; manuscript wording remains claim-gated.
 
 ## Delivery Mode And Research Lines
 
-`Q2_SCI_DELIVERY_MODE` is the persistent delivery goal. The mainline is identifiability-guided constrained `gamma_sub` inversion on the frozen 1D synthetic benchmark. The enhancement line includes multilayer OASIS physics, segmented terminals, active observation design, stiffness handling, and neural-solver audits. Enhancement work cannot silently replace the mainline.
+`Q2_SCI_DELIVERY_MODE` is the persistent delivery goal. The active mainline is `GeoPhase-OQ-PINN`: Qiu-inspired x-y geometry, passive K-state vertical thermal memory, white-box electrothermal phase dynamics, a transition-localized PINN, joint phase/Joule homotopy, within-family geometry holdouts, and sensitivity-gated quotient inverse/refusal. Frozen 1D, constrained `gamma_sub`, OASIS, public-source, and failed complete-PINN work remains historical baseline and reviewer-defense evidence; it cannot silently become evidence for the new route.
 
 ## Claim Vocabulary
 
@@ -61,6 +63,11 @@ Use exactly: `supported`, `qualified_supported`, `failed_but_informative`, `forb
 30. Local memory treated as more authoritative than Git evidence.
 31. Failure of one preregistered SID/event-window implementation described as permanent falsification of the broader scientific hypothesis.
 32. Stable sampled nondominated points described as a reliable resource frontier before solver-anchor and effect-direction gates pass.
+33. An x-z cross-section or mean/sink proxy described as the real x-y 2.5D device.
+34. Passive K-state thermal memory claimed before positive-capacity/conductance, reduction, and full-ledger gates pass.
+35. Global Fourier features renamed as transition-localized spectral allocation without a physical gate and ablation.
+36. Forward trajectory agreement used as permission for inverse work before PINN--solver sensitivity fidelity.
+37. VO2 and NbO2 sharing thresholds, state meanings, or fitted parameters under a composable-framework label.
 
 ## Authority Order
 

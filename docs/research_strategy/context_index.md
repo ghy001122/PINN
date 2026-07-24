@@ -13,6 +13,8 @@
 - `AGENTS.md`: repository-wide behavior and claim rules.
 - nested `AGENTS.md`: subtree-specific constraints.
 - `docs/research_strategy/sci_delivery_pipeline.md`: reusable stage-gate workflow.
+- `docs/research_strategy/geophase_oq_pinn_execution_contract.md`: detailed active method, migration, gate, and workspace contract.
+- docs/experiment_plan.md: current G0/E0 experiment chain and phase-scoped authorization semantics.
 - `docs/research_strategy/durable_project_memory.md`: stable facts and recurring pitfalls.
 - `docs/research_strategy/memory_policy.md`: authority and privacy rules.
 
@@ -33,4 +35,4 @@
 
 ## Literature And Manuscript
 
-Use `docs/literature/primary_source_decision_log_2026-07-14.md`, `docs/literature_notes/`, `references/papers/PAPER_REGISTRY.md`, `docs/paper/`, and `docs/manuscript/` only when the task requires literature, claims, figures, or reviewer defense. Use `innovation_portfolio.md` for future research selection. Do not load complete papers by default.
+Use `docs/literature/primary_source_decision_log_2026-07-14.md`, `docs/literature_notes/`, `references/papers/PAPER_REGISTRY.md`, `docs/paper/`, and `docs/manuscript/` only when the task requires literature, claims, figures, or reviewer defense. Use `innovation_portfolio.md` for phase-authorized GeoPhase candidates and baselines. Do not load complete papers by default.

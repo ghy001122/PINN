@@ -1,63 +1,66 @@
-# Submission go/no-go after clean-replay closure
+# Submission Go/No-Go After GeoPhase Route Activation
 
-Date: 2026-07-22
+Date: 2026-07-24
 
 ## Decision
 
-**Technical content package: GO. Journal upload: NO-GO.**
+**GeoPhase research package: NO-GO pending G0. Manuscript submission: NO-GO.**
 
-The scientific result set is frozen. A detached checkout with the exact local
-asset pack passes all 440 tests, governance has no failed check, all 157
-portable evidence locks resolve, and the sentence/figure/evidence audits pass.
-No further Qiu, M40/M40R, M37R, public-inverse, or full-PINN rescue is
-authorized. Upload remains blocked by journal/article-type selection, author
-metadata and declarations, selected-template rendering and visual QA, and the
-public/restricted asset-distribution boundary.
+The user explicitly changed the core manuscript requirement: PINN must be a
+positive method contribution and the final physical structure must be at least
+two-dimensional. The previously validated v2 package does not meet those
+requirements because its positive inverse mainline is a frozen 1D constrained
+`gamma_sub` result and every complete trained PINN route fails at least one
+joint physical gate.
 
-## Defensible paper identity
+The v2 package remains a historically reproducible technical artifact; it is
+not deleted, relabeled, or treated as the new submission target. This route
+change upgrades no scientific claim.
 
-The manuscript is an **identifiability-gated physics-informed digital-twin
-inverse study**. It is not a successful new full-PINN solver, a calibrated
-real-device model, or an experimentally validated inverse method.
+## Candidate Paper Identity
 
-The three main contributions are:
+The selected candidate is a **geometry-aware 2.5D physics-informed digital
+twin for hysteretic phase-transition neuristors**, with observation-quotient
+inverse/refusal included only if solver and PINN sensitivity gates pass.
 
-1. a configured sparse-terminal hidden-field recovery boundary that motivates
-   inverse-target reduction;
-2. calibration-gated, synthetic rank-1 recovery of the effective thermal
-   coordinate `gamma_sub`, including retained wide-mismatch failures;
-3. a fail-closed evidence protocol separating implementation parity, physical
-   conservation, source-equation checks, local-PDE transfer, neural fidelity,
-   and external validation.
+Candidate contributions, all currently `forbidden` as result claims, are:
 
-## Q2 risk assessment
+1. Qiu-inspired real x-y geometry plus passive K-state vertical thermal memory;
+2. transition-localized spectral experts plus phase-sharpness/electrothermal-
+   feedback homotopy;
+3. event-canonicalized observation quotients, sensitivity fidelity, and
+   refusal, if the stable quotient hypothesis survives solver-first tests;
+4. material-specific SnSe/NbO2 cross-model numerical validation, not zero-shot
+   material generalization.
 
-The evidence is technically rigorous but the positive line is synthetic and
-one-dimensional. No trained complete-PINN route passes, and neither public VO2
-route supplies positive quantitative validation. Those omissions are direct
-rejection risks for a device-physics journal expecting fabricated-device or
-experimental validation. A Q2 submission remains rational only to a journal
-whose current scope accepts numerical inverse methods, physics-informed
-digital twins, and rigorous identifiability/limitation studies. Journal scope
-and current quartile must be checked immediately before submission.
+## Research Unblock Sequence
 
-## Mandatory upload closeout
+1. G0/E0 independent 2.5D solver passes manufactured, current/energy,
+   mesh/time, K-state reduction/passivity, and limit gates.
+2. G1 produces a positive data-free or explicitly hybrid PINN result on joint
+   field/port/event/ledger metrics.
+3. G2/G3 establish matched-budget architecture value and held-out within-family
+   geometry/protocol generalization.
+4. G4 is included only after solver derivative convergence and PINN sensitivity
+   fidelity; otherwise the paper uses a restricted inverse or limitation route.
+5. G5 supplies only a material-specific cross-model numerical trend check.
+6. A new manuscript, figure/table roster, claim audit, replay, and upload
+   package are built from the passed route.
 
-1. Lock one scope-compatible journal and article type using current official
-   sources; record the verification date and leave quartile unverified unless a
-   reliable current source is available.
-2. Complete author affiliations, contributions, funding, competing interests,
-   ethics/data/code/AI-use declarations, and corresponding-author details.
-3. Render the already locked manuscript and supplement in the selected
-   template; visually inspect every page, equation, citation, figure, and table.
-4. Archive redistributable code/data and document how authorized readers obtain
-   third-party PDFs; never redistribute assets without a confirmed license.
-5. Rerun only the affected readiness checks and submit. No new experiment may
-   be used to conceal an upload-package defect.
+## Stop And Downgrade Rules
 
-## Stop rule
+- E0 failure blocks all PINN work.
+- Data-free PINN failure may downgrade to the preregistered hybrid route only
+  when sparse anchors are explicit and the hybrid model passes all physical and
+  generalization gates.
+- Sensitivity failure restricts the PINN to forward use.
+- Absence of stable quotient rank/rotation removes the strong OQ story.
+- No result may be called experimental validation, exact Qiu reproduction,
+  full hidden-field recovery from terminal-only data, full STL, universal
+  Fourier superiority, or VO2-to-NbO2 zero-shot generalization.
 
-If the selected journal requires positive experimental validation or a
-successful trained PINN as a central contribution, change the journal target;
-do not reopen failed science merely to satisfy that scope. Submission within a
-month is controllable. Acceptance or publication within a month is not.
+## Historical v2 Boundary
+
+The former clean-replay facts (local asset pack `50/50`, portable identities
+`157/157`, detached tests `440/440`, and `CONTENT_GO_UPLOAD_NO_GO`) remain true
+only for the historical v2 content package. They provide no vote on GeoPhase.

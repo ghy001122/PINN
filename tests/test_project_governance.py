@@ -36,5 +36,10 @@ def test_handoff_snapshot_context_budget_and_agents_hierarchy() -> None:
 def test_delivery_contract_and_claim_matrices_are_consistent() -> None:
     summary = MODULE.run_audit(write_output=False)
     assert summary["checks"]["delivery_contract"]["status"] == "pass"
+    assert summary["checks"]["phase_consistency"]["active_phase_id"] == (
+        "Q2_GEOPHASE_E0_REFERENCE_SOLVER_FOUNDATION"
+    )
+    phase_missing = summary["checks"]["phase_consistency"]["missing"]
+    assert not any(f":G{gate}" in item for gate in range(6) for item in phase_missing)
     assert summary["checks"]["claim_matrix_vocabulary"]["status"] == "pass"
     assert summary["checks"]["final_report_template"]["status"] == "pass"

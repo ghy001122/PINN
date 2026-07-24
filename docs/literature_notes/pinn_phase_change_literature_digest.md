@@ -8,10 +8,12 @@ low-token work. It is not a full literature review.
 ### Stiff PINN And Continuation Training
 
 Seiler et al. 2025, "Stiff Transfer Learning for Physics-Informed Neural
-Networks", is relevant for later continuation or stiff-transfer training. It
-supports the idea that multi-physics inverse problems with disparate time scales
-may require staged training, transfer, or continuation. This is deferred until
-the active phase explicitly authorizes STL or continuation work.
+Networks", motivates staged training, transfer, or continuation for
+multi-physics problems with disparate scales. The active GeoPhase route plans
+phase-sharpness/electrothermal-feedback homotopy after G0 and G1 authorization.
+That plan does not establish full Seiler-style multi-head STL reproduction;
+such a claim still requires the actual head/transfer implementation and matched
+comparisons.
 
 ### Memristor PINN And Surrogate Modeling
 
@@ -26,9 +28,10 @@ make the current synthetic benchmark experimental.
 
 Zhao et al. 2025, "Physics-informed neural networks for inverse problems in
 phase field models", supports inverse-PINN framing for phase-transition
-systems. Its relevance is conceptual: the current project uses a reduced
-one-dimensional electro-thermal-defect benchmark, not a full phase-field
-solution.
+systems. Its relevance is conceptual: the current primary target is a reduced 2.5D
+x-y electrothermal phase-state model with passive vertical thermal memory, not
+a full Landau/phase-field solution. The frozen one-dimensional benchmark is now
+historical baseline evidence.
 
 ### Thermal And Differentiable Surrogate Modeling
 

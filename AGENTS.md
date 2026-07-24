@@ -2,9 +2,9 @@
 
 ## Mission And Delivery Mode
 
-Build a reproducible Python 3.11 research codebase and evidence package for `Q2_SCI_DELIVERY_MODE`: a defensible SCI manuscript draft, submission package, and reviewer-defense package on physics-informed digital twins and sparse-data inverse identification for oxide memristive and phase-transition devices. This is a delivery objective, not a promise of journal acceptance. The authoritative goal is [PROJECT_GOAL.md](PROJECT_GOAL.md).
+Build a reproducible Python 3.11 research codebase and evidence package for `Q2_SCI_DELIVERY_MODE`: a defensible SCI manuscript draft, submission package, and reviewer-defense package centered on a positive physics-informed neural method for phase-transition devices. The active candidate is `GeoPhase-OQ-PINN`: a source-traceable 2.5D device model, phase-transition-localized neural architecture, stiffness-aware training, and identifiability-gated inverse route. This is a delivery objective, not a promise of journal acceptance. The authoritative goal is [PROJECT_GOAL.md](PROJECT_GOAL.md).
 
-The frozen 1D Ground Truth v1.1 is historically inspired by an Nb/NbOx/V2O5/Ni stack. The current research scope also includes VO2/NbO2 multilayer OASIS models, segmented terminals, stiffness audits, and identifiability-guided inverse design. These extensions do not convert the synthetic benchmark into fabricated-device evidence.
+The frozen 1D Ground Truth v1.1 is historically inspired by an Nb/NbOx/V2O5/Ni stack. It remains read-only historical evidence, a low-dimensional baseline, and a failure/identifiability asset; it is no longer the intended final physical structure or positive manuscript core. The new route uses Qiu-inspired VO2 coplanar geometry as the primary 2.5D benchmark and a Chen-inspired SnSe/NbO2 device only for material-specific cross-model numerical validation. Neither route converts synthetic results into fabricated-device evidence.
 
 ## Delivery Selection And Autonomy
 
@@ -22,7 +22,7 @@ Use exploration-first, claim-gated execution:
 
 > Explore aggressively; interpret conservatively; write only what the evidence supports.
 
-`forbidden` blocks manuscript wording, not bounded exploration. Every high-risk audit must specify thresholds, failure interpretation, allowed wording, and forbidden wording.
+`forbidden` blocks manuscript wording, not bounded exploration. Historical stop votes bind the named implementation and budget; they do not silently become universal bans after an explicitly authorized core-line change. Every high-risk audit must specify thresholds, failure interpretation, allowed wording, and forbidden wording.
 
 Use only these claim statuses:
 
@@ -55,7 +55,7 @@ Do not relax gates, change GT, or hide failures to complete a task.
 
 ## Current High-Risk Claim Boundary
 
-Without new direct evidence, manuscript claims remain `forbidden` for full 2D hidden-field recovery, terminal-only 2D inverse solved, full or Seiler-style STL-PINN reproduction, universal F-SPS/Fourier superiority, real experimental validation, and full FEM/3D/device-grade multiphysics reproduction.
+Without new direct evidence, manuscript claims remain `forbidden` for a successful GeoPhase forward solver, Qiu quantitative reproduction, PINN--solver sensitivity fidelity, observation-quotient recovery, terminal-only full 2D hidden-field recovery, full or Seiler-style STL-PINN reproduction, universal F-SPS/Fourier superiority, VO2-to-NbO2 zero-shot generalization, real experimental validation, and full FEM/3D/device-grade multiphysics reproduction. The active E0 independent-solver gate must pass before any GeoPhase training claim is eligible.
 
 ## Engineering Rules
 

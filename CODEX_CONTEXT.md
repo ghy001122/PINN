@@ -2,58 +2,63 @@
 
 ## Low-Token First Read
 
-Read this file and `docs/research_strategy/active_phase.md` first. Load longer context through `docs/research_strategy/context_loading_policy.md`.
+Read this file and `docs/research_strategy/active_phase.md` first. Load longer
+context through `docs/research_strategy/context_loading_policy.md`.
 
 - Authoritative goal: `PROJECT_GOAL.md`
-- Phase ID: `Q2_MANUSCRIPT_EVIDENCE_COMPRESSION_AND_SUBMISSION_LOCK`
+- Phase ID: `Q2_GEOPHASE_E0_REFERENCE_SOLVER_FOUNDATION`
+- Active research contract: `docs/research_strategy/geophase_oq_pinn_execution_contract.md`
 - Current evidence: `docs/project_state/current_evidence_index.md`
 - Safe historical evidence lock: `d1121e16fa5015a297da468e3e6f0504b9e97d17`
-- Current report: `docs/codex_reports/p0_clean_replay_portability_and_asset_closure_2026-07-22.md`
 
 ## Corrected North Star
 
-A complete phase-transition PINN remains an indispensable scaffold; an independent solver is the reference judge. Positive PINN claims are evidence-gated. The public-data quotient hypothesis remains untested.
+The selected manuscript route is now `GeoPhase-OQ-PINN`: source-traceable
+Qiu-inspired x-y geometry, conservative 2.5D vertical thermal reduction,
+white-box VO2 electrothermal phase dynamics, a transition-localized neural
+architecture, stiffness homotopy, and sensitivity-gated observation-quotient
+inverse identification. Chen-inspired SnSe/NbO2 is auxiliary cross-model
+numerical validation with a separate material kernel.
 
-The calibration-gated constrained `gamma_sub` rank-1 result is the safe `qualified_supported` inverse mainline. D0 is a reality/identifiability bridge, not a substitute for PINN contribution or experimental validation.
+This is a candidate research design, not an achieved result. Project outputs
+remain literature-guided synthetic numerical digital-twin evidence. The
+constrained `gamma_sub` result and complete 1D PINN failures remain historical
+baselines and reviewer-defense evidence.
 
 ## Single Active Bottleneck
 
-`Q2_MANUSCRIPT_EVIDENCE_COMPRESSION_AND_SUBMISSION_LOCK`: the source-contract
-amendment and local clean replay are complete. The verified local asset pack is
-`50/50`, portable evidence identity is `157/157`, detached pytest is `440/440`,
-and readiness is `CONTENT_GO_UPLOAD_NO_GO`. Select the journal/article type,
-complete author declarations, render and visually inspect the locked package,
-and close the public/restricted asset route without reopening science.
+`Q2_GEOPHASE_E0_REFERENCE_SOLVER_FOUNDATION`: implement and validate the
+independent 2.5D reference before any GeoPhase PINN work. Required E0 gates are
+manufactured solutions, current and energy conservation, spatial/time
+convergence, passive K-state thermal-memory reduction, uniform/zero-drive
+limits, and single/dual-device limits. All gates must pass; finite output or
+port agreement alone is insufficient.
 
-## Evidence Snapshot
+## Live Inventory
 
-| Block | Current boundary |
+| Item | Current boundary |
 | --- | --- |
-| M40 Qiu 2D E0 | `failed_but_informative`; 12/14 formal gates pass, but both mesh gates fail. Current/energy/interface/reduced checks pass. M41 is not authorized. |
-| E1F/E1F-R Qiu compact anchor | Original E1F has no scientific vote. The atanh term is supported only as the analytic inverse of the configured tanh anchor; full Qiu-author equivalence is unverified. E1F-R is `failed_but_informative`: parity passes (`2.23216e-7` worst NRMSE), but literal-S3 12 V setting current/voltage errors are `0.353154/0.815643`. Fig. 2b is invalid/unassessed. |
-| Frozen/P0-P4 | GT unchanged; P0/P3 qualified, P1/P2 failed, P4 forbidden. |
-| D0/M35-M37R | D0a/M35 remain failed. M36 nominal solver parity passes; M37R reproduces full/post counts `0/216/381/4` and `0/196/344/0`, then stops on 15 V perturbation topology (`343` vs `344`, common prefix `0`). No Jacobian, fit, lock, or 13 V access. |
-| N0 v1-v3r | Operator audits pass, trained paths fail. v3r port `0.0955475` passes but physics/field/flux/ledger gates fail; strong-Wolfe becomes non-finite. |
-| M33/M34 | M33 training fails. M34's preregistered authorization gate fails; M34-A shows stable parity in `32/32` non-voting post-hoc directions and does not support an autograd error. No training is authorized. |
-| SID/EC-OQ | `failed_but_informative`; derivative `3/9`, event-window, stability, and geometry gates fail; inactive. |
-| CPCF | Frontier `forbidden`; 48 proxy votes are non-equivalent, non-voting diagnostics. |
-| CEBA/SCIS | CEBA parity `supported` but abstention is oracle/grid-dependent; SCIS nominal coverage `0.93233` passes while severe-mismatch refusal fails. |
-| Figure 5 | Bundled performance `qualified_supported`; isolated protocol gain/optimality `forbidden`. |
-| N1-N3 | Unrun; reliable full-PINN forward, sensitivity, and inverse claims `forbidden`. |
-
-## Evidence Semantics
-
-Keep `public_external_raw`, `derived`, `interpolated`, `solver_generated`, `pinn_predicted`, and `synthetic_gt` distinct. Zhang Methods states source parameters were optimized against experimental results, so 13 V can at most become a `repository-withheld, preregistered cross-voltage evaluation`; it cannot be called an independent external holdout.
+| Qiu geometry/source contracts | Reusable provenance and geometry facts; M40/M40R x-z results remain `failed_but_informative` and are not the new x-y solver. |
+| Solver/conservation components | Reusable implementation patterns only; no current x-y K-state GeoPhase reference exists. |
+| PINN components | Fourier, interface, CV, port, and full-PINN components exist, but no transition-localized GeoPhase MoE or positive trained GeoPhase result exists. |
+| Identifiability | SVD/principal-angle utilities and negative audits exist; event-canonicalized OQ, sensitivity fidelity, and refusal are unrun. |
+| Historical manuscript v2 | Technically validated historical package; no longer the selected paper core after explicit user authorization. |
+| Frozen GT v1.1 | Unchanged, read-only, historical baseline only. |
 
 ## Operating Rule
 
-Do not rerun or rescue E1F/E1F-R or M40/M40R. Run no M41, effective-coordinate
-preflight, inverse network, PINN training, holdout refit, M38, or Zhang sealed-
-13-V access. Preserve all negative artifacts and use only `supported`,
-`qualified_supported`, `failed_but_informative`, or `forbidden`.
+Follow `config -> implementation -> test -> JSON/CSV -> figure/table -> report
+-> claim matrix -> manuscript sentence`. E0 alone is active. During E0, do not
+train, rent GPU, refit literature curves, repair M44, or start
+inverse/cross-material work. An E0 pass opens only the next go/no-go review;
+later work still needs sequential phase authorization. Preserve VO2 and NbO2
+material-specific physics.
 
-The Qiu SI does not publish a complete executable reversal update, numerical
-initial-condition contract, integrator, tolerances, author code, or raw arrays.
-Therefore exact author-code reproduction remains `forbidden`; E1F can support
-only a source-equation-constrained reimplementation. Do not describe the
-historical `atanh` term as an unreferenced insertion.
+## Forbidden Until Direct Evidence
+
+Positive GeoPhase forward accuracy, architecture/homotopy superiority,
+within-family geometry generalization, PINN--solver sensitivity fidelity,
+observation-quotient recovery, deployable refusal, Qiu quantitative
+reproduction, VO2-to-NbO2 zero-shot transfer, experimental validation, full
+hidden-field recovery from terminal-only data, full STL reproduction, and
+device-grade full 3D multiphysics.
