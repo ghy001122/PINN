@@ -1,0 +1,88 @@
+{
+  "schema_version": "m44_final_validation_v1",
+  "task_id": "Q2_M44_QIU_HETEROGENEOUS_3D_THERMAL_BRIDGE_AND_REPRODUCTION_CLOSEOUT",
+  "recorded_on": "2026-07-24",
+  "branch": "research/m44-qiu-heterogeneous-3d-thermal-bridge",
+  "base_commit": "e433fe900cb4376b5e1d5cfe81333e527f5454a5",
+  "preregistration_commit": "1b87c67387affddae85ac73a4de51abe42883b50",
+  "result_commit_binding": {
+    "result_commit": null,
+    "reason": "The result commit contains this file and cannot embed its own hash without a circular rewrite."
+  },
+  "scientific_result": {
+    "status": "failed_but_informative",
+    "decision": "M44_STOP_REAL_GEOMETRY_UPGRADE",
+    "formal_runner_invocations": 1,
+    "unique_registered_forwards_attempted": 31,
+    "unique_registered_forwards_completed": 31,
+    "mandatory_gates_passed": 19,
+    "mandatory_gates_total": 22,
+    "failed_gates": {
+      "zth_mesh_pair_change": 0.06324641077402296,
+      "zth_time_pair_change": 0.0544910227619362,
+      "vo2_mean_temperature_pair_change": 0.06324641077402296
+    },
+    "source_envelope": {
+      "value": 0.03357903168816547,
+      "vote": false,
+      "reason": "The registered mesh and time discretization differences exceed the source-family envelope."
+    },
+    "m44r_authorized": false,
+    "m45_authorized": false
+  },
+  "scope_guards": {
+    "new_scientific_forward_during_recovery_or_validation": false,
+    "electrical_forward_runs": 0,
+    "device_curve_fits": 0,
+    "inverse_runs": 0,
+    "pinn_training_runs": 0,
+    "gpu_runs": 0,
+    "latent_heat_inserted": false,
+    "sealed_13V_accessed": false
+  },
+  "artifact_identity": {
+    "machine_summary_strict_json": true,
+    "execution_receipt_strict_json": true,
+    "figure_raw_sha256_matches_summary": true,
+    "csv_sha256_matches_summary_after_declared_crlf_checkout_normalization": true,
+    "figure_sha256": "452A8FECEEA89018BA4B4AF768DD64A65FAA94E414336980A9C9951149AF991C",
+    "protected_evidence_sha256_unchanged": true,
+    "protected_evidence_mtime_unchanged_across_formal_run": true,
+    "frozen_gt_sha256_unchanged": true
+  },
+  "post_run_workspace_recovery": {
+    "external_reset_observed": true,
+    "reset_target": "e433fe900cb4376b5e1d5cfe81333e527f5454a5",
+    "preregistration_commit_recovered_from_reflog": true,
+    "result_artifacts_recovered_from_git_objects": true,
+    "formal_forward_rerun": false,
+    "scientific_metrics_changed": false
+  },
+  "validation": {
+    "targeted_pytest": {
+      "passed": 45,
+      "failed": 0,
+      "duration_seconds": 44.08
+    },
+    "full_pytest": {
+      "passed": 540,
+      "failed": 0,
+      "duration_seconds": 373.05,
+      "log": "outputs/logs/m44_full_pytest.txt",
+      "invocations": 1
+    },
+    "governance": {
+      "status": "pass_with_manual_review",
+      "failed_checks": [],
+      "manual_review": [
+        "codex_rules",
+        "frozen_gt_integrity_mtime_portability"
+      ]
+    },
+    "strict_json_parse_count": 299,
+    "strict_yaml_parse_count": 94,
+    "git_diff_check": "pass"
+  },
+  "overall_status": "PASS_WITH_MANUAL_REVIEW",
+  "manuscript_boundary": "M44 supports only a failed convergence boundary and controlled implementation subfacts; it does not authorize a Qiu device model, reduction fit, inverse, PINN, or experimental claim."
+}

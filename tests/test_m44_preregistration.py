@@ -88,10 +88,11 @@ def test_m44_preregistration_locks_scope_budget_and_exact_case_count() -> None:
     assert config["layered_reference"]["self_refinement_change_max"] == 0.002
 
 
-def test_active_phase_authorizes_heterogeneous_bridge_not_reduction_fit() -> None:
+def test_post_m44_active_phase_freezes_science_after_stop() -> None:
     text = (ROOT / "docs" / "research_strategy" / "active_phase.md").read_text(
         encoding="utf-8"
     )
-    assert "Q2_M44_QIU_HETEROGENEOUS_3D_THERMAL_BRIDGE_AND_REPRODUCTION_CLOSEOUT" in text
-    assert "RC/kernel" in text and "fitting" in text
-    assert "forbidden" in text
+    assert "Q2_POST_M44_SUBMISSION_FREEZE_AND_UPLOAD_LOCK" in text
+    assert "M44_STOP_REAL_GEOMETRY_UPGRADE" in text
+    assert "M44R" in text and "M45" in text
+    assert "not authorized" in text or "forbidden" in text

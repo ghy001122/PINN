@@ -325,6 +325,14 @@ independent transient Green-function reference and within 0.94% of the steady
 rectangular-source reference, supporting only component-level numerical
 thermal-spreading closure (Supplementary Section S9).
 
+A subsequent preregistered heterogeneous three-dimensional thermal-only audit
+recovered its homogeneous and layered implementation limits and passed its
+discrete conservation and domain-truncation checks. It nevertheless failed the
+locked M43-normalized mesh and time-step convergence criteria (6.32% and 5.45%
+against a 2% operational threshold). That branch therefore stops as a numerical
+limitation rather than a Qiu-device or reduced-thermal-coordinate result
+(Supplementary Section S10).
+
 The results also suggest a practical experimental-design hierarchy. Improving
 the calibration of the dominant nuisance coordinate is more valuable, within
 the tested range, than adding waveform complexity while leaving that nuisance

@@ -1,0 +1,24 @@
+category,item,value,unit,provenance,voting
+geometry,vo2_full_x_m,1e-07,m,Qiu_main_Fig1_and_supporting_information_device_fabrication,True
+geometry,vo2_full_y_m,5e-07,m,Qiu_main_Fig1_and_supporting_information_device_fabrication,True
+geometry,vo2_thickness_m,1e-07,m,Qiu_main_and_supporting_information,True
+geometry,ti_thickness_m,1.5e-08,m,Qiu_supporting_information_device_fabrication,True
+geometry,au_thickness_m,4e-08,m,Qiu_supporting_information_device_fabrication,True
+geometry,contact_support_fraction_of_half_x,0.2,1,engineering-prior,True
+geometry,remote_domain_ladder,"{""D2"":4.0,""D3"":6.0}",multiples of registered diffusion length,preregistered numerical convergence contract,True
+boundary,remote_x_y_bottom,fixed_T0,boundary condition,preregistered numerical boundary contract,True
+boundary,symmetry_x0_y0,zero_flux,boundary condition,geometric symmetry and preregistered numerical contract,True
+boundary,exposed_top_and_sides,zero_flux,boundary condition,preregistered engineering boundary prior,True
+interface,voting_thermal_boundary_resistance_m2K_W,0.0,m^2 K W^-1,preregistered perfect-contact baseline; nonzero TBR excluded,True
+material,vo2.thermal_conductivity_W_mK,4.0,W m^-1 K^-1,Qiu_SI_quoted_capacity_at_336K_and_primary_literature_derived_locked_k_branch,True
+material,vo2.volumetric_heat_capacity_J_m3K,3.07e6,J m^-3 K^-1,Qiu_SI_quoted_capacity_at_336K_and_primary_literature_derived_locked_k_branch,True
+material,ti.thermal_conductivity_W_mK,21.9,W m^-1 K^-1,engineering-prior_not_reported_by_Qiu,True
+material,ti.volumetric_heat_capacity_J_m3K,2.35e6,J m^-3 K^-1,engineering-prior_not_reported_by_Qiu,True
+material,au.thermal_conductivity_W_mK,317.0,W m^-1 K^-1,engineering-prior_not_reported_by_Qiu,True
+material,au.volumetric_heat_capacity_J_m3K,2.49e6,J m^-3 K^-1,engineering-prior_not_reported_by_Qiu,True
+material,al2o3.thermal_conductivity_W_mK,35.0,W m^-1 K^-1,non_orientation_matched_primary_literature_k_bracket_and_engineering_prior_capacity_inherited_from_M43,True
+material,al2o3.volumetric_heat_capacity_J_m3K,3.0e6,J m^-3 K^-1,non_orientation_matched_primary_literature_k_bracket_and_engineering_prior_capacity_inherited_from_M43,True
+source,S_bulk,uniform_vo2_volume,equal registered total power,engineering-prior,True
+source,S_contact,symmetric_vo2_end_volume,equal registered total power,engineering-prior,True
+source,S_mixed,fifty_fifty_bulk_contact,equal registered total power,engineering-prior,True
+source,S_surface_anchor,full_footprint_surface_isoflux,equal registered total power,manufactured solver anchor,False

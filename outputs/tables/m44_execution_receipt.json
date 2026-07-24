@@ -1,0 +1,771 @@
+{
+  "canonical_case_sha256": [
+    "1825392F9745A879038F7AB912006123BA788CA5986D72FF6E232D7AA4AB2711",
+    "91ACB19783CF47B90EF57F9F339695CA06A1D0E8A6B5E719F1891E40719AC811",
+    "FF6CB6806A1E3C5EA17FDFFD06BCD4D417FC7B30E63338D42E8B649AA772B0A0",
+    "02617DFF999A52010953580B35F40521B4C41FBF383E5346E4A594FD56A610EE",
+    "1FDA02C73EC236325E8D627524E4A6382D7E89B253621EBC01ED79FFD003533F",
+    "25DE5932573E58D740D030577DEF82E982B1803B398F338683876F0C9538E57A",
+    "842FC0D17D5A2F2DFF028C08AF09556A8CF0DEF4DA3ED883BBFE4F98BDE4479E",
+    "DE88DD7B3E326429164AACA52152F010A2C3A21DB34FE96712EE670B67D0B661",
+    "B7FDCC5EA9DEB9302B9175E1508921F00B612D15AA97603CB32C2EF7EC1C2D62",
+    "2E02DDF84CDBE91ABBEED71B2C1D7E33A108899E0E409838067295716BCEA135",
+    "3AEF2032FD7B719C3145F4400FAEDEC7D39769B06D8D023D29FD71BDC35D111A",
+    "DFBDF578389E0AE239E206DDC4E93E42D7792C6425C22F622B01C67A4146E6C7",
+    "7A71C9D6814034C115862154AE7157E16424417A5D5229AF999A04713FD03AFE",
+    "8CE92AB77E0A0A197D8ADFB819BDC42F7F405EA117B72C3D2BFFF8ED78AC9A20",
+    "2868B7C2B70EA2F6F2B6CB19FA7CF92F683F5F1F4D5CC766F7FF3EB2F92CA44B",
+    "66A01B2B3EF2824295674D8288F4CC50AA53FE2E46538862039C807430DA80B4",
+    "A3E974E854CA20A323119D6BDDAF0954B97C1AA81B613F2B41AE865E96DD73D8",
+    "973068AB5FC196064E08C8264B37C2A8972F621CBAA88BDE33E01EB4301CD06D",
+    "C6B68B6D81697F9DAE457C9E34D6DEDB77CF23DD28B37B9E760F4AE8945448BC",
+    "DB68F422FEEA3A050D1AEE18F4EB0BD3DE819C7FD4E39DBE5D730382E5E14206",
+    "1028EE274350A74978ABAA8FDCA280F941FDB32DB29DB4AC92AC0E70C77B7FEC",
+    "4F72AF02EBCEE380C13B9448FB73784B3ADBC7297F67B55F890B614E0AA0230F",
+    "DC4AFCA42E80129746A64DEE8C96862A69F1B91156FC80A6606C984F477B249E",
+    "FB1826722D3D5CA1E982C8ABBAC2EB8732E8CB8784A050083CD0EED7C0D2A6F1",
+    "97FE26A238BB64405031C60EE626FCC69653905CF445112BF2A2D24CE27291EE",
+    "538D33D34AFC30A4AFBECC78CBA487C04CF9D0E171041785BA17203F3B3AD9AB",
+    "0E325CBA51B10A64ABE94729121548FBAE6A3E14A84365662AE5FE4310319F6B",
+    "5ECC716CBB67D720F283984BB858A8F29501DDFCE15CD1E7FE4AD7A3BB46BEBC",
+    "EC8CEFF6BC72E06E89CEAF006A775C4C340FD0C2E47CA061C55C30E7540EF1CF",
+    "7421C607371EF96279D52D656269775B854C8567ECC007F55C688B30F6129E10",
+    "A1A034FEE050437BF704879E3C7AA07F34AABF7BF2A41E56A8CCE427E9902730"
+  ],
+  "case_ids": [
+    "homogeneous_steady_M3D3",
+    "homogeneous_transient_M3D3",
+    "layered1d_steady",
+    "layered1d_transient",
+    "S_bulk_steady_M2D2",
+    "S_bulk_transient_M2D2_base",
+    "S_bulk_steady_M3D2",
+    "S_bulk_transient_M3D2_base",
+    "S_bulk_transient_M3D3_base",
+    "S_bulk_transient_M3D2_fine",
+    "S_contact_steady_M2D2",
+    "S_contact_transient_M2D2_base",
+    "S_contact_steady_M3D2",
+    "S_contact_transient_M3D2_base",
+    "S_contact_transient_M3D3_base",
+    "S_contact_transient_M3D2_fine",
+    "S_mixed_steady_M2D2",
+    "S_mixed_transient_M2D2_base",
+    "S_mixed_steady_M3D2",
+    "S_mixed_transient_M3D2_base",
+    "S_mixed_transient_M3D3_base",
+    "S_mixed_transient_M3D2_fine",
+    "S_bulk_xz_transient_M2D2",
+    "S_bulk_xz_transient_M3D2",
+    "S_bulk_xz_transient_M3D3",
+    "S_contact_xz_transient_M2D2",
+    "S_contact_xz_transient_M3D2",
+    "S_contact_xz_transient_M3D3",
+    "S_mixed_xz_transient_M2D2",
+    "S_mixed_xz_transient_M3D2",
+    "S_mixed_xz_transient_M3D3"
+  ],
+  "config_sha256": "0BAE1CFA52F84995B8C9A7D83CED81D78D6EAF74B77FC0A6547CD12AD786B5AC",
+  "decision": "M44_STOP_REAL_GEOMETRY_UPGRADE",
+  "formal_runner_invocations": 1,
+  "forward_invocations_attempted": 31,
+  "forward_invocations_completed": 31,
+  "m43_postcommit_attestation_identity": {
+    "artifact_count": 7,
+    "attestation_sha256": "E0F0A7F2BCF40676ACB411F0B8190181119333BAE69A0DAA090FAEFA0F51D879",
+    "passed": true,
+    "records": {
+      "docs/codex_reports/m43_finite_width_thermal_spreading_closure.md": {
+        "actual_sha256": "B08D6A670B73FDB6341F816D6C209A7A74727331CD759B5B869711B7BACA1D51",
+        "expected_sha256": "B08D6A670B73FDB6341F816D6C209A7A74727331CD759B5B869711B7BACA1D51",
+        "passed": true
+      },
+      "outputs/figures/m43/m43_thermal_spreading_closure.png": {
+        "actual_sha256": "A42CE3ECD3F3FE169F89B89D376AB25517023B08136C4B067E77B4D9EAB1A4A5",
+        "expected_sha256": "A42CE3ECD3F3FE169F89B89D376AB25517023B08136C4B067E77B4D9EAB1A4A5",
+        "passed": true
+      },
+      "outputs/tables/m43_execution_receipt.json": {
+        "actual_sha256": "E1886381C1CE6B763A71DDF0295856ED0A9067E3F0A1C81EFDFC97F3A7251941",
+        "expected_sha256": "E1886381C1CE6B763A71DDF0295856ED0A9067E3F0A1C81EFDFC97F3A7251941",
+        "passed": true
+      },
+      "outputs/tables/m43_final_validation.json": {
+        "actual_sha256": "EA8A96C052DC68347EDCB79768F2A36CEBEE132B850970ADC7A913E0BA661570",
+        "expected_sha256": "EA8A96C052DC68347EDCB79768F2A36CEBEE132B850970ADC7A913E0BA661570",
+        "passed": true
+      },
+      "outputs/tables/m43_finite_width_thermal_spreading_cases.csv": {
+        "actual_sha256": "8BFE801696BD68606D910768681253FA6F4A5BBCEFBDCCF8A87744266F9DF42B",
+        "expected_sha256": "8BFE801696BD68606D910768681253FA6F4A5BBCEFBDCCF8A87744266F9DF42B",
+        "passed": true
+      },
+      "outputs/tables/m43_finite_width_thermal_spreading_summary.json": {
+        "actual_sha256": "A3CD3BAEAF3A498DF908B85C3E97DB14FC23EE01A56F849B3B84A716381B62DF",
+        "expected_sha256": "A3CD3BAEAF3A498DF908B85C3E97DB14FC23EE01A56F849B3B84A716381B62DF",
+        "passed": true
+      },
+      "outputs/tables/m43_transient_green_reference.csv": {
+        "actual_sha256": "4E23DCF04A5B7547C3178A163AEFFE1B24B95A31A0978AC0F612AFF36F188A76",
+        "expected_sha256": "4E23DCF04A5B7547C3178A163AEFFE1B24B95A31A0978AC0F612AFF36F188A76",
+        "passed": true
+      }
+    }
+  },
+  "preregistration_commit": "1b87c67387affddae85ac73a4de51abe42883b50",
+  "preregistration_file_sha256": {
+    "configs/m44_qiu_heterogeneous_3d_thermal.yaml": "0BAE1CFA52F84995B8C9A7D83CED81D78D6EAF74B77FC0A6547CD12AD786B5AC",
+    "docs/codex_reports/m43_postcommit_attestation.md": "1652B0000D58D938060EBA4131E4219D64E0FD6D45B4DD040B35CD7386B71556",
+    "docs/literature/m44_classic_reproduction_closeout_matrix.md": "67E61237F5B25C2AE1F1A9C562B9DAD0DF297B5741849085AFE1AC432E010752",
+    "docs/physics/m44_qiu_heterogeneous_thermal_contract.md": "4C24D7C5176139CBC760967A4BB152982D1A732E705B9FEFF279A0C8A54B0C77",
+    "docs/research_strategy/m44_qiu_heterogeneous_3d_thermal_preregistration.md": "F30B922957C1A881C22AE6D96FFC23469BCC522F0DF0D1D06D37AE4998C4D206",
+    "outputs/tables/m43_postcommit_attestation.json": "E0F0A7F2BCF40676ACB411F0B8190181119333BAE69A0DAA090FAEFA0F51D879",
+    "outputs/tables/m44_classic_reproduction_closeout.json": "4458C372D02E8B358C079840D662D23F013E98D1716CA5D8E03129EB74472184"
+  },
+  "prohibited_run_accounting": {
+    "curve_fit_runs": 0,
+    "electrical_forward_runs": 0,
+    "gpu_runs": 0,
+    "inverse_runs": 0,
+    "latent_heat_runs": 0,
+    "pinn_training_runs": 0,
+    "qiu_device_coupled_forwards": 0,
+    "sealed_13V_accessed": false
+  },
+  "protected_evidence_before": {
+    "configs/e1f_qiu_author_external_anchor.yaml": {
+      "mtime_ns": 1784632586652319200,
+      "sha256": "7C049E98A6FA3FB184378379CB98FAE7724C05E736F8BC5307E2C2DC9D5A4941",
+      "size_bytes": 6761
+    },
+    "configs/e1fr_qiu_source_equation_correction.yaml": {
+      "mtime_ns": 1784636452790545100,
+      "sha256": "BBC34A9B573EE9B2EEEC9016FB7B6B0094180773572F3B904EA3A58E4DB57501",
+      "size_bytes": 4294
+    },
+    "configs/gt_v1_acceptance_ltp_ltd.yaml": {
+      "mtime_ns": 1782060359175752300,
+      "sha256": "F1F71F21F1D0D27532EEAD23A3A4B71B0864E6B0966E564104DCFFD7040C1D93",
+      "size_bytes": 1480
+    },
+    "configs/gt_v1_acceptance_triangle.yaml": {
+      "mtime_ns": 1782060358957859600,
+      "sha256": "F2E6BEC6006827344BEBDDCF20519B5B87F923B349A8799596D06E9F254A2B02",
+      "size_bytes": 1471
+    },
+    "configs/m40_qiu_vo2_real_device_2d.yaml": {
+      "mtime_ns": 1784617028822264800,
+      "sha256": "EA404EE217846553CDAA77644DB8FFB719DA4630240726C6F07FB92FC0F41CA9",
+      "size_bytes": 7744
+    },
+    "configs/m40r_qiu_e0_repair.yaml": {
+      "mtime_ns": 1784625731380874600,
+      "sha256": "F00122185238D1FF51BE46ADA2D0BE6F486AF1CA6860E422216B90FAFB264C1D",
+      "size_bytes": 5255
+    },
+    "configs/m42_qiu_2d_preflight.yaml": {
+      "mtime_ns": 1784792324816049700,
+      "sha256": "DBD45FAB44D798CE2911055C756D63B6CC4E18C12D81A35F556B20F57BFD7435",
+      "size_bytes": 4982
+    },
+    "configs/m43_finite_width_thermal_spreading.yaml": {
+      "mtime_ns": 1784792324818049700,
+      "sha256": "EFE348ED365208A86891EBD63FDD9E62A7650E028937C595C3474F18D3C61B5B",
+      "size_bytes": 8205
+    },
+    "data/external/qiu_2024_thermal_neuristor/derived/qiu_2024_si_fig_s1_12v_current.csv": {
+      "mtime_ns": 1784633965754248500,
+      "sha256": "901E02A6D68C71A97BFC91AAF4C5AFDAC6414C3A59780573400A51168023D05D",
+      "size_bytes": 628640
+    },
+    "data/external/qiu_2024_thermal_neuristor/derived/qiu_2024_si_fig_s1_12v_device_voltage.csv": {
+      "mtime_ns": 1784633970730687000,
+      "sha256": "28F111ABF4AFB119EA37FC389EE4D7A74D62894ABA71CF3DA0824CB52987AFC3",
+      "size_bytes": 640100
+    },
+    "data/external/qiu_2024_thermal_neuristor/digitized_manifest.json": {
+      "mtime_ns": 1784633978082115100,
+      "sha256": "8BB8F8B459116A6F35ABEC4E98A208AF5704FF5E63E258311DA363B50048113C",
+      "size_bytes": 8509
+    },
+    "data/external/qiu_2024_thermal_neuristor/manifest.json": {
+      "mtime_ns": 1784617033395348600,
+      "sha256": "9FE009F6B4CD61243E6614FBB53210F6042D53D826FAD31B06C7CA7A6CDB253F",
+      "size_bytes": 4103
+    },
+    "data/external/qiu_2024_thermal_neuristor/raw/qiu_2024_main.pdf": {
+      "mtime_ns": 1784615933007020600,
+      "sha256": "D842E8BF1B5AC609AB504D8BF6104CFD3EFEA59697A5C7AC21664A99EB7D3C67",
+      "size_bytes": 2575890
+    },
+    "data/external/qiu_2024_thermal_neuristor/raw/qiu_2024_supporting_information.pdf": {
+      "mtime_ns": 1784615952549614000,
+      "sha256": "D47ED95CD5782C3E632BBC440C1FCC681870E0FF303F0B05F8CD8F30CEC70BFD",
+      "size_bytes": 3139723
+    },
+    "data/processed/gt_v1_acceptance/gt_ltp_ltd.npz": {
+      "mtime_ns": 1782060476825218700,
+      "sha256": "772D17178C77392BF8A0813ADA3DB4A7241C5FA4E6D72E091894271BFA13C247",
+      "size_bytes": 617768
+    },
+    "data/processed/gt_v1_acceptance/gt_triangle.npz": {
+      "mtime_ns": 1782060474118294900,
+      "sha256": "4E4814D9C66A79CBE86417296B0A797E53FFFF2CEE2BD881548FBCD35E05C9F8",
+      "size_bytes": 496603
+    },
+    "data/processed/gt_v1_acceptance/manifest.json": {
+      "mtime_ns": 1782060479046347700,
+      "sha256": "634554429B9E61A231E47BF35B9B5C66C1C316E5E11A86BDE0540B05FF5AE30F",
+      "size_bytes": 3563
+    },
+    "data/processed/gt_v1_acceptance/obs_ltp_ltd_sparse.npz": {
+      "mtime_ns": 1782060476827228200,
+      "sha256": "7155BFF7C406FAB49E9670FA8A73AB6D0063459A80FEB705138E3FE61A351645",
+      "size_bytes": 2705
+    },
+    "data/processed/gt_v1_acceptance/obs_triangle_sparse.npz": {
+      "mtime_ns": 1782060474121208000,
+      "sha256": "F45DAF53136A255B3666EBEB56E6298CE148A613C46FA596B795E7ADE68EA602",
+      "size_bytes": 2494
+    },
+    "data/processed/gt_v1_acceptance/params_gt_v1.json": {
+      "mtime_ns": 1782060476827228200,
+      "sha256": "1020E9B07466C8F3474762702AA354CF6A6B73DA26DEB31D3F75C7E54521D9FA",
+      "size_bytes": 1066
+    },
+    "docs/codex_reports/e1f_qiu_author_external_anchor_results.md": {
+      "mtime_ns": 1784634905685448200,
+      "sha256": "82DB252534E27C9B02B3378135BFDBCE326D2C08300A9B52116C04296E12A93F",
+      "size_bytes": 1793
+    },
+    "docs/codex_reports/e1f_semantic_amendment.md": {
+      "mtime_ns": 1784635801951404300,
+      "sha256": "0A82BF7569A254C80A199B3F9D215C44E9C7A0A44DA4836A5858F19DAE25CFB0",
+      "size_bytes": 1204
+    },
+    "docs/codex_reports/e1fr_qiu_source_equation_correction_results.md": {
+      "mtime_ns": 1784638035024651100,
+      "sha256": "9FD75AD6BA9682E15F81C5F7774B589C2DA0D74F4CD4DDCDFA0A36B96BDC9648",
+      "size_bytes": 5089
+    },
+    "docs/codex_reports/m40_qiu_vo2_e0_results.md": {
+      "mtime_ns": 1784618150692027000,
+      "sha256": "78E40F6609C1C2D84FCCF4A19A20C5FBED98A7C8273AE47DAB2D138146C9E935",
+      "size_bytes": 2807
+    },
+    "docs/codex_reports/m40r_qiu_e0_repair_results.md": {
+      "mtime_ns": 1784627605983321900,
+      "sha256": "4399EBE2C4FD36C92E993BB4E8ECF652A790846CCB0FF0872E848FE4169DFBAF",
+      "size_bytes": 4872
+    },
+    "docs/codex_reports/m40r_qiu_mesh_forensics.md": {
+      "mtime_ns": 1784625909770843800,
+      "sha256": "783F5412E06BA0362FA0B0C051C5535DF1E812987ABCF8E31C3437180C462546",
+      "size_bytes": 1096
+    },
+    "docs/codex_reports/m42_qiu_2d_physics_foundation_preflight.md": {
+      "mtime_ns": 1784792324819049500,
+      "sha256": "DCB9F1CB09921744C61E05395FC0D395498FF44F28BEFFD7906BCC08ADDDD49C",
+      "size_bytes": 3185
+    },
+    "docs/codex_reports/m43_finite_width_thermal_spreading_closure.md": {
+      "mtime_ns": 1784792324821395000,
+      "sha256": "B08D6A670B73FDB6341F816D6C209A7A74727331CD759B5B869711B7BACA1D51",
+      "size_bytes": 6303
+    },
+    "docs/gt_v1_acceptance_report.md": {
+      "mtime_ns": 1782099689353339700,
+      "sha256": "0F72718AFFB84F727771F8D4A1A16AFB9D7C0D15BD7984632B3BEB8155F91643",
+      "size_bytes": 2749
+    },
+    "docs/manuscript/main_submission_v1.md": {
+      "mtime_ns": 1784637097942732900,
+      "sha256": "EBE0E7C90C00EB65635EE068F5E0E736505524F52BE31CC4D5BB720C88B8D45D",
+      "size_bytes": 14838
+    },
+    "docs/paper/gamma_sub_evidence_lock.md": {
+      "mtime_ns": 1784357559381385100,
+      "sha256": "94A465990EF46764185961C1EA585107C759C1C8263C0730AE87B351216DA37C",
+      "size_bytes": 12211
+    },
+    "docs/physics/m40_qiu_2d_equations.md": {
+      "mtime_ns": 1784617041245161500,
+      "sha256": "00A3C69C4EA72C9A259FC35B5371345BFD51C6F3FFDA78071D89B006E09492AC",
+      "size_bytes": 2646
+    },
+    "docs/physics/m40_qiu_model_responsibility.md": {
+      "mtime_ns": 1784617037160924000,
+      "sha256": "DF6A4A1EFF318B7847FD59252D472BAEF4E582B43A06E2D619BCD3DDCF16696E",
+      "size_bytes": 2713
+    },
+    "docs/physics/m43_thermal_spreading_source_contract.md": {
+      "mtime_ns": 1784792324835152700,
+      "sha256": "D698BB7659B8FEC67079437649822918533383FF83695BB68FD7D215C0316C4E",
+      "size_bytes": 3463
+    },
+    "docs/research_strategy/m42_reference_and_2d_preregistration.md": {
+      "mtime_ns": 1784792324840152400,
+      "sha256": "F282C53878938D9C508B5532E8244906DAC80448ACA8D2862311DB5FCB9D572E",
+      "size_bytes": 5474
+    },
+    "docs/research_strategy/m43_finite_width_thermal_spreading_preregistration.md": {
+      "mtime_ns": 1784792324841656400,
+      "sha256": "9BE31DE2CE65CD95863244158E10ABD038ADE1054E440108C9FA8295D1F8FFFA",
+      "size_bytes": 6542
+    },
+    "outputs/figures/m40/qiu_device_geometry.png": {
+      "mtime_ns": 1784617933148474400,
+      "sha256": "819C3F58540D58671C63329D1E320E6639B23C4E28A94A221AAA1672D9113BFA",
+      "size_bytes": 38457
+    },
+    "outputs/figures/m40/qiu_e0_field_maps.png": {
+      "mtime_ns": 1784617934658707900,
+      "sha256": "9CBE2406DC2C6AB5B3989AF0E20BF037FE958EEE7064E0083E8B9E33901055FA",
+      "size_bytes": 74518
+    },
+    "outputs/figures/m40r/active_transient_and_ledgers.png": {
+      "mtime_ns": 1784626463444369500,
+      "sha256": "272A3F2404A8781294D6C23C75FA8591A8B40C7C3B4C9A39076484D46173FF10",
+      "size_bytes": 191995
+    },
+    "outputs/figures/m40r/mesh_and_field_convergence.png": {
+      "mtime_ns": 1784626465194919300,
+      "sha256": "D4FB844E4494C415D77CE9D2E5229594DCE100636C1D02E36F6F72F2FB11407D",
+      "size_bytes": 139478
+    },
+    "outputs/figures/m42/qiu_scale_domain_mesh_preflight.png": {
+      "mtime_ns": 1784792324845166900,
+      "sha256": "95AD35E34412417258CA52D607A4802C306EA4A2A1C2706FD190964EC6A665AD",
+      "size_bytes": 127975
+    },
+    "outputs/figures/m43/m43_thermal_spreading_closure.png": {
+      "mtime_ns": 1784792324849166900,
+      "sha256": "A42CE3ECD3F3FE169F89B89D376AB25517023B08136C4B067E77B4D9EAB1A4A5",
+      "size_bytes": 146616
+    },
+    "outputs/figures/manuscript_ready_gamma_sub/main_figure_2_confounding_profile.png": {
+      "mtime_ns": 1784028333745539100,
+      "sha256": "EDE6E14A30393BBA012AD1BB863E72FB4297B71614DBC3EFCB8372833AAC7BCA",
+      "size_bytes": 126254
+    },
+    "outputs/figures/manuscript_ready_gamma_sub/main_figure_3_recoverability_phase_diagram.png": {
+      "mtime_ns": 1784028333868945300,
+      "sha256": "864100F7E37FB516E494940FE8448A690761F342C151B7F9F67A8D94CD658E38",
+      "size_bytes": 37833
+    },
+    "outputs/figures/manuscript_ready_gamma_sub/main_figure_4_anchor_verification.png": {
+      "mtime_ns": 1784028334024945300,
+      "sha256": "1661A9F3A228C7E912CF2401F0F71600901FB015DE73A530E37BC63EDDA6260E",
+      "size_bytes": 83334
+    },
+    "outputs/figures/manuscript_ready_gamma_sub/main_figure_6_statistical_robustness.png": {
+      "mtime_ns": 1784028334269270600,
+      "sha256": "77AB344372842E8A485676474EBF9AC39A2BDC189AC7FEF24EC65C3A14C0B0AB",
+      "size_bytes": 36318
+    },
+    "outputs/figures/pinn_identifiability/correlation_heatmap.png": {
+      "mtime_ns": 1782197357832969700,
+      "sha256": "2619A39E7C15DCD4CB0E6A56731DED6C195848830D6B2ED2782D64850C6B9A6A",
+      "size_bytes": 161382
+    },
+    "outputs/figures/submission_ready_gamma_sub/figure_5_calibrated_protocol_validation.png": {
+      "mtime_ns": 1784357619901593800,
+      "sha256": "9FAAD097C0D42B43D717377E7B4EF3E2E359B9821693E6441D43DEBCAD24B675",
+      "size_bytes": 139767
+    },
+    "outputs/tables/e1f_effective_coordinate_preflight.json": {
+      "mtime_ns": 1784634900973591200,
+      "sha256": "B0C1B02117C7912C0C1D673C21EA59A2ADD1F6DF3E7E74D1946A0FC25B0D4395",
+      "size_bytes": 241
+    },
+    "outputs/tables/e1f_llp_source_contract_cases.csv": {
+      "mtime_ns": 1784654340582686800,
+      "sha256": "6F6F79658D2A622127B6E28F57D0270932F9BAEE1C76FA2CD08F471BE9B15A8E",
+      "size_bytes": 978899
+    },
+    "outputs/tables/e1f_llp_source_contract_summary.json": {
+      "mtime_ns": 1784654340522556100,
+      "sha256": "03CF6A3E8A705C414E13CFB6467D1EF7D93671C71722F31C0F0F8F4F6DE6A2DD",
+      "size_bytes": 10614
+    },
+    "outputs/tables/e1f_qiu_author_anchor_preregistration.json": {
+      "mtime_ns": 1784632744030595100,
+      "sha256": "613E6B1E1051532C057B799C4A14E4BF507302F4B386C2D6B641CA5DA5C93A53",
+      "size_bytes": 28658
+    },
+    "outputs/tables/e1f_qiu_author_validation.csv": {
+      "mtime_ns": 1784634905665439100,
+      "sha256": "8DF064C31D01254813E4CB43900CB89FD5B41D04707E6557F3C7FE3734D15128",
+      "size_bytes": 1278
+    },
+    "outputs/tables/e1f_qiu_author_validation.json": {
+      "mtime_ns": 1784634905672447800,
+      "sha256": "0EFEC08003C7209F9A02188FB6CB3674ECB4B2E32DE64C968F34608765698FE7",
+      "size_bytes": 11760
+    },
+    "outputs/tables/e1f_semantic_amendment.json": {
+      "mtime_ns": 1784635800038719600,
+      "sha256": "D35A16AD28E854E00D96AEF2B0E83DB0C442BD13B24FFFC3181546934F9F6846",
+      "size_bytes": 1349
+    },
+    "outputs/tables/e1f_source_contract_amendment_v2.json": {
+      "mtime_ns": 1784654340583687300,
+      "sha256": "8FA32AA4A5C2A60BC9B6BF5833FFF60E04ABEEC4E4943D19726A6AC4D6E5797D",
+      "size_bytes": 1009
+    },
+    "outputs/tables/e1f_source_to_pde_bridge_mismatch.csv": {
+      "mtime_ns": 1784634901033630400,
+      "sha256": "F7B20F1956FA74601FF9E483A31F9A724F7B8BB749D3699D6B05C40BEEFD1231",
+      "size_bytes": 1122
+    },
+    "outputs/tables/e1fr_effective_coordinate_preflight.json": {
+      "mtime_ns": 1784636740720813700,
+      "sha256": "C2CD85E585ED1017C34C2614FDCC58A6453D2AAB7BF0F79B1BEDD046ECFB6370",
+      "size_bytes": 242
+    },
+    "outputs/tables/e1fr_qiu_source_equation_correction.csv": {
+      "mtime_ns": 1784636741476645800,
+      "sha256": "4E24D4292FDF389AECFDDAE368757B400EA700C973605101CD2278ECB3624F6F",
+      "size_bytes": 560
+    },
+    "outputs/tables/e1fr_qiu_source_equation_correction.json": {
+      "mtime_ns": 1784636741730993600,
+      "sha256": "10879517F921ED90BA062B20A6AA64B4DD098541BE2C861604AF772DB6CCC63C",
+      "size_bytes": 9356
+    },
+    "outputs/tables/e1fr_qiu_source_equation_correction_preregistration.json": {
+      "mtime_ns": 1784636673868998800,
+      "sha256": "B5BE756FC47E5CBCA4A5E1FDA233613BF2E4CDDA05332EDBC4505FE5E9F03811",
+      "size_bytes": 9785
+    },
+    "outputs/tables/gamma_sub_calibrated_protocol_robustness_final_summary.json": {
+      "mtime_ns": 1782990596050672300,
+      "sha256": "9B1257FCE8ABC540F1BA55802C45278F5B398F9397F52B84B9458D9DBFE2566A",
+      "size_bytes": 4237
+    },
+    "outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_cases.csv": {
+      "mtime_ns": 1782913564825001300,
+      "sha256": "AC48940BF5BD4DC32F2A523D6834510C4E40DD1E1227F69051D9D51864F27E99",
+      "size_bytes": 180287
+    },
+    "outputs/tables/gamma_sub_calibrated_sequential_protocol_validation_summary.json": {
+      "mtime_ns": 1782913564827089900,
+      "sha256": "64F33D6DC3B8AB920617FEDBB10CAC29F3834B353484116C22ED5539AC81B040",
+      "size_bytes": 3632
+    },
+    "outputs/tables/gamma_sub_calibration_protocol_disentanglement_summary.json": {
+      "mtime_ns": 1782990541056952300,
+      "sha256": "F6537573D1795720CAA0B1A2F7BD828CA03D30DB4BCA4D70402960C330BF9397",
+      "size_bytes": 1220
+    },
+    "outputs/tables/gamma_sub_continuous_refinement_cases.csv": {
+      "mtime_ns": 1782660899896036500,
+      "sha256": "481F7E6E3E910ECC4C0B017582BA885FE2B072A551B0CDA1F36A7351F04C7E20",
+      "size_bytes": 9067
+    },
+    "outputs/tables/gamma_sub_continuous_refinement_summary.json": {
+      "mtime_ns": 1784038165768765500,
+      "sha256": "AC4DBEE30D0A6C7C969DEF2E8EA5EAC43E5C959813D423D9A253F5C63B436C00",
+      "size_bytes": 46251
+    },
+    "outputs/tables/gamma_sub_evidence_lock_summary.json": {
+      "mtime_ns": 1784028332698901600,
+      "sha256": "D6C812CD62E59BB9F4CC60165EEECFE877F8E5A2FBBAB8DFA832A1E10E8462FF",
+      "size_bytes": 19393
+    },
+    "outputs/tables/gamma_sub_recoverability_phase_diagram_cases.csv": {
+      "mtime_ns": 1782890330644774300,
+      "sha256": "7D09B8003B2CFA1553E2A6F0D46D28525EA5B146E4346070E7DC20190852AEB1",
+      "size_bytes": 344665
+    },
+    "outputs/tables/gamma_sub_recoverability_phase_diagram_summary.json": {
+      "mtime_ns": 1782890330627782000,
+      "sha256": "4175CE24CA5E459C5A8BE3A0A09A4D4C2F056C33F267FB3592E0A407D86180D9",
+      "size_bytes": 2445
+    },
+    "outputs/tables/gamma_sub_response_surface_anchor_verification_cases.csv": {
+      "mtime_ns": 1782892892154254000,
+      "sha256": "3072CEB2BC0EDEA187CEDCC1F51F4D932247BB2BDE13FC2B12F7956420793870",
+      "size_bytes": 11945
+    },
+    "outputs/tables/gamma_sub_response_surface_anchor_verification_summary.json": {
+      "mtime_ns": 1782892892157385100,
+      "sha256": "919E0712F63F2F9E1EC197070B0860BB6A136694EDB0F8B3112D3D623E693C52",
+      "size_bytes": 1274
+    },
+    "outputs/tables/gamma_sub_statistical_robustness_cases.csv": {
+      "mtime_ns": 1782890349369220200,
+      "sha256": "AD89459FB6C8C986345AF5513429947C93AE553F4D948528BAE1C54CD6C4B5B6",
+      "size_bytes": 71993
+    },
+    "outputs/tables/gamma_sub_statistical_robustness_summary.json": {
+      "mtime_ns": 1782890349363782600,
+      "sha256": "62AF4A9F55EBD102E7FDA8FCEDA6F1CA8896E1913896D791EFC7314DBCD40132",
+      "size_bytes": 7895
+    },
+    "outputs/tables/gamma_sub_tsw_calibration_tolerance_sweep_summary.json": {
+      "mtime_ns": 1782990557035983900,
+      "sha256": "6B31C381B90E89588A87A933AE25DBBE999E26B0BBA5A8D8C8721A0F982591DA",
+      "size_bytes": 2085
+    },
+    "outputs/tables/gamma_sub_tsw_confounding_phase_map_summary.json": {
+      "mtime_ns": 1782826558011632400,
+      "sha256": "278A06B63D7D3B1B3EA1558E776E66891F50822015C8776BC1449A85945A4C48",
+      "size_bytes": 27688
+    },
+    "outputs/tables/gamma_sub_tsw_dense_profile_likelihood_grid.csv": {
+      "mtime_ns": 1782890322460059100,
+      "sha256": "91D5C440394BC821D3DD4B42BF16DF802621859C984DB9D0B2AFB5345020070D",
+      "size_bytes": 360932
+    },
+    "outputs/tables/m40_qiu_e0_preregistration.json": {
+      "mtime_ns": 1784617719601202900,
+      "sha256": "90D44A553AB03DAAC0CDD7747DCBD1484BFF975BA01EA68D597CC672045CE003",
+      "size_bytes": 5977
+    },
+    "outputs/tables/m40_qiu_e0_summary.json": {
+      "mtime_ns": 1784617934763349300,
+      "sha256": "5B0E2B8B2C4AE073B137163CCF95CD98317E390928D8A57AE3C181A72AEAAAF7",
+      "size_bytes": 6182
+    },
+    "outputs/tables/m40_qiu_mesh_convergence.csv": {
+      "mtime_ns": 1784617931787514600,
+      "sha256": "F7246E2769282BE5561F61EA5490994F7096CC0C674895729A6A3D6A4C50D902",
+      "size_bytes": 447
+    },
+    "outputs/tables/m40r_qiu_active_transient.json": {
+      "mtime_ns": 1784626463787723000,
+      "sha256": "666BDC0783BA5625E7B8B11251358CC35591C81DEB282D8B96808B7C9BC41F0C",
+      "size_bytes": 352615
+    },
+    "outputs/tables/m40r_qiu_e0_preregistration.json": {
+      "mtime_ns": 1784626127542076800,
+      "sha256": "29519C7A102A29F52104FE92355C850AF4D97832C26D5F9299E036AF809C67BE",
+      "size_bytes": 9581
+    },
+    "outputs/tables/m40r_qiu_e0_summary.json": {
+      "mtime_ns": 1784627536397409700,
+      "sha256": "3333B463D74F6FC54B9E50BAFE0E4F37A4A22D141E9CDD5791E42E91DBFFBF2E",
+      "size_bytes": 13920
+    },
+    "outputs/tables/m40r_qiu_mesh_convergence.csv": {
+      "mtime_ns": 1784626463712268300,
+      "sha256": "348D855197B673904163544BE2B1DFE1C8228B15B298E349C3B6B0CBF241D2AB",
+      "size_bytes": 2089
+    },
+    "outputs/tables/m40r_qiu_mesh_forensics.csv": {
+      "mtime_ns": 1784625909760788300,
+      "sha256": "23F1C4865BC28DD3C023641678B238EFC13B2220A82CE1FE772CB02861397A57",
+      "size_bytes": 4162
+    },
+    "outputs/tables/m40r_qiu_mesh_forensics.json": {
+      "mtime_ns": 1784625909768324500,
+      "sha256": "95CF52D91AEE521098EBD8B83127DFD70F6E60C0C223C73C99CE10877001F64B",
+      "size_bytes": 15230
+    },
+    "outputs/tables/m42_qiu_2d_preflight_cases.csv": {
+      "mtime_ns": 1784792324852552600,
+      "sha256": "5FA3D53BC54B9499C475417919062CC80C01207E0F2A53102E9C2146E9C3C81A",
+      "size_bytes": 4138
+    },
+    "outputs/tables/m42_qiu_2d_preflight_summary.json": {
+      "mtime_ns": 1784792324855066700,
+      "sha256": "32EDACC42D8F09E7A7C460911606383E6BFD75F06F5CA324F8C615B98EFCD6CA",
+      "size_bytes": 7915
+    },
+    "outputs/tables/m43_execution_receipt.json": {
+      "mtime_ns": 1784792324856066700,
+      "sha256": "E1886381C1CE6B763A71DDF0295856ED0A9067E3F0A1C81EFDFC97F3A7251941",
+      "size_bytes": 28431
+    },
+    "outputs/tables/m43_final_validation.json": {
+      "mtime_ns": 1784792324858066900,
+      "sha256": "EA8A96C052DC68347EDCB79768F2A36CEBEE132B850970ADC7A913E0BA661570",
+      "size_bytes": 1957
+    },
+    "outputs/tables/m43_finite_width_thermal_spreading_cases.csv": {
+      "mtime_ns": 1784792324860067400,
+      "sha256": "8BFE801696BD68606D910768681253FA6F4A5BBCEFBDCCF8A87744266F9DF42B",
+      "size_bytes": 8689
+    },
+    "outputs/tables/m43_finite_width_thermal_spreading_summary.json": {
+      "mtime_ns": 1784792324861569900,
+      "sha256": "A3CD3BAEAF3A498DF908B85C3E97DB14FC23EE01A56F849B3B84A716381B62DF",
+      "size_bytes": 34628
+    },
+    "outputs/tables/m43_postcommit_attestation.json": {
+      "mtime_ns": 1784794156612568200,
+      "sha256": "E0F0A7F2BCF40676ACB411F0B8190181119333BAE69A0DAA090FAEFA0F51D879",
+      "size_bytes": 3294
+    },
+    "outputs/tables/m43_transient_green_reference.csv": {
+      "mtime_ns": 1784792324862078700,
+      "sha256": "4E23DCF04A5B7547C3178A163AEFFE1B24B95A31A0978AC0F612AFF36F188A76",
+      "size_bytes": 1164
+    },
+    "outputs/tables/main_submission_figure_manifest.json": {
+      "mtime_ns": 1784713408972453000,
+      "sha256": "462C9FD02B4FB152B3D0FC5CFE94048B72F8E4B63B6B1D34F0267EF0D40F2FF3",
+      "size_bytes": 4905
+    },
+    "outputs/tables/pinn_identifiability_summary.json": {
+      "mtime_ns": 1782197358308359600,
+      "sha256": "B50D1CCD32BE0A35F1D17683871746FD0EECE171DDF8C6DC0DD7EEB139106D34",
+      "size_bytes": 5000
+    },
+    "outputs/tables/pinn_inverse_v0_ablation_summary.json": {
+      "mtime_ns": 1782117767733716200,
+      "sha256": "19061ED8EEA2F83AF1439435E55C8FF5AF7A937BD85B449CCE769E7B9C27FE2E",
+      "size_bytes": 6290
+    },
+    "outputs/tables/prompt32_figure5_semantic_audit.json": {
+      "mtime_ns": 1784357194154422800,
+      "sha256": "6D298E50A09AB19B0060E59031BEBB2BDF5BF8ED56555D2B2452D13D2CB82BA9",
+      "size_bytes": 5819
+    },
+    "outputs/tables/submission_protected_evidence_manifest.json": {
+      "mtime_ns": 1784654347734437800,
+      "sha256": "3CCB46F345DF4AC38017B2FE45B77C25F2EF5F20B2AB98952873E995DDDC7AA1",
+      "size_bytes": 42172
+    },
+    "scripts/audit_m40r_qiu_mesh_forensics.py": {
+      "mtime_ns": 1784623266183583200,
+      "sha256": "A696CBE8ECE187E658D68813CC4C85CF59E0706A8C56E85D700B0824A5A13629",
+      "size_bytes": 19249
+    },
+    "scripts/preregister_e1f_qiu_author_anchor.py": {
+      "mtime_ns": 1784632605632131600,
+      "sha256": "92255B2BD88454B013B4B4006E1898D2B69CDF6C7F91F352B6F8F104C167AB67",
+      "size_bytes": 11630
+    },
+    "scripts/preregister_e1fr_qiu_source_equation_correction.py": {
+      "mtime_ns": 1784636519411506600,
+      "sha256": "672B2D29E2F06C62851E7B87900F238C2E50878252D98E583C5FF7A16FCF208D",
+      "size_bytes": 7836
+    },
+    "scripts/run_e1f_qiu_author_anchor.py": {
+      "mtime_ns": 1784634849518421700,
+      "sha256": "9CB98F726B11F1CDA4FBFF26C94814DBA0CD9CEF3998AEC40BE058C4358F4119",
+      "size_bytes": 33271
+    },
+    "scripts/run_e1fr_qiu_source_equation_correction.py": {
+      "mtime_ns": 1784636630981740100,
+      "sha256": "2F1CED3252ACA7775F2FBC6C11D298B320D332047354D97AE99E64EC06D5C7B8",
+      "size_bytes": 16899
+    },
+    "scripts/run_m40_qiu_vo2_2d_e0.py": {
+      "mtime_ns": 1784617353559222500,
+      "sha256": "6D202777C2B601FF9DA6DBFB5E4651B28CE2A92B0580CCE533075DE6C9869604",
+      "size_bytes": 39284
+    },
+    "scripts/run_m40r_qiu_e0_repair.py": {
+      "mtime_ns": 1784626108297288500,
+      "sha256": "1D80A95549CC5FD7E802AEC9FEE707A17257DC24C1D80FB352D3016F24E2FF9B",
+      "size_bytes": 48730
+    },
+    "scripts/train_pinn_inverse_v1.py": {
+      "mtime_ns": 1784632319229096200,
+      "sha256": "061930B0CEBAC5807061250696D6EF9110F132EC3C55F042685254622DFCBEC1",
+      "size_bytes": 22203
+    },
+    "src/pinnpcm/physics/qiu_author_compact_model.py": {
+      "mtime_ns": 1784635991813521500,
+      "sha256": "86CA82B08D29A7322394EE6DEB87FBD35735A2C15B29054899413C62F96B8E4D",
+      "size_bytes": 14351
+    },
+    "src/pinnpcm/physics/qiu_vo2_device.py": {
+      "mtime_ns": 1784616789871513000,
+      "sha256": "8DD7137BB1BB0E82AA2F02DBBC309981275B019BA72CD2F756B060C40B97C7D6",
+      "size_bytes": 9893
+    },
+    "src/pinnpcm/physics/vo2_thermal_neuristor.py": {
+      "mtime_ns": 1784128733184353600,
+      "sha256": "469801F1F5FFA0F20E987FF2C7C3E57FA856AD652CAED08B7ABFCE0FFFA553BE",
+      "size_bytes": 8914
+    },
+    "src/pinnpcm/solvers/__init__.py": {
+      "mtime_ns": 1784616778819376800,
+      "sha256": "1B7F6825F39C63D19D6A7931271A4F758FF9D085C14FDCBF1BD1E577B46CB4D5",
+      "size_bytes": 122
+    },
+    "src/pinnpcm/solvers/m40r_qiu_e0_repair.py": {
+      "mtime_ns": 1784625736405835300,
+      "sha256": "20C2BCF506BECC8C8D861B5FA56D23B1DBBD32BE3656A64A80CA197469D83A3E",
+      "size_bytes": 40350
+    },
+    "src/pinnpcm/solvers/qiu_author_ode.py": {
+      "mtime_ns": 1784635885907495600,
+      "sha256": "032408DA151E393FD5F81CF3551D5E74536D9933D3E31B40954534A5E84B40B9",
+      "size_bytes": 13487
+    },
+    "src/pinnpcm/solvers/qiu_vo2_2d_fvm.py": {
+      "mtime_ns": 1784616795183565100,
+      "sha256": "3DCA44667B2FC581C52A8876F732B6CD8B46315F0A6CA6F58C39D525F9AB3A25",
+      "size_bytes": 17666
+    },
+    "tests/test_e1f_preregistration.py": {
+      "mtime_ns": 1784710658159832000,
+      "sha256": "6F08689C04B9CECABB205B1C0055F371EB56CE4BE1F6A7F3763D6223C8E77978",
+      "size_bytes": 2374
+    },
+    "tests/test_e1f_qiu_author_equations.py": {
+      "mtime_ns": 1784635994666804900,
+      "sha256": "BAFCE45AF459A5370BD685B6958B0B046A774A65B4BF7309A75E5544BC9FEA6B",
+      "size_bytes": 7024
+    },
+    "tests/test_e1fr_contract.py": {
+      "mtime_ns": 1784710667658878600,
+      "sha256": "2B49FF4A6C6ACC90D88446B9E597522BA2355F1AD27FBE73E927F96099CB6F7F",
+      "size_bytes": 3252
+    },
+    "tests/test_m40_qiu_2d_fvm.py": {
+      "mtime_ns": 1784617217031070500,
+      "sha256": "F2B8B82B77CB605616FB6060129A79F74AA1480CE09FF01518AAE71479E056ED",
+      "size_bytes": 6693
+    },
+    "tests/test_m40_qiu_energy_ledger.py": {
+      "mtime_ns": 1784617147462534500,
+      "sha256": "85D0483F6B1AFA658C66186D05B4509D7EDB2890FF04C0465F8EF43E2D559B3A",
+      "size_bytes": 5383
+    },
+    "tests/test_m40_qiu_geometry.py": {
+      "mtime_ns": 1784617139415999400,
+      "sha256": "27E2D1BA43D0C84F65D26E606442C8E868171BFB8F3639DA9D48F5A368A352FC",
+      "size_bytes": 5780
+    },
+    "tests/test_m40_qiu_result_evidence.py": {
+      "mtime_ns": 1784617365487428800,
+      "sha256": "CB15426F749EB43209704F3349BCFC5FE9EA5B24DF6530CB01E139DC9465CAE7",
+      "size_bytes": 3766
+    },
+    "tests/test_m40r_qiu_active_transient.py": {
+      "mtime_ns": 1784625009985166100,
+      "sha256": "78916E4B48C46630EAF8DC2999DA1CE2EA981F2A61DDB430144CA19F31D5EBB1",
+      "size_bytes": 6714
+    },
+    "tests/test_m40r_qiu_field_reconstruction.py": {
+      "mtime_ns": 1784624933879731600,
+      "sha256": "BD7C22D428BFDAC5043085BE8667F517B8639117BED294C9012414CE65E4F363",
+      "size_bytes": 4227
+    },
+    "tests/test_m40r_qiu_mesh_convergence.py": {
+      "mtime_ns": 1784623676789698800,
+      "sha256": "700485395F35A4E5D035CB1417556D73A92CC5212EC78EA819A4B31A800AFFAD",
+      "size_bytes": 3723
+    },
+    "tests/test_m40r_qiu_result_evidence.py": {
+      "mtime_ns": 1784710698716570200,
+      "sha256": "7F9E93F1AB0D6CCDF613E72872C0225D8AFAC2B0E95310E67F780D702B3694EB",
+      "size_bytes": 2901
+    },
+    "tests/test_pinn_inverse_v1.py": {
+      "mtime_ns": 1784632323594219000,
+      "sha256": "804D366C75DAB149C8F2A38B73A9DBAC3FFF45757BBBE0B1ADC6B230D37EE972",
+      "size_bytes": 4768
+    }
+  },
+  "schema_version": "m44_one_shot_execution_receipt_v1",
+  "status": "completed",
+  "summary_sha256": "40FEF3647E07AD0EEDD4F7E982D0809CF7234118F7EE4BC9194BF15C4C41D3BF",
+  "terminal_rerun_forbidden": true
+}

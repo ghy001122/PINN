@@ -2,6 +2,21 @@
 
 > Do not load by default. The authoritative manuscript list is `docs/paper/final_figure_list.md`.
 
+## M44 heterogeneous 3D thermal-family stop diagnostic (2026-07-23)
+
+- `outputs/figures/m44/m44_qiu_heterogeneous_3d_thermal_bridge.png` (SHA-256
+  `452A8FECEEA89018BA4B4AF768DD64A65FAA94E414336980A9C9951149AF991C`):
+  panel A records homogeneous and layered reference recovery; panel B compares
+  the registered source-family thermal impedances; panel C shows the matched
+  x-z/3D discrepancy and source envelope.
+- Source tables are
+  `outputs/tables/m44_qiu_heterogeneous_3d_thermal_cases.csv`,
+  `outputs/tables/m44_layered_modal_reference.csv`, and
+  `outputs/tables/m44_geometry_material_source_provenance.csv`.
+- Evidence type: solver-generated supplementary failure diagnostic; status
+  `failed_but_informative`. It is not Qiu-device, experimental, phase-change,
+  reduction, inverse, or PINN evidence.
+
 ## M43 manufactured thermal-spreading closure (2026-07-23)
 
 - `outputs/figures/m43/m43_thermal_spreading_closure.png` (SHA-256

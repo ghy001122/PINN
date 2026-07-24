@@ -25,15 +25,17 @@ No item above is experimental evidence or a measured material constant.
 | M42 foundation | `failed_but_informative`, decision B; no claim upgrade | `outputs/tables/m42_qiu_2d_preflight_summary.json`; `outputs/tables/m42_qiu_2d_preflight_cases.csv`; `outputs/figures/m42/qiu_scale_domain_mesh_preflight.png`; `docs/codex_reports/m42_qiu_2d_physics_foundation_preflight.md` |
 | M43 finite-width thermal component | manufactured/component-only `qualified_supported`; no device claim | `outputs/tables/m43_finite_width_thermal_spreading_summary.json`; `outputs/tables/m43_execution_receipt.json`; `outputs/tables/m43_finite_width_thermal_spreading_cases.csv`; `outputs/tables/m43_transient_green_reference.csv`; `outputs/tables/m43_figure_postprocessing_manifest.json`; `outputs/tables/m43_postcommit_attestation.json`; `outputs/figures/m43/m43_thermal_spreading_closure.png`; `docs/codex_reports/m43_finite_width_thermal_spreading_closure.md` |
 | Classic reproduction closeout | formula/code/curve/validation responsibility locked; no new run | `outputs/tables/m44_classic_reproduction_closeout.json`; `docs/literature/m44_classic_reproduction_closeout_matrix.md` |
+| M44 heterogeneous 3D bridge | `failed_but_informative`; `M44_STOP_REAL_GEOMETRY_UPGRADE` | `outputs/tables/m44_qiu_heterogeneous_3d_thermal_summary.json`; `outputs/tables/m44_execution_receipt.json`; `outputs/tables/m44_qiu_heterogeneous_3d_thermal_cases.csv`; `outputs/tables/m44_geometry_material_source_provenance.csv`; `outputs/tables/m44_final_validation.json`; `outputs/figures/m44/m44_qiu_heterogeneous_3d_thermal_bridge.png`; `docs/codex_reports/m44_qiu_heterogeneous_3d_thermal_bridge.md` |
 
 M42 replay passed `442` tests, but its source/local resistance mismatch remains
 `1.33023` and switching enthalpy remains unresolved/unassessed. M43 executed 15
 unique thermal-only PDE forwards and passed `21/21` gates for a manufactured
 finite-source homogeneous-half-space component. It does not repair the Qiu
-source bridge or authorize device dynamics. Only the preregistered M44
-heterogeneous 3D thermal-only geometry/source-nuisance bridge is authorized.
-The one-RC/two-RC/causal-kernel validity/refusal comparison is deferred to
-conditional M45.
+source bridge or authorize device dynamics. M44 passed independent-reference,
+ledger, provenance, and domain gates but failed its locked mesh, early-time,
+and VO2 mean-temperature convergence gates (`0.06325`, `0.05449`, and
+`0.06325`, each above `0.02`). The real-geometry upgrade is stopped; M45 and
+all device, inverse, or PINN extensions are unauthorized.
 
 ## Neural and high-risk boundaries
 
@@ -57,6 +59,6 @@ holdout, full STL reproduction, and universal Fourier/F-SPS superiority remain
 - Manuscript: `docs/manuscript/main_submission_v2.md` and
   `docs/manuscript/supplementary_information_v1.md`.
 
-After the one-round M44 decision, M45 is allowed only when M44 numerical gates
-authorize a source-aware validity/refusal audit; otherwise only journal,
-template, declaration, visual-QA, and lawful archive work may delay submission.
+M44 selected the preregistered stop decision. Scientific results are frozen;
+only journal/template, declaration, visual-QA, lawful archive, claim-audit, and
+submission-packaging work may delay submission.

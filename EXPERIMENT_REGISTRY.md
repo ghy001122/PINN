@@ -2,6 +2,40 @@
 
 > Do not load by default. Current claim/evidence routing is `docs/project_state/current_evidence_index.md`; use this file only to trace a named historical run.
 
+## M44 heterogeneous 3D thermal bridge and reproduction closeout (2026-07-23)
+
+- Task: `Q2_M44_QIU_HETEROGENEOUS_3D_THERMAL_BRIDGE_AND_REPRODUCTION_CLOSEOUT`;
+  status: `failed_but_informative`; decision:
+  `M44_STOP_REAL_GEOMETRY_UPGRADE`.
+- Base commit: `e433fe900cb4376b5e1d5cfe81333e527f5454a5`;
+  preregistration commit: `1b87c67387affddae85ac73a4de51abe42883b50`.
+- A first direct-script launch failed before creating the formal receipt because
+  the repository root was absent from `sys.path`; it executed zero forwards and
+  has no scientific vote. A regression-tested entry-point repair preceded the
+  sole receipt-bearing run.
+- The formal run completed exactly 31/31 unique thermal-only forwards in
+  4595.649 s wall / 4550.203 s CPU with at most 56,400 active cells. It ran no
+  electrical/device solve, fit, inverse, PINN, GPU, latent heat, or sealed 13 V.
+- Nineteen of 22 locked gates passed. Heterogeneous `Zth` mesh change
+  `0.0632464`, time change `0.0544910`, and VO2 mean-temperature mesh change
+  `0.0632464` exceeded the `0.02` operational limits. The source envelope
+  `0.0335790` is non-voting because discretization differences are larger.
+- Homogeneous/layered independent-reference recovery, source/power integration,
+  discrete ledgers, domain closure, provenance, and budget gates passed. These
+  are implementation and numerical-contract facts, not Qiu-device validation.
+- Evidence: `outputs/tables/m44_qiu_heterogeneous_3d_thermal_summary.json`,
+  `outputs/tables/m44_execution_receipt.json`,
+  `outputs/tables/m44_qiu_heterogeneous_3d_thermal_cases.csv`,
+  `outputs/tables/m44_geometry_material_source_provenance.csv`,
+  `outputs/figures/m44/m44_qiu_heterogeneous_3d_thermal_bridge.png`, and
+  `docs/codex_reports/m44_qiu_heterogeneous_3d_thermal_bridge.md`.
+- The locked stop rule forbids M44R, M45 reduction, unique Qiu thermal-kernel,
+  device-grade 3D, inverse, or PINN claims.
+- Final verification: M44 targeted tests `45/45`; sole complete CPU suite
+  `540/540` in 373.05 s; governance `pass_with_manual_review` with no failed
+  check; strict parse `299` JSON / `94` YAML. See
+  `outputs/tables/m44_final_validation.json`.
+
 ## M43 finite-width thermal-spreading closure (2026-07-23)
 
 - Task: `Q2_M43_FINITE_WIDTH_THERMAL_SPREADING_CLOSURE`; evidence type:
@@ -36,8 +70,8 @@
   physics, pure x-z quantitative use, phase-change enthalpy, thermal-parameter
   fitting, inverse identification, or PINN success. M42's source/local
   resistance error `1.330233` and unresolved latent heat remain blockers.
-  The result authorizes only a conditional M44 comparison of 1-RC, 2-RC, and
-  causal thermal-kernel reductions with validity and abstention boundaries.
+  The result authorized only the subsequently preregistered M44 heterogeneous
+  thermal-family audit; RC/kernel fitting was not finally authorized.
 
 ## M42 hermetic replay and dimensional closure (2026-07-22)
 

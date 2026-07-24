@@ -4,8 +4,7 @@
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
 - Active phase:
-  `Q2_M44_QIU_HETEROGENEOUS_3D_THERMAL_BRIDGE_AND_REPRODUCTION_CLOSEOUT`
-  (preregistered successor to the M43 component-only GO decision).
+  `Q2_POST_M44_SUBMISSION_FREEZE_AND_UPLOAD_LOCK`.
 - Frozen GT v1.1 and all M40/M40R/E1F historical evidence are unchanged.
 - The sole positive inverse mainline is the synthetic, tight-`T_sw`-calibrated,
   constrained `gamma_sub` rank-1 result (`qualified_supported`). It is not a material
@@ -67,11 +66,38 @@ conservative quarter-domain finite-volume solver.
 Final status: `qualified_supported`, decision
 `M43_THERMAL_CLOSURE_GO_COMPONENT_ONLY`. This supports only the manufactured
 finite-width thermal-spreading component. The latest research instruction
-routes M44 first through a source-graded heterogeneous 3D thermal-only bridge;
-the prior reduction comparison is deferred to conditional M45. M43 does not
+then routed M44 through a source-graded heterogeneous 3D thermal-only bridge;
+that audit stopped and did not authorize the deferred reduction comparison.
+M43 does not
 repair M42's `1.33023` source/local resistance mismatch, resolve phase-change
 latent heat, validate a Qiu device, establish `gamma_sub/gamma_eff`, or
 authorize device dynamics, inverse identification, or PINN training.
+
+## M44 closeout
+
+M44 executed one receipt-bearing, preregistered heterogeneous 3D thermal-only
+bridge with 31/31 unique forwards. It introduced no device fit, electrical
+solve, latent heat, inverse, PINN, GPU, or sealed-data access. Homogeneous and
+layered independent-reference recovery, source/power integration, steady and
+transient ledgers, domain convergence, local-temperature convergence, x-z-bias
+convergence, provenance, physical acceptability, and budget gates passed.
+
+Three locked convergence gates failed:
+
+| M44 gate | Value | Limit | Result |
+| --- | ---: | ---: | --- |
+| heterogeneous `Zth` finest mesh pair | `0.0632464` | `0.02` | fail |
+| heterogeneous `Zth` finest time pair | `0.0544910` | `0.02` | fail |
+| VO2 mean-temperature finest mesh pair | `0.0632464` | `0.02` | fail |
+
+The registered source envelope was `0.0335790`, nominally within the robust
+source-family band, but it cannot vote because mandatory convergence failed.
+The heterogeneous response differed from the M43 homogeneous anchor by up to
+`3.24964` in the registered normalization, and the matched x-z comparator
+remained quantitatively forbidden across the registered interval. Final status:
+`failed_but_informative`; decision `M44_STOP_REAL_GEOMETRY_UPGRADE`. Per the
+locked stop rule, no M44R or M45 is authorized. M42's `1.33023` resistance
+localization mismatch and unresolved latent heat remain unchanged.
 
 ## Delivery distance
 
@@ -79,16 +105,13 @@ authorize device dynamics, inverse identification, or PINN training.
 | --- | --- | --- |
 | Synthetic inverse mainline | locked/reproducible | manuscript integration and reviewer defense only |
 | Real-device structure | source-traceable geometry, failed local bridge | no calibrated local parameters or positive dynamic validation |
-| Thermal component physics | M43 finite-source homogeneous-half-space closure is `qualified_supported` | test heterogeneous finite-width source/material nuisance before any reduction; no device claim |
+| Thermal component physics | M43 manufactured homogeneous-half-space closure is `qualified_supported`; M44 heterogeneous bridge stopped | three preregistered convergence gates fail; no device or reduction claim |
 | PINN | architecture scaffold plus negative training evidence | no positive neural claim |
 | Submission | content package assembled | journal template, declarations, visual QA, lawful archive route |
 
 ## Single priority
 
-Preregister and run one bounded M44 heterogeneous 3D thermal-only bridge using
-Qiu-reported dimensions and explicitly graded material, geometry, and source
-nuisance assumptions. Independently recover homogeneous and layered limits,
-quantify matched x-z error and source-location envelope, and close the classic-
-reproduction responsibility. M44 cannot use Qiu device curves, repair M42's
-electrical localization, fit an RC/kernel, run inverse identification, or train
-a PINN.
+Freeze scientific work and complete the submission package from the locked
+one-dimensional `gamma_sub` mainline plus bounded M42--M44 limitations. Only
+journal/template adaptation, declarations, visual QA, lawful asset routing,
+claim-to-sentence auditing, and reproducibility packaging are authorized.

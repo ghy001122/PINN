@@ -2,6 +2,32 @@
 
 > Do not load by default. Use `PROJECT_STATE.md`, `NEXT_ACTIONS.md`, and the latest task report for current work.
 
+## M44 Heterogeneous 3D Thermal Bridge And Reproduction Closeout
+
+Date: 2026-07-23
+
+- Preregistered the source-graded, constant-property sensible-thermal bridge at
+  commit `1b87c67387affddae85ac73a4de51abe42883b50`, after an additive M43
+  attestation and classic-reproduction responsibility closeout.
+- The first direct-script attempt failed before its receipt and before any
+  forward because the repository root was not on `sys.path`. The repaired
+  entry point was regression-tested; only the subsequent receipt-bearing run
+  has a scientific vote.
+- Completed exactly 31/31 preregistered thermal-only forwards. Independent
+  homogeneous/layered references, source and power integration, discrete
+  ledgers, domain closure, provenance, and budgets passed.
+- Locked mesh (`0.0632464`), time (`0.0544910`), and VO2 mean-temperature
+  (`0.0632464`) convergence entries exceeded `0.02`. The source envelope
+  `0.0335790` remains descriptive/non-voting because it is below the registered
+  discretization differences.
+- Selected `M44_STOP_REAL_GEOMETRY_UPGRADE`, status
+  `failed_but_informative`. No M44R, M45 reduction, device bridge, inverse, or
+  PINN is authorized; scientific work returns to the narrow submission line.
+- An external post-run worktree reset was recovered from the reflog and Git
+  objects without rerunning a forward. Artifact identities were rechecked;
+  targeted tests passed `45/45` and the sole full suite passed `540/540` in
+  373.05 s.
+
 ## M43 Finite-Width Thermal-Spreading Closure
 
 Date: 2026-07-23
@@ -22,9 +48,9 @@ Date: 2026-07-23
   device, multilayer or phase-change physics, x-z quantitative use, inverse
   recovery, or a PINN.
 - Preserved the upstream M42 source/local resistance error `1.330233` and the
-  unresolved latent-heat gap. The only conditionally authorized research step
-  is M44: compare 1-RC, 2-RC, and causal thermal kernels and map their validity
-  and abstention boundaries.
+  unresolved latent-heat gap. A later research instruction redirected M44 from
+  RC/kernel comparison to a preregistered heterogeneous 3D thermal-family
+  bridge; the reduction comparison was never finally authorized.
 
 ## M42 Hermetic Replay And Qiu Dimensional Closure
 

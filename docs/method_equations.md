@@ -623,3 +623,57 @@ $$
 using right-endpoint quadrature for backward Euler. These terms are numerical
 sensible-heat bookkeeping and must not be interpreted as device $C_{\rm th}$,
 $G_{\rm th}$, phase-change enthalpy, or experimental evidence.
+
+## M44 Heterogeneous Three-Dimensional Thermal Bridge
+
+M44 remains a constant-property, small-signal, sensible-heat component audit.
+For each active VO2, Ti, Au, or Al2O3 control volume,
+
+$$
+C_i\dot\theta_i+\sum_jG_{ij}(\theta_i-\theta_j)
++G_{b,i}\theta_i=P_i,
+\qquad C_i=(\rho c_p)_iV_i,
+$$
+
+and a nonuniform material-interface face uses the series resistance
+
+$$
+G_{ij}=\frac{A_{ij}}
+{d_i/(2k_i)+R''_{ij}+d_j/(2k_j)}.
+$$
+
+The voting baseline has $R''_{ij}=0$. Material--void faces are adiabatic;
+only remote substrate x/y/bottom faces are Dirichlet. The quarter-domain model
+receives $P/4$, the matched x-z half-domain receives $P/2$, and all reported
+impedances divide by full $P$.
+
+The independent layered reference uses a one-dimensional linear finite-element
+operator with lumped capacity,
+
+$$
+K_e=\frac{kA}{h}
+\begin{bmatrix}1&-1\\-1&1\end{bmatrix},\qquad
+M_e^{\rm lump}=\frac{\rho c_pAh}{2}
+\begin{bmatrix}1&0\\0&1\end{bmatrix}.
+$$
+
+For $A_s=M^{-1/2}KM^{-1/2}=V\Lambda V^T$ and a constant step load $p$,
+the independent semidiscrete response is
+
+$$
+\theta(t)=M^{-1/2}V\operatorname{diag}\!\left(
+\frac{1-e^{-\lambda_nt}}{\lambda_n}\right)V^TM^{-1/2}p.
+$$
+
+Cross-source comparison uses the common observable
+
+$$
+Z_{\rm VO2}(t)=\frac{\overline{\theta}_{\rm VO2}(t)}{P},\qquad
+E_{\rm source}=\max_{s,s',t}
+\frac{|Z_s(t)-Z_{s'}(t)|}{R_{\rm ref}}.
+$$
+
+Bulk, end-localized, and mixed sources are equal-power nuisance hypotheses,
+not inferred Joule maps. M44 does not include electrical equations, latent
+heat, phase fraction, hysteresis, fitted TBR, inverse identification, or PINN
+training.

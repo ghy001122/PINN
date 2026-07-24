@@ -213,10 +213,51 @@ registered manufactured thermal component. It does not repair the M42
 source/local resistance mismatch, supply phase-change latent heat, validate a
 Qiu or other physical device, authorize the x-z comparator as a quantitative
 model, or support inverse/PINN claims. It conditionally authorizes only an M44
-comparison of one-RC, two-RC, and causal-kernel reductions with explicit
-validity and abstention boundaries.
+heterogeneous thermal-family audit; it does not itself authorize RC/kernel
+fitting.
 
-## S10. Additional forbidden claims
+## S10. Heterogeneous 3D thermal-family stop boundary
+
+M44 extended the numerical contract to a constant-property, sensible-heat,
+Qiu-scale heterogeneous 3D family with explicitly graded geometry, material,
+and source assumptions. It did not solve an electrical problem, infer a Joule
+map, fit a Qiu curve, introduce latent heat, or run an inverse method or PINN.
+One receipt-bearing formal execution completed all 31 preregistered
+thermal-only forwards.
+
+Independent homogeneous-half-space and one-dimensional layered limits,
+source and power integration, discrete steady/transient ledgers, domain
+truncation, local maximum-temperature convergence, provenance, physical
+acceptability, and the execution budget passed. Three of 22 locked gates
+failed:
+
+| Preregistered M44 diagnostic | Value | Maximum | Result |
+|---|---:|---:|---|
+| Heterogeneous (Z_{\mathrm{th}}) finest mesh-pair change | 0.063246 | 0.02 | fail |
+| Heterogeneous (Z_{\mathrm{th}}) finest time-pair change | 0.054491 | 0.02 | fail |
+| VO2 mean-temperature finest mesh-pair change | 0.063246 | 0.02 | fail |
+| Heterogeneous (Z_{\mathrm{th}}) finest domain-pair change | (2.05\times10^{-7}) | 0.02 | pass |
+| Transient sensible-energy imbalance | (3.47\times10^{-11}) | (10^{-4}) | pass |
+
+The temperature and thermal-impedance mesh entries encode the same underlying
+spatial sensitivity because the registered impedance uses VO2 mean temperature
+divided by fixed input power. Thus the three failed entries expose two
+independent deficiencies: near-source spatial resolution and early-time
+resolution. The 0.033579 source-family envelope is descriptive and non-voting,
+because it is smaller than the registered mesh and time-discretization
+differences. Likewise, the matched x-z discrepancy is mesh/domain stable on
+the locked time grid and consistent with the M43 finite-width boundary, but
+M44 did not independently establish its time-discretization convergence.
+
+The terminal decision is `M44_STOP_REAL_GEOMETRY_UPGRADE`
+(`failed_but_informative`). It means that the heterogeneous family did not
+close within the preregistered budget and M43-normalized operational gates; it
+does not prove that heterogeneous 3D thermal models cannot converge in
+general. No M44 repair, M45 reduction, unique Qiu thermal kernel, inverse, or
+PINN is authorized. M42's 1.330233 lumped-to-local resistance mismatch and the
+unresolved latent-heat scope remain unchanged.
+
+## S11. Additional forbidden claims
 
 The evidence does not support real experimental validation, unconditional
 \(\gamma_{\mathrm{sub}}\) identifiability, complete two-dimensional hidden-field
