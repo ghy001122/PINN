@@ -3,78 +3,49 @@
 ## Authoritative Current Snapshot
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
-- Active phase: `Q2_GEOPHASE_E0_REFERENCE_SOLVER_FOUNDATION`.
-- The user explicitly authorized a core-line change from the locked 1D
-  submission route to a positive `GeoPhase-OQ-PINN` research route.
-- The target physical model is a Qiu-inspired VO2 coplanar x-y device with
-  vertical K-state thermal memory (2.5D); Chen-inspired SnSe/NbO2 is auxiliary
-  material-specific cross-model numerical validation.
-- Frozen GT v1.1 is unchanged and read-only. The constrained `gamma_sub`
-  result remains a `qualified_supported` historical low-dimensional baseline.
-- No x-y K-state reference solver, transition-localized GeoPhase network,
-  positive GeoPhase training, sensitivity-fidelity result, observation-
-  quotient inverse, refusal model, or NbO2 cross-model result currently exists.
-- All project-generated data remain synthetic numerical digital-twin evidence;
-  no project experimental validation exists.
-- The previously validated manuscript v2 content package is retained as a
-  historical technical fallback, not the selected current manuscript.
-- Historical statements that permanently closed additional 1D PINN training
-  apply only to their named N0/M33 contracts. They do not close the distinct
-  GeoPhase G0--G5 route, which remains sequential and fail-closed.
+- Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
+- Phase 0 repository realignment established one current authority chain, one guide, one handoff, one active phase, and one next task. This is a governance/reproducibility result, not scientific evidence.
+- R1 `HysGeo-Hybrid-PINN` is the minimum manuscript route; R2 `GeoPhase-HomoMoE-PINN` is the preferred method upgrade; R3 observable-subspace/OQ is conditional and non-blocking.
+- The target benchmark is a Qiu-inspired VO2 coplanar x-y device with passive K-state vertical thermal memory. Chen-inspired SnSe/NbO2 is reserved for later material-specific numerical validation.
+- No Phase 1 solver execution, positive R1/R2 training, R3 inverse/refusal, or NbO2 validation exists.
+- All project-generated results remain literature-guided synthetic numerical digital-twin evidence. No project experimental validation exists.
+- Frozen GT v1.1 is unchanged and read-only.
 
-## Active Route Gate Ledger
+## Current Evidence
 
-| Gate | Status | Direct boundary |
+| Item | Status | Boundary |
 | --- | --- | --- |
-| G0 2.5D independent reference | `forbidden` as a positive result; preregistration fact `supported` | Equation and YAML contracts exist after route activation; solver implementation and every manufactured/conservation/convergence/reduction gate remain pending. |
-| G1 GeoPhase forward PINN | `forbidden` | Cannot start until G0 passes. Field, port, event, interface, and ledger gates must pass jointly. |
-| G2 localized experts/homotopy | `forbidden` | Transition-localized MoE and joint phase/Joule homotopy are not implemented or compared under matched budgets. |
-| G3 geometry generalization | `forbidden` | No locked x-y geometry split or held-out result exists. |
-| G4 OQ/sensitivity/refusal | `forbidden` | Solver-first quotient geometry, PINN sensitivity fidelity, fresh-case inverse, and refusal are unrun. |
-| G5 SnSe/NbO2 cross-model | `forbidden` | No material-specific cross-model run exists; zero-shot transfer is outside scope. |
+| Phase 0 governance and repository baseline | `supported` | File, link, frozen-hash, test, and Git checks only; no scientific vote. |
+| Phase 1 equations, config, and gate contract | `supported` as preregistration facts | Implementation and results remain absent. |
+| Phase 1 conservative 2.5D reference | `forbidden` as a result claim | Requires every configured solver gate. |
+| R1, R2, and R3 positive claims | `forbidden` | Each requires its own downstream direct evidence. |
 
-## Retained Historical Evidence
+## Historical Retained Evidence
 
-| Gate | Status | Direct boundary |
-| --- | --- | --- |
-| `gamma_sub` inverse | `qualified_supported` | Frozen 1D synthetic rank-1 inverse under fixed/tightly bounded microphysics and calibration; not a measured material constant or final device model. |
-| P0 / P3 | `qualified_supported` | Reduced synthetic semantics; P3 is a static three-parameter local-rank result, not arbitrary 2D field recovery. |
-| P1 / P2 | `failed_but_informative` | P1 retains `E_T=0.37563055753707886` and interface residual `106.15460205078125`; P2 full thermal/material identifiability remains unresolved. |
-| P4 | `forbidden` | No full STL reproduction or universal Fourier/F-SPS superiority. |
-| Complete 1D PINN | Contracts `supported`; trained paths `failed_but_informative` | Operator/manufactured checks exist, but no bounded training route passes port, field, PDE, flux, and ledger gates jointly. |
-| M40/M40R Qiu x-z bridge | `failed_but_informative` | Reusable source and implementation lessons only; no M41, Qiu calibration, or x-y/2.5D quantitative inheritance. |
-| M44 historical 3D bridge | `failed_but_informative` historical/non-voting | Rolled back from live code; do not repair, revive, or cite it as a current device-grade solver. |
-| Public Qiu/Zhang source routes | Mixed source/parity facts plus `failed_but_informative` stops | No positive quantitative external validation, fit lock, 13 V result, or author-code equivalence. |
-| Historical submission replay | implementation/reproducibility fact `supported` | Local assets `50/50`, portable locks `157/157`, and detached tests `440/440` describe the retired v2 package and do not support GeoPhase claims. |
+- Frozen synthetic 1D Ground Truth v1.1 remains an immutable low-dimensional baseline.
+- Constrained `gamma_sub` recovery remains `qualified_supported` only inside its configured synthetic prior/calibration boundary.
+- Sparse-port arbitrary hidden-field recovery and multiple complete-PINN attempts remain negative or `failed_but_informative`.
+- M40/M40R and M44 retain their exact convergence and stop boundaries; none validates the new x-y plus K-state model.
+- OASIS, SID/EC-OQ, public-source, submission-v2, and other historical assets remain traceable for reproduction, provenance, and reviewer defense.
 
-Detailed historical paths remain routed by
-`docs/project_state/current_evidence_index.md`; cumulative history remains in
-the registries and Git.
+## Unimplemented Candidates
 
-## Live Workspace Capability Audit
+- Phase 1 independent FVM/implicit solver.
+- Phase 2 dataset and inverse-crime split.
+- Phase 3 fair baselines.
+- R1 hybrid PINN, R2 localized MoE/homotopy, and conditional R3.
+- Conditional discrepancy, protocol design, full STL reproduction, Bayesian/fractional/phase-field extensions, and material-specific NbO2 validation.
 
-| Capability | Reuse decision |
-| --- | --- |
-| Qiu geometry, circuit, source provenance | Reuse source facts and engineering-prior labels; do not inherit x-z results as x-y validation. |
-| Conservative FVM, face flux, RC, ledgers | Adapt implementation patterns into a new independent solver module. |
-| VO2 and NbO2 closures | Reuse only after checking state semantics and units; keep material kernels separate. |
-| Fourier/CV/interface/PINN utilities | Baselines or components only; no novelty or performance status transfers. |
-| SVD/principal-angle utilities | Reuse after solver derivative convergence; historical failed SID/EC-OQ does not prove the new quotient hypothesis. |
-| K-state vertical thermal memory | Not implemented in live `main`; build and test from the new contract. |
+A candidate may be explored only when activated by the phase chain and preregistered thresholds. `forbidden` limits manuscript wording, not bounded future exploration.
 
-## Distance To Delivery Goal
+## Forbidden Claims
 
-| Deliverable | Current state | Remaining gap |
-| --- | --- | --- |
-| 2.5D physical foundation | Equation/config contract activated | Implement and pass all E0 gates. |
-| Positive PINN method | Candidate architecture only | G1/G2 implementation, fair baselines, multiple seeds, and joint physical gates. |
-| Generalization | Design only | Locked within-family geometry/protocol holdouts and no-refit evaluation. |
-| Identifiability-gated inverse | Historical tools/negative evidence only | G4 solver geometry, sensitivity fidelity, fresh nonlinear inverse, and refusal. |
-| Cross-model evidence | Literature motivation only | Separate SnSe/NbO2 kernel and trend-gated numerical validation. |
-| Manuscript | Historical v2 retained | New evidence-selected draft, figures/tables, claim matrix, SI, and reviewer defense. |
+Until direct evidence exists, do not claim successful Phase 1, Qiu author-code or quantitative device reproduction, real experimental validation, positive R1/R2, stable observation quotients, unique raw-parameter recovery, PINN sensitivity fidelity, terminal-only arbitrary full-field recovery, full STL reproduction, universal spectral superiority, full FEM/3D equivalence, or VO2-to-NbO2 zero-shot generalization.
 
-## Current Single Priority
+## Distance To Delivery
 
-Implement and validate the config-locked G0/E0 independent 2.5D reference
-solver. Do not begin GeoPhase training or downstream G1--G5 work until every
-required E0 gate passes and the result report explicitly authorizes E1.
+The governance conflict is removed, but every new-route scientific phase remains ahead. The next bottleneck is the Phase 1 reference judge; failure blocks all later datasets and neural claims.
+
+## Next Single Priority
+
+Execute `NEXT_ACTIONS.md`: implement and validate the independent Qiu-inspired VO2 2.5D FVM/implicit reference solver without starting PINN training, inverse work, parameter fitting, or Phase 2 dataset generation.

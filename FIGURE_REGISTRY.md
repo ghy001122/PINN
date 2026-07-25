@@ -492,3 +492,8 @@ Generated PNG files are reproducible and remain ignored by Git:
 - `outputs/figures/adaptive_fourier_fsps_pareto.png`
 
 They are synthetic numerical benchmark figures, not experimental figures.
+
+
+## Phase 0 Figure Disposition
+
+No scientific figure was generated for repository realignment. Existing historical figures and figure manifests retain their exact claim boundaries. Phase 1 figures remain planned outputs only and must not be created or registered as evidence before the solver gates run.

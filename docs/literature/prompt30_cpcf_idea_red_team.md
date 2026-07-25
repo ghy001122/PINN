@@ -29,5 +29,5 @@ Search date: `2026-07-17`. Scope: nearest primary papers only; this is a bounded
 
 - PINN ill-conditioning, operator preconditioning, profile likelihood, Bayesian OED, adaptive experimental-point selection, diffuse-interface enthalpy PINNs, VO2 hysteresis, and thermal-neuristor compact models all have direct precedents.
 - CPCF did not pass its own anchor/improvement/bootstrap gates, so it is not eligible for a novelty claim even as a combination.
-- The only defensible innovation candidates are evidence-triggered combinations tied to this repository's explicit solver/conservation/refusal gates. They remain hypotheses in `docs/research_strategy/innovation_portfolio.md`; none was executed in prompt 30.
+- The only defensible innovation candidates are evidence-triggered combinations tied to this repository's explicit solver/conservation/refusal gates. They remain hypotheses in `docs/archive/superseded_strategy/innovation_portfolio_2026-07-24.md`; none was executed in prompt 30.
 - No statement of "world first" or "nobody has tried this" is allowed. The strongest future wording, after broader systematic review and direct evidence, would be: "As of the search date, no substantively isomorphic work was identified"; that wording is currently unearned.

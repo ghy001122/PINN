@@ -1,5 +1,7 @@
 # Final Submission Figure Table Claim Lock V2
 
+> Historical v2 lock for the former 1D route. It is retained for replay and reviewer defense, has no current authorization, and provides no vote on Phase 1 or R1-R3.
+
 All claims are restricted to synthetic numerical digital-twin benchmark evidence.
 
 ## Main-Text Core

@@ -1,0 +1,61 @@
+schema_version: geo2p5d_stage_v1
+delivery_mode: Q2_SCI_DELIVERY_MODE
+current_phase: Q2_PHASE1_2P5D_REFERENCE_SOLVER
+evidence_type: literature_guided_synthetic_numerical_digital_twin
+
+authority:
+  execution_guide: docs/research_strategy/pinn_phase_change_q2_sci_execution_guide.md
+  active_phase: docs/research_strategy/active_phase.md
+  current_contract: docs/research_strategy/phase1_geophase_2p5d_reference_contract.md
+  phase1_config: configs/geophase_phase1_2p5d_reference.yaml
+  claim_matrix: docs/paper/final_claim_matrix.md
+
+routes:
+  R1:
+    name: HysGeo-Hybrid-PINN
+    role: minimum_must_complete_manuscript_route
+    status: candidate
+    claim_status: forbidden
+    required_predecessors: [phase1_reference, phase2_dataset, phase3_baselines]
+  R2:
+    name: GeoPhase-HomoMoE-PINN
+    role: preferred_q2_method_upgrade
+    status: candidate
+    claim_status: forbidden
+    required_predecessors: [R1_pass]
+  R3:
+    name: conditional_event_aligned_local_observable_subspace
+    role: optional_high_upside_inverse_extension
+    status: conditional_candidate
+    claim_status: forbidden
+    required_predecessors:
+      - R2_or_locked_forward_route
+      - solver_derivative_convergence
+      - pinn_trajectory_and_sensitivity_fidelity
+
+phase_sequence:
+  - {phase: 0, id: Q2_PHASE0_REPOSITORY_GOVERNANCE, status: complete_governance_only}
+  - {phase: 1, id: Q2_PHASE1_2P5D_REFERENCE_SOLVER, status: authorized_pending_implementation}
+  - {phase: 2, id: Q2_PHASE2_DATASET_AND_SPLITS, status: blocked_by_phase1}
+  - {phase: 3, id: Q2_PHASE3_BASELINES, status: blocked_by_phase2}
+  - {phase: 4, id: Q2_PHASE4_R1_HYSGEO_HYBRID_PINN, status: blocked_by_phase3}
+  - {phase: 5, id: Q2_PHASE5_R2_HOMOMOE_PINN, status: blocked_by_R1}
+  - {phase: 6, id: Q2_PHASE6_R3_OBSERVABLE_SUBSPACE_MVE, status: conditional_blocked}
+  - {phase: 7, id: Q2_PHASE7_CONDITIONAL_EXTENSIONS, status: conditional_blocked}
+  - {phase: 8, id: Q2_PHASE8_NBO2_CROSS_MODEL, status: conditional_blocked}
+  - {phase: 9, id: Q2_PHASE9_MANUSCRIPT_CLOSURE, status: blocked_by_evidence_selection}
+
+seed_policy:
+  development_seed: 2026
+  formal_multiseed_set: [2026, 2027, 2028, 2029, 2030]
+  change_after_results: forbidden
+
+global_claim_boundary:
+  supported_statuses: [supported, qualified_supported]
+  retained_negative_status: failed_but_informative
+  absent_or_insufficient_status: forbidden
+  experimental_validation: forbidden
+  qiu_exact_or_quantitative_reproduction: forbidden
+  terminal_only_arbitrary_full_field_recovery: forbidden
+  full_fem_or_3d_equivalence: forbidden
+  vo2_to_nbo2_zero_shot: forbidden

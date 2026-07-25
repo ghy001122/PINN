@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "pinn-phase-change-memristor"
 version = "0.1.0"
-description = "Physics-informed digital twin for sparse-data inverse identification in oxide optoelectronic memristive devices."
+description = "Claim-gated 2.5D hybrid PINN research for hysteretic phase-transition devices."
 readme = "README.md"
 requires-python = ">=3.11,<3.12"
 authors = [

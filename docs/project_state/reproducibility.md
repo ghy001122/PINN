@@ -2,6 +2,22 @@
 
 > Not default context. Use `docs/project_state/reproduction_quickstart.md` for current commands and this file only to trace an older run.
 
+## Current Phase 0 And Phase 1 Routing
+
+Current governance replay:
+
+    .\.venv\Scripts\python.exe scripts\audit_repository_realignment.py --base-commit 36cbc020869ca483ed1e84eb0326cee11618891c
+    .\.venv\Scripts\python.exe scripts\audit_project_governance.py --no-write
+    .\.venv\Scripts\python.exe scripts\validate_tracked_json.py
+    .\.venv\Scripts\python.exe -m pytest -q
+
+Current Phase 1 preregistration check:
+
+    .\.venv\Scripts\python.exe -m pytest tests\test_geophase_phase1_preregistration.py -q
+
+No formal Phase 1 solver command exists yet. These commands verify governance, frozen integrity, JSON syntax, and the preregistration contract only; they do not create a solver result or experimental evidence. Use the reproduction quickstart for the compact current route.
+
+
 ## Phase-activated multidomain OASIS-PINN v9 reproduction
 
 ```powershell
@@ -427,11 +443,11 @@ They must not be described as measured experimental data.
 Run:
 
 ```powershell
-.\.venv\Scripts\python.exe scriptsudit_literature_phase_change_parameter_sanity.py
-.\.venv\Scripts\python.exe scriptsit_literature_phase_change_curves.py
-.\.venv\Scripts\python.exe scriptsudit_gamma_sub_tsw_calibration_necessity.py
-.\.venv\Scripts\python.exe scriptsudit_gamma_sub_simulator_backed_sequential_protocol_validation.py
-.\.venv\Scripts\python.exe scriptsuild_manuscript_style_gamma_sub_figures.py
+.\.venv\Scripts\python.exe scripts/audit_literature_phase_change_parameter_sanity.py
+.\.venv\Scripts\python.exe scripts/fit_literature_phase_change_curves.py
+.\.venv\Scripts\python.exe scripts/audit_gamma_sub_tsw_calibration_necessity.py
+.\.venv\Scripts\python.exe scripts/audit_gamma_sub_simulator_backed_sequential_protocol_validation.py
+.\.venv\Scripts\python.exe scripts/build_manuscript_style_gamma_sub_figures.py
 ```
 
 Then validate with the dedicated tests and full `pytest`. Frozen Ground Truth v1.1 must remain unchanged.
@@ -512,10 +528,10 @@ The command reads existing lightweight tables only. It does not modify frozen Gr
 Run:
 
 ```powershell
-.\.venv\Scripts\python.exe scriptsudit_reduced_2d_phase_transition_forward.py
-.\.venv\Scripts\python.exe scriptsudit_reduced_2d_observability_limited_inverse.py
-.\.venv\Scripts\python.exe scriptsudit_stiffness_aware_algorithm_benchmark.py
-.\.venv\Scripts\python.exe scriptsuild_claim_gate_resolution_matrix.py
+.\.venv\Scripts\python.exe scripts/audit_reduced_2d_phase_transition_forward.py
+.\.venv\Scripts\python.exe scripts/audit_reduced_2d_observability_limited_inverse.py
+.\.venv\Scripts\python.exe scripts/audit_stiffness_aware_algorithm_benchmark.py
+.\.venv\Scripts\python.exe scripts/build_claim_gate_resolution_matrix.py
 ```
 
 Validation:
@@ -531,13 +547,13 @@ Generated figures are ignored by Git; lightweight JSON/CSV tables are committed 
 Run:
 
 ```powershell
-.\.venv\Scripts\python.exe scriptsudit_literature_prior_consistency.py
-.\.venv\Scripts\python.exe scriptsudit_multilayer_sandwich_device.py
-.\.venv\Scripts\python.exe scriptsudit_claim_resolution_2d_field.py
-.\.venv\Scripts\python.exe scriptsudit_terminal_only_active_protocol_rescue.py
-.\.venv\Scripts\python.exe scriptsudit_phase_aware_stl_repair.py
-.\.venv\Scripts\python.exe scriptsudit_adaptive_fourier_fsps_superiority.py
-.\.venv\Scripts\python.exe scriptsudit_multilayer_sandwich_low_dim_inverse.py
+.\.venv\Scripts\python.exe scripts/audit_literature_prior_consistency.py
+.\.venv\Scripts\python.exe scripts/audit_multilayer_sandwich_device.py
+.\.venv\Scripts\python.exe scripts/audit_claim_resolution_2d_field.py
+.\.venv\Scripts\python.exe scripts/audit_terminal_only_active_protocol_rescue.py
+.\.venv\Scripts\python.exe scripts/audit_phase_aware_stl_repair.py
+.\.venv\Scripts\python.exe scripts/audit_adaptive_fourier_fsps_superiority.py
+.\.venv\Scripts\python.exe scripts/audit_multilayer_sandwich_low_dim_inverse.py
 ```
 
 Validation:

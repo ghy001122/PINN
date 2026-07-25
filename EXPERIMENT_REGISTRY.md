@@ -770,20 +770,33 @@ Claim result: multilayer forward, terminal-only rescue, low-dimensional sandwich
 - Result: G1 source-transcription fidelity and G2 tanh-anchor realized continuity pass; G3 manufactured hysteresis properties remain non-blocking diagnostics.
 - Claim: `supported` only for the configured tanh-anchor inverse identity; Qiu-author equivalence and external validation remain `forbidden`.
 
-## GeoPhase G0/E0 2.5D Reference Foundation
+## Historical GeoPhase G0/E0 2.5D Reference Foundation
 
 - Date: 2026-07-24.
-- Phase: `Q2_GEOPHASE_E0_REFERENCE_SOLVER_FOUNDATION`.
+- Phase: historical `Q2_GEOPHASE_E0_REFERENCE_SOLVER_FOUNDATION`; superseded by `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
 - Status: `preregistered_pending_implementation`; no solver execution, PINN
   training, fit, inverse, or scientific claim upgrade occurred in the route-
   activation round.
 - Evidence type: documentation/configuration fact only; planned outputs are
   literature-guided solver-generated synthetic numerical digital-twin evidence.
-- Config: `configs/geophase_e0_2p5d_reference.yaml`.
+- Archived/renamed config: `configs/geophase_phase1_2p5d_reference.yaml`.
 - Method/route: `docs/method_equations.md` and
-  `docs/research_strategy/geophase_oq_pinn_execution_contract.md`.
-- Static validation: `tests/test_geophase_e0_preregistration.py`.
+  `docs/archive/superseded_strategy/geophase_oq_pinn_execution_contract_2026-07-24.md`; current authority is the canonical execution guide and Phase 1 contract.
+- Current static validation: `tests/test_geophase_phase1_preregistration.py`.
 - Unlock: G1 forward PINN remains `forbidden` until every manufactured,
   current/energy, mesh/time, K-state passivity/reduction, and limit gate passes
   in the single formal E0 run.
 - Frozen GT: read-only and unchanged.
+
+
+## Q2 Repository Realignment And Phase 0 Governance
+
+- Date: 2026-07-25 to 2026-07-26.
+- Task: `Q2_REPOSITORY_REALIGNMENT_AND_PHASE0_GOVERNANCE`.
+- Evidence type: repository governance and reproducibility metadata only.
+- Status: authority chain realigned to R1/R2/conditional-R3 and Phase 1; no solver run, PINN training, inverse, fit, digitization, or scientific claim upgrade.
+- Inputs: the canonical Q2 execution guide and archived Phase 0 migration instruction.
+- Outputs: disposition CSV, Phase 0 summary JSON, archive index, current context/state/phase/queue, and task report.
+- Baseline: 447 local tests passed before modification; frozen GT hashes and tracked JSON validation passed.
+- Final local regression: 451 tests passed in 238.32 seconds; no pre-existing test regressed. Final governance/frozen/JSON/diff checks are recorded in the Phase 0 report and machine summary.
+- Scientific boundary: all Phase 1, R1, R2, R3, experimental, quantitative-Qiu, FEM/3D, and cross-material result claims remain forbidden.

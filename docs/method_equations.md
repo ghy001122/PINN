@@ -8,9 +8,9 @@ ledger are defined in `docs/physics/m40_qiu_2d_equations.md`. Those equations
 form a source-constrained external-literature bridge and do not replace or
 revise the frozen synthetic Ground Truth equations below.
 
-## Active GeoPhase 2.5D Candidate Contract
+## Active Phase 1 and R1-R3 2.5D Contract
 
-This section defines the G0/E0 reference and later GeoPhase PINN equation
+This section defines the Phase 1 reference and later R1-R3 PINN equation
 contract. It is a preregistered model, not a completed solver or positive
 method result. The resolved device plane is \(\Omega\subset\mathbb R^2\) with
 coordinates \((x,y)\); vertical transport is reduced to passive areal thermal
@@ -30,7 +30,7 @@ $$
 $$
 
 Finite electrode contacts \(\Gamma_p\) use prescribed terminal potentials in
-the E0 baseline; non-contact boundaries are electrically insulating. The
+the Phase 1 baseline; non-contact boundaries are electrically insulating. The
 observable terminal current is not a free network output:
 
 $$
@@ -77,7 +77,7 @@ where \(g^{\mathrm{lat}}_{ij}\) has units
 ledger.
 
 All \(c_k^A\) and \(g_k\) must be positive and the thermal subsystem must be
-stable and passive. E0 selects the smallest passing \(K\in\{2,3\}\) against a
+stable and passive. Phase 1 selects the smallest passing \(K\in\{2,3\}\) against a
 higher-order reference; \(K=1\) is an ablation, not the default model.
 
 The VO2 conductivity is a white-box logarithmic mixture:
@@ -130,7 +130,7 @@ C_p\frac{dV_d}{dt}
 $$
 
 Initial conditions are \(T=z_k=T_0\), a declared initial branch \(b_0\), and
-\(s=s_{\mathrm{eq}}(T_0,b_0)\). The E0 lateral thermal baseline is no-flux;
+\(s=s_{\mathrm{eq}}(T_0,b_0)\). The Phase 1 lateral thermal baseline is no-flux;
 any later contact-resistance, thermal-boundary-resistance, or lateral-coupling
 term requires explicit units, provenance, and interface tests.
 
@@ -157,6 +157,10 @@ port, and global-ledger residuals, but smoothness alone is not a physics
 residual. The SnSe/NbO2 auxiliary route replaces the VO2 conductivity/state
 kernel with a Poole--Frenkel/electrothermal-runaway kernel; it does not reuse
 VO2 thresholds, state semantics, or parameter values.
+
+## Retained Historical 1D Equations
+
+The remaining equations below are retained for frozen-GT replay, historical baselines, negative evidence, and reviewer defense. They are not the current final device structure and do not vote for Phase 1 or R1-R3.
 
 ## Domain and State Variables
 

@@ -452,3 +452,8 @@ These lightweight tables are synthetic numerical digital-twin benchmark evidence
 - `outputs/tables/adaptive_fourier_fsps_superiority_cases.csv`
 
 No frozen Ground Truth v1.1 files were modified.
+
+
+## Phase 0 Repository Metadata
+
+No scientific dataset was created or modified. `outputs/tables/repository_file_disposition.csv` and `repository_realign_phase0_summary.json` are governance metadata, not physical measurements, training data, solver outputs, or validation evidence. Frozen GT v1.1 and all historical machine-readable evidence remain unchanged.

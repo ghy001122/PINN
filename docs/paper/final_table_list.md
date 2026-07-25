@@ -1,8 +1,8 @@
 # Final Table List
 
 > Historical v2 roster. These tables remain locked evidence for the former 1D
-> submission route; they are not the active GeoPhase manuscript roster and do
-> not support G0--G5.
+> submission route; they are not the active R1/R2/R3 manuscript roster and do
+> not support Phase 1 or R1-R3.
 
 Tables report synthetic numerical digital-twin evidence unless explicitly marked as external-literature or mapping-audit evidence. Digitized publication curves are not raw or project-generated experimental measurements.
 

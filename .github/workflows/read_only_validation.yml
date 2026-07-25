@@ -12,6 +12,7 @@ on:
       - "docs/research_strategy/**"
       - "docs/project_state/**"
       - "docs/manuscript/**"
+      - "docs/archive/**"
       - "outputs/tables/**"
       - "AGENTS.md"
       - "PROJECT_GOAL.md"
@@ -31,6 +32,7 @@ on:
       - "docs/research_strategy/**"
       - "docs/project_state/**"
       - "docs/manuscript/**"
+      - "docs/archive/**"
       - "outputs/tables/**"
       - "AGENTS.md"
       - "PROJECT_GOAL.md"
@@ -68,6 +70,9 @@ jobs:
       - name: Focused evidence and claim tests
         run: >-
           python -m pytest
+          tests/test_project_governance.py
+          tests/test_repository_realignment_audit.py
+          tests/test_geophase_phase1_preregistration.py
           tests/test_gamma_sub_calibration_protocol_cost_frontier.py
           tests/test_gamma_sub_cpcf_evidence_schema.py
           tests/test_historical_evidence_manifest.py

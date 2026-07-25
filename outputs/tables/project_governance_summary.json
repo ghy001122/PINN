@@ -14,7 +14,7 @@
     },
     "current_handoff": {
       "status": "pass",
-      "bytes": 504,
+      "bytes": 1014,
       "missing_markers": []
     },
     "single_current_snapshot": {
@@ -24,25 +24,39 @@
     },
     "phase_consistency": {
       "status": "pass",
-      "active_phase_id": "Q2_GEOPHASE_E0_REFERENCE_SOLVER_FOUNDATION",
+      "active_phase_id": "Q2_PHASE1_2P5D_REFERENCE_SOLVER",
       "missing": []
     },
     "delivery_contract": {
       "status": "pass",
       "missing": []
     },
+    "no_obsolete_current_route": {
+      "status": "pass",
+      "found": []
+    },
     "claim_matrix_vocabulary": {
       "status": "pass",
-      "obsolete": []
+      "obsolete": [],
+      "missing": []
     },
     "critical_markdown_links": {
       "status": "pass",
       "checked": 9,
       "missing": []
     },
+    "realignment_outputs": {
+      "status": "pass",
+      "rows": 1070,
+      "problems": [],
+      "summary_phase": "Q2_PHASE1_2P5D_REFERENCE_SOLVER"
+    },
+    "phase0_report": {
+      "status": "pass",
+      "missing": []
+    },
     "claim_vocabulary": {
       "status": "pass",
-      "obsolete": [],
       "all_four_present": true
     },
     "final_report_template": {
@@ -52,28 +66,24 @@
     "agents_chain_size": {
       "status": "pass",
       "bytes": {
-        "src/pinnpcm/physics/AGENTS.md": 8721,
-        "src/pinnpcm/pinn/AGENTS.md": 8853,
-        "scripts/AGENTS.md": 8616,
-        "tests/AGENTS.md": 8558,
-        "docs/AGENTS.md": 8688
+        "src/pinnpcm/physics/AGENTS.md": 8756,
+        "src/pinnpcm/pinn/AGENTS.md": 8888,
+        "scripts/AGENTS.md": 8651,
+        "tests/AGENTS.md": 8593,
+        "docs/AGENTS.md": 8723
       },
       "oversized": {}
-    },
-    "no_authoritative_memorys_directory": {
-      "status": "pass",
-      "paths": []
     },
     "low_token_context_budget": {
       "status": "pass",
       "limit_bytes": 24576,
-      "total_bytes": 23369,
+      "total_bytes": 16770,
       "files": {
-        "CODEX_CONTEXT.md": 3420,
-        "docs/research_strategy/active_phase.md": 5235,
-        "PROJECT_STATE.md": 6168,
-        "NEXT_ACTIONS.md": 3258,
-        "docs/project_state/current_evidence_index.md": 5288
+        "CODEX_CONTEXT.md": 2276,
+        "docs/research_strategy/active_phase.md": 3802,
+        "PROJECT_STATE.md": 3684,
+        "NEXT_ACTIONS.md": 2518,
+        "docs/project_state/current_evidence_index.md": 4490
       }
     },
     "retired_generator_guard": {
@@ -91,67 +101,59 @@
           "sha256": "F2E6BEC6006827344BEBDDCF20519B5B87F923B349A8799596D06E9F254A2B02",
           "expected_sha256": "F2E6BEC6006827344BEBDDCF20519B5B87F923B349A8799596D06E9F254A2B02",
           "hash_unchanged": true,
-          "mtime_observed": true,
           "deferred_to_full_validation": false
         },
         "configs/gt_v1_acceptance_ltp_ltd.yaml": {
           "sha256": "F1F71F21F1D0D27532EEAD23A3A4B71B0864E6B0966E564104DCFFD7040C1D93",
           "expected_sha256": "F1F71F21F1D0D27532EEAD23A3A4B71B0864E6B0966E564104DCFFD7040C1D93",
           "hash_unchanged": true,
-          "mtime_observed": true,
           "deferred_to_full_validation": false
         },
         "docs/gt_v1_acceptance_report.md": {
           "sha256": "0F72718AFFB84F727771F8D4A1A16AFB9D7C0D15BD7984632B3BEB8155F91643",
           "expected_sha256": "0F72718AFFB84F727771F8D4A1A16AFB9D7C0D15BD7984632B3BEB8155F91643",
           "hash_unchanged": true,
-          "mtime_observed": true,
           "deferred_to_full_validation": false
         },
         "data/processed/gt_v1_acceptance/manifest.json": {
           "sha256": "634554429B9E61A231E47BF35B9B5C66C1C316E5E11A86BDE0540B05FF5AE30F",
           "expected_sha256": "634554429B9E61A231E47BF35B9B5C66C1C316E5E11A86BDE0540B05FF5AE30F",
           "hash_unchanged": true,
-          "mtime_observed": true,
           "deferred_to_full_validation": false
         },
         "data/processed/gt_v1_acceptance/gt_triangle.npz": {
           "sha256": "4E4814D9C66A79CBE86417296B0A797E53FFFF2CEE2BD881548FBCD35E05C9F8",
           "expected_sha256": "4E4814D9C66A79CBE86417296B0A797E53FFFF2CEE2BD881548FBCD35E05C9F8",
           "hash_unchanged": true,
-          "mtime_observed": true,
           "deferred_to_full_validation": false
         },
         "data/processed/gt_v1_acceptance/obs_triangle_sparse.npz": {
           "sha256": "F45DAF53136A255B3666EBEB56E6298CE148A613C46FA596B795E7ADE68EA602",
           "expected_sha256": "F45DAF53136A255B3666EBEB56E6298CE148A613C46FA596B795E7ADE68EA602",
           "hash_unchanged": true,
-          "mtime_observed": true,
           "deferred_to_full_validation": false
         },
         "data/processed/gt_v1_acceptance/gt_ltp_ltd.npz": {
           "sha256": "772D17178C77392BF8A0813ADA3DB4A7241C5FA4E6D72E091894271BFA13C247",
           "expected_sha256": "772D17178C77392BF8A0813ADA3DB4A7241C5FA4E6D72E091894271BFA13C247",
           "hash_unchanged": true,
-          "mtime_observed": true,
           "deferred_to_full_validation": false
         },
         "data/processed/gt_v1_acceptance/obs_ltp_ltd_sparse.npz": {
           "sha256": "7155BFF7C406FAB49E9670FA8A73AB6D0063459A80FEB705138E3FE61A351645",
           "expected_sha256": "7155BFF7C406FAB49E9670FA8A73AB6D0063459A80FEB705138E3FE61A351645",
           "hash_unchanged": true,
-          "mtime_observed": true,
           "deferred_to_full_validation": false
         }
       },
       "mtime_review": "manual_review_required",
-      "mtime_reason": "Portable Git checkout mtimes are not authoritative; compare pre/post mtimes in the active task."
+      "mtime_reason": "Portable Git checkout mtimes are not authoritative; compare task pre/post hashes."
     },
     "codex_rules": {
       "status": "manual_review_required",
       "syntax_file_present": true,
       "automatic_project_loading": "manual_review_required",
-      "note": "Use codex execpolicy check for direct match tests; automatic trust/loading depends on the client."
+      "note": "Client trust/loading remains a manual environment check."
     }
   }
 }

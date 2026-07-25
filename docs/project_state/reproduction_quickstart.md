@@ -1,33 +1,35 @@
 # Reproduction Quickstart
 
-## Governance And Frozen Integrity
+## Phase 0 Governance And Frozen Integrity
 
 ```powershell
-.\.venv\Scripts\python.exe scripts\audit_project_governance.py
-.\.venv\Scripts\python.exe -m pytest tests\test_project_governance.py -q
+.\.venv\Scripts\python.exe scripts\audit_repository_realignment.py --base-commit 36cbc020869ca483ed1e84eb0326cee11618891c
+.\.venv\Scripts\python.exe scripts\audit_project_governance.py --no-write
+.\.venv\Scripts\python.exe scripts\validate_tracked_json.py
+.\.venv\Scripts\python.exe -m pytest tests\test_project_governance.py tests\test_repository_realignment_audit.py -q
 ```
 
-## Active GeoPhase E0 Contract
+The repository realignment audit writes only the disposition CSV and Phase 0 machine summary. It does not run a scientific experiment or modify frozen GT.
 
-The current phase is preregistration/foundation work. The following validates
-the route and config only; it is not a solver run or scientific result:
+## Active Phase 1 Contract
+
+Validate the preregistration only:
 
 ```powershell
-.\.venv\Scripts\python.exe -m pytest tests\test_geophase_e0_preregistration.py -q
+.\.venv\Scripts\python.exe -m pytest tests\test_geophase_phase1_preregistration.py -q
 ```
 
-The future formal E0 command will be added only with the implemented
-`scripts/run_geophase_e0_reference.py`. Do not invent an entrypoint or begin
-PINN training before the reference solver and preflight tests exist.
+No formal solver command exists yet. Add the config-driven Phase 1 CLI only with an implemented independent solver and focused tests. Do not invent an entrypoint, generate the formal dataset, or begin PINN/inverse work.
 
-## Locked Historical Mainline
+## Locked Historical Evidence
+
+Use the exact config, script, test, and output chain named by `docs/paper/final_claim_matrix.md`, the cumulative registries, and the relevant evidence lock. Do not rerun frozen GT outputs in place or interpret historical evidence as Phase 1/R1 support.
+
+Example constrained-`gamma_sub` integrity check:
 
 ```powershell
 .\.venv\Scripts\python.exe -m pytest tests\test_gamma_sub_evidence_lock.py tests\test_gamma_sub_continuous_refinement.py tests\test_gamma_sub_calibrated_sequential_protocol_validation.py -q
-.\.venv\Scripts\python.exe scripts\build_gamma_sub_evidence_lock.py --config configs\gamma_sub_evidence_lock.yaml
 ```
-
-Exact per-figure builders and inputs are recorded in `docs/paper/final_figure_list.md`. Do not rerun frozen GT outputs in place.
 
 ## Full CPU Regression
 
@@ -35,18 +37,8 @@ Exact per-figure builders and inputs are recorded in `docs/paper/final_figure_li
 .\.venv\Scripts\python.exe -m pytest -q
 ```
 
-Known filtered matplotlib/pyparsing deprecation warnings are not failures when tests pass. Push/PR uses focused read-only validation; full claim-bearing validation is manual/scheduled and reconstructs ignored frozen GT fixtures before the full suite.
+Known filtered matplotlib/pyparsing deprecation warnings are not failures when tests pass. Push/PR uses focused read-only validation. Manual full claim-bearing validation uses the trusted replay runner and checks immutable historical blobs.
 
-## Prompt-30 Read-Only Evidence
+## Academic Boundary
 
-```powershell
-.\.venv\Scripts\python.exe scripts\audit_a7c_prompt30_evidence.py
-.\.venv\Scripts\python.exe -m pytest tests\test_gamma_sub_calibration_protocol_cost_frontier.py tests\test_gamma_sub_cpcf_evidence_schema.py tests\test_prompt30_a7c_evidence_audit.py -q
-.\.venv\Scripts\python.exe scripts\validate_tracked_json.py
-```
-
-The CPCF valid pilot is already complete and failed its expansion gate. Do not rerun it merely to rebuild figures, and do not invoke `--mode full`.
-
-## External Anchor
-
-Priority D must first store an immutable source-data package under `data/external/`, record DOI/license/figure identity/units/access date/SHA-256, and define the fit/holdout split before the fitting script is run. The active gate is in `docs/research_strategy/active_phase.md`.
+All project-generated outputs are synthetic numerical digital-twin evidence. External inputs require provenance, license, figure/table identity, units, access date, and SHA-256 before use. No local test is experimental validation or GitHub Actions evidence.

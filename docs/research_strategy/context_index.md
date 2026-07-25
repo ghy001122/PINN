@@ -6,33 +6,29 @@
 2. `docs/research_strategy/active_phase.md`
 3. `docs/research_strategy/context_loading_policy.md`
 
-## Goal And Governance
+## Current Authority
 
-- `PROJECT_GOAL.md`: stable delivery goal and Definition of Done.
-- `PROJECT_STATE.md`: current dashboard and gate ledger.
-- `AGENTS.md`: repository-wide behavior and claim rules.
-- nested `AGENTS.md`: subtree-specific constraints.
-- `docs/research_strategy/sci_delivery_pipeline.md`: reusable stage-gate workflow.
-- `docs/research_strategy/geophase_oq_pinn_execution_contract.md`: detailed active method, migration, gate, and workspace contract.
-- docs/experiment_plan.md: current G0/E0 experiment chain and phase-scoped authorization semantics.
-- `docs/research_strategy/durable_project_memory.md`: stable facts and recurring pitfalls.
-- `docs/research_strategy/memory_policy.md`: authority and privacy rules.
+- `AGENTS.md` and nested instruction files: behavior, ethics, engineering, and evidence rules.
+- `PROJECT_GOAL.md`: stable R1/R2/R3 delivery contract.
+- `PROJECT_STATE.md`: single current fact snapshot.
+- `NEXT_ACTIONS.md`: single active task.
+- `docs/research_strategy/pinn_phase_change_q2_sci_execution_guide.md`: complete research strategy, phase ladder, downgrade rules, and writing guide.
+- `docs/research_strategy/phase1_geophase_2p5d_reference_contract.md`: current phase-only technical contract.
+- `docs/research_strategy/sci_delivery_pipeline.md`: reusable evidence lifecycle.
+- `docs/project_state/current_evidence_index.md`: current/historical/candidate/forbidden evidence routing.
 
-## Current Routing
+## Task Routing
 
-- `docs/research_strategy/current_research_handoff.md`: short entry pointer.
-- `docs/project_state/current_evidence_index.md`: compact evidence routing.
-- `docs/research_strategy/legacy_document_index.md`: retired surfaces and replacements.
+- Physics, equations, materials, geometry, or provenance: load `docs/method_equations.md`, the Phase 1 config, and only the relevant physics/provenance files.
+- Code or tests: load the applicable nested `AGENTS.md`, config, implementation, and focused tests.
+- Claims or manuscript: load `docs/project_prompts/critical_research_mode.md`, `docs/paper/final_claim_matrix.md`, and only the relevant manuscript component.
+- Historical reproduction or reviewer defense: use `docs/archive/README.md`, registries, and the named report/artifact. Archived documents never authorize current work.
+- Literature: use source decision logs, `references/papers/PAPER_REGISTRY.md`, and only the necessary source note; do not load full papers by default.
 
-## State And Evidence
+## Cumulative Indexes
 
-- `PROJECT_STATE.md`: single current snapshot.
-- `NEXT_ACTIONS.md`: single active queue.
-- `RESEARCH_LOG.md`: cumulative chronology; do not load by default.
-- `EXPERIMENT_REGISTRY.md`, `DATASET_REGISTRY.md`, `FIGURE_REGISTRY.md`: cumulative indexes; trace specific runs only.
-- `docs/project_state/`: compact current index, tree, inventory, and reproducibility.
-- `docs/codex_reports/`: task reports; read only the latest task-relevant report.
+`RESEARCH_LOG.md`, `EXPERIMENT_REGISTRY.md`, `DATASET_REGISTRY.md`, `FIGURE_REGISTRY.md`, and `docs/codex_reports/` are chronological provenance. Read targeted entries only.
 
-## Literature And Manuscript
+## Durable Context
 
-Use `docs/literature/primary_source_decision_log_2026-07-14.md`, `docs/literature_notes/`, `references/papers/PAPER_REGISTRY.md`, `docs/paper/`, and `docs/manuscript/` only when the task requires literature, claims, figures, or reviewer defense. Use `innovation_portfolio.md` for phase-authorized GeoPhase candidates and baselines. Do not load complete papers by default.
+`docs/research_strategy/durable_project_memory.md` stores stable project facts and pitfalls. `docs/research_strategy/memory_policy.md` governs authority and privacy. Neither overrides current Git evidence or the authority chain.

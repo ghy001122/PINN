@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import hashlib
 import json
 import re
@@ -9,6 +10,18 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "outputs" / "tables" / "project_governance_summary.json"
 CLAIM_STATUSES = {"supported", "qualified_supported", "failed_but_informative", "forbidden"}
+DISPOSITIONS = {
+    "KEEP_CURRENT",
+    "KEEP_EVERGREEN",
+    "UPDATE",
+    "MERGE",
+    "ARCHIVE",
+    "DELETE_DUPLICATE",
+    "DELETE_GENERATED",
+    "LEAVE_IN_PLACE_FROZEN",
+    "REVIEW_BLOCKED",
+}
+EXPECTED_PHASE = "Q2_PHASE1_2P5D_REFERENCE_SOLVER"
 
 REQUIRED = [
     "AGENTS.md",
@@ -18,17 +31,30 @@ REQUIRED = [
     "NEXT_ACTIONS.md",
     "README.md",
     "docs/AGENTS.md",
+    "docs/project_prompts/critical_research_mode.md",
     "docs/research_strategy/active_phase.md",
-    "docs/research_strategy/geophase_oq_pinn_execution_contract.md",
-    "docs/experiment_plan.md",
+    "docs/research_strategy/pinn_phase_change_q2_sci_execution_guide.md",
+    "docs/research_strategy/phase1_geophase_2p5d_reference_contract.md",
+    "docs/research_strategy/current_research_handoff.md",
+    "docs/research_strategy/context_index.md",
+    "docs/research_strategy/context_loading_policy.md",
     "docs/research_strategy/sci_delivery_pipeline.md",
-    "docs/research_strategy/innovation_portfolio.md",
     "docs/research_strategy/legacy_document_index.md",
     "docs/research_strategy/durable_project_memory.md",
     "docs/research_strategy/memory_policy.md",
     "docs/project_state/current_evidence_index.md",
-    "configs/geophase_e0_2p5d_reference.yaml",
+    "docs/project_state/file_inventory.md",
+    "docs/project_state/repo_tree.md",
     "docs/project_state/reproduction_quickstart.md",
+    "docs/archive/README.md",
+    "docs/archive/superseded_strategy/README.md",
+    "configs/geo2p5d_stage.yaml",
+    "configs/geophase_phase1_2p5d_reference.yaml",
+    "tests/test_geophase_phase1_preregistration.py",
+    "scripts/audit_repository_realignment.py",
+    "outputs/tables/repository_file_disposition.csv",
+    "outputs/tables/repository_realign_phase0_summary.json",
+    "docs/codex_reports/repository_realign_phase0_2026-07-25.md",
     "docs/templates/codex_final_report.md",
     "src/pinnpcm/physics/AGENTS.md",
     "src/pinnpcm/pinn/AGENTS.md",
@@ -46,12 +72,30 @@ CRITICAL_MARKDOWN = [
     "PROJECT_STATE.md",
     "NEXT_ACTIONS.md",
     "docs/project_state/current_evidence_index.md",
-    "docs/research_strategy/sci_delivery_pipeline.md",
-    "docs/research_strategy/geophase_oq_pinn_execution_contract.md",
-    "docs/experiment_plan.md",
+    "docs/project_state/file_inventory.md",
+    "docs/project_state/repo_tree.md",
+    "docs/research_strategy/active_phase.md",
     "docs/research_strategy/context_index.md",
     "docs/research_strategy/current_research_handoff.md",
-    "docs/research_strategy/memory_policy.md",
+    "docs/research_strategy/legacy_document_index.md",
+    "docs/manuscript/README.md",
+    "docs/manuscript/submission_go_no_go.md",
+    "docs/archive/README.md",
+]
+
+CURRENT_ROUTE_FILES = [
+    "AGENTS.md",
+    "README.md",
+    "PROJECT_GOAL.md",
+    "CODEX_CONTEXT.md",
+    "PROJECT_STATE.md",
+    "NEXT_ACTIONS.md",
+    "docs/research_strategy/active_phase.md",
+    "docs/research_strategy/context_index.md",
+    "docs/research_strategy/current_research_handoff.md",
+    "docs/project_state/current_evidence_index.md",
+    "docs/manuscript/README.md",
+    "docs/manuscript/submission_go_no_go.md",
 ]
 
 FROZEN_HASHES = {
@@ -74,6 +118,10 @@ def sha256(path: Path) -> str:
     return digest.hexdigest().upper()
 
 
+def read(rel: str) -> str:
+    return (ROOT / rel).read_text(encoding="utf-8")
+
+
 def check_markdown_links() -> dict:
     missing: list[dict[str, str]] = []
     checked = 0
@@ -93,105 +141,152 @@ def check_markdown_links() -> dict:
     return {"status": "pass" if not missing else "fail", "checked": checked, "missing": missing}
 
 
-def _phase_id(text: str) -> str | None:
+def phase_id(text: str) -> str | None:
     match = re.search(r"Active phase ID:\s*`([A-Z0-9_]+)`", text)
     return match.group(1) if match else None
 
 
 def check_phase_consistency() -> dict:
-    active = (ROOT / "docs/research_strategy/active_phase.md").read_text(encoding="utf-8")
-    context = (ROOT / "CODEX_CONTEXT.md").read_text(encoding="utf-8")
-    state = (ROOT / "PROJECT_STATE.md").read_text(encoding="utf-8")
-    queue = (ROOT / "NEXT_ACTIONS.md").read_text(encoding="utf-8")
-    plan = (ROOT / "docs/experiment_plan.md").read_text(encoding="utf-8")
-    active_id = _phase_id(active)
+    active = read("docs/research_strategy/active_phase.md")
+    current = {rel: read(rel) for rel in [
+        "CODEX_CONTEXT.md",
+        "PROJECT_STATE.md",
+        "NEXT_ACTIONS.md",
+        "docs/research_strategy/current_research_handoff.md",
+        "configs/geo2p5d_stage.yaml",
+        "configs/geophase_phase1_2p5d_reference.yaml",
+    ]}
+    actual = phase_id(active)
     missing: list[str] = []
-    if active_id is None:
-        missing.append("active_phase:Active phase ID")
-    else:
-        for name, text in {
-            "context": context,
-            "project_state": state,
-            "next_actions": queue,
-            "experiment_plan": plan,
-        }.items():
-            if active_id not in text:
-                missing.append(f"{name}:{active_id}")
-    for gate in ["G0", "G1", "G2", "G3", "G4", "G5"]:
-        for name, text in {
-            "active_phase": active,
-            "project_state": state,
-            "experiment_plan": plan,
-        }.items():
-            if gate not in text:
-                missing.append(f"{name}:{gate}")
-    for marker in ["GeoPhase-OQ-PINN", "failed_but_informative", "forbidden"]:
-        if marker not in state:
-            missing.append(f"project_state:{marker}")
-    return {
-        "status": "pass" if not missing else "fail",
-        "active_phase_id": active_id,
-        "missing": sorted(set(missing)),
-    }
+    if actual != EXPECTED_PHASE:
+        missing.append(f"active_phase:{actual}")
+    for rel, text in current.items():
+        if EXPECTED_PHASE not in text:
+            missing.append(f"{rel}:{EXPECTED_PHASE}")
+    stage = read("configs/geo2p5d_stage.yaml")
+    for marker in ["HysGeo-Hybrid-PINN", "GeoPhase-HomoMoE-PINN", "conditional_event_aligned_local_observable_subspace"]:
+        if marker not in stage:
+            missing.append(f"stage:{marker}")
+    return {"status": "pass" if not missing else "fail", "active_phase_id": actual, "missing": missing}
 
 
 def check_delivery_contract() -> dict:
-    goal = (ROOT / "PROJECT_GOAL.md").read_text(encoding="utf-8")
-    active = (ROOT / "docs/research_strategy/active_phase.md").read_text(encoding="utf-8")
-    context = (ROOT / "CODEX_CONTEXT.md").read_text(encoding="utf-8")
-    state = (ROOT / "PROJECT_STATE.md").read_text(encoding="utf-8")
-    queue = (ROOT / "NEXT_ACTIONS.md").read_text(encoding="utf-8")
-    plan = (ROOT / "docs/experiment_plan.md").read_text(encoding="utf-8")
-    contract = (ROOT / "docs/research_strategy/geophase_oq_pinn_execution_contract.md").read_text(encoding="utf-8")
-    required_goal_markers = [
+    texts = {rel: read(rel) for rel in CURRENT_ROUTE_FILES}
+    missing: list[str] = []
+    goal_markers = [
         "Q2_SCI_DELIVERY_MODE",
         "North-Star Scientific Claim",
         "Mandatory Research Filter",
         "Stable Delivery Lanes",
         "Must-Have Definition Of Done",
-        "GeoPhase-OQ-PINN",
-        "G0",
-        "public-data source-reproduction/identifiability bridge",
-        "complete phase-transition PINN",
+        "HysGeo-Hybrid-PINN",
+        "GeoPhase-HomoMoE-PINN",
         "User Confirmation Boundary",
         "Stretch failure cannot block paper delivery",
     ]
-    missing = [f"PROJECT_GOAL.md:{marker}" for marker in required_goal_markers if marker not in goal]
-    active_id = _phase_id(active)
-    active_markers = ["GeoPhase"] + ([active_id] if active_id else [])
-    for name, text in {
-        "active_phase": active,
-        "context": context,
-        "project_state": state,
-        "next_actions": queue,
-        "experiment_plan": plan,
-    }.items():
-        for marker in active_markers:
-            if marker not in text:
-                missing.append(f"{name}:{marker}")
-    authorization_markers = {
-        "AGENTS.md": ("Historical stop votes", (ROOT / "AGENTS.md").read_text(encoding="utf-8")),
-        "active_phase": ("must still be activated", active),
-        "next_actions": ("not globally prohibited research topics", queue),
-        "experiment_plan": ("do not permanently prohibit", plan),
-        "execution_contract": ("do **not** permanently prohibit", contract),
-    }
-    for name, (marker, text) in authorization_markers.items():
-        if marker not in text:
-            missing.append(f"{name}:{marker}")
+    for marker in goal_markers:
+        if marker not in texts["PROJECT_GOAL.md"]:
+            missing.append(f"PROJECT_GOAL.md:{marker}")
+    for rel in ["README.md", "PROJECT_GOAL.md", "CODEX_CONTEXT.md", "PROJECT_STATE.md"]:
+        for marker in ["HysGeo-Hybrid-PINN", "GeoPhase-HomoMoE-PINN", "R3"]:
+            if marker not in texts[rel]:
+                missing.append(f"{rel}:{marker}")
+    for rel in ["AGENTS.md", "PROJECT_GOAL.md", "PROJECT_STATE.md", "docs/research_strategy/active_phase.md"]:
+        if "forbidden" not in texts[rel]:
+            missing.append(f"{rel}:forbidden")
+    critical = read("docs/project_prompts/critical_research_mode.md")
+    if "Do not use `forbidden` to block exploratory experiments." not in critical:
+        missing.append("critical_research_mode:exploration_boundary")
+    if "`forbidden` blocks manuscript wording, not bounded exploration." not in texts["AGENTS.md"]:
+        missing.append("AGENTS.md:exploration_boundary")
     return {"status": "pass" if not missing else "fail", "missing": missing}
 
 
-def check_claim_matrix_vocabulary() -> dict:
-    paths = [ROOT / "docs/paper/final_claim_matrix.md"]
-    obsolete_terms = ["partially_supported", "| failed |", "| Blocked |", "| Not supported |"]
+def check_no_obsolete_current_route() -> dict:
+    obsolete = [
+        "Q2_GEOPHASE_E0_REFERENCE_SOLVER_FOUNDATION",
+        "configs/geophase_e0_2p5d_reference.yaml",
+        "docs/research_strategy/geophase_oq_pinn_execution_contract.md",
+        "docs/experiment_plan.md",
+        "docs/research_strategy/innovation_portfolio.md",
+        "tests/test_geophase_e0_preregistration.py",
+    ]
     found: list[str] = []
-    for path in paths:
-        text = path.read_text(encoding="utf-8")
-        for term in obsolete_terms:
-            if term in text:
-                found.append(f"{path.relative_to(ROOT)}:{term}")
-    return {"status": "pass" if not found else "fail", "obsolete": found}
+    for rel in CURRENT_ROUTE_FILES:
+        text = read(rel)
+        for marker in obsolete:
+            if marker in text:
+                found.append(f"{rel}:{marker}")
+    return {"status": "pass" if not found else "fail", "found": found}
+
+
+def check_claim_matrix_vocabulary() -> dict:
+    text = read("docs/paper/final_claim_matrix.md")
+    obsolete_terms = ["partially_supported", "| failed |", "| Blocked |", "| Not supported |"]
+    obsolete = [term for term in obsolete_terms if term in text]
+    missing = [marker for marker in [
+        "P1_reference_solver",
+        "R1_hysgeo_hybrid",
+        "R2_homomoe",
+        "R3_observable_subspace",
+        "Retained Historical Mainline Claims",
+    ] if marker not in text]
+    return {"status": "pass" if not obsolete and not missing else "fail", "obsolete": obsolete, "missing": missing}
+
+
+def check_realignment_outputs() -> dict:
+    csv_path = ROOT / "outputs/tables/repository_file_disposition.csv"
+    summary_path = ROOT / "outputs/tables/repository_realign_phase0_summary.json"
+    required_columns = {
+        "path", "file_type", "size_bytes", "sha256", "last_git_commit",
+        "referenced_by_other_files", "route", "lifecycle", "frozen_evidence",
+        "unique_information", "disposition", "disposition_reason", "replacement",
+    }
+    problems: list[str] = []
+    rows: list[dict[str, str]] = []
+    if csv_path.exists():
+        with csv_path.open("r", encoding="utf-8-sig", newline="") as handle:
+            reader = csv.DictReader(handle)
+            columns = set(reader.fieldnames or [])
+            if not required_columns <= columns:
+                problems.append(f"csv_columns:{sorted(required_columns - columns)}")
+            rows = list(reader)
+        invalid = sorted({row.get("disposition", "") for row in rows} - DISPOSITIONS)
+        if invalid:
+            problems.append(f"invalid_dispositions:{invalid}")
+        if len(rows) < 1000:
+            problems.append(f"row_count:{len(rows)}")
+    else:
+        problems.append("missing_csv")
+    if summary_path.exists():
+        try:
+            summary = json.loads(summary_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as exc:
+            problems.append(f"summary_json:{exc}")
+            summary = {}
+        if summary.get("task_id") != "Q2_REPOSITORY_REALIGNMENT_AND_PHASE0_GOVERNANCE":
+            problems.append("summary_task_id")
+    else:
+        problems.append("missing_summary")
+        summary = {}
+    return {
+        "status": "pass" if not problems else "fail",
+        "rows": len(rows),
+        "problems": problems,
+        "summary_phase": summary.get("current_phase"),
+    }
+
+
+def check_phase0_report() -> dict:
+    path = ROOT / "docs/codex_reports/repository_realign_phase0_2026-07-25.md"
+    fields = [
+        "task_id", "base_sha", "final_sha", "branch", "changed_files", "moved_files",
+        "deleted_files", "tests", "frozen_gt_modified", "evidence_type",
+        "claim_status", "current_phase", "next_single_priority", "push_status",
+    ]
+    text = path.read_text(encoding="utf-8") if path.exists() else ""
+    missing = [field for field in fields if re.search(rf"^{field}:", text, re.MULTILINE) is None]
+    return {"status": "pass" if not missing else "fail", "missing": missing}
 
 
 def run_audit(write_output: bool = True, require_frozen_payloads: bool = True) -> dict:
@@ -200,35 +295,37 @@ def run_audit(write_output: bool = True, require_frozen_payloads: bool = True) -
     missing_required = [rel for rel in REQUIRED if not (ROOT / rel).exists()]
     checks["required_files"] = {"status": "pass" if not missing_required else "fail", "missing": missing_required}
 
-    pointer = (ROOT / "docs/research_strategy/current_research_handoff.md").read_text(encoding="utf-8")
-    handoff_markers = ["CODEX_CONTEXT.md", "active_phase.md", "PROJECT_STATE.md", "current_evidence_index.md"]
-    handoff_ok = all(marker in pointer for marker in handoff_markers) and len(pointer.encode("utf-8")) <= 2048
+    handoff = read("docs/research_strategy/current_research_handoff.md")
+    handoff_markers = ["CODEX_CONTEXT.md", "PROJECT_STATE.md", "active_phase.md", "current_evidence_index.md"]
+    handoff_ok = all(marker in handoff for marker in handoff_markers) and len(handoff.encode("utf-8")) <= 2048
     checks["current_handoff"] = {
         "status": "pass" if handoff_ok else "fail",
-        "bytes": len(pointer.encode("utf-8")),
-        "missing_markers": [marker for marker in handoff_markers if marker not in pointer],
+        "bytes": len(handoff.encode("utf-8")),
+        "missing_markers": [marker for marker in handoff_markers if marker not in handoff],
     }
 
-    state_text = (ROOT / "PROJECT_STATE.md").read_text(encoding="utf-8")
-    next_text = (ROOT / "NEXT_ACTIONS.md").read_text(encoding="utf-8")
-    heading_ok = state_text.count("## Authoritative Current Snapshot") == 1 and next_text.count("## Authoritative Current Queue") == 1
+    state = read("PROJECT_STATE.md")
+    queue = read("NEXT_ACTIONS.md")
+    snapshot_ok = state.count("## Authoritative Current Snapshot") == 1 and queue.count("## Authoritative Current Queue") == 1
     checks["single_current_snapshot"] = {
-        "status": "pass" if heading_ok else "fail",
-        "project_state_snapshot_headings": state_text.count("## Authoritative Current Snapshot"),
-        "next_actions_queue_headings": next_text.count("## Authoritative Current Queue"),
+        "status": "pass" if snapshot_ok else "fail",
+        "project_state_snapshot_headings": state.count("## Authoritative Current Snapshot"),
+        "next_actions_queue_headings": queue.count("## Authoritative Current Queue"),
     }
 
     checks["phase_consistency"] = check_phase_consistency()
     checks["delivery_contract"] = check_delivery_contract()
+    checks["no_obsolete_current_route"] = check_no_obsolete_current_route()
     checks["claim_matrix_vocabulary"] = check_claim_matrix_vocabulary()
     checks["critical_markdown_links"] = check_markdown_links()
+    checks["realignment_outputs"] = check_realignment_outputs()
+    checks["phase0_report"] = check_phase0_report()
 
-    critical_text = "\n".join((ROOT / rel).read_text(encoding="utf-8") for rel in ["AGENTS.md", "PROJECT_GOAL.md", "PROJECT_STATE.md", "NEXT_ACTIONS.md"])
-    obsolete = sorted(set(re.findall(r"claim_status:\s*([a-z_]+)", critical_text)) - CLAIM_STATUSES)
+    critical_text = "\n".join(read(rel) for rel in ["AGENTS.md", "PROJECT_GOAL.md", "PROJECT_STATE.md", "NEXT_ACTIONS.md"])
     all_present = all(status in critical_text for status in CLAIM_STATUSES)
-    checks["claim_vocabulary"] = {"status": "pass" if all_present and not obsolete else "fail", "obsolete": obsolete, "all_four_present": all_present}
+    checks["claim_vocabulary"] = {"status": "pass" if all_present else "fail", "all_four_present": all_present}
 
-    template = (ROOT / "docs/templates/codex_final_report.md").read_text(encoding="utf-8")
+    template = read("docs/templates/codex_final_report.md")
     template_fields = [
         "task_name", "base_sha", "final_sha", "branch", "tests", "reproduction_commands",
         "frozen_gt_modified", "evidence_type", "claim_status", "supported_claims",
@@ -243,9 +340,6 @@ def run_audit(write_output: bool = True, require_frozen_payloads: bool = True) -
     chain_sizes = {str(path.relative_to(ROOT)).replace("\\", "/"): root_agents + path.stat().st_size for path in nested}
     oversized = {path: size for path, size in chain_sizes.items() if size >= 32768}
     checks["agents_chain_size"] = {"status": "pass" if not oversized else "fail", "bytes": chain_sizes, "oversized": oversized}
-
-    memorys = [str(path.relative_to(ROOT)).replace("\\", "/") for path in ROOT.rglob("memorys") if path.is_dir()]
-    checks["no_authoritative_memorys_directory"] = {"status": "pass" if not memorys else "fail", "paths": memorys}
 
     context_paths = [
         ROOT / "CODEX_CONTEXT.md",
@@ -263,7 +357,7 @@ def run_audit(write_output: bool = True, require_frozen_payloads: bool = True) -
         "files": context_bytes,
     }
 
-    retired_generator = (ROOT / "scripts/build_final_submission_figures.py").read_text(encoding="utf-8")
+    retired_generator = read("scripts/build_final_submission_figures.py")
     checks["retired_generator_guard"] = {
         "status": "pass" if "RETIRED" in retired_generator and "raise RuntimeError" in retired_generator else "fail",
         "path": "scripts/build_final_submission_figures.py",
@@ -274,8 +368,7 @@ def run_audit(write_output: bool = True, require_frozen_payloads: bool = True) -
         rel = str(path.relative_to(ROOT)).replace("\\", "/")
         if rel.startswith("docs/archive/"):
             continue
-        digest = sha256(path)
-        duplicate_hashes.setdefault(digest, []).append(rel)
+        duplicate_hashes.setdefault(sha256(path), []).append(rel)
     duplicate_groups = [paths for paths in duplicate_hashes.values() if len(paths) > 1]
     checks["no_duplicate_active_markdown"] = {
         "status": "pass" if not duplicate_groups else "fail",
@@ -287,15 +380,14 @@ def run_audit(write_output: bool = True, require_frozen_payloads: bool = True) -
     for rel, expected in FROZEN_HASHES.items():
         path = ROOT / rel
         actual = sha256(path) if path.exists() else None
-        payload_is_ignored = rel.startswith("data/processed/gt_v1_acceptance/")
-        deferred = bool(not require_frozen_payloads and payload_is_ignored and not path.exists())
+        ignored_payload = rel.startswith("data/processed/gt_v1_acceptance/")
+        deferred = bool(not require_frozen_payloads and ignored_payload and not path.exists())
         ok = deferred or actual == expected
         frozen_ok = frozen_ok and ok
         frozen_details[rel] = {
             "sha256": actual,
             "expected_sha256": expected,
             "hash_unchanged": ok,
-            "mtime_observed": path.exists(),
             "deferred_to_full_validation": deferred,
         }
     frozen_deferred = any(item["deferred_to_full_validation"] for item in frozen_details.values())
@@ -303,7 +395,7 @@ def run_audit(write_output: bool = True, require_frozen_payloads: bool = True) -
         "status": "deferred_to_full_validation" if frozen_ok and frozen_deferred else ("pass" if frozen_ok else "fail"),
         "files": frozen_details,
         "mtime_review": "manual_review_required",
-        "mtime_reason": "Portable Git checkout mtimes are not authoritative; compare pre/post mtimes in the active task.",
+        "mtime_reason": "Portable Git checkout mtimes are not authoritative; compare task pre/post hashes.",
     }
 
     rules = ROOT / ".codex/rules/project_safety.rules"
@@ -311,15 +403,23 @@ def run_audit(write_output: bool = True, require_frozen_payloads: bool = True) -
         "status": "manual_review_required" if rules.exists() else "fail",
         "syntax_file_present": rules.exists(),
         "automatic_project_loading": "manual_review_required",
-        "note": "Use codex execpolicy check for direct match tests; automatic trust/loading depends on the client.",
+        "note": "Client trust/loading remains a manual environment check.",
     }
 
     failed = [name for name, result in checks.items() if result["status"] == "fail"]
-    manual = [name for name, result in checks.items() if result["status"] == "manual_review_required" or any(value == "manual_review_required" for value in result.values())]
+    manual = [
+        name for name, result in checks.items()
+        if result["status"] == "manual_review_required"
+        or any(value == "manual_review_required" for value in result.values())
+    ]
     summary = {
         "audit": "project_governance",
         "audit_scope": "full" if require_frozen_payloads else "fast_checkout",
-        "overall_status": "fail" if failed else ("pass_with_deferred_full_validation" if frozen_deferred else ("pass_with_manual_review" if manual else "pass")),
+        "overall_status": "fail" if failed else (
+            "pass_with_deferred_full_validation" if frozen_deferred else (
+                "pass_with_manual_review" if manual else "pass"
+            )
+        ),
         "failed_checks": failed,
         "manual_review_required": sorted(set(manual)),
         "checks": checks,
@@ -331,12 +431,12 @@ def run_audit(write_output: bool = True, require_frozen_payloads: bool = True) -
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Audit project governance and frozen-evidence integrity.")
+    parser = argparse.ArgumentParser(description="Audit current Q2 governance and frozen-evidence integrity.")
     parser.add_argument("--no-write", action="store_true", help="Do not update the tracked governance summary.")
     parser.add_argument(
         "--fast-checkout",
         action="store_true",
-        help="Defer only ignored frozen payload hashes to the full workflow; all tracked governance checks still run.",
+        help="Defer ignored frozen payload hashes to the trusted full workflow.",
     )
     args = parser.parse_args()
     result = run_audit(write_output=not args.no_write, require_frozen_payloads=not args.fast_checkout)

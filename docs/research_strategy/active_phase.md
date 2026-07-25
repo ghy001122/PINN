@@ -1,108 +1,68 @@
 # Active Phase
 
-Active phase ID: `Q2_GEOPHASE_E0_REFERENCE_SOLVER_FOUNDATION`
+Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
 
-## Objective And Manuscript Use
+Status: `authorized_pending_implementation`
 
-Establish the only admissible judge for the revised manuscript: an independent,
-conservative 2.5D reference solver for a Qiu-inspired coplanar VO2 thermal
-neuristor. The solver must use true in-plane x-y geometry, a white-box
-electrothermal phase-state closure, passive K-state vertical thermal memory,
-finite-contact port integration, RC coupling, and independently evaluated
-current and energy ledgers.
+## Objective
 
-This phase can support a methods/equations section and authorize later GeoPhase
-PINN work. It cannot itself support a positive PINN, inverse, generalization, or
-real-device claim.
+Build the independent, conservative reference judge required before any new-route dataset or PINN claim: a Qiu-inspired VO2 coplanar real x-y model with passive K-state vertical thermal memory, white-box hysteresis, differentiable terminal integration, RC coupling, and a complete energy ledger.
 
-## Authorization And Route Change
+This phase implements Phase 1 of the authoritative execution guide. Phase 0 governance passed locally through the repository realignment evidence package. No Phase 1 scientific result is implied by activation.
 
-The user explicitly replaced the former submission-lock core line with a
-positive `GeoPhase-OQ-PINN` route. The validated v2 content package remains
-historical evidence and a fallback baseline, but it is no longer the selected
-manuscript target. The constrained `gamma_sub` result remains
-`qualified_supported` historical evidence; no old claim is upgraded.
+## Manuscript Use
 
-Canonical detailed contract:
-`docs/research_strategy/geophase_oq_pinn_execution_contract.md`.
-Preregistered E0 configuration:
-`configs/geophase_e0_2p5d_reference.yaml`.
+The reference solver supplies truth fields, port and event observables, conservation ledgers, convergence evidence, and later sparse independent anchors for R1. It also prevents inverse crime by remaining discretely independent from the PINN residual code.
 
-## Live-Workspace Audit
+## Authoritative Contracts
 
-- Reusable: Qiu geometry/provenance and RC contracts; conservative FVM and
-  ledger patterns; VO2/NbO2-separated constitutive components; port/circuit,
-  Fourier, interface, and SVD/principal-angle utilities; historical failure
-  evidence and frozen governance.
-- Adapt only: M40/M40R are x-z source-bridge evidence, not the new x-y solver;
-  OASIS and old Fourier/continuation modules are baselines, not demonstrated
-  GeoPhase innovations.
-- Absent and therefore still `forbidden`: an x-y K-state reference solver,
-  transition-localized mixture-of-experts, joint phase/Joule homotopy,
-  GeoPhase forward training, sensitivity-fidelity loss, observation-quotient
-  inverse, refusal head, and NbO2 cross-model run.
-- The revised brainstorm's statement that K-state thermal-memory code already
-  exists is not true for live `main`; only related reduced thermal components
-  and lumped/source models exist.
+- `docs/research_strategy/pinn_phase_change_q2_sci_execution_guide.md`
+- `docs/research_strategy/phase1_geophase_2p5d_reference_contract.md`
+- `configs/geophase_phase1_2p5d_reference.yaml`
+- `configs/geo2p5d_stage.yaml`
+- `docs/method_equations.md`
+- `NEXT_ACTIONS.md`
 
-## E0 Scope And Required Artifacts
+## Allowed Work
 
-Execute only the config-first E0 chain:
+- source/provenance checks already routed by the config;
+- independent FVM and implicit time integration;
+- electrical, thermal, K-state, hysteresis, RC, terminal, and ledger implementations;
+- CPU smoke and focused verification;
+- the single budgeted formal solver run;
+- JSON/CSV, figure/table, report, claim-matrix, and manuscript-sentence updates following evaluated gates.
 
-1. freeze coordinate, topology, units, boundary/interface, branch-state, and
-   energy-ledger contracts;
-2. implement the independent x-y finite-volume/implicit solver and passive
-   K-state vertical reduction outside the PINN residual implementation;
-3. add manufactured, conservation, convergence, limit, passivity, and
-   failure-path tests;
-4. run one bounded formal E0 after all preflights pass;
-5. write JSON/CSV evidence, geometry/field/convergence figures, a task report,
-   claim-matrix entry, and an explicit E1 authorization decision.
+## Phase-Scoped Restrictions
 
-Planned code placement is additive and preserves historical modules:
+Do not train a PINN, generate the Phase 2 formal dataset, run inverse recovery, fit literature/device parameters, digitize new curves, repair M44, use GPU/high-cost compute, modify frozen GT, run NbO2, or claim full 3D/FEM equivalence. These restrictions protect the Phase 1 gate; they do not permanently prohibit later bounded work after explicit activation.
 
-- `src/pinnpcm/physics/geophase_2p5d.py`;
-- `src/pinnpcm/solvers/geophase_2p5d_fvm.py`;
-- `scripts/run_geophase_e0_reference.py`;
-- `tests/test_geophase_2p5d_*.py`.
+## Pass Gate
 
-Do not reorganize or rename frozen/historical modules merely for aesthetics.
+Every required gate must pass:
 
-## Fail-Closed Gates
+1. manufactured electrical and thermal solutions;
+2. terminal-current conservation;
+3. active-plane plus all K-state energy ledger;
+4. independent spatial and temporal refinement on fixed physical comparison grids;
+5. passive K-state reduction aligned to a higher-order reference;
+6. zero-drive and uniform-conductivity limits;
+7. decoupled and symmetric single/dual-device limits;
+8. literature-trend sanity within the declared source/prior envelope;
+9. nonfinite, negative-passivity, ledger-tamper, and coordinate-swap failures close safely.
 
-All thresholds and budgets are authoritative in the E0 YAML. At minimum, E0
-must pass manufactured electrical/thermal checks, current imbalance, full
-energy ledger, spatial and temporal fine-pair convergence, passive positive
-K-state behavior, reduction accuracy against the higher-order thermal
-reference, uniform/zero-drive limits, and single/dual-device decoupling limits.
-Passing finite-state or conservation checks without convergence does not count.
+Conservation without mesh and time convergence is insufficient. Finite output is insufficient. Source-envelope variation below discretization error is non-voting.
 
-E1 GeoPhase forward PINN work is authorized only when every required E0 gate
-passes in the single formal run. A physics, coordinate, topology, or ledger
-defect stops the phase for foundation repair. A complete and valid gate failure
-is retained as `failed_but_informative` and blocks E1.
+## Exit And Stop Rules
 
-## E0-Scoped Authorization Boundary
+- Pass: lock Phase 1 evidence and activate Phase 2 dataset/split design.
+- Fail: record `failed_but_informative`; block Phase 2 and all R1-R3 work; choose one bounded foundation repair or reject the reduction.
+- Source, coordinate, unit, boundary, or ledger error: stop extensions and repair before any formal rerun.
+- The single formal execution and compute budget may not be exceeded without user approval.
 
-During E0, do not run GeoPhase training, architecture comparisons, GPU rental,
-geometry OOD, inverse/refusal networks, NbO2 cross-model work,
-literature-curve refits, M44 repair, full 3D, full phase field, latent-heat
-upgrades, or manuscript result writing.
+## Claim Boundary
 
-An E0 pass authorizes only an E1/G1 go/no-go review; it does not automatically
-unlock every item above. G2 architecture/homotopy, G3 geometry generalization,
-G4 quotient/inverse/refusal, and G5 cross-model work must still be activated
-sequentially. Items outside the selected G0--G5 route require a separate
-future phase with
-preregistered value, budget, thresholds, and failure wording. Historical stop
-votes for M44, M40/M40R, N0/M33, and D0 remain binding to those named routes,
-but they do not constitute a permanent ban on the distinct GeoPhase program.
+A pass can support only: a literature-guided synthetic 2.5D reference benchmark passed its preregistered numerical and conservation gates. Qiu calibration or exact reproduction, experimental validation, successful R1/R2, OQ recovery, sensitivity fidelity, full 3D/FEM validation, and cross-material transfer remain `forbidden` without their own direct evidence.
 
-## Current Claim Boundary
+## Round Close
 
-`supported`: the route-change authorization, live inventory, equation/config
-contract, and historical evidence identity. `qualified_supported`: only the
-already locked historical constrained `gamma_sub` and other prior sub-results.
-GeoPhase forward accuracy, architectural benefit, geometry generalization,
-sensitivity fidelity, quotient recovery, refusal, Qiu quantitative
-reproduction, NbO2 transfer, and experimental validation remain `forbidden`.
+Record actual work, gate results, goal-distance change, claim changes, blockers, the next single priority, and a continue/stop/downgrade disposition.

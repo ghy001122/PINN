@@ -23,7 +23,7 @@ This file stores stable project facts, not current HEADs, transient metrics, or 
 
 ## Delivery Mode And Research Lines
 
-`Q2_SCI_DELIVERY_MODE` is the persistent delivery goal. The active mainline is `GeoPhase-OQ-PINN`: Qiu-inspired x-y geometry, passive K-state vertical thermal memory, white-box electrothermal phase dynamics, a transition-localized PINN, joint phase/Joule homotopy, within-family geometry holdouts, and sensitivity-gated quotient inverse/refusal. Frozen 1D, constrained `gamma_sub`, OASIS, public-source, and failed complete-PINN work remains historical baseline and reviewer-defense evidence; it cannot silently become evidence for the new route.
+`Q2_SCI_DELIVERY_MODE` is the persistent delivery goal. The degradable ladder is R1 `HysGeo-Hybrid-PINN` as the minimum route, R2 `GeoPhase-HomoMoE-PINN` as the preferred method upgrade, and R3 event-aligned observable-subspace/OQ only after solver and PINN sensitivity gates. The active phase is the independent Qiu-inspired x-y plus passive K-state reference solver. Frozen 1D, constrained `gamma_sub`, OASIS, public-source, and failed complete-PINN work remains historical baseline and reviewer-defense evidence; it cannot silently become evidence for Phase 1 or R1-R3.
 
 ## Claim Vocabulary
 

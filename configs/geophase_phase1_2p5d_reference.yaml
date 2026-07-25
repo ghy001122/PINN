@@ -1,6 +1,6 @@
-task_id: Q2_GEOPHASE_E0_2P5D_REFERENCE
-schema_version: geophase_e0_2p5d_reference_v1
-phase_id: Q2_GEOPHASE_E0_REFERENCE_SOLVER_FOUNDATION
+task_id: Q2_PHASE1_2P5D_REFERENCE
+schema_version: geophase_phase1_2p5d_reference_v1
+phase_id: Q2_PHASE1_2P5D_REFERENCE_SOLVER
 status: preregistered_pending_implementation
 evidence_type: literature_guided_solver_generated_synthetic_numerical_digital_twin
 manuscript_use: independent_reference_and_conservation_judge_for_later_geophase_pinn
@@ -34,12 +34,12 @@ source_contract:
     role: future_material_specific_cross_model_validation_only
     citation: Chen_et_al_Advanced_Functional_Materials_2025
     doi: 10.1002/adfm.202423800
-    execution_in_e0: forbidden
+    execution_in_phase1: forbidden
     zero_shot_transfer: forbidden
   historical_results:
     inherit_m40_m40r_numeric_vote: false
     inherit_m44_numeric_vote: false
-    note: source facts and implementation lessons may be reused; old fields and outcomes do not validate E0
+    note: source facts and implementation lessons may be reused; old fields and outcomes do not validate Phase 1
 
 coordinate_contract:
   resolved_plane: [x, y]
@@ -87,7 +87,7 @@ state_contract:
   oxygen_vacancy_field: forbidden
 
 parameter_contract:
-  lock_status: locked_for_synthetic_e0_not_device_calibration
+  lock_status: locked_for_synthetic_phase1_not_device_calibration
   vo2_phase_shape:
     T_c_up_K: 336.4
     T_c_down_K: 329.2
@@ -143,7 +143,7 @@ vertical_reduction:
   ablation_order: 1
   reference_order: 8
   selection_rule: choose_the_smallest_candidate_order_passing_all_step_impulse_frequency_and_passivity_gates
-  if_no_candidate_passes: fail_e0_and_block_e1
+  if_no_candidate_passes: fail_phase1_and_block_phase2
   positive_capacities_required: true
   positive_conductances_required: true
   stable_real_poles_required: true
@@ -198,20 +198,21 @@ gates:
   all_required_gates_must_pass: true
 
 unlock:
-  e1_forward_pinn: all_required_e0_gates_pass
-  architecture_ablation: forbidden_until_e1_baseline_exists
-  observation_quotient: forbidden_until_solver_derivative_convergence_and_forward_pinn_pass
+  phase2_dataset_generation: all_required_phase1_gates_pass
+  r1_hybrid_pinn: forbidden_until_phases_1_to_3_pass
+  architecture_ablation: forbidden_until_phase3_baseline_exists
+  observation_quotient: forbidden_until_solver_derivative_convergence_and_r1_forward_pass
   nbo2_cross_model: forbidden_until_vo2_forward_and_generalization_route_is_dispositioned
 
 outputs:
-  preregistration: outputs/tables/geophase_e0/preregistration.json
-  summary: outputs/tables/geophase_e0/summary.json
-  convergence_csv: outputs/tables/geophase_e0/convergence.csv
-  k_state_csv: outputs/tables/geophase_e0/k_state_reduction.csv
-  geometry_figure: outputs/figures/geophase_e0/qiu_xy_geometry.png
-  field_figure: outputs/figures/geophase_e0/reference_fields.png
-  convergence_figure: outputs/figures/geophase_e0/convergence_and_ledgers.png
-  report: docs/codex_reports/geophase_e0_reference_results.md
+  preregistration: outputs/tables/geophase_phase1/preregistration.json
+  summary: outputs/tables/geophase_phase1/summary.json
+  convergence_csv: outputs/tables/geophase_phase1/convergence.csv
+  k_state_csv: outputs/tables/geophase_phase1/k_state_reduction.csv
+  geometry_figure: outputs/figures/geophase_phase1/qiu_xy_geometry.png
+  field_figure: outputs/figures/geophase_phase1/reference_fields.png
+  convergence_figure: outputs/figures/geophase_phase1/convergence_and_ledgers.png
+  report: docs/codex_reports/geophase_phase1_reference_results.md
 
 claim_boundary:
   success_wording: a literature-guided synthetic 2.5D reference benchmark passed the preregistered numerical and conservation gates

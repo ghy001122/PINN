@@ -1,12 +1,17 @@
-# Current Research Handoff Entry
+# Current Research Handoff
 
-Resume from:
+Resume in this order:
 
-1. `CODEX_CONTEXT.md`;
-2. `docs/research_strategy/active_phase.md`;
-3. `PROJECT_STATE.md` and `NEXT_ACTIONS.md`;
-4. `docs/project_state/current_evidence_index.md`;
-5. `docs/research_strategy/geophase_oq_pinn_execution_contract.md` for active implementation work;
-6. the latest task-relevant report.
+1. `CODEX_CONTEXT.md`
+2. `PROJECT_STATE.md`
+3. `docs/research_strategy/active_phase.md`
+4. `NEXT_ACTIONS.md`
+5. `docs/project_state/current_evidence_index.md`
+6. `docs/research_strategy/pinn_phase_change_q2_sci_execution_guide.md`
+7. `docs/research_strategy/phase1_geophase_2p5d_reference_contract.md`
 
-The old full handoff and archived snapshots are legacy provenance only. Their replacements are listed in `docs/research_strategy/legacy_document_index.md`.
+Current phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`. The only task is the independent conservative Qiu-inspired VO2 x-y plus K-state FVM/implicit reference solver. Do not start PINN training, inverse work, parameter fitting, Phase 2 dataset generation, or NbO2 work.
+
+Phase 0 changed governance and routing only; it created no scientific result. Frozen GT and historical negative/conditional evidence remain unchanged. Archived plans, handoffs, reports, and manuscript v1/v2 are provenance only and cannot authorize current work.
+
+For task-specific history, follow `docs/research_strategy/context_index.md` and load only the relevant report or evidence artifact.

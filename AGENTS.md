@@ -2,7 +2,7 @@
 
 ## Mission And Delivery Mode
 
-Build a reproducible Python 3.11 research codebase and evidence package for `Q2_SCI_DELIVERY_MODE`: a defensible SCI manuscript draft, submission package, and reviewer-defense package centered on a positive physics-informed neural method for phase-transition devices. The active candidate is `GeoPhase-OQ-PINN`: a source-traceable 2.5D device model, phase-transition-localized neural architecture, stiffness-aware training, and identifiability-gated inverse route. This is a delivery objective, not a promise of journal acceptance. The authoritative goal is [PROJECT_GOAL.md](PROJECT_GOAL.md).
+Build a reproducible Python 3.11 research codebase and evidence package for `Q2_SCI_DELIVERY_MODE`: a defensible SCI manuscript draft, submission package, and reviewer-defense package centered on a positive physics-informed neural method for phase-transition devices. The degradable delivery ladder is R1 `HysGeo-Hybrid-PINN` as the minimum route, R2 `GeoPhase-HomoMoE-PINN` as the preferred method upgrade, and R3 observable-subspace/OQ only as a conditional extension. This is a delivery objective, not a promise of journal acceptance. The authoritative goal is [PROJECT_GOAL.md](PROJECT_GOAL.md).
 
 The frozen 1D Ground Truth v1.1 is historically inspired by an Nb/NbOx/V2O5/Ni stack. It remains read-only historical evidence, a low-dimensional baseline, and a failure/identifiability asset; it is no longer the intended final physical structure or positive manuscript core. The new route uses Qiu-inspired VO2 coplanar geometry as the primary 2.5D benchmark and a Chen-inspired SnSe/NbO2 device only for material-specific cross-model numerical validation. Neither route converts synthetic results into fabricated-device evidence.
 
@@ -55,7 +55,7 @@ Do not relax gates, change GT, or hide failures to complete a task.
 
 ## Current High-Risk Claim Boundary
 
-Without new direct evidence, manuscript claims remain `forbidden` for a successful GeoPhase forward solver, Qiu quantitative reproduction, PINN--solver sensitivity fidelity, observation-quotient recovery, terminal-only full 2D hidden-field recovery, full or Seiler-style STL-PINN reproduction, universal F-SPS/Fourier superiority, VO2-to-NbO2 zero-shot generalization, real experimental validation, and full FEM/3D/device-grade multiphysics reproduction. The active E0 independent-solver gate must pass before any GeoPhase training claim is eligible.
+Without new direct evidence, manuscript claims remain `forbidden` for a successful GeoPhase forward solver, Qiu quantitative reproduction, PINN--solver sensitivity fidelity, observation-quotient recovery, terminal-only full 2D hidden-field recovery, full or Seiler-style STL-PINN reproduction, universal F-SPS/Fourier superiority, VO2-to-NbO2 zero-shot generalization, real experimental validation, and full FEM/3D/device-grade multiphysics reproduction. The active Phase 1 independent-solver gate must pass before Phase 2 data generation or any R1-R3 training claim is eligible.
 
 ## Engineering Rules
 

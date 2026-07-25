@@ -2,66 +2,46 @@
 
 ## Authoritative Current Queue
 
-Exactly one bottleneck is active:
-`Q2_GEOPHASE_E0_REFERENCE_SOLVER_FOUNDATION`.
+Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
 
-The revised paper requires a positive PINN method on a source-traceable 2.5D
-phase-transition-device benchmark. The constrained `gamma_sub` result remains
-a historical baseline, not the active manuscript core.
+There is exactly one active task:
 
-### Priority - G0/E0 independent 2.5D judge
+> Implement and validate an independent, conservative, PINN-residual-separated Qiu-inspired VO2 real x-y plus K-state vertical-memory 2.5D FVM/implicit reference solver.
 
-Manuscript use: create the trustworthy numerical reference and conservation
-contract without which no GeoPhase field, architecture, generalization, or
-inverse claim can be scored.
+## Manuscript Use
 
-Execution order:
+This solver is the numerical truth judge for later R1 fields, ports, phase events, interfaces, RC behavior, and energy ledgers. Without it, no positive new-route PINN claim is eligible.
 
-1. validate `configs/geophase_e0_2p5d_reference.yaml` and the active equations,
-   units, x-y coordinates, Qiu/engineering-prior split, branch closure,
-   boundary conditions, K-state passivity, and output schema;
-2. implement `src/pinnpcm/physics/geophase_2p5d.py` and an independent
-   `src/pinnpcm/solvers/geophase_2p5d_fvm.py`; do not reuse PINN residual code
-   as the reference judge;
-3. add CPU tests for manufactured electrical/thermal solutions, port-current
-   conservation, energy accounting, zero-drive/uniform limits, K-state
-   passivity and reduction, coordinate/contact semantics, and failure paths;
-4. run smoke/preflight cases and inspect convergence before consuming the one
-   formal E0 run;
-5. execute the bounded formal grid/time/K-order/single-dual-device matrix and
-   write JSON/CSV, figures, report, claim-matrix update, and E1 go/no-go.
+## Required Inputs
 
-All configured E0 gates must pass. Conservation without independent mesh/time
-convergence is not sufficient. If a physics, topology, coordinate, or ledger
-defect appears, repair the foundation before the formal run. If a valid formal
-gate fails, preserve `failed_but_informative` evidence and do not train E1.
+- `docs/research_strategy/pinn_phase_change_q2_sci_execution_guide.md`
+- `docs/research_strategy/phase1_geophase_2p5d_reference_contract.md`
+- `configs/geophase_phase1_2p5d_reference.yaml`
+- `configs/geo2p5d_stage.yaml`
+- `docs/method_equations.md`
+- source/provenance contracts routed by the Phase 1 config
 
-### Locked downstream order
+## Execution Order
 
-Only after E0 passes:
+1. Confirm equation, coordinate, geometry, material, boundary, circuit, ledger, budget, and output schemas.
+2. Implement the independent electrical, thermal, K-state, hysteresis, circuit, and ledger pieces under responsibility-based modules; do not share the PINN discrete residual implementation.
+3. Add behavioral tests for manufactured solutions, failure paths, SI units, ports, passivity, and ledgers.
+4. Run smoke and focused verification before the single formal bounded execution.
+5. Write JSON/CSV, figures/tables, a report, claim-matrix row, and manuscript-eligible sentence only after all gates are evaluated.
 
-1. G1: complete/hybrid GeoPhase forward PINN;
-2. G2: transition-localized spectral experts plus phase/Joule homotopy with
-   vanilla, global-Fourier, continuation, domain-decomposition, and pure-
-   surrogate baselines;
-3. G3: held-out within-family geometry/protocol generalization;
-4. G4: solver-first event-canonicalized quotient geometry, PINN sensitivity
-   fidelity, fresh-case inverse, and refusal;
-5. G5: Chen-inspired SnSe/NbO2 material-kernel replacement and cross-model
-   numerical trend validation;
-6. manuscript route selection from passed evidence.
+## Required Gates
 
-### Current E0 execution boundary
+- manufactured electrical and thermal solutions;
+- terminal-current conservation;
+- active-plane plus K-state full energy ledger;
+- independent mesh and time-step refinement on fixed physical comparison grids;
+- K-state positive capacity/conductance, stable poles, passivity, and high-order reference alignment;
+- zero-drive, uniform-conductivity, decoupled/symmetric single-dual-device limits;
+- literature-trend sanity without claiming calibration;
+- all required gates pass together.
 
-- During E0, no M44 repair, old 1D retraining, full 3D, full
-  Landau/phase-field, oxygen-vacancy PDE, or terminal-only full-field program.
-  Directions outside G0--G5 require a separately activated future phase; they
-  are not globally prohibited research topics.
-- No GeoPhase training, GPU rental, inverse head, literature-curve refit, or
-  NbO2 run before E0 passes and the next phase is explicitly activated.
-- No free `log_sigma`, no shared VO2/NbO2 constitutive parameters, no best-seed
-  reporting without failures, and no port-only success criterion.
-- No claim of exact Qiu reproduction, experimental validation, full STL,
-  universal Fourier superiority, world-first novelty, or zero-shot material
-  generalization without direct evidence. `forbidden` is a manuscript claim
-  status, not a ban on a later bounded, preregistered audit.
+If any required gate fails, mark the result `failed_but_informative`, preserve the evidence, block Phase 2 and R1, and identify one repair or rejection decision.
+
+## Scope Boundary
+
+Phase 1 forbids PINN training, inverse work, parameter fitting, new literature-curve digitization, formal 3D/FEM work, M44 repair, frozen-GT writes, and NbO2 execution. These are phase-scoped restrictions, not permanent research bans. Later directions require explicit activation by the guide's gates.
