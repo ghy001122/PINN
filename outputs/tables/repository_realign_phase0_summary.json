@@ -1,177 +1,193 @@
 {
-  "task_id": "Q2_REPOSITORY_REALIGNMENT_AND_PHASE0_GOVERNANCE",
-  "generated_at_utc": "2026-07-25T17:05:07.324768+00:00",
-  "base_sha": "36cbc020869ca483ed1e84eb0326cee11618891c",
-  "final_sha": "SELF",
-  "final_sha_semantics": "SELF means the commit containing this summary",
-  "branch": "main",
-  "head_at_generation": "36cbc020869ca483ed1e84eb0326cee11618891c",
-  "current_phase": "Q2_PHASE1_2P5D_REFERENCE_SOLVER",
-  "next_single_priority": "independent_conservative_qiu_xy_k_state_2p5d_fvm_implicit_reference_solver",
-  "phase0_status": "pass",
-  "push_status": "pending_final_push",
-  "inventory": {
-    "row_count": 1070,
-    "disposition_counts": {
-      "ARCHIVE": 11,
-      "KEEP_EVERGREEN": 1013,
-      "LEAVE_IN_PLACE_FROZEN": 3,
-      "MERGE": 1,
-      "UPDATE": 42
-    },
-    "lifecycle_counts": {
-      "CURRENT": 29,
-      "EVERGREEN_OR_REUSABLE": 655,
-      "FROZEN": 3,
-      "HISTORICAL": 11,
-      "HISTORICAL_OR_CUMULATIVE_EVIDENCE": 370,
-      "HISTORICAL_PROTECTED_PATH": 2
-    },
-    "route_counts": {
-      "current_governance": 28,
-      "frozen_gt_v1_1": 4,
-      "historical_1d_or_inverse": 323,
-      "historical_or_manuscript_provenance": 81,
-      "phase1_2p5d_reference": 4,
-      "r1_r2_r3_strategy": 1,
-      "retained_machine_evidence_or_data": 229,
-      "retired_real_device_bridge": 33,
-      "shared_repository": 61,
-      "shared_research_infrastructure": 306
-    },
-    "changed_paths": [
-      ".gitattributes",
-      ".github/workflows/read_only_validation.yml",
-      "AGENTS.md",
-      "CODEX_CONTEXT.md",
-      "DATASET_REGISTRY.md",
-      "EXPERIMENT_REGISTRY.md",
-      "FIGURE_REGISTRY.md",
-      "NEXT_ACTIONS.md",
-      "PROJECT_GOAL.md",
-      "PROJECT_STATE.md",
-      "README.md",
-      "configs/geo2p5d_stage.yaml",
-      "configs/geophase_phase1_2p5d_reference.yaml",
-      "docs/archive/README.md",
-      "docs/archive/handoffs/README.md",
-      "docs/archive/historical_manuscripts/README.md",
-      "docs/archive/legacy_1d_route/README.md",
-      "docs/archive/legacy_1d_route/n0_sid_conditional_routes.md",
-      "docs/archive/retired_real_device_bridges/README.md",
-      "docs/archive/superseded_strategy/Q2_REPOSITORY_REALIGNMENT_AND_PHASE0_GOVERNANCE_2026-07-25.md",
-      "docs/archive/superseded_strategy/README.md",
-      "docs/archive/superseded_strategy/experiment_plan_e0_2026-07-24.md",
-      "docs/archive/superseded_strategy/geophase_oq_pinn_execution_contract_2026-07-24.md",
-      "docs/archive/superseded_strategy/innovation_portfolio_2026-07-24.md",
-      "docs/codex_reports/repository_realign_phase0_2026-07-25.md",
-      "docs/literature/prompt30_cpcf_idea_red_team.md",
-      "docs/manuscript/README.md",
-      "docs/manuscript/submission_go_no_go.md",
-      "docs/method_equations.md",
-      "docs/paper/final_claim_matrix.md",
-      "docs/paper/final_figure_list.md",
-      "docs/paper/final_submission_figure_table_claim_lock_v2.md",
-      "docs/paper/final_table_list.md",
-      "docs/project_state/current_evidence_index.md",
-      "docs/project_state/file_inventory.md",
-      "docs/project_state/repo_tree.md",
-      "docs/project_state/reproducibility.md",
-      "docs/project_state/reproduction_quickstart.md",
-      "docs/research_strategy/active_phase.md",
-      "docs/research_strategy/context_index.md",
-      "docs/research_strategy/current_research_handoff.md",
-      "docs/research_strategy/durable_project_memory.md",
-      "docs/research_strategy/legacy_document_index.md",
-      "docs/research_strategy/phase1_geophase_2p5d_reference_contract.md",
-      "docs/research_strategy/pinn_phase_change_q2_sci_execution_guide.md",
-      "outputs/tables/project_governance_summary.json",
-      "outputs/tables/repository_file_disposition.csv",
-      "outputs/tables/repository_realign_phase0_summary.json",
-      "pyproject.toml",
-      "scripts/audit_project_governance.py",
-      "scripts/audit_repository_realignment.py",
-      "tests/test_geophase_phase1_preregistration.py",
-      "tests/test_project_governance.py",
-      "tests/test_repository_realignment_audit.py"
-    ],
-    "changed_path_count": 54,
-    "moved_files": [
-      {
-        "from": "configs/geophase_e0_2p5d_reference.yaml",
-        "to": "configs/geophase_phase1_2p5d_reference.yaml"
-      },
-      {
-        "from": "docs/research_strategy/n0_sid_conditional_routes.md",
-        "to": "docs/archive/legacy_1d_route/n0_sid_conditional_routes.md"
-      },
-      {
-        "from": "docs/experiment_plan.md",
-        "to": "docs/archive/superseded_strategy/experiment_plan_e0_2026-07-24.md"
-      },
-      {
-        "from": "docs/research_strategy/geophase_oq_pinn_execution_contract.md",
-        "to": "docs/archive/superseded_strategy/geophase_oq_pinn_execution_contract_2026-07-24.md"
-      },
-      {
-        "from": "docs/research_strategy/innovation_portfolio.md",
-        "to": "docs/archive/superseded_strategy/innovation_portfolio_2026-07-24.md"
-      },
-      {
-        "from": "tests/test_geophase_e0_preregistration.py",
-        "to": "tests/test_geophase_phase1_preregistration.py"
-      }
-    ],
-    "moved_file_count": 6,
-    "deleted_files": [],
-    "deleted_file_count": 0,
-    "duplicate_groups": [
-      {
-        "sha256": "1F1AEEEA426E55FDE36E7DF1BDAEF4230D4A7A77275F626E999A7A940C55B5BD",
-        "paths": [
-          "data/external/.gitkeep",
-          "data/processed/.gitkeep",
-          "data/raw/.gitkeep",
-          "outputs/checkpoints/.gitkeep",
-          "outputs/figures/.gitkeep",
-          "outputs/logs/.gitkeep",
-          "outputs/tables/.gitkeep"
-        ],
-        "disposition": "retain_distinct_directory_roles"
-      }
-    ],
-    "self_referential_outputs": [
-      "outputs/tables/repository_file_disposition.csv",
-      "outputs/tables/repository_realign_phase0_summary.json"
-    ]
-  },
-  "verification": {
-    "before": {
-      "pytest": "447 passed",
-      "duration_s": 374.08,
-      "governance": "pass_with_manual_review",
-      "tracked_json": "201 passed, 0 failed",
-      "frozen_hashes": "8/8 unchanged"
-    },
-    "after": "451 passed in 238.32s; governance pass_with_manual_review; 8/8 frozen hashes unchanged; tracked JSON pass; git diff check pass"
-  },
-  "claim_changes": {
-    "scientific_upgrades": [],
-    "scientific_downgrades": [],
-    "governance_supported": [
-      "one canonical execution guide",
-      "R1/R2/conditional-R3 delivery ladder",
-      "one Phase 1 active route",
-      "historical/current separation"
-    ],
-    "still_forbidden": [
-      "successful Phase 1 reference solver",
-      "positive R1 or R2",
-      "R3 observation-subspace recovery and refusal",
-      "experimental or quantitative-Qiu validation",
-      "full FEM/3D and VO2-to-NbO2 zero-shot claims"
-    ]
-  },
-  "frozen_gt_modified": false,
-  "scientific_experiment_executed": false
+    "task_id":  "Q2_REPOSITORY_REALIGNMENT_AND_PHASE0_GOVERNANCE",
+    "generated_at_utc":  "2026-07-25T17:12:01.689840+00:00",
+    "base_sha":  "36cbc020869ca483ed1e84eb0326cee11618891c",
+    "final_sha":  "SELF",
+    "final_sha_semantics":  "SELF means the commit containing this summary",
+    "branch":  "main",
+    "head_at_generation":  "b102848986ed36ddde250474e17c936062c116c6",
+    "current_phase":  "Q2_PHASE1_2P5D_REFERENCE_SOLVER",
+    "next_single_priority":  "independent_conservative_qiu_xy_k_state_2p5d_fvm_implicit_reference_solver",
+    "phase0_status":  "pass",
+    "push_status":  "implementation_commit_and_safety_tag_verified; final_metadata_commit_SELF",
+    "inventory":  {
+                      "row_count":  1070,
+                      "disposition_counts":  {
+                                                 "ARCHIVE":  11,
+                                                 "KEEP_EVERGREEN":  1013,
+                                                 "LEAVE_IN_PLACE_FROZEN":  3,
+                                                 "MERGE":  1,
+                                                 "UPDATE":  42
+                                             },
+                      "lifecycle_counts":  {
+                                               "CURRENT":  29,
+                                               "EVERGREEN_OR_REUSABLE":  655,
+                                               "FROZEN":  3,
+                                               "HISTORICAL":  11,
+                                               "HISTORICAL_OR_CUMULATIVE_EVIDENCE":  370,
+                                               "HISTORICAL_PROTECTED_PATH":  2
+                                           },
+                      "route_counts":  {
+                                           "current_governance":  28,
+                                           "frozen_gt_v1_1":  4,
+                                           "historical_1d_or_inverse":  323,
+                                           "historical_or_manuscript_provenance":  81,
+                                           "phase1_2p5d_reference":  4,
+                                           "r1_r2_r3_strategy":  1,
+                                           "retained_machine_evidence_or_data":  229,
+                                           "retired_real_device_bridge":  33,
+                                           "shared_repository":  61,
+                                           "shared_research_infrastructure":  306
+                                       },
+                      "changed_paths":  [
+                                            ".gitattributes",
+                                            ".github/workflows/read_only_validation.yml",
+                                            "AGENTS.md",
+                                            "CODEX_CONTEXT.md",
+                                            "DATASET_REGISTRY.md",
+                                            "EXPERIMENT_REGISTRY.md",
+                                            "FIGURE_REGISTRY.md",
+                                            "NEXT_ACTIONS.md",
+                                            "PROJECT_GOAL.md",
+                                            "PROJECT_STATE.md",
+                                            "README.md",
+                                            "configs/geo2p5d_stage.yaml",
+                                            "configs/geophase_phase1_2p5d_reference.yaml",
+                                            "docs/archive/README.md",
+                                            "docs/archive/handoffs/README.md",
+                                            "docs/archive/historical_manuscripts/README.md",
+                                            "docs/archive/legacy_1d_route/README.md",
+                                            "docs/archive/legacy_1d_route/n0_sid_conditional_routes.md",
+                                            "docs/archive/retired_real_device_bridges/README.md",
+                                            "docs/archive/superseded_strategy/Q2_REPOSITORY_REALIGNMENT_AND_PHASE0_GOVERNANCE_2026-07-25.md",
+                                            "docs/archive/superseded_strategy/README.md",
+                                            "docs/archive/superseded_strategy/experiment_plan_e0_2026-07-24.md",
+                                            "docs/archive/superseded_strategy/geophase_oq_pinn_execution_contract_2026-07-24.md",
+                                            "docs/archive/superseded_strategy/innovation_portfolio_2026-07-24.md",
+                                            "docs/codex_reports/repository_realign_phase0_2026-07-25.md",
+                                            "docs/literature/prompt30_cpcf_idea_red_team.md",
+                                            "docs/manuscript/README.md",
+                                            "docs/manuscript/submission_go_no_go.md",
+                                            "docs/method_equations.md",
+                                            "docs/paper/final_claim_matrix.md",
+                                            "docs/paper/final_figure_list.md",
+                                            "docs/paper/final_submission_figure_table_claim_lock_v2.md",
+                                            "docs/paper/final_table_list.md",
+                                            "docs/project_state/current_evidence_index.md",
+                                            "docs/project_state/file_inventory.md",
+                                            "docs/project_state/repo_tree.md",
+                                            "docs/project_state/reproducibility.md",
+                                            "docs/project_state/reproduction_quickstart.md",
+                                            "docs/research_strategy/active_phase.md",
+                                            "docs/research_strategy/context_index.md",
+                                            "docs/research_strategy/current_research_handoff.md",
+                                            "docs/research_strategy/durable_project_memory.md",
+                                            "docs/research_strategy/legacy_document_index.md",
+                                            "docs/research_strategy/phase1_geophase_2p5d_reference_contract.md",
+                                            "docs/research_strategy/pinn_phase_change_q2_sci_execution_guide.md",
+                                            "outputs/tables/project_governance_summary.json",
+                                            "outputs/tables/repository_file_disposition.csv",
+                                            "outputs/tables/repository_realign_phase0_summary.json",
+                                            "pyproject.toml",
+                                            "scripts/audit_project_governance.py",
+                                            "scripts/audit_repository_realignment.py",
+                                            "tests/test_geophase_phase1_preregistration.py",
+                                            "tests/test_project_governance.py",
+                                            "tests/test_repository_realignment_audit.py"
+                                        ],
+                      "changed_path_count":  54,
+                      "moved_files":  [
+                                          {
+                                              "from":  "configs/geophase_e0_2p5d_reference.yaml",
+                                              "to":  "configs/geophase_phase1_2p5d_reference.yaml"
+                                          },
+                                          {
+                                              "from":  "docs/research_strategy/n0_sid_conditional_routes.md",
+                                              "to":  "docs/archive/legacy_1d_route/n0_sid_conditional_routes.md"
+                                          },
+                                          {
+                                              "from":  "docs/experiment_plan.md",
+                                              "to":  "docs/archive/superseded_strategy/experiment_plan_e0_2026-07-24.md"
+                                          },
+                                          {
+                                              "from":  "docs/research_strategy/geophase_oq_pinn_execution_contract.md",
+                                              "to":  "docs/archive/superseded_strategy/geophase_oq_pinn_execution_contract_2026-07-24.md"
+                                          },
+                                          {
+                                              "from":  "docs/research_strategy/innovation_portfolio.md",
+                                              "to":  "docs/archive/superseded_strategy/innovation_portfolio_2026-07-24.md"
+                                          },
+                                          {
+                                              "from":  "tests/test_geophase_e0_preregistration.py",
+                                              "to":  "tests/test_geophase_phase1_preregistration.py"
+                                          }
+                                      ],
+                      "moved_file_count":  6,
+                      "deleted_files":  [
+
+                                        ],
+                      "deleted_file_count":  0,
+                      "duplicate_groups":  [
+                                               {
+                                                   "sha256":  "1F1AEEEA426E55FDE36E7DF1BDAEF4230D4A7A77275F626E999A7A940C55B5BD",
+                                                   "paths":  [
+                                                                 "data/external/.gitkeep",
+                                                                 "data/processed/.gitkeep",
+                                                                 "data/raw/.gitkeep",
+                                                                 "outputs/checkpoints/.gitkeep",
+                                                                 "outputs/figures/.gitkeep",
+                                                                 "outputs/logs/.gitkeep",
+                                                                 "outputs/tables/.gitkeep"
+                                                             ],
+                                                   "disposition":  "retain_distinct_directory_roles"
+                                               }
+                                           ],
+                      "self_referential_outputs":  [
+                                                       "outputs/tables/repository_file_disposition.csv",
+                                                       "outputs/tables/repository_realign_phase0_summary.json"
+                                                   ]
+                  },
+    "verification":  {
+                         "before":  {
+                                        "pytest":  "447 passed",
+                                        "duration_s":  374.08,
+                                        "governance":  "pass_with_manual_review",
+                                        "tracked_json":  "201 passed, 0 failed",
+                                        "frozen_hashes":  "8/8 unchanged"
+                                    },
+                         "after":  "451 passed in 238.32s; cloud-focused preflight 37 passed; governance and frozen checks pass"
+                     },
+    "claim_changes":  {
+                          "scientific_upgrades":  [
+
+                                                  ],
+                          "scientific_downgrades":  [
+
+                                                    ],
+                          "governance_supported":  [
+                                                       "one canonical execution guide",
+                                                       "R1/R2/conditional-R3 delivery ladder",
+                                                       "one Phase 1 active route",
+                                                       "historical/current separation"
+                                                   ],
+                          "still_forbidden":  [
+                                                  "successful Phase 1 reference solver",
+                                                  "positive R1 or R2",
+                                                  "R3 observation-subspace recovery and refusal",
+                                                  "experimental or quantitative-Qiu validation",
+                                                  "full FEM/3D and VO2-to-NbO2 zero-shot claims"
+                                              ]
+                      },
+    "frozen_gt_modified":  false,
+    "scientific_experiment_executed":  false,
+    "github_actions":  {
+                           "remote":  "origin/main",
+                           "implementation_sha":  "b102848986ed36ddde250474e17c936062c116c6",
+                           "safety_tag":  "pre-workspace-realignment-20260725-36cbc02",
+                           "initial_run_id":  30166987237,
+                           "initial_run_status":  "failure",
+                           "initial_failure":  "public focused job redundantly invoked full frozen-payload governance before the dedicated fast-checkout audit",
+                           "focused_fix":  "remove only tests/test_project_governance.py from the public focused list; retain repository/Phase1 tests and the dedicated --fast-checkout governance step",
+                           "final_run_status":  "verify_commit_SELF_after_normal_push"
+                       }
 }

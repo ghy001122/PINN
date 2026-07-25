@@ -5,15 +5,17 @@ branch: main
 changed_files: 54
 moved_files: 6
 deleted_files: 0
-tests: before=447 passed in 374.08s; after=451 passed in 238.32s
+tests: before=447 passed in 374.08s; after=451 passed in 238.32s; cloud_focused_preflight=37 passed
 frozen_gt_modified: false
 evidence_type: repository_governance_and_reproducibility_metadata_only
 claim_status: supported_governance_fact_no_scientific_claim_change
 current_phase: Q2_PHASE1_2P5D_REFERENCE_SOLVER
 next_single_priority: independent_conservative_qiu_xy_k_state_2p5d_fvm_implicit_reference_solver
-push_status: pending_final_push
+push_status: implementation_commit_and_safety_tag_verified; final_metadata_commit_SELF
 
 # Repository Realignment And Phase 0 Governance Report
+
+`final_sha: SELF` denotes the commit containing this self-referential report; the concrete SHA is verified after commit and push.
 
 Execution date: 2026-07-25 to 2026-07-26.
 
@@ -57,6 +59,8 @@ The only new `supported` fact is governance: one canonical guide, one current ph
 Modification-before baseline: 447 tests passed in 374.08 seconds; governance was `pass_with_manual_review`; 201 tracked JSON files parsed; all eight frozen hashes matched. Modification-after regression passed 451 tests in 238.32 seconds. Governance, frozen-hash, tracked-JSON, diff, link/reference, and worktree-side-effect checks are repeated after final metadata generation. Phase 0 is `pass` for local governance; cloud status remains pending until the normal push and HEAD-to-origin comparison.
 
 GitHub Actions workflows are configured for focused read-only validation and manual trusted full validation. Local tests are not described as GitHub CI.
+
+Implementation commit `b102848986ed36ddde250474e17c936062c116c6` and safety tag `pre-workspace-realignment-20260725-36cbc02` were pushed normally. Initial fast-validation run `30166987237` failed because the public checkout redundantly invoked the full frozen-payload governance test before its dedicated `--fast-checkout` audit. The focused fix removes only that redundant test line; 37/37 exact cloud-preflight tests, historical-manifest validation, fast-checkout governance, and tracked-JSON validation pass locally. The workflow for the commit containing this report is verified out of band after its normal push and is reported in the completion response.
 
 ## Distance To Delivery
 
