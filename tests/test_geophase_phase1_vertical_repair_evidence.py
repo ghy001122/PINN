@@ -12,6 +12,11 @@ SOURCE = ROOT / "configs" / "qiu_vo2_phase1_source_contract.yaml"
 EXPECTED_SOURCE_SHA256 = (
     "857410517d5b955e2018d4b002fcbbe92bb320c451021b49ae27be1351cb1252"
 )
+EXPECTED_SCREENING_CODE_SHA256 = {
+    "runner": "306bf628167ae03d07f887486e2cf1901ac1e4f6caeee14b2510b164acb79ac3",
+    "vertical_solver": "75aec7fbb6df14b93dd37f9a849fd3d1b2ab22de07336bec4a4913e0fb29b277",
+    "vertical_evaluator": "07b2e1a6be4462ef625bbb7473e58338139904b8583a7e7eb41683019c06fd06",
+}
 
 
 def _json(name: str) -> dict:
@@ -68,23 +73,9 @@ def test_repair_identity_and_formal_boundary_are_fail_closed() -> None:
         "vertical_solver",
         "vertical_evaluator",
     }
-    code_paths = {
-        "runner": ROOT / "scripts" / "run_geophase_phase1_vertical_repair.py",
-        "vertical_solver": ROOT
-        / "src"
-        / "pinnpcm"
-        / "solvers"
-        / "vertical_multilayer_reference.py",
-        "vertical_evaluator": ROOT
-        / "src"
-        / "pinnpcm"
-        / "evaluation"
-        / "geophase_phase1_gates.py",
-    }
-    assert evidence["screening_code_sha256"] == {
-        name: hashlib.sha256(path.read_bytes()).hexdigest()
-        for name, path in code_paths.items()
-    }
+    # v7 hashes identify its historical screening implementation. They must
+    # not be compared with later v8 source files in a shallow CI checkout.
+    assert evidence["screening_code_sha256"] == EXPECTED_SCREENING_CODE_SHA256
 
 
 def test_maximum_pair_enforces_vertical_no_go_and_blocks_k_state() -> None:

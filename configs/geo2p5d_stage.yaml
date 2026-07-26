@@ -1,9 +1,9 @@
 schema_version: geo2p5d_stage_v1
 delivery_mode: Q2_SCI_DELIVERY_MODE
 current_phase: Q2_PHASE1_2P5D_REFERENCE_SOLVER
-current_checkpoint: B_READINESS_V8_PREREGISTRATION_AUTHORIZED_FORMAL_BLOCKED
+current_checkpoint: B_READINESS_V8_NO_GO_VERTICAL_REFERENCE
 formal_execution_count: 0
-formal_campaign_authorization: blocked_pending_v8_readiness_and_fresh_user_authorization
+formal_campaign_authorization: blocked_no_authorized_compute_task_pending_user_model_or_route_decision
 evidence_type: literature_guided_synthetic_numerical_digital_twin
 
 authority:
@@ -39,7 +39,7 @@ routes:
 
 phase_sequence:
   - {phase: 0, id: Q2_PHASE0_REPOSITORY_GOVERNANCE, status: complete_governance_only}
-  - {phase: 1, id: Q2_PHASE1_2P5D_REFERENCE_SOLVER, status: v8_bounded_readiness_repair_authorized_not_executed}
+  - {phase: 1, id: Q2_PHASE1_2P5D_REFERENCE_SOLVER, status: v8_no_go_vertical_reference_current_k_state_route_stopped}
   - {phase: 2, id: Q2_PHASE2_DATASET_AND_SPLITS, status: blocked_by_phase1}
   - {phase: 3, id: Q2_PHASE3_BASELINES, status: blocked_by_phase2}
   - {phase: 4, id: Q2_PHASE4_R1_HYSGEO_HYBRID_PINN, status: blocked_by_phase3}

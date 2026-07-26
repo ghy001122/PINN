@@ -12,15 +12,21 @@ Resume in this order:
 8. `configs/qiu_vo2_phase1_source_contract.yaml`
 
 Current phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`. Checkpoint A is complete,
-but the bounded v7 vertical-reference readiness repair stopped at
-`NO_GO_VERTICAL_REFERENCE`. Formal execution count is zero and all 96 formal
-cases remain `planned_not_executed`, so no Phase 1 scientific result exists.
+but the final bounded v8 vertical screen stopped at
+`NO_GO_VERTICAL_REFERENCE`. Both permitted fixed-bottom depth pairs passed all
+mesh, finite, passivity, and identity foundations; both failed the separately
+scored effective-window-pullback raw depth-frequency gate at about
+`0.4118 > 0.05`. No production depth, normalization, K-state model, runtime
+readiness, or formal-v8 configuration was selected. Formal execution count is
+zero and all 96 formal cases remain `planned_not_executed`, so no Phase 1
+scientific result exists.
 
-The only next action is a user decision on whether to preregister a bounded
-normalization-semantics repair. Do not authorize Checkpoint B from v6. The new
-protocol must preserve the Qiu source-only contract, 0.05 gate, and 96-case
-inventory. Do not start PINN training, inverse work, device/literature fitting,
-nonzero dual-device coupling, Phase 2 dataset generation, or NbO2 work.
+There is no authorized compute task. The next action is a user route decision:
+replace the rejected fixed-bottom local vertical representation under a new
+scientific contract, or downgrade the manuscript route. Do not authorize
+Checkpoint B from v6 or silently start another depth/normalization repair. Do
+not start PINN training, inverse work, device/literature fitting, nonzero
+dual-device coupling, Phase 2 dataset generation, or NbO2 work.
 
 Phase 0 changed governance and routing only; it created no scientific result. Frozen GT and historical negative/conditional evidence remain unchanged. Archived plans, handoffs, reports, and manuscript v1/v2 are provenance only and cannot authorize current work.
 

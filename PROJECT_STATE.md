@@ -12,13 +12,17 @@
   identity/ledger artifacts. These are implementation and non-claim smoke
   facts, not a Phase 1 scientific result.
 - The sole 96-case formal campaign has not run. Its execution count is zero,
-  and Checkpoint B remains blocked pending fresh user authorization.
+  and Checkpoint B is ineligible after the v8 vertical-reference NO-GO;
+  authorization alone cannot start it.
 - The bounded v7 readiness repair is `failed_but_informative`: the maximum
   102.4/204.8 micrometre pair failed the unchanged depth-frequency gate after
   pair-specific G/C normalization. No depth or K-state order was selected.
-- One final bounded v8 shape--scale semantics repair is authorized but not yet
-  executed. It must preserve the v6/source/inventory bytes and formal count
-  while separating raw-stack depth voting from one selected-depth global scale.
+- The final bounded v8 shape--scale semantics repair is
+  `failed_but_informative`. It preserved the v6/source/inventory bytes and
+  formal count, and all raw mesh, passivity, identity, and finite checks
+  passed. However, both raw depth pairs retained separate pullback-grid
+  depth-frequency errors of about `0.4118 > 0.05` in both regions. No depth was
+  selected; K-state, runtime, and formal execution remained blocked.
 - No positive R1/R2 training, R3 inverse/refusal, or NbO2 validation exists.
 - All project-generated results remain literature-guided synthetic numerical digital-twin evidence. No project experimental validation exists.
 - Frozen GT v1.1 is unchanged and read-only.
@@ -31,6 +35,7 @@
 | Phase 1 equations, source-only config, source-scale normalization, hardened numerical lock, and gate contract | `supported` as preregistration facts | Analytic electrical/thermal normalization, grid/time/protocol/tolerance/metric/K-state/96-case definitions exist under schema v6 and preregistration SHA `212a4277bf9cf8afe365d922adefe67bdd7595e1`. |
 | Phase 1 Checkpoint A implementation and smoke | `supported` as software/reproducibility fact only | Conservative sheet FVM, implicit electrothermal step, two regional passive-memory kernels, thermal/circuit/combined ledgers, 96 planned cases, and non-claim smoke exist; `formal_execution_count=0`. The non-voting contact-covered 400/800 nm frequency audit is `0.1231`, above the locked formal limit `0.05`, so it is a pre-formal failure warning rather than a pass claim. |
 | Phase 1 v7 bounded vertical repair | `failed_but_informative` non-voting readiness evidence | Exact v6 warning reproduction; 26 raw builds; all passivity/identity checks; raw maximum-pair substrate frequency error `0.00702`, but pair-normalized contact error `0.41179 > 0.05`; K-state blocked; formal count zero. |
+| Phase 1 v8 bounded shape--scale repair | `failed_but_informative` non-voting readiness evidence | Preregistration `a32375b...`; config SHA-256 `e047d796...`; both raw pairs passed mesh/passivity/identity/finite foundations, but each region's separate pullback-grid depth-frequency RMSE remained about `0.4118 > 0.05`; no depth, K-state, runtime, or formal result; formal count zero. |
 | Phase 1 conservative 2.5D reference | `forbidden` as a result claim | Requires every configured solver gate. |
 | R1, R2, and R3 positive claims | `forbidden` | Each requires its own downstream direct evidence. |
 
@@ -61,14 +66,15 @@ Until direct evidence exists, do not claim successful Phase 1, Qiu author-code o
 
 The governance, workspace routing, source-scale contract, and Checkpoint A
 implementation are complete, but no new-route scientific phase has passed.
-The v7 incompatibility is now routed to one last preregistered v8 semantics
-repair; Checkpoint B remains blocked until that readiness chain returns GO and
-the user separately authorizes the formal campaign.
+The final bounded v8 repair confirmed that the current vertical/K-state route
+cannot satisfy its pullback depth gate. Checkpoint B, Phase 2, and R1 remain
+blocked; no further compute route is authorized.
 
 ## Next Single Priority
 
-Execute the authorized v8 repair only after its config and tests are committed
-and pushed. Follow its vertical -> common-K -> conditional-runtime hard gates,
-stop at the first NO-GO, and keep `formal_execution_count=0`. Do not run formal
-cases, train a PINN, perform inverse work, fit device/literature parameters,
-add nonzero dual-device coupling, or generate the Phase 2 dataset.
+No compute task is authorized. The user must decide whether to activate a new
+physical model/reduction route or downgrade the manuscript/delivery plan. The
+current K-state route is stopped at
+`B_READINESS_V8_NO_GO_VERTICAL_REFERENCE`; do not extend it, run formal cases,
+train a PINN, perform inverse work, fit device/literature parameters, add
+nonzero dual-device coupling, or generate the Phase 2 dataset.

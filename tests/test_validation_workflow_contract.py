@@ -54,6 +54,7 @@ def test_fast_validation_covers_v8_vertical_contract_and_runner_behavior() -> No
         "tests/test_geophase_phase1_vertical_shape_scale_v8_preregistration.py",
         "tests/test_geophase_phase1_vertical_shape_scale_v8.py",
         "tests/test_geophase_phase1_vertical_shape_scale_v8_runner.py",
+        "tests/test_geophase_phase1_vertical_shape_scale_v8_evidence.py",
     )
     for test_path in required_tests:
         assert workflow.count(test_path) == 1

@@ -36,14 +36,20 @@ non-voting result does not modify this v6 formal contract and does not authorize
 its execution. Any further normalization-semantics repair requires a new
 preregistration while keeping the source-only contract and 0.05 gate intact.
 
-That final bounded repair is now authorized under
-`configs/geophase_phase1_vertical_shape_scale_v8.yaml`. Before any new
-numerical build, the v8 contract and its static tests must be committed and
-pushed. It preserves this v6 configuration and failure history while testing
-raw material-stack D/2D convergence separately on inherited and
-effective-window-pullback grids. A passing readiness chain may create a new
-formal-v8 configuration; it cannot modify v6, execute a formal case, or claim
-scaled-depth invariance.
+The final bounded v8 repair was preregistered at
+`a32375b74772da8192d390f4233ed0b15e23ae80` and executed only as a non-voting
+pre-formal screen. Both permitted depth pairs passed every mesh, finite,
+passivity, and response-identity foundation check. Their inherited raw
+frequency comparisons also passed the locked `0.05` depth gate, but the
+separately scored effective-window-pullback raw comparisons failed for both
+regions at about `0.4118`. The maximum pair therefore stopped at
+`NO_GO_VERTICAL_REFERENCE`. No production depth or global scale was selected;
+K-state fitting and runtime readiness were not entered; no formal-v8
+configuration was created. The v6 configuration, source-only contract, gates,
+96-case inventory, and `formal_execution_count=0` remain unchanged. Because
+v8 was the final authorized vertical repair, the current fixed-bottom local
+K-state route is stopped pending a new user route decision. Scaled-depth
+invariance remains a forbidden claim.
 
 ## Source Isolation
 

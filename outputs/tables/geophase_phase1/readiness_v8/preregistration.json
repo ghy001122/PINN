@@ -1,0 +1,146 @@
+{
+  "actual_unique_raw_build_count": 8,
+  "actual_unique_raw_build_ids": [
+    "ti_au_overlay_coarse",
+    "ti_au_overlay_fine",
+    "substrate_depth_5.120000000000e-05_coarse",
+    "substrate_depth_5.120000000000e-05_fine",
+    "substrate_depth_1.024000000000e-04_coarse",
+    "substrate_depth_1.024000000000e-04_fine",
+    "substrate_depth_2.048000000000e-04_coarse",
+    "substrate_depth_2.048000000000e-04_fine"
+  ],
+  "branch_at_screening": "codex/phase1-vertical-shape-scale-v8",
+  "branch_reuse_mapping": {
+    "overlay": "one grid-level branch reused by every evaluated depth",
+    "substrate": "one depth/grid branch reused by both regions"
+  },
+  "candidate_schedule": [
+    "primary_51p2um_vs_102p4um",
+    "conditional_maximum_102p4um_vs_204p8um"
+  ],
+  "conditional_second_pair_triggered": true,
+  "evaluated_pair_ids": [
+    "primary_51p2um_vs_102p4um",
+    "conditional_maximum_102p4um_vs_204p8um"
+  ],
+  "evidence_type": "nonvoting_preformal_vertical_shape_scale_readiness",
+  "final_disposition": "NO_GO_VERTICAL_REFERENCE",
+  "final_disposition_reached": true,
+  "formal_campaign_executed": false,
+  "formal_case_ids_used": [],
+  "formal_case_results_generated": 0,
+  "formal_execution_count": 0,
+  "formal_inventory_sha256": "a617284bd8890adcab105851095801b6067307e5c85acfeb9b8a84c8467be045",
+  "formal_v6_config_sha256": "0361f609faf56cbc542f07be65abece0b8875aa0f9f8f9ea2539c098d2efdab1",
+  "formal_v8_config_created": false,
+  "head_at_screening": "dc06a52fa990d6cd4af2f1dc84537de5e52bef0e",
+  "k_state_status": "BLOCKED_BY_NO_GO_VERTICAL_REFERENCE",
+  "origin_branch_head_at_screening": "dc06a52fa990d6cd4af2f1dc84537de5e52bef0e",
+  "pair_decisions": [
+    {
+      "comparator_depth_m": 0.0001024,
+      "depth_pass": false,
+      "failure_metric_ids": [
+        "formal_window_pullback:bare_vo2:depth",
+        "formal_window_pullback:electrode_covered_vo2:depth"
+      ],
+      "foundation_pass": true,
+      "pair_id": "primary_51p2um_vs_102p4um",
+      "pair_pass": false,
+      "production_depth_m": 5.12e-05,
+      "raw_device_C_J_K": 7.682696999999938e-12,
+      "raw_device_G_W_K": 3.4179687499389644e-08,
+      "temporary_ratio_r": 0.0010708642349775152
+    },
+    {
+      "comparator_depth_m": 0.0002048,
+      "depth_pass": false,
+      "failure_metric_ids": [
+        "formal_window_pullback:bare_vo2:depth",
+        "formal_window_pullback:electrode_covered_vo2:depth"
+      ],
+      "foundation_pass": true,
+      "pair_id": "conditional_maximum_102p4um_vs_204p8um",
+      "pair_pass": false,
+      "production_depth_m": 0.0001024,
+      "raw_device_C_J_K": 1.536269699999986e-11,
+      "raw_device_G_W_K": 1.7089843748626707e-08,
+      "temporary_ratio_r": 0.0002677630576504524
+    }
+  ],
+  "phase1_scientific_claim": "forbidden_pending_formal_campaign",
+  "planned_maximum_unique_raw_build_count": 8,
+  "preregistration_sha": "a32375b74772da8192d390f4233ed0b15e23ae80",
+  "production_normalization": null,
+  "raw_build_manifest": [
+    {
+      "build_id": "ti_au_overlay_coarse",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "c3ad36ec3b9490ca705d9c9886fc90cecbe8f887547468c3a7a6789a1dfd681b"
+    },
+    {
+      "build_id": "ti_au_overlay_fine",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "edf3c63378f09491dcc5674fe3fc445400f57b87e733d64d3a56199c938ec5aa"
+    },
+    {
+      "build_id": "substrate_depth_5.120000000000e-05_coarse",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "3e289f3319cc683e4fff86eb2af320e28569ca40b47183329dc5f015f0375f98"
+    },
+    {
+      "build_id": "substrate_depth_5.120000000000e-05_fine",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "4f906780b20663e55be2e2fd47d19d8608b6d970d9f0a0bc48cd47101e307e36"
+    },
+    {
+      "build_id": "substrate_depth_1.024000000000e-04_coarse",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "d8218cb2c5b86b9ea6809c3887c12c0b775661942b27d3546fe1f7e8a6b0dddb"
+    },
+    {
+      "build_id": "substrate_depth_1.024000000000e-04_fine",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "486da803e677a64aa5fcbc0ba027ca9a9dd3d35f3d19cb08039dd2b980c9bc9b"
+    },
+    {
+      "build_id": "substrate_depth_2.048000000000e-04_coarse",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "01688e4c4fbd00a85b970ed756f054083ca4e816fcc2617d0c2a8ff54806b7e2"
+    },
+    {
+      "build_id": "substrate_depth_2.048000000000e-04_fine",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "c4e75133bc58f8c83ebddf93cd0ad1ece698a515ee4157bba7b263a971e1309a"
+    }
+  ],
+  "raw_build_registry_failure": null,
+  "raw_build_registry_integrity_pass": true,
+  "raw_selected_depth_m": null,
+  "repair_yaml_sha256": "e047d7963c646cabdec9796a2f227c159750a76170805a6f02021e6fff24b00b",
+  "runtime_preflight_status": "BLOCKED_NOT_IMPLEMENTED_BY_THIS_ENTRYPOINT",
+  "schema_version": "geophase_phase1_vertical_shape_scale_v8",
+  "screening_code_sha256": {
+    "runner": "3619c20d1db4e08ae000c9f9bbba46956a56973be1774d091cc82e0338d556b5",
+    "vertical_evaluator": "6503cab5cdf036bc4779342ec0db2d38f60d6636e5158052e4dfa76847df305b",
+    "vertical_solver": "75aec7fbb6df14b93dd37f9a849fd3d1b2ab22de07336bec4a4913e0fb29b277"
+  },
+  "selected_production_depth_m": null,
+  "source_contract_sha256": "857410517d5b955e2018d4b002fcbbe92bb320c451021b49ae27be1351cb1252",
+  "stage_disposition": "NO_GO_VERTICAL_REFERENCE",
+  "status": "vertical_shape_scale_screen_complete",
+  "stop_reason": "fallback_depth_failure",
+  "task_id": "Q2_PHASE1_VERTICAL_SHAPE_SCALE_SEMANTICS_V8",
+  "v7_repair_config_sha256": "5ab66fb41b9af6fd605c351a86fa5928712528fcad8c9bc26cc55d18a0a92a18",
+  "vertical_status": "NO_GO_VERTICAL_REFERENCE",
+  "voting": false
+}

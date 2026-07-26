@@ -1,0 +1,16 @@
+{
+  "branch": "codex/phase1-vertical-shape-scale-v8",
+  "cpu_only": true,
+  "formal_case_results_generated": 0,
+  "formal_execution_count": 0,
+  "head": "dc06a52fa990d6cd4af2f1dc84537de5e52bef0e",
+  "numpy": "1.26.4",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "preregistration_sha": "a32375b74772da8192d390f4233ed0b15e23ae80",
+  "python": "3.11.9 | packaged by Anaconda, Inc. | (main, Apr 19 2024, 16:40:41) [MSC v.1916 64 bit (AMD64)]",
+  "repair_yaml_sha256": "e047d7963c646cabdec9796a2f227c159750a76170805a6f02021e6fff24b00b",
+  "schema_version": "geophase_phase1_vertical_shape_scale_v8",
+  "scipy": "1.13.1",
+  "task_id": "Q2_PHASE1_VERTICAL_SHAPE_SCALE_SEMANTICS_V8",
+  "voting": false
+}
