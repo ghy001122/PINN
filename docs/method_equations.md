@@ -170,7 +170,7 @@ baseline is no-flux. Any later contact-resistance,
 thermal-boundary-resistance, or nonzero interdevice-coupling term requires
 explicit units, provenance, and interface tests.
 
-The independent energy ledger includes both active-plane and K-state storage:
+The thermal ledger includes both active-plane and K-state storage:
 
 $$
 \frac{d}{dt}\int_\Omega\left[
@@ -185,6 +185,51 @@ Here
 \(P_{\mathrm{sink}}=\int_\Omega g_{K,r(x,y)}(z_K-T_0)dA\), and
 \(P_{\partial\Omega}\) is the outward lateral heat flux. The Phase 1 two-copy
 fixture has no device-device exchange term.
+
+The field-to-port power identity is independently reconstructed as
+
+$$
+P_{\mathrm{device}}=V_d I_{\mathrm{dev}}=P_J.
+$$
+
+With source current \(I_{\mathrm{src}}=(V_{\mathrm{in}}-V_d)/R_L\), the
+backward-Euler circuit ledger is
+
+$$
+P_{\mathrm{source}}
+=P_{R_L}+P_C^{\mathrm{BE}}+P_{\mathrm{device}},
+\qquad
+P_{\mathrm{source}}=V_{\mathrm{in}}I_{\mathrm{src}},
+\qquad
+P_{R_L}=I_{\mathrm{src}}^2R_L.
+$$
+
+The capacitor term is reported without hiding backward-Euler numerical
+dissipation:
+
+$$
+P_C^{\mathrm{BE}}
+=C_pV_d^n\frac{V_d^n-V_d^{n-1}}{\Delta t}
+=\frac{\tfrac12C_p[(V_d^n)^2-(V_d^{n-1})^2]}{\Delta t}
++\frac{C_p(V_d^n-V_d^{n-1})^2}{2\Delta t}.
+$$
+
+Thus the combined electrothermal ledger is
+
+$$
+P_{\mathrm{source}}
+=P_{R_L}
++\frac{dE_C}{dt}
++P_{C,\mathrm{BE\ diss}}
++\frac{dE_{\mathrm{thermal}}}{dt}
++P_{\mathrm{sink}}
++P_{\partial\Omega},
+$$
+
+where \(P_{C,\mathrm{BE\ diss}}\ge 0\). Thermal, circuit, and combined
+residuals are evaluated separately and fail closed. Omitting the algorithmic
+capacitor term while using backward Euler is not accepted as a conservation
+test.
 
 Spatial and temporal refinement are compared only after conservative
 restriction to the fixed physical base-cell grid and interpolation to the

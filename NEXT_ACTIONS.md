@@ -4,6 +4,8 @@
 
 Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
 
+Authorized checkpoint: `A_IMPLEMENTATION_AND_SMOKE_FORMAL_BLOCKED`.
+
 There is exactly one active task:
 
 > Implement and validate the contract-hardened, independent, conservative, PINN-residual-separated Qiu-inspired VO2 single-device real x-y plus region-specific K-state vertical-memory 2.5D FVM/implicit reference solver.
@@ -28,8 +30,11 @@ This solver is the numerical truth judge for later R1 fields, ports, phase event
 2. Implement the locked region masks, grid/time/protocol schedule, nonlinear tolerances, metric definitions, source-scale-normalized K-state identification, and 96-case inventory exactly as configured.
 3. Implement the independent electrical, thermal, K-state, hysteresis, circuit, and ledger pieces under responsibility-based modules; do not share the PINN discrete residual implementation.
 4. Add behavioral tests for manufactured solutions, failure paths, SI units, ports, passivity, region topology, and ledgers.
-5. Run CPU smoke and focused preflights; the sole formal bounded execution remains blocked until all preflights pass.
-6. Write JSON/CSV before figures/tables and a report; update claims and manuscript wording only after every formal gate is evaluated.
+5. Run CPU smoke and focused preflights, write the exact 96-case manifest,
+   configuration hash, environment manifest, and Checkpoint A summary, and
+   verify `formal_execution_count=0`.
+6. Stop and report. The sole formal campaign remains blocked until the user
+   explicitly authorizes Checkpoint B from the locked preregistration SHA.
 
 ## Required Gates
 

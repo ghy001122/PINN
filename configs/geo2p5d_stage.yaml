@@ -1,6 +1,9 @@
 schema_version: geo2p5d_stage_v1
 delivery_mode: Q2_SCI_DELIVERY_MODE
 current_phase: Q2_PHASE1_2P5D_REFERENCE_SOLVER
+current_checkpoint: A_IMPLEMENTATION_AND_SMOKE_FORMAL_BLOCKED
+formal_execution_count: 0
+formal_campaign_authorization: blocked_pending_fresh_user_confirmation
 evidence_type: literature_guided_synthetic_numerical_digital_twin
 
 authority:

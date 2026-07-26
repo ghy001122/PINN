@@ -4,6 +4,8 @@ Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
 
 Status: `authorized_contract_scale_corrected_pending_implementation`
 
+Current checkpoint: `A_IMPLEMENTATION_AND_SMOKE_FORMAL_BLOCKED`
+
 ## Objective
 
 Build the independent, conservative reference judge required before any new-route dataset or PINN claim: a Qiu-inspired VO2 coplanar single-device real x-y model with source-scale-normalized region-specific passive K-state vertical thermal memory, a device-effective white-box hysteresis closure, differentiable terminal integration, RC coupling, and a complete energy ledger.
@@ -31,7 +33,8 @@ The reference solver supplies truth fields, port and event observables, conserva
 - electrical, thermal, K-state, hysteresis, RC, terminal, and ledger implementations;
 - two independent device copies only for zero-coupling and label-symmetry behavior tests;
 - CPU smoke and focused verification;
-- the single budgeted formal solver run;
+- preparation of the locked formal manifest and configuration hash, but not
+  execution of the formal campaign without fresh user authorization;
 - JSON/CSV, figure/table, report, claim-matrix, and manuscript-sentence updates following evaluated gates.
 
 ## Phase-Scoped Restrictions
@@ -61,6 +64,8 @@ Conservation without mesh and time convergence is insufficient. Finite output is
 - Fail: record `failed_but_informative`; block Phase 2 and all R1-R3 work; choose one bounded foundation repair or reject the reduction.
 - Source, coordinate, unit, boundary, or ledger error: stop extensions and repair before any formal rerun.
 - The single formal execution and compute budget may not be exceeded without user approval.
+- Checkpoint A must stop with `formal_execution_count=0`; Checkpoint B is not
+  authorized by phase activation alone.
 
 ## Claim Boundary
 

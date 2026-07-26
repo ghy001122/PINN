@@ -21,6 +21,11 @@ No independent x-y plus K-state 2.5D reference result, positive R1/R2 training r
 
 Implement and validate the independent, conservative, PINN-residual-separated Qiu-inspired VO2 single-device x-y plus region-specific K-state vertical-memory 2.5D FVM/implicit reference solver under `configs/geophase_phase1_2p5d_reference.yaml`. Source-author resistance and thermal fits constrain only device-effective uniform/global scales; local stack physics supplies spatial and dynamic shape. The algebraic source-scale preflights, numerical grid, time/protocol lock, nonlinear tolerances, metrics, K-state fit, and 96-case inventory are preregistered. Nonzero dual-device coupling is outside Phase 1. All gates must pass before Phase 2 or any R1 training.
 
+The authorized work is Checkpoint A only: contract-complete implementation,
+behavior tests, CPU smoke, the locked 96-case manifest, configuration hash, and
+preregistration record. `formal_execution_count` must remain zero. The formal
+campaign requires a later explicit user authorization.
+
 ## Claim Boundary
 
 Allowed now: describe the guide, Phase 0 realignment, preregistered equations/config/gates, and retained historical results with their existing qualifications.

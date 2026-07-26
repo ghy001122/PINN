@@ -8,6 +8,8 @@
 - R1 `HysGeo-Hybrid-PINN` is the minimum manuscript route; R2 `GeoPhase-HomoMoE-PINN` is the preferred method upgrade; R3 observable-subspace/OQ is conditional and non-blocking.
 - The target Phase 1 benchmark is a Qiu-inspired VO2 coplanar single-device x-y domain with separate bare-VO2 and electrode-covered-VO2 passive K-state vertical memories. Qiu source-author resistance and thermal fits anchor only the nominal device-effective uniform/global scales; the local stack supplies relative spatial/dynamic shape, and no intrinsic-property or independent-validation claim follows. Interdevice substrate transport and nonzero dual-device coupling are deferred until an explicit substrate field or validated nonlocal kernel exists. Chen-inspired SnSe/NbO2 remains reserved for later material-specific numerical validation.
 - No Phase 1 solver execution, positive R1/R2 training, R3 inverse/refusal, or NbO2 validation exists.
+- Checkpoint A implementation and smoke are authorized. The sole 96-case
+  formal campaign remains separately blocked and its execution count is zero.
 - All project-generated results remain literature-guided synthetic numerical digital-twin evidence. No project experimental validation exists.
 - Frozen GT v1.1 is unchanged and read-only.
 
@@ -48,4 +50,8 @@ The governance, workspace-routing, source-scale, and Phase 1 contract ambiguitie
 
 ## Next Single Priority
 
-Execute `NEXT_ACTIONS.md`: implement and validate the hardened single-device Qiu-inspired VO2 2.5D FVM/implicit reference solver without starting PINN training, inverse work, parameter fitting, nonzero dual-device coupling, or Phase 2 dataset generation.
+Execute Checkpoint A in `NEXT_ACTIONS.md`: implement and behaviorally validate
+the hardened single-device Qiu-inspired VO2 2.5D FVM/implicit reference
+solver, emit the locked formal manifest and hashes, and stop with formal count
+zero. Do not start the formal campaign, PINN training, inverse work, parameter
+fitting, nonzero dual-device coupling, or Phase 2 dataset generation.

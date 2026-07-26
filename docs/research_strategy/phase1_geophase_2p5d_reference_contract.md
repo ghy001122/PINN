@@ -7,6 +7,7 @@
 - Manuscript use: independent truth and conservation judge for later R1/R2 work
 - Evidence type after execution: literature-guided solver-generated synthetic numerical digital-twin evidence
 - Threshold authority: `configs/geophase_phase1_2p5d_reference.yaml`
+- Threshold schema: `geophase_phase1_2p5d_reference_v4`
 - Source authority: `configs/qiu_vo2_phase1_source_contract.yaml`
 - Stage routing: `configs/geo2p5d_stage.yaml`
 
@@ -89,6 +90,19 @@ The floors are 1 pA for terminal current, 1 mK for temperature rise, and `1e-6` 
 
 The machine-readable axes and case IDs live in the Phase 1 YAML. Adding an undeclared formal case or silently omitting one invalidates the formal run.
 
+## Checkpoint Separation
+
+Checkpoint A may revise the still-unexecuted contract, implement the solver,
+run behavior tests and explicitly labelled CPU smoke, and write the locked
+96-case manifest, configuration hash, environment manifest, and
+preregistration record. Its `formal_execution_count` must remain zero.
+
+Checkpoint B is the sole 96-case formal campaign. It requires fresh user
+authorization and must start from the preregistration SHA and configuration
+hash emitted by Checkpoint A. The new ledger families are additional metrics
+on the existing cases; they do not add cases. After Checkpoint B begins, gates,
+case axes, parameters, source semantics, and tolerances are immutable.
+
 ## Required Responsibilities
 
 Implementation may add responsibility-based modules only when real behavior is implemented:
@@ -106,8 +120,11 @@ Do not create empty inverse, solver, or evaluation placeholders merely to match 
 Algebraic source-scale preflights run before any solver case and do not consume the 96-case formal budget. A failure is a contract/implementation error and blocks smoke execution. After those preflights pass, all configured formal gates vote together:
 
 1. manufactured electrical linear-field, thermal source/diffusion, and K-state cases;
-2. terminal-current imbalance;
-3. active-plane and full plane-plus-region-memory energy ledgers;
+2. terminal-current imbalance and the independent identity between terminal
+   device power and field-integrated Joule power;
+3. separate thermal, circuit, and combined electrothermal ledgers. The
+   backward-Euler circuit ledger reports physical capacitor-energy change and
+   nonnegative algorithmic capacitor dissipation separately;
 4. independent spatial, temporal, and event-time fine-pair convergence;
 5. positive K-state capacities/conductances, stable real poles, passivity, and step/impulse/frequency validation against the higher-order reference;
 6. zero-drive, uniform-conductivity, cooling, thermal-resistance, RC, and zero-input limits;
@@ -120,7 +137,14 @@ Finite output, current balance alone, or a source envelope smaller than discreti
 
 ## Execution And Output Contract
 
-Development uses CPU smoke and focused tests. Only after all preflights pass may the single formal execution write JSON/CSV first, then figures/tables and a report. It may not train a PINN, fit device/literature parameters, run inverse work, digitize literature curves, modify frozen GT, repair M44, execute NbO2, add nonzero dual-device coupling, or expand to full 3D. The locked passive K-state reduction fit is required and is not device calibration.
+Development uses CPU smoke and focused tests. Checkpoint A must stop with
+`formal_execution_count=0` after writing its manifests and smoke evidence.
+Only after fresh user authorization may Checkpoint B execute the single formal
+campaign and write formal JSON/CSV first, then figures/tables and a report. It
+may not train a PINN, fit device/literature parameters, run inverse work,
+digitize literature curves, modify frozen GT, repair M44, execute NbO2, add
+nonzero dual-device coupling, or expand to full 3D. The locked passive K-state
+reduction fit is required and is not device calibration.
 
 ## Disposition
 

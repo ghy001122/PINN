@@ -1,5 +1,5 @@
 task_id: Q2_PHASE1_2P5D_REFERENCE
-schema_version: geophase_phase1_2p5d_reference_v3
+schema_version: geophase_phase1_2p5d_reference_v4
 phase_id: Q2_PHASE1_2P5D_REFERENCE_SOLVER
 status: preregistered_contract_scale_corrected_pending_implementation
 evidence_type: literature_guided_solver_generated_synthetic_numerical_digital_twin
@@ -7,7 +7,12 @@ manuscript_use: independent_reference_and_conservation_judge_for_later_geophase_
 
 execution_contract:
   formal_execution_limit: 1
+  formal_execution_count: 0
   formal_run_eligibility: blocked_until_implementation_smoke_and_all_focused_preflights_pass
+  checkpoint_a_scope: contract_implementation_behavior_tests_smoke_and_manifest_only
+  checkpoint_a_must_stop_before_formal_campaign: true
+  formal_campaign_requires_fresh_user_authorization: true
+  formal_campaign_must_use_locked_preregistration_sha_and_config_hash: true
   cpu_only: true
   maximum_wall_clock_s: 14400
   maximum_solver_cases: 96
@@ -168,6 +173,24 @@ physics_contract:
     include_vertical_terminal_sink: true
     include_lateral_boundary_flux: true
     forbid_active_vo2_storage_double_counting: true
+    families: [thermal, circuit, combined_electrothermal]
+    interval_discretization: backward_euler_consistent_power_balance
+    device_power_identity: terminal_device_power_equals_field_integrated_joule_power
+    thermal:
+      storage_terms: [active_plane_internal_energy, all_region_specific_k_state_internal_energy]
+      input_terms: [field_integrated_joule_power]
+      output_terms: [vertical_terminal_sink, outward_lateral_boundary_flux]
+    circuit:
+      input_terms: [source_power]
+      output_terms: [load_resistor_power, terminal_device_power]
+      capacitor_terms: [physical_energy_increment_rate, backward_euler_numerical_dissipation]
+      backward_euler_capacitor_identity: C_Vn_deltaV_over_dt_equals_delta_half_C_V_squared_over_dt_plus_half_C_deltaV_squared_over_dt
+    combined_electrothermal:
+      input_terms: [source_power]
+      output_terms: [load_resistor_power, vertical_terminal_sink, outward_lateral_boundary_flux]
+      storage_terms: [capacitor_physical_energy_increment_rate, active_plane_internal_energy_rate, all_region_specific_k_state_internal_energy_rate]
+      numerical_dissipation_terms: [capacitor_backward_euler_numerical_dissipation]
+    nonfinite_or_tampered_ledger: fail_closed
 
 vertical_reduction:
   region_ids: [bare_vo2, electrode_covered_vo2]
@@ -368,7 +391,7 @@ formal_case_inventory:
 
 verification_matrix:
   manufactured: [electrical_linear_field, thermal_diffusion_with_source, k_state_step_response]
-  conservation: [terminal_current, active_plane_energy, full_plane_plus_region_memory_energy]
+  conservation: [terminal_current, device_power_identity, thermal_ledger, circuit_ledger, combined_electrothermal_ledger]
   convergence: [spatial_fine_pair, temporal_fine_pair, event_time_fine_pair]
   limits: [zero_drive, uniform_conductivity, k_state_zero_input, decoupled_dual_copy, dual_copy_symmetry]
   reduction: [step_response, impulse_response, frequency_response]
@@ -381,6 +404,10 @@ gates:
   manufactured_thermal_relative_l2_max: 1.0e-6
   terminal_current_relative_imbalance_max: 1.0e-6
   energy_ledger_relative_residual_max: 1.0e-2
+  thermal_ledger_relative_residual_max: 1.0e-2
+  circuit_ledger_relative_residual_max: 1.0e-2
+  combined_ledger_relative_residual_max: 1.0e-2
+  device_power_identity_relative_residual_max: 1.0e-8
   spatial_terminal_fine_pair_nrmse_max: 1.0e-2
   spatial_temperature_fine_pair_nrmse_max: 2.0e-2
   spatial_state_fine_pair_nrmse_max: 2.0e-2
@@ -414,6 +441,9 @@ unlock:
 
 outputs:
   preregistration: outputs/tables/geophase_phase1/preregistration.json
+  checkpoint_a_summary: outputs/tables/geophase_phase1/checkpoint_a_summary.json
+  checkpoint_a_ledger_csv: outputs/tables/geophase_phase1/checkpoint_a_ledgers.csv
+  environment_manifest: outputs/tables/geophase_phase1/environment_manifest.json
   summary: outputs/tables/geophase_phase1/summary.json
   convergence_csv: outputs/tables/geophase_phase1/convergence.csv
   k_state_csv: outputs/tables/geophase_phase1/k_state_reduction.csv
