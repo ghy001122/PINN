@@ -1,14 +1,14 @@
 task_id: Q2_PHASE1_2P5D_REFERENCE
-schema_version: geophase_phase1_2p5d_reference_v4
+schema_version: geophase_phase1_2p5d_reference_v5
 phase_id: Q2_PHASE1_2P5D_REFERENCE_SOLVER
-status: preregistered_contract_scale_corrected_pending_implementation
+status: preregistered_v5_pending_checkpoint_a_revalidation
 evidence_type: literature_guided_solver_generated_synthetic_numerical_digital_twin
 manuscript_use: independent_reference_and_conservation_judge_for_later_geophase_pinn
 
 execution_contract:
   formal_execution_limit: 1
   formal_execution_count: 0
-  formal_run_eligibility: blocked_until_implementation_smoke_and_all_focused_preflights_pass
+  formal_run_eligibility: blocked_pending_fresh_checkpoint_b_authorization
   checkpoint_a_scope: contract_implementation_behavior_tests_smoke_and_manifest_only
   checkpoint_a_must_stop_before_formal_campaign: true
   formal_campaign_requires_fresh_user_authorization: true
@@ -268,6 +268,10 @@ reference_solver:
     base_max_step_s: 1.0e-8
     transition_max_step_s: 2.5e-10
     transition_trigger: abs_state_or_branch_increment_above_0p02
+    transition_increment_threshold: 0.02
+    failed_step_policy: retry_with_halved_step_not_below_transition_max_step_then_fail_closed
+    maximum_rejected_steps_per_accepted_step: 4
+    maximum_rejected_steps_per_case: 1000
   formal_time_step_divisors: [1, 2, 4]
   fixed_physical_comparison_grid:
     nx: 10
@@ -289,6 +293,7 @@ reference_solver:
     initial_damping: 1.0
     minimum_damping: 0.0078125
     armijo_coefficient: 1.0e-4
+    sparse_newton_linear_solver: matrix_free_lgmres
     fixed_point_fallback_maximum_iterations: 80
     fixed_point_relaxation: 0.5
     fallback_must_meet_same_residual_tolerances: true
@@ -373,6 +378,10 @@ formal_case_inventory:
       - contact_overlap_20nm
       - contact_overlap_30nm
     protocol_ids: [nominal_12V, transition_probe_12p5V, high_bias_15V]
+    embedded_noncase_metrics:
+      - substrate_depth_400nm_vs_800nm_vertical_response
+      - contact_overlap_qoi_sensitivity_vs_spatial_discretization_error
+      - bare_contact_kernel_switching_correctness
     count_rule: product
     expected_count: 18
   decoupled_dual_copy_limits:
@@ -395,7 +404,7 @@ verification_matrix:
   convergence: [spatial_fine_pair, temporal_fine_pair, event_time_fine_pair]
   limits: [zero_drive, uniform_conductivity, k_state_zero_input, decoupled_dual_copy, dual_copy_symmetry]
   reduction: [step_response, impulse_response, frequency_response]
-  topology: [bare_vo2_region, electrode_covered_vo2_region, contact_overlap_audit]
+  topology: [bare_vo2_region, electrode_covered_vo2_region, contact_overlap_audit, substrate_depth_truncation]
   literature_trends: [quiescent_9V, transition_probe_12p5V, high_bias_15V]
   failure_paths: [negative_capacity, negative_conductance, nonfinite_newton, ledger_tamper, coordinate_swap]
 
@@ -419,6 +428,11 @@ gates:
   k_state_step_response_nrmse_max: 5.0e-2
   k_state_impulse_response_nrmse_max: 5.0e-2
   k_state_frequency_log_magnitude_rmse_max: 5.0e-2
+  substrate_depth_step_response_nrmse_max: 5.0e-2
+  substrate_depth_frequency_log_magnitude_rmse_max: 5.0e-2
+  contact_overlap_qoi_sensitivity_reporting_required: true
+  geometry_robust_wording_requires_overlap_effect_not_exceed_spatial_fine_pair_error: true
+  source_envelope_to_numerical_noise_ratio_min: 1.0
   zero_drive_temperature_drift_K_max: 1.0e-8
   decoupled_dual_copy_relative_error_max: 1.0e-6
   dual_copy_symmetry_relative_error_max: 1.0e-6

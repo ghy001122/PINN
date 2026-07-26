@@ -243,6 +243,27 @@ $$
 d_{\mathrm{floor}}\right]}.
 $$
 
+Backward-Euler stepping begins at the locked base maximum step. If an accepted
+trial would satisfy
+
+$$
+\max\{\|s^n-s^{n-1}\|_\infty,\|b^n-b^{n-1}\|_\infty\}>0.02,
+$$
+
+the trial is rejected and retried by halving \(\Delta t\), never below the
+locked transition maximum step. At most four rejections are permitted per
+accepted step and 1000 per case; exceeding either cap fails closed. The
+matrix-free LGMRES Newton correction is subjected to the locked Armijo
+coefficient and damping floor rather than an implementation-default line
+search.
+
+The 400 and 800 nm substrate truncations are compared on held-out vertical
+step and frequency grids with NRMSE/RMSE limits of 0.05. Contact-overlap QoI
+sensitivity is always reported; geometry-robust wording is forbidden whenever
+that effect exceeds the locked spatial fine-pair discretization error. A
+literature/source-envelope trend can vote only when its variation is at least
+the numerical-noise estimate.
+
 The configured floors are \(10^{-12}\,\mathrm A\),
 \(10^{-3}\,\mathrm K\), and \(10^{-6}\) for terminal current, temperature
 rise, and conductive-state change. Below-floor signals cannot pass by NRMSE;

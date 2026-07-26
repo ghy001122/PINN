@@ -373,7 +373,7 @@ def check_phase1_contract_hardening() -> dict:
     source = read("configs/qiu_vo2_phase1_source_contract.yaml")
     contract = read("docs/research_strategy/phase1_geophase_2p5d_reference_contract.md")
     required_config_markers = [
-        "schema_version: geophase_phase1_2p5d_reference_v4",
+        "schema_version: geophase_phase1_2p5d_reference_v5",
         "formal_execution_count: 0",
         "checkpoint_a_must_stop_before_formal_campaign: true",
         "formal_campaign_requires_fresh_user_authorization: true",

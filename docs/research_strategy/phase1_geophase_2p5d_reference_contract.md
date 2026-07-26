@@ -3,15 +3,19 @@
 ## Identity
 
 - Phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
-- Status: `authorized_contract_scale_corrected_pending_implementation`
+- Status: `preregistered_v5_pending_checkpoint_a_revalidation`
 - Manuscript use: independent truth and conservation judge for later R1/R2 work
 - Evidence type after execution: literature-guided solver-generated synthetic numerical digital-twin evidence
 - Threshold authority: `configs/geophase_phase1_2p5d_reference.yaml`
-- Threshold schema: `geophase_phase1_2p5d_reference_v4`
+- Threshold schema: `geophase_phase1_2p5d_reference_v5`
 - Source authority: `configs/qiu_vo2_phase1_source_contract.yaml`
 - Stage routing: `configs/geo2p5d_stage.yaml`
 
-This contract narrows Phase 1 of the full execution guide. It records a preregistration and no solver result. The sole formal execution remains blocked until implementation smoke tests and every focused preflight pass.
+This contract narrows Phase 1 of the full execution guide. The v5 revision
+locks the remaining adaptive-step rejection caps and prior-audit vote rules
+before Checkpoint A is revalidated. It records no formal solver result. The
+sole formal execution remains blocked until fresh user authorization for
+Checkpoint B.
 
 ## Source Isolation
 
@@ -57,6 +61,9 @@ The formal configuration fixes, before implementation results are seen:
 - protocols: 0, 9, 12, 12.5, and 15 V steps plus one locked 12.5 V pulse;
 - initial state: 0 V device voltage, all temperatures at 325 K, heating branch `b=1`, and equilibrium conductive state;
 - damped Newton tolerances, damping/Armijo bounds, fail-closed fallback, and linear tolerances;
+- state/branch-triggered step halving, a 0.02 transition threshold, four
+  rejected trials per accepted step, 1000 rejected trials per case, and
+  fail-closed rejection-cap handling;
 - K-state fit/evaluation time and frequency grids, response weights, optimizer tolerance, and validation-grid voting;
 - algebraic source-scale preflights for both uniform electrical endmembers, global thermal conductance, total capacity, and positive scale factors;
 - exact 96-case formal inventory and four-hour CPU ceiling.
@@ -92,8 +99,8 @@ The machine-readable axes and case IDs live in the Phase 1 YAML. Adding an undec
 
 ## Checkpoint Separation
 
-Checkpoint A may revise the still-unexecuted contract, implement the solver,
-run behavior tests and explicitly labelled CPU smoke, and write the locked
+Checkpoint A may complete the still-unexecuted v5 contract revalidation,
+solver implementation, behavior tests, explicitly labelled CPU smoke, locked
 96-case manifest, configuration hash, environment manifest, and
 preregistration record. Its `formal_execution_count` must remain zero.
 
@@ -129,9 +136,16 @@ Algebraic source-scale preflights run before any solver case and do not consume 
 5. positive K-state capacities/conductances, stable real poles, passivity, and step/impulse/frequency validation against the higher-order reference;
 6. zero-drive, uniform-conductivity, cooling, thermal-resistance, RC, and zero-input limits;
 7. bare/contact-covered topology audits and contact-overlap audits;
+   the 400/800 nm substrate truncation must also pass held-out step/frequency
+   response limits, while overlap QoI sensitivity is reported against spatial
+   discretization error before any geometry-robust wording;
 8. two-copy zero-coupling, symmetry, and label-swap limits;
 9. nonfinite nonlinear solve, negative passivity, ledger tamper, and coordinate swap fail closed;
 10. preregistered single-device literature-trend checks inside the declared source/prior envelope.
+
+Source-envelope trends are non-voting unless their variation is at least the
+estimated numerical noise. These added checks are metrics on existing formal
+cases and do not change the 96-case inventory.
 
 Finite output, current balance alone, or a source envelope smaller than discretization error cannot pass Phase 1.
 

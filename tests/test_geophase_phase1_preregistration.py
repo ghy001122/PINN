@@ -30,11 +30,9 @@ def _stage() -> dict:
 def test_geophase_phase1_identity_and_fail_closed_scope() -> None:
     cfg = _config()
     assert cfg["task_id"] == "Q2_PHASE1_2P5D_REFERENCE"
-    assert cfg["schema_version"] == "geophase_phase1_2p5d_reference_v4"
+    assert cfg["schema_version"] == "geophase_phase1_2p5d_reference_v5"
     assert cfg["phase_id"] == "Q2_PHASE1_2P5D_REFERENCE_SOLVER"
-    assert cfg["status"] == (
-        "preregistered_contract_scale_corrected_pending_implementation"
-    )
+    assert cfg["status"] == "preregistered_v5_pending_checkpoint_a_revalidation"
     assert cfg["evidence_type"] == (
         "literature_guided_solver_generated_synthetic_numerical_digital_twin"
     )
@@ -44,7 +42,9 @@ def test_geophase_phase1_identity_and_fail_closed_scope() -> None:
     assert execution["formal_execution_count"] == 0
     assert execution["checkpoint_a_must_stop_before_formal_campaign"] is True
     assert execution["formal_campaign_requires_fresh_user_authorization"] is True
-    assert execution["formal_run_eligibility"].startswith("blocked_until_")
+    assert execution["formal_run_eligibility"] == (
+        "blocked_pending_fresh_checkpoint_b_authorization"
+    )
     assert execution["maximum_solver_cases"] == 96
     assert execution["pinn_training"] == "forbidden"
     assert execution["inverse"] == "forbidden"
@@ -255,6 +255,10 @@ def test_solver_grid_time_protocol_and_tolerances_are_frozen() -> None:
     time_grid = solver["time_grid"]
     assert time_grid["final_time_s"] == pytest.approx(2.0e-5)
     assert time_grid["transition_max_step_s"] < time_grid["base_max_step_s"]
+    assert time_grid["transition_increment_threshold"] == pytest.approx(0.02)
+    assert time_grid["failed_step_policy"].endswith("fail_closed")
+    assert time_grid["maximum_rejected_steps_per_accepted_step"] == 4
+    assert time_grid["maximum_rejected_steps_per_case"] == 1000
     comparison = solver["fixed_physical_comparison_time_grid"]
     expected_points = round(
         (comparison["stop_s"] - comparison["start_s"]) / comparison["interval_s"]
@@ -264,6 +268,7 @@ def test_solver_grid_time_protocol_and_tolerances_are_frozen() -> None:
 
     nonlinear = solver["nonlinear_tolerances"]
     assert nonlinear["maximum_newton_iterations"] == 30
+    assert nonlinear["sparse_newton_linear_solver"] == "matrix_free_lgmres"
     assert 0.0 < nonlinear["minimum_damping"] < nonlinear["initial_damping"] <= 1.0
     assert nonlinear["fallback_must_meet_same_residual_tolerances"] is True
     assert nonlinear["nonconvergence"] == "fail_closed"
@@ -365,6 +370,16 @@ def test_phase1_gates_and_unlock_do_not_accept_finite_only_success() -> None:
     assert gates["temporal_terminal_fine_pair_nrmse_max"] <= 1.0e-2
     assert gates["k_state_step_response_nrmse_max"] <= 5.0e-2
     assert gates["k_state_impulse_response_nrmse_max"] <= 5.0e-2
+    assert gates["substrate_depth_step_response_nrmse_max"] <= 5.0e-2
+    assert gates["substrate_depth_frequency_log_magnitude_rmse_max"] <= 5.0e-2
+    assert gates["contact_overlap_qoi_sensitivity_reporting_required"] is True
+    assert (
+        gates[
+            "geometry_robust_wording_requires_overlap_effect_not_exceed_spatial_fine_pair_error"
+        ]
+        is True
+    )
+    assert gates["source_envelope_to_numerical_noise_ratio_min"] >= 1.0
     assert gates["literature_trend"]["failure_interpretation"].startswith(
         "failed_but_informative"
     )
