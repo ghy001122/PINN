@@ -135,8 +135,17 @@ def test_v8_common_K_multistart_and_fail_closed_selection_are_preregistered() ->
     assert contract["high_order_benchmark"] == 8
     assert contract["common_production_order_required"] is True
     assert contract["mixed_region_production_orders"] == "forbidden"
+    assert contract["evaluation_order"] == [
+        "fit_K2_for_both_regions",
+        "fit_K3_for_both_regions_only_if_K2_not_jointly_passing",
+        "after_common_candidate_selected_fit_K1_ablation_and_K8_benchmark",
+    ]
+    assert contract["K1_or_K8_may_select_or_change_common_production_order"] is False
+    assert contract["K8_validation_role"].startswith(
+        "required_high_order_reduced_benchmark"
+    )
     assert contract["K8_must_pass_full_kernel_validation"] is True
-    assert contract["evaluation_order"][-1].endswith("only_if_K2_not_jointly_passing")
+    assert contract["evaluation_order"][1].endswith("only_if_K2_not_jointly_passing")
 
     starts = contract["deterministic_initializations"]
     assert starts["maximum_initializations_per_order_region"] == 3
