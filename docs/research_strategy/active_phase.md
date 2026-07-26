@@ -2,9 +2,9 @@
 
 Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
 
-Status: `checkpoint_b_readiness_vertical_no_go_pending_user_decision`
+Status: `checkpoint_b_readiness_v8_repair_authorized_not_executed`
 
-Current checkpoint: `B_READINESS_BLOCKED_VERTICAL_REFERENCE`
+Current checkpoint: `B_READINESS_V8_PREREGISTRATION_AUTHORIZED_FORMAL_BLOCKED`
 
 ## Objective
 
@@ -52,6 +52,13 @@ substrate error was `0.00702`. K-state, performance, formal-runner, and formal
 campaign work remain blocked. Any normalization-semantics revision requires a
 new preregistration and user authorization; the Qiu source-only contract and
 the 0.05 gate may not be changed.
+
+The user has now authorized the independent v8 preregistration as the final
+bounded vertical-semantics repair. Its config and contract tests must be
+committed and pushed before numerical work. Raw D/2D responses vote separately
+on inherited and effective-window-pullback grids; one global scale is applied
+only after depth selection; K-state and runtime are conditionally gated. This
+authorization does not authorize any formal case or Phase 2 work.
 
 ## Phase-Scoped Restrictions
 

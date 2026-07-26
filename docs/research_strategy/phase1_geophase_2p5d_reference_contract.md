@@ -36,6 +36,15 @@ non-voting result does not modify this v6 formal contract and does not authorize
 its execution. Any further normalization-semantics repair requires a new
 preregistration while keeping the source-only contract and 0.05 gate intact.
 
+That final bounded repair is now authorized under
+`configs/geophase_phase1_vertical_shape_scale_v8.yaml`. Before any new
+numerical build, the v8 contract and its static tests must be committed and
+pushed. It preserves this v6 configuration and failure history while testing
+raw material-stack D/2D convergence separately on inherited and
+effective-window-pullback grids. A passing readiness chain may create a new
+formal-v8 configuration; it cannot modify v6, execute a formal case, or claim
+scaled-depth invariance.
+
 ## Source Isolation
 
 Qiu-reported quantities, source-author-fitted lumped quantities, repository engineering priors, unresolved semantics, and withheld-curve restrictions are separated in the source-only contract. Historical M40/M40R/M44 configs may be used only as source locators and failure lessons. Their parameter votes, fields, convergence results, and claim statuses do not transfer into Phase 1.

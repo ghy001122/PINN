@@ -88,6 +88,42 @@ before the memory-capacity target is formed. These global normalizations
 preserve passivity but do not turn the fitted device-level quantities into
 local material or interface properties.
 
+The preregistered v8 shape--scale repair separates the raw material-stack
+truncation vote from the later device-effective amplitude/time normalization.
+For a candidate production depth \(D\), the area-integrated fine raw reference
+defines only the temporary coordinate ratio
+
+$$
+r_D=\frac{a_C}{a_G}
+=\frac{C_{\mathrm{target}}G_{\mathrm{raw},D}}
+{G_{\mathrm{target}}C_{\mathrm{raw},D}}.
+$$
+
+The ratio does not scale any raw coefficient or response amplitude during the
+depth vote. Instead, inherited raw grids and the effective-window pullback
+grids are evaluated independently:
+
+$$
+f_{\mathrm{raw}}=r_D f_{\mathrm{eff}},
+\qquad
+t_{\mathrm{raw}}=\frac{t_{\mathrm{eff}}}{r_D}.
+$$
+
+Each grid family must separately pass the unchanged mesh and depth limits;
+their errors may not be concatenated or averaged. Only after a raw depth is
+selected are the two positive device-level scales applied once to the selected
+fine production kernel. Scaling every conductance-like state-space coefficient
+by \(a_G\) and every passive-memory capacity by \(a_C\) gives
+
+$$
+Y_{\mathrm{eff}}(s)
+=a_GY_{\mathrm{raw}}\!\left(\frac{a_C}{a_G}s\right).
+$$
+
+This supports only device-effective amplitude/time normalization of a
+source-shape-constrained passive kernel. It does not support intrinsic local
+material calibration, Qiu-device reproduction, or scaled-depth invariance.
+
 For the Phase 1 two-copy behavior fixture,
 
 $$
@@ -272,12 +308,18 @@ matrix-free LGMRES Newton correction is subjected to the locked Armijo
 coefficient and damping floor rather than an implementation-default line
 search.
 
-The 400 and 800 nm substrate truncations are compared on held-out vertical
-step and frequency grids with NRMSE/RMSE limits of 0.05. Contact-overlap QoI
-sensitivity is always reported; geometry-robust wording is forbidden whenever
-that effect exceeds the locked spatial fine-pair discretization error. A
-literature/source-envelope trend can vote only when its variation is at least
-the numerical-noise estimate.
+The immutable v6 history used a normalized 400/800 nm substrate-truncation
+comparison. Its recorded failure remains unchanged. The separately
+preregistered v8 readiness repair instead tests raw 51.2/102.4 micrometre and,
+only when its closed fallback rule is triggered, 102.4/204.8 micrometre pairs.
+Both the inherited material-frame and pulled-back effective-window step and
+frequency grids retain the 0.05 depth and 0.01 mesh limits. A successful v8
+readiness result would require a new formal-v8 configuration and fresh user
+authorization; it would not retroactively change v6 or constitute Phase 1
+execution. Contact-overlap QoI sensitivity is always reported; geometry-robust
+wording is forbidden whenever that effect exceeds the locked spatial fine-pair
+discretization error. A literature/source-envelope trend can vote only when
+its variation is at least the numerical-noise estimate.
 
 The configured floors are \(10^{-12}\,\mathrm A\),
 \(10^{-3}\,\mathrm K\), and \(10^{-6}\) for terminal current, temperature

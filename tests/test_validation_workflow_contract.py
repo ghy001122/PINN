@@ -28,6 +28,7 @@ def test_fast_validation_covers_phase1_checkpoint_a_and_authority_paths() -> Non
         "tests/test_geophase_phase1_vertical_repair_preregistration.py",
         "tests/test_geophase_phase1_vertical_repair.py",
         "tests/test_geophase_phase1_vertical_repair_evidence.py",
+        "tests/test_geophase_phase1_vertical_shape_scale_v8_preregistration.py",
     )
     for test_path in required_tests:
         assert test_path in workflow

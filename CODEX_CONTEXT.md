@@ -26,13 +26,19 @@ A versioned, non-voting v7 vertical-reference repair screen is now
 unchanged frequency gate after pair-specific global G/C normalization, so no
 depth or K-state order was selected and no formal-v7 contract was frozen.
 
+The user has authorized one final bounded v8 shape--scale semantics repair.
+Its independent preregistration must be committed and pushed before any new
+numerical build. It changes no v6 bytes, source-only facts, gate values, formal
+case IDs, material parameters, frozen GT, or formal execution count.
+
 ## One Active Priority
 
-Stop with `formal_execution_count=0`. Checkpoint B is not ready and must not be
-authorized from the v6 contract. The single next decision is whether to
-preregister a bounded normalization-semantics repair that keeps the Qiu source
-contract and the 0.05 gate unchanged. Merely extending the depth ladder under
-pair-specific G/C re-anchoring is not supported by the v7 evidence.
+Execute only the preregistered v8 readiness chain: raw vertical shape vote,
+one selected-depth global scale, common-order K-state reduction, and only when
+both pass a bounded runtime/runner readiness preflight. Every terminal state
+keeps `formal_execution_count=0`; even a GO disposition must stop for fresh
+Checkpoint B authorization. Merely extending the depth ladder or re-anchoring
+a comparator remains forbidden.
 
 ## Claim Boundary
 

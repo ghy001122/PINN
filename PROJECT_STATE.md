@@ -16,6 +16,9 @@
 - The bounded v7 readiness repair is `failed_but_informative`: the maximum
   102.4/204.8 micrometre pair failed the unchanged depth-frequency gate after
   pair-specific G/C normalization. No depth or K-state order was selected.
+- One final bounded v8 shape--scale semantics repair is authorized but not yet
+  executed. It must preserve the v6/source/inventory bytes and formal count
+  while separating raw-stack depth voting from one selected-depth global scale.
 - No positive R1/R2 training, R3 inverse/refusal, or NbO2 validation exists.
 - All project-generated results remain literature-guided synthetic numerical digital-twin evidence. No project experimental validation exists.
 - Frozen GT v1.1 is unchanged and read-only.
@@ -58,15 +61,14 @@ Until direct evidence exists, do not claim successful Phase 1, Qiu author-code o
 
 The governance, workspace routing, source-scale contract, and Checkpoint A
 implementation are complete, but no new-route scientific phase has passed.
-Checkpoint B readiness is blocked by the demonstrated incompatibility between
-pair-specific global G/C re-anchoring and a depth-invariance vote.
+The v7 incompatibility is now routed to one last preregistered v8 semantics
+repair; Checkpoint B remains blocked until that readiness chain returns GO and
+the user separately authorizes the formal campaign.
 
 ## Next Single Priority
 
-Stop and request a user decision on a separately preregistered normalization-
-semantics repair. It must keep the source-only contract byte-identical and the
-0.05 gate unchanged, and should compare one fixed global scale across the
-depth ladder or isolate local dynamic-shape truncation from global G/C anchors.
-Until then, do not run formal cases, train a PINN, perform inverse work, fit
-device/literature parameters, add nonzero dual-device coupling, or generate
-the Phase 2 dataset.
+Execute the authorized v8 repair only after its config and tests are committed
+and pushed. Follow its vertical -> common-K -> conditional-runtime hard gates,
+stop at the first NO-GO, and keep `formal_execution_count=0`. Do not run formal
+cases, train a PINN, perform inverse work, fit device/literature parameters,
+add nonzero dual-device coupling, or generate the Phase 2 dataset.

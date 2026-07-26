@@ -4,11 +4,12 @@
 
 Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
 
-Checkpoint state: `B_READINESS_BLOCKED_VERTICAL_REFERENCE`.
+Checkpoint state: `B_READINESS_V8_PREREGISTRATION_AUTHORIZED_FORMAL_BLOCKED`.
 
-There is no authorized compute task. The single next decision is:
+There is exactly one authorized bounded task:
 
-> Decide whether to preregister one bounded normalization-semantics repair.
+> Preregister and execute the v8 raw-shape/global-scale readiness chain. The
+> preregistration commit must be pushed before any new numerical build.
 > Checkpoint B and its 96-case formal campaign remain blocked.
 
 ## Manuscript Use
@@ -56,6 +57,21 @@ preflight, formal-v7 freezing, and formal-runner work.
 Do not authorize Checkpoint B from v6. A future bounded repair must be newly
 preregistered and must not modify the Qiu source contract, 0.05 gate, 96-case
 inventory, material/source parameters, or claim boundary.
+
+## Authorized v8 Order
+
+1. Commit and push `configs/geophase_phase1_vertical_shape_scale_v8.yaml` and
+   its static contract tests before any new numerical computation.
+2. Evaluate only the 51.2/102.4 micrometre raw pair on separate inherited and
+   effective-window-pullback grids. The 102.4/204.8 pair is conditional on a
+   pure depth-gate failure after all foundation checks pass.
+3. After a raw depth passes, apply one area-integrated global G/C scale to the
+   selected fine production kernel and validate anchors/passivity/identities.
+4. Select one common K for both regions using preregistered deterministic
+   starts: K=2 first and K=3 only if K=2 is not jointly passing.
+5. Only if vertical and K pass, run the <=900 s non-formal CPU runtime
+   preflight and dormant runner-state tests. Never create a formal run ID.
+6. Stop with one preregistered GO/NO-GO disposition and formal count zero.
 
 ## Required Gates
 
