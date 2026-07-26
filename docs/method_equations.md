@@ -76,6 +76,18 @@ contact-covered reference contains the same substrate branch plus a passive
 Ti/Au overlay branch. This produces a driving-point impedance at the active
 VO2 temperature without counting its areal heat capacity twice.
 
+The raw local-stack reference supplies only relative impedance shape and
+bare/contact region contrast. One positive conductance scale factor makes the
+nominal area-integrated DC sink equal to the Qiu source-author device-level
+\(S_{\mathrm{th}}=2.06\times10^{-4}\,\mathrm{W\,K^{-1}}\). A separate
+positive capacity scale factor makes active-plane storage plus all passive
+memory storage equal to
+\(C_{\mathrm{th}}=4.96\times10^{-11}\,\mathrm{J\,K^{-1}}\). The nominal
+active VO2 storage \(1.535\times10^{-14}\,\mathrm{J\,K^{-1}}\) is subtracted
+before the memory-capacity target is formed. These global normalizations
+preserve passivity but do not turn the fitted device-level quantities into
+local material or interface properties.
+
 For the Phase 1 two-copy behavior fixture,
 
 $$
@@ -100,17 +112,28 @@ $$
 +s\log\sigma_{\mathrm{met}}(T)\right],
 $$
 
+The endmembers are device-effective uniform-limit mappings of the Qiu
+source-author resistance model, not intrinsic VO2 conductivities. With nominal
+current-path length \(L\), width \(W\), active thickness \(t\), resistance
+prefactor \(R_0\), activation temperature \(\Theta_a\), and metallic
+resistance \(R_m\),
+
 $$
-\sigma_{\mathrm{ins}}(T)=\sigma_{i0}
-\exp\!\left[-\frac{E_a}{k_B}
-\left(\frac{1}{T}-\frac{1}{T_0}\right)\right],
+\sigma_{\mathrm{ins}}^{\mathrm{eff}}(T)
+=\frac{L}{Wt\,[R_0\exp(\Theta_a/T)+R_m]},
 \qquad
-\sigma_{\mathrm{met}}(T)=
-\frac{\sigma_{m0}}{1+\alpha_m(T-T_0)} .
+\sigma_{\mathrm{met}}^{\mathrm{eff}}
+=\frac{L}{WtR_m} .
 $$
 
-The configured temperature domain must keep the metallic denominator positive;
-out-of-domain extrapolation is fail-closed.
+At the locked 325 K nominal state these are
+\(39.2883183844845\,\mathrm{S\,m^{-1}}\) and
+\(7619.04761904762\,\mathrm{S\,m^{-1}}\). The uniform-state boundary
+integral therefore recovers the corresponding source-author endmember
+resistance algebraically. Applying the closure pointwise in a nonuniform field
+is an explicit device-effective modeling assumption; it is not local material
+measurement or exact author-model reproduction. Out-of-domain extrapolation
+is fail-closed.
 
 The bounded conductive-state coordinate and differentiable branch memory obey
 

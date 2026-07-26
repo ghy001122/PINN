@@ -2,11 +2,11 @@
 
 Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
 
-Status: `authorized_contract_hardened_pending_implementation`
+Status: `authorized_contract_scale_corrected_pending_implementation`
 
 ## Objective
 
-Build the independent, conservative reference judge required before any new-route dataset or PINN claim: a Qiu-inspired VO2 coplanar single-device real x-y model with region-specific passive K-state vertical thermal memory, white-box hysteresis, differentiable terminal integration, RC coupling, and a complete energy ledger.
+Build the independent, conservative reference judge required before any new-route dataset or PINN claim: a Qiu-inspired VO2 coplanar single-device real x-y model with source-scale-normalized region-specific passive K-state vertical thermal memory, a device-effective white-box hysteresis closure, differentiable terminal integration, RC coupling, and a complete energy ledger.
 
 This phase implements Phase 1 of the authoritative execution guide. Phase 0 governance passed locally through the repository realignment evidence package. No Phase 1 scientific result is implied by activation.
 
@@ -42,15 +42,16 @@ Do not train a PINN, generate the Phase 2 formal dataset, run inverse recovery, 
 
 Every required gate must pass:
 
-1. manufactured electrical and thermal solutions;
-2. terminal-current conservation;
-3. active-plane plus all K-state energy ledger;
-4. independent spatial and temporal refinement on fixed physical comparison grids;
-5. passive K-state reduction aligned to a higher-order reference;
-6. zero-drive and uniform-conductivity limits;
-7. two-copy zero-coupling and label-symmetry limits, without a nonzero coupling claim;
-8. literature-trend sanity within the declared source/prior envelope;
-9. nonfinite, negative-passivity, ledger-tamper, and coordinate-swap failures close safely.
+1. zero-solver algebraic source-scale checks for both electrical endmembers, global thermal conductance, total capacity, and positive scale factors;
+2. manufactured electrical and thermal solutions;
+3. terminal-current conservation;
+4. active-plane plus all K-state energy ledger;
+5. independent spatial and temporal refinement on fixed physical comparison grids;
+6. passive K-state reduction aligned to a higher-order reference;
+7. zero-drive and uniform-conductivity limits;
+8. two-copy zero-coupling and label-symmetry limits, without a nonzero coupling claim;
+9. literature-trend sanity within the declared source/prior envelope;
+10. nonfinite, negative-passivity, ledger-tamper, and coordinate-swap failures close safely.
 
 Conservation without mesh and time convergence is insufficient. Finite output is insufficient. Source-envelope variation below discretization error is non-voting.
 

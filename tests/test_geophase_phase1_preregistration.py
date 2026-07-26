@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import math
 from pathlib import Path
 
 import pytest
@@ -24,9 +25,11 @@ def _source() -> dict:
 def test_geophase_phase1_identity_and_fail_closed_scope() -> None:
     cfg = _config()
     assert cfg["task_id"] == "Q2_PHASE1_2P5D_REFERENCE"
-    assert cfg["schema_version"] == "geophase_phase1_2p5d_reference_v2"
+    assert cfg["schema_version"] == "geophase_phase1_2p5d_reference_v3"
     assert cfg["phase_id"] == "Q2_PHASE1_2P5D_REFERENCE_SOLVER"
-    assert cfg["status"] == "preregistered_contract_hardened_pending_implementation"
+    assert cfg["status"] == (
+        "preregistered_contract_scale_corrected_pending_implementation"
+    )
     assert cfg["evidence_type"] == (
         "literature_guided_solver_generated_synthetic_numerical_digital_twin"
     )
@@ -93,6 +96,7 @@ def test_source_only_contract_separates_facts_priors_and_history() -> None:
     assert "inherited_provenance_config" not in primary
 
     source = _source()
+    assert source["schema_version"] == "qiu_vo2_phase1_source_contract_v2"
     assert source["contract_id"] == "QIU_VO2_PHASE1_SOURCE_ONLY"
     assert source["primary_source"]["doi"] == "10.1002/adma.202306818"
     assert source["literature_reported"]["geometry"]["vo2_width_m"]["value"] > 0.0
@@ -111,6 +115,65 @@ def test_source_only_contract_separates_facts_priors_and_history() -> None:
     assert history["inherit_claim_status"] is False
 
 
+def test_source_scale_normalization_recovers_uniform_endmembers_and_global_thermal_anchors() -> None:
+    cfg = _config()
+    source = _source()
+    geometry = cfg["geometry"]["primary_single_device"]
+    electrical = cfg["parameter_contract"]["vo2_conductivity"]
+    source_fits = source["source_author_fitted_lumped_quantities"]
+    mapping = source["phase1_device_effective_normalization"]
+
+    area = geometry["vo2_width_m"] * geometry["vo2_thickness_m"]
+    length = geometry["vo2_length_m"]
+    temperature = electrical["reference_temperature_K"]
+    expected_insulating_resistance = (
+        source_fits["resistance_prefactor_ohm"]["value"]
+        * math.exp(source_fits["activation_temperature_K"]["value"] / temperature)
+        + source_fits["metallic_resistance_ohm"]["value"]
+    )
+    recovered_insulating_resistance = length / (
+        area * electrical["sigma_ins_ref_S_m"]
+    )
+    recovered_metallic_resistance = length / (
+        area * electrical["sigma_met_ref_S_m"]
+    )
+    assert recovered_insulating_resistance == pytest.approx(
+        expected_insulating_resistance, rel=1.0e-14
+    )
+    assert recovered_metallic_resistance == pytest.approx(
+        source_fits["metallic_resistance_ohm"]["value"], rel=1.0e-14
+    )
+    assert electrical["sigma_ins_ref_S_m"] == pytest.approx(
+        mapping["electrical_uniform_limit"][
+            "derived_insulating_endmember_conductivity_S_m"
+        ]
+    )
+
+    thermal = cfg["vertical_reference"]["device_effective_normalization"]
+    active_capacity = (
+        cfg["parameter_contract"]["active_plane_thermal"][
+            "vo2_volumetric_heat_capacity_J_m3K"
+        ]
+        * geometry["vo2_length_m"]
+        * geometry["vo2_width_m"]
+        * geometry["vo2_thickness_m"]
+    )
+    assert active_capacity == pytest.approx(
+        thermal["nominal_active_vo2_capacity_J_K"], rel=1.0e-14
+    )
+    assert (
+        active_capacity + thermal["nominal_memory_capacity_target_J_K"]
+    ) == pytest.approx(thermal["nominal_total_thermal_capacity_J_K"], rel=1.0e-14)
+    assert thermal["nominal_total_thermal_conductance_W_K"] == pytest.approx(
+        source_fits["lumped_thermal_conductance_W_K"]["value"]
+    )
+    assert thermal["nominal_total_thermal_capacity_J_K"] == pytest.approx(
+        source_fits["lumped_thermal_capacitance_J_K"]["value"]
+    )
+    assert thermal["passivity_after_scaling_required"] is True
+    assert thermal["local_intrinsic_parameter_claim"] == "forbidden"
+
+
 def test_material_kernels_and_state_semantics_cannot_be_blended() -> None:
     cfg = _config()
     primary = cfg["source_contract"]["primary_device"]
@@ -127,6 +190,10 @@ def test_material_kernels_and_state_semantics_cannot_be_blended() -> None:
     assert state["free_log_conductivity_head"] == "forbidden"
     assert state["oxygen_vacancy_field"] == "forbidden"
     assert "project_engineering_closure" in state["branch_closure"]["equation_role"]
+    assert isinstance(
+        cfg["parameter_contract"]["vo2_phase_shape"]["branch_rate_scale_K_s"],
+        float,
+    )
 
 
 def test_k_state_selection_is_region_specific_passive_and_predeclared() -> None:
@@ -154,6 +221,8 @@ def test_k_state_selection_is_region_specific_passive_and_predeclared() -> None:
     assert fit["method"] == "nonnegative_passive_least_squares"
     assert fit["step_window_s"] == [0.0, 2.0e-5]
     assert fit["frequency_fit_grid_Hz"]["points"] >= 32
+    assert isinstance(fit["frequency_fit_grid_Hz"]["start"], float)
+    assert isinstance(fit["frequency_fit_grid_Hz"]["stop"], float)
     assert sum(fit["response_weights"].values()) == pytest.approx(1.0)
     assert fit["optimizer_relative_objective_tolerance"] <= 1.0e-10
     assert fit["gates_vote_on_validation_grids_not_fit_grids"] is True
@@ -254,8 +323,18 @@ def test_synthetic_parameter_lock_is_explicit_and_not_qiu_calibration() -> None:
     assert params["vo2_phase_shape"]["T_c_up_K"] > params["vo2_phase_shape"]["T_c_down_K"]
     assert params["vo2_phase_shape"]["transition_width_K"] > 0.0
     assert params["vo2_conductivity"]["sigma_met_ref_S_m"] > params["vo2_conductivity"]["sigma_ins_ref_S_m"]
+    assert params["vo2_conductivity"]["kind"].startswith("qiu_uniform_limit_")
+    assert "device_effective" in params["vo2_conductivity"]["semantics"]
     assert "not_Qiu_local_measurement" in params["vo2_conductivity"]["provenance"]
     assert params["passive_region_materials"]["ideal_thermal_interfaces"] is True
+    for material in params["passive_region_materials"]:
+        if isinstance(params["passive_region_materials"][material], dict):
+            assert isinstance(
+                params["passive_region_materials"][material][
+                    "volumetric_heat_capacity_J_m3K"
+                ],
+                float,
+            )
     assert params["validity"]["extrapolation_outside_range"] == "forbidden"
 
 
@@ -272,6 +351,15 @@ def test_phase1_gates_and_unlock_do_not_accept_finite_only_success() -> None:
     assert gates["literature_trend"]["failure_interpretation"].startswith(
         "failed_but_informative"
     )
+    assert gates["literature_trend"]["role"].endswith(
+        "not_independent_external_validation"
+    )
+
+    preflights = cfg["analytic_source_scale_preflights"]
+    assert preflights["role"].endswith("not_scientific_results")
+    assert preflights["require_positive_electrical_endmembers"] is True
+    assert preflights["require_positive_thermal_scale_factors"] is True
+    assert preflights["failure_policy"].startswith("block_")
 
     assert cfg["unlock"]["phase2_dataset_generation"] == "all_required_phase1_gates_pass"
     assert cfg["unlock"]["nonzero_dual_device_coupling"].startswith("forbidden_until_")

@@ -14,7 +14,7 @@
     },
     "current_handoff": {
       "status": "pass",
-      "bytes": 1209,
+      "bytes": 1291,
       "missing_markers": []
     },
     "single_current_snapshot": {
@@ -94,13 +94,13 @@
     "low_token_context_budget": {
       "status": "pass",
       "limit_bytes": 24576,
-      "total_bytes": 18817,
+      "total_bytes": 19847,
       "files": {
-        "CODEX_CONTEXT.md": 2450,
-        "docs/research_strategy/active_phase.md": 4178,
-        "PROJECT_STATE.md": 4077,
-        "NEXT_ACTIONS.md": 2938,
-        "docs/project_state/current_evidence_index.md": 5174
+        "CODEX_CONTEXT.md": 2611,
+        "docs/research_strategy/active_phase.md": 4325,
+        "PROJECT_STATE.md": 4369,
+        "NEXT_ACTIONS.md": 3266,
+        "docs/project_state/current_evidence_index.md": 5276
       }
     },
     "retired_generator_guard": {

@@ -1,19 +1,22 @@
 # PINN Phase-Transition Device Research
 
-This repository is a reproducible Python 3.11 research codebase and evidence package for a Q2 SCI delivery objective. The current work is the contract-hardened implementation stage for an independent, conservative Qiu-inspired VO2 single-device 2.5D reference solver. No Phase 1 solver result, positive PINN result, inverse result, or experimental validation exists yet.
+This repository is a reproducible Python 3.11 research codebase and evidence package for a Q2 SCI delivery objective. The current work is the source-scale-corrected implementation stage for an independent, conservative Qiu-inspired VO2 single-device 2.5D reference solver. No Phase 1 solver result, positive PINN result, inverse result, or experimental validation exists yet.
+
+## Workspace preflight
+
+Read [LIVE_WORKSPACE.md](LIVE_WORKSPACE.md) before mutation. It distinguishes a verified Git checkout from machine-local archives and read-only project mirrors; its absolute paths are observations for the current workstation, not portable scientific authority.
 
 ## Authoritative entry chain
 
-1. [LIVE_WORKSPACE.md](LIVE_WORKSPACE.md)
-2. [CODEX_CONTEXT.md](CODEX_CONTEXT.md)
-3. [PROJECT_GOAL.md](PROJECT_GOAL.md)
-4. [PROJECT_STATE.md](PROJECT_STATE.md)
-5. [active_phase.md](docs/research_strategy/active_phase.md)
-6. [NEXT_ACTIONS.md](NEXT_ACTIONS.md)
-7. [current_evidence_index.md](docs/project_state/current_evidence_index.md)
-8. [Q2 SCI execution guide](docs/research_strategy/pinn_phase_change_q2_sci_execution_guide.md)
-9. [Phase 1 technical contract](docs/research_strategy/phase1_geophase_2p5d_reference_contract.md)
-10. [Qiu Phase 1 source-only contract](configs/qiu_vo2_phase1_source_contract.yaml)
+1. [CODEX_CONTEXT.md](CODEX_CONTEXT.md)
+2. [PROJECT_GOAL.md](PROJECT_GOAL.md)
+3. [PROJECT_STATE.md](PROJECT_STATE.md)
+4. [active_phase.md](docs/research_strategy/active_phase.md)
+5. [NEXT_ACTIONS.md](NEXT_ACTIONS.md)
+6. [current_evidence_index.md](docs/project_state/current_evidence_index.md)
+7. [Q2 SCI execution guide](docs/research_strategy/pinn_phase_change_q2_sci_execution_guide.md)
+8. [Phase 1 technical contract](docs/research_strategy/phase1_geophase_2p5d_reference_contract.md)
+9. [Qiu Phase 1 source-only contract](configs/qiu_vo2_phase1_source_contract.yaml)
 
 `AGENTS.md` and nested `AGENTS.md` files govern execution, evidence, and claim discipline. Archived strategy and manuscripts are provenance only and cannot authorize current work.
 

@@ -9,7 +9,7 @@ The Phase 0 snapshot contains 1070 rows and must retain its original hashes and 
 | File | Responsibility |
 | --- | --- |
 | `AGENTS.md` and nested instruction files | Long-lived execution, ethics, engineering, frozen-evidence, and subtree constraints. |
-| `LIVE_WORKSPACE.md` | Routes edits/tests/Git to the one live checkout and separates external archives/reference layers. |
+| `LIVE_WORKSPACE.md` | Defines portable live-checkout identity and records current-machine checkout/archive routing without making absolute paths universal. |
 | `PROJECT_GOAL.md` | Stable Q2 delivery ladder and Definition of Done. |
 | `CODEX_CONTEXT.md` | Low-token current route, boundary, and one priority. |
 | `PROJECT_STATE.md` | Single authoritative current fact snapshot. |
@@ -17,7 +17,7 @@ The Phase 0 snapshot contains 1070 rows and must retain its original hashes and 
 | `NEXT_ACTIONS.md` | Single current execution queue. |
 | canonical execution guide | Full R1/R2/R3 research, downgrade, paper, and reviewer-defense plan. |
 | Phase 1 technical contract and YAML | Current solver-only implementation/gate contract. |
-| `configs/qiu_vo2_phase1_source_contract.yaml` | Source-only Qiu facts, fitted-lumped quantities, priors, unresolved semantics, and historical non-inheritance boundary. |
+| `configs/qiu_vo2_phase1_source_contract.yaml` | Source-only Qiu facts, fitted-lumped quantities, device-effective scale-normalization rules, priors, unresolved semantics, and historical non-inheritance boundary. |
 | `docs/project_state/current_evidence_index.md` | Current/historical/candidate/forbidden evidence router. |
 | `docs/archive/README.md` | Historical lifecycle and replacement index. |
 
@@ -43,8 +43,9 @@ The Phase 0 snapshot contains 1070 rows and must retain its original hashes and 
 - `docs/method_equations.md`
 - `tests/test_geophase_phase1_preregistration.py`
 - `docs/codex_reports/phase1_contract_hardening_workspace_cleanup_2026-07-26.md`
+- `docs/codex_reports/executive_guide_alignment_source_scale_review_2026-07-26.md`
 
-No Phase 1 implementation or scientific output is listed because none exists yet. The hardened preregistration does not count as solver evidence.
+No Phase 1 implementation or scientific output is listed because none exists yet. The scale-corrected preregistration and its algebraic tests do not count as solver evidence.
 
 ## Local Non-Repository Assets
 

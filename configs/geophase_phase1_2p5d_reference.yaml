@@ -1,7 +1,7 @@
 task_id: Q2_PHASE1_2P5D_REFERENCE
-schema_version: geophase_phase1_2p5d_reference_v2
+schema_version: geophase_phase1_2p5d_reference_v3
 phase_id: Q2_PHASE1_2P5D_REFERENCE_SOLVER
-status: preregistered_contract_hardened_pending_implementation
+status: preregistered_contract_scale_corrected_pending_implementation
 evidence_type: literature_guided_solver_generated_synthetic_numerical_digital_twin
 manuscript_use: independent_reference_and_conservation_judge_for_later_geophase_pinn
 
@@ -108,23 +108,31 @@ parameter_contract:
     transition_width_K: 7.19
     state_relaxation_s: 1.0e-9
     branch_relaxation_s: 1.0e-9
-    branch_rate_scale_K_s: 1.0e7
+    branch_rate_scale_K_s: 1.0e+7
     provenance: literature_shape_mapping_plus_engineering_dynamic_priors
   vo2_conductivity:
+    kind: qiu_uniform_limit_normalized_device_effective_endmember_mix
     reference_temperature_K: 325.0
-    sigma_ins_ref_S_m: 1.0e-2
-    sigma_met_ref_S_m: 10000.0
-    insulating_activation_eV: 0.12
-    metallic_temperature_coefficient_K_inv: 1.0e-3
-    provenance: existing_generic_vo2_engineering_prior_not_Qiu_local_measurement
+    effective_current_path_m: 1.0e-7
+    effective_width_m: 5.0e-7
+    active_thickness_m: 1.0e-7
+    source_resistance_prefactor_ohm: 5.359e-3
+    source_metallic_resistance_ohm: 262.5
+    source_activation_temperature_K: 5220.0
+    sigma_ins_ref_S_m: 39.2883183844845
+    sigma_met_ref_S_m: 7619.04761904762
+    insulating_endmember_rule: length_divided_by_width_thickness_and_R0_exp_activation_temperature_over_T_plus_Rm
+    metallic_endmember_rule: length_divided_by_width_thickness_and_Rm
+    provenance: source_author_fitted_device_resistance_uniform_limit_mapping_not_Qiu_local_measurement
+    semantics: device_effective_local_closure_not_intrinsic_VO2_conductivity
   active_plane_thermal:
     vo2_thermal_conductivity_W_mK: 4.0
-    vo2_volumetric_heat_capacity_J_m3K: 3.07e6
+    vo2_volumetric_heat_capacity_J_m3K: 3.07e+6
     provenance: literature_guided_and_engineering_priors_routed_by_source_only_contract
   passive_region_materials:
-    ti: {thermal_conductivity_W_mK: 21.9, volumetric_heat_capacity_J_m3K: 2.35e6, provenance: engineering_prior}
-    au: {thermal_conductivity_W_mK: 317.0, volumetric_heat_capacity_J_m3K: 2.49e6, provenance: engineering_prior}
-    al2o3: {thermal_conductivity_W_mK: 35.0, volumetric_heat_capacity_J_m3K: 3.00e6, provenance: engineering_prior}
+    ti: {thermal_conductivity_W_mK: 21.9, volumetric_heat_capacity_J_m3K: 2.35e+6, provenance: engineering_prior}
+    au: {thermal_conductivity_W_mK: 317.0, volumetric_heat_capacity_J_m3K: 2.49e+6, provenance: engineering_prior}
+    al2o3: {thermal_conductivity_W_mK: 35.0, volumetric_heat_capacity_J_m3K: 3.00e+6, provenance: engineering_prior}
     ideal_thermal_interfaces: true
     interface_provenance: engineering_prior_not_Qiu_measurement
   validity:
@@ -192,13 +200,26 @@ vertical_reference:
   spatial_cells_per_layer_min: 8
   fine_pair_multiplier: 2
   provenance: layer_properties_are_literature_guided_or_engineering_priors_not_measurements
+  device_effective_normalization:
+    status: locked_source_author_model_scale_anchor
+    nominal_total_thermal_conductance_W_K: 2.06e-4
+    nominal_total_thermal_capacity_J_K: 4.96e-11
+    nominal_active_vo2_capacity_J_K: 1.535e-14
+    nominal_memory_capacity_target_J_K: 4.958465e-11
+    conductance_scaling_rule: one_positive_global_factor_on_raw_regional_passive_conductances_to_match_area_integrated_dc_sink
+    capacity_scaling_rule: one_positive_global_factor_on_raw_regional_passive_capacities_to_match_total_capacity_after_active_plane_subtraction
+    raw_stack_role: relative_impedance_shape_and_region_contrast_only
+    passivity_after_scaling_required: true
+    repository_parameter_fit: false
+    independent_external_validation: false
+    local_intrinsic_parameter_claim: forbidden
   reduction_fit_contract:
     method: nonnegative_passive_least_squares
     step_window_s: [0.0, 2.0e-5]
     impulse_width_s: 1.0e-10
     time_fit_grid: {kind: logspace_plus_zero, start_s: 1.0e-10, stop_s: 2.0e-5, points: 128}
     time_validation_grid: geometric_midpoints_of_fit_grid
-    frequency_fit_grid_Hz: {kind: logspace, start: 1.0e3, stop: 1.0e10, points: 64}
+    frequency_fit_grid_Hz: {kind: logspace, start: 1.0e+3, stop: 1.0e+10, points: 64}
     frequency_validation_grid: geometric_midpoints_of_fit_grid
     response_weights: {step: 0.4, impulse: 0.2, frequency_log_magnitude: 0.4}
     optimizer_relative_objective_tolerance: 1.0e-10
@@ -288,6 +309,16 @@ metric_contract:
   field_weighting: uniform_physical_area_and_uniform_fixed_time_grid
   event_time_matching: ordered_threshold_crossings_without_post_hoc_time_warping
 
+analytic_source_scale_preflights:
+  role: zero_solver_algebraic_contract_checks_not_scientific_results
+  uniform_insulating_resistance_relative_error_max: 1.0e-12
+  uniform_metallic_resistance_relative_error_max: 1.0e-12
+  active_plus_memory_capacity_relative_error_max: 1.0e-12
+  area_integrated_dc_thermal_conductance_relative_error_max: 1.0e-12
+  require_positive_electrical_endmembers: true
+  require_positive_thermal_scale_factors: true
+  failure_policy: block_implementation_smoke_and_repair_contract
+
 formal_case_inventory:
   vertical_reference_and_reduction:
     region_ids: [bare_vo2, electrode_covered_vo2]
@@ -365,6 +396,7 @@ gates:
   decoupled_dual_copy_relative_error_max: 1.0e-6
   dual_copy_symmetry_relative_error_max: 1.0e-6
   literature_trend:
+    role: source_model_consistency_gate_not_independent_external_validation
     quiescent_9V_post_warmup_threshold_crossings_max: 0
     transition_12p5V_post_warmup_threshold_crossings_min: 2
     high_bias_15V_final_domain_mean_s_min: 0.90

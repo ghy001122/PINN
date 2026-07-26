@@ -2,6 +2,16 @@
 
 > Do not load by default. Current claim/evidence routing is `docs/project_state/current_evidence_index.md`; use this file only to trace a named historical run.
 
+## Phase 1 executive-guide and source-scale contract audit (2026-07-26)
+
+- Type: repository governance, preregistration correction, and zero-solver algebraic contract checks; no scientific experiment.
+- Base SHA: `a0c33505d286bf43688da88d5c041e59ba18e6ff`.
+- Preserved all imported execution-guide headings and recorded the source SHA-256 plus bounded repository adaptations.
+- Replaced the nonportable one-path workspace rule with repository-identity and safety checks.
+- Locked analytic device-effective electrical endmembers and positive global thermal-scale normalization to admitted Qiu author-model quantities without treating them as local measurements or independent validation.
+- Evidence: Phase 1/source YAML contracts, `tests/test_geophase_phase1_preregistration.py`, and `docs/codex_reports/executive_guide_alignment_source_scale_review_2026-07-26.md`.
+- Claim impact: no scientific claim upgraded; Phase 1 remains pending implementation.
+
 ## E1F/E1F-R Qiu author compact audit (2026-07-21)
 
 - Original task: `Q2_E1F_QIU_AUTHOR_MODEL_EXTERNAL_ANCHOR_AND_BRIDGE_AUDIT`;

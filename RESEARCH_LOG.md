@@ -2,6 +2,12 @@
 
 > Do not load by default. Use `PROJECT_STATE.md`, `NEXT_ACTIONS.md`, and the latest task report for current work.
 
+## Executive-Guide Alignment And Source-Scale Review
+
+Date: 2026-07-26
+
+Audited the post-realignment workspace against the imported Q2 execution guide. The R1/R2/R3 route, Phase 1-first ordering, historical evidence, and claim boundaries were retained, but two preimplementation contradictions were corrected: the tracked workspace identity no longer requires one absolute Windows path, and the Phase 1 electrical/thermal contract now maps admitted Qiu author-model quantities only to nominal device-effective uniform/global scales. Algebraic preflights recover both electrical endmember resistances and total thermal conductance/capacity while explicitly forbidding intrinsic-property, calibration, or validation claims. No solver, PINN, inverse, or scientific gate was executed. Report: `docs/codex_reports/executive_guide_alignment_source_scale_review_2026-07-26.md`.
+
 ## E1F Source Audit And Literal-S3 Corrective Vote
 
 Date: 2026-07-21

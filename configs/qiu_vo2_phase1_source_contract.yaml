@@ -1,4 +1,4 @@
-schema_version: qiu_vo2_phase1_source_contract_v1
+schema_version: qiu_vo2_phase1_source_contract_v2
 contract_id: QIU_VO2_PHASE1_SOURCE_ONLY
 status: locked_source_classification
 evidence_type: external_literature_and_explicit_engineering_priors
@@ -69,11 +69,44 @@ source_author_fitted_lumped_quantities:
   admissible_use:
     - same_role_lumped_circuit_or_hysteresis_shape_prior_in_the_synthetic_benchmark
     - qualitative_source_trend_context
+    - nominal_uniform_limit_device_effective_scale_normalization_with_explicit_nonintrinsic_semantics
   forbidden_use:
     - direct_local_pde_material_parameter_assignment
     - direct_local_boundary_conductance_assignment
     - evidence_of_phase1_solver_accuracy
   critical_warning: lumped_thermal_quantities_include_device_electrodes_and_substrate_and_are_not_local_2p5d_parameters
+
+phase1_device_effective_normalization:
+  status: locked_analytic_mapping_not_repository_curve_fit
+  scientific_role: make_the_nominal_synthetic_benchmark_source_scale_consistent_without_claiming_local_material_calibration
+  electrical_uniform_limit:
+    effective_current_path_m: 1.0e-7
+    effective_width_m: 5.0e-7
+    active_thickness_m: 1.0e-7
+    reference_temperature_K: 325.0
+    insulating_endmember_resistance_rule: R0_times_exp_activation_temperature_over_T_plus_Rm
+    metallic_endmember_resistance_rule: Rm
+    derived_insulating_endmember_conductivity_S_m: 39.2883183844845
+    derived_metallic_endmember_conductivity_S_m: 7619.04761904762
+    mapping_rule: sigma_effective_equals_length_divided_by_width_thickness_and_source_author_endmember_resistance
+  thermal_global_scale:
+    nominal_total_conductance_W_K: 2.06e-4
+    nominal_total_capacity_J_K: 4.96e-11
+    conductance_rule: multiply_all_raw_regional_passive_conductances_by_one_positive_factor_so_area_integrated_dc_sink_matches_nominal_total_conductance
+    capacity_rule: multiply_all_raw_regional_passive_capacities_by_one_positive_factor_so_active_plane_plus_memory_capacity_matches_nominal_total_capacity
+    raw_stack_role: relative_impedance_shape_and_region_contrast_only
+    normalization_preserves_passivity: true
+  interpretation:
+    repository_parameter_fit: false
+    independent_external_validation: false
+    local_intrinsic_material_property: false
+    exact_author_model_reproduction: false
+    allowed_wording: source_author_model_scale_anchored_device_effective_synthetic_closure
+    forbidden_wording:
+      - measured_local_VO2_conductivity
+      - measured_local_thermal_boundary_conductance
+      - repository_calibrated_Qiu_device
+      - independent_experimental_validation
 
 phase1_engineering_priors:
   contact_overlap_nominal_m: 2.0e-8
@@ -84,9 +117,9 @@ phase1_engineering_priors:
   ti_thermal_conductivity_W_mK: 21.9
   au_thermal_conductivity_W_mK: 317.0
   al2o3_thermal_conductivity_W_mK: 35.0
-  ti_volumetric_heat_capacity_J_m3K: 2.35e6
-  au_volumetric_heat_capacity_J_m3K: 2.49e6
-  al2o3_volumetric_heat_capacity_J_m3K: 3.00e6
+  ti_volumetric_heat_capacity_J_m3K: 2.35e+6
+  au_volumetric_heat_capacity_J_m3K: 2.49e+6
+  al2o3_volumetric_heat_capacity_J_m3K: 3.00e+6
   ideal_thermal_interfaces_for_phase1: true
   provenance: engineering_prior_or_literature_guided_not_qiu_local_measurement
 

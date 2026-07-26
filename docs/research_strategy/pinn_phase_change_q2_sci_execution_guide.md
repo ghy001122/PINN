@@ -1,12 +1,23 @@
 # PINN × 氧化物相变器件二区 SCI 研究执行总指南
 
-> **版本**：v1.0（2026-07-25）  
+> **版本**：v1.1-repository-adapted（2026-07-26）  
 > **项目模式**：`Q2_SCI_DELIVERY_MODE`  
 > **时间约束**：以一个自然月完成核心研究与论文初稿为默认预算；若时间增加，只扩展已通过证据门的路线。  
 > **研究边界**：项目自身结果均为 **literature-guided synthetic numerical digital-twin evidence**；文献曲线数字化不等于自有实验，作者模型复现不等于独立实验验证。  
 > **主材料**：Qiu 等 VO₂ 共面 thermal neuristor。  
 > **辅助材料**：Chen 等 SnSe/NbO₂ 垂直阈值开关器件。  
 > **核心目标**：以真实 2.5D 器件物理为底座，使 PINN 在正向场预测、跨工况泛化或受限逆问题中承担不可替代的正面方法角色，并形成一篇逻辑闭合、证据可复现、边界诚实的二区 SCI 论文。
+
+## Repository adaptation record
+
+The imported v1.0 source guide has SHA-256 `759DC17CBD7D6C884AF25F71ABF00ED833EEBDD7E7E477604B33EA7E6A75B517`. This repository copy is the canonical executable guide and intentionally records four bounded Phase 1 adaptations rather than silently changing the imported text:
+
+1. the active-phase path is the existing `docs/research_strategy/active_phase.md`;
+2. the numerical contract locks adaptive implicit backward Euler plus independent time refinement instead of leaving BDF/Radau as an implementation choice;
+3. the formal baseline resolves one device; nonzero dual-device coupling is deferred until an explicit substrate surface field or independently validated passive nonlocal kernel exists;
+4. source-author-fitted Qiu resistance and thermal quantities constrain only nominal device-effective uniform/global scales. Local stack models determine spatial and dynamic shape, and every use remains non-intrinsic, non-experimental, and non-validating.
+
+These adaptations narrow unsupported claims and remove implementation ambiguity. They do not upgrade any scientific result.
 
 ---
 
@@ -284,6 +295,8 @@ Q_z=G_0(T-z_1).
 
 K-state 必须通过高阶热核、细化 3D/2.5D 参考模型或文献 ODE 响应进行阶数选择。不能只因为 K=2 看起来复杂就采用。
 
+Phase 1 的局部材料栈只提供被动热阻抗的相对形状。名义器件上，区域热核的面积积分直流热导和总储热量必须分别归一到 Qiu 作者拟合的器件级 \(S_{\mathrm{th}}\) 与 \(C_{\mathrm{th}}\)；其中显式 VO₂ 面内储热先从目标总热容中扣除。该归一化是 source-author-model scale anchoring，不是局部材料参数测量、仓库侧曲线拟合或独立实验校准。
+
 ## 3.5 VO₂ 白盒迟滞闭包
 
 最低可行闭包：
@@ -308,6 +321,18 @@ T_c(b)=\frac{1+b}{2}T_c^\uparrow+
 \exp\left[(1-s)\log\sigma_{\mathrm{ins}}(T)
 +s\log\sigma_{\mathrm{met}}(T)\right].
 \]
+
+名义均匀温度/均匀状态极限下，两个端元电导率必须由 Qiu 作者拟合的器件级 \(R(T)\) 与当前几何解析换算，使面积分端口电阻恢复同角色的绝缘/金属端元：
+
+\[
+\sigma_{\mathrm{ins}}^{\mathrm{eff}}(T)
+=\frac{L}{Wt\,[R_0\exp(\Theta_a/T)+R_m]},
+\qquad
+\sigma_{\mathrm{met}}^{\mathrm{eff}}
+=\frac{L}{WtR_m}.
+\]
+
+这些量只能称为 device-effective local closure。禁止将其解释为 VO₂ 本征电导率，禁止把均匀极限归一化写成真实局部场校准。
 
 变量 \(s\) 的论文名称只能是：
 
@@ -708,6 +733,7 @@ src/pinnpcm/
 
 - 面内扩散＋焦耳热；
 - 裸露 VO₂ 区与电极覆盖 VO₂ 区分别采用 K-state 垂向热记忆，禁止重复计入 active-plane VO₂ 储能；
+- 高阶局部材料栈只决定热阻抗形状；名义区域核的面积积分 \(G\) 和总 \(C\) 分别归一到 source-author-fitted device-scale anchors，并先扣除显式 active-plane VO₂ 热容；
 - 自适应隐式 backward Euler 推进，并进行独立时间步细化；
 - Phase 1 正式基线只解析单 neuristor；双器件仅用两个独立副本验证零耦合与标签对称性。
 

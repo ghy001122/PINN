@@ -6,7 +6,7 @@
 - Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
 - Phase 0 repository realignment established one current authority chain, one guide, one handoff, one active phase, and one next task. This is a governance/reproducibility result, not scientific evidence.
 - R1 `HysGeo-Hybrid-PINN` is the minimum manuscript route; R2 `GeoPhase-HomoMoE-PINN` is the preferred method upgrade; R3 observable-subspace/OQ is conditional and non-blocking.
-- The target Phase 1 benchmark is a Qiu-inspired VO2 coplanar single-device x-y domain with separate bare-VO2 and electrode-covered-VO2 passive K-state vertical memories. Interdevice substrate transport and nonzero dual-device coupling are deferred until an explicit substrate field or validated nonlocal kernel exists. Chen-inspired SnSe/NbO2 remains reserved for later material-specific numerical validation.
+- The target Phase 1 benchmark is a Qiu-inspired VO2 coplanar single-device x-y domain with separate bare-VO2 and electrode-covered-VO2 passive K-state vertical memories. Qiu source-author resistance and thermal fits anchor only the nominal device-effective uniform/global scales; the local stack supplies relative spatial/dynamic shape, and no intrinsic-property or independent-validation claim follows. Interdevice substrate transport and nonzero dual-device coupling are deferred until an explicit substrate field or validated nonlocal kernel exists. Chen-inspired SnSe/NbO2 remains reserved for later material-specific numerical validation.
 - No Phase 1 solver execution, positive R1/R2 training, R3 inverse/refusal, or NbO2 validation exists.
 - All project-generated results remain literature-guided synthetic numerical digital-twin evidence. No project experimental validation exists.
 - Frozen GT v1.1 is unchanged and read-only.
@@ -16,7 +16,7 @@
 | Item | Status | Boundary |
 | --- | --- | --- |
 | Phase 0 governance and repository baseline | `supported` | File, link, frozen-hash, test, and Git checks only; no scientific vote. |
-| Phase 1 equations, source-only config, hardened numerical lock, and gate contract | `supported` as preregistration facts | Grid/time/protocol/tolerance/metric/K-state/96-case definitions exist; implementation and results remain absent. |
+| Phase 1 equations, source-only config, source-scale normalization, hardened numerical lock, and gate contract | `supported` as preregistration facts | Analytic electrical/thermal normalization, grid/time/protocol/tolerance/metric/K-state/96-case definitions exist; implementation and results remain absent. |
 | Phase 1 conservative 2.5D reference | `forbidden` as a result claim | Requires every configured solver gate. |
 | R1, R2, and R3 positive claims | `forbidden` | Each requires its own downstream direct evidence. |
 
@@ -44,7 +44,7 @@ Until direct evidence exists, do not claim successful Phase 1, Qiu author-code o
 
 ## Distance To Delivery
 
-The governance and Phase 1 contract ambiguities are removed, but every new-route scientific phase remains ahead. The next bottleneck is the Phase 1 reference implementation; failure blocks all later datasets and neural claims.
+The governance, workspace-routing, source-scale, and Phase 1 contract ambiguities are removed, but every new-route scientific phase remains ahead. The next bottleneck is the Phase 1 reference implementation; failure blocks all later datasets and neural claims.
 
 ## Next Single Priority
 

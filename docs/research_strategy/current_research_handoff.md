@@ -11,7 +11,7 @@ Resume in this order:
 7. `docs/research_strategy/phase1_geophase_2p5d_reference_contract.md`
 8. `configs/qiu_vo2_phase1_source_contract.yaml`
 
-Current phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`. The only task is the hardened independent conservative Qiu-inspired VO2 single-device x-y plus region-specific K-state FVM/implicit reference solver. Do not start PINN training, inverse work, device/literature parameter fitting, nonzero dual-device coupling, Phase 2 dataset generation, or NbO2 work; the locked passive K-state reduction fit remains required.
+Current phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`. The only task is the hardened independent conservative Qiu-inspired VO2 single-device x-y plus source-scale-normalized region-specific K-state FVM/implicit reference solver. First pass the locked algebraic endmember/global-scale checks. Do not start PINN training, inverse work, repository-side device/literature fitting, nonzero dual-device coupling, Phase 2 dataset generation, or NbO2 work; the passive K-state reduction remains required.
 
 Phase 0 changed governance and routing only; it created no scientific result. Frozen GT and historical negative/conditional evidence remain unchanged. Archived plans, handoffs, reports, and manuscript v1/v2 are provenance only and cannot authorize current work.
 

@@ -13,13 +13,13 @@ The repository realignment audit writes only the disposition CSV and Phase 0 mac
 
 ## Active Phase 1 Contract
 
-Validate the hardened preregistration and source isolation only:
+Validate the hardened preregistration, source isolation, and algebraic source-scale normalization only:
 
 ```powershell
 .\.venv\Scripts\python.exe -m pytest tests\test_geophase_phase1_preregistration.py -q
 ```
 
-The contract locks the single-device region topology, grid/time/protocol schedule, nonlinear tolerances, fixed comparison grids, NRMSE policy, passive K-state fit, and exact 96-case inventory. No formal solver command exists yet. Add the config-driven Phase 1 CLI only with an implemented independent solver and focused tests. Do not invent an entrypoint, generate the formal dataset, add nonzero dual-device coupling, or begin PINN/inverse work.
+The contract locks the single-device region topology, Qiu device-effective uniform/global scale mapping, grid/time/protocol schedule, nonlinear tolerances, fixed comparison grids, NRMSE policy, passive K-state fit, and exact 96-case inventory. The algebraic checks recover source-author resistance endmembers and global thermal scales but are not solver or validation evidence. No formal solver command exists yet. Add the config-driven Phase 1 CLI only with an implemented independent solver and focused tests. Do not invent an entrypoint, generate the formal dataset, add nonzero dual-device coupling, or begin PINN/inverse work.
 
 ## Locked Historical Evidence
 

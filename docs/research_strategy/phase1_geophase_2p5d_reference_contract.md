@@ -3,7 +3,7 @@
 ## Identity
 
 - Phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
-- Status: `authorized_contract_hardened_pending_implementation`
+- Status: `authorized_contract_scale_corrected_pending_implementation`
 - Manuscript use: independent truth and conservation judge for later R1/R2 work
 - Evidence type after execution: literature-guided solver-generated synthetic numerical digital-twin evidence
 - Threshold authority: `configs/geophase_phase1_2p5d_reference.yaml`
@@ -16,7 +16,7 @@ This contract narrows Phase 1 of the full execution guide. It records a preregis
 
 Qiu-reported quantities, source-author-fitted lumped quantities, repository engineering priors, unresolved semantics, and withheld-curve restrictions are separated in the source-only contract. Historical M40/M40R/M44 configs may be used only as source locators and failure lessons. Their parameter votes, fields, convergence results, and claim statuses do not transfer into Phase 1.
 
-The Qiu lumped thermal conductance and capacitance describe a device-plus-electrode-plus-substrate equivalent. They are not local material properties or local boundary conductances. Phase 1 may test qualitative voltage-regime trends but may not fit or digitize the withheld 12.5 V curve.
+The Qiu lumped thermal conductance and capacitance describe a device-plus-electrode-plus-substrate equivalent. They are not local material properties or local boundary conductances. Phase 1 uses them only as nominal global scale anchors: one positive factor normalizes the area-integrated regional DC sink, and another normalizes active-plane plus passive-memory storage. Likewise, Qiu's source-author resistance endmembers are mapped analytically to the nominal uniform-film port resistance. These are device-effective source-model normalizations, not repository parameter fits, local measurements, independent validation, or permission to score/digitize the withheld 12.5 V curve.
 
 ## Model And Topology Boundary
 
@@ -27,6 +27,10 @@ Resolve one Qiu-inspired coplanar VO2 footprint in the physical x-y plane. The x
 3. right electrode-covered VO2.
 
 The background/interdevice Al2O3 surface is not a resolved Phase 1 field. Bare and electrode-covered VO2 therefore use separately fitted passive K-state thermal impedances. The active-plane VO2 storage is excluded from those fits to prevent double counting. The bare reference contains the Al2O3 substrate branch; the contact-covered reference contains the substrate branch plus a passive Ti/Au overlay branch.
+
+The unnormalized material-stack references determine relative impedance shape and regional contrast only. Their nominal combined conductance is scaled to \(2.06\times10^{-4}\,\mathrm{W\,K^{-1}}\), and their combined memory capacity is scaled so that active VO2 plus memory equals \(4.96\times10^{-11}\,\mathrm{J\,K^{-1}}\). The nominal active-plane contribution is \(1.535\times10^{-14}\,\mathrm{J\,K^{-1}}\) and is subtracted before the memory target is formed. Positive scaling must preserve passivity.
+
+At 325 K, the nominal uniform insulating and metallic endmember conductivities are analytically locked to `39.2883183844845` and `7619.04761904762 S/m`, respectively, so the boundary-integrated uniform limit recovers the same-role Qiu author resistance endmembers. Pointwise use under nonuniform temperature is an explicit effective-closure assumption and cannot support an intrinsic-conductivity claim.
 
 Finite contacts use Dirichlet electrical boundary values. Contact resistance and thermal-boundary resistance are omitted engineering simplifications, not validated interfaces. The model is not a calibrated Qiu device, exact author-code reproduction, full multimaterial interface model, full 3D/FEM model, or experimental validation.
 
@@ -53,6 +57,7 @@ The formal configuration fixes, before implementation results are seen:
 - initial state: 0 V device voltage, all temperatures at 325 K, heating branch `b=1`, and equilibrium conductive state;
 - damped Newton tolerances, damping/Armijo bounds, fail-closed fallback, and linear tolerances;
 - K-state fit/evaluation time and frequency grids, response weights, optimizer tolerance, and validation-grid voting;
+- algebraic source-scale preflights for both uniform electrical endmembers, global thermal conductance, total capacity, and positive scale factors;
 - exact 96-case formal inventory and four-hour CPU ceiling.
 
 Implementations may fail closed or expose a contract defect. They may not tune these values after seeing formal results. A change to this lock requires an explicit protocol revision before the formal execution counter is consumed.
@@ -98,7 +103,7 @@ Do not create empty inverse, solver, or evaluation placeholders merely to match 
 
 ## Verification Gate
 
-All configured gates vote together:
+Algebraic source-scale preflights run before any solver case and do not consume the 96-case formal budget. A failure is a contract/implementation error and blocks smoke execution. After those preflights pass, all configured formal gates vote together:
 
 1. manufactured electrical linear-field, thermal source/diffusion, and K-state cases;
 2. terminal-current imbalance;

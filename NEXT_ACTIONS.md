@@ -24,15 +24,17 @@ This solver is the numerical truth judge for later R1 fields, ports, phase event
 
 ## Execution Order
 
-1. Implement the locked region masks, grid/time/protocol schedule, nonlinear tolerances, metric definitions, K-state identification, and 96-case inventory exactly as configured.
-2. Implement the independent electrical, thermal, K-state, hysteresis, circuit, and ledger pieces under responsibility-based modules; do not share the PINN discrete residual implementation.
-3. Add behavioral tests for manufactured solutions, failure paths, SI units, ports, passivity, region topology, and ledgers.
-4. Run CPU smoke and focused preflights; the sole formal bounded execution remains blocked until all preflights pass.
-5. Write JSON/CSV before figures/tables and a report; update claims and manuscript wording only after every formal gate is evaluated.
+1. Implement and pass the zero-solver algebraic source-scale checks: both uniform electrical endmembers, area-integrated DC thermal conductance, active-plus-memory capacity, and positive scale factors.
+2. Implement the locked region masks, grid/time/protocol schedule, nonlinear tolerances, metric definitions, source-scale-normalized K-state identification, and 96-case inventory exactly as configured.
+3. Implement the independent electrical, thermal, K-state, hysteresis, circuit, and ledger pieces under responsibility-based modules; do not share the PINN discrete residual implementation.
+4. Add behavioral tests for manufactured solutions, failure paths, SI units, ports, passivity, region topology, and ledgers.
+5. Run CPU smoke and focused preflights; the sole formal bounded execution remains blocked until all preflights pass.
+6. Write JSON/CSV before figures/tables and a report; update claims and manuscript wording only after every formal gate is evaluated.
 
 ## Required Gates
 
 - manufactured electrical and thermal solutions;
+- exact algebraic recovery of the source-author electrical endmember resistances and nominal global thermal scales before solver execution;
 - terminal-current conservation;
 - active-plane plus K-state full energy ledger;
 - independent mesh and time-step refinement on fixed physical comparison grids;

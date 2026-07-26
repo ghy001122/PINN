@@ -58,6 +58,7 @@ REQUIRED = [
     "outputs/tables/repository_realign_phase0_summary.json",
     "docs/codex_reports/repository_realign_phase0_2026-07-25.md",
     "docs/codex_reports/phase1_contract_hardening_workspace_cleanup_2026-07-26.md",
+    "docs/codex_reports/executive_guide_alignment_source_scale_review_2026-07-26.md",
     "docs/project_state/local_external_asset_registry.json",
     "docs/templates/codex_final_report.md",
     "src/pinnpcm/physics/AGENTS.md",
@@ -300,9 +301,11 @@ def check_phase0_report() -> dict:
 def check_workspace_routing_and_hygiene() -> dict:
     routing = read("LIVE_WORKSPACE.md")
     required_markers = [
-        r"E:\Python demo\PINN",
+        "ghy001122/PINN",
+        "Portable live-checkout identity",
+        "Current-machine routing record",
+        "No absolute Windows path is a universal precondition",
         r"E:\PINN",
-        "only live Git development repository",
         "reference layer",
         "local_external_asset_registry.json",
     ]
@@ -370,7 +373,7 @@ def check_phase1_contract_hardening() -> dict:
     source = read("configs/qiu_vo2_phase1_source_contract.yaml")
     contract = read("docs/research_strategy/phase1_geophase_2p5d_reference_contract.md")
     required_config_markers = [
-        "schema_version: geophase_phase1_2p5d_reference_v2",
+        "schema_version: geophase_phase1_2p5d_reference_v3",
         "source_only_config: configs/qiu_vo2_phase1_source_contract.yaml",
         "interdevice_substrate_resolved: false",
         "nonzero_dual_device_coupling_in_phase1: forbidden",
@@ -379,14 +382,20 @@ def check_phase1_contract_hardening() -> dict:
         "fixed_physical_comparison_time_grid:",
         "zero_signal_policy:",
         "reduction_fit_contract:",
+        "device_effective_normalization:",
+        "analytic_source_scale_preflights:",
+        "source_model_consistency_gate_not_independent_external_validation",
     ]
     required_source_markers = [
+        "schema_version: qiu_vo2_phase1_source_contract_v2",
         "literature_reported:",
         "source_author_fitted_lumped_quantities:",
         "phase1_engineering_priors:",
         "unresolved_semantics:",
         "inherit_parameter_numeric_vote: false",
         "inherit_field_or_convergence_vote: false",
+        "phase1_device_effective_normalization:",
+        "local_intrinsic_material_property: false",
     ]
     required_contract_markers = [
         "Formal Case Inventory",
@@ -394,6 +403,7 @@ def check_phase1_contract_hardening() -> dict:
         "Dual-Device Boundary",
         "nonzero dual-device",
         "without post-hoc time warping",
+        "source-scale preflights",
     ]
     missing = [
         f"config:{marker}" for marker in required_config_markers if marker not in config
@@ -406,6 +416,14 @@ def check_phase1_contract_hardening() -> dict:
     )
     if "inherited_provenance_config" in config:
         missing.append("config:historical_inherited_provenance_config_present")
+    guide = read("docs/research_strategy/pinn_phase_change_q2_sci_execution_guide.md")
+    for marker in [
+        "v1.1-repository-adapted",
+        "759DC17CBD7D6C884AF25F71ABF00ED833EEBDD7E7E477604B33EA7E6A75B517",
+        "Repository adaptation record",
+    ]:
+        if marker not in guide:
+            missing.append(f"guide:{marker}")
     return {"status": "pass" if not missing else "fail", "missing": missing}
 
 

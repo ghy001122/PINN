@@ -14,7 +14,7 @@ None of those scientific claims is currently established. All generated evidence
 
 ## Stable Delivery Lanes
 
-- R1 `HysGeo-Hybrid-PINN`: minimum must-complete route. It includes real x-y device geometry, passive K-state vertical thermal memory, a white-box hysteretic conductivity kernel, differentiable port and RC coupling, a full energy ledger, and sparse independently generated field anchors declared as hybrid supervision.
+- R1 `HysGeo-Hybrid-PINN`: minimum must-complete route. It includes real x-y device geometry, passive K-state vertical thermal memory, a white-box hysteretic conductivity kernel, differentiable port and RC coupling, a full energy ledger, and sparse independently generated field anchors declared as hybrid supervision. Qiu source-author fits may normalize nominal device-effective electrical/thermal scales but never become intrinsic local-property or experimental-validation claims.
 - R2 `GeoPhase-HomoMoE-PINN`: preferred Q2 method route. It adds transition-localized spectral mixture-of-experts capacity and dual-axis stiffness homotopy to a passed R1 foundation.
 - R3 conditional observable-subspace/OQ: high-upside extension. It requires stable solver Jacobians, event alignment, local observable-subspace stability, PINN trajectory and sensitivity fidelity, fresh nonlinear/noisy inverse tests, and refusal outside the identifiable region.
 - Historical lane: frozen 1D GT, constrained `gamma_sub`, public-data source-reproduction/identifiability bridge, failed complete phase-transition PINN work, M40/M40R/M44, OASIS, and SID/OQ remain baselines, negative evidence, provenance, and reviewer defense.
