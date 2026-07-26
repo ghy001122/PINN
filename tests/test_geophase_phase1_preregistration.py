@@ -30,9 +30,9 @@ def _stage() -> dict:
 def test_geophase_phase1_identity_and_fail_closed_scope() -> None:
     cfg = _config()
     assert cfg["task_id"] == "Q2_PHASE1_2P5D_REFERENCE"
-    assert cfg["schema_version"] == "geophase_phase1_2p5d_reference_v5"
+    assert cfg["schema_version"] == "geophase_phase1_2p5d_reference_v6"
     assert cfg["phase_id"] == "Q2_PHASE1_2P5D_REFERENCE_SOLVER"
-    assert cfg["status"] == "preregistered_v5_pending_checkpoint_a_revalidation"
+    assert cfg["status"] == "preregistered_v6_pending_checkpoint_a_revalidation"
     assert cfg["evidence_type"] == (
         "literature_guided_solver_generated_synthetic_numerical_digital_twin"
     )
@@ -60,6 +60,12 @@ def test_geophase_phase1_identity_and_fail_closed_scope() -> None:
     assert stage["current_checkpoint"] == "A_IMPLEMENTATION_AND_SMOKE_FORMAL_BLOCKED"
     assert stage["formal_execution_count"] == 0
     assert stage["formal_campaign_authorization"].startswith("blocked_")
+
+    branch = cfg["state_contract"]["branch_closure"]
+    assert branch["kind"] == "bounded_rate_activated_directional_memory"
+    assert branch["zero_temperature_rate_hold"] is True
+    assert branch["positive_activation"].startswith("squared_positive_part")
+    assert branch["negative_activation"].startswith("squared_negative_part")
 
 
 def test_phase1_is_single_device_xy_with_explicit_region_topology() -> None:

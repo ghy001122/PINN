@@ -148,12 +148,27 @@ $$
 T_c(b)=\frac{1+b}{2}T_c^\uparrow+
 \frac{1-b}{2}T_c^\downarrow,
 \qquad
+r=\tanh\!\left(\frac{\partial_tT}{r_b}\right),
+$$
+
+$$
+a_+(r)=\max(r,0)^2,
+\qquad
+a_-(r)=\max(-r,0)^2,
+$$
+
+$$
 \tau_b\partial_t b=
-\tanh\!\left(\frac{\partial_tT}{r_b}\right)-b .
+a_+(r)(1-b)-a_-(r)(1+b).
 $$
 
 Here \(s\in[0,1]\) is an effective conductive-state coordinate and
 \(b\in[-1,1]\) is a project engineering closure for heating/cooling memory.
+The squared one-sided activations are continuously differentiable at zero,
+hold \(b\) exactly when \(\partial_tT=0\), drive it toward \(+1\) during
+heating and toward \(-1\) during cooling, and preserve the bounded interval
+under the locked backward-Euler update. This avoids an unphysical relaxation
+of a stationary heating/cooling branch toward zero.
 The branch equation is not a literal implementation of Qiu equations S3--S4
 and cannot support an exact-author-model claim.
 

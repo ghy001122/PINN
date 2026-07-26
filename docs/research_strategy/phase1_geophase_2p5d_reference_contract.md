@@ -3,17 +3,19 @@
 ## Identity
 
 - Phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
-- Status: `preregistered_v5_pending_checkpoint_a_revalidation`
+- Status: `preregistered_v6_pending_checkpoint_a_revalidation`
 - Manuscript use: independent truth and conservation judge for later R1/R2 work
 - Evidence type after execution: literature-guided solver-generated synthetic numerical digital-twin evidence
 - Threshold authority: `configs/geophase_phase1_2p5d_reference.yaml`
-- Threshold schema: `geophase_phase1_2p5d_reference_v5`
+- Threshold schema: `geophase_phase1_2p5d_reference_v6`
 - Source authority: `configs/qiu_vo2_phase1_source_contract.yaml`
 - Stage routing: `configs/geo2p5d_stage.yaml`
 
-This contract narrows Phase 1 of the full execution guide. The v5 revision
-locks the remaining adaptive-step rejection caps and prior-audit vote rules
-before Checkpoint A is revalidated. It records no formal solver result. The
+This contract narrows Phase 1 of the full execution guide. The v6 revision
+retains the v5 adaptive-step and prior-audit locks and resolves a pre-formal
+inconsistency exposed by behavior testing: a stationary initial heating branch
+must not decay toward zero and immediately violate the locked branch-increment
+step trigger. It records no formal solver result. The
 sole formal execution remains blocked until fresh user authorization for
 Checkpoint B.
 
@@ -60,6 +62,8 @@ The formal configuration fixes, before implementation results are seen:
 - fixed comparison time grid: 0 to 20 microseconds at 5 ns spacing, without post-hoc event alignment;
 - protocols: 0, 9, 12, 12.5, and 15 V steps plus one locked 12.5 V pulse;
 - initial state: 0 V device voltage, all temperatures at 325 K, heating branch `b=1`, and equilibrium conductive state;
+- bounded rate-activated branch memory with exact zero-temperature-rate hold,
+  heating activation toward `b=+1`, and cooling activation toward `b=-1`;
 - damped Newton tolerances, damping/Armijo bounds, fail-closed fallback, and linear tolerances;
 - state/branch-triggered step halving, a 0.02 transition threshold, four
   rejected trials per accepted step, 1000 rejected trials per case, and

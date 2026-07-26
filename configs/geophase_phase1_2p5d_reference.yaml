@@ -1,7 +1,7 @@
 task_id: Q2_PHASE1_2P5D_REFERENCE
-schema_version: geophase_phase1_2p5d_reference_v5
+schema_version: geophase_phase1_2p5d_reference_v6
 phase_id: Q2_PHASE1_2P5D_REFERENCE_SOLVER
-status: preregistered_v5_pending_checkpoint_a_revalidation
+status: preregistered_v6_pending_checkpoint_a_revalidation
 evidence_type: literature_guided_solver_generated_synthetic_numerical_digital_twin
 manuscript_use: independent_reference_and_conservation_judge_for_later_geophase_pinn
 
@@ -99,9 +99,13 @@ state_contract:
   thermal_memory_parameters: region_specific_for_bare_and_electrode_covered_vo2
   conductive_state_semantics: effective_conductive_state_coordinate_not_measured_phase_fraction
   branch_closure:
-    kind: smoothed_temperature_rate_memory
+    kind: bounded_rate_activated_directional_memory
     equation_role: project_engineering_closure_not_literal_Qiu_S3_S4
     bounded_range: [-1.0, 1.0]
+    signed_rate_drive: tanh_temperature_rate_over_branch_rate_scale
+    positive_activation: squared_positive_part_of_signed_rate_drive
+    negative_activation: squared_negative_part_of_signed_rate_drive
+    zero_temperature_rate_hold: true
   free_log_conductivity_head: forbidden
   oxygen_vacancy_field: forbidden
 
