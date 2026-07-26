@@ -79,6 +79,9 @@ def test_v7_repair_build_budget_reuses_substrate_and_overlay_branches() -> None:
         budget["v6_reproduction_builds"]
     )
     assert budget["actual_unique_build_manifest_required"] is True
+    assert budget["every_declared_raw_builder_invoked_exactly_once"] is True
+    assert budget["build_id_spec_hash_mismatch"] == "fail_closed"
+    assert budget["implicit_overlay_rebuild_outside_registry"] == "forbidden"
     assert budget["regions_do_not_duplicate_substrate_builds"] is True
     assert repair["normalization_contract"]["per_candidate_pair"]["comparator_reanchored"] is False
 
@@ -117,6 +120,9 @@ def test_v7_repair_locks_metric_anchor_and_deterministic_grid_semantics() -> Non
     assert selection["global_anchor_voting_scope"] == "production_D_fine_only"
     assert selection["comparator_2D_anchor_role"].startswith("reported_nonvoting")
     assert set(selection["identity_relative_tolerances"].values()) == {1.0e-10}
+    definitions = selection["identity_error_definitions"]
+    assert definitions["scalar_relative_error"].startswith("abs_actual")
+    assert definitions["complex_vector_relative_error"].startswith("sqrt_mean_abs")
 
     grid = repair["nonuniform_grid"]
     generator = grid["deterministic_substrate_generator"]

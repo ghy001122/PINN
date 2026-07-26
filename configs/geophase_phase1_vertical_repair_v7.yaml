@@ -123,6 +123,10 @@ raw_numerical_build_budget:
   maximum_raw_numerical_builds: 32
   regions_do_not_duplicate_substrate_builds: true
   actual_unique_build_manifest_required: true
+  every_declared_raw_builder_invoked_exactly_once: true
+  duplicate_build_request_returns_same_cached_object: true
+  build_id_spec_hash_mismatch: fail_closed
+  implicit_overlay_rebuild_outside_registry: forbidden
   substrate_build_id_rule: substrate_depth_SI_scientific_notation_plus_grid_level
   overlay_build_ids: [ti_au_overlay_coarse, ti_au_overlay_fine]
   reuse_mapping_required: true
@@ -160,6 +164,8 @@ locked_response_contract:
   reference_role_for_mesh_error: fine_grid
   reference_role_for_depth_error: comparator_2D_fine
   pointwise_grid: held_out_geometric_midpoints_from_formal_v6_fit_grids
+  pointwise_frequency_squared_contribution: squared_log_magnitude_error_divided_by_frequency_point_count
+  pointwise_frequency_cumulative_RMSE: sqrt_cumulative_sum_squared_log_magnitude_error_divided_by_frequency_point_count
   step_metric_voting_status_unchanged: true
   impulse_metric_voting_status_unchanged: true
   frequency_metric_voting_status_unchanged: true
@@ -191,12 +197,22 @@ selection_gates:
     impulse_integral: 1.0e-10
     impulse_step_derivative: 1.0e-10
     frequency_state_space: 1.0e-10
+  identity_error_definitions:
+    scalar_relative_error: abs_actual_minus_expected_divided_by_max_abs_expected_1e_minus_30
+    real_vector_relative_error: RMS_actual_minus_expected_divided_by_max_RMS_expected_1e_minus_30
+    complex_vector_relative_error: sqrt_mean_abs_actual_minus_expected_squared_divided_by_max_sqrt_mean_abs_expected_squared_1e_minus_30
+    step_initial_expected: direct_surface_conductance
+    step_DC_expected: direct_minus_output_transpose_G_inverse_input
+    impulse_integral_expected: DC_conductance_minus_direct_surface_conductance
+    impulse_step_derivative_expected: state_space_impulse_tail
+    frequency_state_space_expected: direct_complex_state_space_solve
 
 k_state_contract:
   reference_order: 8
   candidate_orders: [2, 3]
   ablation_order: 1
   select_smallest_passing_candidate: true
+  fit_K3_only_if_K2_fails: true
   fit_regions_separately: true
   step_response_nrmse_max: 5.0e-2
   impulse_response_nrmse_max: 5.0e-2
