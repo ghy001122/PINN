@@ -4,11 +4,12 @@
 
 Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
 
-Authorized checkpoint: `A_IMPLEMENTATION_AND_SMOKE_FORMAL_BLOCKED`.
+Checkpoint state: `A_COMPLETE_B_BLOCKED_PENDING_FRESH_USER_AUTHORIZATION`.
 
-There is exactly one active task:
+There is no authorized compute task. The single next decision is:
 
-> Implement and validate the contract-hardened, independent, conservative, PINN-residual-separated Qiu-inspired VO2 single-device real x-y plus region-specific K-state vertical-memory 2.5D FVM/implicit reference solver.
+> Obtain explicit user authorization for Checkpoint B. Only then may the
+> locked 96-case Phase 1 formal campaign run once.
 
 ## Manuscript Use
 
@@ -24,17 +25,31 @@ This solver is the numerical truth judge for later R1 fields, ports, phase event
 - `docs/method_equations.md`
 - source/provenance contracts routed by the Phase 1 config
 
-## Execution Order
+## Checkpoint A Closeout
 
-1. Implement and pass the zero-solver algebraic source-scale checks: both uniform electrical endmembers, area-integrated DC thermal conductance, active-plus-memory capacity, and positive scale factors.
-2. Implement the locked region masks, grid/time/protocol schedule, nonlinear tolerances, metric definitions, source-scale-normalized K-state identification, and 96-case inventory exactly as configured.
-3. Implement the independent electrical, thermal, K-state, hysteresis, circuit, and ledger pieces under responsibility-based modules; do not share the PINN discrete residual implementation.
-4. Add behavioral tests for manufactured solutions, failure paths, SI units, ports, passivity, region topology, and ledgers.
-5. Run CPU smoke and focused preflights, write the exact 96-case manifest,
-   configuration hash, environment manifest, and Checkpoint A summary, and
-   verify `formal_execution_count=0`.
-6. Stop and report. The sole formal campaign remains blocked until the user
-   explicitly authorizes Checkpoint B from the locked preregistration SHA.
+Completed without a formal scientific run:
+
+1. Independent electrical, thermal-memory, hysteresis, circuit, and ledger
+   implementations exist without PINN residual imports.
+2. Behavior tests and bounded CPU smoke pass.
+3. The exact 96-case manifest is materialized as
+   `planned_not_executed`.
+4. Preregistration SHA:
+   `212a4277bf9cf8afe365d922adefe67bdd7595e1`.
+5. Config SHA-256:
+   `0361f609faf56cbc542f07be65abece0b8875aa0f9f8f9ea2539c098d2efdab1`.
+6. `formal_execution_count=0`; no scientific gate disposition exists.
+7. A non-voting evaluator smoke measured contact-covered 400/800 nm frequency
+   log-magnitude difference `0.1231`, above the locked formal limit `0.05`.
+   This warns that an unchanged formal campaign may fail; it did not alter the
+   preregistered gate.
+
+## Checkpoint B If Authorized
+
+Run exactly the locked 96-case campaign once from the identities above,
+write formal JSON/CSV before figures, evaluate every preregistered gate, and
+then stop. Do not alter the gate, case, parameter, K-state, material, or
+protocol contract after execution starts.
 
 ## Required Gates
 

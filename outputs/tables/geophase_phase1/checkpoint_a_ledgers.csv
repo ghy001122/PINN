@@ -1,0 +1,9 @@
+case_id,evidence_type,accounted_power_W,input_power_W,ledger,relative_residual,signed_residual_W,voting
+smoke_zero_drive,checkpoint_a_smoke_nonclaim_evidence,-1.985479930032702e-17,0.0,thermal,1.0,1.985479930032702e-17,False
+smoke_zero_drive,checkpoint_a_smoke_nonclaim_evidence,0.0,0.0,circuit,0.0,0.0,False
+smoke_zero_drive,checkpoint_a_smoke_nonclaim_evidence,-1.985479930032702e-17,0.0,combined_electrothermal,1.0,1.985479930032702e-17,False
+smoke_zero_drive,checkpoint_a_smoke_nonclaim_evidence,0.0,0.0,device_power_identity,0.0,0.0,False
+smoke_low_drive,checkpoint_a_smoke_nonclaim_evidence,1.585789030549257e-11,1.5858521093335936e-11,thermal,1.9888361484593598e-05,6.307878433649932e-16,True
+smoke_low_drive,checkpoint_a_smoke_nonclaim_evidence,8.32854839860433e-05,8.328548471615526e-05,circuit,4.383188542671768e-09,7.301119615572144e-13,True
+smoke_low_drive,checkpoint_a_smoke_nonclaim_evidence,8.328548398541251e-05,8.328548471615526e-05,combined_electrothermal,4.386975450027523e-09,7.307427503811664e-13,True
+smoke_low_drive,checkpoint_a_smoke_nonclaim_evidence,1.5858521093335936e-11,1.5858521093335932e-11,device_power_identity,1.018750187602004e-16,-3.2311742677852644e-27,True

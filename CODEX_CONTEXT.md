@@ -15,16 +15,22 @@ Phase 0 realigned governance, archives, claims, and reproducibility routing. Tha
 
 Frozen GT v1.1 remains read-only. The constrained `gamma_sub` result, failed complete-PINN runs, M40/M40R/M44, OASIS, public-source, and SID/OQ results remain historical evidence and reviewer defense; they do not vote for Phase 1 or R1-R3.
 
-No independent x-y plus K-state 2.5D reference result, positive R1/R2 training result, solver-PINN sensitivity result, R3 inverse/refusal result, or NbO2 cross-model result exists. Project outputs are synthetic numerical digital-twin evidence, not measurements.
+An independent x-y plus K-state implementation and bounded Checkpoint A smoke
+now exist, but no formal 2.5D reference result exists. No positive R1/R2
+training result, solver-PINN sensitivity result, R3 inverse/refusal result, or
+NbO2 cross-model result exists. Project outputs are synthetic numerical
+digital-twin evidence, not measurements.
 
 ## One Active Priority
 
-Implement and validate the independent, conservative, PINN-residual-separated Qiu-inspired VO2 single-device x-y plus region-specific K-state vertical-memory 2.5D FVM/implicit reference solver under `configs/geophase_phase1_2p5d_reference.yaml`. Source-author resistance and thermal fits constrain only device-effective uniform/global scales; local stack physics supplies spatial and dynamic shape. The algebraic source-scale preflights, numerical grid, time/protocol lock, nonlinear tolerances, metrics, K-state fit, and 96-case inventory are preregistered. Nonzero dual-device coupling is outside Phase 1. All gates must pass before Phase 2 or any R1 training.
-
-The authorized work is Checkpoint A only: contract-complete implementation,
-behavior tests, CPU smoke, the locked 96-case manifest, configuration hash, and
-preregistration record. `formal_execution_count` must remain zero. The formal
-campaign requires a later explicit user authorization.
+Checkpoint A is complete. Stop with `formal_execution_count=0` and request
+fresh user authorization for Checkpoint B. If authorized, run the locked
+96-case formal campaign exactly once from preregistration SHA `212a4277...`
+and config SHA-256 `0361f609...`. A non-voting Checkpoint A audit already
+warns that the contact-covered 400/800 nm frequency metric is `0.1231`, above
+the locked `0.05` formal limit; this warning was not used to alter the gate.
+Nonzero dual-device coupling remains outside Phase 1, and all formal gates
+must pass before Phase 2 or R1 training.
 
 ## Claim Boundary
 

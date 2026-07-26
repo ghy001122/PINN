@@ -497,3 +497,9 @@ They are synthetic numerical benchmark figures, not experimental figures.
 ## Phase 0 Figure Disposition
 
 No scientific figure was generated for repository realignment. Existing historical figures and figure manifests retain their exact claim boundaries. Phase 1 figures remain planned outputs only and must not be created or registered as evidence before the solver gates run.
+
+## Phase 1 Checkpoint A Figure Disposition
+
+No Phase 1 figure was generated. Formal geometry, field, convergence, ledger,
+and K-state figures remain forbidden until the explicitly authorized 96-case
+Checkpoint B campaign writes its machine-readable results first.

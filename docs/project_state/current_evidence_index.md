@@ -9,9 +9,10 @@ This is a compact router, not a substitute for configs, machine-readable outputs
 | Q2 delivery ladder | `supported` governance fact; R1 minimum, R2 preferred, R3 conditional | `PROJECT_GOAL.md`; canonical execution guide |
 | Phase 0 repository realignment | `supported` governance/reproducibility fact only | Phase 0 report; disposition CSV; machine summary |
 | Active Phase 1 | `supported` authorization/preregistration fact; no solver result | active phase; Phase 1 contract; hardened Phase 1 YAML; stage YAML |
-| Equations and source boundary | `supported` documentation fact; implementation pending | `docs/method_equations.md`; `configs/qiu_vo2_phase1_source_contract.yaml`; provenance manifest |
+| Equations and source boundary | `supported` documentation/implementation fact; formal evaluation pending | `docs/method_equations.md`; `configs/qiu_vo2_phase1_source_contract.yaml`; provenance manifest; Checkpoint A solver modules |
 | Phase 1 numerical lock | `supported` preregistration fact only | source-scale algebraic preflights, base grid/time/protocols, nonlinear tolerances, fixed comparison grids, NRMSE policy, K-state fit, and exact 96-case inventory in the Phase 1 YAML |
 | Phase 1 contract-hardening closeout | `supported` governance/reproducibility fact only | initial hardening report plus `docs/codex_reports/executive_guide_alignment_source_scale_review_2026-07-26.md`; the latter supersedes the former's absolute-path and implementation-ready assertions; no solver execution or scientific vote |
+| Phase 1 Checkpoint A | `supported` software/reproducibility fact only; no scientific vote | preregistration SHA `212a4277...`; config SHA-256 `0361f609...`; independent solver modules; behavior tests; `outputs/tables/geophase_phase1/`; exact 96-case manifest is `planned_not_executed`; formal count is zero; non-voting contact-covered depth-frequency warning `0.1231 > 0.05` |
 | Frozen GT integrity | `supported` integrity fact when current hashes pass | governance summary; frozen acceptance report and manifest |
 | Current claim vocabulary | `supported` governance fact | `docs/paper/final_claim_matrix.md` |
 

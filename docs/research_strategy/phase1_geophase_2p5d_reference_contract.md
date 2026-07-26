@@ -3,7 +3,7 @@
 ## Identity
 
 - Phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
-- Status: `preregistered_v6_pending_checkpoint_a_revalidation`
+- Status: `checkpoint_a_complete_formal_campaign_not_run`
 - Manuscript use: independent truth and conservation judge for later R1/R2 work
 - Evidence type after execution: literature-guided solver-generated synthetic numerical digital-twin evidence
 - Threshold authority: `configs/geophase_phase1_2p5d_reference.yaml`
@@ -18,6 +18,15 @@ must not decay toward zero and immediately violate the locked branch-increment
 step trigger. It records no formal solver result. The
 sole formal execution remains blocked until fresh user authorization for
 Checkpoint B.
+
+Checkpoint A revalidation completed against preregistration SHA
+`212a4277bf9cf8afe365d922adefe67bdd7595e1` and config SHA-256
+`0361f609faf56cbc542f07be65abece0b8875aa0f9f8f9ea2539c098d2efdab1`.
+Formal execution count remains zero. A non-voting evaluator smoke reported a
+contact-covered 400/800 nm frequency log-magnitude difference of
+`0.1231270944`, above the locked formal limit `0.05`. This is not a formal gate
+vote, but it is a pre-formal failure warning; no threshold or case was changed
+in response.
 
 ## Source Isolation
 
