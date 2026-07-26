@@ -68,6 +68,23 @@ def test_repair_identity_and_formal_boundary_are_fail_closed() -> None:
         "vertical_solver",
         "vertical_evaluator",
     }
+    code_paths = {
+        "runner": ROOT / "scripts" / "run_geophase_phase1_vertical_repair.py",
+        "vertical_solver": ROOT
+        / "src"
+        / "pinnpcm"
+        / "solvers"
+        / "vertical_multilayer_reference.py",
+        "vertical_evaluator": ROOT
+        / "src"
+        / "pinnpcm"
+        / "evaluation"
+        / "geophase_phase1_gates.py",
+    }
+    assert evidence["screening_code_sha256"] == {
+        name: hashlib.sha256(path.read_bytes()).hexdigest()
+        for name, path in code_paths.items()
+    }
 
 
 def test_maximum_pair_enforces_vertical_no_go_and_blocks_k_state() -> None:

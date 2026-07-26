@@ -25,6 +25,9 @@ def test_fast_validation_covers_phase1_checkpoint_a_and_authority_paths() -> Non
     required_tests = (
         "tests/test_geophase_phase1_solver.py",
         "tests/test_geophase_phase1_checkpoint_a_evidence.py",
+        "tests/test_geophase_phase1_vertical_repair_preregistration.py",
+        "tests/test_geophase_phase1_vertical_repair.py",
+        "tests/test_geophase_phase1_vertical_repair_evidence.py",
     )
     for test_path in required_tests:
         assert test_path in workflow

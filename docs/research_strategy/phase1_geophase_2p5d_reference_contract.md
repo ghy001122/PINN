@@ -28,6 +28,14 @@ contact-covered 400/800 nm frequency log-magnitude difference of
 vote, but it is a pre-formal failure warning; no threshold or case was changed
 in response.
 
+The subsequent versioned v7 bounded repair stopped at
+`NO_GO_VERTICAL_REFERENCE`. Its raw maximum-pair substrate truncation passed,
+but pair-specific global G/C re-anchoring retained a full-kernel depth error of
+about `0.4118`; K-state and formal readiness were therefore blocked. This
+non-voting result does not modify this v6 formal contract and does not authorize
+its execution. Any further normalization-semantics repair requires a new
+preregistration while keeping the source-only contract and 0.05 gate intact.
+
 ## Source Isolation
 
 Qiu-reported quantities, source-author-fitted lumped quantities, repository engineering priors, unresolved semantics, and withheld-curve restrictions are separated in the source-only contract. Historical M40/M40R/M44 configs may be used only as source locators and failure lessons. Their parameter votes, fields, convergence results, and claim statuses do not transfer into Phase 1.

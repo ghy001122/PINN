@@ -466,3 +466,10 @@ preregistration identity, environment identity, bounded non-claim smoke
 ledgers/summary, and an exact 96-row `planned_not_executed` case manifest.
 These files are software/reproducibility metadata and cannot train a PINN or
 vote for a Phase 1 scientific claim. Frozen GT v1.1 was not modified.
+
+## Phase 1 v7 Vertical-Repair Disposition
+
+No scientific, training, Ground Truth, or formal solver dataset was generated.
+The five files under `outputs/tables/geophase_phase1/readiness_v7/` are
+non-voting bounded-repair diagnostics only; all 96 formal cases remain
+`planned_not_executed`, and frozen GT v1.1 is unchanged.

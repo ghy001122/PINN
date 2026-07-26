@@ -2,9 +2,9 @@
 
 Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
 
-Status: `checkpoint_a_complete_formal_campaign_blocked_pending_user_authorization`
+Status: `checkpoint_b_readiness_vertical_no_go_pending_user_decision`
 
-Current checkpoint: `A_COMPLETE_B_NOT_AUTHORIZED`
+Current checkpoint: `B_READINESS_BLOCKED_VERTICAL_REFERENCE`
 
 ## Objective
 
@@ -44,6 +44,14 @@ explicit user instruction and must use preregistration SHA
 A non-voting Checkpoint A evaluator reported the contact-covered 400/800 nm
 frequency metric `0.1231 > 0.05`; this is a pre-formal failure warning and did
 not authorize any post-hoc gate change.
+
+The authorized bounded v7 repair has now stopped with
+`NO_GO_VERTICAL_REFERENCE`. The maximum 102.4/204.8 micrometre pair retained a
+pair-normalized contact frequency error of `0.41179`, although its unscaled
+substrate error was `0.00702`. K-state, performance, formal-runner, and formal
+campaign work remain blocked. Any normalization-semantics revision requires a
+new preregistration and user authorization; the Qiu source-only contract and
+the 0.05 gate may not be changed.
 
 ## Phase-Scoped Restrictions
 
