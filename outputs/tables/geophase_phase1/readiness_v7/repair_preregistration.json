@@ -1,0 +1,240 @@
+{
+  "al2o3_thermal_diffusivity_m2_s": 1.1666666666666666e-05,
+  "branch_reuse_mapping": {
+    "overlay": "one branch per grid reused by every depth contact region",
+    "substrate": "one branch per depth/grid reused by both regions"
+  },
+  "formal_campaign_executed": false,
+  "formal_case_results_generated": 0,
+  "formal_execution_count": 0,
+  "formal_inventory_sha256": "a617284bd8890adcab105851095801b6067307e5c85acfeb9b8a84c8467be045",
+  "formal_v6_config_sha256": "0361f609faf56cbc542f07be65abece0b8875aa0f9f8f9ea2539c098d2efdab1",
+  "head_at_screening": "d6a386a77b79f186a75fbe12c06be0666f46d067",
+  "initial_preregistration_commit_sha": "68d0577f42f7932d2a0b0ccfb5b020de1983ab9e",
+  "k_state_status": "BLOCKED_BY_VERTICAL_REFERENCE",
+  "maximum_pair_passed": false,
+  "phase1_scientific_claim": "forbidden_pending_formal_campaign",
+  "raw_build_manifest": [
+    {
+      "build_id": "ti_au_overlay_coarse",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "45989bf15eea5ebbb44376d68f71aff75c0e5f4a7216dcc1f1301d371c61e8fc"
+    },
+    {
+      "build_id": "ti_au_overlay_fine",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "1f4808773108669552019979983f940fbd5adec786166000724aa8bf6cbeab72"
+    },
+    {
+      "build_id": "substrate_depth_4.000000000000e-07_coarse",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "c9e387c1b0a162981efa5803e6ba7e7811879006f686af2f6b2e5dc3c9fe7412"
+    },
+    {
+      "build_id": "substrate_depth_4.000000000000e-07_fine",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "4c31b2a86a46f6565701936b8087d55c83cc9c0f83a83ecbb533d5fbcae4b486"
+    },
+    {
+      "build_id": "substrate_depth_8.000000000000e-07_coarse",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "efe912947778fc1e4b87cbc1a9a77baae72751ddb1d36a3c7b96b077c44b9868"
+    },
+    {
+      "build_id": "substrate_depth_8.000000000000e-07_fine",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "246db661ac260aa0a6d58ab69622a906230745b11cb27d43b3b56b4ce136f930"
+    },
+    {
+      "build_id": "substrate_depth_1.600000000000e-06_coarse",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "77a1cbfb1aa012ccedee2c2d5091f486a610b0b5e326a18468c3da56869388af"
+    },
+    {
+      "build_id": "substrate_depth_1.600000000000e-06_fine",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "bc51c21ed748044a929dac450e26cb9a49845607d78c524e669c7e55f7d9f0ac"
+    },
+    {
+      "build_id": "substrate_depth_3.200000000000e-06_coarse",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "a8f2a983147cfc78a572c13acf68cb737f3fbb7a23a0f726f50da03122370f88"
+    },
+    {
+      "build_id": "substrate_depth_3.200000000000e-06_fine",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "56ce330cce7fdaf08d629205956a934795b863e82a798671e6d46bd0aa1f21a3"
+    },
+    {
+      "build_id": "substrate_depth_6.400000000000e-06_coarse",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "8c264a714cddefc78252185c777a62a0ad4fab4cb515368c26f828b33a8943f4"
+    },
+    {
+      "build_id": "substrate_depth_6.400000000000e-06_fine",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "17e7f37e4a93f439455f67f2277d0546642eeebb993573a9bdc4c5d91c118db9"
+    },
+    {
+      "build_id": "substrate_depth_1.280000000000e-05_coarse",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "f2d3a977548b3e85c732a8988182bd9fdf35fa3ddc0bedcf0b169391eca993f1"
+    },
+    {
+      "build_id": "substrate_depth_1.280000000000e-05_fine",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "b5dbdb6f0db74980386a4502f412e9bbe5dd74caf0ce3e78411c4cc51fe70847"
+    },
+    {
+      "build_id": "substrate_depth_2.560000000000e-05_coarse",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "f07e33065f321da05356e5084183dd1e067307c5e49a0e6eaa3145b8a9986c58"
+    },
+    {
+      "build_id": "substrate_depth_2.560000000000e-05_fine",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "7f43bd6ae66391ffc802837316ece5bdc9442cb7ea4f38367a9e552a47aac4c0"
+    },
+    {
+      "build_id": "substrate_depth_5.120000000000e-05_coarse",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "8e87e2e2786baaf4b391025b5291cd0ce78c43181c92e2ff1d24d606fbbe98ec"
+    },
+    {
+      "build_id": "substrate_depth_5.120000000000e-05_fine",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "ad39d9dc64d7cbf002df6c8401d1ff96b7711d2fbfb74ba9ed029f014f8a5e96"
+    },
+    {
+      "build_id": "substrate_depth_1.024000000000e-04_coarse",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "10619dddf8420487fc4b75fe10fa245d79d45d71488b606f077a0db83d675b74"
+    },
+    {
+      "build_id": "substrate_depth_1.024000000000e-04_fine",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "5d558bf05a0964087ea3cfd6d1e408e008623436486ea4351523b642d76bd968"
+    },
+    {
+      "build_id": "substrate_depth_2.048000000000e-04_coarse",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "c8f19e927d492d01ab52da7cbc12d1f849e9a87467312477c19c10b410929e07"
+    },
+    {
+      "build_id": "substrate_depth_2.048000000000e-04_fine",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "32c2fc921e9cd0b0b725cdd929e772545cf04e62316a6bc8f10ae9bfc97ba1a1"
+    },
+    {
+      "build_id": "v6_uniform8_D400nm_bare_vo2",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "0141a12c279fd439471217d476012b49ea377d35078ec40f1a2248b8aa5012ed"
+    },
+    {
+      "build_id": "v6_uniform8_D400nm_electrode_covered_vo2",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "754f1c77b2b5ae0afe4a961d52725bafeb96257b49e74b0dccb9f9189fd0e197"
+    },
+    {
+      "build_id": "v6_uniform8_D800nm_bare_vo2",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "bb56fe498add18723dd2bee40c82baf2ebdc77ff22862c97b65f3087ae4d7bff"
+    },
+    {
+      "build_id": "v6_uniform8_D800nm_electrode_covered_vo2",
+      "builder_invocation_count": 1,
+      "request_count": 1,
+      "spec_sha256": "5a3cc5941bda1edf97616a4d1d6e653aaa8b71b1e98662fc7c82257cc86f7090"
+    }
+  ],
+  "ready_for_formal_v7_freeze": false,
+  "repair_protocol_commit_sha": "d6a386a77b79f186a75fbe12c06be0666f46d067",
+  "repair_yaml_sha256": "5ab66fb41b9af6fd605c351a86fa5928712528fcad8c9bc26cc55d18a0a92a18",
+  "schema_version": "geophase_phase1_vertical_repair_v7",
+  "screening_code_sha256": {
+    "runner": "306bf628167ae03d07f887486e2cf1901ac1e4f6caeee14b2510b164acb79ac3",
+    "vertical_evaluator": "07b2e1a6be4462ef625bbb7473e58338139904b8583a7e7eb41683019c06fd06",
+    "vertical_solver": "75aec7fbb6df14b93dd37f9a849fd3d1b2ab22de07336bec4a4913e0fb29b277"
+  },
+  "selected_k_by_region": {},
+  "selected_production_depth_m": null,
+  "source_contract_sha256": "857410517d5b955e2018d4b002fcbbe92bb320c451021b49ae27be1351cb1252",
+  "status": "bounded_repair_screen_complete",
+  "task_id": "Q2_PHASE1_CHECKPOINT_B_READINESS_V7",
+  "thermal_penetration_depth_m": {
+    "1000.0": 6.093943992859543e-05,
+    "10000000000.0": 1.9270742950937028e-08
+  },
+  "unique_raw_build_count": 26,
+  "unique_raw_build_ids": [
+    "ti_au_overlay_coarse",
+    "ti_au_overlay_fine",
+    "substrate_depth_4.000000000000e-07_coarse",
+    "substrate_depth_4.000000000000e-07_fine",
+    "substrate_depth_8.000000000000e-07_coarse",
+    "substrate_depth_8.000000000000e-07_fine",
+    "substrate_depth_1.600000000000e-06_coarse",
+    "substrate_depth_1.600000000000e-06_fine",
+    "substrate_depth_3.200000000000e-06_coarse",
+    "substrate_depth_3.200000000000e-06_fine",
+    "substrate_depth_6.400000000000e-06_coarse",
+    "substrate_depth_6.400000000000e-06_fine",
+    "substrate_depth_1.280000000000e-05_coarse",
+    "substrate_depth_1.280000000000e-05_fine",
+    "substrate_depth_2.560000000000e-05_coarse",
+    "substrate_depth_2.560000000000e-05_fine",
+    "substrate_depth_5.120000000000e-05_coarse",
+    "substrate_depth_5.120000000000e-05_fine",
+    "substrate_depth_1.024000000000e-04_coarse",
+    "substrate_depth_1.024000000000e-04_fine",
+    "substrate_depth_2.048000000000e-04_coarse",
+    "substrate_depth_2.048000000000e-04_fine",
+    "v6_uniform8_D400nm_bare_vo2",
+    "v6_uniform8_D400nm_electrode_covered_vo2",
+    "v6_uniform8_D800nm_bare_vo2",
+    "v6_uniform8_D800nm_electrode_covered_vo2"
+  ],
+  "v6_reproduction_scales": {
+    "4e-07": {
+      "capacity_scale": 790.8616042234876,
+      "conductance_scale": 47.08571428571182
+    },
+    "8e-07": {
+      "capacity_scale": 404.12275768763703,
+      "conductance_scale": 94.17142857141872
+    }
+  },
+  "v6_warning_relative_error": 3.029673835222998e-13,
+  "v6_warning_reproduced_value": 0.12312709438793715,
+  "v6_worst_frequency_diagnostic": {
+    "frequency_Hz": 68129206.90579608,
+    "signed_log_magnitude_error": 0.2811559452463719
+  },
+  "vertical_status": "NO_GO_VERTICAL_REFERENCE",
+  "voting": false
+}

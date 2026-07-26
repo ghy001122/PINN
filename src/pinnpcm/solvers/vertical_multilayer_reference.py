@@ -2,7 +2,10 @@
 
 from __future__ import annotations
 
+import json
 from dataclasses import dataclass
+from hashlib import sha256
+from typing import Callable, Mapping
 
 import numpy as np
 from scipy import linalg
@@ -142,6 +145,211 @@ class NormalizedVerticalReferences:
     integrated_memory_capacity_J_K: float
 
 
+@dataclass(frozen=True)
+class VerticalNormalizationScales:
+    """One pair-wide source-author G/C normalization."""
+
+    conductance_scale: float
+    capacity_scale: float
+    raw_integrated_dc_conductance_W_K: float
+    raw_integrated_memory_capacity_J_K: float
+
+    def __post_init__(self) -> None:
+        values = np.asarray(
+            [
+                self.conductance_scale,
+                self.capacity_scale,
+                self.raw_integrated_dc_conductance_W_K,
+                self.raw_integrated_memory_capacity_J_K,
+            ],
+            dtype=float,
+        )
+        if not np.isfinite(values).all() or np.any(values <= 0.0):
+            raise ValueError("vertical normalization scales must be finite and positive")
+
+
+@dataclass(frozen=True)
+class RawVerticalComponents:
+    """Reusable substrate and overlay branches before global normalization."""
+
+    substrate: VerticalThermalReference
+    overlay: VerticalThermalReference
+    region_areas_m2: dict[str, float]
+    substrate_depth_m: float
+    grid_level: str
+    substrate_cell_widths_m: np.ndarray
+    overlay_cell_widths_m: np.ndarray
+
+    def __post_init__(self) -> None:
+        substrate_widths = np.asarray(self.substrate_cell_widths_m, dtype=float)
+        overlay_widths = np.asarray(self.overlay_cell_widths_m, dtype=float)
+        if (
+            substrate_widths.ndim != 1
+            or overlay_widths.ndim != 1
+            or np.any(substrate_widths <= 0.0)
+            or np.any(overlay_widths <= 0.0)
+        ):
+            raise ValueError("vertical cell widths must be positive one-dimensional arrays")
+        if not np.isclose(
+            np.sum(substrate_widths), self.substrate_depth_m, rtol=1.0e-13, atol=0.0
+        ):
+            raise ValueError("substrate cells do not span the requested physical depth")
+        object.__setattr__(self, "substrate_cell_widths_m", substrate_widths)
+        object.__setattr__(self, "overlay_cell_widths_m", overlay_widths)
+
+    def raw_region_references(self) -> dict[str, VerticalThermalReference]:
+        return {
+            "bare_vo2": _rename_reference(self.substrate, "bare_vo2"),
+            "electrode_covered_vo2": _combine_reference_models(
+                "electrode_covered_vo2", [self.substrate, self.overlay]
+            ),
+        }
+
+
+class VerticalReferenceModalEvaluator:
+    """Efficient symmetric modal evaluation of a passive vertical reference."""
+
+    def __init__(self, reference: VerticalThermalReference) -> None:
+        self.reference = reference
+        inverse_sqrt_capacity = 1.0 / np.sqrt(reference.capacities_J_m2K)
+        symmetric = (
+            inverse_sqrt_capacity[:, None]
+            * reference.conductance_matrix_W_m2K
+            * inverse_sqrt_capacity[None, :]
+        )
+        rates, vectors = linalg.eigh(symmetric, check_finite=True)
+        if np.any(rates <= 0.0) or not np.isfinite(rates).all():
+            raise ValueError("vertical modal rates must be finite and positive")
+        transformed_input = inverse_sqrt_capacity * reference.input_vector_W_m2K
+        transformed_output = inverse_sqrt_capacity * reference.output_vector_W_m2K
+        left = vectors.T @ transformed_output
+        right = vectors.T @ transformed_input
+        weights = left * right
+        if not np.isfinite(weights).all():
+            raise ValueError("vertical modal weights must be finite")
+        self.rates_per_s = rates
+        self.weights = weights
+
+    def driving_admittance_W_m2K(
+        self, angular_frequency_rad_s: np.ndarray
+    ) -> np.ndarray:
+        omega = np.atleast_1d(np.asarray(angular_frequency_rad_s, dtype=float))
+        if np.any(omega < 0.0) or not np.isfinite(omega).all():
+            raise ValueError("angular frequencies must be finite and nonnegative")
+        correction = np.sum(
+            self.weights[:, None]
+            / (self.rates_per_s[:, None] + 1j * omega[None, :]),
+            axis=0,
+        )
+        return self.reference.direct_conductance_W_m2K - correction
+
+    def step_heat_flux_W_m2(self, time_s: np.ndarray) -> np.ndarray:
+        time = np.atleast_1d(np.asarray(time_s, dtype=float))
+        if np.any(time < 0.0) or not np.isfinite(time).all():
+            raise ValueError("step-response times must be finite and nonnegative")
+        dynamic = np.sum(
+            (self.weights / self.rates_per_s)[:, None]
+            * np.exp(-self.rates_per_s[:, None] * time[None, :]),
+            axis=0,
+        )
+        return self.reference.dc_conductance_W_m2K + dynamic
+
+    def impulse_tail_W_m2K_s(self, time_s: np.ndarray) -> np.ndarray:
+        time = np.atleast_1d(np.asarray(time_s, dtype=float))
+        if np.any(time < 0.0) or not np.isfinite(time).all():
+            raise ValueError("impulse-response times must be finite and nonnegative")
+        return -np.sum(
+            self.weights[:, None]
+            * np.exp(-self.rates_per_s[:, None] * time[None, :]),
+            axis=0,
+        )
+
+    @property
+    def impulse_tail_integral_W_m2K(self) -> float:
+        return float(-np.sum(self.weights / self.rates_per_s))
+
+
+@dataclass(frozen=True)
+class VerticalRawBuildRecord:
+    build_id: str
+    spec_sha256: str
+    builder_invocation_count: int
+    request_count: int
+
+
+class VerticalRawBuildRegistry:
+    """Fail-closed exactly-once registry for preregistered raw builds."""
+
+    def __init__(self) -> None:
+        self._objects: dict[str, object] = {}
+        self._spec_hashes: dict[str, str] = {}
+        self._invocations: dict[str, int] = {}
+        self._requests: dict[str, int] = {}
+
+    @staticmethod
+    def spec_sha256(spec: Mapping[str, object]) -> str:
+        encoded = json.dumps(
+            dict(spec),
+            sort_keys=True,
+            separators=(",", ":"),
+            ensure_ascii=True,
+            allow_nan=False,
+        ).encode("utf-8")
+        return sha256(encoded).hexdigest()
+
+    def get_or_build(
+        self,
+        build_id: str,
+        spec: Mapping[str, object],
+        builder: Callable[[], object],
+    ) -> object:
+        identifier = str(build_id)
+        if not identifier or identifier.startswith("P1-"):
+            raise ValueError("raw readiness build ID is empty or uses a formal prefix")
+        spec_hash = self.spec_sha256(spec)
+        if identifier in self._objects:
+            if self._spec_hashes[identifier] != spec_hash:
+                raise ValueError(
+                    f"raw build ID {identifier!r} was requested with a different spec"
+                )
+            self._requests[identifier] += 1
+            return self._objects[identifier]
+        value = builder()
+        self._objects[identifier] = value
+        self._spec_hashes[identifier] = spec_hash
+        self._invocations[identifier] = 1
+        self._requests[identifier] = 1
+        return value
+
+    @property
+    def unique_build_ids(self) -> tuple[str, ...]:
+        return tuple(self._objects)
+
+    def records(self) -> list[VerticalRawBuildRecord]:
+        return [
+            VerticalRawBuildRecord(
+                build_id=build_id,
+                spec_sha256=self._spec_hashes[build_id],
+                builder_invocation_count=self._invocations[build_id],
+                request_count=self._requests[build_id],
+            )
+            for build_id in self._objects
+        ]
+
+    def assert_exactly_once(self, declared_build_ids: list[str] | tuple[str, ...]) -> None:
+        declared = tuple(str(value) for value in declared_build_ids)
+        if len(set(declared)) != len(declared):
+            raise ValueError("declared raw build IDs are not unique")
+        if set(declared) != set(self._objects):
+            missing = sorted(set(declared) - set(self._objects))
+            unexpected = sorted(set(self._objects) - set(declared))
+            raise ValueError(
+                f"raw build manifest mismatch: missing={missing}, unexpected={unexpected}"
+            )
+        if any(self._invocations[build_id] != 1 for build_id in declared):
+            raise ValueError("each declared raw builder must be invoked exactly once")
+
+
 def _branch_matrices(
     layers: list[tuple[float, float, float, int]],
     *,
@@ -207,6 +415,306 @@ def _combine_branches(
     )
 
 
+def _rename_reference(
+    reference: VerticalThermalReference, region_id: str
+) -> VerticalThermalReference:
+    return VerticalThermalReference(
+        region_id=region_id,
+        capacities_J_m2K=reference.capacities_J_m2K.copy(),
+        conductance_matrix_W_m2K=reference.conductance_matrix_W_m2K.copy(),
+        input_vector_W_m2K=reference.input_vector_W_m2K.copy(),
+        output_vector_W_m2K=reference.output_vector_W_m2K.copy(),
+        direct_conductance_W_m2K=reference.direct_conductance_W_m2K,
+    )
+
+
+def _combine_reference_models(
+    region_id: str, references: list[VerticalThermalReference]
+) -> VerticalThermalReference:
+    branches = [
+        (
+            reference.capacities_J_m2K,
+            reference.conductance_matrix_W_m2K,
+            reference.input_vector_W_m2K,
+            reference.output_vector_W_m2K,
+            reference.direct_conductance_W_m2K,
+        )
+        for reference in references
+    ]
+    return _combine_branches(region_id, branches)
+
+
+def _branch_reference_from_cells(
+    region_id: str,
+    *,
+    cell_widths_m: np.ndarray,
+    thermal_conductivities_W_mK: np.ndarray,
+    volumetric_capacities_J_m3K: np.ndarray,
+    fixed_terminal: bool,
+) -> VerticalThermalReference:
+    dz = np.asarray(cell_widths_m, dtype=float)
+    k = np.asarray(thermal_conductivities_W_mK, dtype=float)
+    cp = np.asarray(volumetric_capacities_J_m3K, dtype=float)
+    if dz.ndim != 1 or k.shape != dz.shape or cp.shape != dz.shape:
+        raise ValueError("cellwise vertical material arrays are inconsistent")
+    if (
+        not np.isfinite(dz).all()
+        or not np.isfinite(k).all()
+        or not np.isfinite(cp).all()
+        or np.any(dz <= 0.0)
+        or np.any(k <= 0.0)
+        or np.any(cp <= 0.0)
+    ):
+        raise ValueError("cellwise vertical properties must be finite and positive")
+    capacities = cp * dz
+    size = dz.size
+    matrix = np.zeros((size, size), dtype=float)
+    input_link = k[0] / (0.5 * dz[0])
+    matrix[0, 0] += input_link
+    input_vector = np.zeros(size, dtype=float)
+    output_vector = np.zeros(size, dtype=float)
+    input_vector[0] = input_link
+    output_vector[0] = input_link
+    for index in range(size - 1):
+        link = 1.0 / (
+            0.5 * dz[index] / k[index]
+            + 0.5 * dz[index + 1] / k[index + 1]
+        )
+        matrix[index, index] += link
+        matrix[index + 1, index + 1] += link
+        matrix[index, index + 1] -= link
+        matrix[index + 1, index] -= link
+    if fixed_terminal:
+        matrix[-1, -1] += k[-1] / (0.5 * dz[-1])
+    return VerticalThermalReference(
+        region_id=region_id,
+        capacities_J_m2K=capacities,
+        conductance_matrix_W_m2K=matrix,
+        input_vector_W_m2K=input_vector,
+        output_vector_W_m2K=output_vector,
+        direct_conductance_W_m2K=float(input_link),
+    )
+
+
+def geometric_surface_refined_cell_widths(
+    depth_m: float,
+    *,
+    top_cell_m: float,
+    growth_ratio: float,
+) -> np.ndarray:
+    """Return the preregistered deterministic surface-refined grid.
+
+    The first cell is exactly ``top_cell_m``.  The cell count is the smallest
+    integer whose geometric sum at ``growth_ratio`` reaches the requested
+    depth, and the effective ratio is the unique binary64 bisection root that
+    makes that same cell count span the depth.  No residual terminal cell is
+    appended.
+    """
+
+    depth = float(depth_m)
+    top = float(top_cell_m)
+    ratio = float(growth_ratio)
+    if not np.isfinite([depth, top, ratio]).all() or depth <= 0.0 or top <= 0.0:
+        raise ValueError("geometric-grid depth and top cell must be positive")
+    if ratio < 1.0:
+        raise ValueError("geometric-grid growth ratio must be at least one")
+    if depth < top:
+        raise ValueError("geometric-grid depth cannot be smaller than its first cell")
+    if depth == top:
+        return np.asarray([top], dtype=float)
+    if ratio == 1.0:
+        cells_exact = depth / top
+        cells = int(round(cells_exact))
+        if not np.isclose(cells_exact, cells, rtol=0.0, atol=8.0 * np.spacing(cells_exact)):
+            raise ValueError("unit-growth grid cannot span depth without a residual cell")
+        return np.full(cells, top, dtype=float)
+
+    def geometric_sum(cell_count: int, effective_ratio: float) -> float:
+        return float(
+            top
+            * np.sum(effective_ratio ** np.arange(cell_count, dtype=np.float64))
+        )
+
+    cells = 1
+    while geometric_sum(cells, ratio) < depth:
+        cells += 1
+    if cells == 1:
+        return np.asarray([top], dtype=float)
+    if geometric_sum(cells, 1.0) > depth:
+        raise RuntimeError("locked geometric cell count has no admissible ratio root")
+
+    lower = 1.0
+    upper = ratio
+    for _ in range(80):
+        midpoint = np.float64(0.5) * (np.float64(lower) + np.float64(upper))
+        if geometric_sum(cells, float(midpoint)) < depth:
+            lower = float(midpoint)
+        else:
+            upper = float(midpoint)
+    effective_ratio = float(np.float64(0.5) * (np.float64(lower) + np.float64(upper)))
+    widths = top * effective_ratio ** np.arange(cells, dtype=np.float64)
+    relative_span_error = abs(float(np.sum(widths)) - depth) / depth
+    if widths[0] != top:
+        raise RuntimeError("deterministic geometric grid changed the locked first cell")
+    if relative_span_error > 2.0e-14:
+        raise RuntimeError("deterministic geometric grid did not span the requested depth")
+    if widths.size > 1 and np.max(widths[1:] / widths[:-1]) > ratio * (
+        1.0 + 1.0e-13
+    ):
+        raise RuntimeError("deterministic geometric grid exceeded its growth bound")
+    return widths
+
+
+def bisect_cell_widths(cell_widths_m: np.ndarray) -> np.ndarray:
+    widths = np.asarray(cell_widths_m, dtype=float)
+    if widths.ndim != 1 or np.any(widths <= 0.0):
+        raise ValueError("only positive one-dimensional cells can be bisected")
+    return np.repeat(0.5 * widths, 2)
+
+
+def _region_areas(config: dict) -> dict[str, float]:
+    geometry = config["geometry"]["primary_single_device"]
+    overlap = float(geometry["contact_overlap_nominal_m"])
+    length = float(geometry["vo2_length_m"])
+    width = float(geometry["vo2_width_m"])
+    if not 0.0 < 2.0 * overlap < length:
+        raise ValueError("contact overlap leaves no bare region")
+    return {
+        "bare_vo2": (length - 2.0 * overlap) * width,
+        "electrode_covered_vo2": 2.0 * overlap * width,
+    }
+
+
+def repair_surface_cell_bound_m(formal_config: dict, repair_config: dict) -> float:
+    geometry = formal_config["geometry"]["primary_single_device"]
+    al2o3 = formal_config["parameter_contract"]["passive_region_materials"][
+        "al2o3"
+    ]
+    grid = repair_config["nonuniform_grid"]
+    diffusivity = float(al2o3["thermal_conductivity_W_mK"]) / float(
+        al2o3["volumetric_heat_capacity_J_m3K"]
+    )
+    penetration = np.sqrt(
+        diffusivity / (np.pi * float(grid["high_frequency_Hz"]))
+    )
+    return float(
+        min(
+            penetration / 10.0,
+            float(geometry["ti_thickness_m"]) / int(grid["ti_cells_min"]),
+            float(geometry["au_thickness_m"]) / int(grid["au_cells_min"]),
+            float(grid["coarse_top_cell_m_max"]),
+        )
+    )
+
+
+def build_repair_overlay_branch(
+    formal_config: dict, repair_config: dict, *, grid_level: str
+) -> tuple[VerticalThermalReference, np.ndarray]:
+    if grid_level not in {"coarse", "fine"}:
+        raise ValueError("repair grid level must be coarse or fine")
+    geometry = formal_config["geometry"]["primary_single_device"]
+    materials = formal_config["parameter_contract"]["passive_region_materials"]
+    grid = repair_config["nonuniform_grid"]
+    multiplier = 1 if grid_level == "coarse" else 2
+    ti_cells = int(grid["ti_cells_min"]) * multiplier
+    au_cells = int(grid["au_cells_min"]) * multiplier
+    ti_widths = np.full(ti_cells, float(geometry["ti_thickness_m"]) / ti_cells)
+    au_widths = np.full(au_cells, float(geometry["au_thickness_m"]) / au_cells)
+    widths = np.concatenate([ti_widths, au_widths])
+    conductivity = np.concatenate(
+        [
+            np.full(ti_cells, float(materials["ti"]["thermal_conductivity_W_mK"])),
+            np.full(au_cells, float(materials["au"]["thermal_conductivity_W_mK"])),
+        ]
+    )
+    capacity = np.concatenate(
+        [
+            np.full(
+                ti_cells,
+                float(materials["ti"]["volumetric_heat_capacity_J_m3K"]),
+            ),
+            np.full(
+                au_cells,
+                float(materials["au"]["volumetric_heat_capacity_J_m3K"]),
+            ),
+        ]
+    )
+    return (
+        _branch_reference_from_cells(
+            "ti_au_overlay_branch",
+            cell_widths_m=widths,
+            thermal_conductivities_W_mK=conductivity,
+            volumetric_capacities_J_m3K=capacity,
+            fixed_terminal=False,
+        ),
+        widths,
+    )
+
+
+def build_repair_substrate_branch(
+    formal_config: dict,
+    repair_config: dict,
+    *,
+    substrate_depth_m: float,
+    grid_level: str,
+) -> tuple[VerticalThermalReference, np.ndarray]:
+    if grid_level not in {"coarse", "fine"}:
+        raise ValueError("repair grid level must be coarse or fine")
+    material = formal_config["parameter_contract"]["passive_region_materials"][
+        "al2o3"
+    ]
+    grid = repair_config["nonuniform_grid"]
+    coarse = geometric_surface_refined_cell_widths(
+        substrate_depth_m,
+        top_cell_m=repair_surface_cell_bound_m(formal_config, repair_config),
+        growth_ratio=float(grid["adjacent_cell_growth_ratio_max"]),
+    )
+    widths = coarse if grid_level == "coarse" else bisect_cell_widths(coarse)
+    conductivity = np.full(
+        widths.size, float(material["thermal_conductivity_W_mK"])
+    )
+    capacity = np.full(
+        widths.size, float(material["volumetric_heat_capacity_J_m3K"])
+    )
+    return (
+        _branch_reference_from_cells(
+            "al2o3_substrate_branch",
+            cell_widths_m=widths,
+            thermal_conductivities_W_mK=conductivity,
+            volumetric_capacities_J_m3K=capacity,
+            fixed_terminal=True,
+        ),
+        widths,
+    )
+
+
+def build_repair_raw_components(
+    formal_config: dict,
+    repair_config: dict,
+    *,
+    substrate_depth_m: float,
+    grid_level: str,
+    overlay_branch: VerticalThermalReference,
+    overlay_cell_widths_m: np.ndarray,
+) -> RawVerticalComponents:
+    substrate, substrate_widths = build_repair_substrate_branch(
+        formal_config,
+        repair_config,
+        substrate_depth_m=substrate_depth_m,
+        grid_level=grid_level,
+    )
+    overlay_widths = np.asarray(overlay_cell_widths_m, dtype=float)
+    return RawVerticalComponents(
+        substrate=substrate,
+        overlay=overlay_branch,
+        region_areas_m2=_region_areas(formal_config),
+        substrate_depth_m=float(substrate_depth_m),
+        grid_level=grid_level,
+        substrate_cell_widths_m=substrate_widths,
+        overlay_cell_widths_m=overlay_widths,
+    )
+
+
 def _scaled_reference(
     reference: VerticalThermalReference,
     conductance_scale: float,
@@ -222,6 +730,112 @@ def _scaled_reference(
         reference.output_vector_W_m2K * conductance_scale,
         reference.direct_conductance_W_m2K * conductance_scale,
     )
+
+
+def repair_normalization_scales(
+    raw_anchor: RawVerticalComponents,
+    formal_config: dict,
+) -> VerticalNormalizationScales:
+    """Compute the single G/C scale pair from a production-D fine anchor."""
+
+    if raw_anchor.grid_level != "fine":
+        raise ValueError("repair normalization must be computed from a fine-grid anchor")
+    regions = raw_anchor.raw_region_references()
+    raw_conductance = sum(
+        raw_anchor.region_areas_m2[region] * reference.dc_conductance_W_m2K
+        for region, reference in regions.items()
+    )
+    raw_capacity = sum(
+        raw_anchor.region_areas_m2[region] * reference.total_capacity_J_m2K
+        for region, reference in regions.items()
+    )
+    normalization = formal_config["vertical_reference"][
+        "device_effective_normalization"
+    ]
+    target_conductance = float(
+        normalization["nominal_total_thermal_conductance_W_K"]
+    )
+    target_capacity = float(normalization["nominal_memory_capacity_target_J_K"])
+    return VerticalNormalizationScales(
+        conductance_scale=target_conductance / raw_conductance,
+        capacity_scale=target_capacity / raw_capacity,
+        raw_integrated_dc_conductance_W_K=float(raw_conductance),
+        raw_integrated_memory_capacity_J_K=float(raw_capacity),
+    )
+
+
+def apply_repair_normalization(
+    raw: RawVerticalComponents,
+    scales: VerticalNormalizationScales,
+) -> NormalizedVerticalReferences:
+    """Apply an already-computed pair-wide scale without reanchoring."""
+
+    raw_regions = raw.raw_region_references()
+    regions = {
+        region: _scaled_reference(
+            reference,
+            scales.conductance_scale,
+            scales.capacity_scale,
+        )
+        for region, reference in raw_regions.items()
+    }
+    # Evaluate the two source-author anchors from the unscaled quantities and
+    # their locked positive factors.  Re-solving a very stiff scaled matrix
+    # here loses digits through direct-minus-dynamic cancellation even though
+    # the normalized state-space model itself is unchanged.
+    integrated_conductance = sum(
+        raw.region_areas_m2[region] * reference.dc_conductance_W_m2K
+        for region, reference in raw_regions.items()
+    ) * scales.conductance_scale
+    integrated_capacity = sum(
+        raw.region_areas_m2[region] * reference.total_capacity_J_m2K
+        for region, reference in raw_regions.items()
+    ) * scales.capacity_scale
+    return NormalizedVerticalReferences(
+        references=regions,
+        region_areas_m2=dict(raw.region_areas_m2),
+        conductance_scale=float(scales.conductance_scale),
+        capacity_scale=float(scales.capacity_scale),
+        integrated_dc_conductance_W_K=float(integrated_conductance),
+        integrated_memory_capacity_J_K=float(integrated_capacity),
+    )
+
+
+def analytic_homogeneous_substrate_admittance_W_m2K(
+    formal_config: dict,
+    angular_frequency_rad_s: np.ndarray,
+    *,
+    substrate_depth_m: float | None,
+) -> np.ndarray:
+    """Return the analytic Al2O3 finite-depth or semi-infinite admittance.
+
+    ``substrate_depth_m=None`` selects the semi-infinite ``k*q`` comparator.
+    A finite depth selects the fixed-bottom ``k*q*coth(q*D)`` comparator.  The
+    analytic branch is diagnostic only and never substitutes for a production
+    finite-volume reference.
+    """
+
+    omega = np.atleast_1d(np.asarray(angular_frequency_rad_s, dtype=float))
+    if np.any(omega < 0.0) or not np.isfinite(omega).all():
+        raise ValueError("angular frequencies must be finite and nonnegative")
+    material = formal_config["parameter_contract"]["passive_region_materials"][
+        "al2o3"
+    ]
+    conductivity = float(material["thermal_conductivity_W_mK"])
+    volumetric_capacity = float(material["volumetric_heat_capacity_J_m3K"])
+    q = np.sqrt(1j * omega * volumetric_capacity / conductivity)
+    if substrate_depth_m is None:
+        return conductivity * q
+    depth = float(substrate_depth_m)
+    if not np.isfinite(depth) or depth <= 0.0:
+        raise ValueError("finite analytic substrate depth must be positive")
+    response = np.empty(omega.size, dtype=complex)
+    zero = omega == 0.0
+    response[zero] = conductivity / depth
+    nonzero_q = q[~zero]
+    with np.errstate(over="ignore", invalid="ignore"):
+        response[~zero] = conductivity * nonzero_q / np.tanh(nonzero_q * depth)
+    return response
 
 
 def build_normalized_vertical_references(
@@ -347,9 +961,10 @@ def fit_passive_ladder(
         int(frequency_grid["points"]),
     )
     omega = 2.0 * np.pi * frequencies
-    reference_step = reference.step_heat_flux_W_m2(times)
-    reference_impulse = reference.impulse_tail_W_m2K_s(times)
-    reference_frequency = reference.driving_admittance_W_m2K(omega)
+    reference_evaluator = VerticalReferenceModalEvaluator(reference)
+    reference_step = reference_evaluator.step_heat_flux_W_m2(times)
+    reference_impulse = reference_evaluator.impulse_tail_W_m2K_s(times)
+    reference_frequency = reference_evaluator.driving_admittance_W_m2K(omega)
     weights = fit_contract["response_weights"]
     initial = initial_passive_ladder(
         region_id=reference.region_id,
@@ -438,9 +1053,12 @@ def reduction_validation_metrics(
     validation_omega = 2.0 * np.pi * np.sqrt(
         fit_frequencies[:-1] * fit_frequencies[1:]
     )
-    reference_step = reference.step_heat_flux_W_m2(validation_times)
+    reference_evaluator = VerticalReferenceModalEvaluator(reference)
+    reference_step = reference_evaluator.step_heat_flux_W_m2(validation_times)
     candidate_step = ladder.step_heat_flux_W_m2(validation_times)
-    reference_step_zero = float(reference.step_heat_flux_W_m2(np.asarray([0.0]))[0])
+    reference_step_zero = float(
+        reference_evaluator.step_heat_flux_W_m2(np.asarray([0.0]))[0]
+    )
     step_scale = max(
         float(np.sqrt(np.mean((reference_step - reference_step_zero) ** 2))),
         1.0e-30,
@@ -448,14 +1066,16 @@ def reduction_validation_metrics(
     step_nrmse = float(
         np.sqrt(np.mean((candidate_step - reference_step) ** 2)) / step_scale
     )
-    reference_impulse = reference.impulse_tail_W_m2K_s(validation_times)
+    reference_impulse = reference_evaluator.impulse_tail_W_m2K_s(validation_times)
     candidate_impulse = ladder.impulse_tail_W_m2K_s(validation_times)
     impulse_scale = max(float(np.sqrt(np.mean(reference_impulse**2))), 1.0e-30)
     impulse_nrmse = float(
         np.sqrt(np.mean((candidate_impulse - reference_impulse) ** 2))
         / impulse_scale
     )
-    reference_frequency = reference.driving_admittance_W_m2K(validation_omega)
+    reference_frequency = reference_evaluator.driving_admittance_W_m2K(
+        validation_omega
+    )
     candidate_frequency = ladder.driving_admittance_W_m2K(validation_omega)
     frequency_rmse = float(
         np.sqrt(

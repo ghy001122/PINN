@@ -10,6 +10,8 @@ import numpy as np
 
 from pinnpcm.solvers.vertical_multilayer_reference import (
     NormalizedVerticalReferences,
+    VerticalReferenceModalEvaluator,
+    VerticalThermalReference,
     build_normalized_vertical_references,
 )
 
@@ -260,6 +262,218 @@ def substrate_depth_truncation_metrics(config: dict) -> dict[str, object]:
         "regions": region_metrics,
         "would_pass_locked_gate": bool(passed),
     }
+
+
+def held_out_vertical_response_grid(
+    fit_contract: Mapping[str, object],
+) -> tuple[np.ndarray, np.ndarray]:
+    """Return the locked geometric-midpoint time and frequency coordinates."""
+
+    time_grid = fit_contract["time_fit_grid"]
+    frequency_grid = fit_contract["frequency_fit_grid_Hz"]
+    if not isinstance(time_grid, Mapping) or not isinstance(frequency_grid, Mapping):
+        raise ValueError("vertical fit grids must be mappings")
+    fit_times = np.geomspace(
+        float(time_grid["start_s"]),
+        float(time_grid["stop_s"]),
+        int(time_grid["points"]),
+    )
+    fit_frequencies = np.geomspace(
+        float(frequency_grid["start"]),
+        float(frequency_grid["stop"]),
+        int(frequency_grid["points"]),
+    )
+    return (
+        np.sqrt(fit_times[:-1] * fit_times[1:]),
+        np.sqrt(fit_frequencies[:-1] * fit_frequencies[1:]),
+    )
+
+
+def _vertical_response_arrays(
+    model: object,
+    times_s: np.ndarray,
+    angular_frequency_rad_s: np.ndarray,
+) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    evaluator: object = (
+        VerticalReferenceModalEvaluator(model)
+        if isinstance(model, VerticalThermalReference)
+        else model
+    )
+    step = np.asarray(evaluator.step_heat_flux_W_m2(times_s), dtype=float)
+    impulse = np.asarray(evaluator.impulse_tail_W_m2K_s(times_s), dtype=float)
+    frequency = np.asarray(
+        evaluator.driving_admittance_W_m2K(angular_frequency_rad_s),
+        dtype=complex,
+    )
+    if (
+        step.shape != times_s.shape
+        or impulse.shape != times_s.shape
+        or frequency.shape != angular_frequency_rad_s.shape
+    ):
+        raise ValueError("vertical response evaluator returned an invalid shape")
+    if not (
+        np.isfinite(step).all()
+        and np.isfinite(impulse).all()
+        and np.isfinite(frequency).all()
+    ):
+        raise ValueError("vertical response evaluator returned nonfinite values")
+    return step, impulse, frequency
+
+
+def vertical_response_comparison(
+    candidate: object,
+    reference: object,
+    fit_contract: Mapping[str, object],
+) -> dict[str, object]:
+    """Evaluate the preregistered step, impulse, and frequency errors.
+
+    ``candidate`` is the shallower/coarser model and ``reference`` is the
+    fine-grid or 2D-fine reference named by the repair protocol.  The returned
+    pointwise arrays permit exact CSV reaggregation of every RMSE.
+    """
+
+    times, frequencies = held_out_vertical_response_grid(fit_contract)
+    omega = 2.0 * np.pi * frequencies
+    candidate_step, candidate_impulse, candidate_frequency = _vertical_response_arrays(
+        candidate, times, omega
+    )
+    reference_step, reference_impulse, reference_frequency = _vertical_response_arrays(
+        reference, times, omega
+    )
+    reference_zero = float(
+        _vertical_response_arrays(
+            reference,
+            np.asarray([0.0]),
+            np.asarray([0.0]),
+        )[0][0]
+    )
+    step_delta = candidate_step - reference_step
+    impulse_delta = candidate_impulse - reference_impulse
+    candidate_log_magnitude = np.log(
+        np.maximum(np.abs(candidate_frequency), 1.0e-300)
+    )
+    reference_log_magnitude = np.log(
+        np.maximum(np.abs(reference_frequency), 1.0e-300)
+    )
+    frequency_delta = candidate_log_magnitude - reference_log_magnitude
+    step_denominator = max(
+        float(np.sqrt(np.mean((reference_step - reference_zero) ** 2))),
+        1.0e-30,
+    )
+    impulse_denominator = max(
+        float(np.sqrt(np.mean(reference_impulse**2))), 1.0e-30
+    )
+    metrics = {
+        "step_response_nrmse": float(
+            np.sqrt(np.mean(step_delta**2)) / step_denominator
+        ),
+        "impulse_response_nrmse": float(
+            np.sqrt(np.mean(impulse_delta**2)) / impulse_denominator
+        ),
+        "frequency_log_magnitude_rmse": float(
+            np.sqrt(np.mean(frequency_delta**2))
+        ),
+    }
+    frequency_squared_contribution = frequency_delta**2 / frequency_delta.size
+    frequency_cumulative_rmse = np.sqrt(
+        np.cumsum(frequency_squared_contribution)
+    )
+    if not np.isfinite(np.asarray(list(metrics.values()), dtype=float)).all():
+        raise ValueError("vertical comparison produced a nonfinite metric")
+    return {
+        "metrics": metrics,
+        "time_s": times,
+        "frequency_Hz": frequencies,
+        "candidate_step_W_m2": candidate_step,
+        "reference_step_W_m2": reference_step,
+        "step_error": step_delta / step_denominator,
+        "candidate_impulse_W_m2K_s": candidate_impulse,
+        "reference_impulse_W_m2K_s": reference_impulse,
+        "impulse_error": impulse_delta / impulse_denominator,
+        "candidate_frequency_W_m2K": candidate_frequency,
+        "reference_frequency_W_m2K": reference_frequency,
+        "frequency_log_magnitude_error": frequency_delta,
+        "frequency_squared_rmse_contribution": frequency_squared_contribution,
+        "frequency_cumulative_rmse": frequency_cumulative_rmse,
+    }
+
+
+def vertical_passivity_and_identity_metrics(
+    reference: VerticalThermalReference,
+    fit_contract: Mapping[str, object],
+) -> dict[str, float | bool]:
+    """Evaluate passive state-space and response identities for one reference."""
+
+    times, frequencies = held_out_vertical_response_grid(fit_contract)
+    omega = 2.0 * np.pi * frequencies
+    evaluator = VerticalReferenceModalEvaluator(reference)
+    response = evaluator.driving_admittance_W_m2K(omega)
+    physical_links = [reference.direct_conductance_W_m2K]
+    off_diagonal = -np.triu(reference.conductance_matrix_W_m2K, k=1)
+    physical_links.extend(float(value) for value in off_diagonal[off_diagonal > 0.0])
+    row_sums = np.sum(reference.conductance_matrix_W_m2K, axis=1)
+    physical_links.extend(float(value) for value in row_sums[row_sums > 0.0])
+
+    identity_times = times[[0, times.size // 2, -1]]
+    identity_omega = omega[[0, omega.size // 2, -1]]
+    modal_impulse = evaluator.impulse_tail_W_m2K_s(identity_times)
+    state_space_impulse = reference.impulse_tail_W_m2K_s(identity_times)
+    modal_frequency = evaluator.driving_admittance_W_m2K(identity_omega)
+    state_space_frequency = reference.driving_admittance_W_m2K(identity_omega)
+
+    direct = float(reference.direct_conductance_W_m2K)
+    dc_from_state_space = float(
+        direct
+        - reference.output_vector_W_m2K
+        @ np.linalg.solve(
+            reference.conductance_matrix_W_m2K,
+            reference.input_vector_W_m2K,
+        )
+    )
+    expected_impulse_integral = reference.dc_conductance_W_m2K - direct
+
+    def scalar_relative_error(actual: float, expected: float) -> float:
+        return float(abs(actual - expected) / max(abs(expected), 1.0e-30))
+
+    def vector_rms_relative_error(actual: np.ndarray, expected: np.ndarray) -> float:
+        numerator = float(np.sqrt(np.mean(np.abs(actual - expected) ** 2)))
+        denominator = max(
+            float(np.sqrt(np.mean(np.abs(expected) ** 2))), 1.0e-30
+        )
+        return numerator / denominator
+
+    minimum_real_margin = float(
+        np.min(np.real(response) / np.maximum(np.abs(response), 1.0))
+    )
+    metrics: dict[str, float | bool] = {
+        "minimum_capacity_J_m2K": float(np.min(reference.capacities_J_m2K)),
+        "minimum_physical_conductance_W_m2K": float(np.min(physical_links)),
+        "maximum_pole_real_per_s": float(-np.min(evaluator.rates_per_s)),
+        "minimum_conductance_matrix_eigenvalue_W_m2K": float(
+            np.min(np.linalg.eigvalsh(reference.conductance_matrix_W_m2K))
+        ),
+        "minimum_real_admittance_relative_margin": minimum_real_margin,
+        "step_initial_relative_error": scalar_relative_error(
+            float(evaluator.step_heat_flux_W_m2(np.asarray([0.0]))[0]), direct
+        ),
+        "step_DC_relative_error": scalar_relative_error(
+            dc_from_state_space, reference.dc_conductance_W_m2K
+        ),
+        "impulse_integral_relative_error": scalar_relative_error(
+            evaluator.impulse_tail_integral_W_m2K,
+            expected_impulse_integral,
+        ),
+        "impulse_step_derivative_relative_error": vector_rms_relative_error(
+            modal_impulse, state_space_impulse
+        ),
+        "frequency_state_space_relative_error": vector_rms_relative_error(
+            modal_frequency, state_space_frequency
+        ),
+    }
+    values = [float(value) for value in metrics.values()]
+    if not np.isfinite(np.asarray(values, dtype=float)).all():
+        raise ValueError("vertical passivity/identity evaluation produced nonfinite values")
+    return metrics
 
 
 def contact_overlap_qoi_audit(
