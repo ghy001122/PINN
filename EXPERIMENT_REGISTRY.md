@@ -2,6 +2,16 @@
 
 > Do not load by default. Current claim/evidence routing is `docs/project_state/current_evidence_index.md`; use this file only to trace a named historical run.
 
+## Phase 1 executive-guide and source-scale contract audit (2026-07-26)
+
+- Type: repository governance, preregistration correction, and zero-solver algebraic contract checks; no scientific experiment.
+- Base SHA: `a0c33505d286bf43688da88d5c041e59ba18e6ff`.
+- Preserved all imported execution-guide headings and recorded the source SHA-256 plus bounded repository adaptations.
+- Replaced the nonportable one-path workspace rule with repository-identity and safety checks.
+- Locked analytic device-effective electrical endmembers and positive global thermal-scale normalization to admitted Qiu author-model quantities without treating them as local measurements or independent validation.
+- Evidence: Phase 1/source YAML contracts, `tests/test_geophase_phase1_preregistration.py`, and `docs/codex_reports/executive_guide_alignment_source_scale_review_2026-07-26.md`.
+- Claim impact: no scientific claim upgraded; Phase 1 remains pending implementation.
+
 ## E1F/E1F-R Qiu author compact audit (2026-07-21)
 
 - Original task: `Q2_E1F_QIU_AUTHOR_MODEL_EXTERNAL_ANCHOR_AND_BRIDGE_AUDIT`;
@@ -800,3 +810,15 @@ Claim result: multilayer forward, terminal-only rescue, low-dimensional sandwich
 - Baseline: 447 local tests passed before modification; frozen GT hashes and tracked JSON validation passed.
 - Final local regression: 451 tests passed in 238.32 seconds; no pre-existing test regressed. Final governance/frozen/JSON/diff checks are recorded in the Phase 0 report and machine summary.
 - Scientific boundary: all Phase 1, R1, R2, R3, experimental, quantitative-Qiu, FEM/3D, and cross-material result claims remain forbidden.
+
+## Phase 1 Contract Hardening And Workspace Cleanup
+
+- Date: 2026-07-26.
+- Branch: `codex/phase1-geophase-2p5d-contract-hardening`.
+- Evidence type: repository governance and preregistration only; this is not a solver experiment.
+- Source contract: `configs/qiu_vo2_phase1_source_contract.yaml`.
+- Technical lock: `configs/geophase_phase1_2p5d_reference.yaml` schema v2, with explicit region topology, grid/time/protocol/tolerance/metric definitions, passive K-state fit/evaluation contract, and exact 96-case formal inventory.
+- Scope correction: the Phase 1 resolved benchmark is single-device. Dual copies vote only on zero-coupling and symmetry limits; nonzero dual-device coupling is `forbidden` pending an explicit substrate field or independently validated passive nonlocal kernel.
+- Validation: focused Phase 1/governance 15 passed; current Phase 1 marker 11 passed; full regression 455 passed in 502.64 seconds; governance zero failed checks; frozen GT unchanged.
+- Result: `supported` for governance and preregistration facts only. No Phase 1 solver result or downstream scientific claim exists.
+- Report: `docs/codex_reports/phase1_contract_hardening_workspace_cleanup_2026-07-26.md`.

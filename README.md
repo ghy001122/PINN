@@ -1,6 +1,10 @@
 # PINN Phase-Transition Device Research
 
-This repository is a reproducible Python 3.11 research codebase and evidence package for a Q2 SCI delivery objective. The current work is governance-complete Phase 1 preparation: an independent, conservative Qiu-inspired VO2 2.5D reference solver. No Phase 1 solver result, positive PINN result, inverse result, or experimental validation exists yet.
+This repository is a reproducible Python 3.11 research codebase and evidence package for a Q2 SCI delivery objective. The current work is the source-scale-corrected implementation stage for an independent, conservative Qiu-inspired VO2 single-device 2.5D reference solver. No Phase 1 solver result, positive PINN result, inverse result, or experimental validation exists yet.
+
+## Workspace preflight
+
+Read [LIVE_WORKSPACE.md](LIVE_WORKSPACE.md) before mutation. It distinguishes a verified Git checkout from machine-local archives and read-only project mirrors; its absolute paths are observations for the current workstation, not portable scientific authority.
 
 ## Authoritative entry chain
 
@@ -12,6 +16,7 @@ This repository is a reproducible Python 3.11 research codebase and evidence pac
 6. [current_evidence_index.md](docs/project_state/current_evidence_index.md)
 7. [Q2 SCI execution guide](docs/research_strategy/pinn_phase_change_q2_sci_execution_guide.md)
 8. [Phase 1 technical contract](docs/research_strategy/phase1_geophase_2p5d_reference_contract.md)
+9. [Qiu Phase 1 source-only contract](configs/qiu_vo2_phase1_source_contract.yaml)
 
 `AGENTS.md` and nested `AGENTS.md` files govern execution, evidence, and claim discipline. Archived strategy and manuscripts are provenance only and cannot authorize current work.
 
@@ -38,6 +43,8 @@ All project-generated results are literature-guided synthetic numerical digital-
 - `outputs/tables/`: lightweight machine-readable evidence and governance summaries.
 - `docs/codex_reports/`: task-level evidence reports.
 - `docs/archive/`: non-authoritative but recoverable strategy, negative evidence, and manuscript history.
+
+The Phase 1 formal baseline resolves one VO2 device. A two-copy fixture tests only zero-coupling and label symmetry. Nonzero interdevice thermal coupling is not represented and cannot be claimed until a later explicit substrate field or high-order-validated nonlocal kernel is activated.
 
 ## Local validation
 

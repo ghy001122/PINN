@@ -2,9 +2,10 @@
 
 ## First Read
 
-1. `CODEX_CONTEXT.md`
-2. `docs/research_strategy/active_phase.md`
-3. `docs/research_strategy/context_loading_policy.md`
+1. `LIVE_WORKSPACE.md`
+2. `CODEX_CONTEXT.md`
+3. `docs/research_strategy/active_phase.md`
+4. `docs/research_strategy/context_loading_policy.md`
 
 ## Current Authority
 
@@ -14,12 +15,13 @@
 - `NEXT_ACTIONS.md`: single active task.
 - `docs/research_strategy/pinn_phase_change_q2_sci_execution_guide.md`: complete research strategy, phase ladder, downgrade rules, and writing guide.
 - `docs/research_strategy/phase1_geophase_2p5d_reference_contract.md`: current phase-only technical contract.
+- `configs/qiu_vo2_phase1_source_contract.yaml`: Qiu source facts, fitted-lumped values, engineering priors, unresolved semantics, and historical non-inheritance boundary.
 - `docs/research_strategy/sci_delivery_pipeline.md`: reusable evidence lifecycle.
 - `docs/project_state/current_evidence_index.md`: current/historical/candidate/forbidden evidence routing.
 
 ## Task Routing
 
-- Physics, equations, materials, geometry, or provenance: load `docs/method_equations.md`, the Phase 1 config, and only the relevant physics/provenance files.
+- Physics, equations, materials, geometry, or provenance: load `docs/method_equations.md`, the Phase 1 config, the source-only contract, and only the relevant physics/provenance files.
 - Code or tests: load the applicable nested `AGENTS.md`, config, implementation, and focused tests.
 - Claims or manuscript: load `docs/project_prompts/critical_research_mode.md`, `docs/paper/final_claim_matrix.md`, and only the relevant manuscript component.
 - Historical reproduction or reviewer defense: use `docs/archive/README.md`, registries, and the named report/artifact. Archived documents never authorize current work.

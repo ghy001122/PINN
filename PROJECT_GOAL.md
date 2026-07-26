@@ -14,7 +14,7 @@ None of those scientific claims is currently established. All generated evidence
 
 ## Stable Delivery Lanes
 
-- R1 `HysGeo-Hybrid-PINN`: minimum must-complete route. It includes real x-y device geometry, passive K-state vertical thermal memory, a white-box hysteretic conductivity kernel, differentiable port and RC coupling, a full energy ledger, and sparse independently generated field anchors declared as hybrid supervision.
+- R1 `HysGeo-Hybrid-PINN`: minimum must-complete route. It includes real x-y device geometry, passive K-state vertical thermal memory, a white-box hysteretic conductivity kernel, differentiable port and RC coupling, a full energy ledger, and sparse independently generated field anchors declared as hybrid supervision. Qiu source-author fits may normalize nominal device-effective electrical/thermal scales but never become intrinsic local-property or experimental-validation claims.
 - R2 `GeoPhase-HomoMoE-PINN`: preferred Q2 method route. It adds transition-localized spectral mixture-of-experts capacity and dual-axis stiffness homotopy to a passed R1 foundation.
 - R3 conditional observable-subspace/OQ: high-upside extension. It requires stable solver Jacobians, event alignment, local observable-subspace stability, PINN trajectory and sensitivity fidelity, fresh nonlinear/noisy inverse tests, and refusal outside the identifiable region.
 - Historical lane: frozen 1D GT, constrained `gamma_sub`, public-data source-reproduction/identifiability bridge, failed complete phase-transition PINN work, M40/M40R/M44, OASIS, and SID/OQ remain baselines, negative evidence, provenance, and reviewer defense.
@@ -68,7 +68,7 @@ Finite output, loss decrease, a smoke test, a local Jacobian, or a proxy audit i
 - Data-free failure does not disqualify the explicitly hybrid R1 identity; sparse anchors must remain visible.
 - R2 without synergistic matched-budget gain is removed or downgraded to an implementation detail.
 - R3 without stable rank/rotation or sensitivity fidelity is removed; retain a fixed reduced inverse or identifiability boundary only if directly supported.
-- Exact Qiu reproduction, real experimental validation, full 3D/FEM validation, arbitrary terminal-only full-field recovery, universal Fourier/F-SPS superiority, and VO2-to-NbO2 zero-shot transfer remain forbidden without direct evidence.
+- Exact Qiu reproduction, nonzero dual-device thermal-coupling validation, real experimental validation, full 3D/FEM validation, arbitrary terminal-only full-field recovery, universal Fourier/F-SPS superiority, and VO2-to-NbO2 zero-shot transfer remain forbidden without direct evidence. The Phase 1 formal baseline is single-device; a later coupling claim requires an explicit substrate field or independently validated passive nonlocal kernel.
 - Stretch failure cannot block paper delivery; it only limits the manuscript tier.
 
 ## User Confirmation Boundary

@@ -62,6 +62,7 @@ Always enforce:
 7. Do not claim F-SPS / Fourier superiority unless cross-regime, cross-noise, and cross-geometry ablations support it.
 8. Do not modify frozen Ground Truth v1.1 unless an explicit Ground Truth revision task is opened.
 9. Do not fabricate data, curves, citations, or physical parameters.
+10. Do not claim nonzero dual-device thermal coupling from duplicated single-device domains or an unvalidated scalar coupling coefficient; require a resolved substrate field or independently validated passive nonlocal kernel with convergence and ledger evidence.
 
 These boundaries restrict manuscript claims and evidence handling. They do not ban controlled exploration of the underlying research directions.
 

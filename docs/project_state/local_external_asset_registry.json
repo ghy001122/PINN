@@ -1,0 +1,19 @@
+{
+  "schema_version": "local_external_asset_registry_v1",
+  "updated_on": "2026-07-26",
+  "scope": "machine_local_nonrepository_assets",
+  "assets": [
+    {
+      "asset_id": "pinn_research_context_chat_records_20260724",
+      "original_repository_path": "outputs/archives/PINN_research_context_chat_records_20260724_154259.zip",
+      "current_storage_class": "external_local_archive_not_repository_evidence",
+      "current_path_hint": "E:/PINN/workspace_archives/PINN_research_context_chat_records_20260724_154259.zip",
+      "bytes": 167159237,
+      "sha256": "568B3F2B1C7867A5CDA4CAD82239C3F0849A71B8C1ADDD9A3C41976E1A126ADE",
+      "git_tracked": false,
+      "required_for_clone_test_or_replay": false,
+      "evidence_role": "project_context_archive_only",
+      "privacy_boundary": "may contain conversation records; do not commit or redistribute the archive"
+    }
+  ]
+}

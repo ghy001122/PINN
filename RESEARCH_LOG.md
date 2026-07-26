@@ -2,6 +2,12 @@
 
 > Do not load by default. Use `PROJECT_STATE.md`, `NEXT_ACTIONS.md`, and the latest task report for current work.
 
+## Executive-Guide Alignment And Source-Scale Review
+
+Date: 2026-07-26
+
+Audited the post-realignment workspace against the imported Q2 execution guide. The R1/R2/R3 route, Phase 1-first ordering, historical evidence, and claim boundaries were retained, but two preimplementation contradictions were corrected: the tracked workspace identity no longer requires one absolute Windows path, and the Phase 1 electrical/thermal contract now maps admitted Qiu author-model quantities only to nominal device-effective uniform/global scales. Algebraic preflights recover both electrical endmember resistances and total thermal conductance/capacity while explicitly forbidding intrinsic-property, calibration, or validation claims. No solver, PINN, inverse, or scientific gate was executed. Report: `docs/codex_reports/executive_guide_alignment_source_scale_review_2026-07-26.md`.
+
 ## E1F Source Audit And Literal-S3 Corrective Vote
 
 Date: 2026-07-21
@@ -875,3 +881,15 @@ Primary report:
 - Claim change: none. Route/config existence is supported; positive GeoPhase
   results remain forbidden pending direct evidence.
 - Next priority: implement and validate G0/E0. Disposition: continue.
+
+## 2026-07-26 - Phase 1 Contract Hardening And Workspace Hygiene
+
+- Confirmed `E:\Python demo\PINN` as the only live repository, added an explicit workspace router, removed a 37,516,880-byte ignored Sogou cache tree, and moved the 167,159,237-byte conversation archive to the external `E:\PINN\workspace_archives` area with its SHA-256 recorded.
+- Removed runtime-specific file-editing instruction conflicts and retained the cache ignore guard.
+- Added an independent Qiu source-only contract; M40/M40R/M44 now provide source locators and failure lessons only, with no inherited parameter, field, convergence, or claim vote.
+- Hardened the Phase 1 v2 contract: explicit bare/contact-covered topology, no active-storage double counting, locked grid/time/protocol/initial state/tolerances/metrics, K-state fit/evaluation grids, and an exact 96-case inventory.
+- Restricted the formal Phase 1 model to one resolved device. Two copies test only zero coupling and symmetry; any nonzero coupling needs a later explicit substrate field or independently validated passive nonlocal kernel.
+- Added `phase1` and `current` test markers without moving historical tests. Focused checks passed; the one final full regression passed 455 tests in 502.64 seconds; governance had zero failed checks; frozen GT hashes were unchanged.
+- No solver run or scientific claim upgrade occurred. Next priority: implement the locked Phase 1 independent reference solver. Disposition: continue.
+
+Primary report: `docs/codex_reports/phase1_contract_hardening_workspace_cleanup_2026-07-26.md`.

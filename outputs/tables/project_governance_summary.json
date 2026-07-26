@@ -14,7 +14,7 @@
     },
     "current_handoff": {
       "status": "pass",
-      "bytes": 1014,
+      "bytes": 1291,
       "missing_markers": []
     },
     "single_current_snapshot": {
@@ -42,7 +42,7 @@
     },
     "critical_markdown_links": {
       "status": "pass",
-      "checked": 9,
+      "checked": 11,
       "missing": []
     },
     "realignment_outputs": {
@@ -52,6 +52,23 @@
       "summary_phase": "Q2_PHASE1_2P5D_REFERENCE_SOLVER"
     },
     "phase0_report": {
+      "status": "pass",
+      "missing": []
+    },
+    "workspace_routing_and_hygiene": {
+      "status": "pass",
+      "missing_markers": [],
+      "pollution_root_present": false,
+      "repository_archive_files": [],
+      "problems": []
+    },
+    "local_external_asset_registry": {
+      "status": "pass",
+      "problems": [],
+      "assets": 1,
+      "external_presence": "not_required_for_portable_governance"
+    },
+    "phase1_contract_hardening": {
       "status": "pass",
       "missing": []
     },
@@ -66,24 +83,24 @@
     "agents_chain_size": {
       "status": "pass",
       "bytes": {
-        "src/pinnpcm/physics/AGENTS.md": 8756,
-        "src/pinnpcm/pinn/AGENTS.md": 8888,
-        "scripts/AGENTS.md": 8651,
-        "tests/AGENTS.md": 8593,
-        "docs/AGENTS.md": 8723
+        "src/pinnpcm/physics/AGENTS.md": 8876,
+        "src/pinnpcm/pinn/AGENTS.md": 9008,
+        "scripts/AGENTS.md": 8863,
+        "tests/AGENTS.md": 8713,
+        "docs/AGENTS.md": 8843
       },
       "oversized": {}
     },
     "low_token_context_budget": {
       "status": "pass",
       "limit_bytes": 24576,
-      "total_bytes": 16770,
+      "total_bytes": 19847,
       "files": {
-        "CODEX_CONTEXT.md": 2276,
-        "docs/research_strategy/active_phase.md": 3802,
-        "PROJECT_STATE.md": 3684,
-        "NEXT_ACTIONS.md": 2518,
-        "docs/project_state/current_evidence_index.md": 4490
+        "CODEX_CONTEXT.md": 2611,
+        "docs/research_strategy/active_phase.md": 4325,
+        "PROJECT_STATE.md": 4369,
+        "NEXT_ACTIONS.md": 3266,
+        "docs/project_state/current_evidence_index.md": 5276
       }
     },
     "retired_generator_guard": {
