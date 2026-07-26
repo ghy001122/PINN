@@ -71,6 +71,14 @@ def test_v7_repair_build_budget_reuses_substrate_and_overlay_branches() -> None:
     )
     assert expected == int(budget["total_raw_numerical_builds"]) == 26
     assert expected <= int(budget["maximum_raw_numerical_builds"]) == 32
+    assert int(budget["substrate_depth_count_including_comparator"]) * len(
+        budget["substrate_grid_levels"]
+    ) == int(budget["substrate_builds"])
+    assert len(budget["overlay_build_ids"]) == int(budget["overlay_builds"])
+    assert len(budget["v6_reproduction_build_ids"]) == int(
+        budget["v6_reproduction_builds"]
+    )
+    assert budget["actual_unique_build_manifest_required"] is True
     assert budget["regions_do_not_duplicate_substrate_builds"] is True
     assert repair["normalization_contract"]["per_candidate_pair"]["comparator_reanchored"] is False
 
@@ -84,5 +92,35 @@ def test_v7_repair_locks_v6_source_and_inventory_bytes() -> None:
     assert authority["source_contract_must_remain_byte_identical"] is True
     immutable = repair["immutable_scientific_contract"]
     assert immutable["substrate_depth_frequency_log_magnitude_gate"] == 5.0e-2
+    assert immutable["substrate_depth_step_response_gate"] == 5.0e-2
     assert immutable["formal_evaluation_item_count"] == 96
     assert immutable["formal_case_ids_and_physical_axes_unchanged"] is True
+    assert immutable["qiu_R_G_C_unchanged"] is True
+    assert immutable["frozen_ground_truth_unchanged"] is True
+    assert immutable["nonzero_dual_device_coupling"] == "forbidden"
+
+
+def test_v7_repair_locks_metric_anchor_and_deterministic_grid_semantics() -> None:
+    repair = _repair()
+    response = repair["locked_response_contract"]
+    assert response["time_window_s"] == 2.0e-5
+    assert response["frequency_band_Hz"] == [1.0e3, 1.0e10]
+    assert response["response_weights"] == {
+        "step": 0.4,
+        "impulse": 0.2,
+        "frequency_log_magnitude": 0.4,
+    }
+    assert "reference_at_zero" in response["step_error_formula"]
+    assert "1e_minus_300" in response["frequency_error_formula"]
+
+    selection = repair["selection_gates"]
+    assert selection["global_anchor_voting_scope"] == "production_D_fine_only"
+    assert selection["comparator_2D_anchor_role"].startswith("reported_nonvoting")
+    assert set(selection["identity_relative_tolerances"].values()) == {1.0e-10}
+
+    grid = repair["nonuniform_grid"]
+    generator = grid["deterministic_substrate_generator"]
+    assert grid["coarse_first_substrate_cell_rule"] == "exact_surface_cell_rule_value"
+    assert generator["bisection_iterations"] == 80
+    assert generator["residual_terminal_cell"] == "forbidden"
+    assert grid["fine_grid_rule"] == "bisect_every_coarse_cell"

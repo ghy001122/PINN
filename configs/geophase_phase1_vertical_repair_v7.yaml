@@ -25,6 +25,12 @@ execution_boundary:
   candidate_screening_is_formal_execution: false
   phase1_scientific_claim: forbidden_pending_formal_campaign
   checkpoint_b_requires_fresh_user_authorization: true
+  screening_entry_checks:
+    require_full_repair_protocol_commit_sha: true
+    require_repair_protocol_commit_is_HEAD_or_ancestor: true
+    require_current_repair_yaml_matches_committed_bytes: true
+    require_current_repair_yaml_sha256_argument: true
+    require_source_contract_sha256_match: true
 
 v6_warning_reproduction:
   region_id: electrode_covered_vo2
@@ -80,11 +86,20 @@ nonuniform_grid:
   high_frequency_Hz: 1.0e10
   thermal_penetration_depth_rule: sqrt_alpha_over_pi_frequency
   surface_cell_rule: min_delta_10GHz_over_10_ti_thickness_over_8_au_thickness_over_8
+  coarse_first_substrate_cell_rule: exact_surface_cell_rule_value
   coarse_top_cell_m_max: 2.0e-9
   adjacent_cell_growth_ratio_max: 1.18
+  deterministic_substrate_generator:
+    cell_count_rule: smallest_integer_N_whose_geometric_sum_at_ratio_1p18_reaches_depth
+    effective_ratio_rule: unique_bisection_root_in_1_to_1p18_whose_N_cell_geometric_sum_equals_depth
+    bisection_iterations: 80
+    residual_terminal_cell: forbidden
+    floating_point_rounding: IEEE754_binary64
   material_interfaces_align_with_cell_faces: true
   ti_cells_min: 8
   au_cells_min: 8
+  coarse_ti_grid_rule: uniform_exactly_8_cells
+  coarse_au_grid_rule: uniform_exactly_8_cells
   fine_grid_rule: bisect_every_coarse_cell
   coarse_and_fine_share_depth: true
   coarse_and_fine_share_remote_boundary: true
@@ -97,12 +112,20 @@ raw_numerical_build_budget:
   overlay_grid_levels: [coarse, fine]
   overlay_builds: 2
   v6_uniform_eight_cell_reproduction_depths_m: [4.0e-7, 8.0e-7]
-  v6_reproduction_grid_levels: 2
+  v6_reproduction_build_ids:
+    - v6_uniform8_D400nm_bare_vo2
+    - v6_uniform8_D400nm_electrode_covered_vo2
+    - v6_uniform8_D800nm_bare_vo2
+    - v6_uniform8_D800nm_electrode_covered_vo2
   v6_reproduction_builds: 4
   analytic_semi_infinite_fvm_builds: 0
   total_raw_numerical_builds: 26
   maximum_raw_numerical_builds: 32
   regions_do_not_duplicate_substrate_builds: true
+  actual_unique_build_manifest_required: true
+  substrate_build_id_rule: substrate_depth_SI_scientific_notation_plus_grid_level
+  overlay_build_ids: [ti_au_overlay_coarse, ti_au_overlay_fine]
+  reuse_mapping_required: true
 
 normalization_contract:
   source_author_global_G_C_anchor_semantics_unchanged: true
@@ -125,8 +148,18 @@ normalization_contract:
 
 locked_response_contract:
   time_window_s: 2.0e-5
-  frequency_band_Hz: [1.0e3, 1.0e10]
+  frequency_band_Hz: [1000.0, 10000000000.0]
   frequency_grid_and_weights_inherited_unchanged_from_formal_v6: true
+  response_weights:
+    step: 0.4
+    impulse: 0.2
+    frequency_log_magnitude: 0.4
+  step_error_formula: RMSE_candidate_minus_reference_divided_by_max_RMS_reference_minus_reference_at_zero_1e_minus_30
+  impulse_error_formula: RMSE_candidate_minus_reference_divided_by_max_RMS_reference_1e_minus_30
+  frequency_error_formula: RMSE_log_max_abs_candidate_1e_minus_300_minus_log_max_abs_reference_1e_minus_300
+  reference_role_for_mesh_error: fine_grid
+  reference_role_for_depth_error: comparator_2D_fine
+  pointwise_grid: held_out_geometric_midpoints_from_formal_v6_fit_grids
   step_metric_voting_status_unchanged: true
   impulse_metric_voting_status_unchanged: true
   frequency_metric_voting_status_unchanged: true
@@ -139,6 +172,9 @@ selection_gates:
   substrate_depth_frequency_error_max: 5.0e-2
   area_integrated_G_relative_error_max: 1.0e-12
   area_integrated_C_relative_error_max: 1.0e-12
+  global_anchor_voting_scope: production_D_fine_only
+  production_D_coarse_anchor_role: reported_nonvoting_diagnostic
+  comparator_2D_anchor_role: reported_nonvoting_truncation_diagnostic
   positive_capacities_required: true
   positive_conductances_required: true
   strictly_negative_real_poles_required: true
@@ -149,6 +185,12 @@ selection_gates:
   impulse_integral_identity_required: true
   impulse_step_derivative_identity_required: true
   frequency_state_space_identity_required: true
+  identity_relative_tolerances:
+    step_initial: 1.0e-10
+    step_DC: 1.0e-10
+    impulse_integral: 1.0e-10
+    impulse_step_derivative: 1.0e-10
+    frequency_state_space: 1.0e-10
 
 k_state_contract:
   reference_order: 8
@@ -197,3 +239,14 @@ outputs:
   all_csv_rows_voting: false
   JSON_and_CSV_before_markdown: true
   formal_phase1_figures: forbidden
+  repair_preregistration_required_fields:
+    - repair_protocol_commit_sha
+    - repair_yaml_sha256
+    - formal_v6_config_sha256
+    - source_contract_sha256
+    - formal_inventory_sha256
+    - formal_execution_count
+    - formal_case_results_generated
+    - phase1_scientific_claim
+    - unique_raw_build_ids
+    - branch_reuse_mapping
