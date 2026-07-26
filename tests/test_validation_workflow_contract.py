@@ -16,6 +16,30 @@ def test_fast_validation_does_not_fetch_full_history() -> None:
     assert "cancel-in-progress: true" in workflow
     assert "timeout-minutes:" in workflow
     assert 'PINN_PUBLIC_CHECKOUT: "1"' in workflow
+    assert "git diff --exit-code" in workflow
+    assert "scripts/run_geophase_phase1_reference.py" not in workflow
+
+
+def test_fast_validation_covers_phase1_checkpoint_a_and_authority_paths() -> None:
+    workflow = (ROOT / ".github" / "workflows" / "read_only_validation.yml").read_text(encoding="utf-8")
+    required_tests = (
+        "tests/test_geophase_phase1_solver.py",
+        "tests/test_geophase_phase1_checkpoint_a_evidence.py",
+    )
+    for test_path in required_tests:
+        assert test_path in workflow
+
+    required_trigger_paths = (
+        "README.md",
+        "docs/method_equations.md",
+        "docs/codex_reports/**",
+        "LIVE_WORKSPACE.md",
+        "EXPERIMENT_REGISTRY.md",
+        "DATASET_REGISTRY.md",
+        "FIGURE_REGISTRY.md",
+    )
+    for trigger_path in required_trigger_paths:
+        assert workflow.count(f'- "{trigger_path}"') == 2
 
 
 def test_full_validation_alone_verifies_historic_blobs() -> None:

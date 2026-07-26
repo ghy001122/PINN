@@ -2,7 +2,7 @@
 task_name: Q2_PHASE1_2P5D_REFERENCE_SOLVER_CHECKPOINT_A
 base_sha: 7c0f7d6ee679a3ac802ed4aff302736e194d487d
 preregistration_sha: 212a4277bf9cf8afe365d922adefe67bdd7595e1
-final_sha: SELF
+final_sha: 9f63fadd30608a61eb398c42f88662c8ec2beb49
 branch: codex/phase1-2p5d-solver-implementation
 tests:
   - focused_checkpoint_a_and_governance: 37 passed
@@ -11,7 +11,7 @@ tests:
 reproduction_commands:
   - .\.venv\Scripts\python.exe -m pytest -q tests\test_geophase_phase1_preregistration.py tests\test_geophase_phase1_solver.py tests\test_geophase_phase1_checkpoint_a_evidence.py tests\test_project_governance.py
   - .\.venv\Scripts\python.exe scripts\audit_project_governance.py --no-write
-  - .\.venv\Scripts\python.exe scripts\run_geophase_phase1_reference.py --checkpoint a --preregistration-sha 212a4277bf9cf8afe365d922adefe67bdd7595e1
+  - .\.venv\Scripts\python.exe scripts\run_geophase_phase1_reference.py --checkpoint a --preregistration-sha 212a4277bf9cf8afe365d922adefe67bdd7595e1 --implementation-commit 9f63fadd30608a61eb398c42f88662c8ec2beb49
   - .\.venv\Scripts\python.exe -m pytest -q
   - .\.venv\Scripts\python.exe scripts\validate_tracked_json.py
   - git diff --check
@@ -30,8 +30,9 @@ disposition: stop_before_formal_campaign
 
 # GeoPhase Phase 1 Reference Solver Checkpoint A
 
-`final_sha: SELF` denotes the implementation commit containing this
-self-referential report. The concrete commit is reported after it is pushed.
+`final_sha` identifies the exact Checkpoint A implementation commit. The later
+CI-hardening change does not alter the locked scientific configuration or run
+any formal case.
 
 ## Authorization And Git Boundary
 

@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT / "configs" / "geophase_phase1_2p5d_reference.yaml"
 OUTPUT_ROOT = ROOT / "outputs" / "tables" / "geophase_phase1"
 PREREGISTRATION_SHA = "212a4277bf9cf8afe365d922adefe67bdd7595e1"
+IMPLEMENTATION_COMMIT = "9f63fadd30608a61eb398c42f88662c8ec2beb49"
 
 pytestmark = [pytest.mark.phase1, pytest.mark.current]
 
@@ -28,7 +29,7 @@ def test_checkpoint_a_identity_is_locked_and_formal_count_is_zero() -> None:
     config_hash = hashlib.sha256(CONFIG_PATH.read_bytes()).hexdigest()
     assert preregistration["preregistration_sha"] == PREREGISTRATION_SHA
     assert preregistration["checkpoint_a_smoke_start_head"] == PREREGISTRATION_SHA
-    assert preregistration["implementation_commit"] == "SELF"
+    assert preregistration["implementation_commit"] == IMPLEMENTATION_COMMIT
     assert preregistration["config_sha256"] == config_hash
     assert environment["config_sha256"] == config_hash
     assert summary["formal_execution_count"] == 0

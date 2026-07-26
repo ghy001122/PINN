@@ -13,12 +13,19 @@ on:
       - "docs/project_state/**"
       - "docs/manuscript/**"
       - "docs/archive/**"
+      - "docs/codex_reports/**"
+      - "docs/method_equations.md"
       - "outputs/tables/**"
       - "AGENTS.md"
+      - "README.md"
       - "PROJECT_GOAL.md"
       - "CODEX_CONTEXT.md"
       - "PROJECT_STATE.md"
       - "NEXT_ACTIONS.md"
+      - "LIVE_WORKSPACE.md"
+      - "EXPERIMENT_REGISTRY.md"
+      - "DATASET_REGISTRY.md"
+      - "FIGURE_REGISTRY.md"
       - "requirements.txt"
       - "pyproject.toml"
   pull_request:
@@ -33,12 +40,19 @@ on:
       - "docs/project_state/**"
       - "docs/manuscript/**"
       - "docs/archive/**"
+      - "docs/codex_reports/**"
+      - "docs/method_equations.md"
       - "outputs/tables/**"
       - "AGENTS.md"
+      - "README.md"
       - "PROJECT_GOAL.md"
       - "CODEX_CONTEXT.md"
       - "PROJECT_STATE.md"
       - "NEXT_ACTIONS.md"
+      - "LIVE_WORKSPACE.md"
+      - "EXPERIMENT_REGISTRY.md"
+      - "DATASET_REGISTRY.md"
+      - "FIGURE_REGISTRY.md"
       - "requirements.txt"
       - "pyproject.toml"
 
@@ -72,6 +86,8 @@ jobs:
           python -m pytest
           tests/test_repository_realignment_audit.py
           tests/test_geophase_phase1_preregistration.py
+          tests/test_geophase_phase1_solver.py
+          tests/test_geophase_phase1_checkpoint_a_evidence.py
           tests/test_gamma_sub_calibration_protocol_cost_frontier.py
           tests/test_gamma_sub_cpcf_evidence_schema.py
           tests/test_historical_evidence_manifest.py
@@ -87,3 +103,5 @@ jobs:
         run: python scripts/audit_project_governance.py --no-write --fast-checkout
       - name: Strict tracked JSON parse
         run: python scripts/validate_tracked_json.py
+      - name: Validation is read-only
+        run: git diff --exit-code

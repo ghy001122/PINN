@@ -119,7 +119,11 @@ def _assert_smoke_ledgers(config: dict, rows: Iterable[dict[str, object]]) -> No
             )
 
 
-def run_checkpoint_a(config_path: Path, preregistration_sha: str) -> dict[str, object]:
+def run_checkpoint_a(
+    config_path: Path,
+    preregistration_sha: str,
+    implementation_commit: str,
+) -> dict[str, object]:
     config = yaml.safe_load(config_path.read_text(encoding="utf-8"))
     execution = config["execution_contract"]
     if int(execution["formal_execution_count"]) != 0:
@@ -128,6 +132,8 @@ def run_checkpoint_a(config_path: Path, preregistration_sha: str) -> dict[str, o
         raise RuntimeError("Checkpoint A stop boundary is not locked")
     if len(preregistration_sha) != 40:
         raise ValueError("a full 40-character preregistration SHA is required")
+    if len(implementation_commit) != 40:
+        raise ValueError("a full 40-character implementation commit is required")
     head = _git("rev-parse", "HEAD")
     branch = _git("branch", "--show-current")
     if branch == "main":
@@ -139,6 +145,20 @@ def run_checkpoint_a(config_path: Path, preregistration_sha: str) -> dict[str, o
     )
     if ancestor.returncode != 0:
         raise RuntimeError("preregistration SHA is not an ancestor of the implementation")
+    implementation_exists = subprocess.run(
+        ["git", "cat-file", "-e", f"{implementation_commit}^{{commit}}"],
+        cwd=ROOT,
+        check=False,
+    )
+    if implementation_exists.returncode != 0:
+        raise RuntimeError("the implementation commit is not available in Git")
+    implementation_ancestor = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", implementation_commit, head],
+        cwd=ROOT,
+        check=False,
+    )
+    if implementation_ancestor.returncode != 0:
+        raise RuntimeError("the implementation commit is not an ancestor of HEAD")
 
     config_hash = sha256_file(config_path)
     references = build_normalized_vertical_references(config)
@@ -220,7 +240,7 @@ def run_checkpoint_a(config_path: Path, preregistration_sha: str) -> dict[str, o
         "schema_version": config["schema_version"],
         "preregistration_sha": preregistration_sha,
         "checkpoint_a_smoke_start_head": head,
-        "implementation_commit": "SELF",
+        "implementation_commit": implementation_commit,
         "config_path": config_path.relative_to(ROOT).as_posix(),
         "config_sha256": config_hash,
         "formal_execution_limit": int(execution["formal_execution_limit"]),
@@ -310,6 +330,7 @@ def parse_args() -> argparse.Namespace:
         default=ROOT / "configs" / "geophase_phase1_2p5d_reference.yaml",
     )
     parser.add_argument("--preregistration-sha", required=True)
+    parser.add_argument("--implementation-commit", required=True)
     parser.add_argument(
         "--checkpoint",
         choices=["a"],
@@ -322,7 +343,11 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     arguments = parse_args()
     config_path = arguments.config.resolve()
-    summary = run_checkpoint_a(config_path, arguments.preregistration_sha)
+    summary = run_checkpoint_a(
+        config_path,
+        arguments.preregistration_sha,
+        arguments.implementation_commit,
+    )
     print(json.dumps(summary, indent=2, sort_keys=True, allow_nan=False))
 
 

@@ -8,7 +8,7 @@
   "formal_execution_count": 0,
   "formal_execution_limit": 1,
   "fresh_user_authorization_for_checkpoint_b": false,
-  "implementation_commit": "SELF",
+  "implementation_commit": "9f63fadd30608a61eb398c42f88662c8ec2beb49",
   "preregistration_sha": "212a4277bf9cf8afe365d922adefe67bdd7595e1",
   "schema_version": "geophase_phase1_2p5d_reference_v6",
   "task_id": "Q2_PHASE1_2P5D_REFERENCE"
