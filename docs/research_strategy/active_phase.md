@@ -2,7 +2,9 @@
 
 Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
 
-Status: `authorized_contract_scale_corrected_pending_implementation`
+Status: `checkpoint_a_complete_formal_campaign_blocked_pending_user_authorization`
+
+Current checkpoint: `A_COMPLETE_B_NOT_AUTHORIZED`
 
 ## Objective
 
@@ -24,15 +26,24 @@ The reference solver supplies truth fields, port and event observables, conserva
 - `docs/method_equations.md`
 - `NEXT_ACTIONS.md`
 
-## Allowed Work
+## Completed Checkpoint A Work
 
-- source/provenance checks already routed by the config;
-- independent FVM and implicit time integration;
-- electrical, thermal, K-state, hysteresis, RC, terminal, and ledger implementations;
-- two independent device copies only for zero-coupling and label-symmetry behavior tests;
-- CPU smoke and focused verification;
-- the single budgeted formal solver run;
-- JSON/CSV, figure/table, report, claim-matrix, and manuscript-sentence updates following evaluated gates.
+- Source-scale preflights, independent FVM/implicit implementation, two
+  region-specific passive-memory kernels, external RC coupling, and thermal,
+  circuit, combined, and device-power ledgers exist.
+- Manufactured/limit/failure-path behavior tests and bounded CPU smoke pass.
+- The 96 formal cases exist only as a `planned_not_executed` manifest.
+- Formal execution count remains zero; no Phase 1 pass/fail vote exists.
+
+## Current Authorization Boundary
+
+No further scientific execution is authorized. Checkpoint B requires a fresh,
+explicit user instruction and must use preregistration SHA
+`212a4277bf9cf8afe365d922adefe67bdd7595e1` plus config SHA-256
+`0361f609faf56cbc542f07be65abece0b8875aa0f9f8f9ea2539c098d2efdab1`.
+A non-voting Checkpoint A evaluator reported the contact-covered 400/800 nm
+frequency metric `0.1231 > 0.05`; this is a pre-formal failure warning and did
+not authorize any post-hoc gate change.
 
 ## Phase-Scoped Restrictions
 
@@ -61,6 +72,8 @@ Conservation without mesh and time convergence is insufficient. Finite output is
 - Fail: record `failed_but_informative`; block Phase 2 and all R1-R3 work; choose one bounded foundation repair or reject the reduction.
 - Source, coordinate, unit, boundary, or ledger error: stop extensions and repair before any formal rerun.
 - The single formal execution and compute budget may not be exceeded without user approval.
+- Checkpoint A must stop with `formal_execution_count=0`; Checkpoint B is not
+  authorized by phase activation alone.
 
 ## Claim Boundary
 

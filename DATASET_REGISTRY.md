@@ -457,3 +457,12 @@ No frozen Ground Truth v1.1 files were modified.
 ## Phase 0 Repository Metadata
 
 No scientific dataset was created or modified. `outputs/tables/repository_file_disposition.csv` and `repository_realign_phase0_summary.json` are governance metadata, not physical measurements, training data, solver outputs, or validation evidence. Frozen GT v1.1 and all historical machine-readable evidence remain unchanged.
+
+## Phase 1 Checkpoint A Metadata
+
+No Phase 1 training, Ground Truth, validation, or formal solver dataset was
+created. `outputs/tables/geophase_phase1/` contains only the v6
+preregistration identity, environment identity, bounded non-claim smoke
+ledgers/summary, and an exact 96-row `planned_not_executed` case manifest.
+These files are software/reproducibility metadata and cannot train a PINN or
+vote for a Phase 1 scientific claim. Frozen GT v1.1 was not modified.

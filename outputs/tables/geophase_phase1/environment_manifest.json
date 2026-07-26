@@ -1,0 +1,12 @@
+{
+  "branch": "codex/phase1-2p5d-solver-implementation",
+  "config_sha256": "0361f609faf56cbc542f07be65abece0b8875aa0f9f8f9ea2539c098d2efdab1",
+  "cpu_only": true,
+  "formal_execution_count": 0,
+  "head_when_checkpoint_a_smoke_started": "212a4277bf9cf8afe365d922adefe67bdd7595e1",
+  "numpy": "1.26.4",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "preregistration_sha": "212a4277bf9cf8afe365d922adefe67bdd7595e1",
+  "python": "3.11.9 | packaged by Anaconda, Inc. | (main, Apr 19 2024, 16:40:41) [MSC v.1916 64 bit (AMD64)]",
+  "scipy": "1.13.1"
+}

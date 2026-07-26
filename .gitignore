@@ -195,6 +195,13 @@ outputs/pinn_inverse_v1_1_smoke/*
 !outputs/tables/phase_activated_algorithm_summary.json
 
 !outputs/tables/project_governance_summary.json
+!outputs/tables/geophase_phase1/
+outputs/tables/geophase_phase1/*
+!outputs/tables/geophase_phase1/preregistration.json
+!outputs/tables/geophase_phase1/checkpoint_a_summary.json
+!outputs/tables/geophase_phase1/checkpoint_a_ledgers.csv
+!outputs/tables/geophase_phase1/environment_manifest.json
+!outputs/tables/geophase_phase1/formal_case_inventory.csv
 !outputs/tables/gamma_sub_evidence_lock_summary.json
 !outputs/tables/vo2_d0a_source_discrepancies.csv
 !outputs/tables/vo2_d0a_source_reproduction.json

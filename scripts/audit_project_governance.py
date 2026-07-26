@@ -373,7 +373,10 @@ def check_phase1_contract_hardening() -> dict:
     source = read("configs/qiu_vo2_phase1_source_contract.yaml")
     contract = read("docs/research_strategy/phase1_geophase_2p5d_reference_contract.md")
     required_config_markers = [
-        "schema_version: geophase_phase1_2p5d_reference_v3",
+        "schema_version: geophase_phase1_2p5d_reference_v6",
+        "formal_execution_count: 0",
+        "checkpoint_a_must_stop_before_formal_campaign: true",
+        "formal_campaign_requires_fresh_user_authorization: true",
         "source_only_config: configs/qiu_vo2_phase1_source_contract.yaml",
         "interdevice_substrate_resolved: false",
         "nonzero_dual_device_coupling_in_phase1: forbidden",
@@ -384,6 +387,8 @@ def check_phase1_contract_hardening() -> dict:
         "reduction_fit_contract:",
         "device_effective_normalization:",
         "analytic_source_scale_preflights:",
+        "families: [thermal, circuit, combined_electrothermal]",
+        "backward_euler_numerical_dissipation",
         "source_model_consistency_gate_not_independent_external_validation",
     ]
     required_source_markers = [
@@ -404,6 +409,9 @@ def check_phase1_contract_hardening() -> dict:
         "nonzero dual-device",
         "without post-hoc time warping",
         "source-scale preflights",
+        "Checkpoint Separation",
+        "formal_execution_count=0",
+        "combined electrothermal",
     ]
     missing = [
         f"config:{marker}" for marker in required_config_markers if marker not in config

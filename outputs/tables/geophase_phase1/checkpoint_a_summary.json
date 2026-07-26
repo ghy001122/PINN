@@ -1,0 +1,73 @@
+{
+  "checkpoint_a_nonvoting_prior_audit": {
+    "contact_overlap_qoi_audit": "implemented_behavior_tested_formal_values_not_generated",
+    "formal_gate_evaluated": false,
+    "source_envelope_noise_audit": "implemented_behavior_tested_formal_values_not_generated",
+    "substrate_depth": {
+      "depths_m": [
+        4e-07,
+        8e-07
+      ],
+      "regions": {
+        "bare_vo2": {
+          "frequency_log_magnitude_rmse": 0.006083547749205277,
+          "step_response_nrmse": 0.0031254457964975404
+        },
+        "electrode_covered_vo2": {
+          "frequency_log_magnitude_rmse": 0.12312709438789984,
+          "step_response_nrmse": 0.004607483165435781
+        }
+      },
+      "would_pass_locked_gate": false
+    }
+  },
+  "claim_status": "forbidden_pending_formal_campaign",
+  "evidence_type": "implementation_behavior_tests_and_smoke_only",
+  "formal_campaign_executed": false,
+  "formal_case_manifest_count": 96,
+  "formal_case_results_generated": 0,
+  "formal_execution_count": 0,
+  "next_action": "stop_and_wait_for_explicit_checkpoint_b_authorization",
+  "nominal_metallic_endmember_resistance_ohm": 262.5,
+  "nonzero_dual_device_coupling": "forbidden",
+  "qiu_s7_dynamic_channel_correction_in_formal_matrix": false,
+  "reported_500nm_placement_semantics": "unresolved_and_nonvoting_in_phase1",
+  "scientific_gate_disposition": "not_evaluated_until_checkpoint_b",
+  "smoke": {
+    "adaptive_protocol": {
+      "accepted_steps": 1,
+      "maximum_accepted_step_s": 2e-09,
+      "maximum_transition_increment": 1.089920181884807e-09,
+      "minimum_accepted_step_s": 2e-09,
+      "nonlinear_rejections": 0,
+      "rejected_steps": 0,
+      "transition_rejections": 0
+    },
+    "dual_copy_temperature_absolute_error_K": 0.0,
+    "grid_nx": 10,
+    "grid_ny": 5,
+    "k_order": 3,
+    "low_drive_device_current_A": 2.7619260542603576e-08,
+    "low_drive_device_voltage_V": 0.000574183406136948,
+    "low_drive_max_temperature_K": 325.00000001981346,
+    "nonlinear_methods": [
+      "damped_newton_krylov",
+      "fail_closed_fixed_point_fallback",
+      "fail_closed_fixed_point_fallback",
+      "fail_closed_fixed_point_fallback"
+    ],
+    "zero_drive_temperature_drift_K": 1.1368683772161603e-13
+  },
+  "source_scale_preflight": {
+    "active_plus_memory_capacity_relative_error": 0.0,
+    "area_integrated_dc_thermal_conductance_relative_error": 1.6184085827150128e-14,
+    "capacity_scale_positive": true,
+    "conductance_scale_positive": true,
+    "electrical_endmembers_positive": true,
+    "passed": true,
+    "uniform_insulating_resistance_relative_error": 2.8586013929805273e-16,
+    "uniform_metallic_resistance_relative_error": 2.1654635756498291e-16
+  },
+  "status": "checkpoint_a_complete_formal_campaign_not_run",
+  "task_id": "Q2_PHASE1_2P5D_REFERENCE"
+}

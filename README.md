@@ -1,6 +1,6 @@
 # PINN Phase-Transition Device Research
 
-This repository is a reproducible Python 3.11 research codebase and evidence package for a Q2 SCI delivery objective. The current work is the source-scale-corrected implementation stage for an independent, conservative Qiu-inspired VO2 single-device 2.5D reference solver. No Phase 1 solver result, positive PINN result, inverse result, or experimental validation exists yet.
+This repository is a reproducible Python 3.11 research codebase and evidence package for a Q2 SCI delivery objective. Phase 1 Checkpoint A now contains an independent, conservative Qiu-inspired VO2 single-device 2.5D implementation, behavior tests, bounded smoke, and a locked 96-case manifest. The formal campaign has not run (`formal_execution_count=0`), so no Phase 1 scientific result, positive PINN result, inverse result, or experimental validation exists. A non-voting substrate-depth evaluator warning is recorded for the user before any Checkpoint B authorization; it was not used to move the locked gate.
 
 ## Workspace preflight
 

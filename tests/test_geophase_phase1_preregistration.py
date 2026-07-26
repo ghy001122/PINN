@@ -10,6 +10,7 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT / "configs" / "geophase_phase1_2p5d_reference.yaml"
 SOURCE_PATH = ROOT / "configs" / "qiu_vo2_phase1_source_contract.yaml"
+STAGE_PATH = ROOT / "configs" / "geo2p5d_stage.yaml"
 
 pytestmark = [pytest.mark.phase1, pytest.mark.current]
 
@@ -22,21 +23,28 @@ def _source() -> dict:
     return yaml.safe_load(SOURCE_PATH.read_text(encoding="utf-8"))
 
 
+def _stage() -> dict:
+    return yaml.safe_load(STAGE_PATH.read_text(encoding="utf-8"))
+
+
 def test_geophase_phase1_identity_and_fail_closed_scope() -> None:
     cfg = _config()
     assert cfg["task_id"] == "Q2_PHASE1_2P5D_REFERENCE"
-    assert cfg["schema_version"] == "geophase_phase1_2p5d_reference_v3"
+    assert cfg["schema_version"] == "geophase_phase1_2p5d_reference_v6"
     assert cfg["phase_id"] == "Q2_PHASE1_2P5D_REFERENCE_SOLVER"
-    assert cfg["status"] == (
-        "preregistered_contract_scale_corrected_pending_implementation"
-    )
+    assert cfg["status"] == "preregistered_v6_pending_checkpoint_a_revalidation"
     assert cfg["evidence_type"] == (
         "literature_guided_solver_generated_synthetic_numerical_digital_twin"
     )
 
     execution = cfg["execution_contract"]
     assert execution["formal_execution_limit"] == 1
-    assert execution["formal_run_eligibility"].startswith("blocked_until_")
+    assert execution["formal_execution_count"] == 0
+    assert execution["checkpoint_a_must_stop_before_formal_campaign"] is True
+    assert execution["formal_campaign_requires_fresh_user_authorization"] is True
+    assert execution["formal_run_eligibility"] == (
+        "blocked_pending_fresh_checkpoint_b_authorization"
+    )
     assert execution["maximum_solver_cases"] == 96
     assert execution["pinn_training"] == "forbidden"
     assert execution["inverse"] == "forbidden"
@@ -47,6 +55,17 @@ def test_geophase_phase1_identity_and_fail_closed_scope() -> None:
     assert execution["frozen_gt_write"] == "forbidden"
     assert execution["m44_repair"] == "forbidden"
     assert execution["full_3d"] == "forbidden"
+
+    stage = _stage()
+    assert stage["current_checkpoint"] == "A_COMPLETE_B_NOT_AUTHORIZED"
+    assert stage["formal_execution_count"] == 0
+    assert stage["formal_campaign_authorization"].startswith("blocked_")
+
+    branch = cfg["state_contract"]["branch_closure"]
+    assert branch["kind"] == "bounded_rate_activated_directional_memory"
+    assert branch["zero_temperature_rate_hold"] is True
+    assert branch["positive_activation"].startswith("squared_positive_part")
+    assert branch["negative_activation"].startswith("squared_negative_part")
 
 
 def test_phase1_is_single_device_xy_with_explicit_region_topology() -> None:
@@ -242,6 +261,10 @@ def test_solver_grid_time_protocol_and_tolerances_are_frozen() -> None:
     time_grid = solver["time_grid"]
     assert time_grid["final_time_s"] == pytest.approx(2.0e-5)
     assert time_grid["transition_max_step_s"] < time_grid["base_max_step_s"]
+    assert time_grid["transition_increment_threshold"] == pytest.approx(0.02)
+    assert time_grid["failed_step_policy"].endswith("fail_closed")
+    assert time_grid["maximum_rejected_steps_per_accepted_step"] == 4
+    assert time_grid["maximum_rejected_steps_per_case"] == 1000
     comparison = solver["fixed_physical_comparison_time_grid"]
     expected_points = round(
         (comparison["stop_s"] - comparison["start_s"]) / comparison["interval_s"]
@@ -251,6 +274,7 @@ def test_solver_grid_time_protocol_and_tolerances_are_frozen() -> None:
 
     nonlinear = solver["nonlinear_tolerances"]
     assert nonlinear["maximum_newton_iterations"] == 30
+    assert nonlinear["sparse_newton_linear_solver"] == "matrix_free_lgmres"
     assert 0.0 < nonlinear["minimum_damping"] < nonlinear["initial_damping"] <= 1.0
     assert nonlinear["fallback_must_meet_same_residual_tolerances"] is True
     assert nonlinear["nonconvergence"] == "fail_closed"
@@ -344,10 +368,24 @@ def test_phase1_gates_and_unlock_do_not_accept_finite_only_success() -> None:
     assert gates["all_required_gates_must_pass"] is True
     assert gates["terminal_current_relative_imbalance_max"] <= 1.0e-6
     assert gates["energy_ledger_relative_residual_max"] <= 1.0e-2
+    assert gates["thermal_ledger_relative_residual_max"] <= 1.0e-2
+    assert gates["circuit_ledger_relative_residual_max"] <= 1.0e-2
+    assert gates["combined_ledger_relative_residual_max"] <= 1.0e-2
+    assert gates["device_power_identity_relative_residual_max"] <= 1.0e-8
     assert gates["spatial_terminal_fine_pair_nrmse_max"] <= 1.0e-2
     assert gates["temporal_terminal_fine_pair_nrmse_max"] <= 1.0e-2
     assert gates["k_state_step_response_nrmse_max"] <= 5.0e-2
     assert gates["k_state_impulse_response_nrmse_max"] <= 5.0e-2
+    assert gates["substrate_depth_step_response_nrmse_max"] <= 5.0e-2
+    assert gates["substrate_depth_frequency_log_magnitude_rmse_max"] <= 5.0e-2
+    assert gates["contact_overlap_qoi_sensitivity_reporting_required"] is True
+    assert (
+        gates[
+            "geometry_robust_wording_requires_overlap_effect_not_exceed_spatial_fine_pair_error"
+        ]
+        is True
+    )
+    assert gates["source_envelope_to_numerical_noise_ratio_min"] >= 1.0
     assert gates["literature_trend"]["failure_interpretation"].startswith(
         "failed_but_informative"
     )
@@ -364,6 +402,12 @@ def test_phase1_gates_and_unlock_do_not_accept_finite_only_success() -> None:
     assert cfg["unlock"]["phase2_dataset_generation"] == "all_required_phase1_gates_pass"
     assert cfg["unlock"]["nonzero_dual_device_coupling"].startswith("forbidden_until_")
 
+    ledger = cfg["physics_contract"]["ledger"]
+    assert ledger["families"] == ["thermal", "circuit", "combined_electrothermal"]
+    assert ledger["device_power_identity"].startswith("terminal_device_power")
+    assert "backward_euler_numerical_dissipation" in ledger["circuit"]["capacitor_terms"]
+    assert ledger["nonfinite_or_tampered_ledger"] == "fail_closed"
+
 
 def test_active_equation_and_output_contracts_are_routed() -> None:
     cfg = _config()
@@ -375,6 +419,8 @@ def test_active_equation_and_output_contracts_are_routed() -> None:
         "effective conductive-state coordinate",
         "independent FVM judge",
         "without post-hoc time warping",
+        "combined electrothermal ledger",
+        "backward-Euler numerical",
     ):
         assert marker in equations
 

@@ -148,12 +148,27 @@ $$
 T_c(b)=\frac{1+b}{2}T_c^\uparrow+
 \frac{1-b}{2}T_c^\downarrow,
 \qquad
+r=\tanh\!\left(\frac{\partial_tT}{r_b}\right),
+$$
+
+$$
+a_+(r)=\max(r,0)^2,
+\qquad
+a_-(r)=\max(-r,0)^2,
+$$
+
+$$
 \tau_b\partial_t b=
-\tanh\!\left(\frac{\partial_tT}{r_b}\right)-b .
+a_+(r)(1-b)-a_-(r)(1+b).
 $$
 
 Here \(s\in[0,1]\) is an effective conductive-state coordinate and
 \(b\in[-1,1]\) is a project engineering closure for heating/cooling memory.
+The squared one-sided activations are continuously differentiable at zero,
+hold \(b\) exactly when \(\partial_tT=0\), drive it toward \(+1\) during
+heating and toward \(-1\) during cooling, and preserve the bounded interval
+under the locked backward-Euler update. This avoids an unphysical relaxation
+of a stationary heating/cooling branch toward zero.
 The branch equation is not a literal implementation of Qiu equations S3--S4
 and cannot support an exact-author-model claim.
 
@@ -170,7 +185,7 @@ baseline is no-flux. Any later contact-resistance,
 thermal-boundary-resistance, or nonzero interdevice-coupling term requires
 explicit units, provenance, and interface tests.
 
-The independent energy ledger includes both active-plane and K-state storage:
+The thermal ledger includes both active-plane and K-state storage:
 
 $$
 \frac{d}{dt}\int_\Omega\left[
@@ -186,6 +201,51 @@ Here
 \(P_{\partial\Omega}\) is the outward lateral heat flux. The Phase 1 two-copy
 fixture has no device-device exchange term.
 
+The field-to-port power identity is independently reconstructed as
+
+$$
+P_{\mathrm{device}}=V_d I_{\mathrm{dev}}=P_J.
+$$
+
+With source current \(I_{\mathrm{src}}=(V_{\mathrm{in}}-V_d)/R_L\), the
+backward-Euler circuit ledger is
+
+$$
+P_{\mathrm{source}}
+=P_{R_L}+P_C^{\mathrm{BE}}+P_{\mathrm{device}},
+\qquad
+P_{\mathrm{source}}=V_{\mathrm{in}}I_{\mathrm{src}},
+\qquad
+P_{R_L}=I_{\mathrm{src}}^2R_L.
+$$
+
+The capacitor term is reported without hiding backward-Euler numerical
+dissipation:
+
+$$
+P_C^{\mathrm{BE}}
+=C_pV_d^n\frac{V_d^n-V_d^{n-1}}{\Delta t}
+=\frac{\tfrac12C_p[(V_d^n)^2-(V_d^{n-1})^2]}{\Delta t}
++\frac{C_p(V_d^n-V_d^{n-1})^2}{2\Delta t}.
+$$
+
+Thus the combined electrothermal ledger is
+
+$$
+P_{\mathrm{source}}
+=P_{R_L}
++\frac{dE_C}{dt}
++P_{C,\mathrm{BE\ diss}}
++\frac{dE_{\mathrm{thermal}}}{dt}
++P_{\mathrm{sink}}
++P_{\partial\Omega},
+$$
+
+where \(P_{C,\mathrm{BE\ diss}}\ge 0\). Thermal, circuit, and combined
+residuals are evaluated separately and fail closed. Omitting the algorithmic
+capacitor term while using backward Euler is not accepted as a conservation
+test.
+
 Spatial and temporal refinement are compared only after conservative
 restriction to the fixed physical base-cell grid and interpolation to the
 fixed 5 ns output grid. For a candidate \(u\) and fine reference
@@ -197,6 +257,27 @@ $$
 {\max\!\left[\operatorname{RMS}(u_{\mathrm{ref}}-u_{\mathrm{ref}}(0)),
 d_{\mathrm{floor}}\right]}.
 $$
+
+Backward-Euler stepping begins at the locked base maximum step. If an accepted
+trial would satisfy
+
+$$
+\max\{\|s^n-s^{n-1}\|_\infty,\|b^n-b^{n-1}\|_\infty\}>0.02,
+$$
+
+the trial is rejected and retried by halving \(\Delta t\), never below the
+locked transition maximum step. At most four rejections are permitted per
+accepted step and 1000 per case; exceeding either cap fails closed. The
+matrix-free LGMRES Newton correction is subjected to the locked Armijo
+coefficient and damping floor rather than an implementation-default line
+search.
+
+The 400 and 800 nm substrate truncations are compared on held-out vertical
+step and frequency grids with NRMSE/RMSE limits of 0.05. Contact-overlap QoI
+sensitivity is always reported; geometry-robust wording is forbidden whenever
+that effect exceeds the locked spatial fine-pair discretization error. A
+literature/source-envelope trend can vote only when its variation is at least
+the numerical-noise estimate.
 
 The configured floors are \(10^{-12}\,\mathrm A\),
 \(10^{-3}\,\mathrm K\), and \(10^{-6}\) for terminal current, temperature

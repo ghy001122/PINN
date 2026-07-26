@@ -822,3 +822,29 @@ Claim result: multilayer forward, terminal-only rescue, low-dimensional sandwich
 - Validation: focused Phase 1/governance 15 passed; current Phase 1 marker 11 passed; full regression 455 passed in 502.64 seconds; governance zero failed checks; frozen GT unchanged.
 - Result: `supported` for governance and preregistration facts only. No Phase 1 solver result or downstream scientific claim exists.
 - Report: `docs/codex_reports/phase1_contract_hardening_workspace_cleanup_2026-07-26.md`.
+
+## Phase 1 2.5D Reference Solver Checkpoint A
+
+- Date: 2026-07-26.
+- Branch: `codex/phase1-2p5d-solver-implementation`.
+- Preregistration SHA: `212a4277bf9cf8afe365d922adefe67bdd7595e1`.
+- Config SHA-256:
+  `0361f609faf56cbc542f07be65abece0b8875aa0f9f8f9ea2539c098d2efdab1`.
+- Evidence type: implementation, behavior tests, algebraic preflight, and
+  bounded smoke only; no formal scientific campaign.
+- Implemented: conservative sheet FVM, implicit electrothermal/RC step,
+  separate bare/contact-covered passive thermal memories, held-out reduction
+  metrics, thermal/circuit/combined ledgers, device-power identity, and
+  fail-closed controls.
+- Manifest: 96 unique cases, all `planned_not_executed`.
+- Formal execution count: `0`; formal case results: `0`.
+- Nominal metallic endmember: `Rm=262.5 ohm`; Qiu S7 `k=4.90` remains outside
+  the formal matrix.
+- Dual-device scope: two zero-coupled independent copies only; nonzero
+  coupling remains `forbidden`; 500 nm placement semantics remain unresolved
+  and non-voting.
+- Claim: `supported` only as a software/reproducibility fact. Phase 1 success
+  remains `forbidden` pending Checkpoint B.
+- Pre-formal warning: the non-voting 400/800 nm contact-covered frequency
+  log-magnitude audit is `0.1231270944`, above the locked formal limit `0.05`.
+  No threshold, case, or parameter was changed after observing it.

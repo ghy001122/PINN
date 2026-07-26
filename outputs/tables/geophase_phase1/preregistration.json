@@ -1,0 +1,15 @@
+{
+  "case_inventory_count": 96,
+  "checkpoint_a_smoke_start_head": "212a4277bf9cf8afe365d922adefe67bdd7595e1",
+  "claim_status": "forbidden_pending_formal_campaign",
+  "config_path": "configs/geophase_phase1_2p5d_reference.yaml",
+  "config_sha256": "0361f609faf56cbc542f07be65abece0b8875aa0f9f8f9ea2539c098d2efdab1",
+  "formal_campaign_executed": false,
+  "formal_execution_count": 0,
+  "formal_execution_limit": 1,
+  "fresh_user_authorization_for_checkpoint_b": false,
+  "implementation_commit": "9f63fadd30608a61eb398c42f88662c8ec2beb49",
+  "preregistration_sha": "212a4277bf9cf8afe365d922adefe67bdd7595e1",
+  "schema_version": "geophase_phase1_2p5d_reference_v6",
+  "task_id": "Q2_PHASE1_2P5D_REFERENCE"
+}

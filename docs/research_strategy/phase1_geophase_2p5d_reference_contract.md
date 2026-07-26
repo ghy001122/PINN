@@ -3,14 +3,30 @@
 ## Identity
 
 - Phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
-- Status: `authorized_contract_scale_corrected_pending_implementation`
+- Status: `checkpoint_a_complete_formal_campaign_not_run`
 - Manuscript use: independent truth and conservation judge for later R1/R2 work
 - Evidence type after execution: literature-guided solver-generated synthetic numerical digital-twin evidence
 - Threshold authority: `configs/geophase_phase1_2p5d_reference.yaml`
+- Threshold schema: `geophase_phase1_2p5d_reference_v6`
 - Source authority: `configs/qiu_vo2_phase1_source_contract.yaml`
 - Stage routing: `configs/geo2p5d_stage.yaml`
 
-This contract narrows Phase 1 of the full execution guide. It records a preregistration and no solver result. The sole formal execution remains blocked until implementation smoke tests and every focused preflight pass.
+This contract narrows Phase 1 of the full execution guide. The v6 revision
+retains the v5 adaptive-step and prior-audit locks and resolves a pre-formal
+inconsistency exposed by behavior testing: a stationary initial heating branch
+must not decay toward zero and immediately violate the locked branch-increment
+step trigger. It records no formal solver result. The
+sole formal execution remains blocked until fresh user authorization for
+Checkpoint B.
+
+Checkpoint A revalidation completed against preregistration SHA
+`212a4277bf9cf8afe365d922adefe67bdd7595e1` and config SHA-256
+`0361f609faf56cbc542f07be65abece0b8875aa0f9f8f9ea2539c098d2efdab1`.
+Formal execution count remains zero. A non-voting evaluator smoke reported a
+contact-covered 400/800 nm frequency log-magnitude difference of
+`0.1231270944`, above the locked formal limit `0.05`. This is not a formal gate
+vote, but it is a pre-formal failure warning; no threshold or case was changed
+in response.
 
 ## Source Isolation
 
@@ -55,7 +71,12 @@ The formal configuration fixes, before implementation results are seen:
 - fixed comparison time grid: 0 to 20 microseconds at 5 ns spacing, without post-hoc event alignment;
 - protocols: 0, 9, 12, 12.5, and 15 V steps plus one locked 12.5 V pulse;
 - initial state: 0 V device voltage, all temperatures at 325 K, heating branch `b=1`, and equilibrium conductive state;
+- bounded rate-activated branch memory with exact zero-temperature-rate hold,
+  heating activation toward `b=+1`, and cooling activation toward `b=-1`;
 - damped Newton tolerances, damping/Armijo bounds, fail-closed fallback, and linear tolerances;
+- state/branch-triggered step halving, a 0.02 transition threshold, four
+  rejected trials per accepted step, 1000 rejected trials per case, and
+  fail-closed rejection-cap handling;
 - K-state fit/evaluation time and frequency grids, response weights, optimizer tolerance, and validation-grid voting;
 - algebraic source-scale preflights for both uniform electrical endmembers, global thermal conductance, total capacity, and positive scale factors;
 - exact 96-case formal inventory and four-hour CPU ceiling.
@@ -89,6 +110,19 @@ The floors are 1 pA for terminal current, 1 mK for temperature rise, and `1e-6` 
 
 The machine-readable axes and case IDs live in the Phase 1 YAML. Adding an undeclared formal case or silently omitting one invalidates the formal run.
 
+## Checkpoint Separation
+
+Checkpoint A may complete the still-unexecuted v5 contract revalidation,
+solver implementation, behavior tests, explicitly labelled CPU smoke, locked
+96-case manifest, configuration hash, environment manifest, and
+preregistration record. Its `formal_execution_count` must remain zero.
+
+Checkpoint B is the sole 96-case formal campaign. It requires fresh user
+authorization and must start from the preregistration SHA and configuration
+hash emitted by Checkpoint A. The new ledger families are additional metrics
+on the existing cases; they do not add cases. After Checkpoint B begins, gates,
+case axes, parameters, source semantics, and tolerances are immutable.
+
 ## Required Responsibilities
 
 Implementation may add responsibility-based modules only when real behavior is implemented:
@@ -106,21 +140,38 @@ Do not create empty inverse, solver, or evaluation placeholders merely to match 
 Algebraic source-scale preflights run before any solver case and do not consume the 96-case formal budget. A failure is a contract/implementation error and blocks smoke execution. After those preflights pass, all configured formal gates vote together:
 
 1. manufactured electrical linear-field, thermal source/diffusion, and K-state cases;
-2. terminal-current imbalance;
-3. active-plane and full plane-plus-region-memory energy ledgers;
+2. terminal-current imbalance and the independent identity between terminal
+   device power and field-integrated Joule power;
+3. separate thermal, circuit, and combined electrothermal ledgers. The
+   backward-Euler circuit ledger reports physical capacitor-energy change and
+   nonnegative algorithmic capacitor dissipation separately;
 4. independent spatial, temporal, and event-time fine-pair convergence;
 5. positive K-state capacities/conductances, stable real poles, passivity, and step/impulse/frequency validation against the higher-order reference;
 6. zero-drive, uniform-conductivity, cooling, thermal-resistance, RC, and zero-input limits;
 7. bare/contact-covered topology audits and contact-overlap audits;
+   the 400/800 nm substrate truncation must also pass held-out step/frequency
+   response limits, while overlap QoI sensitivity is reported against spatial
+   discretization error before any geometry-robust wording;
 8. two-copy zero-coupling, symmetry, and label-swap limits;
 9. nonfinite nonlinear solve, negative passivity, ledger tamper, and coordinate swap fail closed;
 10. preregistered single-device literature-trend checks inside the declared source/prior envelope.
+
+Source-envelope trends are non-voting unless their variation is at least the
+estimated numerical noise. These added checks are metrics on existing formal
+cases and do not change the 96-case inventory.
 
 Finite output, current balance alone, or a source envelope smaller than discretization error cannot pass Phase 1.
 
 ## Execution And Output Contract
 
-Development uses CPU smoke and focused tests. Only after all preflights pass may the single formal execution write JSON/CSV first, then figures/tables and a report. It may not train a PINN, fit device/literature parameters, run inverse work, digitize literature curves, modify frozen GT, repair M44, execute NbO2, add nonzero dual-device coupling, or expand to full 3D. The locked passive K-state reduction fit is required and is not device calibration.
+Development uses CPU smoke and focused tests. Checkpoint A must stop with
+`formal_execution_count=0` after writing its manifests and smoke evidence.
+Only after fresh user authorization may Checkpoint B execute the single formal
+campaign and write formal JSON/CSV first, then figures/tables and a report. It
+may not train a PINN, fit device/literature parameters, run inverse work,
+digitize literature curves, modify frozen GT, repair M44, execute NbO2, add
+nonzero dual-device coupling, or expand to full 3D. The locked passive K-state
+reduction fit is required and is not device calibration.
 
 ## Disposition
 
