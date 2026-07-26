@@ -21,18 +21,26 @@ training result, solver-PINN sensitivity result, R3 inverse/refusal result, or
 NbO2 cross-model result exists. Project outputs are synthetic numerical
 digital-twin evidence, not measurements.
 
-A versioned, non-voting v7 vertical-reference repair screen is now
-`failed_but_informative`. Its maximum 102.4/204.8 micrometre pair failed the
-unchanged frequency gate after pair-specific global G/C normalization, so no
-depth or K-state order was selected and no formal-v7 contract was frozen.
+A versioned, non-voting v7 repair remains historical
+`failed_but_informative` evidence; it selected no depth or K-state order.
+
+The final v8 repair is `failed_but_informative`; it executed from SHA
+`a32375b74772da8192d390f4233ed0b15e23ae80` and config SHA-256
+`e047d7963c646cabdec9796a2f227c159750a76170805a6f02021e6fff24b00b`.
+Both raw pairs passed mesh/passivity/identity/finite checks, but each region's
+separate pullback depth-frequency RMSE stayed near `0.4118 > 0.05`. No depth
+was selected; normalization, K-state, runtime, and formal work were blocked.
+The v6/source/inventory bytes and formal count remained unchanged.
 
 ## One Active Priority
 
-Stop with `formal_execution_count=0`. Checkpoint B is not ready and must not be
-authorized from the v6 contract. The single next decision is whether to
-preregister a bounded normalization-semantics repair that keeps the Qiu source
-contract and the 0.05 gate unchanged. Merely extending the depth ladder under
-pair-specific G/C re-anchoring is not supported by the v7 evidence.
+There is no authorized compute task. Current checkpoint
+`B_READINESS_V8_NO_GO_VERTICAL_REFERENCE` stops the current K-state route with
+`formal_execution_count=0`. The user must explicitly choose a new physical
+model, a different reduced route, or a manuscript/delivery downgrade before
+any further numerical work. Extending the depth ladder, re-anchoring a
+comparator, or continuing to K-state/runtime/formal execution is not
+authorized.
 
 ## Claim Boundary
 

@@ -8,12 +8,13 @@ This is a compact router, not a substitute for configs, machine-readable outputs
 | --- | --- | --- |
 | Q2 delivery ladder | `supported` governance fact; R1 minimum, R2 preferred, R3 conditional | `PROJECT_GOAL.md`; canonical execution guide |
 | Phase 0 repository realignment | `supported` governance/reproducibility fact only | Phase 0 report; disposition CSV; machine summary |
-| Active Phase 1 | `supported` authorization/preregistration fact; no solver result | active phase; Phase 1 contract; hardened Phase 1 YAML; stage YAML |
+| Active Phase 1 | `supported` status fact; no authorized compute task and no solver result | active phase; Phase 1 contract; hardened Phase 1 YAML; stage YAML; v8 NO-GO evidence |
 | Equations and source boundary | `supported` documentation/implementation fact; formal evaluation pending | `docs/method_equations.md`; `configs/qiu_vo2_phase1_source_contract.yaml`; provenance manifest; Checkpoint A solver modules |
 | Phase 1 numerical lock | `supported` preregistration fact only | source-scale algebraic preflights, base grid/time/protocols, nonlinear tolerances, fixed comparison grids, NRMSE policy, K-state fit, and exact 96-case inventory in the Phase 1 YAML |
 | Phase 1 contract-hardening closeout | `supported` governance/reproducibility fact only | initial hardening report plus `docs/codex_reports/executive_guide_alignment_source_scale_review_2026-07-26.md`; the latter supersedes the former's absolute-path and implementation-ready assertions; no solver execution or scientific vote |
 | Phase 1 Checkpoint A | `supported` software/reproducibility fact only; no scientific vote | preregistration SHA `212a4277...`; config SHA-256 `0361f609...`; independent solver modules; behavior tests; `outputs/tables/geophase_phase1/`; exact 96-case manifest is `planned_not_executed`; formal count is zero; non-voting contact-covered depth-frequency warning `0.1231 > 0.05` |
 | Phase 1 v7 bounded vertical repair | `failed_but_informative` non-voting readiness evidence | repair commit `d6a386a...`; `outputs/tables/geophase_phase1/readiness_v7/`; 26 builds; max-pair raw substrate `0.00702`, pair-normalized contact `0.41179 > 0.05`; K blocked; formal count zero |
+| Phase 1 v8 shape--scale repair | `failed_but_informative` non-voting readiness evidence | preregistration `a32375b...`; config SHA-256 `e047d796...`; both raw pairs passed mesh/passivity/identity/finite foundations, but both regions retained separate pullback depth-frequency RMSEs near `0.4118 > 0.05`; no selected depth, K-state, runtime, or formal result; formal count zero |
 | Frozen GT integrity | `supported` integrity fact when current hashes pass | governance summary; frozen acceptance report and manifest |
 | Current claim vocabulary | `supported` governance fact | `docs/paper/final_claim_matrix.md` |
 
@@ -59,3 +60,6 @@ Without new direct evidence, the following remain `forbidden`: successful Phase 
 - Claim authority: `docs/paper/final_claim_matrix.md`.
 - Historical lifecycle: `docs/archive/README.md`.
 - Full chronology: registries and task reports, loaded only as needed.
+- Current execution boundary: no authorized compute task; user model/route or
+  manuscript-downgrade decision required after
+  `B_READINESS_V8_NO_GO_VERTICAL_REFERENCE`.

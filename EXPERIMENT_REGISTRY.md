@@ -876,3 +876,28 @@ Claim result: multilayer forward, terminal-only rescue, low-dimensional sandwich
   source-author parameter values were unchanged.
 - Report:
   `docs/codex_reports/geophase_phase1_vertical_repair_v7_2026-07-26.md`.
+
+## Phase 1 v8 Bounded Vertical Shape/Scale Readiness
+
+- Date: 2026-07-26.
+- Task: `Q2_PHASE1_VERTICAL_SHAPE_SCALE_SEMANTICS_V8`.
+- Starting main SHA: `61da2c41b9895ed3d0d7380907d0a8eecbedded6`;
+  preregistration SHA: `a32375b74772da8192d390f4233ed0b15e23ae80`;
+  implementation/screening SHA: `dc06a52fa990d6cd4af2f1dc84537de5e52bef0e`.
+- Repair YAML SHA-256:
+  `e047d7963c646cabdec9796a2f227c159750a76170805a6f02021e6fff24b00b`.
+- Evidence type: non-voting pre-formal bounded readiness; no formal case.
+- Raw-build budget: 8/8 unique builds, comprising six substrate depth/grid
+  branches and two shared overlay branches; every registered builder ran once.
+- All mesh, passivity, response-identity, finite, and inherited-raw depth checks
+  passed. The only failed metrics were the separately voted
+  `formal_window_pullback` raw depth-frequency errors: primary bare/contact
+  `0.4118108953`/`0.4117791211` and fallback bare/contact
+  `0.4118046611`/`0.4117887714`, all above the locked `0.05` gate.
+- Disposition: `failed_but_informative`; `NO_GO_VERTICAL_REFERENCE`; no
+  production depth was selected, and the current K-state route stopped before
+  K-state fitting, runtime preflight, or formal-run artifacts.
+- Formal execution count: `0`; formal case results: `0`; all 96 cases remain
+  `planned_not_executed`. The P1 scientific claim remains `forbidden`.
+- Report:
+  `docs/codex_reports/geophase_phase1_vertical_shape_scale_v8_2026-07-26.md`.

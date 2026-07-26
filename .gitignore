@@ -209,6 +209,17 @@ outputs/tables/geophase_phase1/readiness_v7/*
 !outputs/tables/geophase_phase1/readiness_v7/vertical_candidate_summary.csv
 !outputs/tables/geophase_phase1/readiness_v7/vertical_passivity_and_identity.csv
 !outputs/tables/geophase_phase1/readiness_v7/k_state_selection.csv
+!outputs/tables/geophase_phase1/readiness_v8/
+outputs/tables/geophase_phase1/readiness_v8/*
+!outputs/tables/geophase_phase1/readiness_v8/preregistration.json
+!outputs/tables/geophase_phase1/readiness_v8/vertical_candidate_summary.csv
+!outputs/tables/geophase_phase1/readiness_v8/vertical_pointwise.csv
+!outputs/tables/geophase_phase1/readiness_v8/vertical_passivity_identity.csv
+!outputs/tables/geophase_phase1/readiness_v8/k_state_multistart.csv
+!outputs/tables/geophase_phase1/readiness_v8/k_state_selection.csv
+!outputs/tables/geophase_phase1/readiness_v8/runtime_preflight.json
+!outputs/tables/geophase_phase1/readiness_v8/formal_runner_readiness.json
+!outputs/tables/geophase_phase1/readiness_v8/environment_manifest.json
 !outputs/tables/gamma_sub_evidence_lock_summary.json
 !outputs/tables/vo2_d0a_source_discrepancies.csv
 !outputs/tables/vo2_d0a_source_reproduction.json

@@ -2,9 +2,9 @@
 
 Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
 
-Status: `checkpoint_b_readiness_vertical_no_go_pending_user_decision`
+Status: `checkpoint_b_readiness_v8_failed_but_informative`
 
-Current checkpoint: `B_READINESS_BLOCKED_VERTICAL_REFERENCE`
+Current checkpoint: `B_READINESS_V8_NO_GO_VERTICAL_REFERENCE`
 
 ## Objective
 
@@ -37,21 +37,28 @@ The reference solver supplies truth fields, port and event observables, conserva
 
 ## Current Authorization Boundary
 
-No further scientific execution is authorized. Checkpoint B requires a fresh,
-explicit user instruction and must use preregistration SHA
-`212a4277bf9cf8afe365d922adefe67bdd7595e1` plus config SHA-256
-`0361f609faf56cbc542f07be65abece0b8875aa0f9f8f9ea2539c098d2efdab1`.
+No further scientific execution is authorized. Checkpoint B is not eligible
+under the preserved v6 preregistration SHA
+`212a4277bf9cf8afe365d922adefe67bdd7595e1` and config SHA-256
+`0361f609faf56cbc542f07be65abece0b8875aa0f9f8f9ea2539c098d2efdab1`;
+those identities are historical locks, not runnable authorization.
 A non-voting Checkpoint A evaluator reported the contact-covered 400/800 nm
 frequency metric `0.1231 > 0.05`; this is a pre-formal failure warning and did
 not authorize any post-hoc gate change.
 
-The authorized bounded v7 repair has now stopped with
-`NO_GO_VERTICAL_REFERENCE`. The maximum 102.4/204.8 micrometre pair retained a
-pair-normalized contact frequency error of `0.41179`, although its unscaled
-substrate error was `0.00702`. K-state, performance, formal-runner, and formal
-campaign work remain blocked. Any normalization-semantics revision requires a
-new preregistration and user authorization; the Qiu source-only contract and
-the 0.05 gate may not be changed.
+The final bounded v8 vertical-semantics repair executed from preregistration
+SHA `a32375b74772da8192d390f4233ed0b15e23ae80` and config SHA-256
+`e047d7963c646cabdec9796a2f227c159750a76170805a6f02021e6fff24b00b`.
+Both raw pairs passed all mesh, passivity, identity, and finite checks, but the
+separate formal-window-pullback depth-frequency RMSEs remained about
+`0.4118 > 0.05` for bare and contact-covered regions. The result is
+`NO_GO_VERTICAL_REFERENCE`: no depth/global scale was selected and K-state,
+runtime, formal-v8 freezing, and formal execution were blocked. Formal count
+remains zero.
+
+There is no authorized compute task. The current K-state route is stopped;
+further work requires an explicit user decision activating a new physical
+model, a different reduction route, or a manuscript/delivery downgrade.
 
 ## Phase-Scoped Restrictions
 
@@ -59,29 +66,17 @@ Do not train a PINN, generate the Phase 2 formal dataset, run inverse recovery, 
 
 ## Pass Gate
 
-Every required gate must pass:
-
-1. zero-solver algebraic source-scale checks for both electrical endmembers, global thermal conductance, total capacity, and positive scale factors;
-2. manufactured electrical and thermal solutions;
-3. terminal-current conservation;
-4. active-plane plus all K-state energy ledger;
-5. independent spatial and temporal refinement on fixed physical comparison grids;
-6. passive K-state reduction aligned to a higher-order reference;
-7. zero-drive and uniform-conductivity limits;
-8. two-copy zero-coupling and label-symmetry limits, without a nonzero coupling claim;
-9. literature-trend sanity within the declared source/prior envelope;
-10. nonfinite, negative-passivity, ledger-tamper, and coordinate-swap failures close safely.
-
-Conservation without mesh and time convergence is insufficient. Finite output is insufficient. Source-envelope variation below discretization error is non-voting.
+The full gate set remains in the Phase 1 contract/config. It requires source
+scale, manufactured solutions, conservation/ledgers, independent mesh/time
+convergence, passive K-state reduction, analytic and zero-coupling limits,
+trend checks, and fail-closed controls to pass together. Conservation or
+finite output alone is insufficient.
 
 ## Exit And Stop Rules
 
-- Pass: lock Phase 1 evidence and activate Phase 2 dataset/split design.
-- Fail: record `failed_but_informative`; block Phase 2 and all R1-R3 work; choose one bounded foundation repair or reject the reduction.
-- Source, coordinate, unit, boundary, or ledger error: stop extensions and repair before any formal rerun.
-- The single formal execution and compute budget may not be exceeded without user approval.
-- Checkpoint A must stop with `formal_execution_count=0`; Checkpoint B is not
-  authorized by phase activation alone.
+- Pass requires every configured gate and a separately authorized formal run.
+- Fail is preserved as `failed_but_informative` and blocks Phase 2/R1-R3.
+- `formal_execution_count=0`; phase activation alone never authorizes B.
 
 ## Claim Boundary
 

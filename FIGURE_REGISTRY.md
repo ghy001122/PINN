@@ -507,3 +507,8 @@ Checkpoint B campaign writes its machine-readable results first.
 The failed-but-informative v7 vertical-repair screen generated no figure. Its
 machine-readable JSON/CSV evidence and report do not authorize a Phase 1 plot
 or manuscript result figure.
+
+The failed-but-informative, non-voting v8 vertical shape/scale screen also
+generated no figure. Its raw pullback depth-frequency failure, blocked K-state
+route, and zero formal execution count do not authorize a Phase 1 plot or
+manuscript result figure.

@@ -36,6 +36,21 @@ non-voting result does not modify this v6 formal contract and does not authorize
 its execution. Any further normalization-semantics repair requires a new
 preregistration while keeping the source-only contract and 0.05 gate intact.
 
+The final bounded v8 repair was preregistered at
+`a32375b74772da8192d390f4233ed0b15e23ae80` and executed only as a non-voting
+pre-formal screen. Both permitted depth pairs passed every mesh, finite,
+passivity, and response-identity foundation check. Their inherited raw
+frequency comparisons also passed the locked `0.05` depth gate, but the
+separately scored effective-window-pullback raw comparisons failed for both
+regions at about `0.4118`. The maximum pair therefore stopped at
+`NO_GO_VERTICAL_REFERENCE`. No production depth or global scale was selected;
+K-state fitting and runtime readiness were not entered; no formal-v8
+configuration was created. The v6 configuration, source-only contract, gates,
+96-case inventory, and `formal_execution_count=0` remain unchanged. Because
+v8 was the final authorized vertical repair, the current fixed-bottom local
+K-state route is stopped pending a new user route decision. Scaled-depth
+invariance remains a forbidden claim.
+
 ## Source Isolation
 
 Qiu-reported quantities, source-author-fitted lumped quantities, repository engineering priors, unresolved semantics, and withheld-curve restrictions are separated in the source-only contract. Historical M40/M40R/M44 configs may be used only as source locators and failure lessons. Their parameter votes, fields, convergence results, and claim statuses do not transfer into Phase 1.

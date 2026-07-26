@@ -57,7 +57,7 @@ def test_geophase_phase1_identity_and_fail_closed_scope() -> None:
     assert execution["full_3d"] == "forbidden"
 
     stage = _stage()
-    assert stage["current_checkpoint"] == "B_READINESS_BLOCKED_VERTICAL_REFERENCE"
+    assert stage["current_checkpoint"] == "B_READINESS_V8_NO_GO_VERTICAL_REFERENCE"
     assert stage["formal_execution_count"] == 0
     assert stage["formal_campaign_authorization"].startswith("blocked_")
 

@@ -473,3 +473,13 @@ No scientific, training, Ground Truth, or formal solver dataset was generated.
 The five files under `outputs/tables/geophase_phase1/readiness_v7/` are
 non-voting bounded-repair diagnostics only; all 96 formal cases remain
 `planned_not_executed`, and frozen GT v1.1 is unchanged.
+
+## Phase 1 v8 Vertical Shape/Scale Disposition
+
+No scientific, training, Ground Truth, K-state, runtime, or formal solver
+dataset was generated. The seven JSON/CSV files under
+`outputs/tables/geophase_phase1/readiness_v8/` are non-voting bounded-readiness
+diagnostics and blocked-status metadata only; the two K-state CSVs contain no
+fit results. No production depth was selected, formal execution count remains
+`0`, all 96 formal cases remain `planned_not_executed`, and frozen GT v1.1 is
+unchanged.
