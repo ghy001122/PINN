@@ -21,16 +21,18 @@ training result, solver-PINN sensitivity result, R3 inverse/refusal result, or
 NbO2 cross-model result exists. Project outputs are synthetic numerical
 digital-twin evidence, not measurements.
 
+A versioned, non-voting v7 vertical-reference repair screen is now
+`failed_but_informative`. Its maximum 102.4/204.8 micrometre pair failed the
+unchanged frequency gate after pair-specific global G/C normalization, so no
+depth or K-state order was selected and no formal-v7 contract was frozen.
+
 ## One Active Priority
 
-Checkpoint A is complete. Stop with `formal_execution_count=0` and request
-fresh user authorization for Checkpoint B. If authorized, run the locked
-96-case formal campaign exactly once from preregistration SHA `212a4277...`
-and config SHA-256 `0361f609...`. A non-voting Checkpoint A audit already
-warns that the contact-covered 400/800 nm frequency metric is `0.1231`, above
-the locked `0.05` formal limit; this warning was not used to alter the gate.
-Nonzero dual-device coupling remains outside Phase 1, and all formal gates
-must pass before Phase 2 or R1 training.
+Stop with `formal_execution_count=0`. Checkpoint B is not ready and must not be
+authorized from the v6 contract. The single next decision is whether to
+preregister a bounded normalization-semantics repair that keeps the Qiu source
+contract and the 0.05 gate unchanged. Merely extending the depth ladder under
+pair-specific G/C re-anchoring is not supported by the v7 evidence.
 
 ## Claim Boundary
 

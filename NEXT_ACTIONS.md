@@ -4,12 +4,12 @@
 
 Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
 
-Checkpoint state: `A_COMPLETE_B_BLOCKED_PENDING_FRESH_USER_AUTHORIZATION`.
+Checkpoint state: `B_READINESS_BLOCKED_VERTICAL_REFERENCE`.
 
 There is no authorized compute task. The single next decision is:
 
-> Obtain explicit user authorization for Checkpoint B. Only then may the
-> locked 96-case Phase 1 formal campaign run once.
+> Decide whether to preregister one bounded normalization-semantics repair.
+> Checkpoint B and its 96-case formal campaign remain blocked.
 
 ## Manuscript Use
 
@@ -44,12 +44,18 @@ Completed without a formal scientific run:
    This warns that an unchanged formal campaign may fail; it did not alter the
    preregistered gate.
 
-## Checkpoint B If Authorized
+## v7 Readiness Disposition
 
-Run exactly the locked 96-case campaign once from the identities above,
-write formal JSON/CSV before figures, evaluate every preregistered gate, and
-then stop. Do not alter the gate, case, parameter, K-state, material, or
-protocol contract after execution starts.
+The bounded v7 screen reproduced the old warning exactly and used 26 declared
+raw builds. The unscaled maximum-pair substrate error passed (`0.00702`), but
+pair-specific global G/C re-anchoring increased the effective 1 kHz diffusion
+length to about `3.724 mm`; the full contact depth error was `0.41179 > 0.05`.
+The maximum-pair stop rule therefore blocked K-state fitting, runtime
+preflight, formal-v7 freezing, and formal-runner work.
+
+Do not authorize Checkpoint B from v6. A future bounded repair must be newly
+preregistered and must not modify the Qiu source contract, 0.05 gate, 96-case
+inventory, material/source parameters, or claim boundary.
 
 ## Required Gates
 

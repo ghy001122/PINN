@@ -1,0 +1,268 @@
+task_id: Q2_PHASE1_CHECKPOINT_B_READINESS_V7
+schema_version: geophase_phase1_vertical_repair_v7
+status: preregistered_bounded_repair_not_executed
+evidence_type: nonvoting_preformal_vertical_reference_readiness
+manuscript_use: bounded_numerical_foundation_repair_only
+
+authority:
+  starting_main_sha: 2bb6becf8cdd5b66f854617a0cc74018044b6858
+  formal_v6_config_path: configs/geophase_phase1_2p5d_reference.yaml
+  formal_v6_config_sha256: 0361f609faf56cbc542f07be65abece0b8875aa0f9f8f9ea2539c098d2efdab1
+  source_contract_path: configs/qiu_vo2_phase1_source_contract.yaml
+  source_contract_sha256: 857410517d5b955e2018d4b002fcbbe92bb320c451021b49ae27be1351cb1252
+  source_contract_must_remain_byte_identical: true
+  formal_inventory_path: outputs/tables/geophase_phase1/formal_case_inventory.csv
+  formal_inventory_sha256: a617284bd8890adcab105851095801b6067307e5c85acfeb9b8a84c8467be045
+  formal_evaluation_item_count: 96
+
+execution_boundary:
+  repair_protocol_commit_required_before_candidate_screening: true
+  required_repair_protocol_commit_message: "phase1: preregister v7 vertical repair"
+  formal_execution_count: 0
+  formal_case_results_generated: 0
+  formal_campaign_executed: false
+  all_repair_results_voting: false
+  candidate_screening_is_formal_execution: false
+  phase1_scientific_claim: forbidden_pending_formal_campaign
+  checkpoint_b_requires_fresh_user_authorization: true
+  screening_entry_checks:
+    require_full_repair_protocol_commit_sha: true
+    require_repair_protocol_commit_is_HEAD_or_ancestor: true
+    require_current_repair_yaml_matches_committed_bytes: true
+    require_current_repair_yaml_sha256_argument: true
+    require_source_contract_sha256_match: true
+
+v6_warning_reproduction:
+  region_id: electrode_covered_vo2
+  shallow_depth_m: 4.0e-7
+  deep_depth_m: 8.0e-7
+  cells_per_layer: 8
+  remote_boundary: fixed_temperature
+  metric: frequency_log_magnitude_rmse
+  expected_value: 0.12312709438789984
+  relative_error_max: 1.0e-10
+  failure_status: NO_GO_V6_WARNING_NOT_REPRODUCED
+  stop_before_v7_candidate_screening_on_failure: true
+
+diagnostic_ablations:
+  H1: independently_reanchored_comparator_overlay_pole_motion
+  H2: shared_global_scale_only
+  H3: unified_spatial_resolution_only
+  H4: pure_substrate_depth_truncation
+  H5: substrate_overlay_branch_combination
+  root_cause_must_follow_ablation_evidence: true
+
+candidate_space:
+  production_depths_m:
+    - 4.0e-7
+    - 8.0e-7
+    - 1.6e-6
+    - 3.2e-6
+    - 6.4e-6
+    - 1.28e-5
+    - 2.56e-5
+    - 5.12e-5
+    - 1.024e-4
+  comparator_rule: two_times_production_depth
+  comparator_only_depth_m: 2.048e-4
+  comparator_only_depth_is_production_candidate: false
+  every_production_candidate_has_2D_comparator: true
+  production_boundary: fixed_temperature
+  analytic_semi_infinite_comparator:
+    finite_admittance: k_times_q_times_coth_qD
+    semi_infinite_admittance: k_times_q
+    production_eligible: false
+    reason: incompatible_finite_DC_conductance_and_capacity_semantics
+
+region_topology:
+  bare_vo2: [vo2_active_plane, al2o3_substrate_branch]
+  electrode_covered_vo2: [vo2_active_plane, al2o3_substrate_branch, ti_au_overlay_branch]
+  fit_and_gate_regions_separately: true
+  contact_kernel_over_whole_vo2_plane: forbidden
+  identical_substrate_branch_must_be_reused: true
+
+nonuniform_grid:
+  al2o3_diffusivity_rule: thermal_conductivity_divided_by_volumetric_heat_capacity
+  high_frequency_Hz: 1.0e10
+  thermal_penetration_depth_rule: sqrt_alpha_over_pi_frequency
+  surface_cell_rule: min_delta_10GHz_over_10_ti_thickness_over_8_au_thickness_over_8
+  coarse_first_substrate_cell_rule: exact_surface_cell_rule_value
+  coarse_top_cell_m_max: 2.0e-9
+  adjacent_cell_growth_ratio_max: 1.18
+  deterministic_substrate_generator:
+    cell_count_rule: smallest_integer_N_whose_geometric_sum_at_ratio_1p18_reaches_depth
+    effective_ratio_rule: unique_bisection_root_in_1_to_1p18_whose_N_cell_geometric_sum_equals_depth
+    bisection_iterations: 80
+    residual_terminal_cell: forbidden
+    floating_point_rounding: IEEE754_binary64
+  material_interfaces_align_with_cell_faces: true
+  ti_cells_min: 8
+  au_cells_min: 8
+  coarse_ti_grid_rule: uniform_exactly_8_cells
+  coarse_au_grid_rule: uniform_exactly_8_cells
+  fine_grid_rule: bisect_every_coarse_cell
+  coarse_and_fine_share_depth: true
+  coarse_and_fine_share_remote_boundary: true
+  fixed_substrate_cells_for_all_depths: forbidden
+
+raw_numerical_build_budget:
+  substrate_depth_count_including_comparator: 10
+  substrate_grid_levels: [coarse, fine]
+  substrate_builds: 20
+  overlay_grid_levels: [coarse, fine]
+  overlay_builds: 2
+  v6_uniform_eight_cell_reproduction_depths_m: [4.0e-7, 8.0e-7]
+  v6_reproduction_build_ids:
+    - v6_uniform8_D400nm_bare_vo2
+    - v6_uniform8_D400nm_electrode_covered_vo2
+    - v6_uniform8_D800nm_bare_vo2
+    - v6_uniform8_D800nm_electrode_covered_vo2
+  v6_reproduction_builds: 4
+  analytic_semi_infinite_fvm_builds: 0
+  total_raw_numerical_builds: 26
+  maximum_raw_numerical_builds: 32
+  regions_do_not_duplicate_substrate_builds: true
+  actual_unique_build_manifest_required: true
+  every_declared_raw_builder_invoked_exactly_once: true
+  duplicate_build_request_returns_same_cached_object: true
+  build_id_spec_hash_mismatch: fail_closed
+  implicit_overlay_rebuild_outside_registry: forbidden
+  substrate_build_id_rule: substrate_depth_SI_scientific_notation_plus_grid_level
+  overlay_build_ids: [ti_au_overlay_coarse, ti_au_overlay_fine]
+  reuse_mapping_required: true
+
+normalization_contract:
+  source_author_global_G_C_anchor_semantics_unchanged: true
+  per_candidate_pair:
+    normalization_source: production_D_fine_reference
+    compute_scale_once: true
+    apply_same_scale_to:
+      - production_D_coarse
+      - production_D_fine
+      - comparator_2D_coarse
+      - comparator_2D_fine
+      - bare_vo2
+      - electrode_covered_vo2
+    comparator_reanchored: false
+    raw_overlay_invariant_with_depth_or_substrate_grid: true
+    scaled_overlay_invariant_within_pair: true
+  candidate_pairs_may_have_distinct_production_scales: true
+  only_selected_pair_scale_may_enter_formal_v7: true
+  branch_specific_or_comparator_specific_reanchoring: forbidden
+
+locked_response_contract:
+  time_window_s: 2.0e-5
+  frequency_band_Hz: [1000.0, 10000000000.0]
+  frequency_grid_and_weights_inherited_unchanged_from_formal_v6: true
+  response_weights:
+    step: 0.4
+    impulse: 0.2
+    frequency_log_magnitude: 0.4
+  step_error_formula: RMSE_candidate_minus_reference_divided_by_max_RMS_reference_minus_reference_at_zero_1e_minus_30
+  impulse_error_formula: RMSE_candidate_minus_reference_divided_by_max_RMS_reference_1e_minus_30
+  frequency_error_formula: RMSE_log_max_abs_candidate_1e_minus_300_minus_log_max_abs_reference_1e_minus_300
+  reference_role_for_mesh_error: fine_grid
+  reference_role_for_depth_error: comparator_2D_fine
+  pointwise_grid: held_out_geometric_midpoints_from_formal_v6_fit_grids
+  pointwise_frequency_squared_contribution: squared_log_magnitude_error_divided_by_frequency_point_count
+  pointwise_frequency_cumulative_RMSE: sqrt_cumulative_sum_squared_log_magnitude_error_divided_by_frequency_point_count
+  step_metric_voting_status_unchanged: true
+  impulse_metric_voting_status_unchanged: true
+  frequency_metric_voting_status_unchanged: true
+
+selection_gates:
+  selection_rule: smallest_production_depth_passing_every_gate_for_both_regions
+  mesh_step_error_max: 1.0e-2
+  mesh_frequency_error_max: 1.0e-2
+  substrate_depth_step_error_max: 5.0e-2
+  substrate_depth_frequency_error_max: 5.0e-2
+  area_integrated_G_relative_error_max: 1.0e-12
+  area_integrated_C_relative_error_max: 1.0e-12
+  global_anchor_voting_scope: production_D_fine_only
+  production_D_coarse_anchor_role: reported_nonvoting_diagnostic
+  comparator_2D_anchor_role: reported_nonvoting_truncation_diagnostic
+  positive_capacities_required: true
+  positive_conductances_required: true
+  strictly_negative_real_poles_required: true
+  conductance_matrix_positive_definite_required: true
+  minimum_real_admittance_relative_margin: -1.0e-12
+  step_initial_identity_required: true
+  step_DC_identity_required: true
+  impulse_integral_identity_required: true
+  impulse_step_derivative_identity_required: true
+  frequency_state_space_identity_required: true
+  identity_relative_tolerances:
+    step_initial: 1.0e-10
+    step_DC: 1.0e-10
+    impulse_integral: 1.0e-10
+    impulse_step_derivative: 1.0e-10
+    frequency_state_space: 1.0e-10
+  identity_error_definitions:
+    scalar_relative_error: abs_actual_minus_expected_divided_by_max_abs_expected_1e_minus_30
+    real_vector_relative_error: RMS_actual_minus_expected_divided_by_max_RMS_expected_1e_minus_30
+    complex_vector_relative_error: sqrt_mean_abs_actual_minus_expected_squared_divided_by_max_sqrt_mean_abs_expected_squared_1e_minus_30
+    step_initial_expected: direct_surface_conductance
+    step_DC_expected: direct_minus_output_transpose_G_inverse_input
+    impulse_integral_expected: DC_conductance_minus_direct_surface_conductance
+    impulse_step_derivative_expected: state_space_impulse_tail
+    frequency_state_space_expected: direct_complex_state_space_solve
+
+k_state_contract:
+  reference_order: 8
+  candidate_orders: [2, 3]
+  ablation_order: 1
+  select_smallest_passing_candidate: true
+  fit_K3_only_if_K2_fails: true
+  fit_regions_separately: true
+  step_response_nrmse_max: 5.0e-2
+  impulse_response_nrmse_max: 5.0e-2
+  frequency_log_magnitude_rmse_max: 5.0e-2
+  passivity_required: true
+  identity_checks_required: true
+  failure_status_when_K3_fails: NO_GO_K_STATE
+
+stop_rules:
+  maximum_pair_failure_status: NO_GO_VERTICAL_REFERENCE
+  stop_if_102p4um_vs_204p8um_fails_any_required_gate: true
+  stop_before_performance_or_formal_runner_on_vertical_failure: true
+  deeper_candidates_without_new_user_authorization: forbidden
+  posthoc_gate_or_metric_change: forbidden
+  material_or_source_parameter_tuning: forbidden
+
+immutable_scientific_contract:
+  substrate_depth_frequency_log_magnitude_gate: 5.0e-2
+  substrate_depth_step_response_gate: 5.0e-2
+  formal_evaluation_item_count: 96
+  formal_case_ids_and_physical_axes_unchanged: true
+  qiu_R_G_C_unchanged: true
+  vo2_material_and_phase_parameters_unchanged: true
+  response_band_window_weights_unchanged: true
+  frozen_ground_truth_unchanged: true
+  nonzero_dual_device_coupling: forbidden
+  phase2_dataset_generation: forbidden
+  PINN_training: forbidden
+  inverse_execution: forbidden
+  NbO2_execution: forbidden
+  M44_repair: forbidden
+
+outputs:
+  root: outputs/tables/geophase_phase1/readiness_v7
+  repair_preregistration_json: outputs/tables/geophase_phase1/readiness_v7/repair_preregistration.json
+  vertical_reference_pointwise_csv: outputs/tables/geophase_phase1/readiness_v7/vertical_reference_pointwise.csv
+  vertical_candidate_summary_csv: outputs/tables/geophase_phase1/readiness_v7/vertical_candidate_summary.csv
+  vertical_passivity_and_identity_csv: outputs/tables/geophase_phase1/readiness_v7/vertical_passivity_and_identity.csv
+  k_state_selection_csv: outputs/tables/geophase_phase1/readiness_v7/k_state_selection.csv
+  all_csv_rows_voting: false
+  JSON_and_CSV_before_markdown: true
+  formal_phase1_figures: forbidden
+  repair_preregistration_required_fields:
+    - repair_protocol_commit_sha
+    - repair_yaml_sha256
+    - formal_v6_config_sha256
+    - source_contract_sha256
+    - formal_inventory_sha256
+    - formal_execution_count
+    - formal_case_results_generated
+    - phase1_scientific_claim
+    - unique_raw_build_ids
+    - branch_reuse_mapping

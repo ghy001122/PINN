@@ -11,18 +11,16 @@ Resume in this order:
 7. `docs/research_strategy/phase1_geophase_2p5d_reference_contract.md`
 8. `configs/qiu_vo2_phase1_source_contract.yaml`
 
-Current phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`. Checkpoint A is complete:
-the independent implementation, behavior tests, bounded smoke, config hash,
-and 96-case `planned_not_executed` manifest exist. Formal execution count is
-zero, so no Phase 1 scientific result exists.
+Current phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`. Checkpoint A is complete,
+but the bounded v7 vertical-reference readiness repair stopped at
+`NO_GO_VERTICAL_REFERENCE`. Formal execution count is zero and all 96 formal
+cases remain `planned_not_executed`, so no Phase 1 scientific result exists.
 
-The only next action is to obtain explicit user authorization for Checkpoint
-B. If authorized, use preregistration SHA `212a4277...` and config SHA-256
-`0361f609...` for the sole formal campaign. Before authorization, surface the
-non-voting contact-covered substrate-depth frequency warning
-`0.1231 > 0.05`; do not change the locked gate silently. Do not start PINN training,
-inverse work, device/literature fitting, nonzero dual-device coupling, Phase 2
-dataset generation, or NbO2 work.
+The only next action is a user decision on whether to preregister a bounded
+normalization-semantics repair. Do not authorize Checkpoint B from v6. The new
+protocol must preserve the Qiu source-only contract, 0.05 gate, and 96-case
+inventory. Do not start PINN training, inverse work, device/literature fitting,
+nonzero dual-device coupling, Phase 2 dataset generation, or NbO2 work.
 
 Phase 0 changed governance and routing only; it created no scientific result. Frozen GT and historical negative/conditional evidence remain unchanged. Archived plans, handoffs, reports, and manuscript v1/v2 are provenance only and cannot authorize current work.
 

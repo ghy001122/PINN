@@ -848,3 +848,31 @@ Claim result: multilayer forward, terminal-only rescue, low-dimensional sandwich
 - Pre-formal warning: the non-voting 400/800 nm contact-covered frequency
   log-magnitude audit is `0.1231270944`, above the locked formal limit `0.05`.
   No threshold, case, or parameter was changed after observing it.
+
+## Phase 1 v7 Bounded Vertical-Reference Repair
+
+- Date: 2026-07-26.
+- Task: `Q2_PHASE1_CHECKPOINT_B_READINESS_V7`.
+- Repair protocol commit:
+  `d6a386a77b79f186a75fbe12c06be0666f46d067`.
+- Repair YAML SHA-256:
+  `5ab66fb41b9af6fd605c351a86fa5928712528fcad8c9bc26cc55d18a0a92a18`.
+- Evidence type: non-voting pre-formal bounded repair; no formal case.
+- Raw-build budget: 26/32, with 20 substrate, two shared overlay, and four v6
+  reproduction builds; every registered builder ran once.
+- v6 warning reproduction: `0.12312709438793715`, relative difference
+  `3.03e-13` from the locked value and inside the `1e-10` gate.
+- Maximum 102.4/204.8 micrometre pair: raw substrate frequency error
+  `0.0070212`, analytic finite/semi-infinite diagnostic `0.0069043`, but
+  pair-normalized contact error `0.4117888 > 0.05`.
+- Root cause: pair-specific independent global G/C anchoring makes effective
+  diffusivity scale with depth squared, preserving depth/penetration ratio
+  instead of allowing the truncation error to vanish.
+- Disposition: `failed_but_informative`; `NO_GO_VERTICAL_REFERENCE`; K-state,
+  performance, formal-v7 freezing, and formal runner were blocked.
+- Formal execution count: `0`; formal case results: `0`; all 96 cases remain
+  `planned_not_executed`.
+- Source-only contract, frozen GT, 0.05 gate, 96-case inventory, materials, and
+  source-author parameter values were unchanged.
+- Report:
+  `docs/codex_reports/geophase_phase1_vertical_repair_v7_2026-07-26.md`.

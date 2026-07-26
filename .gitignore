@@ -202,6 +202,13 @@ outputs/tables/geophase_phase1/*
 !outputs/tables/geophase_phase1/checkpoint_a_ledgers.csv
 !outputs/tables/geophase_phase1/environment_manifest.json
 !outputs/tables/geophase_phase1/formal_case_inventory.csv
+!outputs/tables/geophase_phase1/readiness_v7/
+outputs/tables/geophase_phase1/readiness_v7/*
+!outputs/tables/geophase_phase1/readiness_v7/repair_preregistration.json
+!outputs/tables/geophase_phase1/readiness_v7/vertical_reference_pointwise.csv
+!outputs/tables/geophase_phase1/readiness_v7/vertical_candidate_summary.csv
+!outputs/tables/geophase_phase1/readiness_v7/vertical_passivity_and_identity.csv
+!outputs/tables/geophase_phase1/readiness_v7/k_state_selection.csv
 !outputs/tables/gamma_sub_evidence_lock_summary.json
 !outputs/tables/vo2_d0a_source_discrepancies.csv
 !outputs/tables/vo2_d0a_source_reproduction.json

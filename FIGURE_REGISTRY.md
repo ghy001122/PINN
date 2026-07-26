@@ -503,3 +503,7 @@ No scientific figure was generated for repository realignment. Existing historic
 No Phase 1 figure was generated. Formal geometry, field, convergence, ledger,
 and K-state figures remain forbidden until the explicitly authorized 96-case
 Checkpoint B campaign writes its machine-readable results first.
+
+The failed-but-informative v7 vertical-repair screen generated no figure. Its
+machine-readable JSON/CSV evidence and report do not authorize a Phase 1 plot
+or manuscript result figure.
