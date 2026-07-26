@@ -92,6 +92,8 @@ jobs:
           tests/test_geophase_phase1_vertical_repair.py
           tests/test_geophase_phase1_vertical_repair_evidence.py
           tests/test_geophase_phase1_vertical_shape_scale_v8_preregistration.py
+          tests/test_geophase_phase1_vertical_shape_scale_v8.py
+          tests/test_geophase_phase1_vertical_shape_scale_v8_runner.py
           tests/test_gamma_sub_calibration_protocol_cost_frontier.py
           tests/test_gamma_sub_cpcf_evidence_schema.py
           tests/test_historical_evidence_manifest.py

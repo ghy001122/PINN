@@ -46,6 +46,19 @@ def test_fast_validation_covers_phase1_checkpoint_a_and_authority_paths() -> Non
         assert workflow.count(f'- "{trigger_path}"') == 2
 
 
+def test_fast_validation_covers_v8_vertical_contract_and_runner_behavior() -> None:
+    workflow = (ROOT / ".github" / "workflows" / "read_only_validation.yml").read_text(
+        encoding="utf-8"
+    )
+    required_tests = (
+        "tests/test_geophase_phase1_vertical_shape_scale_v8_preregistration.py",
+        "tests/test_geophase_phase1_vertical_shape_scale_v8.py",
+        "tests/test_geophase_phase1_vertical_shape_scale_v8_runner.py",
+    )
+    for test_path in required_tests:
+        assert workflow.count(test_path) == 1
+
+
 def test_full_validation_alone_verifies_historic_blobs() -> None:
     workflow = (ROOT / ".github" / "workflows" / "full_validation.yml").read_text(encoding="utf-8")
     assert "fetch-depth: 0" in workflow

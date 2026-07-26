@@ -320,19 +320,42 @@ def _vertical_response_arrays(
     return step, impulse, frequency
 
 
-def vertical_response_comparison(
+def _validated_vertical_response_grid(
+    times_s: np.ndarray,
+    frequencies_Hz: np.ndarray,
+) -> tuple[np.ndarray, np.ndarray]:
+    """Return fail-closed one-dimensional time and frequency coordinates."""
+
+    times = np.asarray(times_s, dtype=float)
+    frequencies = np.asarray(frequencies_Hz, dtype=float)
+    if times.ndim != 1 or times.size == 0:
+        raise ValueError("vertical response times must be a nonempty one-dimensional grid")
+    if frequencies.ndim != 1 or frequencies.size == 0:
+        raise ValueError(
+            "vertical response frequencies must be a nonempty one-dimensional grid"
+        )
+    if not np.isfinite(times).all() or np.any(times < 0.0):
+        raise ValueError("vertical response times must be finite and nonnegative")
+    if not np.isfinite(frequencies).all() or np.any(frequencies < 0.0):
+        raise ValueError("vertical response frequencies must be finite and nonnegative")
+    return times, frequencies
+
+
+def vertical_response_comparison_on_grid(
     candidate: object,
     reference: object,
-    fit_contract: Mapping[str, object],
+    *,
+    times_s: np.ndarray,
+    frequencies_Hz: np.ndarray,
 ) -> dict[str, object]:
-    """Evaluate the preregistered step, impulse, and frequency errors.
+    """Evaluate response errors on exactly one caller-supplied grid family.
 
-    ``candidate`` is the shallower/coarser model and ``reference`` is the
-    fine-grid or 2D-fine reference named by the repair protocol.  The returned
-    pointwise arrays permit exact CSV reaggregation of every RMSE.
+    The function intentionally accepts one time grid and one frequency grid at
+    a time.  Callers that audit inherited and pulled-back coordinates must call
+    it separately, which preserves each family's independent RMSE vote.
     """
 
-    times, frequencies = held_out_vertical_response_grid(fit_contract)
+    times, frequencies = _validated_vertical_response_grid(times_s, frequencies_Hz)
     omega = 2.0 * np.pi * frequencies
     candidate_step, candidate_impulse, candidate_frequency = _vertical_response_arrays(
         candidate, times, omega
@@ -398,13 +421,36 @@ def vertical_response_comparison(
     }
 
 
-def vertical_passivity_and_identity_metrics(
-    reference: VerticalThermalReference,
+def vertical_response_comparison(
+    candidate: object,
+    reference: object,
     fit_contract: Mapping[str, object],
-) -> dict[str, float | bool]:
-    """Evaluate passive state-space and response identities for one reference."""
+) -> dict[str, object]:
+    """Evaluate the preregistered step, impulse, and frequency errors.
+
+    ``candidate`` is the shallower/coarser model and ``reference`` is the
+    fine-grid or 2D-fine reference named by the repair protocol.  The returned
+    pointwise arrays permit exact CSV reaggregation of every RMSE.
+    """
 
     times, frequencies = held_out_vertical_response_grid(fit_contract)
+    return vertical_response_comparison_on_grid(
+        candidate,
+        reference,
+        times_s=times,
+        frequencies_Hz=frequencies,
+    )
+
+
+def vertical_passivity_and_identity_metrics_on_grid(
+    reference: VerticalThermalReference,
+    *,
+    times_s: np.ndarray,
+    frequencies_Hz: np.ndarray,
+) -> dict[str, float | bool]:
+    """Evaluate passive state-space identities on one explicit grid family."""
+
+    times, frequencies = _validated_vertical_response_grid(times_s, frequencies_Hz)
     omega = 2.0 * np.pi * frequencies
     evaluator = VerticalReferenceModalEvaluator(reference)
     response = evaluator.driving_admittance_W_m2K(omega)
@@ -474,6 +520,20 @@ def vertical_passivity_and_identity_metrics(
     if not np.isfinite(np.asarray(values, dtype=float)).all():
         raise ValueError("vertical passivity/identity evaluation produced nonfinite values")
     return metrics
+
+
+def vertical_passivity_and_identity_metrics(
+    reference: VerticalThermalReference,
+    fit_contract: Mapping[str, object],
+) -> dict[str, float | bool]:
+    """Evaluate passive state-space and response identities for one reference."""
+
+    times, frequencies = held_out_vertical_response_grid(fit_contract)
+    return vertical_passivity_and_identity_metrics_on_grid(
+        reference,
+        times_s=times,
+        frequencies_Hz=frequencies,
+    )
 
 
 def contact_overlap_qoi_audit(
