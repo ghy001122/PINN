@@ -5,6 +5,7 @@
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
 - Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
 - Current technical contract: `docs/research_strategy/phase1_geophase_2p5d_reference_contract.md`.
+- Source-only contract: `configs/qiu_vo2_phase1_source_contract.yaml`.
 - Strategic authority: `docs/research_strategy/pinn_phase_change_q2_sci_execution_guide.md`.
 - Research ladder: R1 `HysGeo-Hybrid-PINN` is the minimum route; R2 `GeoPhase-HomoMoE-PINN` is the preferred upgrade; R3 observable-subspace/OQ is conditional.
 
@@ -18,7 +19,7 @@ No independent x-y plus K-state 2.5D reference result, positive R1/R2 training r
 
 ## One Active Priority
 
-Implement and validate the independent, conservative, PINN-residual-separated Qiu-inspired VO2 x-y plus K-state vertical-memory 2.5D FVM/implicit reference solver under `configs/geophase_phase1_2p5d_reference.yaml`. All required manufactured, conservation, full-ledger, mesh/time, passivity/reduction, limit, and trend gates must pass before Phase 2 or any R1 training.
+Implement and validate the independent, conservative, PINN-residual-separated Qiu-inspired VO2 single-device x-y plus region-specific K-state vertical-memory 2.5D FVM/implicit reference solver under `configs/geophase_phase1_2p5d_reference.yaml`. The numerical grid, time/protocol lock, nonlinear tolerances, metrics, K-state fit, and 96-case inventory are preregistered. Nonzero dual-device coupling is outside Phase 1. All gates must pass before Phase 2 or any R1 training.
 
 ## Claim Boundary
 

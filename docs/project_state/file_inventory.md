@@ -1,12 +1,15 @@
-# File Inventory
+# File Inventory And Phase 0 Snapshot Boundary
 
-The exhaustive, machine-readable disposition for every tracked file is `outputs/tables/repository_file_disposition.csv`. This document records responsibilities and current entry points; it is not a second chronology.
+`outputs/tables/repository_file_disposition.csv` is the exhaustive tracked-file snapshot produced at the Phase 0 realignment baseline. It is intentionally immutable historical governance evidence, not a live manifest and not proof that later files are missing or unauthorized. This document records current responsibilities and entry points; current Git state remains authoritative.
+
+The Phase 0 snapshot contains 1070 rows and must retain its original hashes and dispositions. Later additions are governed by current Git, applicable contracts, tests, and task reports rather than by rewriting that historical CSV.
 
 ## Authority And Governance
 
 | File | Responsibility |
 | --- | --- |
 | `AGENTS.md` and nested instruction files | Long-lived execution, ethics, engineering, frozen-evidence, and subtree constraints. |
+| `LIVE_WORKSPACE.md` | Routes edits/tests/Git to the one live checkout and separates external archives/reference layers. |
 | `PROJECT_GOAL.md` | Stable Q2 delivery ladder and Definition of Done. |
 | `CODEX_CONTEXT.md` | Low-token current route, boundary, and one priority. |
 | `PROJECT_STATE.md` | Single authoritative current fact snapshot. |
@@ -14,6 +17,7 @@ The exhaustive, machine-readable disposition for every tracked file is `outputs/
 | `NEXT_ACTIONS.md` | Single current execution queue. |
 | canonical execution guide | Full R1/R2/R3 research, downgrade, paper, and reviewer-defense plan. |
 | Phase 1 technical contract and YAML | Current solver-only implementation/gate contract. |
+| `configs/qiu_vo2_phase1_source_contract.yaml` | Source-only Qiu facts, fitted-lumped quantities, priors, unresolved semantics, and historical non-inheritance boundary. |
 | `docs/project_state/current_evidence_index.md` | Current/historical/candidate/forbidden evidence router. |
 | `docs/archive/README.md` | Historical lifecycle and replacement index. |
 
@@ -34,11 +38,17 @@ The exhaustive, machine-readable disposition for every tracked file is `outputs/
 
 - `configs/geo2p5d_stage.yaml`
 - `configs/geophase_phase1_2p5d_reference.yaml`
+- `configs/qiu_vo2_phase1_source_contract.yaml`
 - `docs/research_strategy/phase1_geophase_2p5d_reference_contract.md`
 - `docs/method_equations.md`
 - `tests/test_geophase_phase1_preregistration.py`
+- `docs/codex_reports/phase1_contract_hardening_workspace_cleanup_2026-07-26.md`
 
-No Phase 1 implementation or output is listed because none exists yet.
+No Phase 1 implementation or scientific output is listed because none exists yet. The hardened preregistration does not count as solver evidence.
+
+## Local Non-Repository Assets
+
+Large context archives are stored outside the Git checkout. Lightweight identity, hash, privacy, and replay-role metadata are recorded in `docs/project_state/local_external_asset_registry.json`; those archives are not scientific evidence and are not required for clone, test, or replay.
 
 ## Historical And Frozen Assets
 

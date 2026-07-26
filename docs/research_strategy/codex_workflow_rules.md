@@ -4,10 +4,11 @@ The full stage-gate contract is `docs/research_strategy/sci_delivery_pipeline.md
 
 ## Start
 
-1. Read `CODEX_CONTEXT.md` and `docs/research_strategy/active_phase.md`.
+1. Confirm `LIVE_WORKSPACE.md`, then read `CODEX_CONTEXT.md` and `docs/research_strategy/active_phase.md`.
 2. Inspect `git status -sb` and preserve unrelated changes.
 3. Load only task-relevant context through `context_loading_policy.md`.
 4. State whether the task is documentation, smoke/preflight, actual experiment, review, or publication.
+5. Use a phase-scoped `codex/` branch for Phase 1 implementation or contract changes; merge through review rather than developing directly on `main`.
 
 ## Bottleneck Selection And Round Contract
 
@@ -30,7 +31,7 @@ The full stage-gate contract is `docs/research_strategy/sci_delivery_pipeline.md
 - Put parameters, seeds, budgets, noise, and gates in YAML.
 - Prefer lightweight JSON/CSV evidence under `outputs/tables/`.
 - Reports use repository-relative paths and the final-report YAML schema.
-- Use the project virtual environment. On Windows, use workspace-scoped scripted edits rather than `apply_patch`.
+- Use the project virtual environment and the file-editing mechanism required by the active Codex runtime. Use a workspace-scoped substitute only when that mechanism is unavailable, then inspect the diff.
 
 ## Validation
 
@@ -41,7 +42,7 @@ Documentation/governance changes:
 .\.venv\Scripts\python.exe -m pytest tests\test_project_governance.py
 ```
 
-Code/experiment changes require task-specific tests plus full pytest when feasible. Always run `git diff --check` and inspect `git status --short` before commit.
+Code/experiment changes require task-specific tests plus one final full pytest when feasible. Mark current Phase 1 tests with `current` and `phase1`; do not move the historical flat test suite merely for appearance. Before merging claim-bearing Phase 1 work, run the manual `full claim-bearing validation` workflow on the reviewed branch. Always run `git diff --check` and inspect `git status --short` before commit.
 
 ## Commit And Report
 

@@ -17,7 +17,7 @@ Phase 0 completed repository governance and reproducibility realignment only. It
 
 ## Unblock Sequence
 
-1. Phase 1 independent Qiu-inspired x-y plus K-state FVM/implicit reference passes manufactured, current, full-energy, mesh/time, passivity/reduction, limit, failure, and trend gates.
+1. Phase 1 independent Qiu-inspired single-device x-y plus region-specific K-state FVM/implicit reference passes manufactured, current, full-energy, mesh/time/event, topology, passivity/reduction, limit, failure, and trend gates. Nonzero dual-device coupling remains outside this gate.
 2. Phase 2 locks datasets, geometry/protocol splits, anchors, provenance, and inverse-crime safeguards.
 3. Phase 3 locks fair solver/neural baselines and budgets.
 4. R1 passes joint field, port, event, interface, ledger, and geometry/protocol OOD gates.

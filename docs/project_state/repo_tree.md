@@ -3,6 +3,7 @@
 ```text
 .
 |-- AGENTS.md
+|-- LIVE_WORKSPACE.md
 |-- PROJECT_GOAL.md
 |-- CODEX_CONTEXT.md
 |-- PROJECT_STATE.md
@@ -11,6 +12,7 @@
 |-- configs/
 |   |-- geo2p5d_stage.yaml
 |   |-- geophase_phase1_2p5d_reference.yaml
+|   |-- qiu_vo2_phase1_source_contract.yaml
 |   `-- historical and frozen experiment contracts
 |-- data/
 |   |-- external/
@@ -55,4 +57,4 @@
 `-- FIGURE_REGISTRY.md
 ```
 
-The responsibility-based target does not justify moving working historical code or creating empty future modules. Large generated artifacts remain ignored under `data/processed/` or `outputs/`. The exhaustive per-file lifecycle is in `outputs/tables/repository_file_disposition.csv`.
+The responsibility-based target does not justify moving working historical code or creating empty future modules. Large generated artifacts remain ignored under `data/processed/` or `outputs/`. `outputs/tables/repository_file_disposition.csv` is the immutable Phase 0 snapshot, not a live inventory; current entry points are maintained in `docs/project_state/file_inventory.md`.

@@ -8,8 +8,10 @@ This is a compact router, not a substitute for configs, machine-readable outputs
 | --- | --- | --- |
 | Q2 delivery ladder | `supported` governance fact; R1 minimum, R2 preferred, R3 conditional | `PROJECT_GOAL.md`; canonical execution guide |
 | Phase 0 repository realignment | `supported` governance/reproducibility fact only | Phase 0 report; disposition CSV; machine summary |
-| Active Phase 1 | `supported` authorization/preregistration fact; no solver result | active phase; Phase 1 contract; Phase 1 YAML; stage YAML |
-| Equations and source boundary | `supported` documentation fact; implementation pending | `docs/method_equations.md`; provenance configs and source logs |
+| Active Phase 1 | `supported` authorization/preregistration fact; no solver result | active phase; Phase 1 contract; hardened Phase 1 YAML; stage YAML |
+| Equations and source boundary | `supported` documentation fact; implementation pending | `docs/method_equations.md`; `configs/qiu_vo2_phase1_source_contract.yaml`; provenance manifest |
+| Phase 1 numerical lock | `supported` preregistration fact only | base grid/time/protocols, nonlinear tolerances, fixed comparison grids, NRMSE policy, K-state fit, and exact 96-case inventory in the Phase 1 YAML |
+| Phase 1 contract-hardening closeout | `supported` governance/reproducibility fact only | `docs/codex_reports/phase1_contract_hardening_workspace_cleanup_2026-07-26.md`; no solver execution or scientific vote |
 | Frozen GT integrity | `supported` integrity fact when current hashes pass | governance summary; frozen acceptance report and manifest |
 | Current claim vocabulary | `supported` governance fact | `docs/paper/final_claim_matrix.md` |
 
@@ -33,6 +35,7 @@ Historical outcomes cannot be upgraded by Phase 0 or reused as Phase 1 fields. L
 | Candidate | Current claim status | Required predecessor |
 | --- | --- | --- |
 | Phase 1 converged conservative 2.5D reference | `forbidden` | all Phase 1 gates |
+| Nonzero dual-device thermal coupling | `forbidden` | explicit substrate surface field or high-order-validated nonlocal kernel and independent convergence/conservation gates |
 | Phase 2 dataset and inverse-crime split | `forbidden` as completed work | Phase 1 pass |
 | Phase 3 matched baselines | `forbidden` as results | Phase 2 lock |
 | R1 HysGeo-Hybrid-PINN | `forbidden` | Phases 1-3 plus field/port/event/ledger and OOD gates |
@@ -47,6 +50,7 @@ Without new direct evidence, the following remain `forbidden`: successful Phase 
 
 ## Routing
 
+- Workspace routing: `LIVE_WORKSPACE.md`.
 - Current authority: `CODEX_CONTEXT.md` -> `PROJECT_STATE.md` -> active phase -> `NEXT_ACTIONS.md`.
 - Strategy: canonical execution guide.
 - Current technical detail: Phase 1 contract and YAML.

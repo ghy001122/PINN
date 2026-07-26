@@ -12,10 +12,15 @@ revise the frozen synthetic Ground Truth equations below.
 
 This section defines the Phase 1 reference and later R1-R3 PINN equation
 contract. It is a preregistered model, not a completed solver or positive
-method result. The resolved device plane is \(\Omega\subset\mathbb R^2\) with
-coordinates \((x,y)\); vertical transport is reduced to passive areal thermal
+method result. The Phase 1 resolved plane is the single-device VO2 footprint
+\(\Omega_{\mathrm{VO2}}\subset\mathbb R^2\), with \(x\) along the current path
+and \(y\) along the device width. The masks
+\(r(x,y)\in\{\mathrm{bare},\mathrm{contact}\}\) separate bare VO2 from
+electrode-covered VO2. The interdevice substrate surface is not a Phase 1
+field. Vertical transport is reduced to region-specific passive areal thermal
 memory. The Qiu-inspired geometry is literature anchored, while unresolved
-contact and local material quantities remain engineering priors.
+contact and local material quantities remain engineering priors routed through
+`configs/qiu_vo2_phase1_source_contract.yaml`.
 
 Let \(t_{\mathrm{pcm}}\,[\mathrm m]\) be the active-film thickness,
 \(\phi\,[\mathrm V]\) the potential, \(\mathbf E=-\nabla_\parallel\phi\)
@@ -30,8 +35,9 @@ $$
 $$
 
 Finite electrode contacts \(\Gamma_p\) use prescribed terminal potentials in
-the Phase 1 baseline; non-contact boundaries are electrically insulating. The
-observable terminal current is not a free network output:
+the Phase 1 baseline; non-contact boundaries are electrically insulating.
+Contact resistance is omitted and therefore is not a validated Phase 1
+interface. The observable terminal current is not a free network output:
 
 $$
 I_p(t)=\int_{\Gamma_p}\mathbf K\cdot\mathbf n\,d\ell .
@@ -48,37 +54,43 @@ $$
 -q_z+q_{\mathrm{couple}} .
 $$
 
-The vertical reduction uses local areal capacities
-\(c_k^A\,[\mathrm{J\,m^{-2}\,K^{-1}}]\), conductances
-\(g_k\,[\mathrm{W\,m^{-2}\,K^{-1}}]\), and temperatures
-\(z_k\,[\mathrm K]\). With \(z_0=T\) and \(z_{K+1}=T_0\),
+The vertical reduction uses region-specific local areal capacities
+\(c_{k,r}^A\,[\mathrm{J\,m^{-2}\,K^{-1}}]\), conductances
+\(g_{k,r}\,[\mathrm{W\,m^{-2}\,K^{-1}}]\), and temperatures
+\(z_k\,[\mathrm K]\). With \(z_0=T\), \(z_{K+1}=T_0\), and
+\(r=r(x,y)\),
 
 $$
-c_k^A\partial_t z_k
-=g_{k-1}(z_{k-1}-z_k)-g_k(z_k-z_{k+1}),
+c_{k,r}^A\partial_t z_k
+=g_{k-1,r}(z_{k-1}-z_k)-g_{k,r}(z_k-z_{k+1}),
 \qquad k=1,\ldots,K,
 $$
 
 $$
-q_z=g_0(T-z_1).
+q_z=g_{0,r}(T-z_1).
 $$
 
-For a paired-device reduced model, a declared symmetric lateral exchange may
-be added through the first thermal-memory state,
+The fitted memory excludes the already resolved active-plane VO2 storage.
+The bare-region independent reference contains an Al2O3 substrate branch. The
+contact-covered reference contains the same substrate branch plus a passive
+Ti/Au overlay branch. This produces a driving-point impedance at the active
+VO2 temperature without counting its areal heat capacity twice.
+
+For the Phase 1 two-copy behavior fixture,
 
 $$
-q_{\mathrm{couple},i}=\sum_{j\ne i}
-g^{\mathrm{lat}}_{ij}(z_{1,j}-z_{1,i}),
-\qquad g^{\mathrm{lat}}_{ij}=g^{\mathrm{lat}}_{ji}\ge0,
+q_{\mathrm{couple},1}=q_{\mathrm{couple},2}=0.
 $$
 
-where \(g^{\mathrm{lat}}_{ij}\) has units
-\(\mathrm{W\,m^{-2}\,K^{-1}}\); paired exchange must cancel in the global
-ledger.
+No nonzero interdevice exchange is authorized because the interdevice
+substrate field is unresolved. A later nonzero model requires either an
+explicit substrate surface heat field or a high-order independently validated
+passive nonlocal kernel with reciprocity, convergence, and ledger gates.
 
-All \(c_k^A\) and \(g_k\) must be positive and the thermal subsystem must be
-stable and passive. Phase 1 selects the smallest passing \(K\in\{2,3\}\) against a
-higher-order reference; \(K=1\) is an ablation, not the default model.
+All \(c_{k,r}^A\) and \(g_{k,r}\) must be positive and each regional thermal
+subsystem must be stable and passive. Phase 1 selects the smallest order
+\(K\in\{2,3\}\) that passes every region against a higher-order reference;
+\(K=1\) is an ablation, not the default model.
 
 The VO2 conductivity is a white-box logarithmic mixture:
 
@@ -129,26 +141,45 @@ C_p\frac{dV_d}{dt}
 =\frac{V_{\mathrm{in}}-V_d}{R_L}-I_{\mathrm{dev}}(t).
 $$
 
-Initial conditions are \(T=z_k=T_0\), a declared initial branch \(b_0\), and
-\(s=s_{\mathrm{eq}}(T_0,b_0)\). The Phase 1 lateral thermal baseline is no-flux;
-any later contact-resistance, thermal-boundary-resistance, or lateral-coupling
-term requires explicit units, provenance, and interface tests.
+Initial conditions are \(T=z_k=T_0=325\,\mathrm K\), \(V_d=0\),
+\(b_0=1\), and \(s=s_{\mathrm{eq}}(T_0,b_0)\). The Phase 1 lateral thermal
+baseline is no-flux. Any later contact-resistance,
+thermal-boundary-resistance, or nonzero interdevice-coupling term requires
+explicit units, provenance, and interface tests.
 
 The independent energy ledger includes both active-plane and K-state storage:
 
 $$
 \frac{d}{dt}\int_\Omega\left[
 \rho c_p t_{\mathrm{pcm}}(T-T_0)
-+\sum_{k=1}^{K}c_k^A(z_k-T_0)
++\sum_{k=1}^{K}c_{k,r(x,y)}^A(z_k-T_0)
 \right]dA
 =P_J-P_{\mathrm{sink}}-P_{\partial\Omega}.
 $$
 
 Here
 \(P_J=\int_\Omega t_{\mathrm{pcm}}\sigma|\nabla_\parallel\phi|^2dA\),
-\(P_{\mathrm{sink}}=\int_\Omega g_K(z_K-T_0)dA\), and
-\(P_{\partial\Omega}\) is the outward lateral heat flux. Symmetric device-
-device coupling is internal exchange and must not appear as a net source.
+\(P_{\mathrm{sink}}=\int_\Omega g_{K,r(x,y)}(z_K-T_0)dA\), and
+\(P_{\partial\Omega}\) is the outward lateral heat flux. The Phase 1 two-copy
+fixture has no device-device exchange term.
+
+Spatial and temporal refinement are compared only after conservative
+restriction to the fixed physical base-cell grid and interpolation to the
+fixed 5 ns output grid. For a candidate \(u\) and fine reference
+\(u_{\mathrm{ref}}\),
+
+$$
+\operatorname{NRMSE}(u,u_{\mathrm{ref}})=
+\frac{\operatorname{RMSE}(u-u_{\mathrm{ref}})}
+{\max\!\left[\operatorname{RMS}(u_{\mathrm{ref}}-u_{\mathrm{ref}}(0)),
+d_{\mathrm{floor}}\right]}.
+$$
+
+The configured floors are \(10^{-12}\,\mathrm A\),
+\(10^{-3}\,\mathrm K\), and \(10^{-6}\) for terminal current, temperature
+rise, and conductive-state change. Below-floor signals cannot pass by NRMSE;
+they are routed to absolute analytic-limit gates. Event crossings are ordered
+without post-hoc time warping.
 
 The independent FVM judge and the PINN residual implementation must not share
 the same discrete residual code. Later PINN losses may include charge, active

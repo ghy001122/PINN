@@ -49,3 +49,6 @@ def test_archive_outputs_and_repository_safety_are_governed() -> None:
     assert summary["checks"]["retired_generator_guard"]["status"] == "pass"
     assert summary["checks"]["no_duplicate_active_markdown"]["status"] == "pass"
     assert summary["checks"]["final_report_template"]["status"] == "pass"
+    assert summary["checks"]["workspace_routing_and_hygiene"]["status"] == "pass"
+    assert summary["checks"]["local_external_asset_registry"]["status"] == "pass"
+    assert summary["checks"]["phase1_contract_hardening"]["status"] == "pass"

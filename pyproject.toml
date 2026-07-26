@@ -29,6 +29,10 @@ where = ["src"]
 pythonpath = ["src"]
 testpaths = ["tests"]
 addopts = "-ra"
+markers = [
+  "current: tests for the currently authorized research route and governance contract",
+  "phase1: tests for the Q2 Phase 1 independent 2.5D reference-solver contract",
+]
 filterwarnings = [
   # Matplotlib 3.8.x imports pyparsing APIs that emit deprecation warnings under
   # the pinned dependency set. These are third-party warnings, not project test

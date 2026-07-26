@@ -55,7 +55,7 @@ Do not relax gates, change GT, or hide failures to complete a task.
 
 ## Current High-Risk Claim Boundary
 
-Without new direct evidence, manuscript claims remain `forbidden` for a successful GeoPhase forward solver, Qiu quantitative reproduction, PINN--solver sensitivity fidelity, observation-quotient recovery, terminal-only full 2D hidden-field recovery, full or Seiler-style STL-PINN reproduction, universal F-SPS/Fourier superiority, VO2-to-NbO2 zero-shot generalization, real experimental validation, and full FEM/3D/device-grade multiphysics reproduction. The active Phase 1 independent-solver gate must pass before Phase 2 data generation or any R1-R3 training claim is eligible.
+Without new direct evidence, manuscript claims remain `forbidden` for a successful GeoPhase forward solver, Qiu quantitative reproduction, nonzero dual-device thermal-coupling validation, PINN--solver sensitivity fidelity, observation-quotient recovery, terminal-only full 2D hidden-field recovery, full or Seiler-style STL-PINN reproduction, universal F-SPS/Fourier superiority, VO2-to-NbO2 zero-shot generalization, real experimental validation, and full FEM/3D/device-grade multiphysics reproduction. The active Phase 1 independent-solver gate must pass before Phase 2 data generation or any R1-R3 training claim is eligible.
 
 ## Engineering Rules
 
@@ -70,7 +70,7 @@ Without new direct evidence, manuscript claims remain `forbidden` for a successf
 ## Windows Execution Defaults
 
 - Prefer `./.venv/Scripts/python.exe` for validation.
-- Do not use `apply_patch` in this workspace; use concise workspace-scoped Python or PowerShell edits and inspect the diff.
+- Use the file-editing mechanism required by the active Codex runtime. If that mechanism is unavailable, use only a runtime-permitted, workspace-scoped substitute and inspect the resulting diff.
 - Known filtered matplotlib/pyparsing deprecation warnings are not reportable failures when tests pass.
 
 ## Required Context Workflow

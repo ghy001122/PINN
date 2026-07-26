@@ -40,4 +40,4 @@ Read only relevant configs, source, scripts, tests, and lightweight outputs. Do 
 
 Current Git/code/outputs and the applicable AGENTS chain override local memory and legacy prose. `active_phase.md` authorizes research scope; `PROJECT_STATE.md` records the current snapshot; `NEXT_ACTIONS.md` orders work. Retired surfaces are listed in `legacy_document_index.md`.
 
-Known filtered dependency warnings and the Windows `apply_patch` issue do not justify loading long history.
+Known filtered dependency warnings and runtime-specific file-editing mechanics do not justify loading long history.

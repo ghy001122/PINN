@@ -670,7 +670,7 @@ src/pinnpcm/
 
 ## 交付
 
-- `docs/research_strategy/active_phase_geo2p5d.md`；
+- `docs/research_strategy/active_phase.md`；
 - `configs/geo2p5d_stage.yaml`；
 - baseline replay 报告；
 - 新旧证据隔离清单。
@@ -702,14 +702,16 @@ src/pinnpcm/
 - 均匀矩形导体解析极限；
 - 电流平衡；
 - 网格细化；
-- 接触电阻极限。
+- 有限 Dirichlet 接触边界和均匀导体极限；Phase 1 不实现接触电阻，因此不得声称完整接触/接口模型。
 
 ### 1.2 热子问题
 
 - 面内扩散＋焦耳热；
-- K-state 垂向热记忆；
-- BDF 或 Radau 隐式推进；
-- 支持单 neuristor 和双 neuristor 热耦合。
+- 裸露 VO₂ 区与电极覆盖 VO₂ 区分别采用 K-state 垂向热记忆，禁止重复计入 active-plane VO₂ 储能；
+- 自适应隐式 backward Euler 推进，并进行独立时间步细化；
+- Phase 1 正式基线只解析单 neuristor；双器件仅用两个独立副本验证零耦合与标签对称性。
+
+非零双器件热耦合不属于 Phase 1。若后续论文需要该主张，必须先增加显式衬底表面热场，或增加经高阶独立模型验证的非局部被动耦合核，并单独通过网格/时间收敛、互易性、守恒和能量账本 gate；标量经验耦合项本身不能替代这些证据。
 
 验证：
 
@@ -733,8 +735,8 @@ src/pinnpcm/
 - 9 V 附近静息；
 - 12.5 V 附近振荡；
 - 更高偏压下金属态锁定/抑制趋势；
-- 频率随偏压变化方向；
-- 双器件热耦合方向。
+- 频率随偏压变化方向仅作描述性、非投票诊断，除非另有源可追踪阈值；
+- 单器件 9 V、12.5 V 和更高偏压趋势；双器件非零热耦合方向延后到具备显式衬底场或经验证非局部核之后。
 
 ## Gate 1
 

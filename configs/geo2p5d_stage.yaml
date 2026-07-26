@@ -8,6 +8,7 @@ authority:
   active_phase: docs/research_strategy/active_phase.md
   current_contract: docs/research_strategy/phase1_geophase_2p5d_reference_contract.md
   phase1_config: configs/geophase_phase1_2p5d_reference.yaml
+  phase1_source_contract: configs/qiu_vo2_phase1_source_contract.yaml
   claim_matrix: docs/paper/final_claim_matrix.md
 
 routes:
@@ -35,7 +36,7 @@ routes:
 
 phase_sequence:
   - {phase: 0, id: Q2_PHASE0_REPOSITORY_GOVERNANCE, status: complete_governance_only}
-  - {phase: 1, id: Q2_PHASE1_2P5D_REFERENCE_SOLVER, status: authorized_pending_implementation}
+  - {phase: 1, id: Q2_PHASE1_2P5D_REFERENCE_SOLVER, status: authorized_contract_hardened_pending_implementation}
   - {phase: 2, id: Q2_PHASE2_DATASET_AND_SPLITS, status: blocked_by_phase1}
   - {phase: 3, id: Q2_PHASE3_BASELINES, status: blocked_by_phase2}
   - {phase: 4, id: Q2_PHASE4_R1_HYSGEO_HYBRID_PINN, status: blocked_by_phase3}

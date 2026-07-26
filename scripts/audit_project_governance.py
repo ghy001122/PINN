@@ -25,6 +25,7 @@ EXPECTED_PHASE = "Q2_PHASE1_2P5D_REFERENCE_SOLVER"
 
 REQUIRED = [
     "AGENTS.md",
+    "LIVE_WORKSPACE.md",
     "PROJECT_GOAL.md",
     "CODEX_CONTEXT.md",
     "PROJECT_STATE.md",
@@ -50,11 +51,14 @@ REQUIRED = [
     "docs/archive/superseded_strategy/README.md",
     "configs/geo2p5d_stage.yaml",
     "configs/geophase_phase1_2p5d_reference.yaml",
+    "configs/qiu_vo2_phase1_source_contract.yaml",
     "tests/test_geophase_phase1_preregistration.py",
     "scripts/audit_repository_realignment.py",
     "outputs/tables/repository_file_disposition.csv",
     "outputs/tables/repository_realign_phase0_summary.json",
     "docs/codex_reports/repository_realign_phase0_2026-07-25.md",
+    "docs/codex_reports/phase1_contract_hardening_workspace_cleanup_2026-07-26.md",
+    "docs/project_state/local_external_asset_registry.json",
     "docs/templates/codex_final_report.md",
     "src/pinnpcm/physics/AGENTS.md",
     "src/pinnpcm/pinn/AGENTS.md",
@@ -66,6 +70,7 @@ REQUIRED = [
 
 CRITICAL_MARKDOWN = [
     "AGENTS.md",
+    "LIVE_WORKSPACE.md",
     "README.md",
     "PROJECT_GOAL.md",
     "CODEX_CONTEXT.md",
@@ -269,6 +274,9 @@ def check_realignment_outputs() -> dict:
     else:
         problems.append("missing_summary")
         summary = {}
+    inventory_doc = read("docs/project_state/file_inventory.md")
+    if "Phase 0 snapshot" not in inventory_doc or "not a live manifest" not in inventory_doc:
+        problems.append("phase0_snapshot_boundary_not_labeled")
     return {
         "status": "pass" if not problems else "fail",
         "rows": len(rows),
@@ -286,6 +294,118 @@ def check_phase0_report() -> dict:
     ]
     text = path.read_text(encoding="utf-8") if path.exists() else ""
     missing = [field for field in fields if re.search(rf"^{field}:", text, re.MULTILINE) is None]
+    return {"status": "pass" if not missing else "fail", "missing": missing}
+
+
+def check_workspace_routing_and_hygiene() -> dict:
+    routing = read("LIVE_WORKSPACE.md")
+    required_markers = [
+        r"E:\Python demo\PINN",
+        r"E:\PINN",
+        "only live Git development repository",
+        "reference layer",
+        "local_external_asset_registry.json",
+    ]
+    missing_markers = [marker for marker in required_markers if marker not in routing]
+
+    pollution_root = ROOT / "%SystemDrive%"
+    archives_root = ROOT / "outputs" / "archives"
+    archive_files = []
+    if archives_root.exists():
+        archive_files = sorted(
+            str(path.relative_to(ROOT)).replace("\\", "/")
+            for path in archives_root.rglob("*")
+            if path.is_file()
+        )
+    problems = list(missing_markers)
+    if pollution_root.exists():
+        problems.append("workspace_pollution:%SystemDrive%")
+    if archive_files:
+        problems.extend(f"repository_archive:{path}" for path in archive_files)
+    return {
+        "status": "pass" if not problems else "fail",
+        "missing_markers": missing_markers,
+        "pollution_root_present": pollution_root.exists(),
+        "repository_archive_files": archive_files,
+        "problems": problems,
+    }
+
+
+def check_local_external_asset_registry() -> dict:
+    path = ROOT / "docs/project_state/local_external_asset_registry.json"
+    problems: list[str] = []
+    try:
+        registry = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        return {"status": "fail", "problems": [str(exc)], "assets": 0}
+
+    if registry.get("schema_version") != "local_external_asset_registry_v1":
+        problems.append("schema_version")
+    assets = registry.get("assets", [])
+    if not assets:
+        problems.append("assets_empty")
+    for index, asset in enumerate(assets):
+        prefix = f"asset_{index}"
+        if asset.get("git_tracked") is not False:
+            problems.append(f"{prefix}:git_tracked")
+        if asset.get("required_for_clone_test_or_replay") is not False:
+            problems.append(f"{prefix}:replay_dependency")
+        digest = asset.get("sha256", "")
+        if re.fullmatch(r"[0-9A-F]{64}", digest) is None:
+            problems.append(f"{prefix}:sha256")
+        if not isinstance(asset.get("bytes"), int) or asset["bytes"] <= 0:
+            problems.append(f"{prefix}:bytes")
+        if asset.get("evidence_role") != "project_context_archive_only":
+            problems.append(f"{prefix}:evidence_role")
+    return {
+        "status": "pass" if not problems else "fail",
+        "problems": problems,
+        "assets": len(assets),
+        "external_presence": "not_required_for_portable_governance",
+    }
+
+
+def check_phase1_contract_hardening() -> dict:
+    config = read("configs/geophase_phase1_2p5d_reference.yaml")
+    source = read("configs/qiu_vo2_phase1_source_contract.yaml")
+    contract = read("docs/research_strategy/phase1_geophase_2p5d_reference_contract.md")
+    required_config_markers = [
+        "schema_version: geophase_phase1_2p5d_reference_v2",
+        "source_only_config: configs/qiu_vo2_phase1_source_contract.yaml",
+        "interdevice_substrate_resolved: false",
+        "nonzero_dual_device_coupling_in_phase1: forbidden",
+        "formal_case_inventory_total: 96",
+        "fixed_physical_comparison_grid:",
+        "fixed_physical_comparison_time_grid:",
+        "zero_signal_policy:",
+        "reduction_fit_contract:",
+    ]
+    required_source_markers = [
+        "literature_reported:",
+        "source_author_fitted_lumped_quantities:",
+        "phase1_engineering_priors:",
+        "unresolved_semantics:",
+        "inherit_parameter_numeric_vote: false",
+        "inherit_field_or_convergence_vote: false",
+    ]
+    required_contract_markers = [
+        "Formal Case Inventory",
+        "**96**",
+        "Dual-Device Boundary",
+        "nonzero dual-device",
+        "without post-hoc time warping",
+    ]
+    missing = [
+        f"config:{marker}" for marker in required_config_markers if marker not in config
+    ]
+    missing.extend(
+        f"source:{marker}" for marker in required_source_markers if marker not in source
+    )
+    missing.extend(
+        f"contract:{marker}" for marker in required_contract_markers if marker not in contract
+    )
+    if "inherited_provenance_config" in config:
+        missing.append("config:historical_inherited_provenance_config_present")
     return {"status": "pass" if not missing else "fail", "missing": missing}
 
 
@@ -320,6 +440,9 @@ def run_audit(write_output: bool = True, require_frozen_payloads: bool = True) -
     checks["critical_markdown_links"] = check_markdown_links()
     checks["realignment_outputs"] = check_realignment_outputs()
     checks["phase0_report"] = check_phase0_report()
+    checks["workspace_routing_and_hygiene"] = check_workspace_routing_and_hygiene()
+    checks["local_external_asset_registry"] = check_local_external_asset_registry()
+    checks["phase1_contract_hardening"] = check_phase1_contract_hardening()
 
     critical_text = "\n".join(read(rel) for rel in ["AGENTS.md", "PROJECT_GOAL.md", "PROJECT_STATE.md", "NEXT_ACTIONS.md"])
     all_present = all(status in critical_text for status in CLAIM_STATUSES)

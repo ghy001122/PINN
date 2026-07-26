@@ -68,7 +68,7 @@ Finite output, loss decrease, a smoke test, a local Jacobian, or a proxy audit i
 - Data-free failure does not disqualify the explicitly hybrid R1 identity; sparse anchors must remain visible.
 - R2 without synergistic matched-budget gain is removed or downgraded to an implementation detail.
 - R3 without stable rank/rotation or sensitivity fidelity is removed; retain a fixed reduced inverse or identifiability boundary only if directly supported.
-- Exact Qiu reproduction, real experimental validation, full 3D/FEM validation, arbitrary terminal-only full-field recovery, universal Fourier/F-SPS superiority, and VO2-to-NbO2 zero-shot transfer remain forbidden without direct evidence.
+- Exact Qiu reproduction, nonzero dual-device thermal-coupling validation, real experimental validation, full 3D/FEM validation, arbitrary terminal-only full-field recovery, universal Fourier/F-SPS superiority, and VO2-to-NbO2 zero-shot transfer remain forbidden without direct evidence. The Phase 1 formal baseline is single-device; a later coupling claim requires an explicit substrate field or independently validated passive nonlocal kernel.
 - Stretch failure cannot block paper delivery; it only limits the manuscript tier.
 
 ## User Confirmation Boundary
