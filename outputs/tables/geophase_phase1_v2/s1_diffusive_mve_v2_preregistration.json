@@ -1,0 +1,14 @@
+{
+  "amendment_config_sha256": "cd55fd4d35919430d0ed992ffcfd8bc7460f3fe903a5bf74a763d820ee9a10ab",
+  "formal_execution_consumed": false,
+  "formal_execution_count": 0,
+  "new_s1_numerical_work_before_preregistration_push": false,
+  "nominal_phase1v2_model": "S2_source_scale_preserving_local_single_rc",
+  "preregistration_commit": "15b15131fe8ee9299085d1724971c08c1ae977cf",
+  "production_selection_authorized": false,
+  "s2_config_sha256": "0600498590a8c100ec8dee95621719ea655354ec118015868cb07fedf89f85d5",
+  "schema_version": "geophase_phase1_v2_s1_diffusive_mve_preregistration_v2",
+  "status": "preregistered_not_executed",
+  "superseded_s1_config_sha256": "ea9262ddb8730b183a9335f2e31eb0b172012c2e4b84bcab5c3e39b925d418ca",
+  "task_id": "Q2_PHASE1_V2_S1_DIFFUSIVE_SENSITIVITY_MVE_V2"
+}
