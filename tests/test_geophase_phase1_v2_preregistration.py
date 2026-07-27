@@ -19,6 +19,9 @@ S1_PATH = ROOT / "configs" / "geophase_phase1_s1_diffusive_sensitivity_mve.yaml"
 AUDIT_PATH = ROOT / "configs" / "qiu_same_device_thermal_holdout_audit.yaml"
 STAGE_PATH = ROOT / "configs" / "geo2p5d_stage.yaml"
 OUTPUT_DIR = ROOT / "outputs" / "tables" / "geophase_phase1_v2"
+PROJECT_STATE_PATH = ROOT / "PROJECT_STATE.md"
+EVIDENCE_INDEX_PATH = ROOT / "docs" / "project_state" / "current_evidence_index.md"
+CLAIM_MATRIX_PATH = ROOT / "docs" / "paper" / "final_claim_matrix.md"
 
 pytestmark = [pytest.mark.phase1, pytest.mark.current]
 
@@ -274,6 +277,29 @@ def test_s1_and_source_audit_are_bounded_nonblocking_and_not_formal() -> None:
     assert "digitize_a_curve_in_this_audit" in audit["forbidden_actions"]
     assert "S1_items_in_formal_manifest: forbidden" in manifest_text
     assert cfg["S1_sensitivity_route"]["nominal_if_no_holdout"] is False
+
+
+def test_s1_science_is_unassessed_while_interruption_provenance_is_supported() -> None:
+    stage = _yaml(STAGE_PATH)
+    project_state = PROJECT_STATE_PATH.read_text(encoding="utf-8")
+    evidence_index = EVIDENCE_INDEX_PATH.read_text(encoding="utf-8")
+    claim_matrix = CLAIM_MATRIX_PATH.read_text(encoding="utf-8")
+
+    assert stage["nonblocking_S1_state"]["rerun_authorization"] == (
+        "forbidden_without_fresh_user_authorization"
+    )
+    assert "| S1 diffusive model-form claim | `forbidden` / unassessed |" in project_state
+    assert "| S1 interruption provenance | `supported` infrastructure provenance only |" in project_state
+    assert "| S1 diffusive scientific claim | `forbidden`;" in evidence_index
+    assert "| S1 interruption provenance | `supported` infrastructure provenance only;" in evidence_index
+    s1_claim_row = next(
+        line
+        for line in claim_matrix.splitlines()
+        if line.startswith("| P1v2_s1_model_form_sensitivity |")
+    )
+    assert "| `forbidden`; scientific result unassessed |" in s1_claim_row
+    assert "infrastructure provenance is `supported`" in s1_claim_row
+    assert "`failed_but_informative`" not in s1_claim_row
 
 
 def test_preregistration_history_and_post_anchor_evidence_boundary() -> None:

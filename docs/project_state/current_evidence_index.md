@@ -12,7 +12,8 @@ This is a compact router, not a substitute for configs, machine-readable outputs
 | Phase 1-v2 numerical lock | `supported` preregistration fact only | S2 equations/source allowlist, numerical contract, exact 63-item manifest, bounded source audit, and non-blocking S1 MVE |
 | Nominal S2 implementation and smoke | `supported` implementation fact; 7/7 non-voting smoke cases pass after the sole registered audit-metric repair | S2 solver/tests; smoke summary/ledgers/repair record; formal count zero |
 | Same-device direct-thermal audit | `supported` eligibility/provenance audit only; no eligible holdout found | audit CSV/JSON/report; no digitization, fitting, production selection, or independent validation |
-| S1 diffusive sensitivity MVE | `failed_but_informative` infrastructure disposition only; scientific self-consistency remains unassessed | interruption JSON/report; two repeated binary comparator failures before tool timeout; no atomic metric, K fit, or formal evidence |
+| S1 diffusive scientific claim | `forbidden`; scientific self-consistency remains unassessed | no atomic metric, K fit, or formal evidence exists |
+| S1 interruption provenance | `supported` infrastructure provenance only; no scientific vote | interruption JSON/report; three tool timeouts and two repeated binary stdout observations |
 | Retired material-stack Phase 1 | Checkpoint A is software-only; v7/v8 are `failed_but_informative` | old 96 items were never run; v8 ended at pullback depth-frequency RMSE about `0.4118 > 0.05`; formal count zero |
 | Frozen GT integrity | `supported` integrity fact when current hashes pass | governance summary; frozen acceptance report and manifest |
 | Current claim vocabulary | `supported` governance fact | `docs/paper/final_claim_matrix.md` |

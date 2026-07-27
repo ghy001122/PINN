@@ -45,7 +45,8 @@
 | Phase 1-v2 S2 contract and manifest | `supported` preregistration facts | 63 planned items, S2 equations/gates, and formal count zero. |
 | S2 implementation and bounded smoke | `supported` software/readiness facts | Conservative x-y solver, explicit mask physics, four ledgers, failure controls, and 7/7 non-voting smoke pass after one registered implementation repair. No formal gate voted. |
 | Same-device source audit | `supported` bounded eligibility audit | No eligible holdout found; no digitization, fitting, production selection, or independent validation. |
-| S1 diffusive MVE | `failed_but_informative` infrastructure disposition | No atomic metric, K fit, formal artifact, or scientific result. S2 remains nominal. |
+| S1 diffusive model-form claim | `forbidden` / unassessed | No atomic metric, K fit, formal artifact, or scientific vote exists. S2 remains nominal. |
+| S1 interruption provenance | `supported` infrastructure provenance only | Three tool timeouts and two repeated stdout observations are preserved; they do not establish a scientific S1 pass or failure. |
 | v6-v8 material-stack route | `failed_but_informative` | Final v8 pullback gate failed; no K order or formal result; old formal count zero. |
 | Phase 1-v2 conservative reference result | `forbidden` | Requires every v2 gate in a separately authorized formal campaign. |
 | R1/R2/R3 positive claims | `forbidden` | Each requires its own sequential direct evidence. |
