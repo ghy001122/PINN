@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 from pathlib import Path
 
 import pytest
@@ -13,6 +14,13 @@ AMENDMENT_PATH = (
     ROOT / "configs" / "geophase_phase1_s1_diffusive_sensitivity_mve_v2.yaml"
 )
 S2_PATH = ROOT / "configs" / "geophase_phase1_v2_s2_reference.yaml"
+PREREG_PATH = (
+    ROOT
+    / "outputs"
+    / "tables"
+    / "geophase_phase1_v2"
+    / "s1_diffusive_mve_v2_preregistration.json"
+)
 
 pytestmark = [pytest.mark.phase1, pytest.mark.current]
 
@@ -93,3 +101,24 @@ def test_s1_v2_output_namespace_cannot_be_formal_or_production() -> None:
         "S1_is_a_production_reference",
         "S1_is_a_manuscript_headline_contribution",
     ]
+
+
+def test_s1_v2_machine_preregistration_points_to_the_pushed_protocol() -> None:
+    cfg = _yaml(AMENDMENT_PATH)
+    prereg = json.loads(PREREG_PATH.read_text(encoding="utf-8"))
+
+    assert prereg["schema_version"].endswith("_v2")
+    assert prereg["preregistration_commit"] == (
+        "15b15131fe8ee9299085d1724971c08c1ae977cf"
+    )
+    assert prereg["amendment_config_sha256"] == _sha256(AMENDMENT_PATH)
+    assert prereg["superseded_s1_config_sha256"] == _sha256(BASE_PATH)
+    assert prereg["s2_config_sha256"] == _sha256(S2_PATH)
+    assert prereg["new_s1_numerical_work_before_preregistration_push"] is False
+    assert prereg["formal_execution_count"] == 0
+    assert prereg["formal_execution_consumed"] is False
+    assert prereg["production_selection_authorized"] is False
+    assert prereg["nominal_phase1v2_model"] == (
+        cfg["runner_contract"]["no_holdout_requires"]["S2_remains_nominal"]
+        and "S2_source_scale_preserving_local_single_rc"
+    )
