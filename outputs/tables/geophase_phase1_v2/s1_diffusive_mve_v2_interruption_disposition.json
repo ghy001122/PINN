@@ -1,0 +1,64 @@
+{
+  "configured_atomic_outputs_created": false,
+  "configured_outputs_intentionally_not_fabricated": [
+    "outputs/tables/geophase_phase1_v2/s1_diffusive_mve_v2_fits.csv",
+    "outputs/tables/geophase_phase1_v2/s1_diffusive_mve_v2_pointwise.csv",
+    "outputs/tables/geophase_phase1_v2/s1_diffusive_mve_v2_summary.json",
+    "docs/codex_reports/geophase_phase1_v2_s1_diffusive_mve_v2.md"
+  ],
+  "disposition": "STOP_S1_REFERENCE_EVALUATION_INFRASTRUCTURE_BLOCKED_BEFORE_ATOMIC_EVIDENCE",
+  "eligible_same_device_holdout_used": false,
+  "evidence_type": "nonvoting_infrastructure_interruption_disposition",
+  "formal_artifacts_created": false,
+  "formal_execution_consumed": false,
+  "formal_execution_count": 0,
+  "infrastructure_interruptions": [
+    {
+      "atomic_evidence_created": false,
+      "elapsed_s": 181.5,
+      "exit_code": 124,
+      "kind": "tool_process_timeout",
+      "modal_reference_stdout": "not_observed_before_timeout",
+      "scientific_vote": false
+    },
+    {
+      "atomic_evidence_created": false,
+      "elapsed_s": 901.237,
+      "exit_code": 124,
+      "kind": "tool_process_timeout",
+      "modal_reference_stdout": "S1-MVE: modal reference failed",
+      "scientific_vote": false
+    },
+    {
+      "atomic_evidence_created": false,
+      "elapsed_s": 901.437,
+      "exit_code": 124,
+      "kind": "tool_process_timeout",
+      "modal_reference_stdout": "S1-MVE: modal reference failed",
+      "scientific_vote": false
+    }
+  ],
+  "k_fit_started": false,
+  "no_memory_error_observed": true,
+  "no_nonfinite_error_observed": true,
+  "no_python_exception_observed": true,
+  "nominal_phase1v2_model": "S2_source_scale_preserving_local_single_rc",
+  "preregistration": {
+    "amendment_config_sha256": "cd55fd4d35919430d0ed992ffcfd8bc7460f3fe903a5bf74a763d820ee9a10ab",
+    "commit": "15b15131fe8ee9299085d1724971c08c1ae977cf",
+    "s2_config_sha256": "0600498590a8c100ec8dee95621719ea655354ec118015868cb07fedf89f85d5"
+  },
+  "production_selected": false,
+  "reference_gate_observation": {
+    "configured_failure_disposition": "STOP_S1_REFERENCE_EVALUATION",
+    "configured_threshold": 0.0005,
+    "exact_metric_available": false,
+    "reason_exact_metric_unavailable": "tool timeout occurred before atomic pointwise and summary evidence publication",
+    "repeated_stdout_disposition": "modal reference failed",
+    "scientific_interpretation": "no scientific pass or model-order conclusion may be drawn"
+  },
+  "s1_mve_closed_without_further_numerical_work": true,
+  "s2_remains_nominal": true,
+  "schema_version": "geophase_phase1_v2_s1_diffusive_mve_interruption_disposition_v1",
+  "task_id": "Q2_PHASE1_V2_S1_DIFFUSIVE_SENSITIVITY_MVE_V2"
+}

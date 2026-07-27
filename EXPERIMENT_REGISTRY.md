@@ -918,3 +918,52 @@ Claim result: multilayer forward, terminal-only rescue, low-dimensional sandwich
   and all historical outputs remain unchanged.
 - New numerical calculation is forbidden until the preregistration anchor is
   pushed. Formal execution remains separately unauthorized.
+
+## Phase 1-v2 S2 Implementation And Bounded Readiness
+
+- Date: 2026-07-27.
+- Task: `Q2_PHASE1_V2_S2_REFERENCE`.
+- Preregistration anchor:
+  `d37745b45fa259c64a8c0f7efa99e157aeadf8f7`.
+- Evidence type: implementation, focused behavior tests, bounded non-voting
+  smoke, and bounded source audit only; no formal scientific campaign.
+- Implemented: the area-normalized S2 thermal closure, conservative x-y FVM,
+  backward-Euler electrothermal/RC coupling, terminal fluxes, explicit
+  VO2/Ti-Au mask-local storage and conduction, thermal/circuit/combined
+  ledgers, device-power identity, and fail-closed behavior.
+- Smoke: `7/7` registered cases passed. One authorized implementation repair
+  replaced an ill-conditioned relative-only zero-flux audit with the locked
+  relative-or-roundoff criterion; the identical smoke rerun passed and no
+  scientific gate, parameter, protocol, or tolerance was changed.
+- Source audit: no eligible same-device direct temperature transient, thermal
+  impedance, isolated thermal-pulse decay, or equivalent thermal-kernel
+  holdout was found within the bounded audit. Ordinary port curves and other
+  devices were ineligible. Audit timing was not instrumented, so no measured
+  elapsed-time claim is made.
+- Formal execution count: `0`; all 63 formal evaluation items remain
+  `planned_not_executed`; Phase 1-v2 scientific success remains `forbidden`.
+- Reports:
+  `docs/codex_reports/geophase_phase1_v2_s2_readiness.md` and
+  `docs/codex_reports/qiu_same_device_thermal_holdout_audit.md`.
+
+## Phase 1-v2 S1 Diffusive Sensitivity Interruption
+
+- Date: 2026-07-27.
+- Task: `Q2_PHASE1_V2_S1_DIFFUSIVE_SENSITIVITY_MVE_V2`.
+- Evidence type: non-voting infrastructure interruption disposition; not an
+  atomic MVE result and not a formal case.
+- Three tool-layer timeouts occurred at approximately 181.5, 901.237, and
+  901.437 s. The two longer attempts reached the unchanged stdout disposition
+  `S1-MVE: modal reference failed`; neither published atomic evidence.
+- No Python exception, nonfinite diagnostic, memory error, K=2/3 fit, eligible
+  holdout, production selection, or formal artifact exists. The exact
+  comparator metric is unavailable and no scientific model-order conclusion
+  is allowed.
+- Disposition:
+  `STOP_S1_REFERENCE_EVALUATION_INFRASTRUCTURE_BLOCKED_BEFORE_ATOMIC_EVIDENCE`.
+  S2 remains nominal and no further S1 execution is authorized.
+- Formal execution count: `0`.
+- Evidence:
+  `outputs/tables/geophase_phase1_v2/s1_diffusive_mve_v2_interruption_disposition.json`
+  and
+  `docs/codex_reports/geophase_phase1_v2_s1_diffusive_mve_v2_interruption.md`.

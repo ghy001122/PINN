@@ -19,7 +19,8 @@ Frozen GT v1.1 remains read-only. The constrained `gamma_sub` result, failed com
 An independent historical x-y plus K-state implementation and bounded
 Checkpoint A smoke exist, but the v6-v8 material-stack route ended at
 `NO_GO_VERTICAL_REFERENCE` and no formal 2.5D reference result exists. A fresh
-Phase 1-v2 S2 contract is now preregistered for implementation. No positive R1/R2
+Phase 1-v2 S2 contract is preregistered, implemented, and through bounded
+non-voting smoke, but has not executed a formal item. No positive R1/R2
 training result, solver-PINN sensitivity result, R3 inverse/refusal result, or
 NbO2 cross-model result exists. Project outputs are synthetic numerical
 digital-twin evidence, not measurements.
@@ -37,18 +38,19 @@ The v6/source/inventory bytes and formal count remained unchanged.
 
 ## One Active Priority
 
-Current checkpoint `PHASE1_V2_S2_PREREGISTERED_PENDING_IMPLEMENTATION` replaces
-the stopped K-state route while preserving all of its files and evidence.
-After the Phase 1-v2 preregistration commit is pushed, implement and verify the
-locally distributed S2 nominal closure and run only bounded non-voting smoke.
-In parallel, a <=4 h same-device source audit and <=24 h active/48 h elapsed S1
-MVE may proceed without delaying S2. S1 is sensitivity-only in the current
-round. The formal execution count remains zero and no formal campaign is
-authorized.
+Current checkpoint `PHASE1_V2_S2_SMOKE_PASS_PENDING_FORMAL_READINESS` replaces
+the stopped K-state route while preserving all of its files and evidence. The
+locally distributed S2 nominal closure passes focused behavior tests and 7/7
+bounded non-voting smoke cases after the sole allowed implementation repair.
+The same-device audit found no eligible direct thermal holdout, so S1 remains
+sensitivity-only. Its bounded MVE is closed after three tool-layer timeouts;
+no atomic metric or K fit exists, and further S1 execution is unauthorized.
+Perform only minimal runtime/formal-runner readiness. The formal execution
+count remains zero and no formal campaign is authorized.
 
 ## Claim Boundary
 
-Allowed now: describe the guide, Phase 0 realignment, Phase 1-v2 preregistered equations/config/gates, and retained historical results with their existing qualifications.
+Allowed now: describe the guide, Phase 0 realignment, Phase 1-v2 preregistered equations/config/gates, the implemented S2 solver and non-voting smoke, the bounded source-audit result, and retained historical results with their existing qualifications.
 
 Forbidden now: Phase 1 success, Qiu quantitative reproduction or calibration, positive R1/R2, observation-subspace/OQ recovery, PINN sensitivity fidelity, terminal-only arbitrary 2D hidden-field recovery, experimental validation, full FEM/3D equivalence, universal spectral superiority, or VO2-to-NbO2 zero-shot transfer.
 

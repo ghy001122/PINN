@@ -513,9 +513,11 @@ generated no figure. Its raw pullback depth-frequency failure, blocked K-state
 route, and zero formal execution count do not authorize a Phase 1 plot or
 manuscript result figure.
 
-## Phase 1-v2 S2 Preregistration Figure Disposition
+## Phase 1-v2 S2 Readiness Figure Disposition
 
-No Phase 1-v2 figure exists. Preregistration metadata, a planned 63-item
-manifest, source-audit locators, or an S1 self-fit may not be plotted as a
-positive Phase 1 or manuscript result. Scientific figures remain blocked until
-machine-readable Phase 1-v2 formal evidence exists under fresh authorization.
+No Phase 1-v2 figure exists. The completed bounded S2 smoke, the registered
+implementation-repair evidence, source-audit locators, and the S1 interruption
+disposition are non-voting readiness/provenance evidence and may not be plotted
+as a positive Phase 1 or manuscript result. No atomic S1 self-fit exists.
+Scientific figures remain blocked until machine-readable Phase 1-v2 formal
+evidence exists under fresh authorization.

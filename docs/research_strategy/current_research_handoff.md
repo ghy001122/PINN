@@ -14,7 +14,7 @@ Resume in this order:
 10. `configs/qiu_vo2_phase1_source_contract.yaml`
 
 Current phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`. Current checkpoint:
-`PHASE1_V2_S2_PREREGISTERED_PENDING_IMPLEMENTATION`.
+`PHASE1_V2_S2_SMOKE_PASS_PENDING_FORMAL_READINESS`.
 
 The fixed-bottom material-stack/K-state route ended at v8
 `NO_GO_VERTICAL_REFERENCE`. Its 96-item manifest remains immutable and
@@ -25,11 +25,15 @@ Ti/Au thermal terms, and area-normalized Qiu device-level uniform-mode
 \(G_\theta,C_\theta\). It has no independent vertical state. Its 63 items are
 unexecuted.
 
-After the anchor is pushed: implement/test S2 and run bounded non-voting
-smoke. A <=4 h same-device source audit and <=24 h active/48 h elapsed S1 MVE
-may run in parallel but cannot delay/replace S2. S1 is sensitivity only.
+The S2 implementation and 7/7 bounded non-voting smoke cases are complete.
+The sole allowed software repair fixed a zero-signal audit denominator without
+changing physics or scientific gates. The same-device source audit found no
+eligible direct thermal holdout. The S1 sensitivity MVE is closed after three
+tool timeouts and no atomic result; two attempts reached the same binary modal
+reference failure, but no exact metric or K fit exists. S2 remains nominal.
+Perform minimal runtime/formal-runner readiness next.
 
-No formal campaign, PINN/inverse, source fitting/digitization, nonzero
+No formal campaign or formal run registry, PINN/inverse, source fitting/digitization, nonzero
 coupling, Phase 2 data, 3D/FEM, M44, or NbO2 is authorized. Correct S2 physics,
 conservation, or convergence failure triggers the `gamma_sub`/identifiability
 downgrade.

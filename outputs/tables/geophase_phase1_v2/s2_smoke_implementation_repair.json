@@ -1,0 +1,37 @@
+{
+  "attempt": 1,
+  "classification": "bounded_implementation_audit_metric_defect",
+  "defect": "matrix-face relative mismatch divided by a near-zero physical flux norm without a floating-point backward-error alternative",
+  "formal_execution_count": 0,
+  "formal_case_artifacts_generated": false,
+  "implementation_hashes_sha256": {
+    "scripts/run_geophase_phase1_v2_smoke.py": "2cd9f14dd82be2d32f389908ad07078e0f69c9cef9f2982a25c77f321aafcdce",
+    "src/pinnpcm/solvers/geophase_phase1_v2_fvm.py": "a1292d031b551e02d64c697161618c8c0e8fee43371f32f59766d2c63a691b29",
+    "tests/test_geophase_phase1_v2_smoke_evidence.py": "fd291bca8b6adef70b03ba580a7dcbfb31ff3a57da622cc6da9851ef19f64394"
+  },
+  "observed": {
+    "all_energy_and_device_power_ledgers_passed": true,
+    "coarse_fine_short_passed": true,
+    "manufactured_thermal_passed": true,
+    "maximum_matrix_face_absolute_difference_W": 1.1409554905646324e-17,
+    "zero_drive_relative_mismatch": 1.0
+  },
+  "repair": "retain the signal-relative metric and additionally accept matrix-face parity only when the absolute mismatch is within a registered floating-point backward-error scale; matrix tamper must fail both checks",
+  "repair_count": 1,
+  "repair_limit": 1,
+  "registered_parity_criterion": {
+    "acceptance_logic": "relative_mismatch_le_threshold_OR_roundoff_ratio_le_threshold",
+    "formula_id": "lateral_matrix_face_parity_v1",
+    "machine_epsilon_float64": 2.220446049250313e-16,
+    "relative_mismatch_max": 1e-10,
+    "roundoff_bound_W": "64*eps*max(matrix_abs_row_sum_norm,1e-300)*max(temperature_l2_norm,1)",
+    "roundoff_multiplier": 64.0,
+    "roundoff_ratio_max": 1.0
+  },
+  "schema_version": "geophase_phase1_v2_s2_smoke_implementation_repair_v1",
+  "scientific_or_physics_gate_changed": false,
+  "identical_smoke_rerun_passed": true,
+  "rerun_summary": "outputs/tables/geophase_phase1_v2/s2_smoke_summary.json",
+  "status": "repair_applied_and_identical_smoke_rerun_passed",
+  "task_id": "Q2_PHASE1_V2_S2_NONVOTING_SMOKE"
+}

@@ -1,0 +1,178 @@
+{
+  "S2_nominal_unchanged": true,
+  "all_smoke_cases_pass": true,
+  "allowed_claim": "Phase 1-v2 S2 implementation completed its bounded non-voting smoke checks.",
+  "cases": [
+    {
+      "accepted_steps": 4,
+      "case_id": "SMOKE-S2-ZERO",
+      "completed": true,
+      "fallback_steps": 0,
+      "final_domain_mean_s": 0.17001295306414727,
+      "final_maximum_temperature_K": 325.0,
+      "finite": true,
+      "implementation_smoke_pass": true,
+      "maximum_ledger_residuals": {
+        "circuit": 0.0,
+        "combined": 0.0,
+        "device_power": 0.0,
+        "lateral_matrix_face": 1.0,
+        "lateral_matrix_face_roundoff": 0.0007272553219064375,
+        "thermal": 0.0
+      },
+      "maximum_transition_increment": 0.0,
+      "nonvoting": true,
+      "rejected_steps": 0,
+      "stop_reason": "requested_final_time_reached"
+    },
+    {
+      "accepted_steps": 4,
+      "case_id": "SMOKE-S2-9V",
+      "completed": true,
+      "fallback_steps": 0,
+      "final_domain_mean_s": 0.17002599507408891,
+      "final_maximum_temperature_K": 325.0006998139457,
+      "finite": true,
+      "implementation_smoke_pass": true,
+      "maximum_ledger_residuals": {
+        "circuit": 1.3071143287646784e-16,
+        "combined": 1.4701514766302494e-10,
+        "device_power": 1.056606405107503e-15,
+        "lateral_matrix_face": 0.00024363506223835314,
+        "lateral_matrix_face_roundoff": 0.0017953024555873943,
+        "thermal": 7.80687334234197e-06
+      },
+      "maximum_transition_increment": 6.920844995900177e-06,
+      "nonvoting": true,
+      "rejected_steps": 0,
+      "stop_reason": "requested_final_time_reached"
+    },
+    {
+      "accepted_steps": 4,
+      "case_id": "SMOKE-S2-12P5V",
+      "completed": true,
+      "fallback_steps": 0,
+      "final_domain_mean_s": 0.17003811355448126,
+      "final_maximum_temperature_K": 325.00135003520455,
+      "finite": true,
+      "implementation_smoke_pass": true,
+      "maximum_ledger_residuals": {
+        "circuit": 3.407253343263998e-16,
+        "combined": 1.459542627518028e-10,
+        "device_power": 2.0632328159730707e-15,
+        "lateral_matrix_face": 0.0001271763178463097,
+        "lateral_matrix_face_roundoff": 0.0018497492036421044,
+        "thermal": 7.75051431052614e-06
+      },
+      "maximum_transition_increment": 1.3352153796775124e-05,
+      "nonvoting": true,
+      "rejected_steps": 0,
+      "stop_reason": "requested_final_time_reached"
+    },
+    {
+      "accepted_steps": 4,
+      "case_id": "SMOKE-S2-15V",
+      "completed": true,
+      "fallback_steps": 0,
+      "final_domain_mean_s": 0.17004918718613146,
+      "final_maximum_temperature_K": 325.00194416314133,
+      "finite": true,
+      "implementation_smoke_pass": true,
+      "maximum_ledger_residuals": {
+        "circuit": 1.8822446224674872e-16,
+        "combined": 1.4567931174242368e-10,
+        "device_power": 1.7035769923888005e-15,
+        "lateral_matrix_face": 9.178675588465362e-05,
+        "lateral_matrix_face_roundoff": 0.001978444959588587,
+        "thermal": 7.735890263687363e-06
+      },
+      "maximum_transition_increment": 1.9229415284982565e-05,
+      "nonvoting": true,
+      "rejected_steps": 0,
+      "stop_reason": "requested_final_time_reached"
+    },
+    {
+      "accepted_steps": 1,
+      "case_id": "SMOKE-S2-LEDGER",
+      "completed": true,
+      "fallback_steps": 1,
+      "final_domain_mean_s": 0.17001295845307063,
+      "final_maximum_temperature_K": 325.00000030205996,
+      "finite": true,
+      "implementation_smoke_pass": true,
+      "maximum_ledger_residuals": {
+        "circuit": 2.731379818439947e-09,
+        "combined": 2.7225585984499327e-09,
+        "device_power": 1.2590405216334112e-15,
+        "lateral_matrix_face": 0.02418652476262058,
+        "lateral_matrix_face_roundoff": 0.0018698446400191077,
+        "thermal": 4.684301806860758e-07
+      },
+      "maximum_transition_increment": 5.389207552441988e-09,
+      "nonvoting": true,
+      "rejected_steps": 0,
+      "stop_reason": "single_locked_backward_euler_step"
+    },
+    {
+      "case_id": "SMOKE-S2-MANUFACTURED-THERMAL",
+      "implementation_smoke_pass": true,
+      "manufactured_relative_l2": 2.7720003746505523e-16,
+      "nonvoting": true
+    },
+    {
+      "case_id": "SMOKE-S2-COARSE-FINE",
+      "coarse_final_mean_s": 0.17001717607608338,
+      "coarse_final_mean_temperature_K": 325.000232402953,
+      "fine_final_mean_s": 0.1700171760760737,
+      "fine_final_mean_temperature_K": 325.00023240295263,
+      "implementation_smoke_pass": true,
+      "mean_temperature_relative_difference": 1.741235605271795e-09,
+      "nonvoting": true
+    }
+  ],
+  "config_sha256": "0600498590a8c100ec8dee95621719ea655354ec118015868cb07fedf89f85d5",
+  "evidence_type": "nonvoting_implementation_smoke",
+  "forbidden_claims": [
+    "Phase 1-v2 formal gates passed",
+    "Qiu device reproduced or calibrated",
+    "experimental validation completed",
+    "Phase 2 or PINN unlocked"
+  ],
+  "formal_case_artifacts_generated": false,
+  "formal_execution_consumed": false,
+  "formal_execution_count": 0,
+  "implementation_repair_count": 1,
+  "implementation_repair_record": "outputs/tables/geophase_phase1_v2/s2_smoke_implementation_repair.json",
+  "preregistration_status": "preregistered_not_executed",
+  "schema_version": "geophase_phase1_v2_s2_smoke_v1",
+  "scientific_gate_vote": false,
+  "source_scale": {
+    "device_area_m2": 4.9999999999999995e-14,
+    "electrode_areal_capacity_J_m2K": 0.13485,
+    "electrode_sheet_conductance_W_K": 1.3008500000000001e-05,
+    "memory_areal_coefficient_J_m2K": 991.6390600000001,
+    "nominal_contact_overlap_m": 2e-08,
+    "nominal_electrode_area_m2": 2e-14,
+    "nominal_explicit_capacity_J_K": 1.8047e-14,
+    "nominal_memory_coefficient_J_K": 4.9581953e-11,
+    "target_uniform_capacity_J_K": 4.96e-11,
+    "target_uniform_conductance_W_K": 0.000206,
+    "vertical_conductance_W_m2K": 4120000000.0000005,
+    "vo2_areal_capacity_J_m2K": 0.307,
+    "vo2_sheet_conductance_W_K": 4e-07
+  },
+  "source_scale_preflight_pass": true,
+  "status": "completed_nonvoting_smoke_pass",
+  "task_id": "Q2_PHASE1_V2_S2_NONVOTING_SMOKE",
+  "uniform_mode_identities": {
+    "capacity_identity_voting": true,
+    "capacity_relative_error": 2.605785699826826e-16,
+    "conductance_relative_error": 0.0,
+    "integrated_effective_capacity_J_K": 4.9600000000000015e-11,
+    "integrated_vertical_conductance_W_K": 0.000206,
+    "memory_coefficient_positive": true,
+    "nominal_overlap": true,
+    "target_uniform_capacity_J_K": 4.96e-11,
+    "target_uniform_conductance_W_K": 0.000206
+  }
+}

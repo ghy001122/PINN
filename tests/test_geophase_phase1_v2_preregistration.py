@@ -49,7 +49,7 @@ def test_phase1v2_identity_authority_and_execution_boundary() -> None:
 
     assert stage["schema_version"] == "geo2p5d_stage_v2"
     assert stage["current_checkpoint"] == (
-        "PHASE1_V2_S2_PREREGISTERED_PENDING_IMPLEMENTATION"
+        "PHASE1_V2_S2_SMOKE_PASS_PENDING_FORMAL_READINESS"
     )
     assert stage["authority"]["current_contract"].endswith(
         "phase1_geophase_2p5d_reference_v2_contract.md"
@@ -58,6 +58,18 @@ def test_phase1v2_identity_authority_and_execution_boundary() -> None:
         CONFIG_PATH.relative_to(ROOT)
     ).replace("\\", "/")
     assert stage["formal_execution_count"] == 0
+    assert stage["authority"]["nonblocking_S1_mve_amendment"].endswith(
+        "geophase_phase1_s1_diffusive_sensitivity_mve_v2.yaml"
+    )
+    assert stage["authority"]["nonblocking_S1_disposition"].endswith(
+        "s1_diffusive_mve_v2_interruption_disposition.json"
+    )
+    assert stage["nonblocking_S1_state"] == {
+        "status": "closed_infrastructure_blocked_before_atomic_evidence",
+        "rerun_authorization": "forbidden_without_fresh_user_authorization",
+        "may_block_S2": False,
+        "production_selected": False,
+    }
 
 
 def test_legacy_phase1_and_source_files_are_immutable() -> None:
@@ -264,7 +276,7 @@ def test_s1_and_source_audit_are_bounded_nonblocking_and_not_formal() -> None:
     assert cfg["S1_sensitivity_route"]["nominal_if_no_holdout"] is False
 
 
-def test_preregistration_artifacts_are_config_only_and_no_results_exist() -> None:
+def test_preregistration_history_and_post_anchor_evidence_boundary() -> None:
     prereg = json.loads(
         (OUTPUT_DIR / "preregistration.json").read_text(encoding="utf-8")
     )
@@ -276,11 +288,21 @@ def test_preregistration_artifacts_are_config_only_and_no_results_exist() -> Non
     assert prereg["new_numerical_work_before_preregistration_push"] is False
     assert prereg["evaluation_item_count"] == 63
 
-    for forbidden in (
-        "formal_summary.json",
-        "formal_convergence.csv",
-        "s2_smoke_summary.json",
-        "s1_diffusive_mve_summary.json",
-        "qiu_same_device_thermal_holdout_audit.json",
-    ):
+    for forbidden in ("formal_summary.json", "formal_convergence.csv"):
         assert not (OUTPUT_DIR / forbidden).exists()
+
+    optional_nonformal = {
+        "s2_smoke_summary.json": "nonvoting_implementation_smoke",
+        "qiu_same_device_thermal_holdout_audit.json": None,
+        "s1_diffusive_mve_v2_summary.json": None,
+    }
+    for filename, evidence_type in optional_nonformal.items():
+        path = OUTPUT_DIR / filename
+        if not path.exists():
+            continue
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        assert payload["formal_execution_count"] == 0
+        assert payload.get("formal_execution_consumed", False) is False
+        if evidence_type is not None:
+            assert payload["evidence_type"] == evidence_type
+        assert payload.get("production_selected", False) is False

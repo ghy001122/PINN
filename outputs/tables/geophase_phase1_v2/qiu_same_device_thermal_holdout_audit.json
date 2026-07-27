@@ -1,0 +1,25 @@
+{
+  "audit_config_sha256": "d4650df081b826ac5e93b82bee10801d4346769738a1c4c5db871d22afbcc206",
+  "audit_finished_utc": null,
+  "audit_started_utc": null,
+  "candidate_count": 8,
+  "digitization_or_ingestion_request": "not_triggered",
+  "disposition": "no_eligible_holdout_found_within_bounded_audit",
+  "eligible_holdout_count": 0,
+  "formal_execution_count": 0,
+  "nominal_phase1v2_closure": "S2_source_scale_preserving_local_single_rc",
+  "schema_version": "qiu_same_device_thermal_holdout_audit_result_v1",
+  "search_scope": "primary_same-device direct thermal transient, multi-frequency impedance/admittance, or isolatable pulse/ringdown response",
+  "S1_role": "model_form_sensitivity_only",
+  "status": "completed_no_eligible_holdout_found",
+  "task_id": "QIU_SAME_DEVICE_THERMAL_HOLDOUT_AUDIT",
+  "timing_status": "not_instrumented",
+  "wall_clock_s": null,
+  "allowed_claim": "The bounded primary-source audit did not find an eligible same-device direct thermal holdout.",
+  "forbidden_claims": [
+    "eligible thermal data do not exist",
+    "independent thermal validation completed",
+    "S1 selected from terminal current or oscillation curves",
+    "Qiu thermal impedance recovered"
+  ]
+}

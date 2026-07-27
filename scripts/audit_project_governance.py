@@ -241,7 +241,8 @@ def check_claim_matrix_vocabulary() -> dict:
     obsolete_terms = ["partially_supported", "| failed |", "| Blocked |", "| Not supported |"]
     obsolete = [term for term in obsolete_terms if term in text]
     missing = [marker for marker in [
-        "P1_reference_solver",
+        "P1_v6_v8_material_stack_reference",
+        "P1v2_s2_reference_solver",
         "R1_hysgeo_hybrid",
         "R2_homomoe",
         "R3_observable_subspace",
@@ -470,6 +471,7 @@ def check_phase1v2_preregistration() -> dict:
         "formal execution count is zero",
         "failed_but_informative",
     ]
+    contract_normalized = " ".join(contract.split())
     required_manifest_markers = [
         "schema_version: geophase_phase1_v2_formal_manifest_v1",
         "total_evaluation_items: 63",
@@ -485,7 +487,7 @@ def check_phase1v2_preregistration() -> dict:
     missing.extend(
         f"contract:{marker}"
         for marker in required_contract_markers
-        if marker not in contract
+        if marker not in contract_normalized
     )
     missing.extend(
         f"manifest:{marker}"
