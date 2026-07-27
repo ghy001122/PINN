@@ -16,6 +16,7 @@ MANIFEST_PATH = ROOT / "configs" / "geophase_phase1_v2_formal_manifest.yaml"
 STAGE_PATH = ROOT / "configs" / "geo2p5d_stage.yaml"
 OUTPUT_DIR = ROOT / "outputs" / "tables" / "geophase_phase1_v2"
 READINESS_DIR = OUTPUT_DIR / "runtime_readiness"
+PREREGISTRATION_PATH = READINESS_DIR / "preregistration.json"
 
 pytestmark = [pytest.mark.phase1, pytest.mark.current]
 
@@ -93,6 +94,27 @@ def test_generated_execution_dag_maps_exactly_60_units_to_63_evaluations() -> No
         for item in cfg["execution_dependency_graph"]["reuse_rows"]
     }
     assert all(row["evaluation_status"] == "planned_not_executed" for row in rows)
+
+
+def test_machine_preregistration_points_to_the_pushed_addendum_anchor() -> None:
+    payload = json.loads(PREREGISTRATION_PATH.read_text(encoding="utf-8"))
+
+    assert payload["status"] == "addendum_pushed_runtime_preflight_not_executed"
+    assert payload["preregistration_commit"] == (
+        "b830d4f3f45f634883de906972a7712f311cfa93"
+    )
+    assert payload["addendum_config_sha256"] == _sha256(ADDENDUM_PATH)
+    assert payload["execution_dag_csv_sha256"] == _sha256(
+        READINESS_DIR / "execution_dag.csv"
+    )
+    assert payload["execution_dag_json_sha256"] == _sha256(
+        READINESS_DIR / "execution_dag.json"
+    )
+    assert payload["new_runtime_numerical_work_before_addendum_push"] is False
+    assert payload["runtime_preflight_executed"] is False
+    assert payload["formal_execution_count"] == 0
+    assert payload["formal_execution_consumed"] is False
+    assert payload["formal_artifact_count"] == 0
 
 
 def test_ref_pairs_and_missing_group_execution_semantics_are_closed() -> None:
