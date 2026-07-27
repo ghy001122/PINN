@@ -4,7 +4,8 @@
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
 - Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Current technical contract: `docs/research_strategy/phase1_geophase_2p5d_reference_contract.md`.
+- Current technical contract: `docs/research_strategy/phase1_geophase_2p5d_reference_v2_contract.md`.
+- Current Phase 1 config: `configs/geophase_phase1_v2_s2_reference.yaml`.
 - Source-only contract: `configs/qiu_vo2_phase1_source_contract.yaml`.
 - Strategic authority: `docs/research_strategy/pinn_phase_change_q2_sci_execution_guide.md`.
 - Research ladder: R1 `HysGeo-Hybrid-PINN` is the minimum route; R2 `GeoPhase-HomoMoE-PINN` is the preferred upgrade; R3 observable-subspace/OQ is conditional.
@@ -15,8 +16,10 @@ Phase 0 realigned governance, archives, claims, and reproducibility routing. Tha
 
 Frozen GT v1.1 remains read-only. The constrained `gamma_sub` result, failed complete-PINN runs, M40/M40R/M44, OASIS, public-source, and SID/OQ results remain historical evidence and reviewer defense; they do not vote for Phase 1 or R1-R3.
 
-An independent x-y plus K-state implementation and bounded Checkpoint A smoke
-now exist, but no formal 2.5D reference result exists. No positive R1/R2
+An independent historical x-y plus K-state implementation and bounded
+Checkpoint A smoke exist, but the v6-v8 material-stack route ended at
+`NO_GO_VERTICAL_REFERENCE` and no formal 2.5D reference result exists. A fresh
+Phase 1-v2 S2 contract is now preregistered for implementation. No positive R1/R2
 training result, solver-PINN sensitivity result, R3 inverse/refusal result, or
 NbO2 cross-model result exists. Project outputs are synthetic numerical
 digital-twin evidence, not measurements.
@@ -34,17 +37,18 @@ The v6/source/inventory bytes and formal count remained unchanged.
 
 ## One Active Priority
 
-There is no authorized compute task. Current checkpoint
-`B_READINESS_V8_NO_GO_VERTICAL_REFERENCE` stops the current K-state route with
-`formal_execution_count=0`. The user must explicitly choose a new physical
-model, a different reduced route, or a manuscript/delivery downgrade before
-any further numerical work. Extending the depth ladder, re-anchoring a
-comparator, or continuing to K-state/runtime/formal execution is not
+Current checkpoint `PHASE1_V2_S2_PREREGISTERED_PENDING_IMPLEMENTATION` replaces
+the stopped K-state route while preserving all of its files and evidence.
+After the Phase 1-v2 preregistration commit is pushed, implement and verify the
+locally distributed S2 nominal closure and run only bounded non-voting smoke.
+In parallel, a <=4 h same-device source audit and <=24 h active/48 h elapsed S1
+MVE may proceed without delaying S2. S1 is sensitivity-only in the current
+round. The formal execution count remains zero and no formal campaign is
 authorized.
 
 ## Claim Boundary
 
-Allowed now: describe the guide, Phase 0 realignment, preregistered equations/config/gates, and retained historical results with their existing qualifications.
+Allowed now: describe the guide, Phase 0 realignment, Phase 1-v2 preregistered equations/config/gates, and retained historical results with their existing qualifications.
 
 Forbidden now: Phase 1 success, Qiu quantitative reproduction or calibration, positive R1/R2, observation-subspace/OQ recovery, PINN sensitivity fidelity, terminal-only arbitrary 2D hidden-field recovery, experimental validation, full FEM/3D equivalence, universal spectral superiority, or VO2-to-NbO2 zero-shot transfer.
 

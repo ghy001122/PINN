@@ -14,7 +14,7 @@ None of those scientific claims is currently established. All generated evidence
 
 ## Stable Delivery Lanes
 
-- R1 `HysGeo-Hybrid-PINN`: minimum must-complete route. It includes real x-y device geometry, passive K-state vertical thermal memory, a white-box hysteretic conductivity kernel, differentiable port and RC coupling, a full energy ledger, and sparse independently generated field anchors declared as hybrid supervision. Qiu source-author fits may normalize nominal device-effective electrical/thermal scales but never become intrinsic local-property or experimental-validation claims.
+- R1 `HysGeo-Hybrid-PINN`: minimum must-complete route. It includes real x-y device geometry, the Phase 1-v2 source-scale-preserving locally distributed S2 thermal closure, a white-box hysteretic conductivity kernel, differentiable port and RC coupling, a full energy ledger, and sparse independently generated field anchors declared as hybrid supervision. Qiu source-author fits may constrain only nominal device-effective electrical and uniform-mode low-frequency thermal scales; they never become intrinsic local-property, identified thermal-spectrum, or experimental-validation claims. S1 diffusive memory is non-blocking model-form sensitivity unless independently eligible same-device evidence passes its separate gate.
 - R2 `GeoPhase-HomoMoE-PINN`: preferred Q2 method route. It adds transition-localized spectral mixture-of-experts capacity and dual-axis stiffness homotopy to a passed R1 foundation.
 - R3 conditional observable-subspace/OQ: high-upside extension. It requires stable solver Jacobians, event alignment, local observable-subspace stability, PINN trajectory and sensitivity fidelity, fresh nonlinear/noisy inverse tests, and refusal outside the identifiable region.
 - Historical lane: frozen 1D GT, constrained `gamma_sub`, public-data source-reproduction/identifiability bridge, failed complete phase-transition PINN work, M40/M40R/M44, OASIS, and SID/OQ remain baselines, negative evidence, provenance, and reviewer defense.
@@ -52,7 +52,7 @@ Finite output, loss decrease, a smoke test, a local Jacobian, or a proxy audit i
 ## Must-Have Definition Of Done
 
 - Frozen GT and retained claim-bearing evidence pass documented integrity and replay checks.
-- Phase 1 passes manufactured electrical/thermal solutions, terminal-current conservation, full energy ledger, mesh and time refinement, K-state passivity/high-order alignment, limit cases, and literature-trend sanity.
+- Phase 1-v2 passes its nominal S2 coefficient/positivity preflights, manufactured electrical/thermal solutions, terminal-current conservation, full energy ledger, mask identities, mesh and time refinement, limit cases, and literature-trend sanity.
 - R1 produces a positive hybrid PINN result on at least one locked geometry OOD and one protocol OOD case; sparse anchors and label budgets are explicit.
 - Any R2 claim passes fixed-budget component and combination ablations over preregistered seeds and stiffness regimes, with no hidden failed-seed or smooth-regime regression.
 - Any R3 claim passes solver derivative convergence, local subspace stability, PINN sensitivity fidelity, fresh nonlinear/noisy recovery, and refusal.

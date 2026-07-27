@@ -901,3 +901,20 @@ Claim result: multilayer forward, terminal-only rescue, low-dimensional sandwich
   `planned_not_executed`. The P1 scientific claim remains `forbidden`.
 - Report:
   `docs/codex_reports/geophase_phase1_vertical_shape_scale_v8_2026-07-26.md`.
+
+## Phase 1-v2 S2 Preregistration
+
+- Date: 2026-07-27.
+- Task: `Q2_PHASE1_V2_S2_REFERENCE`.
+- Base main SHA: `4234e4431a0358dca40f9d9c5b26993d12ce7846`.
+- Evidence type: config-only preregistration; no solver or scientific result.
+- S2 is the nominal locally distributed source-scale-preserving single-RC
+  closure. The fresh formal inventory has 63 `P1V2-*` evaluation items and
+  formal execution count zero.
+- The same-device source audit is bounded to 4 h and cannot block S2. S1 is a
+  separate <=24 h active/48 h elapsed model-form sensitivity and cannot become
+  production in this round.
+- The v6-v8 configs, source-only contract, old 96-item manifest, frozen GT,
+  and all historical outputs remain unchanged.
+- New numerical calculation is forbidden until the preregistration anchor is
+  pushed. Formal execution remains separately unauthorized.

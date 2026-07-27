@@ -1,0 +1,73 @@
+task_id: QIU_SAME_DEVICE_THERMAL_HOLDOUT_AUDIT
+schema_version: qiu_same_device_thermal_holdout_audit_v1
+status: preregistered_not_started
+role: bounded_nonblocking_source_audit_for_S1_vs_S2_discrimination
+budget:
+  wall_clock_s_max: 14400
+  stop_when_budget_reached: true
+  may_delay_S2_nominal: false
+
+scope:
+  primary_device_family: Qiu_2024_coplanar_VO2_thermal_neuristor
+  same_device_requirement: same_physical_device_to_which_the_locked_Qiu_Gtheta_and_Ctheta_apply_or_an_explicit_source_level_one_to_one_link_to_that_device
+  same_geometry_batch_or_wafer_without_one_to_one_device_link: ineligible
+  eligible_observation_classes:
+    - direct_temperature_transient
+    - complex_thermal_impedance_or_admittance_over_multiple_frequencies
+    - thermal_pulse_decay_or_ringdown_with_isolatable_thermal_kernel
+    - independently_reported_thermal_domain_multiwindow_response_that_discriminates_first_order_from_diffusive_memory
+  minimum_independence:
+    observations_or_windows: 2
+    must_discriminate_S1_from_S2_without_refitting_electrical_or_phase_parameters: true
+  ineligible_observation_classes:
+    - ordinary_terminal_current_time_trace
+    - single_frequency_response
+    - single_threshold_or_switching_voltage
+    - different_device_or_material_stack
+    - curve_requiring_joint_refit_of_electrical_phase_and_thermal_kernels
+    - qualitative_statement_without_numeric_axis
+
+allowed_actions:
+  - search_primary_paper_supplement_dataset_and_direct_author_links
+  - inspect_metadata_figures_captions_and_data_availability
+  - record_candidate_locator_and_eligibility_reason
+  - save_bibliographic_links_and_short_paraphrases
+forbidden_actions:
+  - digitize_a_curve_in_this_audit
+  - fit_S1_or_S2_to_external_data
+  - treat_I_t_as_direct_thermal_observation
+  - use_a_different_device_as_selection_evidence
+  - change_the_S2_nominal_route
+
+selection_disposition:
+  eligible_holdout_found: stop_and_request_separate_digitization_or_data_ingestion_authority
+  no_eligible_holdout_found: S2_remains_nominal_and_S1_remains_model_form_sensitivity
+  ambiguous_provenance: ineligible
+
+outputs:
+  candidate_table: outputs/tables/geophase_phase1_v2/qiu_same_device_thermal_holdout_audit.csv
+  summary: outputs/tables/geophase_phase1_v2/qiu_same_device_thermal_holdout_audit.json
+  report: docs/codex_reports/qiu_same_device_thermal_holdout_audit.md
+  candidate_table_columns:
+    - source_locator
+    - bibliographic_identity
+    - same_physical_device_evidence
+    - observation_class
+    - numeric_time_or_frequency_axis_available
+    - thermal_kernel_isolatable
+    - independent_window_count
+    - eligibility
+    - exclusion_reason
+    - audit_started_utc
+    - audit_finished_utc
+
+timing_semantics:
+  wall_clock_includes_search_opening_and_eligibility_review: true
+  no_eligible_holdout_found_means_not_found_within_this_bounded_audit_not_nonexistence: true
+
+claim_boundary:
+  allowed: bounded_primary_source_audit_found_or_did_not_find_an_eligible_same_device_thermal_holdout
+  forbidden:
+    - independent_validation_completed
+    - S1_selected_from_terminal_current_only
+    - Qiu_thermal_impedance_recovered

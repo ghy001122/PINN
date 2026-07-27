@@ -512,3 +512,10 @@ The failed-but-informative, non-voting v8 vertical shape/scale screen also
 generated no figure. Its raw pullback depth-frequency failure, blocked K-state
 route, and zero formal execution count do not authorize a Phase 1 plot or
 manuscript result figure.
+
+## Phase 1-v2 S2 Preregistration Figure Disposition
+
+No Phase 1-v2 figure exists. Preregistration metadata, a planned 63-item
+manifest, source-audit locators, or an S1 self-fit may not be plotted as a
+positive Phase 1 or manuscript result. Scientific figures remain blocked until
+machine-readable Phase 1-v2 formal evidence exists under fresh authorization.

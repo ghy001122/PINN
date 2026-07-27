@@ -8,9 +8,9 @@ This is a compact router, not a substitute for configs, machine-readable outputs
 | --- | --- | --- |
 | Q2 delivery ladder | `supported` governance fact; R1 minimum, R2 preferred, R3 conditional | `PROJECT_GOAL.md`; canonical execution guide |
 | Phase 0 repository realignment | `supported` governance/reproducibility fact only | Phase 0 report; disposition CSV; machine summary |
-| Active Phase 1 | `supported` status fact; no authorized compute task and no solver result | active phase; Phase 1 contract; hardened Phase 1 YAML; stage YAML; v8 NO-GO evidence |
-| Equations and source boundary | `supported` documentation/implementation fact; formal evaluation pending | `docs/method_equations.md`; `configs/qiu_vo2_phase1_source_contract.yaml`; provenance manifest; Checkpoint A solver modules |
-| Phase 1 numerical lock | `supported` preregistration fact only | source-scale algebraic preflights, base grid/time/protocols, nonlinear tolerances, fixed comparison grids, NRMSE policy, K-state fit, and exact 96-case inventory in the Phase 1 YAML |
+| Active Phase 1-v2 | `supported` status/preregistration fact after the anchor is pushed; S2 implementation and solver result absent | active phase; Phase 1-v2 contract; S2 YAML; 63-item manifest; stage YAML; retained v8 NO-GO evidence |
+| Equations and source boundary | `supported` documentation fact; formal evaluation pending | active S2 section in `docs/method_equations.md`; unchanged source-only contract plus explicit v2 allowlist; provenance manifest |
+| Phase 1-v2 numerical lock | `supported` preregistration fact only | nominal S2 algebra/source allowlist, base grid/time/protocols, nonlinear tolerances, fixed comparison grids, NRMSE/event policy, exact 63-item manifest, bounded source audit, and non-blocking S1 MVE |
 | Phase 1 contract-hardening closeout | `supported` governance/reproducibility fact only | initial hardening report plus `docs/codex_reports/executive_guide_alignment_source_scale_review_2026-07-26.md`; the latter supersedes the former's absolute-path and implementation-ready assertions; no solver execution or scientific vote |
 | Phase 1 Checkpoint A | `supported` software/reproducibility fact only; no scientific vote | preregistration SHA `212a4277...`; config SHA-256 `0361f609...`; independent solver modules; behavior tests; `outputs/tables/geophase_phase1/`; exact 96-case manifest is `planned_not_executed`; formal count is zero; non-voting contact-covered depth-frequency warning `0.1231 > 0.05` |
 | Phase 1 v7 bounded vertical repair | `failed_but_informative` non-voting readiness evidence | repair commit `d6a386a...`; `outputs/tables/geophase_phase1/readiness_v7/`; 26 builds; max-pair raw substrate `0.00702`, pair-normalized contact `0.41179 > 0.05`; K blocked; formal count zero |
@@ -37,7 +37,8 @@ Historical outcomes cannot be upgraded by Phase 0 or reused as Phase 1 fields. L
 
 | Candidate | Current claim status | Required predecessor |
 | --- | --- | --- |
-| Phase 1 converged conservative 2.5D reference | `forbidden` | all Phase 1 gates |
+| Phase 1-v2 converged conservative S2 2.5D reference | `forbidden` | all Phase 1-v2 gates in a separately authorized formal campaign |
+| S1 diffusive kernel as production reference | `forbidden` | eligible same-device thermal holdout, separate ingestion authorization, passed MVE, and preregistered independent effect-size gate; absent holdout means sensitivity only |
 | Nonzero dual-device thermal coupling | `forbidden` | explicit substrate surface field or high-order-validated nonlocal kernel and independent convergence/conservation gates |
 | Phase 2 dataset and inverse-crime split | `forbidden` as completed work | Phase 1 pass |
 | Phase 3 matched baselines | `forbidden` as results | Phase 2 lock |
@@ -56,10 +57,10 @@ Without new direct evidence, the following remain `forbidden`: successful Phase 
 - Workspace routing: `LIVE_WORKSPACE.md`.
 - Current authority: `CODEX_CONTEXT.md` -> `PROJECT_STATE.md` -> active phase -> `NEXT_ACTIONS.md`.
 - Strategy: canonical execution guide.
-- Current technical detail: Phase 1 contract and YAML.
+- Current technical detail: Phase 1-v2 contract, S2 YAML, and 63-item manifest.
 - Claim authority: `docs/paper/final_claim_matrix.md`.
 - Historical lifecycle: `docs/archive/README.md`.
 - Full chronology: registries and task reports, loaded only as needed.
-- Current execution boundary: no authorized compute task; user model/route or
-  manuscript-downgrade decision required after
-  `B_READINESS_V8_NO_GO_VERTICAL_REFERENCE`.
+- Current execution boundary: push the preregistration anchor first; then S2
+  implementation/non-voting smoke plus bounded non-blocking source-audit/S1
+  work are authorized. Formal execution, Phase 2, and PINN remain blocked.

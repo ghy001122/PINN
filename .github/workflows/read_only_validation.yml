@@ -86,6 +86,7 @@ jobs:
           python -m pytest
           tests/test_repository_realignment_audit.py
           tests/test_geophase_phase1_preregistration.py
+          tests/test_geophase_phase1_v2_preregistration.py
           tests/test_geophase_phase1_solver.py
           tests/test_geophase_phase1_checkpoint_a_evidence.py
           tests/test_geophase_phase1_vertical_repair_preregistration.py

@@ -483,3 +483,11 @@ diagnostics and blocked-status metadata only; the two K-state CSVs contain no
 fit results. No production depth was selected, formal execution count remains
 `0`, all 96 formal cases remain `planned_not_executed`, and frozen GT v1.1 is
 unchanged.
+
+## Phase 1-v2 S2 Preregistration Disposition
+
+No scientific, training, Ground Truth, smoke, source-holdout, S1, or formal
+solver dataset was generated. The Phase 1-v2 preregistration JSON and 63-row
+formal evaluation manifest are config-derived governance metadata only. Every
+evaluation item is `planned_not_executed`, formal execution count is zero, and
+frozen GT v1.1 is unchanged.

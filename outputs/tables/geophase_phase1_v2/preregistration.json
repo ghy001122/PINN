@@ -1,0 +1,18 @@
+{
+  "base_commit": "4234e4431a0358dca40f9d9c5b26993d12ce7846",
+  "bounded_holdout_audit_sha256": "d4650df081b826ac5e93b82bee10801d4346769738a1c4c5db871d22afbcc206",
+  "config_sha256": "0600498590a8c100ec8dee95621719ea655354ec118015868cb07fedf89f85d5",
+  "evaluation_item_count": 63,
+  "formal_execution_consumed": false,
+  "formal_execution_count": 0,
+  "manifest_contract_sha256": "54823e83d813ec4acd8df25354b62c38d58be158548414e637282383d1dc14a5",
+  "manifest_csv_sha256": "c2b04c31c21e27a21b9ac90d1c9c9edfc05e6ea75dee7bf3b0dad180f8804a89",
+  "manifest_metadata_sha256": "c5b903997cb0c4d1a9df7c11c2d881bc391d326dfdcccd60d4d0a2d52a25176b",
+  "new_numerical_work_before_preregistration_push": false,
+  "old_96_item_campaign_status": "permanently_planned_not_executed",
+  "s1_mve_contract_sha256": "ea9262ddb8730b183a9335f2e31eb0b172012c2e4b84bcab5c3e39b925d418ca",
+  "schema_version": "geophase_phase1_v2_preregistration_v1",
+  "source_contract_sha256": "857410517d5b955e2018d4b002fcbbe92bb320c451021b49ae27be1351cb1252",
+  "status": "preregistered_not_executed",
+  "task_id": "Q2_PHASE1_V2_S2_REFERENCE"
+}

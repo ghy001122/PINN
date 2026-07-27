@@ -8,11 +8,128 @@ ledger are defined in `docs/physics/m40_qiu_2d_equations.md`. Those equations
 form a source-constrained external-literature bridge and do not replace or
 revise the frozen synthetic Ground Truth equations below.
 
-## Active Phase 1 and R1-R3 2.5D Contract
+## Active Phase 1-v2 S2 and R1-R3 2.5D Contract
 
-This section defines the Phase 1 reference and later R1-R3 PINN equation
+The active Phase 1-v2 closure is preregistered in
+`configs/geophase_phase1_v2_s2_reference.yaml`. It supersedes the v6-v8
+fixed-bottom material-stack/K-state route as the active numerical contract;
+the older equations remain below as immutable `failed_but_informative`
+history. No Phase 1-v2 solver result is implied by this section.
+
+The resolved domain is the single-device VO2 footprint
+\(\Omega=[0,L]\times[0,W]\). In-plane charge conservation and the terminal
+flux observable are
+
+$$
+\nabla_\parallel\!\cdot\mathbf K=0,
+\qquad
+\mathbf K=-t_{\rm VO2}\sigma(T,s)\nabla_\parallel\phi,
+$$
+
+$$
+I_p(t)=\int_{\Gamma_p}\mathbf K\cdot\mathbf n\,d\ell.
+$$
+
+Let \(\chi_e(x,y)\) denote the thermal electrode mask. VO2 is explicit over
+the entire active plane; Ti/Au enter the thermal equation only where
+\(\chi_e=1\):
+
+$$
+C_{\rm plane}^A=
+\rho_vc_vt_v+
+\chi_e(\rho_{\rm Ti}c_{\rm Ti}t_{\rm Ti}
++\rho_{\rm Au}c_{\rm Au}t_{\rm Au}),
+$$
+
+$$
+K_\parallel^A=
+k_vt_v+
+\chi_e(k_{\rm Ti}t_{\rm Ti}+k_{\rm Au}t_{\rm Au}).
+$$
+
+For \(A=LW\), the source-scale-preserving local S2 closure is defined by
+
+$$
+C_{\rm explicit}=\int_\Omega C_{\rm plane}^A\,dA,
+\qquad
+C_m=C_\theta-C_{\rm explicit}>0,
+$$
+
+$$
+c_m^A=\frac{C_m}{A},
+\qquad
+g_\theta^A=\frac{G_\theta}{A}.
+$$
+
+Its active energy equation is
+
+$$
+\left(C_{\rm plane}^A+c_m^A\right)\partial_tT
+=\nabla_\parallel\!\cdot(K_\parallel^A\nabla_\parallel T)
++t_{\rm VO2}\sigma|\nabla_\parallel\phi|^2
+-g_\theta^A(T-T_0).
+$$
+
+S2 has no independent vertical temperature state. The exact implementation
+identities are
+
+$$
+\int_\Omega g_\theta^A\,dA=G_\theta,
+\qquad
+\int_\Omega(C_{\rm plane}^A+c_m^A)\,dA=C_\theta.
+$$
+
+Here \(C_\theta\) is the first low-frequency coefficient of the uniform-mode
+device thermal admittance, not a measured sum of local material heat
+capacities. The S2 ledger uses the actual state capacity exactly once. It may
+report explicit-plane and device-effective closure storage separately, but
+their sum is the single storage term used by the solver.
+
+The only authorized S1 model-form sensitivity is
+
+$$
+Y_{\rm S1}(s)=g_\theta^A
+\frac{\sqrt{s\tau}}{\tanh\sqrt{s\tau}},
+\qquad
+\tau=\frac{3c_m^A}{g_\theta^A},
+$$
+
+so that
+
+$$
+Y_{\rm S1}(s)=g_\theta^A+s c_m^A+O(s^2).
+$$
+
+Without an independently eligible same-device thermal holdout, this analytic
+family is a non-blocking model-form sensitivity and cannot replace S2. A
+positive-real common \(K=2\), or common \(K=3\) only after \(K=2\) fails, is
+the maximum permitted reduction. No mixed regional order or higher order is
+authorized.
+
+The Phase 1-v2 thermal ledger is
+
+$$
+\frac{d}{dt}\int_\Omega
+(C_{\rm plane}^A+c_m^A)(T-T_0)\,dA
+=P_J-P_{\rm vertical}-P_{\partial\Omega},
+$$
+
+with
+
+$$
+P_{\rm vertical}=\int_\Omega g_\theta^A(T-T_0)\,dA.
+$$
+
+Circuit, combined electrothermal, and independently reconstructed
+\(V_dI_{\rm dev}=P_J\) ledgers remain mandatory. The complete active contract
+and stop rules are in
+`docs/research_strategy/phase1_geophase_2p5d_reference_v2_contract.md`.
+
+## Historical Phase 1 v6-v8 material-stack/K-state contract
+
+This section preserves the retired Phase 1 reference and later R1-R3 PINN equation
 contract. It is a preregistered model, not a completed solver or positive
-method result. The Phase 1 resolved plane is the single-device VO2 footprint
+method result. It no longer governs new Phase 1-v2 work. The historical Phase 1 resolved plane is the single-device VO2 footprint
 \(\Omega_{\mathrm{VO2}}\subset\mathbb R^2\), with \(x\) along the current path
 and \(y\) along the device width. The masks
 \(r(x,y)\in\{\mathrm{bare},\mathrm{contact}\}\) separate bare VO2 from

@@ -1,0 +1,134 @@
+schema_version: geophase_phase1_v2_formal_manifest_v1
+task_id: Q2_PHASE1_V2_S2_REFERENCE
+status: preregistered_not_executed
+formal_execution_count: 0
+old_v6_96_item_manifest_reused: false
+total_evaluation_items: 63
+unique_execution_units: 60
+reused_evaluation_items: 3
+
+id_contract:
+  prefix: P1V2
+  separator: "-"
+  expansion_order: group_then_explicit_combinations_in_declared_order
+  duplicate_ids: forbidden
+  undeclared_items: invalidate_formal_campaign
+  omitted_items: invalidate_formal_campaign
+  old_P1_id_collision: forbidden
+
+groups:
+  - group_id: MMS
+    role: manufactured_solutions
+    id_template: P1V2-MMS-{problem}-L{level}
+    axes:
+      problem:
+        - electrical_linear_field
+        - thermal_diffusion_with_source_and_sink
+        - S2_forced_uniform_temperature_response
+      level: [1, 2, 4]
+    expected_count: 9
+
+  - group_id: REF
+    role: single_device_independent_space_time_refinement
+    id_template: P1V2-REF-{protocol}-{grid_time_id}
+    axes:
+      protocol:
+        - zero_drive
+        - quiescent_9V
+        - nominal_12V
+        - transition_probe_12p5V
+        - high_bias_15V
+        - pulse_12p5V
+      grid_time_combinations:
+        - {grid_time_id: S1T4, spatial_level: 1, time_divisor: 4}
+        - {grid_time_id: S2T4, spatial_level: 2, time_divisor: 4}
+        - {grid_time_id: S4T1, spatial_level: 4, time_divisor: 1}
+        - {grid_time_id: S4T2, spatial_level: 4, time_divisor: 2}
+        - {grid_time_id: S4T4, spatial_level: 4, time_divisor: 4}
+    expected_count: 30
+
+  - group_id: TOP
+    role: contact_overlap_qoi_audit_with_nominal_cm_A_frozen
+    id_template: P1V2-TOP-O{overlap_nm}-{protocol}
+    axes:
+      overlap_combinations:
+        - {overlap_nm: 10, contact_overlap_m: 1.0e-8}
+        - {overlap_nm: 20, contact_overlap_m: 2.0e-8}
+        - {overlap_nm: 30, contact_overlap_m: 3.0e-8}
+      protocol: [nominal_12V, transition_probe_12p5V, high_bias_15V]
+    expected_count: 9
+    reuse:
+      nominal_20nm:
+        source_group: REF
+        source_grid_time_id: S4T4
+        protocols: [nominal_12V, transition_probe_12p5V, high_bias_15V]
+        physical_inputs_must_match_exactly: true
+
+  - group_id: DUAL0
+    role: zero_coupling_duplicate_limits_only
+    id_template: P1V2-DUAL0-{case}
+    axes:
+      case: [A_only_drive, B_only_drive, equal_drive_symmetry, swapped_label_invariance]
+    expected_count: 4
+
+  - group_id: FAIL
+    role: fail_closed_negative_controls
+    id_template: P1V2-FAIL-{case}
+    axes:
+      case: [negative_effective_capacity, negative_vertical_conductance, nonfinite_newton, ledger_tamper, coordinate_swap]
+    expected_count: 5
+
+  - group_id: LIM
+    role: analytic_and_zero_input_limits
+    id_template: P1V2-LIM-{case}
+    axes:
+      case:
+        - zero_drive_equilibrium
+        - uniform_conductivity_linear_potential
+        - zero_joule_cooling
+        - steady_thermal_resistance
+        - local_single_cell_backward_euler
+        - rc_open_device
+    expected_count: 6
+
+count_identity: 9_plus_30_plus_9_plus_4_plus_5_plus_6_equals_63
+
+foundation_preflights_outside_formal_inventory:
+  - insulating_electrical_endpoint
+  - metallic_electrical_endpoint
+  - C_m_positivity_and_nominal_capacity_identity
+  - area_integrated_Gtheta_identity
+  - electrode_mask_capacity_and_sheet_conductance_identity
+
+reuse_contract:
+  evaluation_items_may_reference_same_trajectory_only_if_all_physical_inputs_geometry_grid_time_controller_protocol_and_parameters_are_identical: true
+  different_overlap_grid_time_protocol_or_parameter_cases_may_share_trajectory: false
+  required_runtime_fields:
+    - evaluation_item_id
+    - trajectory_id
+    - trajectory_hash
+    - reuse_status
+
+manifest_columns:
+  - evaluation_id
+  - evaluation_group
+  - group_index
+  - status
+  - evidence_type
+  - execution_class
+  - trajectory_id
+  - dependency_ids
+  - problem_id
+  - protocol_id
+  - audit_id
+  - fixture_id
+  - spatial_level
+  - time_divisor
+  - contact_overlap_m
+  - gate_ids
+
+execution_boundary:
+  manifest_is_preregistration_not_result: true
+  formal_case_status_before_authorization: planned_not_executed
+  formal_runner_implementation_in_this_preregistration_commit: false
+  S1_items_in_formal_manifest: forbidden

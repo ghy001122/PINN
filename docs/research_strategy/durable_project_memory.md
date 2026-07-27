@@ -23,7 +23,7 @@ This file stores stable project facts, not current HEADs, transient metrics, or 
 
 ## Delivery Mode And Research Lines
 
-`Q2_SCI_DELIVERY_MODE` is the persistent delivery goal. The degradable ladder is R1 `HysGeo-Hybrid-PINN` as the minimum route, R2 `GeoPhase-HomoMoE-PINN` as the preferred method upgrade, and R3 event-aligned observable-subspace/OQ only after solver and PINN sensitivity gates. The active phase is the independent Qiu-inspired x-y plus passive K-state reference solver. Frozen 1D, constrained `gamma_sub`, OASIS, public-source, and failed complete-PINN work remains historical baseline and reviewer-defense evidence; it cannot silently become evidence for Phase 1 or R1-R3.
+`Q2_SCI_DELIVERY_MODE` is the persistent delivery goal. The degradable ladder is R1 `HysGeo-Hybrid-PINN` as the minimum route, R2 `GeoPhase-HomoMoE-PINN` as the preferred method upgrade, and R3 event-aligned observable-subspace/OQ only after solver and PINN sensitivity gates. The active Phase 1-v2 reference uses the independent Qiu-inspired real x-y plane plus the source-scale-preserving locally distributed S2 nominal thermal closure. S1 diffusive memory is non-blocking model-form sensitivity unless independent same-device thermal evidence passes its separate gate. The v6-v8 material-stack/K-state route is terminal `failed_but_informative`. Frozen 1D, constrained `gamma_sub`, OASIS, public-source, and failed complete-PINN work remains historical baseline and reviewer-defense evidence; it cannot silently become evidence for Phase 1-v2 or R1-R3.
 
 ## Claim Vocabulary
 
@@ -64,7 +64,7 @@ Use exactly: `supported`, `qualified_supported`, `failed_but_informative`, `forb
 31. Failure of one preregistered SID/event-window implementation described as permanent falsification of the broader scientific hypothesis.
 32. Stable sampled nondominated points described as a reliable resource frontier before solver-anchor and effect-direction gates pass.
 33. An x-z cross-section or mean/sink proxy described as the real x-y 2.5D device.
-34. Passive K-state thermal memory claimed before positive-capacity/conductance, reduction, and full-ledger gates pass.
+34. Device-level lumped thermal moments used to invent a unique local material stack or dynamic spectrum; S1 self-fitting described as independent physical evidence.
 35. Global Fourier features renamed as transition-localized spectral allocation without a physical gate and ablation.
 36. Forward trajectory agreement used as permission for inverse work before PINN--solver sensitivity fidelity.
 37. VO2 and NbO2 sharing thresholds, state meanings, or fitted parameters under a composable-framework label.
