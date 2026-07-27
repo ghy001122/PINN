@@ -1,0 +1,66 @@
+{
+  "baseline_optimization_disposition": {
+    "case_level_CPU_parallelism": "not_reached",
+    "sparse_structure_and_factorization_cache": "focused_parity_tests_pass_but_preflight_metrics_non_atomic",
+    "streaming": "blocked_by_legal_critical_locked_floor_failure",
+    "unit_voltage_scaling": "disabled_after_L1_thermal_ledger_parity_4p410635541795736e-12_exceeded_1e-12"
+  },
+  "code_file_hashes_sha256": {
+    "scripts/run_geophase_phase1_v2_runtime_readiness.py": "1f96291f105e4051ca92a634da2f06b7d91607d8eaceca44eb303f787ce921ea",
+    "src/pinnpcm/solvers/geophase_phase1_v2_formal_runner.py": "07db57f6afd4a835c863c01c59378c13f2084bb49c3facf474df194e9a876a82",
+    "src/pinnpcm/solvers/geophase_phase1_v2_fvm.py": "5ac770dbe038f69aa834917a3370c31a78a1ee6760abf618edd462245db08a62",
+    "src/pinnpcm/solvers/geophase_phase1_v2_implicit.py": "a07495a0fe74e30cb027fedd2c0d261625c0c453362f575f0013ee2e3dda1417",
+    "src/pinnpcm/solvers/geophase_phase1_v2_runtime.py": "e59a547474143f03deae01af330345d00ab0451362ab2d1a53de8b5c86557757",
+    "src/pinnpcm/solvers/geophase_phase1_v2_streaming.py": "fb69bdbfa816f860da3ddefdec5b31fcb501bd2e575568ed9a682dfc9d3394db"
+  },
+  "failing_sample_count": 1,
+  "failures": [
+    {
+      "cause": "RuntimeError: S2 transition increment failed at locked floor",
+      "sample_id": "PRE-PARITY-STREAM"
+    }
+  ],
+  "formal_artifact_count": 0,
+  "formal_execution_count": 0,
+  "id_prefix": "PRE-",
+  "non_atomic_precursor_observation": "cache parity control flow for L1 L2 and L4 completed before the critical streaming trajectory; exact metrics were not published and therefore do not vote",
+  "optional_coarse_trajectory_status": "not_attempted_due_to_required_failure",
+  "partial_telemetry_status": "accepted_rejected_Newton_Krylov_Armijo_dt_ledger_and_RSS_counts_were_not_atomically_returned_by_the_fail_closed_solver_exception",
+  "passing_sample_count": 0,
+  "peak_rss_bytes": null,
+  "performance_repair_consumed": false,
+  "prior_attempt_history": [
+    {
+      "attempt": "startup_instrumentation",
+      "disposition": "Windows_RSS_API_signature_fixed_before_numerical_work",
+      "numerical_samples_executed": 0
+    },
+    {
+      "attempt": "baseline_unit_voltage_scaling_candidate",
+      "disposition": "candidate_disabled_not_deployed",
+      "locked_parity_limit": 1e-12,
+      "maximum_normalized_difference": 4.410635541795736e-12,
+      "numerical_samples_executed": 1,
+      "sample_id": "PRE-PARITY-CACHED-L1",
+      "worst_component": "thermal.signed_residual_W"
+    },
+    {
+      "attempt": "locked_baseline_critical_streaming_parity",
+      "cause": "RuntimeError: S2 transition increment failed at locked floor",
+      "disposition": "fail_closed_no_rerun",
+      "sample_id": "PRE-PARITY-STREAM"
+    }
+  ],
+  "required_short_trajectory_completed": 0,
+  "required_short_trajectory_expected": 9,
+  "required_single_step_completed": 0,
+  "required_single_step_expected": 18,
+  "sample_count": 1,
+  "schema_version": "geophase_phase1_v2_runtime_preflight_v1",
+  "status": "fail",
+  "task_id": "Q2_PHASE1_V2_RUNTIME_AND_FORMAL_RUNNER_READINESS",
+  "temporary_case_artifacts_persisted": false,
+  "wall_clock_limit_s": 900.0,
+  "wall_clock_measurement_status": "not_atomically_published_before_fail_closed_exception",
+  "wall_clock_s": null
+}

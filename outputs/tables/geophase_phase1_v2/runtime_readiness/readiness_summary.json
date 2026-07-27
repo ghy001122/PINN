@@ -1,0 +1,37 @@
+{
+  "all_runtime_gate_failures": [
+    "RuntimeError: S2 transition increment failed at locked floor"
+  ],
+  "campaign_cost_forecast": {},
+  "campaign_cost_forecast_status": "not_computed_because_required_critical_stability_gate_failed",
+  "claim_status": "forbidden",
+  "code_tree_sha256": "2b9077d3bdff6ba685ac614d24a30f85c03f4e91f5ff41d92650ec877974a809",
+  "disposition": "NO_GO_RUNTIME",
+  "dormant_runner_status": "pass",
+  "environment_sha256": "bd21ef249fa2078050ed970830fd58b1a2a6ba31e6a0f990cf7227b4ac838134",
+  "execution_addendum_preregistration_commit": "b830d4f3f45f634883de906972a7712f311cfa93",
+  "execution_addendum_sha256": "9d477b79a6a598b5032f104bea5b92290026b798e6599c2e9813c9ba11083640",
+  "execution_dag_sha256": "1f8a5ef122898974224c2208a0b41af0f776b5ef07bca444f5f0a727b5c9c87a",
+  "formal_artifact_count": 0,
+  "formal_campaign_authorized": false,
+  "formal_execution_consumed": false,
+  "formal_execution_count": 0,
+  "performance_only_failure": false,
+  "performance_repair_consumed": false,
+  "performance_repair_opportunity_remaining": true,
+  "schema_version": "geophase_phase1_v2_runtime_readiness_v1",
+  "task_id": "Q2_PHASE1_V2_RUNTIME_AND_FORMAL_RUNNER_READINESS",
+  "unique_primary_cause": "RuntimeError: S2 transition increment failed at locked floor",
+  "unit_voltage_scaling_active": false,
+  "unit_voltage_scaling_candidate_disposition": "rejected_before_required_matrix_after_locked_parity_failure",
+  "validation": {
+    "frozen_gt_hashes": "8_of_8_unchanged",
+    "focused_CI_equivalent_pytest": "184_passed_1_expected_S1_skip",
+    "full_regression": "not_run_by_fail_closed_scope",
+    "governance_audit": "pass_with_no_failed_checks",
+    "historical_evidence_manifest": "pass",
+    "phase1v2_focused_pytest": "53_passed",
+    "tracked_json": "222_valid_0_failures"
+  },
+  "validation_status": "focused_validation_pass_after_fail_closed_stop"
+}

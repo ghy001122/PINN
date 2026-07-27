@@ -52,7 +52,7 @@ def test_phase1v2_identity_authority_and_execution_boundary() -> None:
 
     assert stage["schema_version"] == "geo2p5d_stage_v2"
     assert stage["current_checkpoint"] == (
-        "PHASE1_V2_S2_SMOKE_PASS_PENDING_FORMAL_READINESS"
+        "PHASE1_V2_NO_GO_RUNTIME_PENDING_USER_DECISION"
     )
     assert stage["authority"]["current_contract"].endswith(
         "phase1_geophase_2p5d_reference_v2_contract.md"
@@ -72,6 +72,17 @@ def test_phase1v2_identity_authority_and_execution_boundary() -> None:
         "rerun_authorization": "forbidden_without_fresh_user_authorization",
         "may_block_S2": False,
         "production_selected": False,
+    }
+    assert stage["phase1_v2_runtime_state"] == {
+        "status": "NO_GO_RUNTIME",
+        "unique_primary_cause": (
+            "S2_transition_increment_failed_at_locked_floor_for_legal_critical_PRE_case"
+        ),
+        "scientific_phase1_result": "forbidden_unassessed",
+        "performance_repair_consumed": False,
+        "formal_execution_count": 0,
+        "formal_artifact_count": 0,
+        "next_action": "fresh_user_decision_required",
     }
 
 

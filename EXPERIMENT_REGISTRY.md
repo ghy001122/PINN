@@ -967,3 +967,30 @@ Claim result: multilayer forward, terminal-only rescue, low-dimensional sandwich
   `outputs/tables/geophase_phase1_v2/s1_diffusive_mve_v2_interruption_disposition.json`
   and
   `docs/codex_reports/geophase_phase1_v2_s1_diffusive_mve_v2_interruption.md`.
+
+## Phase 1-v2 Runtime And Dormant Runner Readiness
+
+- Date: 2026-07-27.
+- Task: `Q2_PHASE1_V2_RUNTIME_AND_FORMAL_RUNNER_READINESS`.
+- Execution addendum anchor: `b830d4f3f45f634883de906972a7712f311cfa93`;
+  addendum SHA-256 `9d477b79a6a598b5032f104bea5b92290026b798e6599c2e9813c9ba11083640`.
+- Evidence type: non-voting target-workstation runtime readiness and synthetic
+  dormant-runner state injection only.
+- Disposition: `NO_GO_RUNTIME`. The first required legal-critical
+  `PRE-PARITY-STREAM` trajectory stopped with
+  `RuntimeError: S2 transition increment failed at locked floor`.
+- The fail-closed exception returned no atomic accepted/rejected-step,
+  nonlinear, ledger, wall-clock, or peak-RSS telemetry. The 60-unit campaign
+  cost forecast was therefore not computed and no values were reconstructed.
+- Frozen-context unit-voltage scaling was disabled after a locked parity miss
+  of `4.410635541795736e-12 > 1e-12`; it is not deployed. Streaming and sparse
+  cache are baseline work, and the performance-only repair opportunity was not
+  consumed because performance was not the sole failure.
+- The dormant runner passed its PRE-only immutable-registry, hash-chain,
+  fail-fast, atomic-case, same-ID resume, hash-mismatch, and failure-separation
+  dry-run checks. This cannot override the critical-state failure.
+- Formal execution count: `0`; formal artifacts: `0`; all 63 items remain
+  `planned_not_executed`. The Phase 1 scientific result remains `forbidden`
+  and unassessed.
+- Report:
+  `docs/codex_reports/geophase_phase1_v2_runtime_formal_runner_readiness.md`.

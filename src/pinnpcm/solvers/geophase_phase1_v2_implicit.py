@@ -8,7 +8,8 @@ material-stack/K-state solver and it has no thermal-memory state variable.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
+from time import perf_counter
 from typing import Callable
 
 import numpy as np
@@ -21,8 +22,11 @@ from pinnpcm.physics.vo2_effective_conductivity import EffectiveVO2Closure
 from pinnpcm.solvers.geophase_2p5d_fvm import SheetElectricalSolution, solve_sheet_electrical
 from pinnpcm.solvers.geophase_phase1_v2_fvm import (
     LateralFluxAudit,
+    ThermalLinearSolver,
     assemble_sheet_thermal_matrix,
+    build_s2_thermal_backward_euler_solver,
     reconstruct_lateral_fluxes,
+    scale_unit_sheet_electrical_solution,
     solve_s2_thermal_backward_euler,
 )
 
@@ -43,6 +47,10 @@ class S2NonlinearDiagnostics:
     scaled_residual_inf: float
     scaled_update_inf: float
     converged: bool
+    krylov_matvecs: int
+    armijo_backtracks: int
+    predictor_picard_iterations: int
+    fallback_picard_iterations: int
 
 
 @dataclass(frozen=True)
@@ -65,6 +73,16 @@ class S2AdaptiveDiagnostics:
     maximum_accepted_step_s: float
     maximum_transition_increment: float
     fallback_steps: int
+    newton_iterations: int
+    krylov_matvecs: int
+    armijo_backtracks: int
+    fallback_picard_iterations: int
+    step_wall_time_p50_s: float
+    step_wall_time_p90_s: float
+    step_wall_time_max_s: float
+    accepted_dt_p10_s: float
+    accepted_dt_p50_s: float
+    accepted_dt_p90_s: float
 
 
 @dataclass(frozen=True)
@@ -75,6 +93,61 @@ class S2ProtocolResult:
     achieved_final_time_s: float
     completed: bool
     stop_reason: str
+
+
+@dataclass
+class S2SolverCache:
+    """Case-local invariant sparse structures and exact-dt factorizations."""
+
+    grid: GeoPhaseGrid
+    fields: S2ThermalFields
+    lateral_matrix: object
+    thermal_linear_solvers: dict[float, ThermalLinearSolver] = field(
+        default_factory=dict
+    )
+
+    def validate_context(self, grid: GeoPhaseGrid, fields: S2ThermalFields) -> None:
+        if self.grid is not grid or self.fields is not fields:
+            raise ValueError(
+                "S2 cache cannot cross geometry, grid, or thermal-field context"
+            )
+
+    def thermal_solver(self, dt_s: float) -> ThermalLinearSolver:
+        key = float(dt_s)
+        solver = self.thermal_linear_solvers.get(key)
+        if solver is None:
+            solver = build_s2_thermal_backward_euler_solver(
+                self.grid,
+                self.fields,
+                key,
+                lateral_matrix=self.lateral_matrix,
+            )
+            self.thermal_linear_solvers[key] = solver
+        return solver
+
+
+def build_s2_solver_cache(
+    grid: GeoPhaseGrid, fields: S2ThermalFields
+) -> S2SolverCache:
+    """Create one cache that is intentionally scoped to a single case."""
+
+    fields.validate_grid(grid)
+    lateral = assemble_sheet_thermal_matrix(
+        grid, fields.sheet_thermal_conductance_W_K
+    )
+    return S2SolverCache(grid=grid, fields=fields, lateral_matrix=lateral)
+
+
+class _CountingKrylovJacobian(KrylovJacobian):
+    """Count Jacobian-vector products used by the locked LGMRES correction."""
+
+    def __init__(self, *args, **kwargs) -> None:
+        super().__init__(*args, **kwargs)
+        self.matvec_count = 0
+
+    def matvec(self, vector):
+        self.matvec_count += 1
+        return super().matvec(vector)
 
 
 def initial_s2_state(
@@ -165,6 +238,8 @@ def _fixed_point_map(
     closure: EffectiveVO2Closure,
     fields: S2ThermalFields,
     lateral_matrix,
+    thermal_linear_solver: ThermalLinearSolver | None,
+    use_unit_voltage_scaling: bool,
     load_resistance_ohm: float,
     capacitance_F: float,
 ) -> np.ndarray:
@@ -181,7 +256,11 @@ def _fixed_point_map(
         capacitance_F / dt_s * old_state.device_voltage_V
         + input_voltage_V / load_resistance_ohm
     ) / denominator
-    electrical = solve_sheet_electrical(grid, conductivity, voltage)
+    electrical = (
+        scale_unit_sheet_electrical_solution(unit, voltage)
+        if use_unit_voltage_scaling
+        else solve_sheet_electrical(grid, conductivity, voltage)
+    )
     new_temperature = solve_s2_thermal_backward_euler(
         grid,
         fields,
@@ -189,6 +268,7 @@ def _fixed_point_map(
         electrical.cell_joule_power_W,
         dt_s,
         lateral_matrix=lateral_matrix,
+        linear_solver=thermal_linear_solver,
     )
     closure.validate_temperature(new_temperature)
     heating, cooling = closure.branch_activations(
@@ -216,6 +296,8 @@ def _scaled_residual(
     closure: EffectiveVO2Closure,
     fields: S2ThermalFields,
     lateral_matrix,
+    thermal_linear_solver: ThermalLinearSolver | None,
+    use_unit_voltage_scaling: bool,
     load_resistance_ohm: float,
     capacitance_F: float,
 ) -> np.ndarray:
@@ -226,7 +308,12 @@ def _scaled_residual(
     if np.any(np.abs(branch) > 1.0):
         raise ValueError("S2 nonlinear branch state left [-1,1]")
     conductivity = closure.conductivity_S_m(temperature, conductive)
-    electrical = solve_sheet_electrical(grid, conductivity, voltage)
+    unit_electrical = solve_sheet_electrical(grid, conductivity, 1.0)
+    electrical = (
+        scale_unit_sheet_electrical_solution(unit_electrical, voltage)
+        if use_unit_voltage_scaling
+        else solve_sheet_electrical(grid, conductivity, voltage)
+    )
     area = grid.cell_area_m2
     capacity_cell = fields.effective_areal_capacity_J_m2K.reshape(-1) * area
     sink_cell = fields.vertical_conductance_W_m2K * area
@@ -269,7 +356,6 @@ def _scaled_residual(
         - (input_voltage_V - voltage) / load_resistance_ohm
         + electrical.source_current_A
     )
-    unit_electrical = solve_sheet_electrical(grid, conductivity, 1.0)
     voltage_scale_V = max(
         abs(float(input_voltage_V)),
         abs(float(old_state.device_voltage_V)),
@@ -323,7 +409,12 @@ def _newton_krylov(
     residual: Callable[[np.ndarray], np.ndarray],
     nonlinear: dict,
     linear: dict,
-) -> tuple[np.ndarray, int, float, float]:
+    *,
+    telemetry: dict[str, int] | None = None,
+) -> tuple[np.ndarray, int, float, float, int, int]:
+    counters = telemetry if telemetry is not None else {}
+    counters["krylov_matvecs"] = 0
+    counters["armijo_backtracks"] = 0
     vector = np.asarray(initial, dtype=float).copy()
     function = np.asarray(residual(vector), dtype=float)
     if not np.isfinite(function).all():
@@ -335,13 +426,16 @@ def _newton_krylov(
     update_limit = float(nonlinear["scaled_update_relative"])
     residual_norm = float(np.max(np.abs(function)))
     if residual_norm <= residual_limit:
-        return vector, 0, 0.0, residual_norm
-    jacobian = KrylovJacobian(method="lgmres", inner_maxiter=50, outer_k=10)
+        return vector, 0, 0.0, residual_norm, 0, 0
+    jacobian = _CountingKrylovJacobian(
+        method="lgmres", inner_maxiter=50, outer_k=10
+    )
     jacobian.setup(vector, function, residual)
     last_update = float("inf")
     initial_damping = float(nonlinear["initial_damping"])
     minimum_damping = float(nonlinear["minimum_damping"])
     armijo = float(nonlinear["armijo_coefficient"])
+    armijo_backtracks = 0
     for iteration in range(1, int(nonlinear["maximum_newton_iterations"]) + 1):
         base_vector = vector.copy()
         base_function = function.copy()
@@ -350,9 +444,12 @@ def _newton_krylov(
             float(linear["relative"]),
             float(linear["absolute"]) / max(base_norm, 1.0e-30),
         )
-        correction = -np.asarray(
-            jacobian.solve(base_function, tol=inner_tolerance), dtype=float
-        )
+        try:
+            correction = -np.asarray(
+                jacobian.solve(base_function, tol=inner_tolerance), dtype=float
+            )
+        finally:
+            counters["krylov_matvecs"] = int(jacobian.matvec_count)
         if not np.isfinite(correction).all():
             raise RuntimeError("S2 Newton linear update is nonfinite")
         damping = initial_damping
@@ -363,9 +460,13 @@ def _newton_krylov(
                 candidate_function = np.asarray(residual(candidate), dtype=float)
             except (ValueError, FloatingPointError, np.linalg.LinAlgError):
                 damping *= 0.5
+                armijo_backtracks += 1
+                counters["armijo_backtracks"] = armijo_backtracks
                 continue
             if not np.isfinite(candidate_function).all():
                 damping *= 0.5
+                armijo_backtracks += 1
+                counters["armijo_backtracks"] = armijo_backtracks
                 continue
             candidate_norm = float(np.max(np.abs(candidate_function)))
             if candidate_norm <= residual_limit or candidate_norm <= (
@@ -383,13 +484,29 @@ def _newton_krylov(
                 accepted = True
                 break
             damping *= 0.5
+            armijo_backtracks += 1
+            counters["armijo_backtracks"] = armijo_backtracks
         if not accepted:
             raise RuntimeError("S2 Newton Armijo search reached minimum damping")
         jacobian.update(vector, function)
         if residual_norm <= residual_limit and last_update <= update_limit:
-            return vector, iteration, last_update, residual_norm
+            return (
+                vector,
+                iteration,
+                last_update,
+                residual_norm,
+                jacobian.matvec_count,
+                armijo_backtracks,
+            )
         if residual_norm <= residual_limit:
-            return vector, iteration, 0.0, residual_norm
+            return (
+                vector,
+                iteration,
+                0.0,
+                residual_norm,
+                jacobian.matvec_count,
+                armijo_backtracks,
+            )
     raise RuntimeError("S2 Newton reached the maximum iteration count")
 
 
@@ -402,6 +519,9 @@ def advance_s2_backward_euler(
     closure: EffectiveVO2Closure,
     fields: S2ThermalFields,
     config: dict,
+    cache: S2SolverCache | None = None,
+    use_equivalent_optimizations: bool = True,
+    use_unit_voltage_scaling: bool = False,
 ) -> S2StepResult:
     if not np.isfinite([input_voltage_V, dt_s]).all() or dt_s <= 0.0:
         raise ValueError("S2 input voltage and positive dt must be finite")
@@ -409,8 +529,19 @@ def advance_s2_backward_euler(
     fields.validate_grid(grid)
     closure.validate_temperature(old_state.temperature_K)
     load, capacitance = _circuit_parameters(config)
-    lateral = assemble_sheet_thermal_matrix(
-        grid, fields.sheet_thermal_conductance_W_K
+    if cache is not None:
+        cache.validate_context(grid, fields)
+    lateral = (
+        cache.lateral_matrix
+        if cache is not None
+        else assemble_sheet_thermal_matrix(
+            grid, fields.sheet_thermal_conductance_W_K
+        )
+    )
+    thermal_linear_solver = (
+        cache.thermal_solver(dt_s)
+        if cache is not None and use_equivalent_optimizations
+        else None
     )
     old_vector = _pack(
         old_state.temperature_K,
@@ -473,6 +604,10 @@ def advance_s2_backward_euler(
                 scaled_residual_inf=0.0,
                 scaled_update_inf=0.0,
                 converged=True,
+                krylov_matvecs=0,
+                armijo_backtracks=0,
+                predictor_picard_iterations=0,
+                fallback_picard_iterations=0,
             ),
         )
     common = dict(
@@ -483,13 +618,15 @@ def advance_s2_backward_euler(
         closure=closure,
         fields=fields,
         lateral_matrix=lateral,
+        thermal_linear_solver=thermal_linear_solver,
+        use_unit_voltage_scaling=bool(use_unit_voltage_scaling),
         load_resistance_ohm=load,
         capacitance_F=capacitance,
     )
     mapping = lambda vector: _fixed_point_map(vector, **common)
     residual = lambda vector: _scaled_residual(vector, **common)
     nonlinear = config["reference_solver"]["nonlinear_tolerances"]
-    predictor, _, _ = _picard(
+    predictor, predictor_iterations, _ = _picard(
         old_vector,
         mapping,
         maximum_iterations=min(
@@ -499,16 +636,30 @@ def advance_s2_backward_euler(
         update_tolerance=float(nonlinear["scaled_update_relative"]),
     )
     method = "damped_newton_krylov"
+    krylov_matvecs = 0
+    armijo_backtracks = 0
+    fallback_iterations = 0
+    newton_telemetry: dict[str, int] = {}
     try:
-        solved, iterations, update_inf, residual_inf = _newton_krylov(
+        (
+            solved,
+            iterations,
+            update_inf,
+            residual_inf,
+            krylov_matvecs,
+            armijo_backtracks,
+        ) = _newton_krylov(
             predictor,
             residual,
             nonlinear,
             config["reference_solver"]["linear_solver_tolerances"],
+            telemetry=newton_telemetry,
         )
     except (RuntimeError, ValueError, FloatingPointError, np.linalg.LinAlgError):
+        krylov_matvecs = int(newton_telemetry.get("krylov_matvecs", 0))
+        armijo_backtracks = int(newton_telemetry.get("armijo_backtracks", 0))
         method = "fail_closed_fixed_point_fallback"
-        solved, iterations, update_inf = _picard(
+        solved, fallback_iterations, update_inf = _picard(
             predictor,
             mapping,
             maximum_iterations=int(
@@ -517,6 +668,7 @@ def advance_s2_backward_euler(
             relaxation=float(nonlinear["fixed_point_relaxation"]),
             update_tolerance=float(nonlinear["scaled_update_relative"]),
         )
+        iterations = fallback_iterations
         residual_inf = float(np.max(np.abs(residual(solved))))
     mapped = mapping(solved)
     update_inf = float(
@@ -543,7 +695,13 @@ def advance_s2_backward_euler(
     )
     validate_s2_state(new_state, grid, closure)
     conductivity = closure.conductivity_S_m(temperature, conductive)
-    electrical = solve_sheet_electrical(grid, conductivity, voltage)
+    electrical = (
+        scale_unit_sheet_electrical_solution(
+            solve_sheet_electrical(grid, conductivity, 1.0), voltage
+        )
+        if use_unit_voltage_scaling
+        else solve_sheet_electrical(grid, conductivity, voltage)
+    )
     flux = reconstruct_lateral_fluxes(
         grid,
         fields.sheet_thermal_conductance_W_K,
@@ -575,6 +733,10 @@ def advance_s2_backward_euler(
             scaled_residual_inf=float(residual_inf),
             scaled_update_inf=float(update_inf),
             converged=True,
+            krylov_matvecs=int(krylov_matvecs),
+            armijo_backtracks=int(armijo_backtracks),
+            predictor_picard_iterations=int(predictor_iterations),
+            fallback_picard_iterations=int(fallback_iterations),
         ),
     )
 
@@ -641,11 +803,28 @@ def simulate_s2_protocol(
     time_divisor: int = 1,
     final_time_s: float | None = None,
     maximum_accepted_steps: int | None = None,
+    maximum_wall_clock_s: float | None = None,
+    forced_times_s: tuple[float, ...] | list[float] | np.ndarray = (),
+    retain_full_history: bool = True,
+    retained_step_limit: int = 0,
+    accepted_step_callback: Callable[
+        [S2State, S2StepResult, float, float, float], None
+    ]
+    | None = None,
+    cache: S2SolverCache | None = None,
+    use_equivalent_optimizations: bool = True,
+    use_unit_voltage_scaling: bool = False,
 ) -> S2ProtocolResult:
     if time_divisor not in set(config["reference_solver"]["formal_time_step_divisors"]):
         raise ValueError("undeclared Phase 1-v2 time divisor")
     if maximum_accepted_steps is not None and maximum_accepted_steps <= 0:
         raise ValueError("maximum_accepted_steps must be positive when supplied")
+    if maximum_wall_clock_s is not None and (
+        not np.isfinite(maximum_wall_clock_s) or maximum_wall_clock_s <= 0.0
+    ):
+        raise ValueError("maximum_wall_clock_s must be finite and positive")
+    if retained_step_limit < 0:
+        raise ValueError("retained_step_limit cannot be negative")
     time_grid = config["reference_solver"]["time_grid"]
     stop = float(time_grid["final_time_s"] if final_time_s is None else final_time_s)
     if not np.isfinite(stop) or stop <= initial_state.time_s:
@@ -654,6 +833,8 @@ def simulate_s2_protocol(
     protocol_voltage(protocol, initial_state.time_s)
     fields.validate_grid(grid)
     validate_s2_state(initial_state, grid, closure)
+    if cache is not None:
+        cache.validate_context(grid, fields)
     base_dt = float(time_grid["base_max_step_s"]) / time_divisor
     floor_dt = float(time_grid["transition_max_step_s"]) / time_divisor
     threshold = float(time_grid["transition_increment_threshold"])
@@ -663,6 +844,13 @@ def simulate_s2_protocol(
     state = initial_state
     current_dt = base_dt
     steps: list[S2StepResult] = []
+    accepted_steps = 0
+    accepted_dts: list[float] = []
+    step_wall_times: list[float] = []
+    total_newton_iterations = 0
+    total_krylov_matvecs = 0
+    total_armijo_backtracks = 0
+    total_fallback_picard_iterations = 0
     rejected = transition_rejections = nonlinear_rejections = 0
     endpoint_remainders = fallback_steps = 0
     easy_streak = 0
@@ -671,19 +859,48 @@ def simulate_s2_protocol(
     maximum_increment = 0.0
     eps = max(1.0e-18, abs(stop) * 1.0e-14)
     stop_reason = "requested_final_time_reached"
+    run_wall_start = perf_counter()
     discontinuities = tuple(
         value
         for value in protocol_discontinuities(protocol)
         if initial_state.time_s < value < stop
     )
+    forced = np.asarray(forced_times_s, dtype=float)
+    if forced.ndim != 1 or not np.isfinite(forced).all():
+        raise ValueError("forced S2 landing times must be finite and one-dimensional")
+    if forced.size and np.any(np.diff(forced) <= 0.0):
+        raise ValueError("forced S2 landing times must be strictly increasing")
+    if forced.size and (
+        forced[0] < initial_state.time_s - eps or forced[-1] > stop + eps
+    ):
+        raise ValueError("forced S2 landing times must lie inside the run window")
+    landing_times = tuple(
+        sorted(
+            set(discontinuities)
+            | {
+                float(value)
+                for value in forced
+                if initial_state.time_s < float(value) < stop + eps
+            }
+        )
+    )
     while state.time_s < stop - eps:
-        if maximum_accepted_steps is not None and len(steps) >= maximum_accepted_steps:
+        if (
+            maximum_wall_clock_s is not None
+            and perf_counter() - run_wall_start >= maximum_wall_clock_s
+        ):
+            stop_reason = "maximum_wall_clock_reached"
+            break
+        if (
+            maximum_accepted_steps is not None
+            and accepted_steps >= maximum_accepted_steps
+        ):
             stop_reason = "maximum_accepted_steps_reached"
             break
         remaining = stop - state.time_s
         dt = min(current_dt, remaining)
         future_boundaries = [
-            value for value in discontinuities if value > state.time_s + eps
+            value for value in landing_times if value > state.time_s + eps
         ]
         if future_boundaries:
             dt = min(dt, min(future_boundaries) - state.time_s)
@@ -697,6 +914,8 @@ def simulate_s2_protocol(
         input_voltage = protocol_interval_voltage(
             protocol, state.time_s, state.time_s + dt
         )
+        previous_state = state
+        accepted_step_wall_start = perf_counter()
         rejections_this_step = 0
         had_rejection = False
         while True:
@@ -709,7 +928,10 @@ def simulate_s2_protocol(
                     closure=closure,
                     fields=fields,
                     config=config,
-                )
+                        cache=cache,
+                        use_equivalent_optimizations=use_equivalent_optimizations,
+                        use_unit_voltage_scaling=use_unit_voltage_scaling,
+                    )
             except (RuntimeError, ValueError, FloatingPointError, np.linalg.LinAlgError):
                 if endpoint_remainder or dt <= floor_dt * (1.0 + 1.0e-12):
                     raise RuntimeError("S2 adaptive solve failed at its locked floor")
@@ -748,7 +970,34 @@ def simulate_s2_protocol(
                 )
                 continue
             break
-        steps.append(candidate)
+        accepted_step_wall_time = perf_counter() - accepted_step_wall_start
+        accepted_steps += 1
+        accepted_dts.append(float(dt))
+        step_wall_times.append(float(accepted_step_wall_time))
+        total_newton_iterations += int(getattr(candidate.nonlinear, "iterations", 0))
+        total_krylov_matvecs += int(
+            getattr(candidate.nonlinear, "krylov_matvecs", 0)
+        )
+        total_armijo_backtracks += int(
+            getattr(candidate.nonlinear, "armijo_backtracks", 0)
+        )
+        total_fallback_picard_iterations += int(
+            getattr(candidate.nonlinear, "fallback_picard_iterations", 0)
+        )
+        if retain_full_history:
+            steps.append(candidate)
+        elif retained_step_limit:
+            steps.append(candidate)
+            if len(steps) > retained_step_limit:
+                del steps[0]
+        if accepted_step_callback is not None:
+            accepted_step_callback(
+                previous_state,
+                candidate,
+                float(dt),
+                float(input_voltage),
+                float(accepted_step_wall_time),
+            )
         state = candidate.state
         minimum_dt = min(minimum_dt, dt)
         maximum_dt = max(maximum_dt, dt)
@@ -767,18 +1016,42 @@ def simulate_s2_protocol(
             current_dt = min(2.0 * current_dt, base_dt)
             easy_streak = 0
     completed = state.time_s >= stop - eps
+    dt_values = np.asarray(accepted_dts, dtype=float)
+    wall_values = np.asarray(step_wall_times, dtype=float)
     return S2ProtocolResult(
         steps=tuple(steps),
         diagnostics=S2AdaptiveDiagnostics(
-            accepted_steps=len(steps),
+            accepted_steps=accepted_steps,
             rejected_steps=rejected,
             transition_rejections=transition_rejections,
             nonlinear_rejections=nonlinear_rejections,
             endpoint_remainder_steps=endpoint_remainders,
-            minimum_accepted_step_s=0.0 if not steps else minimum_dt,
+            minimum_accepted_step_s=0.0 if not accepted_steps else minimum_dt,
             maximum_accepted_step_s=maximum_dt,
             maximum_transition_increment=maximum_increment,
             fallback_steps=fallback_steps,
+            newton_iterations=int(total_newton_iterations),
+            krylov_matvecs=int(total_krylov_matvecs),
+            armijo_backtracks=int(total_armijo_backtracks),
+            fallback_picard_iterations=int(total_fallback_picard_iterations),
+            step_wall_time_p50_s=float(np.quantile(wall_values, 0.50))
+            if wall_values.size
+            else 0.0,
+            step_wall_time_p90_s=float(np.quantile(wall_values, 0.90))
+            if wall_values.size
+            else 0.0,
+            step_wall_time_max_s=float(np.max(wall_values))
+            if wall_values.size
+            else 0.0,
+            accepted_dt_p10_s=float(np.quantile(dt_values, 0.10))
+            if dt_values.size
+            else 0.0,
+            accepted_dt_p50_s=float(np.quantile(dt_values, 0.50))
+            if dt_values.size
+            else 0.0,
+            accepted_dt_p90_s=float(np.quantile(dt_values, 0.90))
+            if dt_values.size
+            else 0.0,
         ),
         requested_final_time_s=stop,
         achieved_final_time_s=state.time_s,
@@ -822,9 +1095,11 @@ __all__ = [
     "S2AdaptiveDiagnostics",
     "S2NonlinearDiagnostics",
     "S2ProtocolResult",
+    "S2SolverCache",
     "S2State",
     "S2StepResult",
     "advance_s2_backward_euler",
+    "build_s2_solver_cache",
     "initial_s2_state",
     "protocol_discontinuities",
     "protocol_interval_voltage",

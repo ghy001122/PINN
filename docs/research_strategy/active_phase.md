@@ -2,9 +2,9 @@
 
 Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
 
-Status: `phase1v2_s2_smoke_pass_pending_formal_readiness`
+Status: `phase1v2_NO_GO_RUNTIME_pending_user_decision`
 
-Current checkpoint: `PHASE1_V2_S2_SMOKE_PASS_PENDING_FORMAL_READINESS`
+Current checkpoint: `PHASE1_V2_NO_GO_RUNTIME_PENDING_USER_DECISION`
 
 ## Objective
 
@@ -49,6 +49,13 @@ configs, and their named reports. They cannot modify S2 or the formal manifest.
 - The historical v6-v8 material-stack route is terminal
   `failed_but_informative`; its 96 formal items were never run. The final v8
   pullback depth-frequency errors stayed near `0.4118 > 0.05`.
+- The runtime execution addendum is anchored at `b830d4f3...` with SHA-256
+  `9d477b79...`. Its non-formal preflight stopped at `NO_GO_RUNTIME`: the first
+  required legal-critical streaming parity trajectory hit the locked
+  transition-increment failure at the locked step floor. No accepted-step
+  telemetry or campaign cost forecast was atomically available. The dormant
+  formal-runner dry-run passed, unit-voltage scaling remains disabled, and no
+  performance repair was consumed.
 
 ## Pass And Stop Rules
 
@@ -58,9 +65,10 @@ limit, trend, and failure-path gate in one separately authorized formal run.
 Smoke, conservation alone, or finite output cannot vote. A formal failure is
 preserved as `failed_but_informative` and blocks Phase 2/R1-R3.
 
-If a correctly implemented S2 fails physical, conservation, or convergence
-gates, stop the positive 2D route and activate the retained
-`gamma_sub`/identifiability downgrade. Do not alter gates after observation.
+The current critical-state failure stops execution under this contract. Do not
+alter gates after observation. A separately versioned scientific/time-
+controller revision or activation of the retained `gamma_sub`/identifiability
+downgrade requires an explicit user decision.
 
 ## Restrictions
 
@@ -73,7 +81,6 @@ cross-material transfer; these positive claims remain `forbidden`.
 
 ## Immediate Next Checkpoint
 
-Implement and test only the minimal runtime/formal-runner readiness layer for
-the locked 63-item inventory. It must use non-formal IDs and temporary state,
-must not create a formal artifact, and must stop for fresh user authorization
-even if every readiness check passes.
+Stop at `NO_GO_RUNTIME` and request a user decision. Do not rerun the critical
+trajectory, spend the performance-repair opportunity, or create a formal
+registry. The Phase 1 scientific result remains `forbidden` and unassessed.

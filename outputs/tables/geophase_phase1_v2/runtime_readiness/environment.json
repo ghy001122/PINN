@@ -1,0 +1,29 @@
+{
+  "all_worker_math_thread_limits_equal_one": true,
+  "available_ram_bytes_at_launch": 124137472,
+  "disk_free_bytes_at_launch": 87745474560,
+  "disk_total_bytes": 157286395904,
+  "environment_sha256": "bd21ef249fa2078050ed970830fd58b1a2a6ba31e6a0f990cf7227b4ac838134",
+  "logical_core_count": 12,
+  "machine": "AMD64",
+  "measurement_role": "post_failure_evidence_recorder_environment_not_failed_process_peak_RSS",
+  "numpy_version": "1.26.4",
+  "physical_core_count": 10,
+  "physical_core_measurement_available": true,
+  "physical_core_measurement_source": "GetLogicalProcessorInformation.RelationProcessorCore",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "process_peak_working_set_bytes_at_launch": 63135744,
+  "process_working_set_bytes_at_launch": 63135744,
+  "processor": "Intel64 Family 6 Model 154 Stepping 4, GenuineIntel",
+  "python_version": "3.11.9",
+  "schema_version": "geophase_phase1_v2_runtime_environment_v1",
+  "scipy_version": "1.13.1",
+  "thread_environment": {
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  },
+  "total_ram_bytes": 8300781568
+}

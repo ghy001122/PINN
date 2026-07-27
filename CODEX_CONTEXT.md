@@ -38,15 +38,20 @@ The v6/source/inventory bytes and formal count remained unchanged.
 
 ## One Active Priority
 
-Current checkpoint `PHASE1_V2_S2_SMOKE_PASS_PENDING_FORMAL_READINESS` replaces
+Current checkpoint `PHASE1_V2_NO_GO_RUNTIME_PENDING_USER_DECISION` replaces
 the stopped K-state route while preserving all of its files and evidence. The
 locally distributed S2 nominal closure passes focused behavior tests and 7/7
 bounded non-voting smoke cases after the sole allowed implementation repair.
 The same-device audit found no eligible direct thermal holdout, so S1 remains
 sensitivity-only. Its bounded MVE is closed after three tool-layer timeouts;
 no atomic metric or K fit exists, and further S1 execution is unauthorized.
-Perform only minimal runtime/formal-runner readiness. The formal execution
-count remains zero and no formal campaign is authorized.
+The bounded runtime readiness preflight is now `NO_GO_RUNTIME`: its first
+required legal-critical streaming parity trajectory failed the locked
+transition-increment condition at the locked step floor. No cost forecast or
+formal artifact exists. The dormant runner dry-run passed, but the formal
+execution count remains zero and no formal campaign is authorized. Await an
+explicit user decision on a versioned contract revision versus the retained
+`gamma_sub`/identifiability downgrade.
 
 ## Claim Boundary
 

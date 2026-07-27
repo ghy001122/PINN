@@ -4,7 +4,7 @@
 
 Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
 
-Checkpoint state: `PHASE1_V2_S2_SMOKE_PASS_PENDING_FORMAL_READINESS`.
+Checkpoint state: `PHASE1_V2_NO_GO_RUNTIME_PENDING_USER_DECISION`.
 
 > The Phase 1-v2 preregistration anchors are remote. S2 implementation and its
 > bounded non-voting smoke are complete; no formal item has executed.
@@ -25,14 +25,18 @@ S2 remains the nominal Phase 1-v2 thermal closure. Completed:
 6. preserve the single bounded audit-metric repair and its exact machine
    criterion.
 
-The next delivery-critical task is a minimal runtime/formal-runner readiness
-audit for the locked 63-item campaign. It may not execute any formal item and
-must stop for fresh user authorization even if readiness passes.
+The runtime/formal-runner readiness audit is complete with `NO_GO_RUNTIME`.
+The legal-critical `PRE-*` trajectory failed the locked transition-increment
+condition at the locked minimum step before the required sample matrix or cost
+forecast could be completed. Dormant-runner integrity passed, but cannot
+override this numerical stability failure. No formal item executed.
 
-One bounded software repair is allowed only for a demonstrated implementation
-defect. If a correct S2 implementation fails physics, conservation, or
-convergence, stop the positive 2D route and activate the retained
-`gamma_sub`/identifiability manuscript downgrade.
+The existing S2 software-repair allowance is exhausted. Do not repair or rerun
+the failed critical trajectory under the current contract. Await one explicit
+user choice: authorize a separately versioned scientific/time-controller
+revision, or activate the retained `gamma_sub`/identifiability manuscript
+downgrade. The unused performance-only repair opportunity is ineligible
+because performance was not the sole failure.
 
 ## Parallel work that cannot block S2
 

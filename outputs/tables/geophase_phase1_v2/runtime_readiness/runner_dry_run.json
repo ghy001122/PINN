@@ -1,0 +1,27 @@
+{
+  "checks": {
+    "coverage_63_60_3": true,
+    "formal_count_zero": true,
+    "foundation_fail_fast_blocks_remaining": true,
+    "hash_mismatch_rejected": true,
+    "immutable_identity_and_hash_chain_valid": true,
+    "partial_case_not_published": true,
+    "per_case_atomic_completion": true,
+    "real_formal_dispatch_disabled": true,
+    "same_run_id_resume": true,
+    "scientific_and_infrastructure_failure_separated": true
+  },
+  "formal_artifact_count": 0,
+  "formal_execution_count": 0,
+  "registry_location": "temporary_directory_only",
+  "run_id_prefix": "PRE-",
+  "schema_version": "geophase_phase1_v2_dormant_runner_dry_run_v1",
+  "status": "pass",
+  "task_id": "Q2_PHASE1_V2_RUNTIME_AND_FORMAL_RUNNER_READINESS",
+  "terminal_states_observed": {
+    "foundation_path": "COMPLETED_SCIENTIFIC_FAIL",
+    "hash_mismatch_path": "INVALID_CONTRACT",
+    "infrastructure_path": "INTERRUPTED_RESUMABLE",
+    "pass_path": "COMPLETED_PASS"
+  }
+}

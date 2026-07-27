@@ -4,7 +4,7 @@
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
 - Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Checkpoint: `PHASE1_V2_S2_SMOKE_PASS_PENDING_FORMAL_READINESS`.
+- Checkpoint: `PHASE1_V2_NO_GO_RUNTIME_PENDING_USER_DECISION`.
 - R1 `HysGeo-Hybrid-PINN` is the minimum manuscript route; R2
   `GeoPhase-HomoMoE-PINN` is the preferred upgrade; R3 observable-subspace/OQ
   is conditional and non-blocking.
@@ -22,6 +22,18 @@
   floating-point backward-error alternative to a zero-signal matrix/face
   audit; it changed no equation, source parameter, formal item, or scientific
   gate.
+- The execution addendum was preregistered and pushed before runtime work at
+  `b830d4f3...`; its SHA-256 is `9d477b79...`. It preserves the S2 contract,
+  all 63 evaluation IDs, 60 unique execution units, three legal reuses, and
+  `formal_execution_count=0`.
+- Runtime readiness is `NO_GO_RUNTIME`. The first required legal-critical
+  `PRE-*` streaming parity trajectory stopped because the transition increment
+  still exceeded its locked limit at the locked minimum step. The fail-closed
+  exception returned no atomic accepted-step telemetry, so no campaign cost
+  forecast is claimed. Unit-voltage scaling was disabled after its own locked
+  parity miss; no performance repair was consumed. The dormant formal-runner
+  state-machine dry-run passed, but it cannot override the critical-state
+  failure.
 - A bounded source audit found no eligible same-device direct thermal holdout.
   Its elapsed time was not instrumented. This is not proof that no such data
   exist and is not independent validation.
@@ -47,6 +59,7 @@
 | Same-device source audit | `supported` bounded eligibility audit | No eligible holdout found; no digitization, fitting, production selection, or independent validation. |
 | S1 diffusive model-form claim | `forbidden` / unassessed | No atomic metric, K fit, formal artifact, or scientific vote exists. S2 remains nominal. |
 | S1 interruption provenance | `supported` infrastructure provenance only | Three tool timeouts and two repeated stdout observations are preserved; they do not establish a scientific S1 pass or failure. |
+| Phase 1-v2 runtime readiness | `failed_but_informative` readiness evidence | `NO_GO_RUNTIME`: legal-critical PRE trajectory failed the locked transition-increment condition at the locked step floor. No cost forecast, formal item, real registry, or scientific vote exists; dormant-runner integrity tests pass. |
 | v6-v8 material-stack route | `failed_but_informative` | Final v8 pullback gate failed; no K order or formal result; old formal count zero. |
 | Phase 1-v2 conservative reference result | `forbidden` | Requires every v2 gate in a separately authorized formal campaign. |
 | R1/R2/R3 positive claims | `forbidden` | Each requires its own sequential direct evidence. |
@@ -61,10 +74,11 @@
 
 ## Delivery Boundary
 
-The next single task is the minimal Phase 1-v2 runtime/formal-runner readiness
-audit for the locked 63-item inventory. It may not create a formal run registry
-or execute a formal item. Even a readiness pass must stop for fresh user
-authorization.
+The readiness audit is closed at `NO_GO_RUNTIME`. The next action requires a
+fresh user decision: either authorize a separately versioned scientific/
+time-controller contract revision, or activate the retained
+`gamma_sub`/identifiability downgrade manuscript route. The current S2 repair
+quota is exhausted, so neither route may begin implicitly.
 
 Do not rerun S1; revive v6-v8; train a PINN; generate Phase 2 data; run inverse
 work; fit literature/device parameters; modify frozen GT; add nonzero coupling;
