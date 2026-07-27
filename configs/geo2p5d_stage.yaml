@@ -12,6 +12,7 @@ authority:
   current_contract: docs/research_strategy/phase1_geophase_2p5d_reference_v2_contract.md
   phase1_config: configs/geophase_phase1_v2_s2_reference.yaml
   phase1_manifest: configs/geophase_phase1_v2_formal_manifest.yaml
+  phase1_execution_addendum: configs/geophase_phase1_v2_execution_addendum.yaml
   phase1_source_contract: configs/qiu_vo2_phase1_source_contract.yaml
   bounded_holdout_audit: configs/qiu_same_device_thermal_holdout_audit.yaml
   nonblocking_S1_mve: configs/geophase_phase1_s1_diffusive_sensitivity_mve.yaml

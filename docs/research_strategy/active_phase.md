@@ -20,6 +20,7 @@ energy ledgers. It is discretely independent from future PINN residual code.
 - `docs/research_strategy/phase1_geophase_2p5d_reference_v2_contract.md`
 - `configs/geophase_phase1_v2_s2_reference.yaml`
 - `configs/geophase_phase1_v2_formal_manifest.yaml`
+- `configs/geophase_phase1_v2_execution_addendum.yaml`
 - `configs/qiu_vo2_phase1_source_contract.yaml`
 - `configs/geo2p5d_stage.yaml`
 - `docs/method_equations.md`
