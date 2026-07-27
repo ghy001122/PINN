@@ -1,6 +1,6 @@
 # PINN Phase-Transition Device Research
 
-This repository is a reproducible Python 3.11 research codebase and evidence package for a Q2 SCI delivery objective. Phase 1 Checkpoint A contains an independent, conservative Qiu-inspired VO2 single-device 2.5D implementation, behavior tests, bounded smoke, and a locked 96-case manifest. The final bounded v8 vertical screen ended at `NO_GO_VERTICAL_REFERENCE`: both permitted fixed-bottom depth pairs passed their foundation checks but failed the separately scored effective-window-pullback raw depth-frequency gate. Checkpoint B remains blocked and the current local K-state route is stopped pending a user route decision. The formal campaign has not run (`formal_execution_count=0`); no Phase 1 scientific result, positive PINN result, inverse result, or experimental validation exists.
+This repository is a reproducible Python 3.11 research codebase and evidence package for a Q2 SCI delivery objective. The historical Phase 1 Checkpoint A implementation and final v8 screen ended the fixed-bottom material-stack/K-state route at `NO_GO_VERTICAL_REFERENCE`; its 96 items remain permanently `planned_not_executed`. The active Phase 1-v2 contract uses S2, a source-scale-preserving locally distributed single-RC nominal closure, while S1 diffusive memory is non-blocking model-form sensitivity. The fresh 63-item campaign has not run (`formal_execution_count=0`), and no Phase 1-v2 scientific result, positive PINN result, inverse result, or experimental validation exists.
 
 ## Workspace preflight
 
@@ -15,7 +15,7 @@ Read [LIVE_WORKSPACE.md](LIVE_WORKSPACE.md) before mutation. It distinguishes a 
 5. [NEXT_ACTIONS.md](NEXT_ACTIONS.md)
 6. [current_evidence_index.md](docs/project_state/current_evidence_index.md)
 7. [Q2 SCI execution guide](docs/research_strategy/pinn_phase_change_q2_sci_execution_guide.md)
-8. [Phase 1 technical contract](docs/research_strategy/phase1_geophase_2p5d_reference_contract.md)
+8. [Phase 1-v2 technical contract](docs/research_strategy/phase1_geophase_2p5d_reference_v2_contract.md)
 9. [Qiu Phase 1 source-only contract](configs/qiu_vo2_phase1_source_contract.yaml)
 
 `AGENTS.md` and nested `AGENTS.md` files govern execution, evidence, and claim discipline. Archived strategy and manuscripts are provenance only and cannot authorize current work.
@@ -24,7 +24,7 @@ Read [LIVE_WORKSPACE.md](LIVE_WORKSPACE.md) before mutation. It distinguishes a 
 
 | Route | Role | Current status |
 | --- | --- | --- |
-| R1 `HysGeo-Hybrid-PINN` | Minimum manuscript route: 2.5D geometry, white-box hysteresis, K-state thermal memory, differentiable port/RC/energy ledgers, and explicit sparse independent-solver anchors | candidate; result claim `forbidden` |
+| R1 `HysGeo-Hybrid-PINN` | Minimum manuscript route: 2.5D geometry, white-box hysteresis, source-scale-preserving S2 thermal closure, differentiable port/RC/energy ledgers, and explicit sparse independent-solver anchors | candidate; result claim `forbidden` |
 | R2 `GeoPhase-HomoMoE-PINN` | Preferred method route: R1 plus transition-localized spectral experts and dual-axis stiffness homotopy | candidate; result claim `forbidden` |
 | R3 conditional observable-subspace/OQ | Solver-first event-aligned local observable-subspace inverse, PINN sensitivity fidelity, and refusal | conditional candidate; result claim `forbidden` |
 

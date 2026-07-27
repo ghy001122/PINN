@@ -1,0 +1,156 @@
+task_id: Q2_PHASE1_V2_S1_DIFFUSIVE_SENSITIVITY_MVE
+schema_version: geophase_phase1_v2_s1_diffusive_sensitivity_mve_v1
+status: preregistered_not_started
+role: nonblocking_model_form_sensitivity_unless_eligible_independent_holdout_is_later_ingested_under_separate_authorization
+nominal_phase1v2_model: S2_source_scale_preserving_local_single_rc
+
+budget:
+  active_work_s_max: 86400
+  natural_elapsed_s_max: 172800
+  cpu_only: true
+  maximum_order: 3
+  additional_kernel_families: forbidden
+  may_delay_or_block_S2: false
+
+shared_source_moments:
+  active_plane_area_rule: vo2_length_times_vo2_width
+  Gtheta_W_K: 2.06e-4
+  Ctheta_low_frequency_coefficient_J_K: 4.96e-11
+  C_explicit_rule: integrate_nominal_geometry_vo2_plus_electrode_mask_ti_au_areal_capacities
+  C_m_rule: Ctheta_minus_nominal_C_explicit
+  C_m_must_be_positive: true
+  gtheta_A_rule: Gtheta_divided_by_active_plane_area
+  cm_A_rule: C_m_divided_by_active_plane_area
+  local_parameters: identical_in_every_active_plane_cell
+
+analytic_kernel:
+  thermal_port_convention: q_hat_equals_Y_times_delta_T_hat
+  impedance_definition: Z_equals_one_divided_by_Y
+  variable: complex_frequency_s_per_s
+  x_rule: square_root_of_s_times_tau_on_principal_branch
+  tau_rule: tau_equals_3_times_cm_A_divided_by_gtheta_A
+  areal_admittance_rule: Y_equals_gtheta_A_times_x_divided_by_tanh_x
+  areal_impedance_rule: Z_equals_one_over_gtheta_A_times_tanh_x_divided_by_x
+  low_frequency_admittance_identity: Y_equals_gtheta_A_plus_s_times_cm_A_plus_higher_order_terms
+  low_frequency_impedance_identity: Z_equals_one_over_gtheta_A_minus_s_times_cm_A_over_gtheta_A_squared_plus_higher_order_terms
+  R_infinity: 0.0
+  interpretation: positive_real_diffusive_engineering_prior_not_Qiu_identified_spectrum
+
+response_contract:
+  fitted_transfer_function: areal_thermal_impedance_Z
+  frequency_response: complex_Z_on_positive_angular_frequency_axis
+  step_response:
+    input: unit_areal_heat_flux_step
+    output: temperature_rise
+    amplitude_W_m2: 1.0
+  regularized_impulse_response:
+    input: unit_area_rectangular_areal_heat_pulse
+    output: temperature_rise
+    pulse_width_s: 1.0e-10
+    pulse_amplitude_W_m2: 1.0e10
+    ideal_t0_impulse_vote: forbidden
+  frequency_fit_grid_Hz: {kind: logspace, start: 1.0e3, stop: 1.0e10, points: 64}
+  frequency_validation_grid: geometric_midpoints_plus_endpoints_of_fit_grid
+  time_fit_grid_s: {kind: zero_plus_logspace, positive_start: 1.0e-11, stop: 2.0e-5, positive_points: 128}
+  time_validation_grid: zero_plus_geometric_midpoints_and_endpoint_of_fit_grid
+
+foster_reduction:
+  form: Z_K_equals_sum_k_Rk_over_one_plus_s_tauk
+  R_infinity: 0.0
+  common_order_and_elements_for_every_active_plane_cell: true
+  order_schedule: [2, 3]
+  order_2_failure_triggers_order_3: true
+  mixed_orders: forbidden
+  order_above_3: forbidden
+  exact_constraints:
+    dc: sum_Rk_equals_one_over_gtheta_A
+    first_moment: sum_Rk_tauk_equals_cm_A_over_gtheta_A_squared
+  parameterization: log_positive_Rk_and_log_positive_tauk_with_two_SLSQP_equality_constraints
+  optimizer:
+    name: scipy_optimize_minimize_SLSQP
+    maximum_iterations: 2000
+    ftol: 1.0e-12
+    equality_constraint_absolute_tolerance: 1.0e-12
+  deterministic_multistarts:
+    reference_time_constant_rule: tbar_equals_cm_A_divided_by_gtheta_A
+    start_weight_rule: minimum_l2_distance_to_uniform_weights_subject_to_sum_w_equals_1_sum_w_times_multiplier_equals_1_and_w_at_least_1e-6
+    starts:
+      - {id: S0, K2_multipliers: [0.25, 4.0], K3_multipliers: [0.25, 1.0, 4.0]}
+      - {id: S1, K2_multipliers: [0.10, 2.0], K3_multipliers: [0.10, 0.50, 2.0]}
+      - {id: S2, K2_multipliers: [0.50, 10.0], K3_multipliers: [0.50, 2.0, 10.0]}
+    additional_start: forbidden
+  fitting_objective:
+    formula: weighted_sum_of_mean_squared_normalized_fit_grid_errors
+    terms:
+      frequency_log_magnitude: {weight: 0.40, denominator: one_log_unit}
+      unit_heat_flux_step_temperature: {weight: 0.30, denominator: analytic_DC_temperature_rise}
+      unit_area_pulse_temperature: {weight: 0.30, denominator: max_reference_rms_and_1e-30_K}
+    fit_start_selection: minimum_objective_among_optimizer_success_finite_and_constraint_feasible_candidates
+    validation_start_reselection: forbidden
+
+cauer_conversion:
+  required: true
+  type: Cauer_II_driving_point_admittance
+  topology: shunt_areal_capacity_at_each_thermal_node_with_series_positive_thermal_resistance_and_terminal_positive_conductance_to_ambient
+  recurrence:
+    terminal: "Y_last(s) = s*C_last + G_terminal"
+    backward: "Y_j(s) = s*C_j + 1/(R_{j+1} + 1/Y_{j+1}(s))"
+    port: "Y_Cauer(s) = Y_0(s)"
+  conversion_algorithm: rational_polynomial_Euclidean_continued_fraction_of_the_selected_Foster_impedance
+  reconstruction_relative_error_max: 1.0e-10
+  element_requirements: [positive_C_j, positive_R_j, positive_G_terminal]
+  ledger:
+    stored_energy_rate: sum_over_nodes_C_j_times_dT_j_dt
+    terminal_sink: G_terminal_times_last_node_temperature_rise
+    internal_fluxes: pairwise_cancel
+    balance: port_heat_flux_equals_total_stored_energy_rate_plus_terminal_sink
+
+gates:
+  C_m_positive: required
+  dc_moment_relative_error_max: 1.0e-10
+  first_dynamic_moment_relative_error_max: 1.0e-10
+  step_nrmse_max: 5.0e-2
+  regularized_impulse_nrmse_max: 5.0e-2
+  frequency_log_magnitude_rmse_max: 5.0e-2
+  optimizer_success: required
+  finite_parameters: required
+  positive_Foster_elements: required
+  positive_Cauer_elements: required
+  strictly_negative_real_poles: required
+  positive_real_check:
+    objects: [Z_Foster, Y_Cauer]
+    grid: frequency_validation_grid_plus_DC_limit
+    minimum_real_part_relative_to_DC_scale: -1.0e-12
+  independent_Cauer_ledger_relative_residual_max: 1.0e-10
+
+production_selection:
+  production_selection_during_current_mve: forbidden
+  selection_thresholds_role: locked_future_eligibility_contract
+  eligible_holdout_requires_separate_ingestion_preregistration_and_authorization: true
+  no_eligible_holdout: S1_can_only_be_model_form_sensitivity
+  eligible_holdout_required_for_production: true
+  relative_error_improvement_over_S2_min: 0.20
+  effect_over_numerical_uncertainty_min: 3.0
+  independent_observations_or_windows_min: 2
+  self_fit_success_is_not_selection_evidence: true
+
+stop_rules:
+  K3_gate_failure: STOP_S1_MODEL_FORM_SENSITIVITY
+  optimization_failure_after_three_starts: STOP_S1_OPTIMIZATION
+  budget_exhaustion: STOP_S1_BUDGET
+  no_eligible_holdout: PASS_OR_FAIL_SENSITIVITY_ONLY_S2_REMAINS_NOMINAL
+  create_S1_1: forbidden
+
+outputs:
+  pointwise: outputs/tables/geophase_phase1_v2/s1_diffusive_pointwise.csv
+  fits: outputs/tables/geophase_phase1_v2/s1_diffusive_fits.csv
+  summary: outputs/tables/geophase_phase1_v2/s1_diffusive_mve_summary.json
+  report: docs/codex_reports/geophase_phase1_v2_s1_diffusive_mve.md
+
+claim_boundary:
+  allowed_without_holdout: a_positive_real_diffusive_model_form_sensitivity_was_or_was_not_approximated_by_common_K_at_most_3
+  forbidden_without_holdout:
+    - S1_is_more_physically_accurate_than_S2
+    - Qiu_diffusive_spectrum_identified
+    - material_derived_vertical_memory
+    - S1_is_a_manuscript_headline_contribution

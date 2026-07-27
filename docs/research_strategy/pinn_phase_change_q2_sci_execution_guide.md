@@ -1,6 +1,6 @@
 # PINN × 氧化物相变器件二区 SCI 研究执行总指南
 
-> **版本**：v1.1-repository-adapted（2026-07-26）  
+> **版本**：v1.2-phase1v2-s2（2026-07-27）  
 > **项目模式**：`Q2_SCI_DELIVERY_MODE`  
 > **时间约束**：以一个自然月完成核心研究与论文初稿为默认预算；若时间增加，只扩展已通过证据门的路线。  
 > **研究边界**：项目自身结果均为 **literature-guided synthetic numerical digital-twin evidence**；文献曲线数字化不等于自有实验，作者模型复现不等于独立实验验证。  
@@ -10,12 +10,14 @@
 
 ## Repository adaptation record
 
-The imported v1.0 source guide has SHA-256 `759DC17CBD7D6C884AF25F71ABF00ED833EEBDD7E7E477604B33EA7E6A75B517`. This repository copy is the canonical executable guide and intentionally records four bounded Phase 1 adaptations rather than silently changing the imported text:
+The imported v1.0 source guide has SHA-256 `759DC17CBD7D6C884AF25F71ABF00ED833EEBDD7E7E477604B33EA7E6A75B517`. This repository copy is the canonical executable guide and records the following bounded adaptations rather than silently changing the imported text:
 
 1. the active-phase path is the existing `docs/research_strategy/active_phase.md`;
 2. the numerical contract locks adaptive implicit backward Euler plus independent time refinement instead of leaving BDF/Radau as an implementation choice;
 3. the formal baseline resolves one device; nonzero dual-device coupling is deferred until an explicit substrate surface field or independently validated passive nonlocal kernel exists;
-4. source-author-fitted Qiu resistance and thermal quantities constrain only nominal device-effective uniform/global scales. Local stack models determine spatial and dynamic shape, and every use remains non-intrinsic, non-experimental, and non-validating.
+4. the v6-v8 material-stack/K-state route used source-author-fitted Qiu resistance and thermal quantities only as nominal device-effective scales; its failed pullback-depth result and unexecuted 96-item inventory remain immutable history;
+5. Phase 1-v2 replaces that active thermal route with S2, a locally distributed single-RC closure whose uniform-mode low-frequency coefficients preserve Qiu's device-level \(G_\theta,C_\theta\) semantics while VO2 and mask-local Ti/Au storage/conduction remain explicit in-plane;
+6. S1 positive-real diffusive memory is a bounded, non-blocking model-form sensitivity and cannot become nominal without independently eligible same-device thermal evidence and its preregistered effect-size gate.
 
 These adaptations narrow unsupported claims and remove implementation ambiguity. They do not upgrade any scientific result.
 
@@ -97,7 +99,7 @@ These adaptations narrow unsupported claims and remove implementation ambiguity.
 +
 \text{VO₂ 白盒迟滞核}
 +
-\text{K-state 垂向热记忆}
+\text{来源尺度保持的局部 S2 热闭包}
 +
 \text{端口/RC/能量闭环}
 +
@@ -244,7 +246,7 @@ J_{p,b}=\frac{\partial \mathbf y_{p,b}}{\partial\theta}
 - 外部负载电阻与约 0.15 nF 寄生电容；
 - R–T 主/次回线、静息、振荡和金属态锁定工况。
 
-文献拟合的热导和热容是包含 VO₂、电极和周围衬底的**器件级等效量**，不能写成 VO₂ 本征热参数。其拟合热容远大于仅按 VO₂ 体积估算的热容，正好支持建立垂向热记忆模型。
+文献拟合的热导和低频热导纳一阶系数是包含 VO₂、电极和周围衬底的**器件级等效量**，不能写成 VO₂ 本征热参数或可唯一分解的材料总热容。Phase 1-v2 只保持其均匀模态尺度；多时间尺度热谱若无独立同器件证据，只能作为 model-form sensitivity。
 
 ## 3.2 2.5D 电学方程
 
@@ -266,36 +268,43 @@ J_{p,b}=\frac{\partial \mathbf y_{p,b}}{\partial\theta}
 - 其余外边界：\(\mathbf J\cdot\mathbf n=0\)；
 - 若显式建接触层，采用接触电阻对应的 Robin/jump 条件。
 
-## 3.3 2.5D 热方程
+## 3.3 Phase 1-v2 2.5D 热方程
 
 \[
-\rho c_pt_{\mathrm{VO_2}}\frac{\partial T}{\partial t}
+\left[C_{\mathrm{plane}}^A(x,y)+c_m^A\right]\frac{\partial T}{\partial t}
 =
 \nabla_{\parallel}\cdot
-\left(k_{\parallel}t_{\mathrm{VO_2}}\nabla_{\parallel}T\right)
+\left(K_{\parallel}^A(x,y)\nabla_{\parallel}T\right)
 +t_{\mathrm{VO_2}}\sigma|\nabla_{\parallel}\phi|^2
--Q_z+Q_{\mathrm{couple}}.
+-g_\theta^A(T-T_0).
 \]
 
-## 3.4 K-state 垂向热记忆
-
-从 \(K=2\) 起步：
+其中 VO₂ 储热和面内导热覆盖整个 active plane，Ti/Au 只在 electrode mask 内显式加入。对 \(A=LW\)：
 
 \[
-C_1\dot z_1=G_0(T-z_1)-G_1(z_1-z_2),
-\]
-
-\[
-C_2\dot z_2=G_1(z_1-z_2)-G_2(z_2-T_0),
+C_{\mathrm{explicit}}=\int_\Omega C_{\mathrm{plane}}^A\,dA,
+\qquad
+C_m=C_\theta-C_{\mathrm{explicit}}>0,
 \]
 
 \[
-Q_z=G_0(T-z_1).
+c_m^A=\frac{C_m}{A},
+\qquad
+g_\theta^A=\frac{G_\theta}{A}.
 \]
 
-K-state 必须通过高阶热核、细化 3D/2.5D 参考模型或文献 ODE 响应进行阶数选择。不能只因为 K=2 看起来复杂就采用。
+S2 是 nominal，且没有独立垂向温度状态。\(C_\theta\) 的语义是均匀模态低频热导纳的一阶系数，不是材料热容的可测简单求和。账本按实际状态容量计数一次。
 
-Phase 1 的局部材料栈只提供被动热阻抗的相对形状。名义器件上，区域热核的面积积分直流热导和总储热量必须分别归一到 Qiu 作者拟合的器件级 \(S_{\mathrm{th}}\) 与 \(C_{\mathrm{th}}\)；其中显式 VO₂ 面内储热先从目标总热容中扣除。该归一化是 source-author-model scale anchoring，不是局部材料参数测量、仓库侧曲线拟合或独立实验校准。
+## 3.4 S1 正实扩散敏感性
+
+\[
+Y_{\mathrm{S1}}(s)
+=g_\theta^A\frac{\sqrt{s\tau}}{\tanh\sqrt{s\tau}},
+\qquad
+\tau=\frac{3c_m^A}{g_\theta^A}.
+\]
+
+S1 只允许一个解析族，共同 \(K=2\) 失败后才可共同 \(K=3\)，不得混合阶数或更高阶。自拟合通过不构成采用理由；无合格同器件 thermal holdout 时，S1 永远只是 model-form sensitivity，不能替换 S2 nominal。
 
 ## 3.5 VO₂ 白盒迟滞闭包
 
@@ -387,13 +396,13 @@ R_0\exp\left[
 
 以下模块均需保留在项目方法资产库中。`强力推荐` 表示进入当前主线；`可以尝试` 表示通过前置 gate 后启动；`低价值/高风险` 表示保留为基线、负例或未来路线；`红线` 表示禁止作为正面方法。
 
-## A′：2.5D Geometry + K-state Thermal Memory
+## A″：2.5D Geometry + Source-Scale-Preserving Thermal Closure
 
-- **来源思想**：薄膜降阶、多层热 RC、器件级等效热参数；
-- **魔改**：真实面内连续场＋垂向低阶动态热记忆；
+- **来源思想**：器件级等效热参数、面内守恒降阶和低频热导纳矩；
+- **魔改**：真实面内连续场＋局部统一、按面积归一化的 S2 nominal；S1 仅作正实扩散 model-form sensitivity；
 - **解决问题**：一维 `gamma_sub` 物理语义悬空、完整 3D 成本过高；
 - **判定**：**强力推荐**；
-- **论文角色**：主物理贡献。
+- **论文角色**：来源语义保持的数值物理底座；多时间尺度热记忆不是当前主贡献。
 
 ## B′：VO₂ White-box Hysteretic Conductivity Kernel
 
@@ -732,8 +741,10 @@ src/pinnpcm/
 ### 1.2 热子问题
 
 - 面内扩散＋焦耳热；
-- 裸露 VO₂ 区与电极覆盖 VO₂ 区分别采用 K-state 垂向热记忆，禁止重复计入 active-plane VO₂ 储能；
-- 高阶局部材料栈只决定热阻抗形状；名义区域核的面积积分 \(G\) 和总 \(C\) 分别归一到 source-author-fitted device-scale anchors，并先扣除显式 active-plane VO₂ 热容；
+- VO₂ 在整个 active plane 显式储热和面内导热，Ti/Au 只在 electrode mask 内显式加入；
+- S2 nominal 将 Qiu 器件级 \(G_\theta,C_\theta\) 映射为局部统一、按 active area 归一化的垂向 sink 与有效低频容量系数，不增加独立垂向状态；
+- \(C_m=C_\theta-C_{\mathrm{explicit}}>0\) 必须 fail closed，且 contact-overlap audit 冻结 nominal \(c_m^A\)，不得为每个改动几何重新归一化；
+- S1 正实扩散核仅在独立配置中作非阻塞 model-form sensitivity；无合格同器件 thermal holdout 时不得成为 production reference；
 - 自适应隐式 backward Euler 推进，并进行独立时间步细化；
 - Phase 1 正式基线只解析单 neuristor；双器件仅用两个独立副本验证零耦合与标签对称性。
 
@@ -743,7 +754,7 @@ src/pinnpcm/
 
 - 无焦耳热冷却解析极限；
 - 稳态热阻极限；
-- K-state 阶跃响应；
+- 强制均匀温度 S2 manufactured response 与局部单元 backward-Euler 极限；
 - 时间步细化；
 - 能量账本。
 
@@ -783,7 +794,7 @@ src/pinnpcm/
 构造参数化数据集：
 
 - 几何：长度、宽度、电极搭接、相邻间距；
-- 物理：\(G_k,C_k,T_c^\uparrow,T_c^\downarrow,w_T,\tau_s,R_c\)；
+- 物理：\(G_\theta,C_\theta,T_c^\uparrow,T_c^\downarrow,w_T,\tau_s,R_c\)；S1 参数不进入 nominal 数据集；
 - 协议：偏压、脉冲、\(R_L,C_p\)；
 - 工况：静息、振荡、锁定、双器件耦合。
 
@@ -794,7 +805,7 @@ src/pinnpcm/
 - interpolation split；
 - unseen voltage/protocol split；
 - unseen geometry split；
-- unseen thermal-memory split；
+- unseen device-effective thermal-scale split；
 - noisy/jitter split；
 - model-mismatch split。
 
@@ -887,7 +898,8 @@ V_{\mathrm{in}},R_L,C_p,\theta_g,\theta_p].
 
 - anchor 比例 0、极少量、较多；
 - free `log_sigma` vs white-box；
-- 单 `gamma_eff` vs K-state；
+- 旧 1D lumped thermal baseline vs 保持同一 \(G_\theta,C_\theta\) 的局部分布式 S2；
+- electrode-mask Ti/Au 显式热贡献 on/off；S1 只在独立 sensitivity 附录中比较；
 - 直接回归电流 vs 可微端口积分；
 - 软边界 vs 硬边界。
 
@@ -1086,7 +1098,7 @@ R3 失败不影响 R1/R2 投稿。任何时候都不得为了保住 “OQ” 名
 ## 推荐六张主图
 
 1. **Fig. 1**：真实器件、2.5D 物理图和网络总框架；
-2. **Fig. 2**：FVM 验证、K-state 热记忆和能量账本；
+2. **Fig. 2**：FVM 验证、S2 来源尺度保持热闭包、S1 model-form sensitivity（若完成）和能量账本；
 3. **Fig. 3**：R1 场与端口预测、未见协议泛化；
 4. **Fig. 4**：MoE＋homotopy 的刚性相图和消融；
 5. **Fig. 5**：observable-subspace、sensitivity fidelity 和 refusal；
@@ -1169,7 +1181,7 @@ R3 失败不影响 R1/R2 投稿。任何时候都不得为了保住 “OQ” 名
 
 ### R1 摘要核心句
 
-> We develop a geometry-aware 2.5D hybrid physics-informed digital twin that couples in-plane electrothermal fields with reduced vertical thermal memory, a white-box hysteretic conductivity closure, differentiable terminal fluxes, and an external RC circuit.
+> We develop a geometry-aware 2.5D hybrid physics-informed digital twin that couples in-plane electrothermal fields with a source-scale-preserving locally distributed thermal closure, a white-box hysteretic conductivity model, differentiable terminal fluxes, and an external RC circuit.
 
 ### R2 追加句
 
@@ -1183,9 +1195,9 @@ R3 失败不影响 R1/R2 投稿。任何时候都不得为了保住 “OQ” 名
 
 ## 9.3 三条贡献的推荐表述
 
-### Contribution 1：真实结构与守恒降阶
+### Contribution 1：真实面内场与来源语义保持的热闭包
 
-提出面向共面 VO₂ thermal neuristor 的守恒 2.5D 物理信息数字孪生，将真实面内电热场、垂向多状态热记忆、端口积分和外部 RC 电路统一到同一计算图中。
+提出面向共面 VO₂ thermal neuristor 的守恒 2.5D 物理信息数字孪生，将真实面内电热场、保持器件级低频热矩语义的局部 S2 热闭包、端口积分和外部 RC 电路统一到同一计算图中。S1 多时间尺度扩散核只有在独立同器件证据通过预注册选择门后才可升级；否则仅进入 model-form sensitivity。
 
 ### Contribution 2：相变局域表示与双轴刚性同伦
 
@@ -1387,7 +1399,7 @@ R3 失败不影响 R1/R2 投稿。任何时候都不得为了保住 “OQ” 名
 
 ## Q3：2.5D 是否过度简化？
 
-回答重点：由完整 3D 成本和历史失败推动的守恒降阶；K-state 通过高阶热核拟合和能量账本验证；明确适用范围。
+回答重点：由完整 3D 成本和历史失败推动的守恒降阶；S2 只保持来源可支持的器件级低频热矩，不从这些整体量虚构局部材料栈或热谱；通过 manufactured、细化和能量账本验证数值实现，并明确适用范围。S1 若无独立 holdout 只作为模型形式敏感性。
 
 ## Q4：参数是否真的可辨识？
 

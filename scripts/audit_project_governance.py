@@ -36,6 +36,7 @@ REQUIRED = [
     "docs/research_strategy/active_phase.md",
     "docs/research_strategy/pinn_phase_change_q2_sci_execution_guide.md",
     "docs/research_strategy/phase1_geophase_2p5d_reference_contract.md",
+    "docs/research_strategy/phase1_geophase_2p5d_reference_v2_contract.md",
     "docs/research_strategy/current_research_handoff.md",
     "docs/research_strategy/context_index.md",
     "docs/research_strategy/context_loading_policy.md",
@@ -51,8 +52,17 @@ REQUIRED = [
     "docs/archive/superseded_strategy/README.md",
     "configs/geo2p5d_stage.yaml",
     "configs/geophase_phase1_2p5d_reference.yaml",
+    "configs/geophase_phase1_v2_s2_reference.yaml",
+    "configs/geophase_phase1_v2_formal_manifest.yaml",
+    "configs/geophase_phase1_s1_diffusive_sensitivity_mve.yaml",
+    "configs/qiu_same_device_thermal_holdout_audit.yaml",
     "configs/qiu_vo2_phase1_source_contract.yaml",
     "tests/test_geophase_phase1_preregistration.py",
+    "tests/test_geophase_phase1_v2_preregistration.py",
+    "outputs/tables/geophase_phase1_v2/preregistration.json",
+    "outputs/tables/geophase_phase1_v2/formal_evaluation_manifest.csv",
+    "outputs/tables/geophase_phase1_v2/formal_evaluation_manifest.json",
+    "docs/codex_reports/geophase_phase1_v2_s2_preregistration_2026-07-27.md",
     "scripts/audit_repository_realignment.py",
     "outputs/tables/repository_file_disposition.csv",
     "outputs/tables/repository_realign_phase0_summary.json",
@@ -160,7 +170,7 @@ def check_phase_consistency() -> dict:
         "NEXT_ACTIONS.md",
         "docs/research_strategy/current_research_handoff.md",
         "configs/geo2p5d_stage.yaml",
-        "configs/geophase_phase1_2p5d_reference.yaml",
+        "configs/geophase_phase1_v2_s2_reference.yaml",
     ]}
     actual = phase_id(active)
     missing: list[str] = []
@@ -231,7 +241,8 @@ def check_claim_matrix_vocabulary() -> dict:
     obsolete_terms = ["partially_supported", "| failed |", "| Blocked |", "| Not supported |"]
     obsolete = [term for term in obsolete_terms if term in text]
     missing = [marker for marker in [
-        "P1_reference_solver",
+        "P1_v6_v8_material_stack_reference",
+        "P1v2_s2_reference_solver",
         "R1_hysgeo_hybrid",
         "R2_homomoe",
         "R3_observable_subspace",
@@ -426,12 +437,69 @@ def check_phase1_contract_hardening() -> dict:
         missing.append("config:historical_inherited_provenance_config_present")
     guide = read("docs/research_strategy/pinn_phase_change_q2_sci_execution_guide.md")
     for marker in [
-        "v1.1-repository-adapted",
+        "v1.2-phase1v2-s2",
         "759DC17CBD7D6C884AF25F71ABF00ED833EEBDD7E7E477604B33EA7E6A75B517",
         "Repository adaptation record",
     ]:
         if marker not in guide:
             missing.append(f"guide:{marker}")
+    return {"status": "pass" if not missing else "fail", "missing": missing}
+
+
+def check_phase1v2_preregistration() -> dict:
+    config = read("configs/geophase_phase1_v2_s2_reference.yaml")
+    contract = read(
+        "docs/research_strategy/phase1_geophase_2p5d_reference_v2_contract.md"
+    )
+    manifest = read("configs/geophase_phase1_v2_formal_manifest.yaml")
+    preregistration = json.loads(
+        read("outputs/tables/geophase_phase1_v2/preregistration.json")
+    )
+    required_config_markers = [
+        "schema_version: geophase_phase1_v2_s2_reference_v1",
+        "task_id: Q2_PHASE1_V2_S2_REFERENCE",
+        "formal_execution_count: 0",
+        "formal_evaluation_item_total: 63",
+        "nominal_vertical_memory_state_fields: []",
+        "phase1v2_source_allowlist:",
+        "overlap_audit_memory_rule:",
+        "S1_sensitivity_route:",
+    ]
+    required_contract_markers = [
+        "S2 nominal thermal closure",
+        "63 evaluation items",
+        "formal execution count is zero",
+        "failed_but_informative",
+    ]
+    contract_normalized = " ".join(contract.split())
+    required_manifest_markers = [
+        "schema_version: geophase_phase1_v2_formal_manifest_v1",
+        "total_evaluation_items: 63",
+        "unique_execution_units: 60",
+        "reused_evaluation_items: 3",
+        "S1_items_in_formal_manifest: forbidden",
+    ]
+    missing = [
+        f"config:{marker}"
+        for marker in required_config_markers
+        if marker not in config
+    ]
+    missing.extend(
+        f"contract:{marker}"
+        for marker in required_contract_markers
+        if marker not in contract_normalized
+    )
+    missing.extend(
+        f"manifest:{marker}"
+        for marker in required_manifest_markers
+        if marker not in manifest
+    )
+    if preregistration.get("formal_execution_count") != 0:
+        missing.append("preregistration:formal_execution_count")
+    if preregistration.get("evaluation_item_count") != 63:
+        missing.append("preregistration:evaluation_item_count")
+    if preregistration.get("status") != "preregistered_not_executed":
+        missing.append("preregistration:status")
     return {"status": "pass" if not missing else "fail", "missing": missing}
 
 
@@ -469,6 +537,7 @@ def run_audit(write_output: bool = True, require_frozen_payloads: bool = True) -
     checks["workspace_routing_and_hygiene"] = check_workspace_routing_and_hygiene()
     checks["local_external_asset_registry"] = check_local_external_asset_registry()
     checks["phase1_contract_hardening"] = check_phase1_contract_hardening()
+    checks["phase1v2_preregistration"] = check_phase1v2_preregistration()
 
     critical_text = "\n".join(read(rel) for rel in ["AGENTS.md", "PROJECT_GOAL.md", "PROJECT_STATE.md", "NEXT_ACTIONS.md"])
     all_present = all(status in critical_text for status in CLAIM_STATUSES)

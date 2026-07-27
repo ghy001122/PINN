@@ -1,0 +1,143 @@
+task_id: Q2_PHASE1_V2_S1_DIFFUSIVE_SENSITIVITY_MVE_V2
+schema_version: geophase_phase1_v2_s1_diffusive_sensitivity_mve_v2
+status: preregistered_amendment_pending_push_no_numerical_fit_executed
+role: nonblocking_model_form_sensitivity_only_without_eligible_same_device_holdout
+
+supersedes:
+  path: configs/geophase_phase1_s1_diffusive_sensitivity_mve.yaml
+  sha256: ea9262ddb8730b183a9335f2e31eb0b172012c2e4b84bcab5c3e39b925d418ca
+  reason: >-
+    Read-only implementation review found that optimizer failure could bypass
+    eligibility, the proposed ledger was algebraically self-cancelling, and
+    the analytic time-reference truncation was not registered. No S1 fit or
+    S1 numerical response evaluation occurred under the superseded contract.
+  unchanged_fields_remain_authoritative: true
+  amendment_precedence: this_file_overrides_only_the_fields_declared_below
+
+execution_boundary:
+  preregistration_commit_must_be_pushed_before_any_S1_numerical_fit: true
+  formal_execution_count: 0
+  formal_artifacts: forbidden
+  production_selection: forbidden_without_separately_ingested_eligible_holdout
+  may_delay_or_block_S2: false
+  cpu_only: true
+  active_work_s_max: 86400
+  natural_elapsed_s_max: 172800
+
+source_scale_identity:
+  authoritative_derivation: >-
+    derive_nominal_s2_source_scale using
+    configs/geophase_phase1_v2_s2_reference.yaml
+  mirrored_S1_values_must_match_S2_exactly: true
+  S2_config_path: configs/geophase_phase1_v2_s2_reference.yaml
+  S2_config_sha256: 0600498590a8c100ec8dee95621719ea655354ec118015868cb07fedf89f85d5
+  required_fields: [active_plane_area_m2, C_explicit_J_K, C_m_J_K, gtheta_A_W_m2K, cm_A_J_m2K]
+  C_m_must_be_positive: true
+
+analytic_reference_control:
+  production_modal_terms: 16384
+  comparator_modal_terms: 32768
+  evaluation_chunk_terms: 2048
+  reference_discrepancy_max: 5.0e-4
+  discrepancy_domains:
+    - unit_areal_heat_flux_step_on_fit_grid
+    - unit_areal_heat_flux_step_on_validation_grid
+    - regularized_areal_heat_pulse_on_fit_grid
+    - regularized_areal_heat_pulse_on_validation_grid
+  pulse_event_audit_times_relative_to_width: [0.999, 1.0, 1.001]
+  comparator_failure_disposition: STOP_S1_REFERENCE_EVALUATION
+
+optimizer_safety:
+  parameter_coordinates: normalized_log_weights_then_normalized_log_time_multipliers
+  log_bounds:
+    normalized_weight: {minimum: -27.631021115928547, maximum: 0.0}
+    normalized_time_multiplier: {minimum: -18.420680743952367, maximum: 18.420680743952367}
+  decoded_bounds:
+    normalized_weight: {minimum: 1.0e-12, maximum: 1.0}
+    normalized_time_multiplier: {minimum: 1.0e-8, maximum: 1.0e8}
+  finite_penalty: 1.0e100
+  overflow_or_construction_exception: isolate_start_and_mark_ineligible
+  boundary_hit_tolerance_log_coordinate: 1.0e-7
+  boundary_hit: ineligible
+  additional_multistart: forbidden
+
+candidate_eligibility:
+  single_authoritative_aggregator: candidate_eligible
+  all_required:
+    - optimizer_success
+    - finite_objective
+    - finite_parameters
+    - equality_constraints_feasible
+    - no_optimizer_exception
+    - no_parameter_bound_hit
+    - positive_Foster_elements
+  equality_constraint_absolute_tolerance: 1.0e-12
+  selection_rule: >-
+    Select the minimum training objective only among eligible starts, then
+    validate that single start. Validation may not reselect a start.
+  all_starts_ineligible_disposition: STOP_S1_OPTIMIZATION
+  selected_model_gate_failure_disposition: STOP_S1_MODEL_FORM_SENSITIVITY
+
+cauer_embedding_and_validation:
+  topology: Cauer_II_with_port_capacity_shared_with_active_plane_temperature
+  port_node: resolved_active_plane_temperature_T
+  independent_vertical_state_count: K_minus_1
+  duplicate_port_temperature_state: forbidden
+  actual_storage: >-
+    C_plane_A_plus_C0 at T plus Cj at each independent vertical state;
+    no claim that the arithmetic sum of Cauer capacities equals C_m or Ctheta
+  transfer_checks:
+    - DC_impedance
+    - first_low_frequency_impedance_moment
+    - continued_fraction_frequency_response
+    - state_space_frequency_response
+    - Foster_Cauer_step_response
+    - Foster_Cauer_regularized_pulse_response
+  reconstruction_relative_error_max: 1.0e-10
+  backward_euler_ledger:
+    required: true
+    time_step_s: 1.0e-9
+    steps: 8
+    port_heat_flux_W_m2: 1.0
+    initial_temperature_rise_K: 0.0
+    relative_residual_max: 1.0e-10
+    evaluation: >-
+      Assemble and solve the Cauer backward-Euler system, then compute storage
+      from independent state increments and sink from the terminal node.
+    negative_controls: [tamper_storage, tamper_terminal_sink]
+
+validation_amendments:
+  Cauer_reconstruction_gate_source: cauer_embedding_and_validation.reconstruction_relative_error_max
+  regularized_pulse_event_points_must_be_in_pointwise_output: true
+  K_schedule: [2, 3]
+  common_order_only: true
+  mixed_order: forbidden
+  order_above_3: forbidden
+  K2_pass_stops_before_K3: true
+  K2_failure_is_only_trigger_for_K3: true
+
+runner_contract:
+  path: scripts/run_geophase_phase1_s1_diffusive_mve.py
+  output_order: [fits_csv_atomic, pointwise_csv_atomic, summary_json_atomic, report_markdown]
+  formal_ID_prefix: forbidden
+  result_may_change_nominal_S2: false
+  no_holdout_requires:
+    production_selected: false
+    S2_remains_nominal: true
+
+outputs:
+  preregistration: outputs/tables/geophase_phase1_v2/s1_diffusive_mve_v2_preregistration.json
+  fits: outputs/tables/geophase_phase1_v2/s1_diffusive_mve_v2_fits.csv
+  pointwise: outputs/tables/geophase_phase1_v2/s1_diffusive_mve_v2_pointwise.csv
+  summary: outputs/tables/geophase_phase1_v2/s1_diffusive_mve_v2_summary.json
+  report: docs/codex_reports/geophase_phase1_v2_s1_diffusive_mve_v2.md
+
+claim_boundary:
+  maximum_without_holdout: >-
+    The preregistered analytic S1 sensitivity was or was not approximated by
+    a passive common K at most 3 model within its self-consistency windows.
+  forbidden_without_holdout:
+    - S1_is_more_physically_accurate_than_S2
+    - Qiu_diffusive_spectrum_identified
+    - S1_is_a_production_reference
+    - S1_is_a_manuscript_headline_contribution

@@ -1,18 +1,29 @@
-schema_version: geo2p5d_stage_v1
+schema_version: geo2p5d_stage_v2
 delivery_mode: Q2_SCI_DELIVERY_MODE
 current_phase: Q2_PHASE1_2P5D_REFERENCE_SOLVER
-current_checkpoint: B_READINESS_V8_NO_GO_VERTICAL_REFERENCE
+current_checkpoint: PHASE1_V2_S2_SMOKE_PASS_PENDING_FORMAL_READINESS
 formal_execution_count: 0
-formal_campaign_authorization: blocked_no_authorized_compute_task_pending_user_model_or_route_decision
+formal_campaign_authorization: blocked_pending_phase1v2_runtime_runner_readiness_and_fresh_user_authorization
 evidence_type: literature_guided_synthetic_numerical_digital_twin
 
 authority:
   execution_guide: docs/research_strategy/pinn_phase_change_q2_sci_execution_guide.md
   active_phase: docs/research_strategy/active_phase.md
-  current_contract: docs/research_strategy/phase1_geophase_2p5d_reference_contract.md
-  phase1_config: configs/geophase_phase1_2p5d_reference.yaml
+  current_contract: docs/research_strategy/phase1_geophase_2p5d_reference_v2_contract.md
+  phase1_config: configs/geophase_phase1_v2_s2_reference.yaml
+  phase1_manifest: configs/geophase_phase1_v2_formal_manifest.yaml
   phase1_source_contract: configs/qiu_vo2_phase1_source_contract.yaml
+  bounded_holdout_audit: configs/qiu_same_device_thermal_holdout_audit.yaml
+  nonblocking_S1_mve: configs/geophase_phase1_s1_diffusive_sensitivity_mve.yaml
+  nonblocking_S1_mve_amendment: configs/geophase_phase1_s1_diffusive_sensitivity_mve_v2.yaml
+  nonblocking_S1_disposition: outputs/tables/geophase_phase1_v2/s1_diffusive_mve_v2_interruption_disposition.json
   claim_matrix: docs/paper/final_claim_matrix.md
+
+nonblocking_S1_state:
+  status: closed_infrastructure_blocked_before_atomic_evidence
+  rerun_authorization: forbidden_without_fresh_user_authorization
+  may_block_S2: false
+  production_selected: false
 
 routes:
   R1:
@@ -39,7 +50,7 @@ routes:
 
 phase_sequence:
   - {phase: 0, id: Q2_PHASE0_REPOSITORY_GOVERNANCE, status: complete_governance_only}
-  - {phase: 1, id: Q2_PHASE1_2P5D_REFERENCE_SOLVER, status: v8_no_go_vertical_reference_current_k_state_route_stopped}
+  - {phase: 1, id: Q2_PHASE1_2P5D_REFERENCE_SOLVER, status: phase1v2_s2_smoke_pass_pending_formal_readiness}
   - {phase: 2, id: Q2_PHASE2_DATASET_AND_SPLITS, status: blocked_by_phase1}
   - {phase: 3, id: Q2_PHASE3_BASELINES, status: blocked_by_phase2}
   - {phase: 4, id: Q2_PHASE4_R1_HYSGEO_HYBRID_PINN, status: blocked_by_phase3}
@@ -63,3 +74,14 @@ global_claim_boundary:
   terminal_only_arbitrary_full_field_recovery: forbidden
   full_fem_or_3d_equivalence: forbidden
   vo2_to_nbo2_zero_shot: forbidden
+
+retained_phase1_history:
+  v6_config: configs/geophase_phase1_2p5d_reference.yaml
+  v6_config_sha256: 0361f609faf56cbc542f07be65abece0b8875aa0f9f8f9ea2539c098d2efdab1
+  v7_config: configs/geophase_phase1_vertical_repair_v7.yaml
+  v7_config_sha256: 5ab66fb41b9af6fd605c351a86fa5928712528fcad8c9bc26cc55d18a0a92a18
+  v8_config: configs/geophase_phase1_vertical_shape_scale_v8.yaml
+  v8_config_sha256: e047d7963c646cabdec9796a2f227c159750a76170805a6f02021e6fff24b00b
+  v8_disposition: failed_but_informative_NO_GO_VERTICAL_REFERENCE
+  old_96_item_manifest_sha256: a617284bd8890adcab105851095801b6067307e5c85acfeb9b8a84c8467be045
+  old_96_item_status: permanently_planned_not_executed

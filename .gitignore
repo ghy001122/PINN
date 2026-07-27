@@ -220,6 +220,24 @@ outputs/tables/geophase_phase1/readiness_v8/*
 !outputs/tables/geophase_phase1/readiness_v8/runtime_preflight.json
 !outputs/tables/geophase_phase1/readiness_v8/formal_runner_readiness.json
 !outputs/tables/geophase_phase1/readiness_v8/environment_manifest.json
+
+# Phase 1-v2 lightweight preregistration and non-voting evidence only.
+# Formal result files remain ignored until a separately authorized campaign.
+!outputs/tables/geophase_phase1_v2/
+outputs/tables/geophase_phase1_v2/*
+!outputs/tables/geophase_phase1_v2/preregistration.json
+!outputs/tables/geophase_phase1_v2/formal_evaluation_manifest.csv
+!outputs/tables/geophase_phase1_v2/formal_evaluation_manifest.json
+!outputs/tables/geophase_phase1_v2/s1_diffusive_mve_v2_preregistration.json
+!outputs/tables/geophase_phase1_v2/s2_smoke_summary.json
+!outputs/tables/geophase_phase1_v2/s2_smoke_ledgers.csv
+!outputs/tables/geophase_phase1_v2/s2_smoke_implementation_repair.json
+!outputs/tables/geophase_phase1_v2/qiu_same_device_thermal_holdout_audit.csv
+!outputs/tables/geophase_phase1_v2/qiu_same_device_thermal_holdout_audit.json
+!outputs/tables/geophase_phase1_v2/s1_diffusive_mve_v2_fits.csv
+!outputs/tables/geophase_phase1_v2/s1_diffusive_mve_v2_pointwise.csv
+!outputs/tables/geophase_phase1_v2/s1_diffusive_mve_v2_summary.json
+!outputs/tables/geophase_phase1_v2/s1_diffusive_mve_v2_interruption_disposition.json
 !outputs/tables/gamma_sub_evidence_lock_summary.json
 !outputs/tables/vo2_d0a_source_discrepancies.csv
 !outputs/tables/vo2_d0a_source_reproduction.json

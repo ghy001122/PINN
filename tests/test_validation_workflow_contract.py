@@ -25,6 +25,12 @@ def test_fast_validation_covers_phase1_checkpoint_a_and_authority_paths() -> Non
     required_tests = (
         "tests/test_geophase_phase1_solver.py",
         "tests/test_geophase_phase1_checkpoint_a_evidence.py",
+        "tests/test_geophase_phase1_v2_preregistration.py",
+        "tests/test_geophase_phase1_s1_diffusive_mve_v2_preregistration.py",
+        "tests/test_geophase_phase1_s1_diffusive_mve.py",
+        "tests/test_geophase_phase1_v2_solver.py",
+        "tests/test_geophase_phase1_v2_smoke_evidence.py",
+        "tests/test_qiu_same_device_thermal_holdout_audit.py",
         "tests/test_geophase_phase1_vertical_repair_preregistration.py",
         "tests/test_geophase_phase1_vertical_repair.py",
         "tests/test_geophase_phase1_vertical_repair_evidence.py",

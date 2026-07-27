@@ -57,9 +57,14 @@ def test_geophase_phase1_identity_and_fail_closed_scope() -> None:
     assert execution["full_3d"] == "forbidden"
 
     stage = _stage()
-    assert stage["current_checkpoint"] == "B_READINESS_V8_NO_GO_VERTICAL_REFERENCE"
-    assert stage["formal_execution_count"] == 0
-    assert stage["formal_campaign_authorization"].startswith("blocked_")
+    history = stage["retained_phase1_history"]
+    assert history["v8_disposition"] == (
+        "failed_but_informative_NO_GO_VERTICAL_REFERENCE"
+    )
+    assert history["v6_config_sha256"] == (
+        "0361f609faf56cbc542f07be65abece0b8875aa0f9f8f9ea2539c098d2efdab1"
+    )
+    assert history["old_96_item_status"] == "permanently_planned_not_executed"
 
     branch = cfg["state_contract"]["branch_closure"]
     assert branch["kind"] == "bounded_rate_activated_directional_memory"
@@ -413,7 +418,7 @@ def test_active_equation_and_output_contracts_are_routed() -> None:
     cfg = _config()
     equations = (ROOT / "docs" / "method_equations.md").read_text(encoding="utf-8")
     for marker in (
-        "Active Phase 1 and R1-R3 2.5D Contract",
+        "Historical Phase 1 v6-v8 material-stack/K-state contract",
         r"\mathbf K=-t_{\mathrm{pcm}}",
         "region-specific",
         "effective conductive-state coordinate",

@@ -14,14 +14,16 @@
 - `PROJECT_STATE.md`: single current fact snapshot.
 - `NEXT_ACTIONS.md`: single active task.
 - `docs/research_strategy/pinn_phase_change_q2_sci_execution_guide.md`: complete research strategy, phase ladder, downgrade rules, and writing guide.
-- `docs/research_strategy/phase1_geophase_2p5d_reference_contract.md`: current phase-only technical contract.
+- `docs/research_strategy/phase1_geophase_2p5d_reference_v2_contract.md`: current Phase 1-v2 S2 technical contract.
+- `configs/geophase_phase1_v2_s2_reference.yaml` and `configs/geophase_phase1_v2_formal_manifest.yaml`: current machine-readable S2 and formal-inventory locks.
+- `configs/geophase_phase1_s1_diffusive_sensitivity_mve.yaml` and `configs/qiu_same_device_thermal_holdout_audit.yaml`: bounded non-blocking auxiliary contracts.
 - `configs/qiu_vo2_phase1_source_contract.yaml`: Qiu source facts, fitted-lumped values, engineering priors, unresolved semantics, and historical non-inheritance boundary.
 - `docs/research_strategy/sci_delivery_pipeline.md`: reusable evidence lifecycle.
 - `docs/project_state/current_evidence_index.md`: current/historical/candidate/forbidden evidence routing.
 
 ## Task Routing
 
-- Physics, equations, materials, geometry, or provenance: load `docs/method_equations.md`, the Phase 1 config, the source-only contract, and only the relevant physics/provenance files.
+- Physics, equations, materials, geometry, or provenance: load `docs/method_equations.md`, the Phase 1-v2 config/manifest, the source-only contract, and only the relevant physics/provenance files.
 - Code or tests: load the applicable nested `AGENTS.md`, config, implementation, and focused tests.
 - Claims or manuscript: load `docs/project_prompts/critical_research_mode.md`, `docs/paper/final_claim_matrix.md`, and only the relevant manuscript component.
 - Historical reproduction or reviewer defense: use `docs/archive/README.md`, registries, and the named report/artifact. Archived documents never authorize current work.

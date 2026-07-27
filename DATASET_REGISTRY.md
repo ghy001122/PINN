@@ -483,3 +483,27 @@ diagnostics and blocked-status metadata only; the two K-state CSVs contain no
 fit results. No production depth was selected, formal execution count remains
 `0`, all 96 formal cases remain `planned_not_executed`, and frozen GT v1.1 is
 unchanged.
+
+## Phase 1-v2 S2 Readiness Disposition
+
+No scientific, training, Ground Truth, or formal solver dataset was generated.
+The Phase 1-v2 preregistration JSON and 63-row formal evaluation manifest remain
+config-derived governance metadata; every evaluation item is
+`planned_not_executed` and formal execution count is zero.
+
+The following lightweight files are bounded, non-voting readiness evidence and
+must not train a PINN or support a Phase 1 scientific-pass claim:
+
+- `outputs/tables/geophase_phase1_v2/s2_smoke_summary.json`
+- `outputs/tables/geophase_phase1_v2/s2_smoke_ledgers.csv`
+- `outputs/tables/geophase_phase1_v2/s2_smoke_implementation_repair.json`
+- `outputs/tables/geophase_phase1_v2/qiu_same_device_thermal_holdout_audit.csv`
+- `outputs/tables/geophase_phase1_v2/qiu_same_device_thermal_holdout_audit.json`
+- `outputs/tables/geophase_phase1_v2/s1_diffusive_mve_v2_interruption_disposition.json`
+
+The seven registered S2 smoke cases passed after the sole authorized
+audit-metric implementation repair. The bounded source audit found no eligible
+same-device direct thermal holdout; it is a source-screening record, not a
+holdout dataset. The S1 interruption JSON records only non-voting execution
+provenance; no configured S1 fits, pointwise, summary, or result report was
+fabricated. Frozen GT v1.1 is unchanged.

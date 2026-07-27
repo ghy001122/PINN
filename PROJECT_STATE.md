@@ -4,77 +4,68 @@
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
 - Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Phase 0 repository realignment established one current authority chain, one guide, one handoff, one active phase, and one next task. This is a governance/reproducibility result, not scientific evidence.
-- R1 `HysGeo-Hybrid-PINN` is the minimum manuscript route; R2 `GeoPhase-HomoMoE-PINN` is the preferred method upgrade; R3 observable-subspace/OQ is conditional and non-blocking.
-- The target Phase 1 benchmark is a Qiu-inspired VO2 coplanar single-device x-y domain with separate bare-VO2 and electrode-covered-VO2 passive K-state vertical memories. Qiu source-author resistance and thermal fits anchor only the nominal device-effective uniform/global scales; the local stack supplies relative spatial/dynamic shape, and no intrinsic-property or independent-validation claim follows. Interdevice substrate transport and nonzero dual-device coupling are deferred until an explicit substrate field or validated nonlocal kernel exists. Chen-inspired SnSe/NbO2 remains reserved for later material-specific numerical validation.
-- Phase 1 Checkpoint A now has a real independent implementation, behavior
-  tests, bounded CPU smoke, a locked 96-case manifest, and machine-readable
-  identity/ledger artifacts. These are implementation and non-claim smoke
-  facts, not a Phase 1 scientific result.
-- The sole 96-case formal campaign has not run. Its execution count is zero,
-  and Checkpoint B is ineligible after the v8 vertical-reference NO-GO;
-  authorization alone cannot start it.
-- The bounded v7 readiness repair is `failed_but_informative`: the maximum
-  102.4/204.8 micrometre pair failed the unchanged depth-frequency gate after
-  pair-specific G/C normalization. No depth or K-state order was selected.
-- The final bounded v8 shape--scale semantics repair is
-  `failed_but_informative`. It preserved the v6/source/inventory bytes and
-  formal count, and all raw mesh, passivity, identity, and finite checks
-  passed. However, both raw depth pairs retained separate pullback-grid
-  depth-frequency errors of about `0.4118 > 0.05` in both regions. No depth was
-  selected; K-state, runtime, and formal execution remained blocked.
-- No positive R1/R2 training, R3 inverse/refusal, or NbO2 validation exists.
-- All project-generated results remain literature-guided synthetic numerical digital-twin evidence. No project experimental validation exists.
-- Frozen GT v1.1 is unchanged and read-only.
+- Checkpoint: `PHASE1_V2_S2_SMOKE_PASS_PENDING_FORMAL_READINESS`.
+- R1 `HysGeo-Hybrid-PINN` is the minimum manuscript route; R2
+  `GeoPhase-HomoMoE-PINN` is the preferred upgrade; R3 observable-subspace/OQ
+  is conditional and non-blocking.
+- Phase 1-v2 uses a Qiu-inspired single-device VO2 x-y plane with explicit VO2
+  and electrode-mask Ti/Au thermal terms plus the locally distributed,
+  source-scale-preserving S2 closure. Qiu thermal quantities constrain only
+  device-level uniform-mode low-frequency coefficients; they do not identify
+  a local material stack or thermal spectrum.
+- The S2 contract was preregistered at `d37745b...`; its config SHA-256 is
+  `06004985...`. The fresh 63-item formal manifest remains entirely
+  `planned_not_executed`; `formal_execution_count=0` and no formal campaign is
+  authorized.
+- The independent S2 implementation and all `7/7` bounded, non-voting smoke
+  cases pass. The sole authorized software repair added a registered
+  floating-point backward-error alternative to a zero-signal matrix/face
+  audit; it changed no equation, source parameter, formal item, or scientific
+  gate.
+- A bounded source audit found no eligible same-device direct thermal holdout.
+  Its elapsed time was not instrumented. This is not proof that no such data
+  exist and is not independent validation.
+- The non-blocking S1 MVE is closed at
+  `STOP_S1_REFERENCE_EVALUATION_INFRASTRUCTURE_BLOCKED_BEFORE_ATOMIC_EVIDENCE`.
+  Three tool timeouts produced no atomic result; two reached the same binary
+  modal-reference failure. No exact metric, K fit, or scientific model-order
+  conclusion exists. S2 remains nominal; further S1 execution is unauthorized.
+- The v6-v8 fixed-bottom material-stack/K-state route is permanently
+  `failed_but_informative`. Its 96-item manifest remains unexecuted and its
+  final pullback depth-frequency error remained about `0.4118 > 0.05`.
+- Phase 2, R1-R3, nonzero dual-device coupling, FEM/3D, and NbO2 remain blocked.
+- Frozen GT v1.1 is unchanged. All new outputs are literature-guided synthetic
+  numerical evidence, not measurements or experimental validation.
 
 ## Current Evidence
 
 | Item | Status | Boundary |
 | --- | --- | --- |
-| Phase 0 governance and repository baseline | `supported` | File, link, frozen-hash, test, and Git checks only; no scientific vote. |
-| Phase 1 equations, source-only config, source-scale normalization, hardened numerical lock, and gate contract | `supported` as preregistration facts | Analytic electrical/thermal normalization, grid/time/protocol/tolerance/metric/K-state/96-case definitions exist under schema v6 and preregistration SHA `212a4277bf9cf8afe365d922adefe67bdd7595e1`. |
-| Phase 1 Checkpoint A implementation and smoke | `supported` as software/reproducibility fact only | Conservative sheet FVM, implicit electrothermal step, two regional passive-memory kernels, thermal/circuit/combined ledgers, 96 planned cases, and non-claim smoke exist; `formal_execution_count=0`. The non-voting contact-covered 400/800 nm frequency audit is `0.1231`, above the locked formal limit `0.05`, so it is a pre-formal failure warning rather than a pass claim. |
-| Phase 1 v7 bounded vertical repair | `failed_but_informative` non-voting readiness evidence | Exact v6 warning reproduction; 26 raw builds; all passivity/identity checks; raw maximum-pair substrate frequency error `0.00702`, but pair-normalized contact error `0.41179 > 0.05`; K-state blocked; formal count zero. |
-| Phase 1 v8 bounded shape--scale repair | `failed_but_informative` non-voting readiness evidence | Preregistration `a32375b...`; config SHA-256 `e047d796...`; both raw pairs passed mesh/passivity/identity/finite foundations, but each region's separate pullback-grid depth-frequency RMSE remained about `0.4118 > 0.05`; no depth, K-state, runtime, or formal result; formal count zero. |
-| Phase 1 conservative 2.5D reference | `forbidden` as a result claim | Requires every configured solver gate. |
-| R1, R2, and R3 positive claims | `forbidden` | Each requires its own downstream direct evidence. |
+| Phase 0 governance | `supported` | Repository authority, routing, hashes, and checks only; no scientific vote. |
+| Phase 1-v2 S2 contract and manifest | `supported` preregistration facts | 63 planned items, S2 equations/gates, and formal count zero. |
+| S2 implementation and bounded smoke | `supported` software/readiness facts | Conservative x-y solver, explicit mask physics, four ledgers, failure controls, and 7/7 non-voting smoke pass after one registered implementation repair. No formal gate voted. |
+| Same-device source audit | `supported` bounded eligibility audit | No eligible holdout found; no digitization, fitting, production selection, or independent validation. |
+| S1 diffusive model-form claim | `forbidden` / unassessed | No atomic metric, K fit, formal artifact, or scientific vote exists. S2 remains nominal. |
+| S1 interruption provenance | `supported` infrastructure provenance only | Three tool timeouts and two repeated stdout observations are preserved; they do not establish a scientific S1 pass or failure. |
+| v6-v8 material-stack route | `failed_but_informative` | Final v8 pullback gate failed; no K order or formal result; old formal count zero. |
+| Phase 1-v2 conservative reference result | `forbidden` | Requires every v2 gate in a separately authorized formal campaign. |
+| R1/R2/R3 positive claims | `forbidden` | Each requires its own sequential direct evidence. |
 
-## Historical Retained Evidence
+## Retained Historical Evidence
 
-- Frozen synthetic 1D Ground Truth v1.1 remains an immutable low-dimensional baseline.
-- Constrained `gamma_sub` recovery remains `qualified_supported` only inside its configured synthetic prior/calibration boundary.
-- Sparse-port arbitrary hidden-field recovery and multiple complete-PINN attempts remain negative or `failed_but_informative`.
-- M40/M40R and M44 retain their exact convergence and stop boundaries; none validates the new x-y plus K-state model.
-- OASIS, SID/EC-OQ, public-source, submission-v2, and other historical assets remain traceable for reproduction, provenance, and reviewer defense.
+- Frozen synthetic 1D GT v1.1 remains an immutable baseline.
+- Constrained `gamma_sub` recovery remains `qualified_supported` only within
+  its configured calibration/prior boundary and is the downgrade paper route.
+- Failed complete-PINN, M40/M40R, M44, OASIS, and public-source results retain
+  their exact claim-matrix boundaries; none validates Phase 1-v2.
 
-## Unimplemented Candidates
+## Delivery Boundary
 
-- Phase 1 formal 96-case campaign, convergence studies, K-state candidate
-  selection, literature-trend disposition, and all-gates result.
-- Phase 2 dataset and inverse-crime split.
-- Phase 3 fair baselines.
-- R1 hybrid PINN, R2 localized MoE/homotopy, and conditional R3.
-- Conditional discrepancy, protocol design, full STL reproduction, Bayesian/fractional/phase-field extensions, and material-specific NbO2 validation.
+The next single task is the minimal Phase 1-v2 runtime/formal-runner readiness
+audit for the locked 63-item inventory. It may not create a formal run registry
+or execute a formal item. Even a readiness pass must stop for fresh user
+authorization.
 
-A candidate may be explored only when activated by the phase chain and preregistered thresholds. `forbidden` limits manuscript wording, not bounded future exploration.
-
-## Forbidden Claims
-
-Until direct evidence exists, do not claim successful Phase 1, Qiu author-code or quantitative device reproduction, real experimental validation, positive R1/R2, stable observation quotients, unique raw-parameter recovery, PINN sensitivity fidelity, terminal-only arbitrary full-field recovery, full STL reproduction, universal spectral superiority, full FEM/3D equivalence, or VO2-to-NbO2 zero-shot generalization.
-
-## Distance To Delivery
-
-The governance, workspace routing, source-scale contract, and Checkpoint A
-implementation are complete, but no new-route scientific phase has passed.
-The final bounded v8 repair confirmed that the current vertical/K-state route
-cannot satisfy its pullback depth gate. Checkpoint B, Phase 2, and R1 remain
-blocked; no further compute route is authorized.
-
-## Next Single Priority
-
-No compute task is authorized. The user must decide whether to activate a new
-physical model/reduction route or downgrade the manuscript/delivery plan. The
-current K-state route is stopped at
-`B_READINESS_V8_NO_GO_VERTICAL_REFERENCE`; do not extend it, run formal cases,
-train a PINN, perform inverse work, fit device/literature parameters, add
-nonzero dual-device coupling, or generate the Phase 2 dataset.
+Do not rerun S1; revive v6-v8; train a PINN; generate Phase 2 data; run inverse
+work; fit literature/device parameters; modify frozen GT; add nonzero coupling;
+run FEM/3D, M44, or NbO2; or claim Phase 1/Qiu/experimental success.

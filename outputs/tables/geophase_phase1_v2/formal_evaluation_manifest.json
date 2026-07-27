@@ -1,0 +1,18 @@
+{
+  "config_sha256": "0600498590a8c100ec8dee95621719ea655354ec118015868cb07fedf89f85d5",
+  "evaluation_item_count": 63,
+  "formal_execution_count": 0,
+  "manifest_contract_sha256": "54823e83d813ec4acd8df25354b62c38d58be158548414e637282383d1dc14a5",
+  "manifest_csv_sha256": "c2b04c31c21e27a21b9ac90d1c9c9edfc05e6ea75dee7bf3b0dad180f8804a89",
+  "old_v6_96_item_manifest_reused": false,
+  "reuse_map": {
+    "P1V2-TOP-O20-high_bias_15V": "P1V2-REF-high_bias_15V-S4T4",
+    "P1V2-TOP-O20-nominal_12V": "P1V2-REF-nominal_12V-S4T4",
+    "P1V2-TOP-O20-transition_probe_12p5V": "P1V2-REF-transition_probe_12p5V-S4T4"
+  },
+  "reused_evaluation_item_count": 3,
+  "schema_version": "geophase_phase1_v2_formal_manifest_metadata_v1",
+  "status": "preregistered_not_executed",
+  "task_id": "Q2_PHASE1_V2_S2_REFERENCE",
+  "unique_execution_unit_count": 60
+}

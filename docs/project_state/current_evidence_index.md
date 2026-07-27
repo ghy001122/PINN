@@ -8,13 +8,13 @@ This is a compact router, not a substitute for configs, machine-readable outputs
 | --- | --- | --- |
 | Q2 delivery ladder | `supported` governance fact; R1 minimum, R2 preferred, R3 conditional | `PROJECT_GOAL.md`; canonical execution guide |
 | Phase 0 repository realignment | `supported` governance/reproducibility fact only | Phase 0 report; disposition CSV; machine summary |
-| Active Phase 1 | `supported` status fact; no authorized compute task and no solver result | active phase; Phase 1 contract; hardened Phase 1 YAML; stage YAML; v8 NO-GO evidence |
-| Equations and source boundary | `supported` documentation/implementation fact; formal evaluation pending | `docs/method_equations.md`; `configs/qiu_vo2_phase1_source_contract.yaml`; provenance manifest; Checkpoint A solver modules |
-| Phase 1 numerical lock | `supported` preregistration fact only | source-scale algebraic preflights, base grid/time/protocols, nonlinear tolerances, fixed comparison grids, NRMSE policy, K-state fit, and exact 96-case inventory in the Phase 1 YAML |
-| Phase 1 contract-hardening closeout | `supported` governance/reproducibility fact only | initial hardening report plus `docs/codex_reports/executive_guide_alignment_source_scale_review_2026-07-26.md`; the latter supersedes the former's absolute-path and implementation-ready assertions; no solver execution or scientific vote |
-| Phase 1 Checkpoint A | `supported` software/reproducibility fact only; no scientific vote | preregistration SHA `212a4277...`; config SHA-256 `0361f609...`; independent solver modules; behavior tests; `outputs/tables/geophase_phase1/`; exact 96-case manifest is `planned_not_executed`; formal count is zero; non-voting contact-covered depth-frequency warning `0.1231 > 0.05` |
-| Phase 1 v7 bounded vertical repair | `failed_but_informative` non-voting readiness evidence | repair commit `d6a386a...`; `outputs/tables/geophase_phase1/readiness_v7/`; 26 builds; max-pair raw substrate `0.00702`, pair-normalized contact `0.41179 > 0.05`; K blocked; formal count zero |
-| Phase 1 v8 shape--scale repair | `failed_but_informative` non-voting readiness evidence | preregistration `a32375b...`; config SHA-256 `e047d796...`; both raw pairs passed mesh/passivity/identity/finite foundations, but both regions retained separate pullback depth-frequency RMSEs near `0.4118 > 0.05`; no selected depth, K-state, runtime, or formal result; formal count zero |
+| Active Phase 1-v2 | `supported` status/software-readiness fact only; no formal scientific result | active phase; Phase 1-v2 contract; S2 YAML; 63-item manifest; stage YAML; retained v8 NO-GO evidence |
+| Phase 1-v2 numerical lock | `supported` preregistration fact only | S2 equations/source allowlist, numerical contract, exact 63-item manifest, bounded source audit, and non-blocking S1 MVE |
+| Nominal S2 implementation and smoke | `supported` implementation fact; 7/7 non-voting smoke cases pass after the sole registered audit-metric repair | S2 solver/tests; smoke summary/ledgers/repair record; formal count zero |
+| Same-device direct-thermal audit | `supported` eligibility/provenance audit only; no eligible holdout found | audit CSV/JSON/report; no digitization, fitting, production selection, or independent validation |
+| S1 diffusive scientific claim | `forbidden`; scientific self-consistency remains unassessed | no atomic metric, K fit, or formal evidence exists |
+| S1 interruption provenance | `supported` infrastructure provenance only; no scientific vote | interruption JSON/report; three tool timeouts and two repeated binary stdout observations |
+| Retired material-stack Phase 1 | Checkpoint A is software-only; v7/v8 are `failed_but_informative` | old 96 items were never run; v8 ended at pullback depth-frequency RMSE about `0.4118 > 0.05`; formal count zero |
 | Frozen GT integrity | `supported` integrity fact when current hashes pass | governance summary; frozen acceptance report and manifest |
 | Current claim vocabulary | `supported` governance fact | `docs/paper/final_claim_matrix.md` |
 
@@ -25,11 +25,8 @@ This is a compact router, not a substitute for configs, machine-readable outputs
 | Frozen Ground Truth v1.1 | `supported` as the named synthetic baseline | frozen configs, manifest, arrays, and acceptance report |
 | Sparse-port arbitrary hidden-field boundary | `supported` with benchmark qualification | `outputs/tables/pinn_identifiability_summary.json`; inverse ablation summaries |
 | Constrained `gamma_sub` recovery | `qualified_supported` under fixed/tightly bounded confounders | gamma_sub summary/CSV chain; `docs/paper/gamma_sub_evidence_lock.md` |
-| Complete-PINN and mixed/ALM routes | `failed_but_informative` as recorded per contract | M33/M34 and related summaries/reports |
-| M40/M40R Qiu bridges | `failed_but_informative` | mesh/transient gate tables and reports |
-| M44 heterogeneous 3D bridge | `failed_but_informative`; retired under its stop rule | retained M44 evidence and Git history; archive bridge index |
-| OASIS, SID/EC-OQ, source bridge, high-risk audits | exact claim-matrix statuses only | named JSON/CSV, reports, and cumulative registries |
-| Manuscript v1/v2 | historical reproducible package; no new-route vote | protected manuscript paths; historical manuscript archive index |
+| Failed neural/Qiu/3D routes | `failed_but_informative` under their exact stop rules | M33/M34, M40/M40R, M44, and named reports |
+| OASIS, SID/EC-OQ, source and high-risk audits | claim-matrix statuses only | named JSON/CSV, reports, and registries |
 
 Historical outcomes cannot be upgraded by Phase 0 or reused as Phase 1 fields. Load exact artifacts through `docs/paper/final_claim_matrix.md`, `EXPERIMENT_REGISTRY.md`, and the named report.
 
@@ -37,15 +34,12 @@ Historical outcomes cannot be upgraded by Phase 0 or reused as Phase 1 fields. L
 
 | Candidate | Current claim status | Required predecessor |
 | --- | --- | --- |
-| Phase 1 converged conservative 2.5D reference | `forbidden` | all Phase 1 gates |
+| Phase 1-v2 converged conservative S2 2.5D reference | `forbidden` | all Phase 1-v2 gates in a separately authorized formal campaign |
+| S1 diffusive kernel as production reference | `forbidden` | eligible same-device thermal holdout, separate ingestion authorization, passed MVE, and preregistered independent effect-size gate; absent holdout means sensitivity only |
 | Nonzero dual-device thermal coupling | `forbidden` | explicit substrate surface field or high-order-validated nonlocal kernel and independent convergence/conservation gates |
-| Phase 2 dataset and inverse-crime split | `forbidden` as completed work | Phase 1 pass |
-| Phase 3 matched baselines | `forbidden` as results | Phase 2 lock |
-| R1 HysGeo-Hybrid-PINN | `forbidden` | Phases 1-3 plus field/port/event/ledger and OOD gates |
-| R2 GeoPhase-HomoMoE-PINN | `forbidden` | R1 pass plus matched-budget multi-seed synergy |
-| R3 observable-subspace/OQ | `forbidden` | stable solver subspace plus PINN trajectory/sensitivity fidelity |
-| NbO2 material-specific numerical validation | `forbidden` | locked VO2 forward route and separate material contract |
-| discrepancy, protocol design, STL, Bayesian, fractional, moving-boundary, full phase-field, or 3D extensions | `forbidden` | explicit later-phase activation and direct gates |
+| Phase 2 dataset and Phase 3 baselines | `forbidden` as completed work | Phase 1 pass, then dataset lock |
+| R1 / R2 / conditional R3 | `forbidden` | sequential configured gates and direct evidence |
+| NbO2 and all other extensions | `forbidden` | explicit later activation and separate contracts |
 
 ## Forbidden Manuscript Claims
 
@@ -56,10 +50,11 @@ Without new direct evidence, the following remain `forbidden`: successful Phase 
 - Workspace routing: `LIVE_WORKSPACE.md`.
 - Current authority: `CODEX_CONTEXT.md` -> `PROJECT_STATE.md` -> active phase -> `NEXT_ACTIONS.md`.
 - Strategy: canonical execution guide.
-- Current technical detail: Phase 1 contract and YAML.
+- Current technical detail: Phase 1-v2 contract, S2 YAML, and 63-item manifest.
 - Claim authority: `docs/paper/final_claim_matrix.md`.
 - Historical lifecycle: `docs/archive/README.md`.
 - Full chronology: registries and task reports, loaded only as needed.
-- Current execution boundary: no authorized compute task; user model/route or
-  manuscript-downgrade decision required after
-  `B_READINESS_V8_NO_GO_VERTICAL_REFERENCE`.
+- Current boundary: S2 implementation/smoke and the source audit are complete;
+  the non-blocking S1 MVE is closed without atomic scientific evidence. Perform
+  minimal runtime/formal-runner readiness next. Formal execution, Phase 2, and
+  PINN remain blocked.
