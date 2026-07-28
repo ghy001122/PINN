@@ -52,7 +52,7 @@ def test_phase1v2_identity_authority_and_execution_boundary() -> None:
 
     assert stage["schema_version"] == "geo2p5d_stage_v2"
     assert stage["current_checkpoint"] == (
-        "PHASE1_V2_NO_GO_RUNTIME_PENDING_USER_DECISION"
+        "PHASE1_V2_CONTROLLER_V2_PREREGISTERED_PENDING_IMPLEMENTATION"
     )
     assert stage["authority"]["current_contract"].endswith(
         "phase1_geophase_2p5d_reference_v2_contract.md"
@@ -83,7 +83,7 @@ def test_phase1v2_identity_authority_and_execution_boundary() -> None:
         "formal_execution_count": 0,
         "formal_artifact_count": 0,
         "next_action": (
-            "one_versioned_time_controller_revision_pending_user_authorization"
+            "execute_preregistered_controller_v2_implementation_and_readiness_only"
         ),
     }
     assert stage["phase1_v2_critical_transition_audit"] == {

@@ -2,9 +2,9 @@
 
 Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
 
-Status: `phase1v2_NO_GO_RUNTIME_pending_user_decision`
+Status: `phase1v2_controller_v2_preregistered_pending_implementation`
 
-Current checkpoint: `PHASE1_V2_NO_GO_RUNTIME_PENDING_USER_DECISION`
+Current checkpoint: `PHASE1_V2_CONTROLLER_V2_PREREGISTERED_PENDING_IMPLEMENTATION`
 
 ## Objective
 
@@ -21,6 +21,7 @@ energy ledgers. It is discretely independent from future PINN residual code.
 - `configs/geophase_phase1_v2_s2_reference.yaml`
 - `configs/geophase_phase1_v2_formal_manifest.yaml`
 - `configs/geophase_phase1_v2_execution_addendum.yaml`
+- `configs/geophase_phase1_v2_embedded_time_controller_v2.yaml`
 - `configs/geophase_phase1_v2_critical_transition_failure_audit.yaml`
 - `configs/qiu_vo2_phase1_source_contract.yaml`
 - `configs/geo2p5d_stage.yaml`
@@ -62,6 +63,10 @@ configs, and their named reports. They cannot modify S2 or the formal manifest.
   gates; branch memory alone triggered at the floor. Its disposition,
   `GO_FOR_ONE_VERSIONED_TIME_CONTROLLER_REVISION`, supports a future request
   only; it is neither a production-floor selection nor a Phase 1/S2 pass.
+- The user authorized the single controller revision. Its independent v2
+  overlay must be pushed before implementation or computation, leaves the base
+  S2 YAML immutable, and makes v1 unavailable as an active runtime selection.
+  No controller-v2 readiness evidence exists yet.
 
 ## Pass And Stop Rules
 
@@ -71,10 +76,10 @@ limit, trend, and failure-path gate in one separately authorized formal run.
 Smoke, conservation alone, or finite output cannot vote. A formal failure is
 preserved as `failed_but_informative` and blocks Phase 2/R1-R3.
 
-The current controller remains stopped. The audit supports requesting one
-versioned controller revision without changing physics, gate, initial state,
-or protocol; that revision remains unauthorized and no production floor may
-be inferred from the conditional bounds.
+The historical controller remains stopped. The authorized controller-v2
+overlay changes only numerical acceptance semantics and must pass C1, C2, and
+C3 without changing physics, scientific gates, initial states, protocols, or
+the manifest. No production floor may be inferred from the PR #7 bounds.
 
 ## Restrictions
 
@@ -87,6 +92,6 @@ cross-material transfer; these positive claims remain `forbidden`.
 
 ## Immediate Next Checkpoint
 
-Request authorization for one versioned controller revision. Do not rerun the
-audit, modify the controller, rerun readiness, or create a formal registry.
-Phase 1/S2 science remains `forbidden` and unassessed.
+Push the controller-v2 preregistration anchor, then implement and run only the
+bounded C1--C3 readiness sequence. Do not rerun the audit or create a formal
+registry. Phase 1/S2 science remains `forbidden` and unassessed.

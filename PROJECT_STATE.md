@@ -4,7 +4,7 @@
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
 - Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Checkpoint: `PHASE1_V2_NO_GO_RUNTIME_PENDING_USER_DECISION`.
+- Checkpoint: `PHASE1_V2_CONTROLLER_V2_PREREGISTERED_PENDING_IMPLEMENTATION`.
 - R1 `HysGeo-Hybrid-PINN` is the minimum manuscript route; R2
   `GeoPhase-HomoMoE-PINN` is the preferred upgrade; R3 observable-subspace/OQ
   is conditional and non-blocking.
@@ -39,6 +39,11 @@
   gates; branch memory alone exceeded `0.02` at the floor. Disposition:
   `GO_FOR_ONE_VERSIONED_TIME_CONTROLLER_REVISION`. This supports requesting
   one revision only; no production floor or Phase 1/S2 result was established.
+- The user has now authorized that one revision as an independent controller-v2
+  overlay. It keeps the base S2 YAML byte-identical and replaces the active
+  acceptance semantics with preregistered full-step/two-half-step temporal
+  consistency. No controller-v2 numerical result exists until the overlay
+  commit is pushed and the bounded C1--C3 sequence executes.
 - A bounded source audit found no eligible same-device direct thermal holdout.
   Its elapsed time was not instrumented. This is not proof that no such data
   exist and is not independent validation.
@@ -66,6 +71,7 @@
 | S1 interruption provenance | `supported` infrastructure provenance only | Three tool timeouts and two repeated stdout observations are preserved; they do not establish a scientific S1 pass or failure. |
 | Phase 1-v2 runtime readiness | `failed_but_informative` readiness evidence | `NO_GO_RUNTIME`: legal-critical PRE trajectory failed the locked transition-increment condition at the locked step floor. No cost forecast, formal item, real registry, or scientific vote exists; dormant-runner integrity tests pass. |
 | Critical-transition mechanism audit | `supported` bounded diagnostic evidence only | One preregistered `full_history_control` replay reproduced the failure; all six returned candidates passed integrity gates and branch memory alone exceeded the transition gate. Disposition: `GO_FOR_ONE_VERSIONED_TIME_CONTROLLER_REVISION`; production floor and Phase 1 science remain unassessed. |
+| Embedded controller-v2 overlay | `supported` preregistration fact only after its anchor is pushed | Independent overlay; base S2 YAML, physics, protocols, 63-item manifest, and scientific gates unchanged; formal count and artifacts zero. |
 | v6-v8 material-stack route | `failed_but_informative` | Final v8 pullback gate failed; no K order or formal result; old formal count zero. |
 | Phase 1-v2 conservative reference result | `forbidden` | Requires every v2 gate in a separately authorized formal campaign. |
 | R1/R2/R3 positive claims | `forbidden` | Each requires its own sequential direct evidence. |
@@ -80,10 +86,11 @@
 
 ## Delivery Boundary
 
-Readiness remains `NO_GO_RUNTIME` under the current controller. The mechanism
-audit supports but does not authorize one versioned controller revision. Stop
-for user authorization; Phase 1 science is `forbidden`/unassessed and Phase 2,
-R1, and R2 remain blocked. Retain the downgrade if a future revision fails.
+Readiness remains `NO_GO_RUNTIME` under the historical controller. The one
+authorized controller-v2 overlay must be pushed before implementation or new
+numerical work, then evaluated only through C1, C2, and C3. Even a readiness GO
+does not authorize formal execution. Phase 1 science remains
+`forbidden`/unassessed and Phase 2, R1, and R2 remain blocked.
 
 Do not rerun S1; revive v6-v8; train a PINN; generate Phase 2 data; run inverse
 work; fit literature/device parameters; modify frozen GT; add nonzero coupling;

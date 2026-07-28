@@ -4,7 +4,7 @@
 
 Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
 
-Checkpoint state: `PHASE1_V2_NO_GO_RUNTIME_PENDING_USER_DECISION`.
+Checkpoint state: `PHASE1_V2_CONTROLLER_V2_PREREGISTERED_PENDING_IMPLEMENTATION`.
 
 > The Phase 1-v2 preregistration anchors are remote. S2 implementation and its
 > bounded non-voting smoke are complete; no formal item has executed.
@@ -35,10 +35,11 @@ The one-replay mechanism audit reproduced the failure. All six returned
 candidates passed integrity gates; branch memory alone exceeded `0.02` at the
 floor. Disposition: `GO_FOR_ONE_VERSIONED_TIME_CONTROLLER_REVISION`.
 
-The only next eligible positive-route action is one versioned controller
-revision under fresh user authorization. The audit set no production floor and
-must not be rerun. Do not modify the controller or rerun readiness implicitly;
-the performance-only repair remains ineligible.
+The user authorized exactly one versioned controller revision. First push the
+independent controller-v2 overlay while the base S2 YAML remains unchanged;
+only then implement the full-step/two-half-step controller and run C1, C2, and
+C3 in order. The audit set no production floor and must not be rerun. The
+performance-only repair remains unconsumed and cannot be used in this task.
 
 ## Parallel work that cannot block S2
 
