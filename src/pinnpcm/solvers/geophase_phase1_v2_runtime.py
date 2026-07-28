@@ -389,6 +389,8 @@ def build_campaign_cost_forecast(
             disk_bytes = max(4096, int(observed["predicted_full_streaming_bytes"] / 4001))
         multiplier = 2.0 if group == "DUAL0" else 1.10 if group == "TOP" else 1.0
         solve_multiplier = 2.0 if group == "DUAL0" else 1.0
+        disk_multiplier = 2.0 if group == "DUAL0" else 1.0
+        disk_bytes = int(math.ceil(disk_multiplier * disk_bytes))
         clean_coupled_solves = (
             coupled_solves_per_clean_outer_interval if full_trajectory else 1
         )
@@ -436,6 +438,11 @@ def build_campaign_cost_forecast(
                 "unreserved_coupled_solves": unreserved_coupled_solves,
                 "safety_coupled_solves": safety_coupled_solves,
                 "measured_interval_wall_time_includes_all_coupled_solves": True,
+                "dual0_device_execution_policy": (
+                    "sequential_two_device_streams_within_one_worker"
+                    if group == "DUAL0"
+                    else "single_stream"
+                ),
                 "observed_step_wall_time_p90_s": observed["step_wall_time_p90_s"],
                 "observed_step_wall_time_max_s": observed["step_wall_time_max_s"],
                 "unreserved_wall_clock_s": unreserved_wall,
@@ -502,6 +509,14 @@ def build_campaign_cost_forecast(
         / max(available, 1),
         "unreserved_lpt_makespan_s": unreserved_makespan,
         "safety_lpt_makespan_s": safety_makespan,
+        "predicted_p95_makespan_s": safety_makespan,
+        "predicted_p95_semantics": (
+            "preregistered_safety_margin_proxy_not_an_empirical_quantile"
+        ),
+        "hard_makespan_s": unreserved_makespan,
+        "hard_makespan_semantics": (
+            "preregistered_unreserved_LPT_forecast_used_by_the_locked_14400s_gate"
+        ),
         "predicted_campaign_output_bytes": predicted_disk,
         "disk_free_fraction_after_forecast": disk_fraction_after,
         "disk_free_fraction_min": disk_free_fraction_min,

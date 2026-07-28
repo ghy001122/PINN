@@ -81,6 +81,9 @@ class S2EmbeddedIntervalDiagnostics:
     first_half_step: S2PathIntegrity | None
     second_half_step: S2PathIntegrity | None
     aggregate: S2AggregateIntegrity | None
+    full_nonlinear: S2NonlinearDiagnostics | None
+    first_half_nonlinear: S2NonlinearDiagnostics | None
+    second_half_nonlinear: S2NonlinearDiagnostics | None
     embedded_error: S2EmbeddedError | None
     legacy_conductive_increment: float | None
     legacy_branch_increment: float | None
@@ -97,6 +100,7 @@ class S2EmbeddedIntervalDiagnostics:
 class S2EmbeddedStepResult(S2StepResult):
     controller: S2EmbeddedIntervalDiagnostics
     aggregate_energy: S2IntervalEnergyTerms
+    accepted_first_half: S2StepResult
 
 
 @dataclass(frozen=True)
@@ -371,7 +375,7 @@ def attempt_s2_embedded_interval(
     full: S2StepResult | None = None
     first: S2StepResult | None = None
     second: S2StepResult | None = None
-    full_integrity: S2PathIntegrity
+    full_integrity: S2PathIntegrity | None = None
     first_integrity: S2PathIntegrity | None = None
     second_integrity: S2PathIntegrity | None = None
     aggregate_integrity: S2AggregateIntegrity | None = None
@@ -381,6 +385,7 @@ def attempt_s2_embedded_interval(
     error_class: str | None = None
     error_message: str | None = None
     coupled_solves = 0
+    active_path = "full_step"
 
     common = dict(
         grid=grid,
@@ -392,6 +397,7 @@ def attempt_s2_embedded_interval(
         use_unit_voltage_scaling=use_unit_voltage_scaling,
     )
     try:
+        active_path = "full_step"
         coupled_solves += 1
         full = advance_s2_backward_euler(
             state, input_voltage_V=full_voltage, dt_s=H, **common
@@ -400,6 +406,7 @@ def attempt_s2_embedded_interval(
         if not full_integrity.overall_pass:
             raise RuntimeError("controller-v2 full-step integrity failed")
 
+        active_path = "first_half_step"
         coupled_solves += 1
         first = advance_s2_backward_euler(
             state, input_voltage_V=first_voltage, dt_s=half, **common
@@ -408,6 +415,7 @@ def attempt_s2_embedded_interval(
         if not first_integrity.overall_pass:
             raise RuntimeError("controller-v2 first-half integrity failed")
 
+        active_path = "second_half_step"
         coupled_solves += 1
         second = advance_s2_backward_euler(
             first.state, input_voltage_V=second_voltage, dt_s=half, **common
@@ -416,6 +424,7 @@ def attempt_s2_embedded_interval(
         if not second_integrity.overall_pass:
             raise RuntimeError("controller-v2 second-half integrity failed")
 
+        active_path = "aggregate_ledgers"
         capacitance = float(
             config["physics_contract"]["circuit"]["parallel_capacitance_F"]
         )
@@ -432,6 +441,7 @@ def attempt_s2_embedded_interval(
         aggregate_integrity = _aggregate_integrity(aggregate_ledgers, config)
         if not aggregate_integrity.overall_pass:
             raise RuntimeError("controller-v2 aggregate ledger integrity failed")
+        active_path = "embedded_error"
         embedded = compute_embedded_error(
             full.state,
             second.state,
@@ -443,13 +453,13 @@ def attempt_s2_embedded_interval(
     except (RuntimeError, ValueError, FloatingPointError, np.linalg.LinAlgError) as error:
         error_class = type(error).__name__
         error_message = str(error)
-        if full is None:
+        if active_path == "full_step" and full_integrity is None:
             full_integrity = _failed_integrity(error)
-        elif first is None:
+        elif active_path == "first_half_step" and first is None:
             first_integrity = _failed_integrity(error)
-        elif second is None:
+        elif active_path == "second_half_step" and second is None:
             second_integrity = _failed_integrity(error)
-        elif aggregate_integrity is None:
+        elif active_path == "aggregate_ledgers" and aggregate_integrity is None:
             aggregate_integrity = S2AggregateIntegrity(
                 finite=False,
                 ledger_pass=False,
@@ -491,6 +501,7 @@ def attempt_s2_embedded_interval(
         step.nonlinear.method == "fail_closed_fixed_point_fallback"
         for step in path_steps
     )
+    assert full_integrity is not None
     diagnostics = S2EmbeddedIntervalDiagnostics(
         outer_interval_s=H,
         half_interval_s=half,
@@ -502,6 +513,9 @@ def attempt_s2_embedded_interval(
         first_half_step=first_integrity,
         second_half_step=second_integrity,
         aggregate=aggregate_integrity,
+        full_nonlinear=None if full is None else full.nonlinear,
+        first_half_nonlinear=None if first is None else first.nonlinear,
+        second_half_nonlinear=None if second is None else second.nonlinear,
         embedded_error=embedded,
         legacy_conductive_increment=legacy_s,
         legacy_branch_increment=legacy_b,
@@ -519,14 +533,16 @@ def attempt_s2_embedded_interval(
         assert aggregate_ledgers is not None
         assert energy is not None
         assert len(path_steps) == 3
+        assert first is not None and second is not None
         step = S2EmbeddedStepResult(
             state=second.state,
             electrical=second.electrical,
             ledgers=aggregate_ledgers,
             lateral_flux=second.lateral_flux,
-            nonlinear=_combined_nonlinear(path_steps),
+            nonlinear=_combined_nonlinear((first, second)),
             controller=diagnostics,
             aggregate_energy=energy,
+            accepted_first_half=first,
         )
     return S2EmbeddedAttemptObservation(
         previous_state=state,
@@ -646,6 +662,11 @@ def simulate_s2_protocol_v2(
     )
     controller = _controller(config)
     rejection_cap = int(controller["outer_interval"]["outer_rejection_cap"])
+    case_rejection_cap = int(
+        config["reference_solver"]["time_grid"][
+            "maximum_rejected_steps_per_case"
+        ]
+    )
     easy_max = float(controller["growth"]["easy_error_max"])
     easy_required = int(controller["growth"]["required_consecutive_easy_intervals"])
     state = initial_state
@@ -742,6 +763,8 @@ def simulate_s2_protocol_v2(
             if H <= floor_H * (1.0 + 1.0e-12):
                 raise RuntimeError("controller-v2 failed at locked outer floor")
             rejected += 1
+            if rejected > case_rejection_cap:
+                raise RuntimeError("controller-v2 per-case rejection cap exceeded")
             rejection_index += 1
             had_rejection = True
             if rejection_index > rejection_cap:

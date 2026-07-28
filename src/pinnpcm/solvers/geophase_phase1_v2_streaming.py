@@ -31,6 +31,7 @@ from pinnpcm.solvers.geophase_phase1_v2_implicit import (
 from pinnpcm.solvers.geophase_phase1_v2_controller_v2 import (
     S2EmbeddedAttemptObservation,
     S2EmbeddedStepResult,
+    protocol_voltage_scale,
     simulate_s2_protocol_v2,
 )
 
@@ -394,9 +395,173 @@ class _ControllerV2StreamingRecorder(_StreamingRecorder):
         "legacy_max_absolute_delta_b": 0.0,
     }
 
-    def __init__(self, **kwargs: Any) -> None:
+    def __init__(self, *, voltage_scale_V: float, **kwargs: Any) -> None:
         super().__init__(**kwargs)
-        self.scalar_records[0].update(self._INITIAL_TELEMETRY)
+        self.scalar_records[0].update(
+            {
+                **self._INITIAL_TELEMETRY,
+                "voltage_scale_V": float(voltage_scale_V),
+                **self._empty_path_telemetry(),
+            }
+        )
+        self._fine_previous_signal = self._previous_scalar_signal
+        self._fine_previous_snapshot = self._previous_scalar_snapshot
+
+    @staticmethod
+    def _empty_path_telemetry() -> dict[str, Any]:
+        values: dict[str, Any] = {}
+        for prefix in ("full", "first_half", "second_half"):
+            for suffix in (
+                "finite",
+                "nonlinear_pass",
+                "ledger_pass",
+                "lateral_pass",
+                "overall_pass",
+                "lateral_relative_mismatch",
+                "lateral_roundoff_ratio",
+                "nonlinear_method",
+                "nonlinear_iterations",
+                "krylov_matvecs",
+                "armijo_backtracks",
+                "fallback_picard_iterations",
+            ):
+                values[f"{prefix}_{suffix}"] = None
+            for ledger in ("thermal", "circuit", "combined", "device_power"):
+                values[f"{prefix}_{ledger}_relative_residual"] = None
+        for suffix in ("finite", "ledger_pass", "overall_pass"):
+            values[f"aggregate_{suffix}"] = None
+        for ledger in ("thermal", "circuit", "combined", "device_power"):
+            values[f"aggregate_{ledger}_relative_residual"] = None
+        return values
+
+    @staticmethod
+    def _path_telemetry(prefix: str, path: Any, nonlinear: Any) -> dict[str, Any]:
+        values = {
+            f"{prefix}_finite": bool(path.finite),
+            f"{prefix}_nonlinear_pass": bool(path.nonlinear_pass),
+            f"{prefix}_ledger_pass": bool(path.ledger_pass),
+            f"{prefix}_lateral_pass": bool(path.lateral_pass),
+            f"{prefix}_overall_pass": bool(path.overall_pass),
+            f"{prefix}_lateral_relative_mismatch": float(
+                path.lateral_relative_mismatch
+            ),
+            f"{prefix}_lateral_roundoff_ratio": float(path.lateral_roundoff_ratio),
+            f"{prefix}_nonlinear_method": str(nonlinear.method),
+            f"{prefix}_nonlinear_iterations": int(nonlinear.iterations),
+            f"{prefix}_krylov_matvecs": int(nonlinear.krylov_matvecs),
+            f"{prefix}_armijo_backtracks": int(nonlinear.armijo_backtracks),
+            f"{prefix}_fallback_picard_iterations": int(
+                nonlinear.fallback_picard_iterations
+            ),
+        }
+        values.update(
+            {
+                f"{prefix}_{ledger}_relative_residual": float(residual)
+                for ledger, residual in path.ledger_relative_residuals.items()
+            }
+        )
+        return values
+
+    @staticmethod
+    def _aggregate_telemetry(aggregate: Any) -> dict[str, Any]:
+        values = {
+            "aggregate_finite": bool(aggregate.finite),
+            "aggregate_ledger_pass": bool(aggregate.ledger_pass),
+            "aggregate_overall_pass": bool(aggregate.overall_pass),
+        }
+        values.update(
+            {
+                f"aggregate_{ledger}_relative_residual": float(residual)
+                for ledger, residual in aggregate.ledger_relative_residuals.items()
+            }
+        )
+        return values
+
+    def _record_event(self, **_kwargs: Any) -> None:
+        """Base fixed-grid event hook is replaced by accepted fine-path events."""
+
+    def _record_accepted_fine_event_state(
+        self, candidate: Any, *, nonlinear: Any | None = None
+    ) -> None:
+        nonlinear = candidate.nonlinear if nonlinear is None else nonlinear
+        current_signal = _state_mean(candidate.state.conductive_state, self.grid)
+        current_snapshot = _snapshot(
+            candidate.state,
+            potential_V=candidate.electrical.potential_V,
+            cell_joule_power_W=candidate.electrical.cell_joule_power_W,
+            kind="accepted_fine_path",
+        )
+        direction: str | None = None
+        if self._fine_previous_signal < self.threshold <= current_signal:
+            direction = "upward"
+        elif self._fine_previous_signal > self.threshold >= current_signal:
+            direction = "downward"
+        denominator = current_signal - self._fine_previous_signal
+        if direction is not None and denominator != 0.0:
+            fraction = (self.threshold - self._fine_previous_signal) / denominator
+            crossing_time = self._fine_previous_snapshot.time_s + fraction * (
+                current_snapshot.time_s - self._fine_previous_snapshot.time_s
+            )
+            separated = not self.event_records or (
+                crossing_time - float(self.event_records[-1]["crossing_time_s"])
+                >= self.minimum_event_separation_s - 1.0e-18
+            )
+            if separated:
+                index = len(self.event_records) + 1
+                before = S2FullFieldSnapshot(
+                    **{
+                        **self._fine_previous_snapshot.__dict__,
+                        "snapshot_kind": "event_before",
+                        "event_index": index,
+                        "event_direction": direction,
+                    }
+                )
+                after = S2FullFieldSnapshot(
+                    **{
+                        **current_snapshot.__dict__,
+                        "snapshot_kind": "event_after",
+                        "event_index": index,
+                        "event_direction": direction,
+                    }
+                )
+                pair = (before, after)
+                if len(self._event_snapshot_pairs) < 8:
+                    self._event_snapshot_pairs.append(pair)
+                else:
+                    self._event_snapshot_pairs = (
+                        self._event_snapshot_pairs[:4]
+                        + self._event_snapshot_pairs[-3:]
+                        + [pair]
+                    )
+                self.maximum_in_memory_event_snapshots = max(
+                    self.maximum_in_memory_event_snapshots,
+                    2 * len(self._event_snapshot_pairs),
+                )
+                self.event_records.append(
+                    {
+                        "case_id": self.case_id,
+                        "event_index": index,
+                        "direction": direction,
+                        "crossing_time_s": float(crossing_time),
+                        "before_sample_time_s": float(
+                            self._fine_previous_snapshot.time_s
+                        ),
+                        "after_sample_time_s": float(current_snapshot.time_s),
+                        "before_signal": float(self._fine_previous_signal),
+                        "after_signal": float(current_signal),
+                        "nonlinear_method": str(nonlinear.method),
+                        "nonlinear_iterations": int(nonlinear.iterations),
+                        "krylov_matvecs": int(nonlinear.krylov_matvecs),
+                        "armijo_backtracks": int(
+                            nonlinear.armijo_backtracks
+                        ),
+                        "fallback_picard_iterations": int(
+                            nonlinear.fallback_picard_iterations
+                        ),
+                    }
+                )
+        self._fine_previous_signal = current_signal
+        self._fine_previous_snapshot = current_snapshot
 
     def record_accepted_interval(
         self,
@@ -408,6 +573,10 @@ class _ControllerV2StreamingRecorder(_StreamingRecorder):
         *,
         coupled_solve_count: int,
     ) -> None:
+        self._record_accepted_fine_event_state(step.accepted_first_half)
+        self._record_accepted_fine_event_state(
+            step, nonlinear=step.controller.second_half_nonlinear
+        )
         previous_record_count = len(self.scalar_records)
         super().__call__(
             previous_state,
@@ -424,6 +593,7 @@ class _ControllerV2StreamingRecorder(_StreamingRecorder):
         self.scalar_records[-1].update(
             {
                 "time_controller": "embedded_time_consistency_v2_only",
+                "voltage_scale_V": float(step.controller.voltage_scale_V),
                 "outer_interval_s": float(outer_interval_s),
                 "outer_rejections": int(step.controller.rejection_index),
                 "coupled_solve_count": int(coupled_solve_count),
@@ -441,6 +611,22 @@ class _ControllerV2StreamingRecorder(_StreamingRecorder):
                 "legacy_max_absolute_delta_b": float(
                     step.controller.legacy_branch_increment or 0.0
                 ),
+                **self._path_telemetry(
+                    "full",
+                    step.controller.full_step,
+                    step.controller.full_nonlinear,
+                ),
+                **self._path_telemetry(
+                    "first_half",
+                    step.controller.first_half_step,
+                    step.controller.first_half_nonlinear,
+                ),
+                **self._path_telemetry(
+                    "second_half",
+                    step.controller.second_half_step,
+                    step.controller.second_half_nonlinear,
+                ),
+                **self._aggregate_telemetry(step.controller.aggregate),
             }
         )
 
@@ -581,6 +767,7 @@ def run_s2_streaming_protocol_v2(
         )
         if initial_state.time_s <= float(value) <= stop
     )
+    voltage_scale = protocol_voltage_scale(config, protocol_id)
     recorder = _ControllerV2StreamingRecorder(
         case_id=case_id,
         grid=grid,
@@ -590,6 +777,7 @@ def run_s2_streaming_protocol_v2(
         sample_times_s=samples,
         fixed_snapshot_times_s=tuple(sorted(fixed)),
         initial_state=initial_state,
+        voltage_scale_V=voltage_scale,
     )
     attempts = _ControllerV2AttemptAccumulator()
 

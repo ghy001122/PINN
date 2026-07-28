@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from copy import deepcopy
 from dataclasses import replace
 from pathlib import Path
 
@@ -326,6 +327,185 @@ def test_each_candidate_path_failure_is_fail_closed(
     assert result.diagnostics.coupled_solve_count == failing_call
 
 
+@pytest.mark.parametrize("failing_call", (1, 2, 3))
+@pytest.mark.parametrize("defect", ("nonfinite", "nonlinear", "ledger"))
+def test_each_candidate_path_integrity_gate_rejects_returned_defects(
+    context,
+    monkeypatch: pytest.MonkeyPatch,
+    failing_call: int,
+    defect: str,
+) -> None:
+    config, grid, fields, closure, _cache, state, template = context
+    base_step = template.step
+    assert base_step is not None
+    calls = 0
+
+    def fake_advance(old, *, dt_s, **_kwargs):
+        nonlocal calls
+        calls += 1
+        candidate = replace(base_step, state=replace(old, time_s=old.time_s + dt_s))
+        if calls != failing_call:
+            return candidate
+        if defect == "nonfinite":
+            return replace(
+                candidate,
+                state=replace(
+                    candidate.state,
+                    temperature_K=np.full(grid.shape, np.nan),
+                ),
+            )
+        if defect == "nonlinear":
+            return replace(
+                candidate,
+                nonlinear=replace(candidate.nonlinear, converged=False),
+            )
+        return replace(
+            candidate,
+            ledgers=replace(
+                candidate.ledgers,
+                thermal=replace(
+                    candidate.ledgers.thermal,
+                    relative_residual=1.0,
+                ),
+            ),
+        )
+
+    monkeypatch.setattr(
+        "pinnpcm.solvers.geophase_phase1_v2_controller_v2.advance_s2_backward_euler",
+        fake_advance,
+    )
+    observation = attempt_s2_embedded_interval(
+        state,
+        protocol=config["formal_protocols"]["protocols"]["zero_drive"],
+        protocol_id="zero_drive",
+        outer_interval_s=1.0e-8,
+        grid=grid,
+        closure=closure,
+        fields=fields,
+        config=config,
+    )
+    assert observation.step is None
+    assert observation.diagnostics.accepted is False
+    path = (
+        observation.diagnostics.full_step,
+        observation.diagnostics.first_half_step,
+        observation.diagnostics.second_half_step,
+    )[failing_call - 1]
+    assert path is not None
+    assert path.overall_pass is False
+    if defect == "nonfinite":
+        assert path.finite is False
+    elif defect == "nonlinear":
+        assert path.nonlinear_pass is False
+    else:
+        assert path.ledger_pass is False
+    downstream = (
+        observation.diagnostics.first_half_step,
+        observation.diagnostics.second_half_step,
+        observation.diagnostics.aggregate,
+    )[failing_call - 1 :]
+    assert all(item is None for item in downstream)
+
+
+def test_protocol_id_cannot_alias_a_different_declared_payload(context) -> None:
+    config, grid, fields, closure, _cache, state, _template = context
+    with pytest.raises(ValueError, match="payload differs"):
+        attempt_s2_embedded_interval(
+            state,
+            protocol=config["formal_protocols"]["protocols"]["quiescent_9V"],
+            protocol_id="zero_drive",
+            outer_interval_s=1.0e-8,
+            grid=grid,
+            closure=closure,
+            fields=fields,
+            config=config,
+        )
+
+
+def test_full_estimator_nonlinear_work_does_not_enter_accepted_path_telemetry(
+    context, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    config, grid, fields, closure, _cache, state, template = context
+    base_step = template.step
+    assert base_step is not None
+    iterations = iter((100, 2, 3))
+
+    def fake_advance(old, *, dt_s, **_kwargs):
+        count = next(iterations)
+        return replace(
+            base_step,
+            state=replace(old, time_s=old.time_s + dt_s),
+            nonlinear=replace(
+                base_step.nonlinear,
+                method=f"path_{count}",
+                iterations=count,
+            ),
+        )
+
+    monkeypatch.setattr(
+        "pinnpcm.solvers.geophase_phase1_v2_controller_v2.advance_s2_backward_euler",
+        fake_advance,
+    )
+    observation = attempt_s2_embedded_interval(
+        state,
+        protocol=config["formal_protocols"]["protocols"]["zero_drive"],
+        protocol_id="zero_drive",
+        outer_interval_s=1.0e-8,
+        grid=grid,
+        closure=closure,
+        fields=fields,
+        config=config,
+    )
+    assert observation.step is not None
+    assert observation.step.nonlinear.iterations == 5
+    assert observation.step.nonlinear.method == "embedded[path_2,path_3]"
+    assert observation.step.controller.full_nonlinear.iterations == 100
+    assert observation.step.controller.first_half_nonlinear.iterations == 2
+    assert observation.step.controller.second_half_nonlinear.iterations == 3
+
+
+def test_real_pulse_discontinuity_lands_before_switching_half_step_voltage(
+    context,
+) -> None:
+    config, grid, fields, closure, cache, state, _template = context
+    protocol = config["formal_protocols"]["protocols"]["pulse_12p5V"]
+    pulse_start = float(protocol["pulse_start_s"])
+    initial = replace(state, time_s=pulse_start - 5.0e-9)
+    result = simulate_s2_protocol_v2(
+        initial,
+        protocol=protocol,
+        protocol_id="pulse_12p5V",
+        grid=grid,
+        closure=closure,
+        fields=fields,
+        config=config,
+        final_time_s=pulse_start + 5.0e-9,
+        retain_full_history=True,
+        cache=cache,
+    )
+    assert result.completed is True
+    assert any(
+        step.state.time_s == pytest.approx(pulse_start) for step in result.steps
+    )
+    before = [step for step in result.steps if step.state.time_s <= pulse_start]
+    after = [step for step in result.steps if step.state.time_s > pulse_start]
+    assert before and after
+    assert all(
+        step.controller.full_input_voltage_V
+        == step.controller.first_half_input_voltage_V
+        == step.controller.second_half_input_voltage_V
+        == 0.0
+        for step in before
+    )
+    assert all(
+        step.controller.full_input_voltage_V
+        == step.controller.first_half_input_voltage_V
+        == step.controller.second_half_input_voltage_V
+        == 12.5
+        for step in after
+    )
+
+
 def _observation_from_template(
     template: S2EmbeddedAttemptObservation,
     state: S2State,
@@ -480,6 +660,42 @@ def test_below_floor_forced_remainder_is_attempted_once(
             final_time_s=0.5 * 9.765625e-12,
         )
     assert len(attempted) == 1
+
+
+def test_base_per_case_rejection_cap_remains_active_under_v2(
+    context, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    base_config, grid, fields, closure, _cache, state, template = context
+    config = deepcopy(base_config)
+    config["reference_solver"]["time_grid"][
+        "maximum_rejected_steps_per_case"
+    ] = 2
+
+    def fake_attempt(current, *, outer_interval_s, rejection_index, **_kwargs):
+        return _observation_from_template(
+            template,
+            current,
+            outer_interval_s,
+            accepted=bool(rejection_index == 1),
+            e_max=0.0 if rejection_index == 1 else 0.03,
+            rejection_index=rejection_index,
+        )
+
+    monkeypatch.setattr(
+        "pinnpcm.solvers.geophase_phase1_v2_controller_v2.attempt_s2_embedded_interval",
+        fake_attempt,
+    )
+    with pytest.raises(RuntimeError, match="per-case rejection cap"):
+        simulate_s2_protocol_v2(
+            state,
+            protocol=config["formal_protocols"]["protocols"]["zero_drive"],
+            protocol_id="zero_drive",
+            grid=grid,
+            closure=closure,
+            fields=fields,
+            config=config,
+            final_time_s=2.0e-8,
+        )
 
 
 def test_formal_count_and_historical_controller_are_unchanged(context) -> None:
