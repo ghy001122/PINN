@@ -15,6 +15,10 @@ authority:
   phase1_execution_addendum: configs/geophase_phase1_v2_execution_addendum.yaml
   phase1_runtime_readiness: outputs/tables/geophase_phase1_v2/runtime_readiness/readiness_summary.json
   phase1_runtime_report: docs/codex_reports/geophase_phase1_v2_runtime_formal_runner_readiness.md
+  phase1_critical_transition_audit: configs/geophase_phase1_v2_critical_transition_failure_audit.yaml
+  phase1_critical_transition_telemetry: outputs/tables/geophase_phase1_v2/critical_transition_failure_telemetry.json
+  phase1_critical_transition_diagnosis: outputs/tables/geophase_phase1_v2/critical_transition_diagnosis.json
+  phase1_critical_transition_report: docs/codex_reports/geophase_phase1_v2_critical_transition_failure_audit.md
   phase1_source_contract: configs/qiu_vo2_phase1_source_contract.yaml
   bounded_holdout_audit: configs/qiu_same_device_thermal_holdout_audit.yaml
   nonblocking_S1_mve: configs/geophase_phase1_s1_diffusive_sensitivity_mve.yaml
@@ -35,7 +39,19 @@ phase1_v2_runtime_state:
   performance_repair_consumed: false
   formal_execution_count: 0
   formal_artifact_count: 0
-  next_action: fresh_user_decision_required
+  next_action: one_versioned_time_controller_revision_pending_user_authorization
+
+phase1_v2_critical_transition_audit:
+  status: GO_FOR_ONE_VERSIONED_TIME_CONTROLLER_REVISION
+  evidence_role: supported_bounded_diagnostic_only
+  real_numerical_replay_count: 1
+  actual_trigger_component: branch_memory_b
+  conditional_frozen_activation_dt_max_b_s: 1.010415820055618e-11
+  production_floor_determined: false
+  scientific_phase1_result: forbidden_unassessed
+  time_controller_revision_authorized: false
+  formal_execution_count: 0
+  formal_artifact_count: 0
 
 routes:
   R1:

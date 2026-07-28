@@ -82,7 +82,23 @@ def test_phase1v2_identity_authority_and_execution_boundary() -> None:
         "performance_repair_consumed": False,
         "formal_execution_count": 0,
         "formal_artifact_count": 0,
-        "next_action": "fresh_user_decision_required",
+        "next_action": (
+            "one_versioned_time_controller_revision_pending_user_authorization"
+        ),
+    }
+    assert stage["phase1_v2_critical_transition_audit"] == {
+        "status": "GO_FOR_ONE_VERSIONED_TIME_CONTROLLER_REVISION",
+        "evidence_role": "supported_bounded_diagnostic_only",
+        "real_numerical_replay_count": 1,
+        "actual_trigger_component": "branch_memory_b",
+        "conditional_frozen_activation_dt_max_b_s": pytest.approx(
+            1.010415820055618e-11
+        ),
+        "production_floor_determined": False,
+        "scientific_phase1_result": "forbidden_unassessed",
+        "time_controller_revision_authorized": False,
+        "formal_execution_count": 0,
+        "formal_artifact_count": 0,
     }
 
 

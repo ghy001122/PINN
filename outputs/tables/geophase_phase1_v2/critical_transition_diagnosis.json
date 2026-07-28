@@ -1,0 +1,32 @@
+{
+  "actual_trigger_component": "branch_memory_b",
+  "all_successful_candidates_integrity_pass": true,
+  "branch_dt_constraint_status": "finite_conditional_frozen_activation_bound",
+  "candidate_attempt_count": 6,
+  "conditional_frozen_activation_dt_max_b": 1.010415820055618e-11,
+  "conditional_observed_candidate_dt_max_s": 6.783481071445014e-10,
+  "conservative_branch_worst_case_bound_role": "diagnostic_nonvoting_only",
+  "conservative_branch_worst_case_dt_bound_s": 1.0101010101010101e-11,
+  "disposition": "GO_FOR_ONE_VERSIONED_TIME_CONTROLLER_REVISION",
+  "failure_time_s": 0.0,
+  "formal_artifact_count": 0,
+  "formal_execution_count": 0,
+  "locked_floor_s": 2.5e-10,
+  "max_absolute_delta_b": 0.3999002930674579,
+  "max_absolute_delta_s": 0.009896685349114254,
+  "phase1_scientific_result": "forbidden_unassessed",
+  "primary_reason": "sole_failure_is_locked_floor_time_resolution",
+  "production_floor_determined": false,
+  "schema_version": "geophase_phase1_v2_critical_transition_diagnosis_v1",
+  "status": "completed_valid_mechanism_audit",
+  "streaming_status": "not_reached_by_preregistered_stop",
+  "successful_candidate_count": 6,
+  "task_id": "Q2_PHASE1_V2_CRITICAL_TRANSITION_FAILURE_MECHANISM_AUDIT",
+  "time_controller_changed": false,
+  "trigger_cell": {
+    "column": 4,
+    "row": 4,
+    "x_m": 4.5e-08,
+    "y_m": 9e-08
+  }
+}

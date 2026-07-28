@@ -15,6 +15,7 @@ This is a compact router, not a substitute for configs, machine-readable outputs
 | S1 diffusive scientific claim | `forbidden`; scientific self-consistency remains unassessed | no atomic metric, K fit, or formal evidence exists |
 | S1 interruption provenance | `supported` infrastructure provenance only; no scientific vote | interruption JSON/report; three tool timeouts and two repeated binary stdout observations |
 | Phase 1-v2 runtime readiness | `failed_but_informative`; runtime GO gate failed before cost prediction | readiness JSON/CSV/report; legal-critical PRE trajectory hit locked transition-increment failure at locked step floor; dormant-runner dry-run passed; formal count/artifacts zero |
+| Critical-transition mechanism | `supported` bounded diagnostic only | one replay; six integrity-passing candidates; branch-memory-only floor trigger; formal count/artifacts zero |
 | Retired material-stack Phase 1 | Checkpoint A is software-only; v7/v8 are `failed_but_informative` | old 96 items were never run; v8 ended at pullback depth-frequency RMSE about `0.4118 > 0.05`; formal count zero |
 | Frozen GT integrity | `supported` integrity fact when current hashes pass | governance summary; frozen acceptance report and manifest |
 | Current claim vocabulary | `supported` governance fact | `docs/paper/final_claim_matrix.md` |
@@ -55,7 +56,7 @@ Without new direct evidence, the following remain `forbidden`: successful Phase 
 - Claim authority: `docs/paper/final_claim_matrix.md`.
 - Historical lifecycle: `docs/archive/README.md`.
 - Full chronology: registries and task reports, loaded only as needed.
-- Current boundary: runtime readiness is `NO_GO_RUNTIME`; the S2 scientific
-  result remains forbidden/unassessed. Await an explicit user decision on a
-  versioned contract revision or the retained downgrade route. Formal
-  execution, Phase 2, and PINN remain blocked.
+- Current boundary: readiness remains `NO_GO_RUNTIME`; the audit supports
+  requesting, but does not authorize, one controller revision. Phase 1/S2
+  science remains forbidden/unassessed; formal work, Phase 2, and PINN remain
+  blocked.

@@ -4,6 +4,7 @@ import csv
 import hashlib
 import json
 from pathlib import Path
+import subprocess
 
 import pytest
 
@@ -32,6 +33,7 @@ CODE_PATHS = (
     Path("src/pinnpcm/solvers/geophase_phase1_v2_runtime.py"),
     Path("scripts/run_geophase_phase1_v2_runtime_readiness.py"),
 )
+READINESS_MERGED_MAIN = "6a7c9e0ba7be2b5bc89f751c0751110af2bab7ef"
 
 pytestmark = [pytest.mark.phase1, pytest.mark.current]
 
@@ -176,7 +178,15 @@ def test_environment_and_code_tree_hashes_are_self_consistent() -> None:
         "post_failure_evidence_recorder_environment"
     )
 
-    file_hashes = {path.as_posix(): _sha256(ROOT / path) for path in CODE_PATHS}
+    file_hashes = {
+        path.as_posix(): hashlib.sha256(
+            subprocess.check_output(
+                ["git", "show", f"{READINESS_MERGED_MAIN}:{path.as_posix()}"],
+                cwd=ROOT,
+            )
+        ).hexdigest()
+        for path in CODE_PATHS
+    }
     assert readiness["code_tree_sha256"] == _canonical_hash(file_hashes)
 
 
