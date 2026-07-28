@@ -220,11 +220,61 @@ def test_pre_case_publish_is_validated_atomic_and_immutable(
     )
     rows = list(csv.DictReader((published / "scalars.csv").read_text(encoding="utf-8").splitlines()))
     assert metadata["retained_full_accepted_step_history"] == 0
+    assert metadata["schema_version"].endswith("_v2")
+    assert metadata["reversal_record_count"] == len(result.reversal_records)
     assert metadata["identity_hashes"] == {"execution_addendum": "abc123"}
     assert completion["status"] == "validated_complete"
+    assert completion["schema_version"].endswith("_v2")
+    assert "reversals.csv" in completion["payload_hashes_sha256"]
+    assert (published / "reversals.csv").is_file()
+    assert (published / "events.csv").read_text(encoding="utf-8").splitlines()[0] == ",".join(
+        streaming._EVENT_FIELDS
+    )
+    assert (published / "reversals.csv").read_text(encoding="utf-8").splitlines()[0] == ",".join(
+        streaming._REVERSAL_FIELDS
+    )
     assert len(rows) == metadata["scalar_record_count"]
     assert streaming.published_case_bytes(published) > 0
     with pytest.raises(FileExistsError, match="immutable"):
         streaming.publish_pre_streaming_case(
             tmp_path, result, identity_hashes={"execution_addendum": "abc123"}
+        )
+
+
+def test_controller_v2_event_publication_rejects_missing_diagnostics(
+    tmp_path: Path,
+) -> None:
+    result = SimpleNamespace(
+        case_id="PRE-CTRL-EVENT-SCHEMA-TAMPER",
+        scalar_records=(
+            {
+                "case_id": "PRE-CTRL-EVENT-SCHEMA-TAMPER",
+                "time_controller": "embedded_time_consistency_v2_only",
+            },
+        ),
+        event_records=(
+            {
+                "case_id": "PRE-CTRL-EVENT-SCHEMA-TAMPER",
+                "event_index": 1,
+                "direction": "upward",
+                "crossing_time_s": 1.0e-9,
+                "before_sample_time_s": 0.0,
+                "after_sample_time_s": 2.0e-9,
+                "before_signal": 0.4,
+                "after_signal": 0.6,
+            },
+        ),
+        reversal_records=(),
+        field_snapshots=(),
+        protocol_result=SimpleNamespace(
+            completed=True,
+            stop_reason="synthetic",
+            diagnostics=SimpleNamespace(accepted_steps=1),
+            steps=(),
+        ),
+    )
+
+    with pytest.raises(ValueError, match="event record is incomplete"):
+        streaming.publish_pre_streaming_case(
+            tmp_path, result, identity_hashes={"controller_v2": "locked"}
         )
