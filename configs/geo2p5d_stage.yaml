@@ -1,9 +1,9 @@
 schema_version: geo2p5d_stage_v2
 delivery_mode: Q2_SCI_DELIVERY_MODE
 current_phase: Q2_PHASE1_2P5D_REFERENCE_SOLVER
-current_checkpoint: PHASE1_V2_S2_SMOKE_PASS_PENDING_FORMAL_READINESS
+current_checkpoint: PHASE1_V2_NO_GO_RUNTIME_PENDING_USER_DECISION
 formal_execution_count: 0
-formal_campaign_authorization: blocked_pending_phase1v2_runtime_runner_readiness_and_fresh_user_authorization
+formal_campaign_authorization: blocked_by_runtime_NO_GO_and_pending_user_decision
 evidence_type: literature_guided_synthetic_numerical_digital_twin
 
 authority:
@@ -12,6 +12,9 @@ authority:
   current_contract: docs/research_strategy/phase1_geophase_2p5d_reference_v2_contract.md
   phase1_config: configs/geophase_phase1_v2_s2_reference.yaml
   phase1_manifest: configs/geophase_phase1_v2_formal_manifest.yaml
+  phase1_execution_addendum: configs/geophase_phase1_v2_execution_addendum.yaml
+  phase1_runtime_readiness: outputs/tables/geophase_phase1_v2/runtime_readiness/readiness_summary.json
+  phase1_runtime_report: docs/codex_reports/geophase_phase1_v2_runtime_formal_runner_readiness.md
   phase1_source_contract: configs/qiu_vo2_phase1_source_contract.yaml
   bounded_holdout_audit: configs/qiu_same_device_thermal_holdout_audit.yaml
   nonblocking_S1_mve: configs/geophase_phase1_s1_diffusive_sensitivity_mve.yaml
@@ -24,6 +27,15 @@ nonblocking_S1_state:
   rerun_authorization: forbidden_without_fresh_user_authorization
   may_block_S2: false
   production_selected: false
+
+phase1_v2_runtime_state:
+  status: NO_GO_RUNTIME
+  unique_primary_cause: S2_transition_increment_failed_at_locked_floor_for_legal_critical_PRE_case
+  scientific_phase1_result: forbidden_unassessed
+  performance_repair_consumed: false
+  formal_execution_count: 0
+  formal_artifact_count: 0
+  next_action: fresh_user_decision_required
 
 routes:
   R1:
@@ -50,7 +62,7 @@ routes:
 
 phase_sequence:
   - {phase: 0, id: Q2_PHASE0_REPOSITORY_GOVERNANCE, status: complete_governance_only}
-  - {phase: 1, id: Q2_PHASE1_2P5D_REFERENCE_SOLVER, status: phase1v2_s2_smoke_pass_pending_formal_readiness}
+  - {phase: 1, id: Q2_PHASE1_2P5D_REFERENCE_SOLVER, status: phase1v2_NO_GO_RUNTIME_pending_user_decision}
   - {phase: 2, id: Q2_PHASE2_DATASET_AND_SPLITS, status: blocked_by_phase1}
   - {phase: 3, id: Q2_PHASE3_BASELINES, status: blocked_by_phase2}
   - {phase: 4, id: Q2_PHASE4_R1_HYSGEO_HYBRID_PINN, status: blocked_by_phase3}

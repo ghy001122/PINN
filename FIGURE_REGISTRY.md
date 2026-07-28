@@ -521,3 +521,11 @@ disposition are non-voting readiness/provenance evidence and may not be plotted
 as a positive Phase 1 or manuscript result. No atomic S1 self-fit exists.
 Scientific figures remain blocked until machine-readable Phase 1-v2 formal
 evidence exists under fresh authorization.
+
+## Phase 1-v2 Runtime Readiness Figure Disposition
+
+No runtime-readiness or formal Phase 1-v2 figure was generated. The
+`NO_GO_RUNTIME` PRE evidence, empty cost forecast, workstation metadata, and
+dormant-runner dry-run may not be plotted as a positive scientific or compute-
+feasibility result. Any future figure remains blocked by a fresh user decision
+and a separately authorized route.

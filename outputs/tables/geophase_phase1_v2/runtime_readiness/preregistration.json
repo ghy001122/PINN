@@ -1,0 +1,16 @@
+{
+  "addendum_config_sha256": "9d477b79a6a598b5032f104bea5b92290026b798e6599c2e9813c9ba11083640",
+  "base_main_commit": "a390dba6855ef06308a537eec4a16d42dc022bff",
+  "execution_dag_csv_sha256": "b506021bd2c3b64be917e728da463349b774ada6dd1c402eaf4c602a7b750fd2",
+  "execution_dag_json_sha256": "1f8a5ef122898974224c2208a0b41af0f776b5ef07bca444f5f0a727b5c9c87a",
+  "formal_artifact_count": 0,
+  "formal_execution_consumed": false,
+  "formal_execution_count": 0,
+  "new_runtime_numerical_work_before_addendum_push": false,
+  "preregistration_commit": "b830d4f3f45f634883de906972a7712f311cfa93",
+  "preregistration_generator_sha256": "f66da4652834d4244c979dbb88f485460dd64ad7a16b05c53b74e55730e91d78",
+  "runtime_preflight_executed": false,
+  "schema_version": "geophase_phase1_v2_runtime_readiness_preregistration_v1",
+  "status": "addendum_pushed_runtime_preflight_not_executed",
+  "task_id": "Q2_PHASE1_V2_RUNTIME_AND_FORMAL_RUNNER_READINESS"
+}

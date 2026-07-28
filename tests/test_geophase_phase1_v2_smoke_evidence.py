@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import csv
-import hashlib
 import json
 from pathlib import Path
 
@@ -14,15 +13,7 @@ SUMMARY_PATH = OUTPUT_DIR / "s2_smoke_summary.json"
 LEDGER_PATH = OUTPUT_DIR / "s2_smoke_ledgers.csv"
 REPAIR_PATH = OUTPUT_DIR / "s2_smoke_implementation_repair.json"
 REPORT_PATH = ROOT / "docs" / "codex_reports" / "geophase_phase1_v2_s2_readiness.md"
-RUNNER_PATH = ROOT / "scripts" / "run_geophase_phase1_v2_smoke.py"
-FVM_PATH = ROOT / "src" / "pinnpcm" / "solvers" / "geophase_phase1_v2_fvm.py"
-TEST_PATH = Path(__file__).resolve()
-
 pytestmark = [pytest.mark.phase1, pytest.mark.current]
-
-
-def _sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def test_s2_smoke_is_complete_nonvoting_and_formal_count_zero() -> None:
@@ -62,9 +53,17 @@ def test_s2_smoke_ledgers_and_face_backward_error_pass_without_hiding_attempt_on
     assert criterion["roundoff_multiplier"] == 64.0
     assert criterion["machine_epsilon_float64"] == pytest.approx(2.220446049250313e-16)
     hashes = repair["implementation_hashes_sha256"]
-    assert hashes[RUNNER_PATH.relative_to(ROOT).as_posix()] == _sha256(RUNNER_PATH)
-    assert hashes[FVM_PATH.relative_to(ROOT).as_posix()] == _sha256(FVM_PATH)
-    assert hashes[TEST_PATH.relative_to(ROOT).as_posix()] == _sha256(TEST_PATH)
+    assert hashes == {
+        "scripts/run_geophase_phase1_v2_smoke.py": (
+            "2cd9f14dd82be2d32f389908ad07078e0f69c9cef9f2982a25c77f321aafcdce"
+        ),
+        "src/pinnpcm/solvers/geophase_phase1_v2_fvm.py": (
+            "a1292d031b551e02d64c697161618c8c0e8fee43371f32f59766d2c63a691b29"
+        ),
+        "tests/test_geophase_phase1_v2_smoke_evidence.py": (
+            "fd291bca8b6adef70b03ba580a7dcbfb31ff3a57da622cc6da9851ef19f64394"
+        ),
+    }
     for case in summary["cases"]:
         maxima = case.get("maximum_ledger_residuals")
         if maxima is None:

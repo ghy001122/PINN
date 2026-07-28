@@ -87,10 +87,15 @@ jobs:
           tests/test_repository_realignment_audit.py
           tests/test_geophase_phase1_preregistration.py
           tests/test_geophase_phase1_v2_preregistration.py
+          tests/test_geophase_phase1_v2_execution_addendum.py
           tests/test_geophase_phase1_s1_diffusive_mve_v2_preregistration.py
           tests/test_geophase_phase1_s1_diffusive_mve.py
           tests/test_geophase_phase1_v2_solver.py
           tests/test_geophase_phase1_v2_smoke_evidence.py
+          tests/test_geophase_phase1_v2_runtime_equivalence.py
+          tests/test_geophase_phase1_v2_streaming.py
+          tests/test_geophase_phase1_v2_dormant_runner.py
+          tests/test_geophase_phase1_v2_runtime_readiness_evidence.py
           tests/test_qiu_same_device_thermal_holdout_audit.py
           tests/test_geophase_phase1_solver.py
           tests/test_geophase_phase1_checkpoint_a_evidence.py

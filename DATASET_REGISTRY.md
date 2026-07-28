@@ -507,3 +507,16 @@ same-device direct thermal holdout; it is a source-screening record, not a
 holdout dataset. The S1 interruption JSON records only non-voting execution
 provenance; no configured S1 fits, pointwise, summary, or result report was
 fabricated. Frozen GT v1.1 is unchanged.
+
+## Phase 1-v2 Runtime Readiness Data Disposition
+
+The files under `outputs/tables/geophase_phase1_v2/runtime_readiness/` are
+execution-contract metadata, one non-voting failed PRE sample, target-machine
+environment metadata, and dormant-runner dry-run evidence. They are not a
+scientific, training, Ground Truth, Phase 2, or formal solver dataset.
+
+The cost-forecast CSV contains its schema header only because the required
+critical-state gate failed before a forecast became eligible. Missing step,
+ledger, wall-clock, and peak-RSS telemetry remains blank/null rather than being
+reconstructed. `formal_execution_count=0`, formal artifact count is zero, and
+all 63 formal manifest items remain `planned_not_executed`.

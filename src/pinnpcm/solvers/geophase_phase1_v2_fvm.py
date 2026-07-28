@@ -9,10 +9,11 @@ the S2 state equation.
 from __future__ import annotations
 
 from dataclasses import dataclass
+from typing import Callable
 
 import numpy as np
 from scipy import sparse
-from scipy.sparse.linalg import spsolve
+from scipy.sparse.linalg import factorized, spsolve
 
 from pinnpcm.physics.geophase_geometry import GeoPhaseGrid
 from pinnpcm.physics.geophase_s2_thermal import S2ThermalFields
@@ -35,6 +36,45 @@ class LateralFluxAudit:
     face_to_cell_global_residual_W: float
     matrix_face_relative_mismatch: float
     matrix_face_roundoff_ratio: float
+
+
+ThermalLinearSolver = Callable[[np.ndarray], np.ndarray]
+
+
+def scale_unit_sheet_electrical_solution(
+    unit_solution: SheetElectricalSolution, source_voltage_V: float
+) -> SheetElectricalSolution:
+    """Scale one frozen-conductivity 1 V solution without a second solve.
+
+    The caller is responsible for keeping geometry, grid, temperature,
+    conductive state, and conductivity fixed.  This function cannot cache or
+    reuse a solution across a nonlinear state or accepted time step.
+    """
+
+    voltage = float(source_voltage_V)
+    if not np.isfinite(voltage):
+        raise ValueError("electrical scaling voltage must be finite")
+    power_scale = voltage * voltage
+    if voltage == 0.0:
+        relative_current_imbalance = 0.0
+        relative_power_imbalance = 0.0
+    else:
+        relative_current_imbalance = unit_solution.relative_current_imbalance
+        relative_power_imbalance = unit_solution.relative_power_imbalance
+    return SheetElectricalSolution(
+        potential_V=np.asarray(unit_solution.potential_V, dtype=float) * voltage,
+        source_current_A=float(unit_solution.source_current_A * voltage),
+        ground_current_A=float(unit_solution.ground_current_A * voltage),
+        cell_joule_power_W=(
+            np.asarray(unit_solution.cell_joule_power_W, dtype=float) * power_scale
+        ),
+        joule_power_W=float(unit_solution.joule_power_W * power_scale),
+        terminal_device_power_W=float(
+            unit_solution.terminal_device_power_W * power_scale
+        ),
+        relative_current_imbalance=float(relative_current_imbalance),
+        relative_power_imbalance=float(relative_power_imbalance),
+    )
 
 
 def _harmonic_mean(left: float, right: float) -> float:
@@ -183,6 +223,49 @@ def reconstruct_lateral_fluxes(
     )
 
 
+def build_s2_thermal_backward_euler_solver(
+    grid: GeoPhaseGrid,
+    fields: S2ThermalFields,
+    dt_s: float,
+    *,
+    lateral_matrix: sparse.csr_matrix | None = None,
+) -> ThermalLinearSolver:
+    """Factor one invariant S2 thermal matrix for an exact time-step value."""
+
+    fields.validate_grid(grid)
+    if not np.isfinite([dt_s]).all() or dt_s <= 0.0:
+        raise ValueError("thermal backward-Euler step must be finite and positive")
+    area = grid.cell_area_m2
+    capacity_cell = fields.effective_areal_capacity_J_m2K.reshape(-1) * area
+    sink_cell = fields.vertical_conductance_W_m2K * area
+    lateral = (
+        assemble_sheet_thermal_matrix(grid, fields.sheet_thermal_conductance_W_K)
+        if lateral_matrix is None
+        else lateral_matrix
+    )
+    expected_shape = (grid.nx * grid.ny, grid.nx * grid.ny)
+    if lateral.shape != expected_shape:
+        raise ValueError("cached lateral matrix has the wrong shape")
+    if not np.isfinite(lateral.data).all():
+        raise ValueError("cached lateral matrix contains nonfinite entries")
+    matrix = (
+        sparse.diags(capacity_cell / dt_s + sink_cell, format="csc")
+        + lateral.tocsc()
+    )
+    raw_solver = factorized(matrix)
+
+    def solve(rhs: np.ndarray) -> np.ndarray:
+        values = np.asarray(rhs, dtype=float)
+        if values.shape != (grid.nx * grid.ny,) or not np.isfinite(values).all():
+            raise ValueError("cached thermal solver RHS is invalid")
+        result = np.asarray(raw_solver(values), dtype=float)
+        if not np.isfinite(result).all():
+            raise FloatingPointError("cached S2 thermal solve produced nonfinite values")
+        return result
+
+    return solve
+
+
 def solve_s2_thermal_backward_euler(
     grid: GeoPhaseGrid,
     fields: S2ThermalFields,
@@ -192,6 +275,7 @@ def solve_s2_thermal_backward_euler(
     *,
     external_areal_source_W_m2: np.ndarray | float = 0.0,
     lateral_matrix: sparse.csr_matrix | None = None,
+    linear_solver: ThermalLinearSolver | None = None,
 ) -> np.ndarray:
     """Solve the linear S2 thermal block for one backward-Euler step."""
 
@@ -222,16 +306,20 @@ def solve_s2_thermal_backward_euler(
         raise ValueError("cached lateral matrix has the wrong shape")
     if not np.isfinite(lateral.data).all():
         raise ValueError("cached lateral matrix contains nonfinite entries")
-    matrix = (
-        sparse.diags(capacity_cell / dt_s + sink_cell, format="csr") + lateral
-    )
     rhs = (
         capacity_cell / dt_s * old.reshape(-1)
         + joule.reshape(-1)
         + area * source.reshape(-1)
         + sink_cell * fields.ambient_temperature_K
     )
-    values = np.asarray(spsolve(matrix, rhs), dtype=float)
+    solver = (
+        build_s2_thermal_backward_euler_solver(
+            grid, fields, dt_s, lateral_matrix=lateral
+        )
+        if linear_solver is None
+        else linear_solver
+    )
+    values = np.asarray(solver(np.asarray(rhs, dtype=float)), dtype=float)
     if not np.isfinite(values).all():
         raise FloatingPointError("S2 thermal solve produced nonfinite temperature")
     return values.reshape(grid.shape)
@@ -296,8 +384,11 @@ def solve_steady_sheet_thermal_dirichlet(
 __all__ = [
     "LateralFluxAudit",
     "SheetElectricalSolution",
+    "ThermalLinearSolver",
     "assemble_sheet_thermal_matrix",
+    "build_s2_thermal_backward_euler_solver",
     "reconstruct_lateral_fluxes",
+    "scale_unit_sheet_electrical_solution",
     "solve_s2_thermal_backward_euler",
     "solve_sheet_electrical",
     "solve_steady_sheet_thermal_dirichlet",
