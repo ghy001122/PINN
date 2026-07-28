@@ -56,6 +56,7 @@ class S2StreamingResult:
     final_state: S2State
     scalar_records: tuple[dict[str, Any], ...]
     event_records: tuple[dict[str, Any], ...]
+    reversal_records: tuple[dict[str, Any], ...]
     field_snapshots: tuple[S2FullFieldSnapshot, ...]
     retained_event_snapshot_count: int
     maximum_in_memory_event_snapshots: int
@@ -139,6 +140,7 @@ class _StreamingRecorder:
         self.minimum_event_separation_s = float(event["minimum_separation_s"])
         self.scalar_records: list[dict[str, Any]] = []
         self.event_records: list[dict[str, Any]] = []
+        self.reversal_records: list[dict[str, Any]] = []
         self.fixed_snapshots: list[S2FullFieldSnapshot] = []
         self._event_snapshot_pairs: list[
             tuple[S2FullFieldSnapshot, S2FullFieldSnapshot]
@@ -395,8 +397,15 @@ class _ControllerV2StreamingRecorder(_StreamingRecorder):
         "legacy_max_absolute_delta_b": 0.0,
     }
 
-    def __init__(self, *, voltage_scale_V: float, **kwargs: Any) -> None:
+    def __init__(
+        self,
+        *,
+        voltage_scale_V: float,
+        closure: EffectiveVO2Closure,
+        **kwargs: Any,
+    ) -> None:
         super().__init__(**kwargs)
+        self.closure = closure
         self.scalar_records[0].update(
             {
                 **self._INITIAL_TELEMETRY,
@@ -406,6 +415,9 @@ class _ControllerV2StreamingRecorder(_StreamingRecorder):
         )
         self._fine_previous_signal = self._previous_scalar_signal
         self._fine_previous_snapshot = self._previous_scalar_snapshot
+        self._fine_previous_activation_direction = np.zeros(
+            self.grid.shape, dtype=np.int8
+        )
 
     @staticmethod
     def _empty_path_telemetry() -> dict[str, Any]:
@@ -491,6 +503,84 @@ class _ControllerV2StreamingRecorder(_StreamingRecorder):
             cell_joule_power_W=candidate.electrical.cell_joule_power_W,
             kind="accepted_fine_path",
         )
+        activation_dt = float(
+            current_snapshot.time_s - self._fine_previous_snapshot.time_s
+        )
+        heating, cooling = self.closure.branch_activations(
+            candidate.state.temperature_K,
+            self._fine_previous_snapshot.temperature_K,
+            activation_dt,
+        )
+        heating_mask = np.asarray(heating > 0.0, dtype=bool)
+        cooling_mask = np.asarray(cooling > 0.0, dtype=bool)
+        if np.any(heating_mask & cooling_mask):
+            raise RuntimeError("controller-v2 branch activation is direction-ambiguous")
+        current_direction = np.zeros(self.grid.shape, dtype=np.int8)
+        current_direction[heating_mask] = 1
+        current_direction[cooling_mask] = -1
+        previous_direction = self._fine_previous_activation_direction
+        heating_to_cooling = (previous_direction == 1) & (current_direction == -1)
+        cooling_to_heating = (previous_direction == -1) & (current_direction == 1)
+        reversal_mask = heating_to_cooling | cooling_to_heating
+        if np.any(reversal_mask):
+            activation_magnitude = np.maximum(heating, cooling)
+            ranked = np.where(reversal_mask, activation_magnitude, -1.0)
+            flat_index = int(np.argmax(ranked))
+            iy, ix = np.unravel_index(flat_index, self.grid.shape)
+            mask_bytes = np.packbits(
+                reversal_mask.reshape(-1).astype(np.uint8), bitorder="little"
+            ).tobytes()
+            self.reversal_records.append(
+                {
+                    "case_id": self.case_id,
+                    "reversal_index": len(self.reversal_records) + 1,
+                    "direction": (
+                        "mixed_local_reversals"
+                        if np.any(heating_to_cooling)
+                        and np.any(cooling_to_heating)
+                        else "heating_to_cooling"
+                        if np.any(heating_to_cooling)
+                        else "cooling_to_heating"
+                    ),
+                    "heating_to_cooling_cell_count": int(
+                        np.count_nonzero(heating_to_cooling)
+                    ),
+                    "cooling_to_heating_cell_count": int(
+                        np.count_nonzero(cooling_to_heating)
+                    ),
+                    "affected_cell_count": int(np.count_nonzero(reversal_mask)),
+                    "affected_mask_sha256": hashlib.sha256(mask_bytes).hexdigest(),
+                    "interval_start_s": float(self._fine_previous_snapshot.time_s),
+                    "interval_stop_s": float(current_snapshot.time_s),
+                    "representative_cell_iy": int(iy),
+                    "representative_cell_ix": int(ix),
+                    "representative_cell_x_m": float(self.grid.x_centers_m[ix]),
+                    "representative_cell_y_m": float(self.grid.y_centers_m[iy]),
+                    "representative_T_before_K": float(
+                        self._fine_previous_snapshot.temperature_K[iy, ix]
+                    ),
+                    "representative_T_after_K": float(
+                        candidate.state.temperature_K[iy, ix]
+                    ),
+                    "representative_s_after": float(
+                        candidate.state.conductive_state[iy, ix]
+                    ),
+                    "representative_b_after": float(
+                        candidate.state.branch_memory[iy, ix]
+                    ),
+                    "device_voltage_V": float(candidate.state.device_voltage_V),
+                    "nonlinear_method": str(nonlinear.method),
+                    "nonlinear_iterations": int(nonlinear.iterations),
+                    "krylov_matvecs": int(nonlinear.krylov_matvecs),
+                    "armijo_backtracks": int(nonlinear.armijo_backtracks),
+                    "fallback_picard_iterations": int(
+                        nonlinear.fallback_picard_iterations
+                    ),
+                }
+            )
+        self._fine_previous_activation_direction = np.where(
+            current_direction != 0, current_direction, previous_direction
+        ).astype(np.int8, copy=False)
         direction: str | None = None
         if self._fine_previous_signal < self.threshold <= current_signal:
             direction = "upward"
@@ -705,6 +795,7 @@ def run_s2_streaming_protocol(
         final_state=recorder.final_state,
         scalar_records=tuple(recorder.scalar_records),
         event_records=tuple(recorder.event_records),
+        reversal_records=tuple(recorder.reversal_records),
         field_snapshots=snapshots,
         retained_event_snapshot_count=len(event_snapshots),
         maximum_in_memory_event_snapshots=recorder.maximum_in_memory_event_snapshots,
@@ -778,6 +869,7 @@ def run_s2_streaming_protocol_v2(
         fixed_snapshot_times_s=tuple(sorted(fixed)),
         initial_state=initial_state,
         voltage_scale_V=voltage_scale,
+        closure=closure,
     )
     attempts = _ControllerV2AttemptAccumulator()
 
@@ -826,6 +918,7 @@ def run_s2_streaming_protocol_v2(
         final_state=recorder.final_state,
         scalar_records=tuple(recorder.scalar_records),
         event_records=tuple(recorder.event_records),
+        reversal_records=tuple(recorder.reversal_records),
         field_snapshots=snapshots,
         retained_event_snapshot_count=len(event_snapshots),
         maximum_in_memory_event_snapshots=recorder.maximum_in_memory_event_snapshots,

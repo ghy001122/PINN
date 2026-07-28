@@ -113,6 +113,8 @@ class S2EmbeddedAttemptObservation:
     diagnostics: S2EmbeddedIntervalDiagnostics
     error_class: str | None
     error_message: str | None
+    aggregate_ledgers: S2LedgerBundle | None = None
+    aggregate_energy: S2IntervalEnergyTerms | None = None
 
 
 @dataclass(frozen=True)
@@ -553,6 +555,8 @@ def attempt_s2_embedded_interval(
         diagnostics=diagnostics,
         error_class=error_class,
         error_message=error_message,
+        aggregate_ledgers=aggregate_ledgers,
+        aggregate_energy=energy,
     )
 
 
