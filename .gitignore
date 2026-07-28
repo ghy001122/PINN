@@ -252,6 +252,9 @@ outputs/tables/geophase_phase1_v2/runtime_readiness/*
 !outputs/tables/geophase_phase1_v2/runtime_readiness/campaign_cost_forecast.csv
 !outputs/tables/geophase_phase1_v2/runtime_readiness/runner_dry_run.json
 !outputs/tables/geophase_phase1_v2/runtime_readiness/readiness_summary.json
+!outputs/tables/geophase_phase1_v2/controller_v2_readiness/
+outputs/tables/geophase_phase1_v2/controller_v2_readiness/*
+!outputs/tables/geophase_phase1_v2/controller_v2_readiness/preregistration.json
 !outputs/tables/gamma_sub_evidence_lock_summary.json
 !outputs/tables/vo2_d0a_source_discrepancies.csv
 !outputs/tables/vo2_d0a_source_reproduction.json

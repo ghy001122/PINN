@@ -28,6 +28,8 @@ def test_fast_validation_covers_phase1_checkpoint_a_and_authority_paths() -> Non
         "tests/test_geophase_phase1_v2_preregistration.py",
         "tests/test_geophase_phase1_v2_execution_addendum.py",
         "tests/test_geophase_phase1_v2_controller_v2_preregistration.py",
+        "tests/test_geophase_phase1_v2_controller_v2.py",
+        "tests/test_geophase_phase1_v2_controller_v2_readiness_evidence.py",
         "tests/test_geophase_phase1_s1_diffusive_mve_v2_preregistration.py",
         "tests/test_geophase_phase1_s1_diffusive_mve.py",
         "tests/test_geophase_phase1_v2_solver.py",

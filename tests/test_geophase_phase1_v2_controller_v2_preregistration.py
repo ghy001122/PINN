@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import copy
 import hashlib
+import json
 from pathlib import Path
 
 import pytest
@@ -21,6 +22,14 @@ OVERLAY_PATH = (
 )
 STAGE_PATH = ROOT / "configs" / "geo2p5d_stage.yaml"
 METHOD_PATH = ROOT / "docs" / "method_equations.md"
+PREREGISTRATION_PATH = (
+    ROOT
+    / "outputs"
+    / "tables"
+    / "geophase_phase1_v2"
+    / "controller_v2_readiness"
+    / "preregistration.json"
+)
 
 pytestmark = [pytest.mark.phase1, pytest.mark.current]
 
@@ -261,3 +270,52 @@ def test_post_anchor_implementation_diff_contract_protects_science() -> None:
     assert "src/pinnpcm/solvers/geophase_phase1_v2_implicit.py" in forbidden
     assert "docs/method_equations.md" in forbidden
     assert allowed.isdisjoint(forbidden)
+
+
+def test_machine_preregistration_binds_the_pushed_anchor_and_runtime_identity() -> None:
+    payload = json.loads(PREREGISTRATION_PATH.read_text(encoding="utf-8"))
+    overlay = _yaml(OVERLAY_PATH)
+    resolved = resolve_controller_v2(BASE_PATH, OVERLAY_PATH)
+
+    assert payload["task_id"] == "Q2_PHASE1_V2_EMBEDDED_TIME_CONTROLLER_REVISION"
+    assert payload["schema_version"] == (
+        "geophase_phase1_v2_controller_v2_preregistration_v1"
+    )
+    assert payload["status"] == "preregistered_not_executed"
+    assert payload["preregistration_commit"] == (
+        "406207b02adaa37953ff4d3813aaeee3235c004f"
+    )
+    assert payload["preregistration_tree"] == (
+        "17bc0163a154a1778aa9109e719d019f4be11b5f"
+    )
+    assert payload["pr7_merge_commit"] == (
+        overlay["authority_lock"]["merged_pr7_main_commit"]
+    )
+    assert payload["pr7_merge_tree"] == (
+        overlay["authority_lock"]["merged_pr7_main_tree"]
+    )
+
+    assert payload["base_S2_config_sha256"] == _sha256(BASE_PATH)
+    assert payload["controller_v2_overlay_sha256"] == _sha256(OVERLAY_PATH)
+    assert payload["resolution_schema_version"] == RESOLUTION_SCHEMA_VERSION
+    assert payload["resolved_runtime_identity"] == resolved.identity_payload
+    assert payload["resolved_runtime_identity_sha256"] == resolved.identity_sha256
+
+    assert payload["formal_execution_count"] == 0
+    assert payload["formal_artifact_count"] == 0
+    assert payload["formal_execution_consumed"] is False
+    assert payload["formal_case_artifacts_generated"] is False
+    assert payload["controller_v2_implementation_before_preregistration_push"] is False
+    assert (
+        payload["new_controller_v2_numerical_execution_before_preregistration_push"]
+        is False
+    )
+
+
+def test_machine_preregistration_is_the_only_controller_v2_output_allowlisted() -> None:
+    gitignore = (ROOT / ".gitignore").read_text(encoding="utf-8").splitlines()
+    directory = "outputs/tables/geophase_phase1_v2/controller_v2_readiness/"
+    assert f"!{directory}" in gitignore
+    assert f"{directory}*" in gitignore
+    assert f"!{directory}preregistration.json" in gitignore
+    assert f"!{directory}**" not in gitignore

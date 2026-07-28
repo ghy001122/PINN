@@ -50,6 +50,13 @@ def test_pre_registry_resume_and_case_completion_are_atomic_and_count_zero(
     assert prepared.state == "PREPARED"
     assert prepared.identity["formal_execution_count"] == 0
     assert prepared.identity["formal_unit_dispatch_enabled"] is False
+    identity_hashes = prepared.identity["identity_hashes_sha256"]
+    assert identity_hashes["controller_v2_overlay"] == _hashes()[
+        "controller_v2_overlay"
+    ]
+    assert identity_hashes["resolved_runtime_identity"] == _hashes()[
+        "resolved_runtime_identity"
+    ]
 
     running = runner.begin_running(prepared.path)
     assert running.state == "RUNNING"
@@ -93,22 +100,56 @@ def test_pre_registry_resume_and_case_completion_are_atomic_and_count_zero(
     assert complete.identity["formal_execution_count"] == 0
 
 
+@pytest.mark.parametrize(
+    "changed_identity",
+    ("environment", "controller_v2_overlay", "resolved_runtime_identity"),
+)
 def test_resume_hash_mismatch_is_rejected_and_invalidates_registry(
-    tmp_path: Path,
+    tmp_path: Path, changed_identity: str
 ) -> None:
-    prepared = _create(tmp_path, "PRE-HASH-MISMATCH")
+    suffix = {
+        "environment": "ENV",
+        "controller_v2_overlay": "CTRL",
+        "resolved_runtime_identity": "RESOLVED",
+    }[changed_identity]
+    run_id = f"PRE-HASH-MISMATCH-{suffix}"
+    prepared = _create(tmp_path, run_id)
     runner.begin_running(prepared.path)
     runner.interrupt_resumable(prepared.path, reason="synthetic interruption")
     changed = _hashes()
-    changed["environment"] = "f" * 64
+    changed[changed_identity] = "f" * 64
 
     with pytest.raises(runner.InvalidContractError, match="hash mismatch"):
         runner.resume_same_run(
             prepared.path,
-            run_id="PRE-HASH-MISMATCH",
+            run_id=run_id,
             expected_identity_hashes=changed,
         )
     assert runner.load_registry(prepared.path).state == "INVALID_CONTRACT"
+
+
+@pytest.mark.parametrize(
+    "missing_identity",
+    ("controller_v2_overlay", "resolved_runtime_identity"),
+)
+def test_controller_v2_identity_is_required_before_dry_run_registry_creation(
+    tmp_path: Path, missing_identity: str
+) -> None:
+    incomplete = _hashes()
+    del incomplete[missing_identity]
+    suffix = {
+        "controller_v2_overlay": "CTRL",
+        "resolved_runtime_identity": "RESOLVED",
+    }[missing_identity]
+
+    with pytest.raises(runner.InvalidContractError, match="hash set is incomplete"):
+        runner.create_prepared_registry(
+            tmp_path,
+            run_id=f"PRE-MISSING-{suffix}",
+            identity_hashes=incomplete,
+            execution_dag=_dag(),
+            environment_summary={"formal_machine": False},
+        )
 
 
 def test_foundation_fail_fast_blocks_remaining_and_separates_infrastructure(

@@ -28,6 +28,11 @@ from pinnpcm.solvers.geophase_phase1_v2_implicit import (
     protocol_voltage,
     simulate_s2_protocol,
 )
+from pinnpcm.solvers.geophase_phase1_v2_controller_v2 import (
+    S2EmbeddedAttemptObservation,
+    S2EmbeddedStepResult,
+    simulate_s2_protocol_v2,
+)
 
 
 @dataclass(frozen=True)
@@ -356,6 +361,90 @@ class _StreamingRecorder:
         )
 
 
+class _ControllerV2AttemptAccumulator:
+    """Count every coupled solve without exposing rejected-path state to output."""
+
+    def __init__(self) -> None:
+        self._coupled_solve_count = 0
+
+    def __call__(self, observation: S2EmbeddedAttemptObservation) -> None:
+        self._coupled_solve_count += int(observation.diagnostics.coupled_solve_count)
+
+    def consume(self, accepted_step: S2EmbeddedStepResult) -> int:
+        observed = self._coupled_solve_count
+        self._coupled_solve_count = 0
+        return max(observed, int(accepted_step.controller.coupled_solve_count))
+
+
+class _ControllerV2StreamingRecorder(_StreamingRecorder):
+    """Record only the accepted two-half path plus controller-v2 telemetry."""
+
+    _INITIAL_TELEMETRY: dict[str, Any] = {
+        "time_controller": "embedded_time_consistency_v2_only",
+        "outer_interval_s": 0.0,
+        "outer_rejections": 0,
+        "coupled_solve_count": 0,
+        "accepted_bundle_coupled_solve_count": 0,
+        "e_T": 0.0,
+        "e_s": 0.0,
+        "e_b": 0.0,
+        "e_V": 0.0,
+        "e_max": 0.0,
+        "legacy_max_absolute_delta_s": 0.0,
+        "legacy_max_absolute_delta_b": 0.0,
+    }
+
+    def __init__(self, **kwargs: Any) -> None:
+        super().__init__(**kwargs)
+        self.scalar_records[0].update(self._INITIAL_TELEMETRY)
+
+    def record_accepted_interval(
+        self,
+        previous_state: S2State,
+        step: S2EmbeddedStepResult,
+        outer_interval_s: float,
+        input_voltage_V: float,
+        wall_time_s: float,
+        *,
+        coupled_solve_count: int,
+    ) -> None:
+        previous_record_count = len(self.scalar_records)
+        super().__call__(
+            previous_state,
+            step,
+            outer_interval_s,
+            input_voltage_V,
+            wall_time_s,
+        )
+        if len(self.scalar_records) == previous_record_count:
+            return
+        embedded = step.controller.embedded_error
+        if embedded is None:
+            raise RuntimeError("accepted controller-v2 step lacks embedded error")
+        self.scalar_records[-1].update(
+            {
+                "time_controller": "embedded_time_consistency_v2_only",
+                "outer_interval_s": float(outer_interval_s),
+                "outer_rejections": int(step.controller.rejection_index),
+                "coupled_solve_count": int(coupled_solve_count),
+                "accepted_bundle_coupled_solve_count": int(
+                    step.controller.coupled_solve_count
+                ),
+                "e_T": float(embedded.e_T),
+                "e_s": float(embedded.e_s),
+                "e_b": float(embedded.e_b),
+                "e_V": float(embedded.e_V),
+                "e_max": float(embedded.e_max),
+                "legacy_max_absolute_delta_s": float(
+                    step.controller.legacy_conductive_increment or 0.0
+                ),
+                "legacy_max_absolute_delta_b": float(
+                    step.controller.legacy_branch_increment or 0.0
+                ),
+            }
+        )
+
+
 def run_s2_streaming_protocol(
     case_id: str,
     initial_state: S2State,
@@ -418,6 +507,125 @@ def run_s2_streaming_protocol(
         retain_full_history=False,
         retained_step_limit=0,
         accepted_step_callback=recorder,
+        cache=cache if cache is not None else build_s2_solver_cache(grid, fields),
+        use_equivalent_optimizations=use_equivalent_optimizations,
+        use_unit_voltage_scaling=use_unit_voltage_scaling,
+    )
+    event_snapshots = recorder.selected_event_snapshots()
+    snapshots = tuple(recorder.fixed_snapshots) + event_snapshots
+    return S2StreamingResult(
+        case_id=case_id,
+        protocol_result=result,
+        final_state=recorder.final_state,
+        scalar_records=tuple(recorder.scalar_records),
+        event_records=tuple(recorder.event_records),
+        field_snapshots=snapshots,
+        retained_event_snapshot_count=len(event_snapshots),
+        maximum_in_memory_event_snapshots=recorder.maximum_in_memory_event_snapshots,
+    )
+
+
+def run_s2_streaming_protocol_v2(
+    case_id: str,
+    initial_state: S2State,
+    *,
+    protocol: dict,
+    protocol_id: str,
+    grid: GeoPhaseGrid,
+    closure: EffectiveVO2Closure,
+    fields: S2ThermalFields,
+    config: dict,
+    time_divisor: int = 1,
+    final_time_s: float | None = None,
+    maximum_accepted_steps: int | None = None,
+    maximum_wall_clock_s: float | None = None,
+    retain_full_history: bool = False,
+    retained_step_limit: int = 0,
+    cache: S2SolverCache | None = None,
+    use_equivalent_optimizations: bool = True,
+    use_unit_voltage_scaling: bool = False,
+) -> S2StreamingResult:
+    """Run active controller-v2 with one accepted-path streaming recorder.
+
+    ``retain_full_history=True`` is reserved for bounded parity/readiness cases
+    such as C1.  The returned ``protocol_result.steps`` and streaming records
+    then come from the same call to :func:`simulate_s2_protocol_v2`; no second
+    numerical trajectory is needed.  Rejected and full-step estimator paths
+    contribute only solve-count telemetry and can never enter events, fields,
+    or scalar QoIs.
+    """
+
+    stop = float(
+        config["reference_solver"]["time_grid"]["final_time_s"]
+        if final_time_s is None
+        else final_time_s
+    )
+    samples = fixed_scalar_sample_times(config, stop)
+    discontinuities = tuple(
+        float(value)
+        for value in protocol_discontinuities(protocol)
+        if initial_state.time_s <= float(value) <= stop
+    )
+    forced_landings = tuple(
+        sorted(set(float(value) for value in samples) | set(discontinuities))
+    )
+    fixed = set(
+        float(value)
+        for value in (
+            0.0,
+            5.0e-6,
+            1.0e-5,
+            1.5e-5,
+            2.0e-5,
+            *discontinuities,
+        )
+        if initial_state.time_s <= float(value) <= stop
+    )
+    recorder = _ControllerV2StreamingRecorder(
+        case_id=case_id,
+        grid=grid,
+        fields=fields,
+        protocol=protocol,
+        config=config,
+        sample_times_s=samples,
+        fixed_snapshot_times_s=tuple(sorted(fixed)),
+        initial_state=initial_state,
+    )
+    attempts = _ControllerV2AttemptAccumulator()
+
+    def record_accepted(
+        previous_state: S2State,
+        step: S2EmbeddedStepResult,
+        outer_interval_s: float,
+        input_voltage_V: float,
+        wall_time_s: float,
+    ) -> None:
+        recorder.record_accepted_interval(
+            previous_state,
+            step,
+            outer_interval_s,
+            input_voltage_V,
+            wall_time_s,
+            coupled_solve_count=attempts.consume(step),
+        )
+
+    result = simulate_s2_protocol_v2(
+        initial_state,
+        protocol=protocol,
+        protocol_id=protocol_id,
+        grid=grid,
+        closure=closure,
+        fields=fields,
+        config=config,
+        time_divisor=time_divisor,
+        final_time_s=stop,
+        maximum_accepted_steps=maximum_accepted_steps,
+        maximum_wall_clock_s=maximum_wall_clock_s,
+        forced_times_s=forced_landings,
+        retain_full_history=retain_full_history,
+        retained_step_limit=retained_step_limit,
+        accepted_step_callback=record_accepted,
+        attempted_candidate_callback=attempts,
         cache=cache if cache is not None else build_s2_solver_cache(grid, fields),
         use_equivalent_optimizations=use_equivalent_optimizations,
         use_unit_voltage_scaling=use_unit_voltage_scaling,
@@ -575,4 +783,5 @@ __all__ = [
     "publish_pre_streaming_case",
     "published_case_bytes",
     "run_s2_streaming_protocol",
+    "run_s2_streaming_protocol_v2",
 ]

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import ctypes
 from dataclasses import dataclass
+from decimal import Decimal, ROUND_CEILING
 import math
 import os
 from pathlib import Path
@@ -249,9 +250,45 @@ def build_campaign_cost_forecast(
     execution_dag: dict[str, Any],
     sample_rows: list[dict[str, Any]],
     environment: dict[str, Any],
-    floor_dt_s: float,
     disk_free_fraction_min: float,
+    floor_dt_s: float | None = None,
+    outer_interval_floor_s: float | None = None,
+    required_state_ids: tuple[str, ...] = (
+        "equilibrium",
+        "legal_critical",
+        "high_conductive",
+    ),
+    coupled_solves_per_clean_outer_interval: int = 1,
+    measured_interval_wall_time_includes_all_coupled_solves: bool = True,
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    if outer_interval_floor_s is not None and floor_dt_s is not None:
+        if not math.isclose(
+            float(outer_interval_floor_s),
+            float(floor_dt_s),
+            rel_tol=0.0,
+            abs_tol=0.0,
+        ):
+            raise ValueError("campaign forecast received conflicting floor values")
+    resolved_floor_s = float(
+        outer_interval_floor_s
+        if outer_interval_floor_s is not None
+        else floor_dt_s
+        if floor_dt_s is not None
+        else math.nan
+    )
+    if not math.isfinite(resolved_floor_s) or resolved_floor_s <= 0.0:
+        raise ValueError("campaign forecast requires a positive outer interval floor")
+    if not required_state_ids or len(set(required_state_ids)) != len(
+        required_state_ids
+    ):
+        raise ValueError("campaign forecast required states must be unique and nonempty")
+    if coupled_solves_per_clean_outer_interval <= 0:
+        raise ValueError("clean outer interval coupled-solve count must be positive")
+    if not measured_interval_wall_time_includes_all_coupled_solves:
+        raise ValueError(
+            "measured interval wall time must already include every coupled solve"
+        )
+
     grids = (1, 2, 4)
     by_grid: dict[int, dict[str, float]] = {}
     for level in grids:
@@ -266,12 +303,33 @@ def build_campaign_cost_forecast(
             for row in applicable
             if row.get("sample_kind") in {"short_trajectory", "optional_long_prefix"}
             and float(row.get("achieved_simulated_time_s", 0.0)) > 0.0
+            and float(row.get("accepted_steps", 0.0)) > 0.0
         ]
-        if not trajectories:
-            raise ValueError(f"missing passing trajectory telemetry for L{level}")
+        missing_states = [
+            state_id
+            for state_id in required_state_ids
+            if not any(row.get("state_id") == state_id for row in trajectories)
+        ]
+        if missing_states:
+            raise ValueError(
+                f"missing passing trajectory telemetry for L{level} states: "
+                + ", ".join(missing_states)
+            )
         accepted_rate = max(
             float(row["accepted_steps"]) / float(row["achieved_simulated_time_s"])
             for row in trajectories
+        )
+        coupled_solve_rate = max(
+            float(
+                row.get(
+                    "coupled_solve_count",
+                    float(row["accepted_steps"])
+                    * coupled_solves_per_clean_outer_interval,
+                )
+            )
+            / float(row["accepted_steps"])
+            for row in trajectories
+            if float(row["accepted_steps"]) > 0.0
         )
         step_p90 = max(float(row["step_wall_time_p90_s"]) for row in trajectories)
         step_max = max(
@@ -292,6 +350,9 @@ def build_campaign_cost_forecast(
             "step_wall_time_max_s": step_max,
             "predicted_full_streaming_bytes": float(full_streaming_bytes),
             "predicted_full_streaming_io_s": full_io_s,
+            "observed_coupled_solves_per_accepted_outer_interval": (
+                coupled_solve_rate
+            ),
         }
 
     rows: list[dict[str, Any]] = []
@@ -314,7 +375,12 @@ def build_campaign_cost_forecast(
                 )
             )
             safety_steps = int(math.ceil(1.25 * unreserved_steps))
-            absolute_floor_steps = int(math.ceil(duration / (floor_dt_s / divisor)))
+            absolute_floor_steps = int(
+                (
+                    Decimal(str(duration))
+                    / (Decimal(str(resolved_floor_s)) / Decimal(divisor))
+                ).to_integral_value(rounding=ROUND_CEILING)
+            )
             io_s = observed["predicted_full_streaming_io_s"]
             disk_bytes = int(observed["predicted_full_streaming_bytes"])
         else:
@@ -322,6 +388,23 @@ def build_campaign_cost_forecast(
             io_s = min(observed["predicted_full_streaming_io_s"], 0.05)
             disk_bytes = max(4096, int(observed["predicted_full_streaming_bytes"] / 4001))
         multiplier = 2.0 if group == "DUAL0" else 1.10 if group == "TOP" else 1.0
+        solve_multiplier = 2.0 if group == "DUAL0" else 1.0
+        clean_coupled_solves = (
+            coupled_solves_per_clean_outer_interval if full_trajectory else 1
+        )
+        observed_coupled_solve_rate = (
+            observed["observed_coupled_solves_per_accepted_outer_interval"]
+            if full_trajectory
+            else 1.0
+        )
+        unreserved_coupled_solves = int(
+            math.ceil(
+                unreserved_steps * observed_coupled_solve_rate * solve_multiplier
+            )
+        )
+        safety_coupled_solves = int(
+            math.ceil(safety_steps * observed_coupled_solve_rate * solve_multiplier)
+        )
         unreserved_wall = multiplier * (
             observed["step_wall_time_max_s"]
             + max(unreserved_steps - 1, 0) * observed["step_wall_time_p90_s"]
@@ -344,6 +427,15 @@ def build_campaign_cost_forecast(
                 "unreserved_accepted_steps": unreserved_steps,
                 "safety_accepted_steps": safety_steps,
                 "absolute_floor_accepted_steps": absolute_floor_steps,
+                "clean_coupled_solves_per_outer_interval": (
+                    clean_coupled_solves
+                ),
+                "observed_coupled_solves_per_accepted_outer_interval": (
+                    observed_coupled_solve_rate
+                ),
+                "unreserved_coupled_solves": unreserved_coupled_solves,
+                "safety_coupled_solves": safety_coupled_solves,
+                "measured_interval_wall_time_includes_all_coupled_solves": True,
                 "observed_step_wall_time_p90_s": observed["step_wall_time_p90_s"],
                 "observed_step_wall_time_max_s": observed["step_wall_time_max_s"],
                 "unreserved_wall_clock_s": unreserved_wall,
@@ -414,6 +506,19 @@ def build_campaign_cost_forecast(
         "disk_free_fraction_after_forecast": disk_fraction_after,
         "disk_free_fraction_min": disk_free_fraction_min,
         "grid_telemetry": by_grid,
+        "outer_interval_floor_s": resolved_floor_s,
+        "required_state_ids_per_grid": list(required_state_ids),
+        "coupled_solve_cost_semantics": {
+            "clean_coupled_solves_per_outer_interval": (
+                coupled_solves_per_clean_outer_interval
+            ),
+            "measured_interval_wall_time_includes_all_coupled_solves": True,
+            "wall_time_multiplier_for_embedded_solve_count": 1.0,
+            "note": (
+                "measured outer-interval wall times already include full-step, "
+                "two-half-step, and observed rejected-bundle solves"
+            ),
+        },
     }
     return merged, summary
 
