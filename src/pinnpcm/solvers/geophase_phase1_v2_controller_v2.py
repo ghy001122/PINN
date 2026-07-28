@@ -777,7 +777,6 @@ def simulate_s2_protocol_v2(
         interval_wall = perf_counter() - interval_started
         accepted_steps += 1
         accepted_dts.append(float(H))
-        interval_wall_times.append(float(interval_wall))
         if retain_full_history:
             steps.append(candidate)
         elif retained_step_limit:
@@ -793,6 +792,11 @@ def simulate_s2_protocol_v2(
                 float(accepted_voltage),
                 float(interval_wall),
             )
+        # Forecast telemetry includes the online accepted-path recorder.  The
+        # callback receives solve-only wall time because its own elapsed time
+        # cannot be known until it returns; final atomic publication is timed
+        # separately by the readiness runner.
+        interval_wall_times.append(float(perf_counter() - interval_started))
         state = candidate.state
         minimum_H = min(minimum_H, H)
         maximum_accepted_H = max(maximum_accepted_H, H)

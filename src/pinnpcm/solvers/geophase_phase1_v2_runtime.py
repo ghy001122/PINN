@@ -296,11 +296,12 @@ def build_campaign_cost_forecast(
             row
             for row in sample_rows
             if int(row.get("spatial_level", 0)) == level
-            and row.get("status") == "pass"
+            and row.get("status") in {"pass", "valid_rejection"}
         ]
         trajectories = [
             row
             for row in applicable
+            if row.get("status") == "pass"
             if row.get("sample_kind") in {"short_trajectory", "optional_long_prefix"}
             and float(row.get("achieved_simulated_time_s", 0.0)) > 0.0
             and float(row.get("accepted_steps", 0.0)) > 0.0

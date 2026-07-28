@@ -62,6 +62,67 @@ class S2StreamingResult:
     maximum_in_memory_event_snapshots: int
 
 
+_EVENT_FIELDS = (
+    "case_id",
+    "event_index",
+    "direction",
+    "crossing_time_s",
+    "before_sample_time_s",
+    "after_sample_time_s",
+    "before_signal",
+    "after_signal",
+    "nonlinear_method",
+    "nonlinear_iterations",
+    "krylov_matvecs",
+    "armijo_backtracks",
+    "predictor_picard_iterations",
+    "fallback_picard_iterations",
+    "scaled_residual_inf",
+    "scaled_update_inf",
+    "nonlinear_converged",
+)
+
+_REVERSAL_FIELDS = (
+    "case_id",
+    "reversal_index",
+    "direction",
+    "heating_to_cooling_cell_count",
+    "cooling_to_heating_cell_count",
+    "affected_cell_count",
+    "affected_mask_sha256",
+    "heating_to_cooling_mask_sha256",
+    "cooling_to_heating_mask_sha256",
+    "detection_interval_start_s",
+    "detection_interval_stop_s",
+    "detection_time_s",
+    "representative_prior_nonneutral_stop_s",
+    "time_semantics",
+    "representative_cell_iy",
+    "representative_cell_ix",
+    "representative_cell_x_m",
+    "representative_cell_y_m",
+    "representative_T_before_K",
+    "representative_T_after_K",
+    "representative_s_before",
+    "representative_s_after",
+    "representative_b_before",
+    "representative_b_after",
+    "representative_heating_activation",
+    "representative_cooling_activation",
+    "device_voltage_before_V",
+    "device_voltage_after_V",
+    "nonlinear_method",
+    "nonlinear_iterations",
+    "krylov_matvecs",
+    "armijo_backtracks",
+    "fallback_picard_iterations",
+    "predictor_picard_iterations",
+    "scaled_residual_inf",
+    "scaled_update_inf",
+    "nonlinear_converged",
+)
+
+
 def fixed_scalar_sample_times(config: dict, final_time_s: float) -> np.ndarray:
     """Return the locked physical comparison grid truncated to a run window."""
 
@@ -404,6 +465,7 @@ class _ControllerV2StreamingRecorder(_StreamingRecorder):
         closure: EffectiveVO2Closure,
         **kwargs: Any,
     ) -> None:
+        initial_state = kwargs["initial_state"]
         super().__init__(**kwargs)
         self.closure = closure
         self.scalar_records[0].update(
@@ -415,9 +477,14 @@ class _ControllerV2StreamingRecorder(_StreamingRecorder):
         )
         self._fine_previous_signal = self._previous_scalar_signal
         self._fine_previous_snapshot = self._previous_scalar_snapshot
+        self._fine_previous_device_voltage_V = float(initial_state.device_voltage_V)
         self._fine_previous_activation_direction = np.zeros(
             self.grid.shape, dtype=np.int8
         )
+        self._fine_last_nonneutral_stop_time_s = np.full(
+            self.grid.shape, float(initial_state.time_s), dtype=float
+        )
+        self._fixed_event_nonlinear: Any | None = None
 
     @staticmethod
     def _empty_path_telemetry() -> dict[str, Any]:
@@ -436,6 +503,10 @@ class _ControllerV2StreamingRecorder(_StreamingRecorder):
                 "krylov_matvecs",
                 "armijo_backtracks",
                 "fallback_picard_iterations",
+                "predictor_picard_iterations",
+                "scaled_residual_inf",
+                "scaled_update_inf",
+                "converged",
             ):
                 values[f"{prefix}_{suffix}"] = None
             for ledger in ("thermal", "circuit", "combined", "device_power"):
@@ -445,6 +516,34 @@ class _ControllerV2StreamingRecorder(_StreamingRecorder):
         for ledger in ("thermal", "circuit", "combined", "device_power"):
             values[f"aggregate_{ledger}_relative_residual"] = None
         return values
+
+    def _record_event(self, **kwargs: Any) -> None:
+        """Keep fixed-grid event semantics and add v2 nonlinear diagnostics."""
+
+        previous_count = len(self.event_records)
+        super()._record_event(**kwargs)
+        if len(self.event_records) == previous_count:
+            return
+        nonlinear = self._fixed_event_nonlinear
+        if nonlinear is None:
+            raise RuntimeError("controller-v2 fixed event lacks nonlinear context")
+        self.event_records[-1].update(
+            {
+                "nonlinear_method": str(nonlinear.method),
+                "nonlinear_iterations": int(nonlinear.iterations),
+                "krylov_matvecs": int(nonlinear.krylov_matvecs),
+                "armijo_backtracks": int(nonlinear.armijo_backtracks),
+                "predictor_picard_iterations": int(
+                    nonlinear.predictor_picard_iterations
+                ),
+                "fallback_picard_iterations": int(
+                    nonlinear.fallback_picard_iterations
+                ),
+                "scaled_residual_inf": float(nonlinear.scaled_residual_inf),
+                "scaled_update_inf": float(nonlinear.scaled_update_inf),
+                "nonlinear_converged": bool(nonlinear.converged),
+            }
+        )
 
     @staticmethod
     def _path_telemetry(prefix: str, path: Any, nonlinear: Any) -> dict[str, Any]:
@@ -465,6 +564,16 @@ class _ControllerV2StreamingRecorder(_StreamingRecorder):
             f"{prefix}_fallback_picard_iterations": int(
                 nonlinear.fallback_picard_iterations
             ),
+            f"{prefix}_predictor_picard_iterations": int(
+                getattr(nonlinear, "predictor_picard_iterations", 0)
+            ),
+            f"{prefix}_scaled_residual_inf": float(
+                getattr(nonlinear, "scaled_residual_inf", 0.0)
+            ),
+            f"{prefix}_scaled_update_inf": float(
+                getattr(nonlinear, "scaled_update_inf", 0.0)
+            ),
+            f"{prefix}_converged": bool(getattr(nonlinear, "converged", True)),
         }
         values.update(
             {
@@ -489,10 +598,7 @@ class _ControllerV2StreamingRecorder(_StreamingRecorder):
         )
         return values
 
-    def _record_event(self, **_kwargs: Any) -> None:
-        """Base fixed-grid event hook is replaced by accepted fine-path events."""
-
-    def _record_accepted_fine_event_state(
+    def _record_accepted_fine_diagnostics(
         self, candidate: Any, *, nonlinear: Any | None = None
     ) -> None:
         nonlinear = candidate.nonlinear if nonlinear is None else nonlinear
@@ -530,6 +636,12 @@ class _ControllerV2StreamingRecorder(_StreamingRecorder):
             mask_bytes = np.packbits(
                 reversal_mask.reshape(-1).astype(np.uint8), bitorder="little"
             ).tobytes()
+            heating_to_cooling_bytes = np.packbits(
+                heating_to_cooling.reshape(-1).astype(np.uint8), bitorder="little"
+            ).tobytes()
+            cooling_to_heating_bytes = np.packbits(
+                cooling_to_heating.reshape(-1).astype(np.uint8), bitorder="little"
+            ).tobytes()
             self.reversal_records.append(
                 {
                     "case_id": self.case_id,
@@ -550,8 +662,24 @@ class _ControllerV2StreamingRecorder(_StreamingRecorder):
                     ),
                     "affected_cell_count": int(np.count_nonzero(reversal_mask)),
                     "affected_mask_sha256": hashlib.sha256(mask_bytes).hexdigest(),
-                    "interval_start_s": float(self._fine_previous_snapshot.time_s),
-                    "interval_stop_s": float(current_snapshot.time_s),
+                    "heating_to_cooling_mask_sha256": hashlib.sha256(
+                        heating_to_cooling_bytes
+                    ).hexdigest(),
+                    "cooling_to_heating_mask_sha256": hashlib.sha256(
+                        cooling_to_heating_bytes
+                    ).hexdigest(),
+                    "detection_interval_start_s": float(
+                        self._fine_previous_snapshot.time_s
+                    ),
+                    "detection_interval_stop_s": float(current_snapshot.time_s),
+                    "detection_time_s": float(current_snapshot.time_s),
+                    "representative_prior_nonneutral_stop_s": float(
+                        self._fine_last_nonneutral_stop_time_s[iy, ix]
+                    ),
+                    "time_semantics": (
+                        "accepted_fine_path_detection_interval; no subinterval "
+                        "reversal-time interpolation"
+                    ),
                     "representative_cell_iy": int(iy),
                     "representative_cell_ix": int(ix),
                     "representative_cell_x_m": float(self.grid.x_centers_m[ix]),
@@ -562,13 +690,24 @@ class _ControllerV2StreamingRecorder(_StreamingRecorder):
                     "representative_T_after_K": float(
                         candidate.state.temperature_K[iy, ix]
                     ),
+                    "representative_s_before": float(
+                        self._fine_previous_snapshot.conductive_state[iy, ix]
+                    ),
                     "representative_s_after": float(
                         candidate.state.conductive_state[iy, ix]
+                    ),
+                    "representative_b_before": float(
+                        self._fine_previous_snapshot.branch_memory[iy, ix]
                     ),
                     "representative_b_after": float(
                         candidate.state.branch_memory[iy, ix]
                     ),
-                    "device_voltage_V": float(candidate.state.device_voltage_V),
+                    "representative_heating_activation": float(heating[iy, ix]),
+                    "representative_cooling_activation": float(cooling[iy, ix]),
+                    "device_voltage_before_V": float(
+                        self._fine_previous_device_voltage_V
+                    ),
+                    "device_voltage_after_V": float(candidate.state.device_voltage_V),
                     "nonlinear_method": str(nonlinear.method),
                     "nonlinear_iterations": int(nonlinear.iterations),
                     "krylov_matvecs": int(nonlinear.krylov_matvecs),
@@ -576,82 +715,26 @@ class _ControllerV2StreamingRecorder(_StreamingRecorder):
                     "fallback_picard_iterations": int(
                         nonlinear.fallback_picard_iterations
                     ),
+                    "predictor_picard_iterations": int(
+                        nonlinear.predictor_picard_iterations
+                    ),
+                    "scaled_residual_inf": float(nonlinear.scaled_residual_inf),
+                    "scaled_update_inf": float(nonlinear.scaled_update_inf),
+                    "nonlinear_converged": bool(nonlinear.converged),
                 }
             )
+        nonneutral = current_direction != 0
+        self._fine_last_nonneutral_stop_time_s = np.where(
+            nonneutral,
+            float(current_snapshot.time_s),
+            self._fine_last_nonneutral_stop_time_s,
+        )
         self._fine_previous_activation_direction = np.where(
-            current_direction != 0, current_direction, previous_direction
+            nonneutral, current_direction, previous_direction
         ).astype(np.int8, copy=False)
-        direction: str | None = None
-        if self._fine_previous_signal < self.threshold <= current_signal:
-            direction = "upward"
-        elif self._fine_previous_signal > self.threshold >= current_signal:
-            direction = "downward"
-        denominator = current_signal - self._fine_previous_signal
-        if direction is not None and denominator != 0.0:
-            fraction = (self.threshold - self._fine_previous_signal) / denominator
-            crossing_time = self._fine_previous_snapshot.time_s + fraction * (
-                current_snapshot.time_s - self._fine_previous_snapshot.time_s
-            )
-            separated = not self.event_records or (
-                crossing_time - float(self.event_records[-1]["crossing_time_s"])
-                >= self.minimum_event_separation_s - 1.0e-18
-            )
-            if separated:
-                index = len(self.event_records) + 1
-                before = S2FullFieldSnapshot(
-                    **{
-                        **self._fine_previous_snapshot.__dict__,
-                        "snapshot_kind": "event_before",
-                        "event_index": index,
-                        "event_direction": direction,
-                    }
-                )
-                after = S2FullFieldSnapshot(
-                    **{
-                        **current_snapshot.__dict__,
-                        "snapshot_kind": "event_after",
-                        "event_index": index,
-                        "event_direction": direction,
-                    }
-                )
-                pair = (before, after)
-                if len(self._event_snapshot_pairs) < 8:
-                    self._event_snapshot_pairs.append(pair)
-                else:
-                    self._event_snapshot_pairs = (
-                        self._event_snapshot_pairs[:4]
-                        + self._event_snapshot_pairs[-3:]
-                        + [pair]
-                    )
-                self.maximum_in_memory_event_snapshots = max(
-                    self.maximum_in_memory_event_snapshots,
-                    2 * len(self._event_snapshot_pairs),
-                )
-                self.event_records.append(
-                    {
-                        "case_id": self.case_id,
-                        "event_index": index,
-                        "direction": direction,
-                        "crossing_time_s": float(crossing_time),
-                        "before_sample_time_s": float(
-                            self._fine_previous_snapshot.time_s
-                        ),
-                        "after_sample_time_s": float(current_snapshot.time_s),
-                        "before_signal": float(self._fine_previous_signal),
-                        "after_signal": float(current_signal),
-                        "nonlinear_method": str(nonlinear.method),
-                        "nonlinear_iterations": int(nonlinear.iterations),
-                        "krylov_matvecs": int(nonlinear.krylov_matvecs),
-                        "armijo_backtracks": int(
-                            nonlinear.armijo_backtracks
-                        ),
-                        "fallback_picard_iterations": int(
-                            nonlinear.fallback_picard_iterations
-                        ),
-                    }
-                )
         self._fine_previous_signal = current_signal
         self._fine_previous_snapshot = current_snapshot
+        self._fine_previous_device_voltage_V = float(candidate.state.device_voltage_V)
 
     def record_accepted_interval(
         self,
@@ -663,18 +746,22 @@ class _ControllerV2StreamingRecorder(_StreamingRecorder):
         *,
         coupled_solve_count: int,
     ) -> None:
-        self._record_accepted_fine_event_state(step.accepted_first_half)
-        self._record_accepted_fine_event_state(
+        self._record_accepted_fine_diagnostics(step.accepted_first_half)
+        self._record_accepted_fine_diagnostics(
             step, nonlinear=step.controller.second_half_nonlinear
         )
         previous_record_count = len(self.scalar_records)
-        super().__call__(
-            previous_state,
-            step,
-            outer_interval_s,
-            input_voltage_V,
-            wall_time_s,
-        )
+        self._fixed_event_nonlinear = step.nonlinear
+        try:
+            super().__call__(
+                previous_state,
+                step,
+                outer_interval_s,
+                input_voltage_V,
+                wall_time_s,
+            )
+        finally:
+            self._fixed_event_nonlinear = None
         if len(self.scalar_records) == previous_record_count:
             return
         embedded = step.controller.embedded_error
@@ -961,22 +1048,25 @@ def publish_pre_streaming_case(
             encoding="utf-8",
             newline="\n",
         )
-        event_fields = (
-            list(result.event_records[0])
-            if result.event_records
-            else [
-                "case_id",
-                "event_index",
-                "direction",
-                "crossing_time_s",
-                "before_sample_time_s",
-                "after_sample_time_s",
-                "before_signal",
-                "after_signal",
-            ]
+        controller_v2 = bool(
+            result.scalar_records[0].get("time_controller")
+            == "embedded_time_consistency_v2_only"
         )
+        if any(not set(record).issubset(_EVENT_FIELDS) for record in result.event_records):
+            raise ValueError("streaming event record drifted outside its fixed schema")
+        if controller_v2 and any(
+            set(record) != set(_EVENT_FIELDS) for record in result.event_records
+        ):
+            raise ValueError("controller-v2 event record is incomplete")
         (temporary / "events.csv").write_text(
-            _csv_text(result.event_records, event_fields),
+            _csv_text(result.event_records, _EVENT_FIELDS),
+            encoding="utf-8",
+            newline="\n",
+        )
+        if any(set(record) != set(_REVERSAL_FIELDS) for record in result.reversal_records):
+            raise ValueError("streaming reversal record drifted from its fixed schema")
+        (temporary / "reversals.csv").write_text(
+            _csv_text(result.reversal_records, _REVERSAL_FIELDS),
             encoding="utf-8",
             newline="\n",
         )
@@ -1000,7 +1090,7 @@ def publish_pre_streaming_case(
             )
         np.savez_compressed(temporary / "fields.npz", **arrays)
         metadata = {
-            "schema_version": "geophase_phase1_v2_streaming_case_v1",
+            "schema_version": "geophase_phase1_v2_streaming_case_v2",
             "case_id": result.case_id,
             "formal": False,
             "formal_execution_count": 0,
@@ -1009,6 +1099,7 @@ def publish_pre_streaming_case(
             "accepted_steps": result.protocol_result.diagnostics.accepted_steps,
             "scalar_record_count": len(result.scalar_records),
             "event_record_count": len(result.event_records),
+            "reversal_record_count": len(result.reversal_records),
             "field_snapshot_count": len(result.field_snapshots),
             "retained_full_accepted_step_history": len(result.protocol_result.steps),
             "snapshot_index": snapshot_index,
@@ -1019,10 +1110,16 @@ def publish_pre_streaming_case(
             encoding="utf-8",
             newline="\n",
         )
-        payload_names = ("scalars.csv", "events.csv", "fields.npz", "metadata.json")
+        payload_names = (
+            "scalars.csv",
+            "events.csv",
+            "reversals.csv",
+            "fields.npz",
+            "metadata.json",
+        )
         payload_hashes = {name: _sha256(temporary / name) for name in payload_names}
         completion = {
-            "schema_version": "geophase_phase1_v2_streaming_case_completion_v1",
+            "schema_version": "geophase_phase1_v2_streaming_case_completion_v2",
             "case_id": result.case_id,
             "status": "validated_complete",
             "payload_hashes_sha256": payload_hashes,
