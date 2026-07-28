@@ -238,6 +238,9 @@ outputs/tables/geophase_phase1_v2/*
 !outputs/tables/geophase_phase1_v2/s1_diffusive_mve_v2_pointwise.csv
 !outputs/tables/geophase_phase1_v2/s1_diffusive_mve_v2_summary.json
 !outputs/tables/geophase_phase1_v2/s1_diffusive_mve_v2_interruption_disposition.json
+!outputs/tables/geophase_phase1_v2/critical_transition_failure_telemetry.json
+!outputs/tables/geophase_phase1_v2/critical_transition_attempts.csv
+!outputs/tables/geophase_phase1_v2/critical_transition_diagnosis.json
 !outputs/tables/geophase_phase1_v2/runtime_readiness/
 outputs/tables/geophase_phase1_v2/runtime_readiness/*
 !outputs/tables/geophase_phase1_v2/runtime_readiness/preregistration.json

@@ -63,6 +63,26 @@ class S2StepResult:
 
 
 @dataclass(frozen=True)
+class S2AttemptObservation:
+    """Read-only telemetry for one adaptive-controller candidate attempt."""
+
+    previous_state: S2State
+    candidate: S2StepResult | None
+    dt_s: float
+    input_voltage_V: float
+    candidate_wall_time_s: float
+    rejection_index: int
+    endpoint_remainder: bool
+    at_locked_floor: bool
+    conductive_increment: float | None
+    branch_increment: float | None
+    transition_increment: float | None
+    transition_threshold: float
+    error_class: str | None
+    error_message: str | None
+
+
+@dataclass(frozen=True)
 class S2AdaptiveDiagnostics:
     accepted_steps: int
     rejected_steps: int
@@ -811,6 +831,8 @@ def simulate_s2_protocol(
         [S2State, S2StepResult, float, float, float], None
     ]
     | None = None,
+    attempted_candidate_callback: Callable[[S2AttemptObservation], None]
+    | None = None,
     cache: S2SolverCache | None = None,
     use_equivalent_optimizations: bool = True,
     use_unit_voltage_scaling: bool = False,
@@ -919,6 +941,9 @@ def simulate_s2_protocol(
         rejections_this_step = 0
         had_rejection = False
         while True:
+            candidate_wall_start = (
+                perf_counter() if attempted_candidate_callback is not None else None
+            )
             try:
                 candidate = advance_s2_backward_euler(
                     state,
@@ -932,7 +957,35 @@ def simulate_s2_protocol(
                         use_equivalent_optimizations=use_equivalent_optimizations,
                         use_unit_voltage_scaling=use_unit_voltage_scaling,
                     )
-            except (RuntimeError, ValueError, FloatingPointError, np.linalg.LinAlgError):
+            except (
+                RuntimeError,
+                ValueError,
+                FloatingPointError,
+                np.linalg.LinAlgError,
+            ) as error:
+                if attempted_candidate_callback is not None:
+                    assert candidate_wall_start is not None
+                    candidate_wall_time = perf_counter() - candidate_wall_start
+                    attempted_candidate_callback(
+                        S2AttemptObservation(
+                            previous_state=state,
+                            candidate=None,
+                            dt_s=float(dt),
+                            input_voltage_V=float(input_voltage),
+                            candidate_wall_time_s=float(candidate_wall_time),
+                            rejection_index=int(rejections_this_step),
+                            endpoint_remainder=bool(endpoint_remainder),
+                            at_locked_floor=bool(
+                                dt <= floor_dt * (1.0 + 1.0e-12)
+                            ),
+                            conductive_increment=None,
+                            branch_increment=None,
+                            transition_increment=None,
+                            transition_threshold=float(threshold),
+                            error_class=type(error).__name__,
+                            error_message=str(error),
+                        )
+                    )
                 if endpoint_remainder or dt <= floor_dt * (1.0 + 1.0e-12):
                     raise RuntimeError("S2 adaptive solve failed at its locked floor")
                 nonlinear_rejections += 1
@@ -955,6 +1008,29 @@ def simulate_s2_protocol(
                 np.max(np.abs(candidate.state.branch_memory - state.branch_memory))
             )
             increment = max(conductive_increment, branch_increment)
+            if attempted_candidate_callback is not None:
+                assert candidate_wall_start is not None
+                candidate_wall_time = perf_counter() - candidate_wall_start
+                attempted_candidate_callback(
+                    S2AttemptObservation(
+                        previous_state=state,
+                        candidate=candidate,
+                        dt_s=float(dt),
+                        input_voltage_V=float(input_voltage),
+                        candidate_wall_time_s=float(candidate_wall_time),
+                        rejection_index=int(rejections_this_step),
+                        endpoint_remainder=bool(endpoint_remainder),
+                        at_locked_floor=bool(
+                            dt <= floor_dt * (1.0 + 1.0e-12)
+                        ),
+                        conductive_increment=float(conductive_increment),
+                        branch_increment=float(branch_increment),
+                        transition_increment=float(increment),
+                        transition_threshold=float(threshold),
+                        error_class=None,
+                        error_message=None,
+                    )
+                )
             if increment > threshold:
                 if endpoint_remainder or dt <= floor_dt * (1.0 + 1.0e-12):
                     raise RuntimeError("S2 transition increment failed at locked floor")
@@ -1093,6 +1169,7 @@ def simulate_s2_decoupled_copies(
 
 __all__ = [
     "S2AdaptiveDiagnostics",
+    "S2AttemptObservation",
     "S2NonlinearDiagnostics",
     "S2ProtocolResult",
     "S2SolverCache",
