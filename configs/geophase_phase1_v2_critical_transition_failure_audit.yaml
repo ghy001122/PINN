@@ -1,0 +1,223 @@
+task_id: Q2_PHASE1_V2_CRITICAL_TRANSITION_FAILURE_MECHANISM_AUDIT
+schema_version: geophase_phase1_v2_critical_transition_failure_audit_v1
+status: preregistered_pending_push_no_numerical_replay
+evidence_type: bounded_nonformal_failure_mechanism_audit
+manuscript_use: contribution_1_conservative_2p5d_reference_solver_decision_only
+
+execution_boundary:
+  merged_main_commit: 6a7c9e0ba7be2b5bc89f751c0751110af2bab7ef
+  merged_main_tree: ea0ee584c279dadece3c2f4292fa5200e0826dbf
+  real_numerical_replay_limit: 1
+  real_numerical_replay_count_before_this_contract: 0
+  formal_execution_count: 0
+  formal_artifact_count: 0
+  formal_case_ids: forbidden
+  performance_optimization: forbidden
+  controller_revision_in_this_task: forbidden
+  S2_equation_parameter_or_tolerance_change: forbidden
+  readiness_rerun: forbidden
+  full_regression: forbidden
+
+baseline_scientific_identity:
+  verification_source: git_objects_at_merged_main_commit
+  full_tree_identity_required: true
+  key_blobs:
+    src/pinnpcm/physics/geophase_s2_ledgers.py: 5c1d48f525edb9cb01ec718da684175f6403f836
+    src/pinnpcm/physics/geophase_s2_thermal.py: b95e01c13bcce24b881c0bec88ca825ee6986861
+    src/pinnpcm/physics/vo2_effective_conductivity.py: bf5ccb67770e12b1779cb83ca7bcdca587f17b0e
+    src/pinnpcm/solvers/geophase_phase1_v2_fvm.py: 92482adfa0c326653dccd95c1091b186c1be69ec
+    src/pinnpcm/solvers/geophase_phase1_v2_implicit.py: 39a93e9a5cb032c323ec85a032c65f9df2b2212a
+  locked_bytes_sha256:
+    configs/geophase_phase1_v2_s2_reference.yaml: 0600498590a8c100ec8dee95621719ea655354ec118015868cb07fedf89f85d5
+    configs/geophase_phase1_v2_execution_addendum.yaml: 9d477b79a6a598b5032f104bea5b92290026b798e6599c2e9813c9ba11083640
+    configs/geophase_phase1_v2_formal_manifest.yaml: 54823e83d813ec4acd8df25354b62c38d58be158548414e637282383d1dc14a5
+    outputs/tables/geophase_phase1_v2/runtime_readiness/execution_dag.json: 1f8a5ef122898974224c2208a0b41af0f776b5ef07bca444f5f0a727b5c9c87a
+    outputs/tables/geophase_phase1_v2/runtime_readiness/execution_dag.csv: b506021bd2c3b64be917e728da463349b774ada6dd1c402eaf4c602a7b750fd2
+  baseline_verification_rule: >-
+    Recover the merged-main blobs from Git and verify their identities. The
+    instrumented worktree is not required to equal the pre-instrumentation
+    solver blob byte-for-byte.
+
+instrumentation_lock:
+  implementation_commit_must_be_pushed_before_replay: true
+  implementation_tree_must_match_pushed_commit_at_replay_start: true
+  allowed_paths:
+    - .gitignore
+    - scripts/run_geophase_phase1_v2_critical_transition_failure_audit.py
+    - src/pinnpcm/solvers/geophase_phase1_v2_implicit.py
+    - tests/test_geophase_phase1_v2_critical_transition_failure_audit.py
+  allowed_semantics:
+    - observe_attempted_candidate_after_successful_step_return
+    - observe_rejection_ladder_without_mutating_it
+    - publish_failure_telemetry_atomically
+    - synthetic_failure_publication_tests
+  forbidden_semantics:
+    - change_candidate_state
+    - change_nonlinear_iteration
+    - change_acceptance_or_rejection_condition
+    - change_attempted_dt
+    - catch_and_continue_after_locked_floor_failure
+    - run_streaming_after_full_history_failure
+  contract_test_required: numerical_control_flow_and_scientific_semantics_unchanged
+
+stable_environment_identity:
+  source_schema: geophase_phase1_v2_runtime_environment_v1
+  canonicalization: UTF8_JSON_sort_keys_compact_separators
+  sha256: e1d8fa04c47e97c8cd38c2871f0c2507d4e864aa6a3bc1289ac35dba3f03227d
+  fields:
+    platform: Windows-10-10.0.26200-SP0
+    machine: AMD64
+    processor: Intel64 Family 6 Model 154 Stepping 4, GenuineIntel
+    physical_core_count: 10
+    logical_core_count: 12
+    python_version: 3.11.9
+    numpy_version: 1.26.4
+    scipy_version: 1.13.1
+    thread_environment:
+      MKL_NUM_THREADS: "1"
+      NUMEXPR_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      OPENBLAS_NUM_THREADS: "1"
+      VECLIB_MAXIMUM_THREADS: "1"
+  volatile_runtime_only_not_identity:
+    - available_ram_bytes
+    - disk_free_bytes
+    - process_working_set_bytes
+    - process_peak_working_set_bytes
+
+single_locked_replay:
+  sample_id: PRE-PARITY-STREAM
+  execution_path: full_history_control
+  streaming_status_after_reproduced_failure: not_reached_by_preregistered_stop
+  streaming_execution: forbidden
+  grid: {spatial_level: 1, nx: 10, ny: 25}
+  initial_state:
+    temperature_K: 336.4
+    branch_memory_b: 1.0
+    conductive_state_s: 0.5
+    device_voltage_V: 0.0
+  protocol_id: transition_probe_12p5V
+  protocol_source: configs/geophase_phase1_v2_s2_reference.yaml
+  time_divisor: 1
+  start_time_s: 0.0
+  parity_short_window_stop_s: 2.0e-8
+  forced_landing_times_s: [0.0, 5.0e-9, 1.0e-8, 1.5e-8, 2.0e-8]
+  use_equivalent_optimizations: true
+  use_unit_voltage_scaling: false
+  stop_at_first:
+    - locked_floor_transition_increment_failure
+    - parity_short_window_completed
+  nonreproduction_disposition: AUDIT_INVALID_NO_SCIENTIFIC_DECISION
+  nonreproduction_action: stop_without_streaming_or_second_replay
+
+locked_controller:
+  base_max_step_s: 1.0e-8
+  transition_floor_s: 2.5e-10
+  transition_increment_gate: 0.02
+  rejected_step_rule: next_dt_equals_max_current_dt_over_2_and_floor_dt
+  floor_retry_policy: exactly_one_clamped_floor_proposal_after_sixth_rejection_then_fail_closed
+  maximum_rejected_steps_per_accepted_step: 6
+  maximum_rejected_steps_per_case: 1000
+  state_relaxation_s: 1.0e-9
+  branch_relaxation_s: 1.0e-9
+  branch_rate_scale_K_s: 1.0e7
+  source_of_truth: configs/geophase_phase1_v2_s2_reference.yaml
+  post_observation_change: forbidden
+
+required_attempt_telemetry:
+  execution_path: required
+  failure_time_s: required
+  attempted_dt_and_rejection_ladder: complete
+  every_successful_candidate:
+    - max_absolute_delta_s
+    - max_absolute_delta_b
+    - actual_trigger_component
+    - argmax_cell_row_column_and_xy_m
+    - T_n_K
+    - T_candidate_K
+    - s_n
+    - s_equilibrium_candidate
+    - s_candidate
+    - b_n
+    - b_candidate
+    - heating_activation
+    - cooling_activation
+    - device_voltage_V
+    - source_current_A
+    - Joule_power_W
+    - nonlinear_method_iterations_and_converged
+    - Krylov_matvecs
+    - Armijo_backtracks
+    - fallback_iterations
+    - scaled_residual_inf
+    - scaled_update_inf
+    - finite_state
+    - thermal_circuit_combined_and_device_power_ledgers
+    - lateral_relative_and_roundoff_audits
+    - candidate_wall_clock_s
+    - process_RSS_bytes
+  unavailable_value: null_with_reason_never_reconstructed
+  GO_requires_every_successful_candidate_integrity_gate: true
+
+analytic_diagnosis:
+  transition_gate_q: 0.02
+  conductive_state:
+    observed_distance: d_s_equals_absolute_s_equilibrium_candidate_minus_s_n
+    conditional_bound: dt_max_s_equals_q_times_tau_s_divided_by_d_s_minus_q
+    applies_when: d_s_greater_than_q
+    name: conditional_observed_candidate_dt_max_s
+  branch_memory:
+    H: h_plus_c
+    A: h_times_one_minus_b_n_minus_c_times_one_plus_b_n
+    conditional_bound: dt_max_b_equals_q_times_tau_b_divided_by_absolute_A_minus_q_times_H
+    finite_when: absolute_A_minus_q_times_H_greater_than_zero
+    nonfinite_label: no_finite_branch_dt_constraint_under_observed_activation
+    name: conditional_frozen_activation_dt_max_b
+  additional_replay_or_floor_scan: forbidden
+  production_floor_claim: forbidden
+  optional_bounded_activation_worst_case_envelope: diagnostic_nonvoting_only
+
+candidate_integrity_gates:
+  nonlinear_threshold_source: configs/geophase_phase1_v2_s2_reference.yaml
+  ledger_threshold_source: configs/geophase_phase1_v2_s2_reference.yaml
+  lateral_audit:
+    formula_id: lateral_matrix_face_parity_v1
+    acceptance: relative_mismatch_le_1e-10_OR_roundoff_ratio_le_1
+    third_criterion: forbidden
+  any_observed_integrity_failure: NO_GO_S2_POSITIVE_ROUTE
+  missing_due_to_instrumentation_failure: AUDIT_INVALID_NO_SCIENTIFIC_DECISION
+
+disposition:
+  valid_allowed:
+    - GO_FOR_ONE_VERSIONED_TIME_CONTROLLER_REVISION
+    - NO_GO_S2_POSITIVE_ROUTE
+  infrastructure_invalid: AUDIT_INVALID_NO_SCIENTIFIC_DECISION
+  GO_requires:
+    - failure_component_and_location_atomically_identified
+    - every_successful_candidate_finite
+    - every_successful_candidate_nonlinear_gates_pass
+    - every_successful_candidate_four_ledgers_pass
+    - every_successful_candidate_lateral_audit_pass
+    - sole_failure_is_locked_floor_time_resolution_of_existing_s_or_b_dynamics
+    - conditional_dt_bound_derived_without_search
+    - no_physics_parameter_gate_initial_state_or_protocol_change_required
+  NO_GO_if_any:
+    - nonfinite_or_nonlinear_failure
+    - ledger_or_lateral_conservation_failure
+    - existing_discrete_equations_do_not_uniquely_explain_failure
+    - progress_requires_parameter_gate_initial_state_or_protocol_change
+    - progress_requires_floor_or_state_search
+    - S2_constitutive_or_coupling_defect
+  GO_claim_boundary: >-
+    The bounded audit supports requesting separate authorization for one
+    versioned time-controller revision. Phase 1 and S2 scientific results
+    remain forbidden and unassessed.
+
+atomic_outputs:
+  failure_telemetry_json: outputs/tables/geophase_phase1_v2/critical_transition_failure_telemetry.json
+  attempted_steps_csv: outputs/tables/geophase_phase1_v2/critical_transition_attempts.csv
+  analytic_diagnosis_json: outputs/tables/geophase_phase1_v2/critical_transition_diagnosis.json
+  report: docs/codex_reports/geophase_phase1_v2_critical_transition_failure_audit.md
+  temporary_suffix: .tmp
+  validate_before_atomic_rename: true
+  formal_artifact_count: 0
