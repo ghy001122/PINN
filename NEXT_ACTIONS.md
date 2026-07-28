@@ -31,12 +31,14 @@ condition at the locked minimum step before the required sample matrix or cost
 forecast could be completed. Dormant-runner integrity passed, but cannot
 override this numerical stability failure. No formal item executed.
 
-The existing S2 software-repair allowance is exhausted. Do not repair or rerun
-the failed critical trajectory under the current contract. Await one explicit
-user choice: authorize a separately versioned scientific/time-controller
-revision, or activate the retained `gamma_sub`/identifiability manuscript
-downgrade. The unused performance-only repair opportunity is ineligible
-because performance was not the sole failure.
+The one-replay mechanism audit reproduced the failure. All six returned
+candidates passed integrity gates; branch memory alone exceeded `0.02` at the
+floor. Disposition: `GO_FOR_ONE_VERSIONED_TIME_CONTROLLER_REVISION`.
+
+The only next eligible positive-route action is one versioned controller
+revision under fresh user authorization. The audit set no production floor and
+must not be rerun. Do not modify the controller or rerun readiness implicitly;
+the performance-only repair remains ineligible.
 
 ## Parallel work that cannot block S2
 

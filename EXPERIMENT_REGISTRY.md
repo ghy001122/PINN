@@ -994,3 +994,29 @@ Claim result: multilayer forward, terminal-only rescue, low-dimensional sandwich
   and unassessed.
 - Report:
   `docs/codex_reports/geophase_phase1_v2_runtime_formal_runner_readiness.md`.
+
+## Phase 1-v2 Critical Transition Failure Mechanism Audit
+
+- Date: 2026-07-28.
+- Task: `Q2_PHASE1_V2_CRITICAL_TRANSITION_FAILURE_MECHANISM_AUDIT`.
+- Merged-main scientific baseline: `6a7c9e0ba7be2b5bc89f751c0751110af2bab7ef`.
+- Preregistration anchor: `17b5ed75a118c9bc774f313e1dc5b1856ba3c1d2`;
+  config SHA-256
+  `6bba56e6acb321eae00e6c006d6bd1c6131acfc55e6a80f7590e21e7cace27c8`.
+- Diagnostic implementation: `b84b1f4a47bb2aa1bef2e8799bc32f896e8f5937`.
+- Evidence type: one-replay, non-formal synthetic numerical mechanism audit.
+- The sole `full_history_control` replay reproduced
+  `S2 transition increment failed at locked floor`; streaming was not reached.
+- All six returned candidates were finite and passed existing nonlinear,
+  thermal/circuit/combined/device-power ledger, and lateral-audit gates.
+  Branch memory alone triggered at the floor with
+  `max|Delta b|=0.3999002930674579`; `max|Delta s|=0.009896685349114254`.
+- Conditional diagnostic bounds: branch
+  `1.010415820055618e-11 s`, conductive state
+  `6.783481071445014e-10 s`. Neither is a production floor.
+- Disposition: `GO_FOR_ONE_VERSIONED_TIME_CONTROLLER_REVISION`. This supports
+  requesting separate authorization only. Phase 1/S2 science remains
+  `forbidden` and unassessed; Phase 2 and R1/R2 remain blocked.
+- Formal execution count: `0`; formal artifacts: `0`; time controller unchanged.
+- Report:
+  `docs/codex_reports/geophase_phase1_v2_critical_transition_failure_audit.md`.

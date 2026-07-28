@@ -1,0 +1,65 @@
+{
+  "attempt_count": 6,
+  "evidence_type": "bounded_nonformal_failure_mechanism_audit",
+  "execution_path": "full_history_control",
+  "failure_time_s": 0.0,
+  "formal_artifact_count": 0,
+  "formal_case_generated": false,
+  "formal_execution_count": 0,
+  "identity": {
+    "implementation_commit": "b84b1f4a47bb2aa1bef2e8799bc32f896e8f5937",
+    "implementation_tree": "14950b1c5de62bce55787d042e633b6c01e72bc6",
+    "instrumentation_changed_paths": [
+      ".gitignore",
+      "scripts/run_geophase_phase1_v2_critical_transition_failure_audit.py",
+      "src/pinnpcm/solvers/geophase_phase1_v2_implicit.py",
+      "tests/test_geophase_phase1_v2_critical_transition_failure_audit.py"
+    ],
+    "merged_main_commit": "6a7c9e0ba7be2b5bc89f751c0751110af2bab7ef",
+    "merged_main_tree": "ea0ee584c279dadece3c2f4292fa5200e0826dbf",
+    "preregistration_commit": "17b5ed75a118c9bc774f313e1dc5b1856ba3c1d2",
+    "preregistration_config_sha256": "6bba56e6acb321eae00e6c006d6bd1c6131acfc55e6a80f7590e21e7cace27c8",
+    "stable_environment": {
+      "logical_core_count": 12,
+      "machine": "AMD64",
+      "numpy_version": "1.26.4",
+      "physical_core_count": 10,
+      "platform": "Windows-10-10.0.26200-SP0",
+      "processor": "Intel64 Family 6 Model 154 Stepping 4, GenuineIntel",
+      "python_version": "3.11.9",
+      "scipy_version": "1.13.1",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1"
+      }
+    },
+    "stable_environment_sha256": "e1d8fa04c47e97c8cd38c2871f0c2507d4e864aa6a3bc1289ac35dba3f03227d",
+    "volatile_environment": {
+      "available_ram_bytes_at_launch": 250843136,
+      "disk_free_bytes_at_launch": 70403411968,
+      "disk_total_bytes": 157286395904,
+      "process_peak_working_set_bytes_at_launch": 61300736,
+      "process_working_set_bytes_at_launch": 61259776,
+      "total_ram_bytes": 8300781568
+    }
+  },
+  "observed_error_class": "RuntimeError",
+  "observed_error_message": "S2 transition increment failed at locked floor",
+  "original_failure_reproduced": true,
+  "process_peak_working_set_bytes_after_replay": 65249280,
+  "process_working_set_bytes_after_replay": 65249280,
+  "readiness_rerun": false,
+  "real_numerical_replay_count": 1,
+  "real_numerical_replay_limit": 1,
+  "replay_wall_clock_s": 8.649917200000345,
+  "sample_id": "PRE-PARITY-STREAM",
+  "schema_version": "geophase_phase1_v2_critical_transition_failure_telemetry_v1",
+  "status": "completed_expected_locked_floor_failure_reproduced",
+  "streaming_status": "not_reached_by_preregistered_stop",
+  "successful_candidate_count": 6,
+  "task_id": "Q2_PHASE1_V2_CRITICAL_TRANSITION_FAILURE_MECHANISM_AUDIT",
+  "time_controller_changed": false
+}
