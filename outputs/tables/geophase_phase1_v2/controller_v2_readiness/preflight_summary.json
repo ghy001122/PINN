@@ -1,0 +1,43 @@
+{
+  "C2_reuse_count": 1,
+  "C3": {
+    "attempt_started_utc": "2026-07-28T09:16:14.409573+00:00",
+    "failure_class": "performance_only",
+    "formal_artifact_count": 0,
+    "formal_execution_count": 0,
+    "identity_hashes_sha256": {
+      "S2_config": "0600498590a8c100ec8dee95621719ea655354ec118015868cb07fedf89f85d5",
+      "code_tree": "0712a2be729ab8dc5cf36701a02a6a738273d68824ce5d44f86fd05b31612419",
+      "controller_v2_overlay": "eaca81d59b9a52c21fe60fab213a8f7fd65d83a674fd2ef27746d164e163c528",
+      "environment": "e1d8fa04c47e97c8cd38c2871f0c2507d4e864aa6a3bc1289ac35dba3f03227d",
+      "execution_DAG": "1f8a5ef122898974224c2208a0b41af0f776b5ef07bca444f5f0a727b5c9c87a",
+      "execution_addendum": "9d477b79a6a598b5032f104bea5b92290026b798e6599c2e9813c9ba11083640",
+      "expanded_manifest": "c5b903997cb0c4d1a9df7c11c2d881bc391d326dfdcccd60d4d0a2d52a25176b",
+      "formal_manifest_contract": "54823e83d813ec4acd8df25354b62c38d58be158548414e637282383d1dc14a5",
+      "resolved_runtime_identity": "b0030d0156d68f2940fb686dbd88ae55db7ed8a9352b8f06bff59ca64b09fea7"
+    },
+    "numerical_attempt_count": 1,
+    "preflight_deadline_utc": "2026-07-28T09:25:16.061628+00:00",
+    "reason": "global_runtime_preflight_deadline_reached",
+    "schema_version": "controller_v2_single_attempt_marker_v1",
+    "stage": "C3",
+    "status": "fail",
+    "task_id": "Q2_PHASE1_V2_EMBEDDED_TIME_CONTROLLER_REVISION"
+  },
+  "failing_sample_count": 0,
+  "formal_artifact_count": 0,
+  "formal_execution_count": 0,
+  "passing_sample_count": 1,
+  "peak_rss_bytes": 99266560,
+  "performance_repair_consumed": false,
+  "required_short_trajectory_completed": 1,
+  "required_short_trajectory_expected": 9,
+  "required_single_interval_completed": 0,
+  "required_single_interval_expected": 18,
+  "sample_count": 1,
+  "schema_version": "geophase_phase1_v2_controller_v2_preflight_v1",
+  "status": "fail",
+  "task_id": "Q2_PHASE1_V2_EMBEDDED_TIME_CONTROLLER_REVISION",
+  "wall_clock_limit_s": 900.0,
+  "wall_clock_s": 880.0950008
+}

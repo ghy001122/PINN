@@ -1020,3 +1020,32 @@ Claim result: multilayer forward, terminal-only rescue, low-dimensional sandwich
 - Formal execution count: `0`; formal artifacts: `0`; time controller unchanged.
 - Report:
   `docs/codex_reports/geophase_phase1_v2_critical_transition_failure_audit.md`.
+
+## Phase 1-v2 Embedded Time Controller And Runtime Readiness
+
+- Date: 2026-07-28.
+- Task: `Q2_PHASE1_V2_EMBEDDED_TIME_CONTROLLER_REVISION`.
+- PR #7 merge baseline: `8a8541f19ab5b5baeda5102a70e593f996c59224`.
+- Controller-v2 preregistration: `406207b02adaa37953ff4d3813aaeee3235c004f`;
+  overlay SHA-256
+  `eaca81d59b9a52c21fe60fab213a8f7fd65d83a674fd2ef27746d164e163c528`.
+- Frozen core implementation: `cc00eab50c5c4ca98e11ce2763e92d635c9fcd2f`;
+  readiness execution lock: `d3f8627d50788cbb06a5b412729cdc7dd7c7fe78`.
+- Evidence type: one bounded, CPU-only, target-workstation controller/runtime
+  preflight; no formal scientific campaign.
+- C1 passed one locked critical-fixture run with 23 accepted intervals and all
+  full/half/aggregate integrity and streaming-parity checks.
+- C2 passed 128 accepted intervals, reaching `2.625e-7 s`; finite/nonlinear,
+  four-ledger, lateral, bounded-state, and streaming parity passed. Event and
+  reversal status is only `NA_not_observed_within_bounded_C2_window`.
+- C3 reached the 880 s worker backstop inside the 900 s envelope at `0/18`
+  single-interval samples and `1/9` short trajectories. No campaign cost,
+  aggregate worker-RSS/disk, or dormant-runner vote was eligible.
+- Disposition: `NO_GO_RUNTIME_PERFORMANCE_ONLY`. This does not establish a
+  controller/physics/scientific failure or four-hour campaign infeasibility.
+  The one pure-equivalence performance opportunity remains unconsumed and
+  unauthorized pending a fresh user decision.
+- Formal execution count: `0`; formal artifacts: `0`; all 63 formal items
+  remain `planned_not_executed`.
+- Report:
+  `docs/codex_reports/geophase_phase1_v2_embedded_controller_readiness.md`.

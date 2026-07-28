@@ -11,10 +11,12 @@ Resume in this order:
 7. `docs/research_strategy/phase1_geophase_2p5d_reference_v2_contract.md`
 8. `configs/geophase_phase1_v2_s2_reference.yaml`
 9. `configs/geophase_phase1_v2_formal_manifest.yaml`
-10. `configs/qiu_vo2_phase1_source_contract.yaml`
+10. `configs/geophase_phase1_v2_execution_addendum.yaml`
+11. `configs/geophase_phase1_v2_embedded_time_controller_v2.yaml`
+12. `configs/qiu_vo2_phase1_source_contract.yaml`
 
 Current phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`. Current checkpoint:
-`PHASE1_V2_S2_SMOKE_PASS_PENDING_FORMAL_READINESS`.
+`PHASE1_V2_CONTROLLER_V2_NO_GO_RUNTIME_PERFORMANCE_ONLY`.
 
 The fixed-bottom material-stack/K-state route ended at v8
 `NO_GO_VERTICAL_REFERENCE`. Its 96-item manifest remains immutable and
@@ -26,17 +28,17 @@ Ti/Au thermal terms, and area-normalized Qiu device-level uniform-mode
 unexecuted.
 
 The S2 implementation and 7/7 bounded non-voting smoke cases are complete.
-The sole allowed software repair fixed a zero-signal audit denominator without
-changing physics or scientific gates. The same-device source audit found no
-eligible direct thermal holdout. The S1 sensitivity MVE is closed after three
-tool timeouts and no atomic result; two attempts reached the same binary modal
-reference failure, but no exact metric or K fit exists. S2 remains nominal.
-Perform minimal runtime/formal-runner readiness next.
+Controller-v2 left base S2 YAML unchanged; C1/C2 integrity passed.
+C3 reached the global runtime deadline at `0/18` single-interval samples and
+`1/9` trajectories, before a forecast or dormant-runner vote.
+Disposition: `NO_GO_RUNTIME_PERFORMANCE_ONLY`. The controller revision is
+consumed; the single pure-equivalence performance opportunity is unconsumed
+and awaits fresh user authorization. S1 science remains forbidden/unassessed;
+its timeout record is infrastructure provenance only.
 
-No formal campaign or formal run registry, PINN/inverse, source fitting/digitization, nonzero
-coupling, Phase 2 data, 3D/FEM, M44, or NbO2 is authorized. Correct S2 physics,
-conservation, or convergence failure triggers the `gamma_sub`/identifiability
-downgrade.
+No readiness rerun, formal campaign/registry, PINN/inverse, source fitting,
+nonzero coupling, Phase 2 data, 3D/FEM, M44, or NbO2 is authorized. Phase 1
+science remains forbidden/unassessed.
 
 Frozen GT and historical evidence remain unchanged. Archives are provenance,
 not execution authority.

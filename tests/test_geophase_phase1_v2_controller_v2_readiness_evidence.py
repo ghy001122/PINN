@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import copy
+import csv
 import json
 import math
 from pathlib import Path
@@ -26,6 +27,13 @@ DAG_PATH = (
     / "geophase_phase1_v2"
     / "runtime_readiness"
     / "execution_dag.json"
+)
+ACTUAL_READINESS_DIR = (
+    ROOT
+    / "outputs"
+    / "tables"
+    / "geophase_phase1_v2"
+    / "controller_v2_readiness"
 )
 
 pytestmark = [pytest.mark.phase1, pytest.mark.current]
@@ -1312,3 +1320,95 @@ def test_readiness_publication_orders_csv_before_json_and_report(
     assert calls[:2] == ["CSV", "CSV"]
     assert all(item == "JSON" for item in calls[2:-1])
     assert calls[-1] == "REPORT"
+
+
+def test_actual_controller_v2_readiness_evidence_is_performance_only_no_go() -> None:
+    summary = json.loads(
+        (ACTUAL_READINESS_DIR / "readiness_summary.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    C1 = json.loads(
+        (ACTUAL_READINESS_DIR / "C1_summary.json").read_text(encoding="utf-8")
+    )
+    C2 = json.loads(
+        (ACTUAL_READINESS_DIR / "C2_summary.json").read_text(encoding="utf-8")
+    )
+    preflight = json.loads(
+        (ACTUAL_READINESS_DIR / "preflight_summary.json").read_text(
+            encoding="utf-8"
+        )
+    )
+
+    assert summary["disposition"] == "NO_GO_RUNTIME_PERFORMANCE_ONLY"
+    assert summary["unique_primary_cause"] == (
+        "global_runtime_preflight_deadline_reached"
+    )
+    assert summary["formal_execution_count"] == 0
+    assert summary["formal_artifact_count"] == 0
+    assert summary["controller_revision_opportunity_remaining"] is False
+    assert summary["performance_repair_consumed"] is False
+    assert summary["performance_repair_opportunity_remaining"] is True
+    assert summary["preflight_wall_clock_s"] <= 900.0
+
+    assert C1["status"] == "pass"
+    assert C1["numerical_attempt_count"] == 1
+    assert C1["attempt_marker_created_before_numerics"] is True
+    assert C1["accepted_interval_count"] == 23
+    assert C1["finite_nonlinear_ledger_lateral_pass"] is True
+    assert all(C1["path_integrity"].values())
+    assert C1["full_history_streaming_parity"]["pass"] is True
+
+    assert C2["status"] == "pass"
+    assert C2["numerical_attempt_count"] == 1
+    assert C2["attempt_marker_created_before_numerics"] is True
+    assert C2["accepted_interval_count"] == 128
+    assert C2["state_bounds_pass"] is True
+    assert C2["runtime_evidence_sufficient"] is True
+    assert C2["event_observation"] == (
+        "NA_not_observed_within_bounded_C2_window"
+    )
+    assert C2["accepted_fine_event_parity"]["pass"] is True
+    assert C2["accepted_fine_reversal_parity"]["pass"] is True
+
+    assert preflight["C3"]["status"] == "fail"
+    assert preflight["C3"]["failure_class"] == "performance_only"
+    assert preflight["C3"]["numerical_attempt_count"] == 1
+    assert preflight["required_single_interval_completed"] == 0
+    assert preflight["required_single_interval_expected"] == 18
+    assert preflight["required_short_trajectory_completed"] == 1
+    assert preflight["required_short_trajectory_expected"] == 9
+
+
+def test_actual_controller_v2_stop_boundary_is_atomically_preserved() -> None:
+    runner = json.loads(
+        (ACTUAL_READINESS_DIR / "runner_dry_run.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    with (ACTUAL_READINESS_DIR / "preflight_samples.csv").open(
+        encoding="utf-8", newline=""
+    ) as handle:
+        samples = list(csv.DictReader(handle))
+    forecast_lines = (
+        ACTUAL_READINESS_DIR / "campaign_cost_forecast.csv"
+    ).read_text(encoding="utf-8").splitlines()
+
+    assert len(samples) == 1
+    assert samples[0]["sample_id"] == "PRE-CTRL-C2-L1-legal_critical"
+    assert samples[0]["status"] == "pass"
+    assert all(row["sample_id"].startswith("PRE-CTRL-") for row in samples)
+    assert len(forecast_lines) == 1
+    assert forecast_lines[0].startswith("execution_unit_id,")
+    assert runner == {
+        "formal_artifact_count": 0,
+        "formal_execution_count": 0,
+        "reason": "global_runtime_preflight_deadline_reached",
+        "status": "not_reached",
+    }
+    assert not (
+        ACTUAL_READINESS_DIR.parent / "formal_summary.json"
+    ).exists()
+    assert not (
+        ACTUAL_READINESS_DIR.parent / "formal_convergence.csv"
+    ).exists()
