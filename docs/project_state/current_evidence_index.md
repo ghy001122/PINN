@@ -20,6 +20,7 @@ evidence unless provenance explicitly says otherwise.
 | Controller-v2 C1/C2 | `supported` bounded readiness | integrity/parity pass; no formal/science vote |
 | Controller-v2 campaign runtime feasibility | `forbidden` / unassessed | no forecast, aggregate resource, or dormant-runner vote |
 | Controller-v2 C3 performance provenance | `supported` bounded readiness provenance | stopped at `0/18` samples and `1/9` trajectories; no science vote |
+| Source-corrected v3 bundle | `supported` config-only preregistration | 15.8 V qualitative lock probe; 63/60/3; old 15 V bundle immutable; formal zero |
 | Retired material stack | `failed_but_informative` | v8 gate failed; 96 items unexecuted |
 | Frozen GT integrity | `supported` when hashes pass | acceptance report/manifest; governance audit |
 | Claim vocabulary | `supported` governance fact | `docs/paper/final_claim_matrix.md` |
@@ -64,7 +65,7 @@ VO2-to-NbO2 zero-shot transfer.
 - Strategy: canonical execution guide.
 - Claims: `docs/paper/final_claim_matrix.md`.
 - History: `docs/archive/README.md`, registries, and named reports.
-- Boundary: controller-v2 C1/C2 bounded integrity passed, but C3 is
-  `NO_GO_RUNTIME_PERFORMANCE_ONLY`. The one pure-equivalence performance
-  opportunity is unconsumed and awaits fresh authorization. Formal execution,
-  Phase 2, and PINN remain blocked.
+- Boundary: source-corrected v3 is active and config-only. The one strict-
+  equivalence performance attempt is authorized but cannot begin before its
+  separate preregistration is pushed. Formal execution, Phase 2, and PINN
+  remain blocked.

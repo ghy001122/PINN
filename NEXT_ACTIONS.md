@@ -4,7 +4,7 @@
 
 Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
 
-Checkpoint state: `PHASE1_V2_CONTROLLER_V2_NO_GO_RUNTIME_PERFORMANCE_ONLY`.
+Checkpoint state: `PHASE1_V2_SOURCE_CORRECTED_V3_PERFORMANCE_PREREGISTRATION_PENDING`.
 
 > The Phase 1-v2 preregistration anchors are remote. S2 implementation and its
 > bounded non-voting smoke are complete; no formal item has executed.
@@ -44,12 +44,17 @@ samples and `1/9` short trajectories, before an eligible campaign forecast or
 dormant-runner dry-run existed. Disposition:
 `NO_GO_RUNTIME_PERFORMANCE_ONLY`.
 
-Stop now. The next single decision is whether the user authorizes the one
-remaining pure-equivalence performance optimization and an identical
-readiness rerun. That opportunity is not yet authorized or consumed. It may
-not modify S2 physics, tolerances, protocols, grids, the 63-item manifest,
-time-controller semantics, or scientific gates. Formal execution remains
-unauthorized regardless of this decision.
+The v3 source-correction bundle is pushed at `0ebe037...`. It replaces only the
+active qualitative high-bias lock probe and eight evaluation identifiers:
+15.8 V is active, while the old 15 V bundle remains historical and unexecuted.
+The new inventory remains 63 evaluations / 60 executions / 3 reuses.
+
+The next single action is to preregister and push the authorized strict-
+equivalence performance repair. Until that anchor is remote, the new runner is
+route-check-only and all microbenchmarks/numerics are forbidden. Afterward,
+implement only the allowlist, prove legacy-oracle parity, and run at most one
+source-corrected C1/C2/C3 readiness preflight. Formal execution remains
+unauthorized regardless of readiness.
 
 ## Parallel work that cannot block S2
 

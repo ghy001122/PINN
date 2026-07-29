@@ -2,9 +2,9 @@
 
 Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
 
-Status: `phase1v2_controller_v2_no_go_runtime_performance_only`
+Status: `phase1v2_source_corrected_v3_performance_preregistration_pending`
 
-Current checkpoint: `PHASE1_V2_CONTROLLER_V2_NO_GO_RUNTIME_PERFORMANCE_ONLY`
+Current checkpoint: `PHASE1_V2_SOURCE_CORRECTED_V3_PERFORMANCE_PREREGISTRATION_PENDING`
 
 ## Objective
 
@@ -18,12 +18,12 @@ independent from future PINN residual code.
 
 - `docs/research_strategy/pinn_phase_change_q2_sci_execution_guide.md`
 - `docs/research_strategy/phase1_geophase_2p5d_reference_v2_contract.md`
-- `configs/geophase_phase1_v2_s2_reference.yaml`
-- `configs/geophase_phase1_v2_formal_manifest.yaml`
-- `configs/geophase_phase1_v2_execution_addendum.yaml`
-- `configs/geophase_phase1_v2_embedded_time_controller_v2.yaml`
-- `configs/qiu_vo2_phase1_source_contract.yaml`
-- `configs/geo2p5d_stage.yaml`
+- `configs/geophase_phase1_v2_s2_reference_source_corrected_v3.yaml`
+- `configs/geophase_phase1_v2_formal_manifest_source_corrected_v3.yaml`
+- `configs/geophase_phase1_v2_execution_addendum_source_corrected_v3.yaml`
+- `configs/geophase_phase1_v2_embedded_time_controller_v2_source_corrected_v3.yaml`
+- `configs/qiu_vo2_phase1_source_contract_v3.yaml`
+- `configs/geo2p5d_stage_source_corrected_v3.yaml`
 - `docs/method_equations.md`
 - `NEXT_ACTIONS.md`
 
@@ -55,6 +55,14 @@ manifest.
 - The source audit found no eligible holdout. S1 science is
   `forbidden`/unassessed; its interruption is infrastructure provenance only.
   v6-v8 remain terminal `failed_but_informative` historical evidence.
+- Source-corrected v3 is anchored at `0ebe037...`. Qiu main Figure 2 and SI
+  Figure S2 support 15.8 V, not 15.0 V, as the qualitative metallic-lock probe.
+  The correction changes no S2 equation, controller semantic, scientific
+  threshold, inventory count, or formal execution state; it is not calibration
+  or independent validation.
+- The user authorized the one strict-equivalence performance attempt. It is
+  unconsumed and remains implementation/numerics-blocked until its separate
+  preregistration commit is pushed.
 
 ## Pass And Stop Rules
 
@@ -63,14 +71,15 @@ ledger, mesh/time/event, mask/overlap, limit, trend, and failure-path gate in a
 separately authorized formal campaign. Smoke, C1/C2 integrity, or finite output
 cannot vote.
 
-Controller-v2 did not establish campaign runtime readiness. Any later use of
-the sole performance opportunity requires fresh authorization and must be
-mathematically equivalent: physics, tolerances, states, protocols, grids,
-controller semantics, scientific gates, and manifest remain fixed.
+Controller-v2 did not establish campaign runtime readiness. The authorized
+performance attempt must be mathematically equivalent; only the separately
+preregistered source correction changes the high-bias protocol/IDs. Physics,
+tolerances, states, grids, controller semantics, threshold values, and the new
+v3 manifest remain fixed.
 
 ## Restrictions
 
-Do not rerun readiness without authorization; execute a formal item; create a
+Do not run readiness before performance preregistration and parity; execute a formal item; create a
 real formal registry; train a PINN; generate Phase 2 data; run inverse; fit or
 digitize sources; rerun S1/v6-v8; modify frozen GT; add nonzero coupling; or run
 FEM/3D, M44, or NbO2. Phase 1/Qiu/experimental, R1/R2, OQ, sensitivity, and
@@ -78,6 +87,7 @@ cross-material success claims remain `forbidden`.
 
 ## Immediate Next Checkpoint
 
-Stop and request a user decision on the single unconsumed pure-equivalence
-performance opportunity. Even a future readiness GO would still require fresh
+Push the independent performance-repair preregistration. Then, and only then,
+implement its allowlist, complete the frozen legacy-oracle equivalence audit,
+and run one source-corrected readiness preflight. Even a GO requires fresh
 formal-campaign authorization.

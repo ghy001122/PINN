@@ -4,7 +4,7 @@
 
 - Delivery/phase: `Q2_SCI_DELIVERY_MODE` /
   `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Checkpoint: `PHASE1_V2_CONTROLLER_V2_NO_GO_RUNTIME_PERFORMANCE_ONLY`.
+- Checkpoint: `PHASE1_V2_SOURCE_CORRECTED_V3_PERFORMANCE_PREREGISTRATION_PENDING`.
 - R1 `HysGeo-Hybrid-PINN` remains the minimum manuscript route; R2
   `GeoPhase-HomoMoE-PINN` is the preferred upgrade; R3 is conditional.
 - Phase 1-v2 is a Qiu-inspired single-device VO2 x-y plane with explicit VO2,
@@ -29,8 +29,14 @@
   single-interval samples and `1/9` trajectories. No cost, aggregate RSS/disk,
   or dormant-runner vote was eligible. Disposition:
   `NO_GO_RUNTIME_PERFORMANCE_ONLY`.
-- The controller-revision opportunity is consumed. The single pure-equivalence
-  performance opportunity is unconsumed and awaits fresh authorization.
+- The controller-revision opportunity is consumed. Source-corrected v3 is
+  preregistered at `0ebe037...`: 15.8 V replaces the erroneous 15.0 V lock
+  probe, while the old 63-item bundle remains immutable and unexecuted. The
+  new bundle remains 63 evaluations / 60 executions / 3 reuses and has run no
+  numerical item.
+- The single pure-equivalence performance attempt is authorized but unconsumed.
+  Its independent preregistration must be pushed before implementation,
+  microbenchmarking, or readiness execution.
 - The S1 scientific claim is `forbidden`/unassessed; its timeouts are supported
   infrastructure provenance only. The v6-v8 material-stack route remains
   `failed_but_informative` with no formal execution.
@@ -53,6 +59,7 @@
 | Controller-v2 C1/C2 integrity | `supported` bounded readiness | Hash-locked overlay; integrity/parity pass; no formal/science vote. |
 | Controller-v2 campaign runtime feasibility | `forbidden` / unassessed | C3 produced no forecast, aggregate resource, or dormant-runner vote. |
 | Controller-v2 C3 performance provenance | `supported` bounded readiness provenance | The locked preflight stopped at its worker backstop; no science vote. |
+| Source-corrected v3 bundle | `supported` config-only preregistration | Qiu Figure 2/SI Figure S2 correct the active qualitative lock probe to 15.8 V; 63/60/3, formal count zero, no calibration/validation claim. |
 | v6-v8 material-stack route | `failed_but_informative` | v8 depth-frequency gate failed; 96 items unexecuted. |
 | Phase 1-v2 reference result | `forbidden` | Requires every gate in an authorized formal campaign. |
 | R1/R2/R3 positive claims | `forbidden` | Require sequential direct evidence. |
@@ -67,11 +74,11 @@
 
 ## Delivery Boundary
 
-Stop at `NO_GO_RUNTIME_PERFORMANCE_ONLY`. The only next decision is whether to
-authorize one mathematically equivalent performance optimization and an
-identical readiness rerun. Such work may not change physics, tolerances,
-protocols, grids, controller semantics, scientific gates, or the manifest.
-Formal execution, Phase 2, R1, and R2 remain blocked.
+Push the independent performance-repair preregistration next. Only afterward
+may the allowlisted strict-equivalence optimization, frozen-oracle audit, and
+single source-corrected readiness rerun proceed. Physics, tolerances, grids,
+controller semantics, scientific thresholds, and the v3 manifest remain
+locked. Formal execution, Phase 2, R1, and R2 remain blocked.
 
 Do not rerun S1 or v6-v8; train a PINN; generate Phase 2 data; run inverse;
 modify frozen GT; add nonzero coupling; run FEM/3D, M44, or NbO2; or claim
