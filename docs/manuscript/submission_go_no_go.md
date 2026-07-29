@@ -1,12 +1,12 @@
 # Submission Go/No-Go
 
-Date: 2026-07-25
+Date: 2026-07-28
 
 ## Decision
 
-**Current research package: NO-GO pending Phase 1 and R1. Manuscript submission: NO-GO.**
+**Current research package: NO-GO at Phase 1-v2 runtime readiness; R1 remains blocked. Manuscript submission: NO-GO.**
 
-Phase 0 completed repository governance and reproducibility realignment only. It did not implement or validate the independent 2.5D solver, train a PINN, run an inverse, or create experimental evidence.
+Phase 0 completed repository governance and reproducibility realignment only. Phase 1-v2 later implemented the independent S2 solver and seven bounded non-voting smoke cases, but no formal item has run. Controller-v2 C1/C2 integrity passed; C3 stopped at the worker backstop before an eligible forecast or dormant-runner vote. The current disposition is `NO_GO_RUNTIME_PERFORMANCE_ONLY`, not a Phase 1 scientific pass or failure. No PINN, inverse, or experimental evidence exists.
 
 ## Candidate Paper Ladder
 
@@ -17,13 +17,14 @@ Phase 0 completed repository governance and reproducibility realignment only. It
 
 ## Unblock Sequence
 
-1. Phase 1 independent Qiu-inspired single-device x-y plus region-specific K-state FVM/implicit reference passes manufactured, current, full-energy, mesh/time/event, topology, passivity/reduction, limit, failure, and trend gates. Nonzero dual-device coupling remains outside this gate.
-2. Phase 2 locks datasets, geometry/protocol splits, anchors, provenance, and inverse-crime safeguards.
-3. Phase 3 locks fair solver/neural baselines and budgets.
-4. R1 passes joint field, port, event, interface, ledger, and geometry/protocol OOD gates.
-5. R2 enters the main method only after fixed-seed component/combination ablations show synergy.
-6. R3 enters only after the solver-first subspace MVE and PINN sensitivity gate.
-7. Build v3, figure/table roster, supplement, replay package, and reviewer defense only from passed evidence.
+1. Obtain explicit authorization for the one remaining mathematically equivalent performance optimization, version it without changing S2 physics, tolerances, protocols, grids, controller semantics, scientific gates, or the 63-item manifest, and rerun the identical readiness contract. A readiness GO would still require fresh formal-campaign authorization.
+2. Phase 1-v2 independent Qiu-inspired single-device x-y S2 FVM/implicit reference then passes every manufactured, current, full-energy, mesh/time/event, topology, limit, failure, and trend gate in the separately authorized formal campaign. Nonzero dual-device coupling remains outside this gate.
+3. Phase 2 locks datasets, geometry/protocol splits, anchors, provenance, and inverse-crime safeguards.
+4. Phase 3 locks fair solver/neural baselines and budgets.
+5. R1 passes joint field, port, event, interface, ledger, and geometry/protocol OOD gates.
+6. R2 enters the main method only after fixed-seed component/combination ablations show synergy.
+7. R3 enters only after the solver-first subspace MVE and PINN sensitivity gate.
+8. Build v3, figure/table roster, supplement, replay package, and reviewer defense only from passed evidence.
 
 ## Downgrade Rules
 

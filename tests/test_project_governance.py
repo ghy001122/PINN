@@ -40,6 +40,17 @@ def test_single_current_route_and_context_budget() -> None:
     assert summary["checks"]["low_token_context_budget"]["status"] == "pass"
 
 
+def test_revision_rules_and_current_routers_are_semantically_guarded() -> None:
+    summary = MODULE.run_audit(write_output=False)
+    rules = summary["checks"]["revision_rules_integration"]
+    assert rules["status"] == "pass"
+    assert rules["expected_rule_count"] == 75
+    assert rules["mapped_rule_count"] == 75
+    assert rules["missing_ids"] == []
+    assert rules["duplicate_ids"] == []
+    assert summary["checks"]["current_router_semantics"]["status"] == "pass"
+
+
 def test_archive_outputs_and_repository_safety_are_governed() -> None:
     summary = MODULE.run_audit(write_output=False)
     assert summary["checks"]["realignment_outputs"]["status"] == "pass"
