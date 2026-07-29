@@ -183,6 +183,7 @@ AUDIT_HARNESS_ALLOWED_PATHS = (
     "scripts/run_geophase_phase1_v2_source_corrected_performance_readiness.py",
     "scripts/run_geophase_phase1_v2_equivalence_audit_harness.py",
     "tests/test_geophase_phase1_v2_source_corrected_performance_closure_runner.py",
+    "tests/test_geophase_phase1_v2_source_corrected_performance_oracle.py",
     "tests/test_geophase_phase1_v2_source_corrected_performance_repair_preregistration.py",
 )
 CANDIDATE_IMPLEMENTATION_PATHS = (
@@ -582,12 +583,24 @@ def build_audit_harness_erratum_identity() -> dict[str, Any]:
     remote_commit = _git_output(("rev-parse", CANDIDATE_REMOTE_REF))
     if erratum_commit != remote_commit:
         raise RuntimeError("audit harness erratum is not the pushed branch head")
-    if _git_output(("rev-parse", "HEAD^")) != INVALID_LAUNCH_EVIDENCE_COMMIT:
-        raise RuntimeError("audit harness erratum is not based directly on evidence commit")
+    ancestor = subprocess.run(
+        [
+            "git",
+            "merge-base",
+            "--is-ancestor",
+            INVALID_LAUNCH_EVIDENCE_COMMIT,
+            erratum_commit,
+        ],
+        cwd=ROOT,
+        check=False,
+        capture_output=True,
+    )
+    if ancestor.returncode != 0:
+        raise RuntimeError("audit harness erratum does not descend from evidence commit")
     changed_paths = tuple(
         line.replace("\\", "/")
         for line in _git_output(
-            ("diff-tree", "--no-commit-id", "--name-only", "-r", "HEAD")
+            ("diff", "--name-only", f"{INVALID_LAUNCH_EVIDENCE_COMMIT}..HEAD")
         ).splitlines()
         if line
     )
@@ -609,8 +622,8 @@ def build_audit_harness_erratum_identity() -> dict[str, Any]:
         },
         "erratum_commit": erratum_commit,
         "erratum_tree": erratum_tree,
-        "erratum_parent_evidence_commit": INVALID_LAUNCH_EVIDENCE_COMMIT,
-        "erratum_parent_evidence_tree": INVALID_LAUNCH_EVIDENCE_TREE,
+        "erratum_base_evidence_commit": INVALID_LAUNCH_EVIDENCE_COMMIT,
+        "erratum_base_evidence_tree": INVALID_LAUNCH_EVIDENCE_TREE,
         "remote_tracking_ref": CANDIDATE_REMOTE_REF,
         "remote_tracking_commit": remote_commit,
         "harness_paths": _harness_path_records(erratum_commit),
@@ -671,14 +684,14 @@ def validate_audit_harness_erratum_identity(
         raise RuntimeError("audit harness candidate identity mismatch")
     erratum_commit = str(payload.get("erratum_commit", ""))
     erratum_tree = str(payload.get("erratum_tree", ""))
-    if payload.get("erratum_parent_evidence_commit") != INVALID_LAUNCH_EVIDENCE_COMMIT:
-        raise RuntimeError("audit harness parent evidence commit mismatch")
-    if payload.get("erratum_parent_evidence_tree") != INVALID_LAUNCH_EVIDENCE_TREE:
-        raise RuntimeError("audit harness parent evidence tree mismatch")
+    if payload.get("erratum_base_evidence_commit") != INVALID_LAUNCH_EVIDENCE_COMMIT:
+        raise RuntimeError("audit harness base evidence commit mismatch")
+    if payload.get("erratum_base_evidence_tree") != INVALID_LAUNCH_EVIDENCE_TREE:
+        raise RuntimeError("audit harness base evidence tree mismatch")
     if _git_output(("rev-parse", f"{INVALID_LAUNCH_EVIDENCE_COMMIT}^{{tree}}")) != (
         INVALID_LAUNCH_EVIDENCE_TREE
     ):
-        raise RuntimeError("audit harness parent evidence tree cannot be recovered")
+        raise RuntimeError("audit harness base evidence tree cannot be recovered")
     if payload.get("remote_tracking_ref") != CANDIDATE_REMOTE_REF:
         raise RuntimeError("audit harness remote tracking ref mismatch")
     if payload.get("remote_tracking_commit") != erratum_commit:

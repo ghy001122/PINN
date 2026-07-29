@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import importlib.util
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -56,12 +57,21 @@ def _source_corrected_config() -> dict:
 
 def test_oracle_is_the_exact_PR8_blob_and_not_a_reimplementation() -> None:
     payload = ORACLE_PATH.read_bytes()
-    historical = subprocess.check_output(
-        ["git", "show", f"{PR8_COMMIT}:{PR8_SOURCE_PATH}"],
+    historical_path = subprocess.run(
+        ["git", "cat-file", "-e", f"{PR8_COMMIT}:{PR8_SOURCE_PATH}"],
         cwd=ROOT,
+        check=False,
+        capture_output=True,
     )
+    if historical_path.returncode == 0:
+        historical = subprocess.check_output(
+            ["git", "show", f"{PR8_COMMIT}:{PR8_SOURCE_PATH}"],
+            cwd=ROOT,
+        )
+        assert payload == historical
+    else:
+        assert os.environ.get("PINN_PUBLIC_CHECKOUT") == "1"
 
-    assert payload == historical
     assert hashlib.sha256(payload).hexdigest() == EXPECTED_SHA256
     assert _git_blob_sha1(payload) == EXPECTED_GIT_BLOB
 

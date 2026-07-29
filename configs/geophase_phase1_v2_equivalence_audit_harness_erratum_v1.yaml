@@ -47,6 +47,7 @@ harness_revision:
     - scripts/run_geophase_phase1_v2_source_corrected_performance_readiness.py
     - scripts/run_geophase_phase1_v2_equivalence_audit_harness.py
     - tests/test_geophase_phase1_v2_source_corrected_performance_closure_runner.py
+    - tests/test_geophase_phase1_v2_source_corrected_performance_oracle.py
     - tests/test_geophase_phase1_v2_source_corrected_performance_repair_preregistration.py
   loader_semantics:
     module_registered_in_sys_modules_before_exec_module: true
