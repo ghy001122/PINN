@@ -102,6 +102,14 @@ jobs:
           tests/test_geophase_phase1_v2_source_corrected_v3_preregistration.py
           tests/test_geophase_phase1_v2_source_corrected_v3_active_routing.py
           tests/test_geophase_phase1_v2_source_corrected_performance_repair_preregistration.py
+          tests/test_geophase_phase1_v2_source_corrected_performance_electrical.py
+          tests/test_geophase_phase1_v2_source_corrected_performance_coupled.py
+          tests/test_geophase_phase1_v2_source_corrected_performance_oracle.py
+          tests/test_geophase_phase1_v2_source_corrected_performance_equivalence.py
+          tests/test_geophase_phase1_v2_source_corrected_performance_adapter.py
+          tests/test_geophase_phase1_v2_source_corrected_readiness_journal.py
+          tests/test_geophase_phase1_v2_source_corrected_runtime_pool.py
+          tests/test_geophase_phase1_v2_source_corrected_performance_closure_runner.py
           tests/test_geophase_phase1_s1_diffusive_mve_v2_preregistration.py
           tests/test_geophase_phase1_s1_diffusive_mve.py
           tests/test_geophase_phase1_v2_solver.py

@@ -20,6 +20,7 @@ from pinnpcm.physics.geophase_s2_thermal import S2ThermalFields
 from pinnpcm.physics.vo2_effective_conductivity import EffectiveVO2Closure
 from pinnpcm.solvers.geophase_phase1_v2_implicit import (
     S2ProtocolResult,
+    S2PerformanceTimings,
     S2SolverCache,
     S2State,
     S2StepResult,
@@ -908,6 +909,7 @@ def run_s2_streaming_protocol_v2(
     cache: S2SolverCache | None = None,
     use_equivalent_optimizations: bool = True,
     use_unit_voltage_scaling: bool = False,
+    performance_timings: S2PerformanceTimings | None = None,
 ) -> S2StreamingResult:
     """Run active controller-v2 with one accepted-path streaming recorder.
 
@@ -996,6 +998,7 @@ def run_s2_streaming_protocol_v2(
         cache=cache if cache is not None else build_s2_solver_cache(grid, fields),
         use_equivalent_optimizations=use_equivalent_optimizations,
         use_unit_voltage_scaling=use_unit_voltage_scaling,
+        performance_timings=performance_timings,
     )
     event_snapshots = recorder.selected_event_snapshots()
     snapshots = tuple(recorder.fixed_snapshots) + event_snapshots

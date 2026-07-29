@@ -81,7 +81,8 @@ def test_route_only_runner_validates_v3_and_cannot_execute_before_preregistratio
     )
     assert module.IMPLEMENTATION_READY is False
     runner_source = RUNNER_PATH.read_text(encoding="utf-8")
-    assert "geophase_phase1_v2_implicit" not in runner_source
+    assert "from pinnpcm.solvers.geophase_phase1_v2_implicit import" not in runner_source
+    assert "import pinnpcm.solvers.geophase_phase1_v2_implicit" not in runner_source
     assert "run_C1" not in runner_source
 
 

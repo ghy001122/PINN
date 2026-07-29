@@ -25,6 +25,7 @@ from pinnpcm.solvers.geophase_phase1_v2_implicit import (
     S2AdaptiveDiagnostics,
     S2NonlinearDiagnostics,
     S2ProtocolResult,
+    S2PerformanceTimings,
     S2SolverCache,
     S2State,
     S2StepResult,
@@ -360,6 +361,7 @@ def attempt_s2_embedded_interval(
     cache: S2SolverCache | None = None,
     use_equivalent_optimizations: bool = True,
     use_unit_voltage_scaling: bool = False,
+    performance_timings: S2PerformanceTimings | None = None,
 ) -> S2EmbeddedAttemptObservation:
     H = float(outer_interval_s)
     if not np.isfinite(H) or H <= 0.0:
@@ -397,6 +399,7 @@ def attempt_s2_embedded_interval(
         cache=cache,
         use_equivalent_optimizations=use_equivalent_optimizations,
         use_unit_voltage_scaling=use_unit_voltage_scaling,
+        performance_timings=performance_timings,
     )
     try:
         active_path = "full_step"
@@ -621,6 +624,7 @@ def simulate_s2_protocol_v2(
     cache: S2SolverCache | None = None,
     use_equivalent_optimizations: bool = True,
     use_unit_voltage_scaling: bool = False,
+    performance_timings: S2PerformanceTimings | None = None,
 ) -> S2ProtocolResult:
     if maximum_accepted_steps is not None and maximum_accepted_steps <= 0:
         raise ValueError("maximum_accepted_steps must be positive")
@@ -725,6 +729,7 @@ def simulate_s2_protocol_v2(
                 cache=cache,
                 use_equivalent_optimizations=use_equivalent_optimizations,
                 use_unit_voltage_scaling=use_unit_voltage_scaling,
+                performance_timings=performance_timings,
             )
             if attempted_candidate_callback is not None:
                 attempted_candidate_callback(observation)
