@@ -8,7 +8,7 @@ Current checkpoint:
 `PHASE1_V2_SOURCE_CORRECTED_V3_PERFORMANCE_REPAIR_PREREGISTERED_PENDING_IMPLEMENTATION`
 
 Equivalence-audit substate:
-`INVALID_EQUIVALENCE_AUDIT_INFRASTRUCTURE_BEFORE_EXECUTION`
+`NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`
 
 ## Objective
 
@@ -42,20 +42,11 @@ manifest.
   `formal_execution_count=0`.
 - The solver and seven bounded smoke cases exist. One historical zero-signal
   audit repair changed no physics or scientific gate.
-- Controller-v1 remains historical `NO_GO_RUNTIME`. Its single-replay audit
-  supported exactly one controller revision; that revision has now executed.
-- Controller-v2 C1 passed 23 accepted intervals. C2 passed 128 intervals with
-  finite/nonlinear, first-half/second-half/aggregate four-ledger, lateral,
-  bounded-state, and streaming-parity checks. No event/reversal was observed
-  in the bounded window; the only allowed label is
-  `NA_not_observed_within_bounded_C2_window`.
-- C3 reached the 880 s worker backstop inside its 900 s envelope at `0/18`
-  single-interval samples and `1/9` trajectories. Forecast and dormant runner
-  were not reached. Disposition: `NO_GO_RUNTIME_PERFORMANCE_ONLY`.
-- This is not controller/physics/scientific failure, four-hour infeasibility,
-  or a memory/disk vote. The controller-revision opportunity is consumed; the
-  one pure-equivalence performance opportunity is unconsumed and not
-  automatically authorized.
+- Controller-v1 remains historical `NO_GO_RUNTIME`; its diagnostic supported
+  the now-consumed controller revision.
+- Controller-v2 C1/C2 passed bounded integrity/parity. C3 stopped at `0/18`
+  intervals and `1/9` trajectories before forecast or dormant-runner votes:
+  `NO_GO_RUNTIME_PERFORMANCE_ONLY`. This was not a physics/science vote.
 - The source audit found no eligible holdout. S1 science is
   `forbidden`/unassessed; its interruption is infrastructure provenance only.
   v6-v8 remain terminal `failed_but_informative` historical evidence.
@@ -66,13 +57,16 @@ manifest.
   or independent validation.
 - Contract SHA-256 is `84e1ecb...`; candidate commit/tree/identity are
   `1ae2704...`/`d3833a4...`/`39044f37...`.
-- Its oracle loader failed before row 1 because the dataclass module was absent
-  from `sys.modules`: `0/57`, zero votes, no numerical comparison.
-  Lifecycle is `implemented`, validity `invalid`, claim status
-  `forbidden`. This is infrastructure provenance, not equivalence,
-  performance, or S2-physics failure.
-- One versioned harness-only erratum and one valid audit are authorized.
-  Runtime readiness still requires later authorization.
+- The historical loader launch remains invalid infrastructure provenance:
+  `0/57` rows, zero votes, and no comparison.
+- Harness identity `73f7d7d1...` enabled the sole valid audit. It completed
+  `12/57` rows and fail-fast rejected plan 11,
+  `EQ-INTERVAL-L1-legal_critical-base`, at
+  `1.4757614757614759 > 1e-12`. Progression and failure-topology were not
+  reached.
+- Disposition is `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`. This rejects the
+  optimized implementation's strict equivalence, not S2 physics. No retry,
+  further optimization, C1/C2/C3, or formal execution is authorized.
 
 ## Pass And Stop Rules
 
@@ -97,8 +91,8 @@ and cross-material success claims remain `forbidden`.
 
 ## Immediate Next Checkpoint
 
-Preserve and commit the invalid pre-row launch, then implement and push only
-the versioned loader erratum with its harness identity. After fast CI succeeds,
-execute one valid strict 57-row equivalence audit. Even a GO stops at
-`GO_FOR_SOURCE_CORRECTED_RUNTIME_READINESS_AUTHORIZATION`; it cannot dispatch
-readiness or formal work.
+Stop the source-corrected S2 positive route under the locked performance
+budget. Preserve invalid-launch, harness, and valid-audit evidence; do not
+retry, re-optimize, or run readiness. Await explicit activation of the retained
+`gamma_sub` plus identifiability-boundary manuscript route. Phase 1 science
+remains `forbidden` and unassessed.

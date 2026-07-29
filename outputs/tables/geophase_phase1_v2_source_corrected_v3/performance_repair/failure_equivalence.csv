@@ -1,0 +1,1 @@
+plan_index,sample_id,family,plan_sha256,input_sha256,output_sha256,passed,maximum_normalized_difference,worst_field,exact_mismatch_count,numeric_details_json,exact_mismatches_json,telemetry_json,validation_errors_json
