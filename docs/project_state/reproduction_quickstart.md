@@ -11,15 +11,18 @@
 
 The repository realignment audit writes only the disposition CSV and Phase 0 machine summary. It does not run a scientific experiment or modify frozen GT.
 
-## Active Phase 1 Contract
+## Active Phase 1-v2 Read-Only Verification
 
-Validate the hardened preregistration, source isolation, and algebraic source-scale normalization only:
+Validate the current S2 preregistration, implemented solver behavior, controller-v2 evidence contract, and governance without launching readiness or a formal item:
 
 ```powershell
-.\.venv\Scripts\python.exe -m pytest tests\test_geophase_phase1_preregistration.py -q
+.\.venv\Scripts\python.exe -m pytest tests\test_geophase_phase1_v2_preregistration.py tests\test_geophase_phase1_v2_solver.py tests\test_geophase_phase1_v2_smoke_evidence.py tests\test_geophase_phase1_v2_controller_v2_preregistration.py tests\test_geophase_phase1_v2_controller_v2_readiness_evidence.py -q
+.\.venv\Scripts\python.exe scripts\audit_project_governance.py --no-write
 ```
 
-The contract locks the single-device region topology, Qiu device-effective uniform/global scale mapping, grid/time/protocol schedule, nonlinear tolerances, fixed comparison grids, NRMSE policy, passive K-state fit, and exact 96-case inventory. The algebraic checks recover source-author resistance endmembers and global thermal scales but are not solver or validation evidence. No formal solver command exists yet. Add the config-driven Phase 1 CLI only with an implemented independent solver and focused tests. Do not invent an entrypoint, generate the formal dataset, add nonzero dual-device coupling, or begin PINN/inverse work.
+The active contract is the Qiu-inspired single-device x-y S2 reference with explicit VO2 and mask-local Ti/Au thermal terms. Its 63 formal evaluation items remain `planned_not_executed` and `formal_execution_count=0`. The solver and seven bounded non-voting smoke cases exist. Controller-v2 C1/C2 integrity passed, but C3 stopped at the worker backstop before a forecast or dormant-runner vote; the current disposition is `NO_GO_RUNTIME_PERFORMANCE_ONLY`.
+
+These commands validate existing software/evidence contracts only. They do not rerun readiness and do not support a Phase 1 scientific pass or failure. No readiness rerun, formal registry/item, Phase 2 data generation, PINN training, inverse work, nonzero coupling, 3D/FEM, M44, or NbO2 execution is authorized. The single pure-equivalence performance opportunity requires fresh user authorization and a versioned contract before use.
 
 ## Locked Historical Evidence
 

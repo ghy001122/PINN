@@ -25,7 +25,7 @@ The Phase 0 snapshot contains 1070 rows and must retain its original hashes and 
 
 - `configs/`: versioned physics, budget, seed, protocol, output, and gate contracts.
 - `src/pinnpcm/physics/`: continuous physics, material kernels, geometry, topology, interfaces, SI parameters, and ledgers.
-- `src/pinnpcm/solvers/`: reusable numerical solvers, including the future Phase 1 independent implementation when it exists.
+- `src/pinnpcm/solvers/`: reusable numerical solvers, including the implemented Phase 1-v2 S2 reference and controller/runtime support.
 - `src/pinnpcm/pinn/`: neural fields, transforms, residuals, losses, and historical PINN components.
 - `src/pinnpcm/experiments/`, `audit/`, and `baselines/`: experiment orchestration, audits, and baselines.
 - `scripts/`: config-driven CLIs, builders, validation, and audit entrypoints.
@@ -37,15 +37,22 @@ The Phase 0 snapshot contains 1070 rows and must retain its original hashes and 
 ## Active Phase 1 Files
 
 - `configs/geo2p5d_stage.yaml`
-- `configs/geophase_phase1_2p5d_reference.yaml`
+- `configs/geophase_phase1_v2_s2_reference.yaml`
+- `configs/geophase_phase1_v2_formal_manifest.yaml`
+- `configs/geophase_phase1_v2_execution_addendum.yaml`
+- `configs/geophase_phase1_v2_embedded_time_controller_v2.yaml`
 - `configs/qiu_vo2_phase1_source_contract.yaml`
-- `docs/research_strategy/phase1_geophase_2p5d_reference_contract.md`
+- `docs/research_strategy/phase1_geophase_2p5d_reference_v2_contract.md`
 - `docs/method_equations.md`
-- `tests/test_geophase_phase1_preregistration.py`
-- `docs/codex_reports/phase1_contract_hardening_workspace_cleanup_2026-07-26.md`
-- `docs/codex_reports/executive_guide_alignment_source_scale_review_2026-07-26.md`
+- `src/pinnpcm/solvers/geophase_phase1_v2_fvm.py`
+- `src/pinnpcm/solvers/geophase_phase1_v2_implicit.py`
+- `src/pinnpcm/solvers/geophase_phase1_v2_controller_v2.py`
+- `tests/test_geophase_phase1_v2_preregistration.py`
+- `tests/test_geophase_phase1_v2_solver.py`
+- `tests/test_geophase_phase1_v2_controller_v2_readiness_evidence.py`
+- `docs/codex_reports/geophase_phase1_v2_embedded_controller_readiness.md`
 
-No Phase 1 implementation or scientific output is listed because none exists yet. The scale-corrected preregistration and its algebraic tests do not count as solver evidence.
+The S2 implementation and seven bounded non-voting smoke cases exist. All 63 formal items remain `planned_not_executed`; controller-v2 ended at `NO_GO_RUNTIME_PERFORMANCE_ONLY`. This is software and bounded readiness evidence only, not a Phase 1 scientific result or authorization to rerun readiness.
 
 ## Local Non-Repository Assets
 

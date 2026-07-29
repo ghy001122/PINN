@@ -22,6 +22,9 @@ DISPOSITIONS = {
     "REVIEW_BLOCKED",
 }
 EXPECTED_PHASE = "Q2_PHASE1_2P5D_REFERENCE_SOLVER"
+REVISION_RULES_REPORT = "docs/codex_reports/revision_rules_integration_audit_2026-07-28.md"
+REVISION_RULE_SOURCE_SHA256 = "937F6C5CCF6132C9E396C3906F07BCC87F218438109560105C1E9F71CBEBF304"
+EXPECTED_REVISION_RULE_IDS = {f"RRC-{index:03d}" for index in range(1, 76)}
 
 REQUIRED = [
     "AGENTS.md",
@@ -69,6 +72,7 @@ REQUIRED = [
     "docs/codex_reports/repository_realign_phase0_2026-07-25.md",
     "docs/codex_reports/phase1_contract_hardening_workspace_cleanup_2026-07-26.md",
     "docs/codex_reports/executive_guide_alignment_source_scale_review_2026-07-26.md",
+    REVISION_RULES_REPORT,
     "docs/project_state/local_external_asset_registry.json",
     "docs/templates/codex_final_report.md",
     "src/pinnpcm/physics/AGENTS.md",
@@ -97,6 +101,7 @@ CRITICAL_MARKDOWN = [
     "docs/manuscript/README.md",
     "docs/manuscript/submission_go_no_go.md",
     "docs/archive/README.md",
+    REVISION_RULES_REPORT,
 ]
 
 CURRENT_ROUTE_FILES = [
@@ -216,6 +221,150 @@ def check_delivery_contract() -> dict:
     if "`forbidden` blocks manuscript wording, not bounded exploration." not in texts["AGENTS.md"]:
         missing.append("AGENTS.md:exploration_boundary")
     return {"status": "pass" if not missing else "fail", "missing": missing}
+
+
+def check_revision_rules_integration() -> dict:
+    report_path = ROOT / REVISION_RULES_REPORT
+    if not report_path.exists():
+        return {
+            "status": "fail",
+            "source_sha256": REVISION_RULE_SOURCE_SHA256,
+            "expected_rule_count": len(EXPECTED_REVISION_RULE_IDS),
+            "mapped_rule_count": 0,
+            "missing_ids": sorted(EXPECTED_REVISION_RULE_IDS),
+            "unexpected_ids": [],
+            "duplicate_ids": [],
+            "missing_markers": [f"{REVISION_RULES_REPORT}:missing"],
+            "problems": [f"missing_report:{REVISION_RULES_REPORT}"],
+        }
+    report = read(REVISION_RULES_REPORT)
+    row_ids = re.findall(r"^\|\s*(RRC-\d{3})\s*\|", report, re.MULTILINE)
+    counts = {rule_id: row_ids.count(rule_id) for rule_id in set(row_ids)}
+    missing_ids = sorted(EXPECTED_REVISION_RULE_IDS - set(row_ids))
+    unexpected_ids = sorted(set(row_ids) - EXPECTED_REVISION_RULE_IDS)
+    duplicate_ids = sorted(rule_id for rule_id, count in counts.items() if count != 1)
+
+    required_markers = {
+        "AGENTS.md": [
+            "## Task Contract And Scope Discipline",
+            "`lifecycle_state`: exactly",
+            "`claim_supported` is a lifecycle milestone, not a fifth claim status.",
+            "`validity: invalid`",
+            "active-contract prohibition is authorization-binding",
+        ],
+        "docs/research_strategy/sci_delivery_pipeline.md": [
+            "## Pre-Execution Requirement Contract",
+            "analytic/limit cases -> short single-device run",
+            "Formal baselines must include",
+            "## Run Identity And Evidence Package",
+            "isolated clean worktree or clone",
+        ],
+        "src/pinnpcm/physics/AGENTS.md": [
+            "Map every claim-bearing 2D/2.5D model one-to-one",
+            "Normalized coordinates may be network inputs",
+            "dimensional, sign, and analytic/limit checks",
+        ],
+        "src/pinnpcm/pinn/AGENTS.md": [
+            "A direct-solver/profile success",
+            "at least five seeds",
+            "remove one core module at a time",
+        ],
+        "scripts/AGENTS.md": [
+            "A formal run must record `run_id`",
+            "`outputs/runs/<run_id>/...`",
+            "repair commit, regression test",
+        ],
+        "tests/AGENTS.md": [
+            "a regression that reproduces the old failure",
+            "debug artifacts remain non-voting",
+        ],
+        "docs/AGENTS.md": [
+            "Internal reviews and project reports are leads, not fact sources.",
+            "Execution reports are conclusion-first",
+            "Each main figure serves one claim",
+        ],
+        "docs/templates/codex_final_report.md": [
+            "objective:",
+            "allowed_changes:",
+            "prohibited_actions:",
+            "lifecycle_state:",
+            "execution_validity:",
+            "anomalies_and_root_causes:",
+            "push_status:",
+            "pr_status:",
+        ],
+    }
+    missing_markers: list[str] = []
+    for rel, markers in required_markers.items():
+        text = read(rel)
+        missing_markers.extend(f"{rel}:{marker}" for marker in markers if marker not in text)
+    if REVISION_RULE_SOURCE_SHA256 not in report:
+        missing_markers.append(f"{REVISION_RULES_REPORT}:source_sha256")
+
+    problems = [
+        *(f"missing_id:{rule_id}" for rule_id in missing_ids),
+        *(f"unexpected_id:{rule_id}" for rule_id in unexpected_ids),
+        *(f"duplicate_id:{rule_id}" for rule_id in duplicate_ids),
+        *missing_markers,
+    ]
+    return {
+        "status": "pass" if not problems else "fail",
+        "source_sha256": REVISION_RULE_SOURCE_SHA256,
+        "expected_rule_count": len(EXPECTED_REVISION_RULE_IDS),
+        "mapped_rule_count": len(set(row_ids) & EXPECTED_REVISION_RULE_IDS),
+        "missing_ids": missing_ids,
+        "unexpected_ids": unexpected_ids,
+        "duplicate_ids": duplicate_ids,
+        "missing_markers": missing_markers,
+        "problems": problems,
+    }
+
+
+def check_current_router_semantics() -> dict:
+    requirements = {
+        "docs/project_state/reproduction_quickstart.md": [
+            "Active Phase 1-v2 Read-Only Verification",
+            "63 formal evaluation items",
+            "NO_GO_RUNTIME_PERFORMANCE_ONLY",
+            "do not rerun readiness",
+        ],
+        "docs/manuscript/submission_go_no_go.md": [
+            "NO-GO at Phase 1-v2 runtime readiness",
+            "NO_GO_RUNTIME_PERFORMANCE_ONLY",
+            "63-item manifest",
+        ],
+        "docs/project_state/file_inventory.md": [
+            "configs/geophase_phase1_v2_s2_reference.yaml",
+            "implemented Phase 1-v2 S2 reference",
+            "All 63 formal items remain `planned_not_executed`",
+            "NO_GO_RUNTIME_PERFORMANCE_ONLY",
+        ],
+    }
+    obsolete = {
+        "docs/project_state/reproduction_quickstart.md": [
+            "No formal solver command exists yet",
+            "exact 96-case inventory",
+            "passive K-state fit",
+        ],
+        "docs/manuscript/submission_go_no_go.md": ["region-specific K-state"],
+        "docs/project_state/file_inventory.md": [
+            "No Phase 1 implementation or scientific output is listed",
+            "future Phase 1 independent implementation when it exists",
+        ],
+    }
+    missing: list[str] = []
+    found_obsolete: list[str] = []
+    for rel, markers in requirements.items():
+        text = read(rel)
+        missing.extend(f"{rel}:{marker}" for marker in markers if marker not in text)
+        found_obsolete.extend(
+            f"{rel}:{marker}" for marker in obsolete.get(rel, []) if marker in text
+        )
+    return {
+        "status": "pass" if not missing and not found_obsolete else "fail",
+        "missing": missing,
+        "obsolete": found_obsolete,
+    }
 
 
 def check_no_obsolete_current_route() -> dict:
@@ -529,6 +678,8 @@ def run_audit(write_output: bool = True, require_frozen_payloads: bool = True) -
 
     checks["phase_consistency"] = check_phase_consistency()
     checks["delivery_contract"] = check_delivery_contract()
+    checks["revision_rules_integration"] = check_revision_rules_integration()
+    checks["current_router_semantics"] = check_current_router_semantics()
     checks["no_obsolete_current_route"] = check_no_obsolete_current_route()
     checks["claim_matrix_vocabulary"] = check_claim_matrix_vocabulary()
     checks["critical_markdown_links"] = check_markdown_links()
@@ -545,10 +696,15 @@ def run_audit(write_output: bool = True, require_frozen_payloads: bool = True) -
 
     template = read("docs/templates/codex_final_report.md")
     template_fields = [
-        "task_name", "base_sha", "final_sha", "branch", "tests", "reproduction_commands",
-        "frozen_gt_modified", "evidence_type", "claim_status", "supported_claims",
-        "forbidden_claims", "goal_distance_change", "claim_changes", "new_blockers",
-        "next_single_priority", "disposition",
+        "task_name", "objective", "inputs", "outputs", "allowed_changes",
+        "prohibited_actions", "success_gate", "failure_route", "budget", "assumptions",
+        "base_sha", "final_sha", "branch", "changed_files", "git_status", "push_status",
+        "pr_status", "run_id", "parent_run_id", "seed", "environment", "tests",
+        "reproduction_commands", "frozen_gt_modified", "evidence_type", "lifecycle_state",
+        "execution_validity", "claim_status", "supported_claims", "forbidden_claims",
+        "actual_implementation", "core_results", "anomalies_and_root_causes",
+        "artifact_paths", "goal_distance_change", "claim_changes", "new_blockers",
+        "next_single_priority", "next_problem_remedy", "disposition",
     ]
     missing_fields = [field for field in template_fields if re.search(rf"^{re.escape(field)}:", template, re.MULTILINE) is None]
     checks["final_report_template"] = {"status": "pass" if not missing_fields else "fail", "missing_fields": missing_fields}

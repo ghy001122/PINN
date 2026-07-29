@@ -48,9 +48,13 @@ def test_fast_validation_covers_phase1_checkpoint_a_and_authority_paths() -> Non
         assert test_path in workflow
 
     required_trigger_paths = (
+        ".codex/**",
         "README.md",
+        "docs/AGENTS.md",
         "docs/method_equations.md",
         "docs/codex_reports/**",
+        "docs/project_prompts/**",
+        "docs/templates/**",
         "LIVE_WORKSPACE.md",
         "EXPERIMENT_REGISTRY.md",
         "DATASET_REGISTRY.md",
