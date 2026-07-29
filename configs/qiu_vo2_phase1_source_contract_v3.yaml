@@ -1,0 +1,205 @@
+schema_version: qiu_vo2_phase1_source_contract_v3
+contract_id: QIU_VO2_PHASE1_SOURCE_ONLY_V3
+status: locked_source_classification_with_voltage_trend_correction
+evidence_type: external_literature_and_explicit_engineering_priors
+manuscript_use: provenance_boundary_for_phase1_synthetic_reference_only
+
+supersedes_source_contract:
+  path: configs/qiu_vo2_phase1_source_contract.yaml
+  sha256: 857410517d5b955e2018d4b002fcbbe92bb320c451021b49ae27be1351cb1252
+  disposition: immutable_historical_planned_not_executed_contract
+  correction_scope: qualitative_high_bias_trend_protocol_only
+
+primary_source:
+  citation: Qiu_et_al_Advanced_Materials_2024
+  title: Reconfigurable_Cascaded_Thermal_Neuristors_for_Neuromorphic_Computing
+  doi: 10.1002/adma.202306818
+  manifest: data/external/qiu_2024_thermal_neuristor/manifest.json
+  raw_measurement_arrays_publicly_available: false
+  author_source_code_publicly_available: false
+  exact_author_code_reproduction: forbidden
+  quantitative_real_device_calibration: forbidden
+
+source_trend_correction_v3:
+  source_manifest:
+    path: data/external/qiu_2024_thermal_neuristor/manifest.json
+    sha256: 9fe009f6b4cd61243e6614fbb53210f6042d53d826fad31b06c7ca7a6cdb253f
+  main_article:
+    artifact_id: qiu_2024_main_drive_copy
+    sha256: d842e8bf1b5ac609ab504d8bf6104cfd3efea59697a5c7ac21664a99eb7d3c67
+    locator: Figure_2A_to_2C_printed_page_2306818_3_of_8
+    observations:
+      quiescent_9V: no_current_response
+      transition_probe_12p5V: repeated_current_spiking
+      high_bias_lock_15p8V: initial_spikes_then_inhibited_metallic_state
+  supporting_information:
+    artifact_id: qiu_2024_supporting_information_drive_copy
+    sha256: d47ed95cd5782c3e632bbc440c1fcc681870e0ff303f0b05f8cd8f30cec70bfd
+    locator: Figure_S2_supporting_information_page_7
+    observations:
+      high_bias_15V: oscillatory_not_metallic_lock
+      high_bias_15p7V: oscillatory_not_metallic_lock
+      high_bias_lock_15p8V: initial_spike_then_metallic_lock
+      high_bias_lock_17V: initial_spike_then_metallic_lock
+  corrected_active_trend_protocols:
+    - quiescent_9V
+    - transition_probe_12p5V
+    - high_bias_lock_15p8V
+  active_high_bias_protocol:
+    protocol_id: high_bias_lock_15p8V
+    input_voltage_V: 15.8
+    allowed_role: qualitative_source_trend_probe
+  active_15V_compatibility_alias: forbidden
+  permitted_use:
+    - qualitative_source_trend_probe
+    - preregistered_synthetic_source_model_consistency_gate
+  forbidden_use:
+    - quantitative_real_device_calibration
+    - waveform_fit_or_curve_reproduction
+    - independent_external_validation
+    - experimental_validation
+
+literature_reported:
+  geometry:
+    vo2_length_m:
+      value: 1.0e-7
+      locator: main_Fig1A_and_SI_p2
+      coordinate_note: assignment_to_current_path_is_literature_derived
+    vo2_width_m:
+      value: 5.0e-7
+      locator: main_Fig1A_and_SI_p2
+    vo2_thickness_m:
+      value: 1.0e-7
+      locator: main_results_and_SI_p2
+    ti_thickness_m:
+      value: 1.5e-8
+      locator: SI_p2
+    au_thickness_m:
+      value: 4.0e-8
+      locator: SI_p2
+    adjacent_device_gap_m:
+      value: 5.0e-7
+      locator: main_device_description
+      semantic_warning: exact_edge_or_center_placement_is_unresolved_for_repository_geometry
+    substrate_material:
+      value: Al2O3_012_oriented
+      locator: main_device_description
+  circuit_and_protocol:
+    topology:
+      value: source_series_load_with_parallel_device_capacitance
+      locator: main_Fig1B_and_SI_Eq_S5
+    nominal_input_voltage_V:
+      value: 12.0
+      locator: SI_Fig_S1_caption
+      use_role: qualitative_nominal_forward_probe_not_curve_reproduction
+    load_resistance_ohm:
+      value: 12000.0
+      locator: SI_Fig_S1
+    ambient_temperature_K:
+      value: 325.0
+      locator: main_Fig2_and_SI_Fig_S1_context
+
+source_author_fitted_lumped_quantities:
+  resistance_prefactor_ohm: {value: 5.359e-3, locator: SI_p3_Eqs_S1_to_S4}
+  metallic_resistance_ohm: {value: 262.5, locator: SI_p3_Eqs_S1_to_S4}
+  activation_temperature_K: {value: 5220.0, locator: SI_p3_Eqs_S1_to_S4}
+  beta_per_K: {value: 0.253, locator: SI_p3_Eqs_S1_to_S4}
+  loop_width_K: {value: 7.193, locator: SI_p3_Eqs_S1_to_S4}
+  critical_temperature_K: {value: 332.8, locator: SI_p3_Eqs_S1_to_S4}
+  proximity_gamma: {value: 0.956, locator: SI_p3_Eqs_S1_to_S4}
+  dynamic_metallic_factor: {value: 4.90, locator: SI_p5_Eq_S7}
+  parallel_capacitance_F: {value: 1.45e-10, locator: SI_p5}
+  lumped_thermal_conductance_W_K: {value: 2.06e-4, locator: SI_p5}
+  lumped_thermal_capacitance_J_K: {value: 4.96e-11, locator: SI_p5}
+  admissible_use:
+    - same_role_lumped_circuit_or_hysteresis_shape_prior_in_the_synthetic_benchmark
+    - qualitative_source_trend_context
+    - nominal_uniform_limit_device_effective_scale_normalization_with_explicit_nonintrinsic_semantics
+  forbidden_use:
+    - direct_local_pde_material_parameter_assignment
+    - direct_local_boundary_conductance_assignment
+    - evidence_of_phase1_solver_accuracy
+  critical_warning: lumped_thermal_quantities_include_device_electrodes_and_substrate_and_are_not_local_2p5d_parameters
+
+phase1_device_effective_normalization:
+  status: locked_analytic_mapping_not_repository_curve_fit
+  scientific_role: make_the_nominal_synthetic_benchmark_source_scale_consistent_without_claiming_local_material_calibration
+  electrical_uniform_limit:
+    effective_current_path_m: 1.0e-7
+    effective_width_m: 5.0e-7
+    active_thickness_m: 1.0e-7
+    reference_temperature_K: 325.0
+    insulating_endmember_resistance_rule: R0_times_exp_activation_temperature_over_T_plus_Rm
+    metallic_endmember_resistance_rule: Rm
+    derived_insulating_endmember_conductivity_S_m: 39.2883183844845
+    derived_metallic_endmember_conductivity_S_m: 7619.04761904762
+    mapping_rule: sigma_effective_equals_length_divided_by_width_thickness_and_source_author_endmember_resistance
+  thermal_global_scale:
+    nominal_total_conductance_W_K: 2.06e-4
+    nominal_total_capacity_J_K: 4.96e-11
+    conductance_rule: multiply_all_raw_regional_passive_conductances_by_one_positive_factor_so_area_integrated_dc_sink_matches_nominal_total_conductance
+    capacity_rule: multiply_all_raw_regional_passive_capacities_by_one_positive_factor_so_active_plane_plus_memory_capacity_matches_nominal_total_capacity
+    raw_stack_role: relative_impedance_shape_and_region_contrast_only
+    normalization_preserves_passivity: true
+  interpretation:
+    repository_parameter_fit: false
+    independent_external_validation: false
+    local_intrinsic_material_property: false
+    exact_author_model_reproduction: false
+    allowed_wording: source_author_model_scale_anchored_device_effective_synthetic_closure
+    forbidden_wording:
+      - measured_local_VO2_conductivity
+      - measured_local_thermal_boundary_conductance
+      - repository_calibrated_Qiu_device
+      - independent_experimental_validation
+
+phase1_engineering_priors:
+  contact_overlap_nominal_m: 2.0e-8
+  contact_overlap_audit_m: [1.0e-8, 2.0e-8, 3.0e-8]
+  substrate_depth_nominal_m: 4.0e-7
+  substrate_depth_audit_m: [4.0e-7, 8.0e-7]
+  vo2_thermal_conductivity_W_mK: 4.0
+  ti_thermal_conductivity_W_mK: 21.9
+  au_thermal_conductivity_W_mK: 317.0
+  al2o3_thermal_conductivity_W_mK: 35.0
+  ti_volumetric_heat_capacity_J_m3K: 2.35e+6
+  au_volumetric_heat_capacity_J_m3K: 2.49e+6
+  al2o3_volumetric_heat_capacity_J_m3K: 3.00e+6
+  ideal_thermal_interfaces_for_phase1: true
+  provenance: engineering_prior_or_literature_guided_not_qiu_local_measurement
+
+unresolved_semantics:
+  - Al2O3_thickness_and_lateral_truncation
+  - Ti_Au_lateral_geometry_and_exact_VO2_overlap
+  - exact_adjacent_device_edge_or_center_spacing
+  - local_Ti_Au_Al2O3_thermal_properties
+  - phase_dependent_local_VO2_thermal_properties
+  - individual_electrical_contact_resistivity_and_asymmetric_split
+  - all_thermal_boundary_resistances
+  - remote_thermal_boundary_condition
+  - local_differentiable_history_relaxation_time
+  - source_time_step_integrator_and_spatial_initial_conditions
+  - filament_location_and_width
+  - raw_R_T_and_I_t_numeric_arrays_and_instrument_resolution
+
+withheld_curve_boundary:
+  curve_id: qiu_2024_main_fig2b_12p5v
+  numeric_access_in_phase1: forbidden
+  digitization_in_phase1: forbidden
+  use_role: qualitative_voltage_regime_locator_only
+  independent_external_holdout: false
+
+historical_reuse_boundary:
+  m40_config: configs/m40_qiu_vo2_real_device_2d.yaml
+  m40_m40r_m44_allowed_role: source_locator_and_failure_lesson_only
+  inherit_geometry_without_rechecking_source_contract: false
+  inherit_parameter_numeric_vote: false
+  inherit_field_or_convergence_vote: false
+  inherit_claim_status: false
+
+auxiliary_future_source:
+  family: SnSe_NbO2
+  citation: Chen_et_al_Advanced_Functional_Materials_2025
+  doi: 10.1002/adfm.202423800
+  phase1_execution: forbidden
+  zero_shot_transfer: forbidden

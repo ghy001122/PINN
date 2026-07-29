@@ -1,0 +1,359 @@
+task_id: Q2_PHASE1_V2_SOURCE_CORRECTED_EMBEDDED_TIME_CONTROLLER_V2
+schema_version: geophase_phase1_v2_embedded_time_controller_overlay_source_corrected_v3
+status: preregistered_source_corrected_pending_push_no_runtime_preflight_executed
+evidence_type: versioned_source_corrected_numerical_time_controller_contract
+manuscript_use: contribution_1_conservative_2p5d_reference_solver_readiness_only
+
+authority_lock:
+  source_correction_base_main_commit: 5dcd23f8ad1c47a01105d62c526d12dc886c8568
+  source_correction_base_main_tree: 7a06d2b38d5203c580dffa0b13174729db591ae7
+  base_S2_config:
+    path: configs/geophase_phase1_v2_s2_reference_source_corrected_v3.yaml
+    sha256: ea668ac66c8f2f2267b059bd816a4116def086708f2f7eeded07d64a2857aff4
+    base_file_bytes_mutable: false
+  source_contract:
+    path: configs/qiu_vo2_phase1_source_contract_v3.yaml
+    sha256: 17a0accc906d68fffc35ee40be9d41c36bd1a7d0514e9a539cfcfd4fc4bcc621
+  execution_addendum:
+    path: configs/geophase_phase1_v2_execution_addendum_source_corrected_v3.yaml
+    sha256: d7f9c3beb94036131b30431f22afca95bf3542568151094c9d53dee22185715f
+    controller_v2_semantics_inherited_unchanged: true
+    all_non_source_correction_execution_semantics_remain_locked: true
+  formal_manifest:
+    path: configs/geophase_phase1_v2_formal_manifest_source_corrected_v3.yaml
+    sha256: 240e45435505626b2bfb5a71cb95d8d18b2c7e4c2a5beac8aeb7cb843bf2f739
+    evaluation_item_count: 63
+    unique_execution_unit_count: 60
+    legal_reuse_count: 3
+    expanded_CSV:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/formal_evaluation_manifest.csv
+      sha256: d48646069e16e255bb857f2bdff406315513aa2e62214be50deb8cf6919d5737
+    expanded_JSON:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/formal_evaluation_manifest.json
+      sha256: 803e83e5c5b13ba3546b4262e4d9658be53b255188541aa60dce63d0f7174ac7
+  execution_DAG:
+    path: outputs/tables/geophase_phase1_v2_source_corrected_v3/runtime_readiness/execution_dag.json
+    sha256: da93d717e0fae2fb5431457b921f901a8651bd987346f4df493a94144ded786a
+    CSV_path: outputs/tables/geophase_phase1_v2_source_corrected_v3/runtime_readiness/execution_dag.csv
+    CSV_sha256: 473a02cba79ab2d2db9a9b5efc4dcb8a573e51762c6a88ec049824ad57a3f4d7
+  historical_controller_v1:
+    active_runtime_selection: forbidden
+    reproducibility_source: git_commit_blob_and_PR6_PR7_evidence_only
+    solver_blob_at_merged_PR7_main: 77e63a699105be08960c35609d57776f5fabbc43
+    rejection_cap: 6
+    PR7_head: d579e299a9167e363b2d25914c0c14a968a08a7a
+    audit_config:
+      path: configs/geophase_phase1_v2_critical_transition_failure_audit.yaml
+      sha256: 6bba56e6acb321eae00e6c006d6bd1c6131acfc55e6a80f7590e21e7cace27c8
+    failure_telemetry:
+      path: outputs/tables/geophase_phase1_v2/critical_transition_failure_telemetry.json
+      sha256: d58c8aefb3db51a157dd9eb16c6856e9e211822df81559abad265950c72cfa45
+    attempted_step_CSV:
+      path: outputs/tables/geophase_phase1_v2/critical_transition_attempts.csv
+      sha256: 361e804f622998883719a9103c15e697b0c8f3337b41eefda06dc673e238c1f2
+    diagnosis:
+      path: outputs/tables/geophase_phase1_v2/critical_transition_diagnosis.json
+      sha256: 5e30843f0e91c36a50a36e9c19297806ecd0c84a3aa09bc683a74069fd2522a5
+    report:
+      path: docs/codex_reports/geophase_phase1_v2_critical_transition_failure_audit.md
+      sha256: 28dd744e6706dff2bea4b3a5a87fd3417d1496caff946cda5deb58295e271f89
+    evidence_mutation: forbidden
+
+execution_boundary:
+  preregistration_commit_must_be_pushed_before_source_corrected_runtime_routing: true
+  preregistration_commit_must_be_pushed_before_new_numerical_execution: true
+  formal_execution_count: 0
+  formal_artifact_count: 0
+  formal_campaign: forbidden
+  controller_v1_replay: forbidden
+  controller_parameter_scan: forbidden
+  S2_equation_parameter_or_tolerance_change: forbidden
+  phase2_PINN_MoE_homotopy_inverse_S1_material_stack_FEM3D_NbO2: forbidden
+  performance_repair_consumed: false
+  source_correction_diff_contract:
+    allowed_paths:
+      - .gitignore
+      - configs/qiu_vo2_phase1_source_contract_v3.yaml
+      - configs/geophase_phase1_v2_s2_reference_source_corrected_v3.yaml
+      - configs/geophase_phase1_v2_formal_manifest_source_corrected_v3.yaml
+      - configs/geophase_phase1_v2_execution_addendum_source_corrected_v3.yaml
+      - configs/geophase_phase1_v2_embedded_time_controller_v2_source_corrected_v3.yaml
+      - scripts/preregister_geophase_phase1_v2_source_corrected_v3.py
+      - scripts/preregister_geophase_phase1_v2_source_corrected_execution_v3.py
+      - src/pinnpcm/solvers/geophase_phase1_v2_source_corrected_controller_overlay.py
+      - tests/test_geophase_phase1_v2_source_corrected_v3_preregistration.py
+      - outputs/tables/geophase_phase1_v2_source_corrected_v3/**
+    forbidden_paths:
+      - configs/geophase_phase1_v2_embedded_time_controller_v2.yaml
+      - configs/geophase_phase1_v2_s2_reference.yaml
+      - configs/geophase_phase1_v2_execution_addendum.yaml
+      - configs/geophase_phase1_v2_formal_manifest.yaml
+      - configs/qiu_vo2_phase1_source_contract.yaml
+      - docs/method_equations.md
+      - src/pinnpcm/solvers/geophase_phase1_v2_controller_overlay.py
+      - configs/geophase_phase1_v2_critical_transition_failure_audit.yaml
+      - outputs/tables/geophase_phase1_v2/critical_transition_failure_telemetry.json
+      - outputs/tables/geophase_phase1_v2/critical_transition_attempts.csv
+      - outputs/tables/geophase_phase1_v2/critical_transition_diagnosis.json
+      - src/pinnpcm/solvers/geophase_phase1_v2_implicit.py
+      - src/pinnpcm/solvers/geophase_phase1_v2_fvm.py
+
+deterministic_resolution:
+  schema_version: geophase_phase1_v2_source_corrected_controller_overlay_resolution_v3
+  algorithm: >-
+    Load the byte-verified base S2 YAML, validate this document against the
+    exact overlay schema, add only the two whitelisted reference-solver paths,
+    and canonicalize the resolved controller identity as UTF-8 JSON with
+    sorted keys and compact separators.
+  whitelisted_base_paths:
+    - reference_solver.time_discretization
+    - reference_solver.active_time_controller
+  exact_operations:
+    - {operation: REPLACE, path: /reference_solver/time_discretization}
+    - {operation: ADD, path: /reference_solver/active_time_controller}
+  DELETE_operation: forbidden
+  additional_overlay_paths: forbidden
+  top_level_overlay_key: controller_overlay
+  resolved_runtime_identity_fields:
+    - base_S2_config_sha256
+    - source_contract_sha256
+    - formal_manifest_sha256
+    - expanded_manifest_CSV_sha256
+    - expanded_manifest_JSON_sha256
+    - execution_addendum_sha256
+    - execution_DAG_CSV_sha256
+    - execution_DAG_JSON_sha256
+    - controller_v2_overlay_sha256
+    - resolution_schema_version
+  resolved_runtime_identity_formula: sha256_of_canonical_JSON_of_the_ten_identity_fields
+  canonical_JSON:
+    encoding: UTF-8
+    sort_keys: true
+    separators: [",", ":"]
+    allow_nan: false
+  current_overlay_must_match_preregistration_commit_bytes: true
+  base_config_must_match_preregistration_commit_bytes: true
+  forbidden_override_namespaces:
+    - physical_model
+    - geometry
+    - source_scale
+    - material_parameters
+    - formal_protocols
+    - formal_manifest
+    - metric_contract
+    - gates
+    - spatial_grid
+    - frozen_GT
+
+overlay_schema:
+  additional_properties: forbidden
+  controller_overlay_required_keys: [reference_solver]
+  reference_solver_allowed_keys: [time_discretization, active_time_controller]
+  active_time_controller_allowed_keys:
+    - controller_id
+    - candidate_paths
+    - embedded_error
+    - voltage_scale
+    - outer_interval
+    - growth
+    - integrity
+    - aggregate_ledgers
+    - event_output_isolation
+    - telemetry
+
+controller_overlay:
+  reference_solver:
+    time_discretization: stateful_embedded_backward_euler_full_step_two_half_step_v2
+    active_time_controller:
+      controller_id: embedded_time_consistency_v2_only
+      candidate_paths:
+        full_step:
+          backward_euler_steps: 1
+          step_fraction_of_outer_interval: 1.0
+          role: temporal_error_estimate_and_integrity_only
+          may_commit_state_or_QoI: false
+        two_half_steps:
+          backward_euler_steps: 2
+          ordered_step_fractions_of_outer_interval: [0.5, 0.5]
+          role: accepted_state_path
+          second_half_starts_from_first_half_state: true
+      embedded_error:
+        temperature_scale_K: 7.19
+        e_T: infinity_norm_T_hh_minus_T_h_divided_by_temperature_scale_K
+        e_s: infinity_norm_s_hh_minus_s_h
+        e_b: infinity_norm_b_hh_minus_b_h
+        e_V: absolute_V_hh_minus_V_h_divided_by_fixed_protocol_V_scale
+        e_max: maximum_of_e_T_e_s_e_b_e_V
+        acceptance_max: 0.02
+        legacy_max_delta_s_delta_b_role: telemetry_only_nonvoting
+      voltage_scale:
+        formula: max_1V_and_maximum_absolute_declared_input_voltage_over_protocol
+        runtime_or_device_voltage_dependent_denominator: forbidden
+        missing_protocol_mapping: fail_closed
+        protocol_V_scale_V:
+          zero_drive: 1.0
+          quiescent_9V: 9.0
+          nominal_12V: 12.0
+          transition_probe_12p5V: 12.5
+          high_bias_lock_15p8V: 15.8
+          pulse_12p5V: 12.5
+        multi_device_or_multi_input_rule: resolve_and_record_each_device_input_channel_before_execution
+        DUAL0_fixture_device_channel_V_scale_V:
+          A_only_drive: {A: 12.5, B: 1.0}
+          B_only_drive: {A: 1.0, B: 12.5}
+          equal_drive_symmetry: {A: 12.5, B: 12.5}
+          swapped_label_invariance: {A: 12.5, B: 12.5}
+      outer_interval:
+        symbol: H
+        base_maximum_s: 1.0e-8
+        emergency_floor_base_s: 9.765625e-12
+        formal_time_divisors: [1, 2, 4]
+        divisor_rule:
+          maximum: base_maximum_s_divided_by_time_divisor
+          emergency_floor: emergency_floor_base_s_divided_by_time_divisor
+        emergency_floor_applies_to: outer_interval_H_only
+        half_steps_below_outer_floor: allowed
+        initial_H: maximum_for_time_divisor
+        rejection_action_above_floor: halve_outer_interval
+        outer_rejection_cap: 10
+        rejection_count_unit: one_failed_full_two_half_candidate_bundle
+        floor_ladder: evaluate_Hmax_then_at_most_10_halvings_and_evaluate_Hmin_once
+        floor_candidate_failure: locked_floor_failure_not_ordinary_eleventh_rejection
+        proposal_below_floor: forbidden_except_endpoint_or_forced_landing_remainder
+        endpoint_or_forced_landing_remainder:
+          allowed_targets: [final_time, fixed_output_time, protocol_discontinuity]
+          adaptive_floor_search: forbidden
+          failed_integrity_or_embedded_gate: fail_closed_without_further_bisection
+      growth:
+        accepted_interval_policy: retain_current_H
+        easy_error_max: 0.005
+        required_consecutive_easy_intervals: 2
+        each_easy_interval_requires: [no_rejection, no_fallback]
+        action: double_H_capped_at_divisor_maximum
+        PID_or_safety_factor: forbidden
+      integrity:
+        required_for_each_path: [full_step, first_half_step, second_half_step]
+        hard_gates:
+          - finite_state
+          - nonlinear_convergence
+          - lateral_flux_audit
+          - thermal_ledger
+          - circuit_ledger
+          - combined_ledger
+          - device_power_identity
+        path_failure_above_floor: reject_bundle_and_halve_outer_interval
+        path_failure_at_floor_or_remainder: fail_closed
+        lateral_audit_formula: existing_relative_OR_64eps_Lnorm_Tnorm_backward_error
+        third_lateral_acceptance_criterion: forbidden
+      aggregate_ledgers:
+        hard_gate_for_accepted_two_half_path: true
+        ledgers: [thermal, circuit, combined, device_power_identity]
+        recompute_from_signed_energy_terms: true
+        relative_residual_averaging: forbidden
+        storage: net_outer_initial_to_second_half_final
+        midpoint_storage: algebraically_cancels_once
+        accumulated_terms:
+          - input_energy
+          - load_dissipation
+          - vertical_sink_energy
+          - lateral_flux_energy
+          - circuit_capacitor_backward_euler_numerical_dissipation_each_half_once
+        device_power_identity: sum_dt_times_terminal_device_power_equals_sum_dt_times_field_joule_power
+        thresholds: inherit_existing_four_ledger_thresholds_without_relaxation
+      event_output_isolation:
+        protocol_discontinuity_and_fixed_output_times: exact_outer_interval_landing
+        each_half_uses_its_own_time_interval_voltage: true
+        events_streaming_QoI_and_snapshots_source: accepted_two_half_path_only
+        full_step_pollution: forbidden
+      telemetry:
+        legacy_max_absolute_delta_s: required_nonvoting
+        legacy_max_absolute_delta_b: required_nonvoting
+        embedded_components: [e_T, e_s, e_b, e_V, e_max]
+        path_integrity: [full_step, first_half_step, second_half_step, aggregate]
+        coupled_solve_count_per_successful_outer_candidate: 3
+
+readiness_validation:
+  formal: false
+  id_prefix: PRE-CTRL-
+  temporary_directory_only: true
+  formal_execution_count: 0
+  formal_artifact_count: 0
+  sequential_gates: [C1, C2, C3]
+  C1:
+    id: PRE-CTRL-LEGAL-CRITICAL
+    fixture_source: PR7_legal_critical_initial_state_and_transition_probe_12p5V
+    fixture:
+      spatial_level: 1
+      grid: {nx: 10, ny: 25}
+      time_divisor: 1
+      initial_state: {temperature_K: 336.4, branch_memory_b: 1.0, conductive_state_s: 0.5, device_voltage_V: 0.0}
+      protocol: transition_probe_12p5V
+      final_time_s: 2.0e-8
+      forced_landing_times_s: [0.0, 5.0e-9, 1.0e-8, 1.5e-8, 2.0e-8]
+    required:
+      - accepted_interval_exists
+      - embedded_error_pass
+      - full_half_and_aggregate_integrity_pass
+      - accepted_two_half_path_reproducible
+      - full_history_streaming_parity
+    floor_failure_disposition: NO_GO_TIME_CONTROLLER_REVISION
+  C2:
+    fixture: identical_to_C1_legal_critical_initial_state_grid_divisor_and_protocol
+    maximum_accepted_intervals: 128
+    maximum_simulated_time_s: 1.0e-6
+    wall_clock_scope: remaining_runtime_preflight_budget
+    stop_at_first_limit: true
+    missing_reversal_or_event: NA_not_observed_within_bounded_C2_window
+    event_or_reversal_if_present_requires_full_history_streaming_parity: true
+    wall_clock_truncation: C2_truncated_by_readiness_budget
+    insufficient_samples_for_C3: NO_GO_RUNTIME_PERFORMANCE_ONLY
+    formal_event_or_trend_vote: forbidden
+  C3:
+    inherit_execution_addendum_runtime_preflight: true
+    wall_clock_s_max_for_C1_C2_C3_runtime_preflight: 900
+    grids: [L1, L2, L4]
+    deterministic_states: [equilibrium, legal_critical, high_conductive]
+    campaign_cost_unique_units: 60
+    scheduler: deterministic_longest_processing_time_first
+    coupled_solve_cost_multiplier_must_be_measured_not_assumed: true
+    dormant_formal_runner_only: true
+    formal_registry_or_ID: forbidden
+    GO_gates:
+      predicted_p95_makespan_s_max: 11520
+      hard_makespan_s_max: 14400
+      formal_execution_count: 0
+      formal_artifact_count: 0
+
+outcomes:
+  all_C1_C2_C3_readiness_gates_pass: GO_FOR_PHASE1_V2_FORMAL_AUTHORIZATION
+  controller_integrity_ledger_parity_or_critical_trajectory_failure: NO_GO_TIME_CONTROLLER_REVISION
+  only_cost_or_memory_failure: NO_GO_RUNTIME_PERFORMANCE_ONLY
+  performance_only_repair_in_this_task: forbidden
+  second_controller_revision: forbidden
+  automatic_formal_campaign_after_GO: forbidden
+
+claim_boundary:
+  maximum_GO_claim: >-
+    The versioned embedded controller and non-formal runtime readiness gates
+    passed on the bound workstation; a separately authorized formal Phase 1-v2
+    campaign remains required for any scientific result.
+  forbidden:
+    - Phase1_v2_scientific_pass
+    - Qiu_quantitative_reproduction_or_calibration
+    - experimental_validation
+    - Phase2_or_PINN_unlocked
+    - production_timestep_identified_by_PR7
+
+outputs:
+  namespace: outputs/tables/geophase_phase1_v2_source_corrected_v3/controller_v2_readiness
+  machine_preregistration: outputs/tables/geophase_phase1_v2_source_corrected_v3/controller_v2_readiness/preregistration.json
+  C1_summary: outputs/tables/geophase_phase1_v2_source_corrected_v3/controller_v2_readiness/C1_summary.json
+  C2_summary: outputs/tables/geophase_phase1_v2_source_corrected_v3/controller_v2_readiness/C2_summary.json
+  preflight_samples: outputs/tables/geophase_phase1_v2_source_corrected_v3/controller_v2_readiness/preflight_samples.csv
+  preflight_summary: outputs/tables/geophase_phase1_v2_source_corrected_v3/controller_v2_readiness/preflight_summary.json
+  campaign_cost_forecast: outputs/tables/geophase_phase1_v2_source_corrected_v3/controller_v2_readiness/campaign_cost_forecast.csv
+  dormant_runner_dry_run: outputs/tables/geophase_phase1_v2_source_corrected_v3/controller_v2_readiness/runner_dry_run.json
+  readiness_summary: outputs/tables/geophase_phase1_v2_source_corrected_v3/controller_v2_readiness/readiness_summary.json
+  report: docs/codex_reports/geophase_phase1_v2_source_corrected_performance_readiness.md
+  publish_order: [CSV_atomic, JSON_atomic, report_markdown]
+  overwrite_historical_runtime_readiness_or_PR7_evidence: forbidden
