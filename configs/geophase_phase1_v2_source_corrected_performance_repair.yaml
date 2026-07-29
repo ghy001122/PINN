@@ -1,0 +1,390 @@
+task_id: PHASE1_V2_SOURCE_CORRECTED_PERFORMANCE_CLOSURE
+schema_version: geophase_phase1_v2_source_corrected_performance_repair_v1
+status: preregistered_no_performance_implementation_or_numerics
+evidence_type: nonvoting_strict_equivalence_and_runtime_readiness
+manuscript_use: contribution_1_reference_solver_engineering_readiness_only
+
+authority_lock:
+  source_corrected_bundle:
+    commit: 0ebe037ef707a56750c5db0c52f7a312ee251b6c
+    tree: 4fc400a0dff50d598319be0bde540120c966f602
+  active_routing:
+    commit: b7d47c9dbb29611ab07abc85fae7bcdbf18d8a58
+    tree: 0a462f979abf99be750035604aa269b8cc781b90
+  source_corrected_v3:
+    source_contract:
+      path: configs/qiu_vo2_phase1_source_contract_v3.yaml
+      sha256: 17a0accc906d68fffc35ee40be9d41c36bd1a7d0514e9a539cfcfd4fc4bcc621
+    S2_config:
+      path: configs/geophase_phase1_v2_s2_reference_source_corrected_v3.yaml
+      sha256: ea668ac66c8f2f2267b059bd816a4116def086708f2f7eeded07d64a2857aff4
+    formal_manifest:
+      path: configs/geophase_phase1_v2_formal_manifest_source_corrected_v3.yaml
+      sha256: 240e45435505626b2bfb5a71cb95d8d18b2c7e4c2a5beac8aeb7cb843bf2f739
+    execution_addendum:
+      path: configs/geophase_phase1_v2_execution_addendum_source_corrected_v3.yaml
+      sha256: d7f9c3beb94036131b30431f22afca95bf3542568151094c9d53dee22185715f
+    controller_v2_overlay:
+      path: configs/geophase_phase1_v2_embedded_time_controller_v2_source_corrected_v3.yaml
+      sha256: 8da3f056a197502d01abd26ccec8f0fa7d73276da770162048607d225dc8400e
+    expanded_manifest_CSV:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/formal_evaluation_manifest.csv
+      sha256: d48646069e16e255bb857f2bdff406315513aa2e62214be50deb8cf6919d5737
+    expanded_manifest_JSON:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/formal_evaluation_manifest.json
+      sha256: 803e83e5c5b13ba3546b4262e4d9658be53b255188541aa60dce63d0f7174ac7
+    execution_DAG_CSV:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/runtime_readiness/execution_dag.csv
+      sha256: 473a02cba79ab2d2db9a9b5efc4dcb8a573e51762c6a88ec049824ad57a3f4d7
+    execution_DAG_JSON:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/runtime_readiness/execution_dag.json
+      sha256: da93d717e0fae2fb5431457b921f901a8651bd987346f4df493a94144ded786a
+    resolved_runtime_identity:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/resolved_runtime_identity.json
+      file_sha256: 9b132d16b2ccf2d9e77351ff61dc86d24d50c949679523bb47142c350ffdad91
+      identity_sha256: d6d75b0101152593599f53438718cba68c6c382e2650779de2c83ffbcee44977
+    counts:
+      evaluations: 63
+      unique_executions: 60
+      legal_reuses: 3
+
+baseline_scientific_code:
+  purpose: preregistration_time_identity_not_the_optimized_candidate_identity
+  files:
+    - path: src/pinnpcm/solvers/geophase_2p5d_fvm.py
+      sha256: e1a349ca0275021508cd07da02576adafbbcdae81e122659274769f329016a37
+    - path: src/pinnpcm/solvers/geophase_phase1_v2_fvm.py
+      sha256: 5ac770dbe038f69aa834917a3370c31a78a1ee6760abf618edd462245db08a62
+    - path: src/pinnpcm/solvers/geophase_phase1_v2_implicit.py
+      sha256: 15e24094d34a4d7eb2af1f38c42dd6a798277c1fb0ee4047847d4cd983303616
+    - path: src/pinnpcm/solvers/geophase_phase1_v2_controller_v2.py
+      sha256: c4254626239a987495347d281d13fc505193e561e0d18c7b96e4847b16412bfd
+    - path: src/pinnpcm/solvers/geophase_phase1_v2_runtime.py
+      sha256: ece4a48eb297a60d7bc1b60240197929f068ad06bbb7fd05a7821aae0f773bea
+
+frozen_scientific_semantics:
+  S2_equations_and_physical_parameters: immutable
+  G_theta_and_C_theta: immutable
+  tau_s_tau_b_and_branch_law: immutable
+  complete_3N_plus_1_residual: immutable
+  Picard_Newton_Krylov_Armijo_fallback: immutable
+  full_step_two_half_step_controller: immutable
+  ledgers_and_lateral_audit: immutable
+  scientific_gates_tolerances_grids_and_time_windows: immutable
+  formal_manifest_counts_and_dependencies: immutable
+  active_high_bias_protocol: high_bias_lock_15p8V
+  active_high_bias_voltage_V: 15.8
+  high_bias_role: qualitative_source_trend_probe
+  Qiu_calibration_reproduction_or_independent_validation: forbidden
+
+execution_boundary:
+  performance_repair_limit: 1
+  authorized_repair_ordinal: 1
+  development_changes_within_whitelist_form_one_repair: true
+  development_parity_repairs_before_candidate_freeze: allowed_within_whitelist
+  second_performance_repair: forbidden
+  preregistration_commit_must_be_pushed_before_implementation: true
+  preregistration_commit_must_be_pushed_before_microbenchmark_or_numerics: true
+  source_bundle_and_active_route_must_be_pushed: true
+  formal_execution_count: 0
+  formal_artifact_count: 0
+  formal_campaign: forbidden
+  automatic_formal_campaign_after_GO: forbidden
+  new_dependency: forbidden
+
+legacy_oracle:
+  role: test_only_implementation_equivalence_oracle_not_scientific_truth
+  PR8:
+    commit: 85e4257fc01af2e0bf706ef9001f263b1420ecaa
+    tree: 50ef2214b19f98c6cada0f5f40c682de9eb16bee
+  source:
+    path: src/pinnpcm/solvers/geophase_2p5d_fvm.py
+    git_blob: fd0e0773255181b037c4d6b6be4e482b735d1eff
+    sha256: e1a349ca0275021508cd07da02576adafbbcdae81e122659274769f329016a37
+  future_snapshot:
+    path: tests/oracles/pr8_geophase_2p5d_fvm.py
+    exact_source_bytes_required: true
+    expected_git_blob: fd0e0773255181b037c4d6b6be4e482b735d1eff
+    expected_sha256: e1a349ca0275021508cd07da02576adafbbcdae81e122659274769f329016a37
+  implementation_requirements:
+    scalar_LIL_assembly: required
+    Python_face_loops: required
+    independent_spsolve_per_RHS: required
+    optimized_assembly_cache_factorization_or_postprocess: forbidden
+    production_import_or_CLI_mode: forbidden
+    source_corrected_v3_inputs: required
+
+optimization_whitelist:
+  - atomic_per_C3_sample_journal
+  - staged_timing_telemetry
+  - precomputed_fixed_CSR_row_column_topology_and_face_geometry
+  - vectorized_face_conductance
+  - vectorized_terminal_flux
+  - vectorized_cell_Joule_kernel
+  - one_assembly_and_one_factorization_per_frozen_conductivity
+  - separate_direct_unit_and_actual_voltage_RHS_solves
+  - RAM_aware_C3_process_parallelism
+  - one_BLAS_and_OpenMP_thread_per_worker
+  - plan_ordered_atomic_result_publication
+
+forbidden_optimizations:
+  T_only_algebraic_elimination: forbidden
+  delete_or_change_Picard_Newton_or_fallback: forbidden
+  actual_voltage_solution_from_unit_solution_scaling: forbidden
+  dyadic_retry_reuse: forbidden
+  reuse_across_Newton_or_Picard_states: forbidden
+  reuse_across_steps: forbidden
+  change_sparse_ordering_pivoting_or_solver_tolerances: forbidden
+  physics_controller_gate_or_manifest_change: forbidden
+
+frozen_conductivity_scope:
+  identity: same_geometry_grid_and_exact_frozen_T_s_conductivity_context
+  matrix_assembled_once: true
+  factorized_once: true
+  factorization_backend: scipy_sparse_SuperLU
+  unit_voltage_RHS: independent_direct_solve
+  actual_voltage_RHS: independent_direct_solve
+  actual_solution_from_unit_scaling: forbidden
+  ephemeral_lifetime: one_frozen_conductivity_evaluation_only
+
+timing_telemetry:
+  voting_role: performance_only
+  fields:
+    - electrical_assembly_wall_s
+    - factorization_wall_s
+    - linear_solves_wall_s
+    - Joule_port_postprocess_wall_s
+    - Picard_predictor_wall_s
+    - Newton_Krylov_wall_s
+    - fallback_wall_s
+
+equivalence_audit:
+  candidate_freeze:
+    implementation_commit_and_tree_required: true
+    implementation_path_hashes_required: true
+    pushed_before_final_equivalence_audit: true
+    code_change_after_freeze: forbidden
+  frozen_candidate_audit_attempts: 1
+  normalized_relative_difference_max: 1.0e-12
+  normalized_denominators:
+    time_s: 1.0e-9
+    temperature_K: 7.19
+    conductive_state: 1.0
+    branch_memory: 1.0
+    device_voltage_V: fixed_protocol_V_scale
+    potential_V: fixed_protocol_V_scale
+    terminal_current_A: 1.0e-12
+    power_W: 1.0e-30
+    relative_residual: 1.0
+    ledger_power_terms: max_of_all_signed_terms_and_1e-30
+  electrical_matrix:
+    states: [equilibrium, legal_critical, high_conductive]
+    grids: [L1, L2, L4]
+    count: 9
+  interval_matrix:
+    states: [equilibrium, legal_critical, high_conductive]
+    grids: [L1, L2, L4]
+    interval_classes: [base, floor]
+    paths: [full_step, first_half_step, second_half_step]
+    count: 18
+  short_progression_matrix:
+    states: [equilibrium, legal_critical, high_conductive]
+    grids: [L1, L2, L4]
+    maximum_accepted_intervals: 4
+    full_history_streaming_same_run: true
+    count: 9
+  failure_injection_matrix:
+    paths: [full_step, first_half_step, second_half_step]
+    failure_classes:
+      - nonfinite
+      - nonlinear_convergence
+      - lateral_audit
+      - thermal_ledger
+      - circuit_ledger
+      - combined_ledger
+      - device_power_identity
+    count: 21
+  compared_outputs:
+    - phi
+    - T
+    - s
+    - b
+    - Vd
+    - terminal_current_and_power
+    - cell_Joule_power
+    - thermal_circuit_combined_and_device_power_ledgers
+    - streaming_summaries
+    - event_and_reversal_topology
+  exact_votes:
+    - nonlinear_method
+    - converged_disposition
+    - fallback_disposition
+    - accepted_rejected_sequence
+    - failure_classification
+    - event_count_direction_and_order
+    - reversal_count_direction_and_order
+  telemetry_only_nonvoting:
+    - Newton_iterations
+    - Krylov_matvecs
+    - Armijo_backtracks
+    - Picard_iterations
+    - fallback_iterations
+  terminal_failure_disposition: NO_GO_EQUIVALENT_PERFORMANCE_REPAIR
+  scientific_interpretation_on_failure: S2_physics_forbidden_unassessed
+
+readiness_execution:
+  allowed_only_after_frozen_equivalence_pass: true
+  attempts: 1
+  order: [C1_serial, C2_serial, C3_persistent_Windows_spawn_pool]
+  global_wall_clock_s_from_C1_start: 900
+  worker_backstop_from_C1_start_s: 880
+  parent_atomic_finalization_reserve_s: 20
+  preflight_includes:
+    - C1
+    - C2
+    - C3_pool_startup
+    - C3_samples_and_journal
+    - dormant_runner
+    - forecast
+    - atomic_publication
+  excluded_from_900_s:
+    - focused_tests
+    - development_parity
+    - frozen_equivalence_audit
+    - preregistered_worker_RSS_microbenchmark
+    - CI
+  C1:
+    fixture: PRE-CTRL-LEGAL-CRITICAL
+    protocol: transition_probe_12p5V
+    serial_hard_barrier: true
+  C2:
+    fixture: PRE-CTRL-CRITICAL-TRAJECTORY
+    protocol: transition_probe_12p5V
+    serial_hard_barrier: true
+    no_event_disposition: NA_not_observed_within_bounded_C2_window
+  C3:
+    single_interval_samples: 18
+    short_trajectory_plans: 9
+    C2_reused_trajectory_plans: 1
+    independently_submitted_pool_samples: 26
+    grids: [L1, L2, L4]
+    states: [equilibrium, legal_critical, high_conductive]
+    high_conductive_state: {temperature_K: 380.0, branch_memory: 1.0, conductive_state: s_eq_T_b}
+    high_conductive_protocol: high_bias_lock_15p8V
+    high_conductive_protocol_V_scale_V: 15.8
+  gates:
+    C1: PASS
+    C2: PASS
+    C3_single_intervals: 18_of_18
+    C3_short_trajectories: 9_of_9
+    dormant_runner: PASS
+    preflight_wall_clock_s_max: 900
+    predicted_p95_makespan_s_max: 11520
+    predicted_hard_makespan_s_max: 14400
+    worker_total_RSS_fraction_of_launch_available_RAM_max: 0.70
+    disk_free_fraction_after_reservation_min: 0.20
+    formal_execution_count: 0
+    formal_artifact_count: 0
+
+C3_pool:
+  start_method: Windows_spawn
+  one_persistent_pool: true
+  worker_count_formula: >-
+    min(physical_core_count,
+    floor(0.70*launch_available_RAM/measured_peak_worker_RSS),
+    independent_C3_sample_count)
+  worker_count_frozen_once_at_pool_launch: true
+  measured_peak_worker_RSS_source: preregistered_nonvoting_L4_spawn_microbenchmark
+  worker_environment:
+    BLAS_threads: 1
+    OpenMP_threads: 1
+    MKL_threads: 1
+    OpenBLAS_threads: 1
+    NumExpr_threads: 1
+  mutable_scientific_state_shared_between_workers: forbidden
+  random_or_result_dependent_scheduling: forbidden
+  submit_order: plan_index
+  aggregate_order: plan_index
+  sample_retry: forbidden
+  migrate_failed_sample_to_another_worker: forbidden
+  stop_new_submissions_after_valid_sample_failure: true
+  parent_terminates_complete_process_tree: required
+
+journal:
+  format: append_only_JSONL
+  writer: single_parent_writer_receiving_worker_queue_events
+  states: [SCHEDULED, STARTED, COMPLETED, FAILED]
+  fields:
+    - sequence
+    - previous_record_sha256
+    - record_sha256
+    - plan_index
+    - sample_id
+    - PID
+    - timestamp_utc
+    - input_sha256
+    - output_sha256
+    - error_classification
+  flush_and_fsync_each_record: true
+  SCHEDULED_before_pool_submission: true
+  STARTED_before_worker_numerics: true
+  completed_sample_artifact:
+    temporary_file_per_sample: true
+    require_schema_input_hash_output_hash_and_finite_validation: true
+    publish_by_atomic_rename: true
+    incomplete_sample_is_nonvoting: true
+    only_COMPLETED_validated_samples_count_toward_18_and_9: true
+
+dispositions:
+  frozen_equivalence_failure:
+    value: NO_GO_EQUIVALENT_PERFORMANCE_REPAIR
+    route_effect: stop_S2_under_current_locked_budget
+    scientific_interpretation: S2_physics_remains_forbidden_unassessed
+  valid_readiness_gate_failure:
+    value: NO_GO_RUNTIME
+    subclasses: [numerical_integrity, performance_budget, memory, disk, dormant_runner]
+    route_effect: stop_S2_and_activate_gamma_sub_identifiability_manuscript
+  parent_880s_budget_termination:
+    value: NO_GO_RUNTIME
+    subclass: performance_budget
+    infrastructure_invalid: false
+  invalid_preflight:
+    value: INVALID_PREFLIGHT_INFRASTRUCTURE
+    causes:
+      - unexpected_worker_crash
+      - OS_forced_termination_not_parent_880s_backstop
+      - disk_or_IO_failure
+      - broken_process_pool
+      - schema_or_hash_corruption
+    automatic_retry: forbidden
+    route_effect: preserve_evidence_and_wait_for_user
+  all_gates_pass:
+    value: GO_FOR_PHASE1_V2_FORMAL_AUTHORIZATION
+    automatic_formal_campaign: forbidden
+
+outputs:
+  performance_namespace: outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair
+  machine_preregistration: outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/preregistration.json
+  optimized_candidate_identity: outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/optimized_candidate_identity.json
+  equivalence_summary: outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/equivalence_summary.json
+  equivalence_tables:
+    - outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/electrical_equivalence.csv
+    - outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/interval_equivalence.csv
+    - outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/progression_equivalence.csv
+    - outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/failure_equivalence.csv
+  worker_RSS_microbenchmark: outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/worker_RSS_microbenchmark.json
+  readiness_namespace: outputs/tables/geophase_phase1_v2_source_corrected_v3/controller_v2_readiness
+  provenance_journal: outputs/tables/geophase_phase1_v2_source_corrected_v3/controller_v2_readiness/provenance_journal.jsonl
+  readiness_summary: outputs/tables/geophase_phase1_v2_source_corrected_v3/controller_v2_readiness/readiness_summary.json
+  report: docs/codex_reports/geophase_phase1_v2_source_corrected_performance_readiness.md
+
+claim_boundary:
+  allowed_before_equivalence_and_readiness: >-
+    The source-corrected contract and one strictly equivalent performance
+    repair were preregistered before implementation or numerical execution.
+  forbidden:
+    - performance_repair_is_equivalent_before_the_frozen_audit
+    - runtime_readiness_passed_before_the_one_shot_preflight
+    - Phase1_v2_scientific_result
+    - Qiu_calibration_reproduction_or_validation
+    - automatic_formal_campaign_authorization

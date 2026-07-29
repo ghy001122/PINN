@@ -275,6 +275,9 @@ outputs/tables/geophase_phase1_v2_source_corrected_v3/*
 outputs/tables/geophase_phase1_v2_source_corrected_v3/runtime_readiness/*
 !outputs/tables/geophase_phase1_v2_source_corrected_v3/runtime_readiness/execution_dag.csv
 !outputs/tables/geophase_phase1_v2_source_corrected_v3/runtime_readiness/execution_dag.json
+!outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/
+outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/*
+!outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/preregistration.json
 !outputs/tables/gamma_sub_evidence_lock_summary.json
 !outputs/tables/vo2_d0a_source_discrepancies.csv
 !outputs/tables/vo2_d0a_source_reproduction.json

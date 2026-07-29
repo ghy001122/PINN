@@ -38,7 +38,7 @@ def test_v3_stage_is_the_only_active_runtime_bundle_and_formal_count_is_zero() -
     historical = stage["historical_bundle"]
 
     assert stage["current_checkpoint"] == (
-        "PHASE1_V2_SOURCE_CORRECTED_V3_PERFORMANCE_PREREGISTRATION_PENDING"
+        "PHASE1_V2_SOURCE_CORRECTED_V3_PERFORMANCE_REPAIR_PREREGISTERED_PENDING_IMPLEMENTATION"
     )
     assert stage["formal_execution_count"] == 0
     assert stage["formal_artifact_count"] == 0
@@ -76,6 +76,9 @@ def test_route_only_runner_validates_v3_and_cannot_execute_before_preregistratio
     assert route["formal_execution_count"] == 0
     assert route["formal_artifact_count"] == 0
     assert len(route["resolved_runtime_identity_sha256"]) == 64
+    assert route["performance_repair_preregistration_sha256"] == (
+        "84e1ecb298cfa6264646cc5e74df602b3e9e790e3eecfdc1abea62c087e87db4"
+    )
     assert module.IMPLEMENTATION_READY is False
     runner_source = RUNNER_PATH.read_text(encoding="utf-8")
     assert "geophase_phase1_v2_implicit" not in runner_source
@@ -83,7 +86,10 @@ def test_route_only_runner_validates_v3_and_cannot_execute_before_preregistratio
 
 
 def test_authority_chain_and_fast_validation_select_the_v3_route_tests() -> None:
-    checkpoint = "PHASE1_V2_SOURCE_CORRECTED_V3_PERFORMANCE_PREREGISTRATION_PENDING"
+    checkpoint = (
+        "PHASE1_V2_SOURCE_CORRECTED_V3_"
+        "PERFORMANCE_REPAIR_PREREGISTERED_PENDING_IMPLEMENTATION"
+    )
     for path in (
         ROOT / "CODEX_CONTEXT.md",
         ROOT / "PROJECT_STATE.md",

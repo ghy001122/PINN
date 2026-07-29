@@ -21,6 +21,7 @@ evidence unless provenance explicitly says otherwise.
 | Controller-v2 campaign runtime feasibility | `forbidden` / unassessed | no forecast, aggregate resource, or dormant-runner vote |
 | Controller-v2 C3 performance provenance | `supported` bounded readiness provenance | stopped at `0/18` samples and `1/9` trajectories; no science vote |
 | Source-corrected v3 bundle | `supported` config-only preregistration | 15.8 V qualitative lock probe; 63/60/3; old 15 V bundle immutable; formal zero |
+| Strict-equivalence performance repair | `supported` preregistration fact only | one allowlisted attempt; config SHA-256 `84e1ecb...`; implementation/numerics blocked until commit is remote |
 | Retired material stack | `failed_but_informative` | v8 gate failed; 96 items unexecuted |
 | Frozen GT integrity | `supported` when hashes pass | acceptance report/manifest; governance audit |
 | Claim vocabulary | `supported` governance fact | `docs/paper/final_claim_matrix.md` |
@@ -66,6 +67,6 @@ VO2-to-NbO2 zero-shot transfer.
 - Claims: `docs/paper/final_claim_matrix.md`.
 - History: `docs/archive/README.md`, registries, and named reports.
 - Boundary: source-corrected v3 is active and config-only. The one strict-
-  equivalence performance attempt is authorized but cannot begin before its
-  separate preregistration is pushed. Formal execution, Phase 2, and PINN
-  remain blocked.
+  equivalence performance contract is locked; implementation begins only after
+  its commit is remote, followed by one frozen-candidate audit and at most one
+  readiness run. Formal execution, Phase 2, and PINN remain blocked.

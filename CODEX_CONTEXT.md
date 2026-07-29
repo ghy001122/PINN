@@ -4,7 +4,7 @@
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
 - Active phase/checkpoint: `Q2_PHASE1_2P5D_REFERENCE_SOLVER` /
-  `PHASE1_V2_SOURCE_CORRECTED_V3_PERFORMANCE_PREREGISTRATION_PENDING`.
+  `PHASE1_V2_SOURCE_CORRECTED_V3_PERFORMANCE_REPAIR_PREREGISTERED_PENDING_IMPLEMENTATION`.
 - Current contract/config:
   `docs/research_strategy/phase1_geophase_2p5d_reference_v2_contract.md` /
   `configs/geophase_phase1_v2_s2_reference_source_corrected_v3.yaml`.
@@ -49,8 +49,9 @@ aggregate memory/disk vote, or dormant-runner result was eligible. Disposition:
 The versioned v3 source correction replaces the erroneous 15.0 V lock probe
 with the qualitative 15.8 V lock probe. Its config-only bundle is anchored at
 `0ebe037...`; the old 15 V bundle remains immutable and unexecuted. The user
-authorized the single strict-equivalence performance attempt, but its separate
-performance preregistration must be pushed before implementation or numerics.
+authorized the single strict-equivalence performance attempt. Its versioned
+contract is locked at config SHA-256 `84e1ecb...`; the containing commit must
+be remote before implementation, microbenchmarking, or numerics.
 Formal execution, Phase 2, R1, and R2 remain blocked.
 
 ## Claim Boundary

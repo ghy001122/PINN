@@ -4,7 +4,8 @@
 
 - Delivery/phase: `Q2_SCI_DELIVERY_MODE` /
   `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Checkpoint: `PHASE1_V2_SOURCE_CORRECTED_V3_PERFORMANCE_PREREGISTRATION_PENDING`.
+- Checkpoint:
+  `PHASE1_V2_SOURCE_CORRECTED_V3_PERFORMANCE_REPAIR_PREREGISTERED_PENDING_IMPLEMENTATION`.
 - R1 `HysGeo-Hybrid-PINN` remains the minimum manuscript route; R2
   `GeoPhase-HomoMoE-PINN` is the preferred upgrade; R3 is conditional.
 - Phase 1-v2 is a Qiu-inspired single-device VO2 x-y plane with explicit VO2,
@@ -35,8 +36,8 @@
   new bundle remains 63 evaluations / 60 executions / 3 reuses and has run no
   numerical item.
 - The single pure-equivalence performance attempt is authorized but unconsumed.
-  Its independent preregistration must be pushed before implementation,
-  microbenchmarking, or readiness execution.
+  Its independent contract is locked at SHA-256 `84e1ecb...`; the containing
+  commit must be remote before implementation, microbenchmarking, or readiness.
 - The S1 scientific claim is `forbidden`/unassessed; its timeouts are supported
   infrastructure provenance only. The v6-v8 material-stack route remains
   `failed_but_informative` with no formal execution.
@@ -74,11 +75,12 @@
 
 ## Delivery Boundary
 
-Push the independent performance-repair preregistration next. Only afterward
-may the allowlisted strict-equivalence optimization, frozen-oracle audit, and
-single source-corrected readiness rerun proceed. Physics, tolerances, grids,
-controller semantics, scientific thresholds, and the v3 manifest remain
-locked. Formal execution, Phase 2, R1, and R2 remain blocked.
+After the performance-preregistration commit is remote, implement only its
+allowlist, freeze and push the candidate, execute one frozen-oracle audit, and
+only after equivalence passes run one source-corrected readiness preflight.
+Physics, tolerances, grids, controller semantics, scientific thresholds, and
+the v3 manifest remain locked. Formal execution, Phase 2, R1, and R2 remain
+blocked.
 
 Do not rerun S1 or v6-v8; train a PINN; generate Phase 2 data; run inverse;
 modify frozen GT; add nonzero coupling; run FEM/3D, M44, or NbO2; or claim

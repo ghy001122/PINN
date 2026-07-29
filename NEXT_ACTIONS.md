@@ -4,7 +4,8 @@
 
 Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
 
-Checkpoint state: `PHASE1_V2_SOURCE_CORRECTED_V3_PERFORMANCE_PREREGISTRATION_PENDING`.
+Checkpoint state:
+`PHASE1_V2_SOURCE_CORRECTED_V3_PERFORMANCE_REPAIR_PREREGISTERED_PENDING_IMPLEMENTATION`.
 
 > The Phase 1-v2 preregistration anchors are remote. S2 implementation and its
 > bounded non-voting smoke are complete; no formal item has executed.
@@ -49,12 +50,13 @@ active qualitative high-bias lock probe and eight evaluation identifiers:
 15.8 V is active, while the old 15 V bundle remains historical and unexecuted.
 The new inventory remains 63 evaluations / 60 executions / 3 reuses.
 
-The next single action is to preregister and push the authorized strict-
-equivalence performance repair. Until that anchor is remote, the new runner is
-route-check-only and all microbenchmarks/numerics are forbidden. Afterward,
-implement only the allowlist, prove legacy-oracle parity, and run at most one
-source-corrected C1/C2/C3 readiness preflight. Formal execution remains
-unauthorized regardless of readiness.
+The strict-equivalence performance contract is locked at config SHA-256
+`84e1ecb...`. First make its containing commit remote; until then the new
+runner remains route-check-only and all microbenchmarks/numerics are forbidden.
+Afterward, implement only the allowlist, freeze and push the candidate, prove
+legacy-oracle equivalence once, and run at most one source-corrected C1/C2/C3
+readiness preflight. Formal execution remains unauthorized regardless of
+readiness.
 
 ## Parallel work that cannot block S2
 

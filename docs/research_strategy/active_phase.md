@@ -2,9 +2,10 @@
 
 Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
 
-Status: `phase1v2_source_corrected_v3_performance_preregistration_pending`
+Status: `phase1v2_source_corrected_v3_performance_repair_preregistered_pending_implementation`
 
-Current checkpoint: `PHASE1_V2_SOURCE_CORRECTED_V3_PERFORMANCE_PREREGISTRATION_PENDING`
+Current checkpoint:
+`PHASE1_V2_SOURCE_CORRECTED_V3_PERFORMANCE_REPAIR_PREREGISTERED_PENDING_IMPLEMENTATION`
 
 ## Objective
 
@@ -60,9 +61,10 @@ manifest.
   The correction changes no S2 equation, controller semantic, scientific
   threshold, inventory count, or formal execution state; it is not calibration
   or independent validation.
-- The user authorized the one strict-equivalence performance attempt. It is
-  unconsumed and remains implementation/numerics-blocked until its separate
-  preregistration commit is pushed.
+- The user authorized the one strict-equivalence performance attempt. Its
+  contract is locked at config SHA-256 `84e1ecb...`; it is unconsumed and
+  remains implementation/numerics-blocked until the containing commit is
+  remote.
 
 ## Pass And Stop Rules
 
@@ -87,7 +89,7 @@ cross-material success claims remain `forbidden`.
 
 ## Immediate Next Checkpoint
 
-Push the independent performance-repair preregistration. Then, and only then,
-implement its allowlist, complete the frozen legacy-oracle equivalence audit,
-and run one source-corrected readiness preflight. Even a GO requires fresh
-formal-campaign authorization.
+After the independent performance-preregistration commit is remote, implement
+its allowlist, freeze and push the candidate, execute the legacy-oracle audit
+once, and only on equivalence PASS run one source-corrected readiness preflight.
+Even a GO requires fresh formal-campaign authorization.

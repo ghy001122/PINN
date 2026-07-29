@@ -37,6 +37,9 @@ PERFORMANCE_PREREGISTRATION_PATH = (
     / "configs"
     / "geophase_phase1_v2_source_corrected_performance_repair.yaml"
 )
+PERFORMANCE_PREREGISTRATION_SHA256 = (
+    "84e1ecb298cfa6264646cc5e74df602b3e9e790e3eecfdc1abea62c087e87db4"
+)
 SOURCE_PREREGISTRATION_COMMIT = "0ebe037ef707a56750c5db0c52f7a312ee251b6c"
 SOURCE_PREREGISTRATION_SHA256 = (
     "5b132f85c4d94ac504a6558ad889f69f094e30797c694015bb96904268d0e966"
@@ -66,6 +69,10 @@ def validate_active_route() -> dict[str, Any]:
         raise RuntimeError("source-correction preregistration bytes changed")
     if active["high_bias_15V_compatibility_alias"] != "forbidden":
         raise RuntimeError("historical 15 V alias became selectable")
+    if not PERFORMANCE_PREREGISTRATION_PATH.is_file():
+        raise RuntimeError("performance-repair preregistration is absent")
+    if _sha256(PERFORMANCE_PREREGISTRATION_PATH) != PERFORMANCE_PREREGISTRATION_SHA256:
+        raise RuntimeError("performance-repair preregistration bytes changed")
     identity = json.loads(IDENTITY_PATH.read_text(encoding="utf-8"))
     if identity["formal_execution_count"] != 0 or identity["formal_artifact_count"] != 0:
         raise RuntimeError("resolved v3 identity contains formal evidence")
@@ -76,6 +83,9 @@ def validate_active_route() -> dict[str, Any]:
             "resolved_runtime_identity_sha256"
         ],
         "source_correction_preregistration_commit": SOURCE_PREREGISTRATION_COMMIT,
+        "performance_repair_preregistration_sha256": (
+            PERFORMANCE_PREREGISTRATION_SHA256
+        ),
         "formal_execution_count": 0,
         "formal_artifact_count": 0,
     }
@@ -89,10 +99,6 @@ def main() -> None:
     if args.check_route:
         print(json.dumps(route, indent=2, sort_keys=True))
         return
-    if not PERFORMANCE_PREREGISTRATION_PATH.is_file():
-        raise SystemExit(
-            "performance-repair preregistration is not pushed; numerical execution is forbidden"
-        )
     if not IMPLEMENTATION_READY:
         raise SystemExit(
             "source-corrected performance implementation is not locked; numerical execution is forbidden"
