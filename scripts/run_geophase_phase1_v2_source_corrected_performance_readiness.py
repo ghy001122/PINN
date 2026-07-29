@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 from concurrent.futures import FIRST_COMPLETED, ProcessPoolExecutor, wait
+from contextlib import contextmanager
 from datetime import datetime, timezone
 import hashlib
 import importlib
@@ -21,8 +22,10 @@ from pathlib import Path
 import queue
 import re
 import subprocess
+import sys
 from time import perf_counter
-from typing import Any, Callable, Mapping, Sequence
+from types import ModuleType
+from typing import Any, Callable, Iterator, Mapping, Sequence
 
 import yaml
 
@@ -83,6 +86,15 @@ PERFORMANCE_OUTPUT_DIR = (
     / "performance_repair"
 )
 CANDIDATE_IDENTITY_PATH = PERFORMANCE_OUTPUT_DIR / "optimized_candidate_identity.json"
+AUDIT_HARNESS_IDENTITY_PATH = (
+    PERFORMANCE_OUTPUT_DIR / "audit_harness_erratum_identity.json"
+)
+EQUIVALENCE_ATTEMPT_PROVENANCE_PATH = (
+    PERFORMANCE_OUTPUT_DIR / "equivalence_valid_attempt_provenance.jsonl"
+)
+AUDIT_HARNESS_ADDENDUM_PATH = (
+    ROOT / "configs" / "geophase_phase1_v2_equivalence_audit_harness_erratum_v1.yaml"
+)
 SOURCE_CORRECTED_CONFIG_PATH = (
     ROOT / "configs" / "geophase_phase1_v2_s2_reference_source_corrected_v3.yaml"
 )
@@ -146,6 +158,33 @@ TASK_ADAPTER_ENTRYPOINT = (
 )
 CANDIDATE_BRANCH = "codex/phase1-v2-source-corrected-performance-repair"
 CANDIDATE_REMOTE_REF = f"refs/remotes/origin/{CANDIDATE_BRANCH}"
+FROZEN_CANDIDATE_COMMIT = "1ae2704f6d84a3733d9de58aa23d992aa0c471a5"
+FROZEN_CANDIDATE_TREE = "d3833a4a5dd067dab72c84f15fe2f8e726bd9512"
+FROZEN_CANDIDATE_IDENTITY_SHA256 = (
+    "39044f37c983060df48e9915c594f69fbfbeacc60eef9a32bc352bdb5ec25b10"
+)
+INVALID_LAUNCH_EVIDENCE_COMMIT = "8e4f787e3b349c1858f53847c9f7f2bc4e712627"
+INVALID_LAUNCH_EVIDENCE_TREE = "2a2a3b74692a64482c212214146cf8add263f111"
+INVALID_LAUNCH_PROVENANCE_PATH = (
+    PERFORMANCE_OUTPUT_DIR / "invalid_equivalence_launch_provenance.json"
+)
+INVALID_LAUNCH_PROVENANCE_SHA256 = (
+    "58443b4a6961926c43c60b205e0abe407cb4217360912aef28489d3d7697ea2b"
+)
+AUDIT_HARNESS_IDENTITY_SCHEMA = (
+    "geophase_phase1_v2_equivalence_audit_harness_identity_v1"
+)
+AUDIT_HARNESS_ORACLE_MODULE_NAME = (
+    "_phase1_v2_pr8_test_only_electrical_oracle"
+)
+AUDIT_HARNESS_ALLOWED_PATHS = (
+    ".gitignore",
+    "configs/geophase_phase1_v2_equivalence_audit_harness_erratum_v1.yaml",
+    "scripts/run_geophase_phase1_v2_source_corrected_performance_readiness.py",
+    "scripts/run_geophase_phase1_v2_equivalence_audit_harness.py",
+    "tests/test_geophase_phase1_v2_source_corrected_performance_closure_runner.py",
+    "tests/test_geophase_phase1_v2_source_corrected_performance_repair_preregistration.py",
+)
 CANDIDATE_IMPLEMENTATION_PATHS = (
     "scripts/run_geophase_phase1_v2_source_corrected_performance_readiness.py",
     "src/pinnpcm/solvers/geophase_2p5d_fvm.py",
@@ -395,6 +434,307 @@ def validate_optimized_candidate_identity(
     return result
 
 
+def _frozen_candidate_records(payload: Mapping[str, Any]) -> dict[str, Mapping[str, Any]]:
+    records = payload.get("implementation_paths")
+    if not isinstance(records, list):
+        raise RuntimeError("frozen candidate implementation records are absent")
+    by_path = {
+        str(record.get("path")): record
+        for record in records
+        if isinstance(record, Mapping)
+    }
+    if tuple(by_path) != CANDIDATE_IMPLEMENTATION_PATHS or len(by_path) != len(records):
+        raise RuntimeError("frozen candidate implementation allowlist mismatch")
+    return by_path
+
+
+def validate_frozen_candidate_identity_for_harness(
+    *, expected_file_sha256: str
+) -> dict[str, Any]:
+    """Validate candidate Git objects while permitting one runner-only override."""
+
+    expected_hash = _require_sha256(
+        expected_file_sha256, "frozen candidate identity file SHA-256"
+    )
+    if expected_hash != FROZEN_CANDIDATE_IDENTITY_SHA256:
+        raise RuntimeError("unexpected frozen candidate identity hash")
+    if _sha256(CANDIDATE_IDENTITY_PATH) != expected_hash:
+        raise RuntimeError("frozen candidate identity bytes changed")
+    payload = _strict_json(CANDIDATE_IDENTITY_PATH)
+    if payload.get("candidate_commit") != FROZEN_CANDIDATE_COMMIT:
+        raise RuntimeError("frozen candidate commit changed")
+    if payload.get("candidate_tree") != FROZEN_CANDIDATE_TREE:
+        raise RuntimeError("frozen candidate tree changed")
+    if _git_output(("rev-parse", f"{FROZEN_CANDIDATE_COMMIT}^{{tree}}")) != (
+        FROZEN_CANDIDATE_TREE
+    ):
+        raise RuntimeError("frozen candidate Git tree cannot be recovered")
+    if payload.get("formal_execution_count") != 0:
+        raise RuntimeError("frozen candidate consumed formal execution")
+    if payload.get("formal_artifact_count") != 0:
+        raise RuntimeError("frozen candidate contains a formal artifact")
+    if payload.get("numerical_execution_performed") is not False:
+        raise RuntimeError("frozen candidate identity records numerical execution")
+    preregistration = payload.get("performance_repair_preregistration")
+    if preregistration != {
+        "path": PERFORMANCE_PREREGISTRATION_PATH.relative_to(ROOT).as_posix(),
+        "sha256": PERFORMANCE_PREREGISTRATION_SHA256,
+    }:
+        raise RuntimeError("frozen performance preregistration identity changed")
+    if _sha256(PERFORMANCE_PREREGISTRATION_PATH) != PERFORMANCE_PREREGISTRATION_SHA256:
+        raise RuntimeError("performance preregistration bytes changed")
+
+    runner_path = CANDIDATE_IMPLEMENTATION_PATHS[0]
+    by_path = _frozen_candidate_records(payload)
+    for relative_path in CANDIDATE_IMPLEMENTATION_PATHS:
+        record = by_path[relative_path]
+        frozen_blob = _git_output(
+            ("rev-parse", f"{FROZEN_CANDIDATE_COMMIT}:{relative_path}")
+        )
+        if record.get("git_blob") != frozen_blob:
+            raise RuntimeError(f"frozen candidate Git blob mismatch: {relative_path}")
+        frozen_bytes = subprocess.run(
+            ["git", "show", f"{FROZEN_CANDIDATE_COMMIT}:{relative_path}"],
+            cwd=ROOT,
+            check=False,
+            capture_output=True,
+        )
+        if frozen_bytes.returncode != 0:
+            raise RuntimeError(f"cannot recover frozen candidate path: {relative_path}")
+        frozen_sha256 = hashlib.sha256(frozen_bytes.stdout).hexdigest()
+        if record.get("sha256") != frozen_sha256:
+            raise RuntimeError(f"frozen candidate byte hash mismatch: {relative_path}")
+        if relative_path == runner_path:
+            continue
+        if _sha256(ROOT / relative_path) != frozen_sha256:
+            raise RuntimeError(f"candidate numerical path changed: {relative_path}")
+
+    result = dict(payload)
+    result["file_sha256"] = expected_hash
+    result["harness_only_override_path"] = runner_path
+    return result
+
+
+def _validate_loaded_candidate_module_origins() -> None:
+    """Reject editable-install leakage from any checkout other than this worktree."""
+
+    source_root = (ROOT / "src").resolve()
+    foreign: list[str] = []
+    for name, module in tuple(sys.modules.items()):
+        if name != "pinnpcm" and not name.startswith("pinnpcm."):
+            continue
+        location = getattr(module, "__file__", None)
+        if location is None:
+            continue
+        try:
+            Path(location).resolve().relative_to(source_root)
+        except ValueError:
+            foreign.append(f"{name}={location}")
+    if foreign:
+        raise RuntimeError(
+            "candidate modules were imported from a foreign checkout: "
+            + ", ".join(sorted(foreign))
+        )
+
+
+def _harness_path_records(commit: str) -> list[dict[str, str]]:
+    records: list[dict[str, str]] = []
+    for relative_path in AUDIT_HARNESS_ALLOWED_PATHS:
+        path = ROOT / relative_path
+        if not path.is_file():
+            raise RuntimeError(f"audit harness path is absent: {relative_path}")
+        tracked = _git_output(("ls-files", "--error-unmatch", "--", relative_path))
+        if tracked.replace("\\", "/") != relative_path:
+            raise RuntimeError(f"audit harness path is not uniquely tracked: {relative_path}")
+        if not _git_candidate_path_is_clean(commit, relative_path):
+            raise RuntimeError(f"audit harness path differs from erratum commit: {relative_path}")
+        records.append(
+            {
+                "path": relative_path,
+                "git_blob": _git_output(("rev-parse", f"{commit}:{relative_path}")),
+                "sha256": _sha256(path),
+            }
+        )
+    return records
+
+
+def _combined_audit_identity_sha256(payload: Mapping[str, Any]) -> str:
+    harness = {
+        key: value
+        for key, value in payload.items()
+        if key != "audit_identity_sha256"
+    }
+    return _mapping_sha256(harness)
+
+
+def build_audit_harness_erratum_identity() -> dict[str, Any]:
+    """Build the post-push identity that composes candidate and harness commits."""
+
+    candidate = validate_frozen_candidate_identity_for_harness(
+        expected_file_sha256=FROZEN_CANDIDATE_IDENTITY_SHA256
+    )
+    if _git_output(("status", "--porcelain", "--untracked-files=no")):
+        raise RuntimeError("tracked changes remain before harness identity freeze")
+    if _git_output(("branch", "--show-current")) != CANDIDATE_BRANCH:
+        raise RuntimeError("audit harness identity is on the wrong branch")
+    erratum_commit = _git_output(("rev-parse", "HEAD"))
+    erratum_tree = _git_output(("rev-parse", "HEAD^{tree}"))
+    remote_commit = _git_output(("rev-parse", CANDIDATE_REMOTE_REF))
+    if erratum_commit != remote_commit:
+        raise RuntimeError("audit harness erratum is not the pushed branch head")
+    if _git_output(("rev-parse", "HEAD^")) != INVALID_LAUNCH_EVIDENCE_COMMIT:
+        raise RuntimeError("audit harness erratum is not based directly on evidence commit")
+    changed_paths = tuple(
+        line.replace("\\", "/")
+        for line in _git_output(
+            ("diff-tree", "--no-commit-id", "--name-only", "-r", "HEAD")
+        ).splitlines()
+        if line
+    )
+    if set(changed_paths) != set(AUDIT_HARNESS_ALLOWED_PATHS):
+        raise RuntimeError("erratum commit changed paths outside the harness allowlist")
+    if _sha256(INVALID_LAUNCH_PROVENANCE_PATH) != INVALID_LAUNCH_PROVENANCE_SHA256:
+        raise RuntimeError("invalid-launch provenance bytes changed")
+
+    payload: dict[str, Any] = {
+        "task_id": "PHASE1_V2_EQUIVALENCE_AUDIT_HARNESS_ERRATUM_AND_VALID_AUDIT",
+        "identity_schema_version": AUDIT_HARNESS_IDENTITY_SCHEMA,
+        "status": "versioned_harness_fixed_one_valid_audit_authorized",
+        "frozen_candidate": {
+            "commit": candidate["candidate_commit"],
+            "tree": candidate["candidate_tree"],
+            "identity_path": CANDIDATE_IDENTITY_PATH.relative_to(ROOT).as_posix(),
+            "identity_sha256": candidate["file_sha256"],
+            "runner_harness_only_override": candidate["harness_only_override_path"],
+        },
+        "erratum_commit": erratum_commit,
+        "erratum_tree": erratum_tree,
+        "erratum_parent_evidence_commit": INVALID_LAUNCH_EVIDENCE_COMMIT,
+        "erratum_parent_evidence_tree": INVALID_LAUNCH_EVIDENCE_TREE,
+        "remote_tracking_ref": CANDIDATE_REMOTE_REF,
+        "remote_tracking_commit": remote_commit,
+        "harness_paths": _harness_path_records(erratum_commit),
+        "oracle": {
+            "path": PR8_ORACLE_PATH.relative_to(ROOT).as_posix(),
+            "sha256": PR8_ORACLE_SHA256,
+        },
+        "invalid_launch_provenance": {
+            "path": INVALID_LAUNCH_PROVENANCE_PATH.relative_to(ROOT).as_posix(),
+            "sha256": INVALID_LAUNCH_PROVENANCE_SHA256,
+            "equivalence_rows_completed": 0,
+            "equivalence_votes_cast": 0,
+        },
+        "valid_audit_attempt_limit": 1,
+        "automatic_retry": "forbidden",
+        "readiness_execution": "forbidden_without_fresh_user_authorization",
+        "formal_execution_count": 0,
+        "formal_artifact_count": 0,
+    }
+    payload["audit_identity_sha256"] = _combined_audit_identity_sha256(payload)
+    return payload
+
+
+def validate_audit_harness_erratum_identity(
+    *, expected_file_sha256: str
+) -> dict[str, Any]:
+    expected_hash = _require_sha256(
+        expected_file_sha256, "audit harness identity file SHA-256"
+    )
+    if _sha256(AUDIT_HARNESS_IDENTITY_PATH) != expected_hash:
+        raise RuntimeError("audit harness identity file hash mismatch")
+    payload = _strict_json(AUDIT_HARNESS_IDENTITY_PATH)
+    if payload.get("identity_schema_version") != AUDIT_HARNESS_IDENTITY_SCHEMA:
+        raise RuntimeError("audit harness identity schema mismatch")
+    if payload.get("status") != "versioned_harness_fixed_one_valid_audit_authorized":
+        raise RuntimeError("audit harness identity status mismatch")
+    if payload.get("formal_execution_count") != 0:
+        raise RuntimeError("audit harness identity consumed formal execution")
+    if payload.get("formal_artifact_count") != 0:
+        raise RuntimeError("audit harness identity contains a formal artifact")
+    if payload.get("automatic_retry") != "forbidden":
+        raise RuntimeError("audit harness identity permits retry")
+    if payload.get("valid_audit_attempt_limit") != 1:
+        raise RuntimeError("audit harness attempt limit changed")
+    if payload.get("readiness_execution") != (
+        "forbidden_without_fresh_user_authorization"
+    ):
+        raise RuntimeError("audit harness identity permits readiness execution")
+    candidate = validate_frozen_candidate_identity_for_harness(
+        expected_file_sha256=FROZEN_CANDIDATE_IDENTITY_SHA256
+    )
+    frozen = payload.get("frozen_candidate")
+    if not isinstance(frozen, Mapping) or frozen.get("commit") != candidate["candidate_commit"]:
+        raise RuntimeError("audit harness candidate commit mismatch")
+    if frozen.get("tree") != candidate["candidate_tree"]:
+        raise RuntimeError("audit harness candidate tree mismatch")
+    if frozen.get("identity_sha256") != candidate["file_sha256"]:
+        raise RuntimeError("audit harness candidate identity mismatch")
+    erratum_commit = str(payload.get("erratum_commit", ""))
+    erratum_tree = str(payload.get("erratum_tree", ""))
+    if payload.get("erratum_parent_evidence_commit") != INVALID_LAUNCH_EVIDENCE_COMMIT:
+        raise RuntimeError("audit harness parent evidence commit mismatch")
+    if payload.get("erratum_parent_evidence_tree") != INVALID_LAUNCH_EVIDENCE_TREE:
+        raise RuntimeError("audit harness parent evidence tree mismatch")
+    if _git_output(("rev-parse", f"{INVALID_LAUNCH_EVIDENCE_COMMIT}^{{tree}}")) != (
+        INVALID_LAUNCH_EVIDENCE_TREE
+    ):
+        raise RuntimeError("audit harness parent evidence tree cannot be recovered")
+    if payload.get("remote_tracking_ref") != CANDIDATE_REMOTE_REF:
+        raise RuntimeError("audit harness remote tracking ref mismatch")
+    if payload.get("remote_tracking_commit") != erratum_commit:
+        raise RuntimeError("audit harness remote tracking commit mismatch")
+    if _git_output(("rev-parse", "HEAD")) != erratum_commit:
+        raise RuntimeError("current HEAD is not the versioned harness erratum")
+    if _git_output(("rev-parse", "HEAD^{tree}")) != erratum_tree:
+        raise RuntimeError("current tree is not the versioned harness erratum")
+    if _git_output(("rev-parse", CANDIDATE_REMOTE_REF)) != erratum_commit:
+        raise RuntimeError("versioned harness erratum is not the remote branch head")
+    if _git_output(("status", "--porcelain", "--untracked-files=no")):
+        raise RuntimeError("tracked worktree changes exist before valid audit")
+    records = payload.get("harness_paths")
+    if not isinstance(records, list):
+        raise RuntimeError("audit harness path records are absent")
+    expected_records = _harness_path_records(erratum_commit)
+    if records != expected_records:
+        raise RuntimeError("audit harness path identity mismatch")
+    if payload.get("oracle") != {
+        "path": PR8_ORACLE_PATH.relative_to(ROOT).as_posix(),
+        "sha256": PR8_ORACLE_SHA256,
+    }:
+        raise RuntimeError("audit harness oracle identity mismatch")
+    if _sha256(PR8_ORACLE_PATH) != PR8_ORACLE_SHA256:
+        raise RuntimeError("PR #8 oracle bytes changed")
+    provenance = payload.get("invalid_launch_provenance")
+    if not isinstance(provenance, Mapping):
+        raise RuntimeError("invalid-launch provenance identity is absent")
+    if provenance.get("sha256") != INVALID_LAUNCH_PROVENANCE_SHA256:
+        raise RuntimeError("invalid-launch provenance identity mismatch")
+    if _sha256(INVALID_LAUNCH_PROVENANCE_PATH) != INVALID_LAUNCH_PROVENANCE_SHA256:
+        raise RuntimeError("invalid-launch provenance bytes changed")
+    if payload.get("audit_identity_sha256") != _combined_audit_identity_sha256(payload):
+        raise RuntimeError("combined audit identity hash mismatch")
+    result = dict(payload)
+    result["file_sha256"] = expected_hash
+    return result
+
+
+def write_audit_harness_erratum_identity() -> dict[str, Any]:
+    payload = build_audit_harness_erratum_identity()
+    _atomic_json(AUDIT_HARNESS_IDENTITY_PATH, payload)
+    file_hash = _sha256(AUDIT_HARNESS_IDENTITY_PATH)
+    validated = validate_audit_harness_erratum_identity(
+        expected_file_sha256=file_hash
+    )
+    return {
+        "status": "audit_harness_erratum_identity_written_and_verified",
+        "path": AUDIT_HARNESS_IDENTITY_PATH.relative_to(ROOT).as_posix(),
+        "file_sha256": file_hash,
+        "audit_identity_sha256": validated["audit_identity_sha256"],
+        "formal_execution_count": 0,
+        "formal_artifact_count": 0,
+    }
+
+
 def write_optimized_candidate_identity(*, route: Mapping[str, Any]) -> dict[str, Any]:
     payload = build_optimized_candidate_identity(route=route)
     _atomic_json(CANDIDATE_IDENTITY_PATH, payload)
@@ -414,78 +754,382 @@ def write_optimized_candidate_identity(*, route: Mapping[str, Any]) -> dict[str,
     }
 
 
-def _load_pr8_test_only_oracle_solver() -> Callable[..., Any]:
-    """Load the byte-locked PR #8 scalar oracle outside the production package."""
+@contextmanager
+def _loaded_pr8_test_only_oracle_solver() -> Iterator[Callable[..., Any]]:
+    """Load the byte-locked oracle with scoped ``sys.modules`` registration."""
 
     if _sha256(PR8_ORACLE_PATH) != PR8_ORACLE_SHA256:
         raise RuntimeError("PR #8 test-only oracle bytes changed")
     specification = importlib.util.spec_from_file_location(
-        "_phase1_v2_pr8_test_only_electrical_oracle", PR8_ORACLE_PATH
+        AUDIT_HARNESS_ORACLE_MODULE_NAME, PR8_ORACLE_PATH
     )
     if specification is None or specification.loader is None:
         raise RuntimeError("PR #8 test-only oracle cannot be loaded")
     module = importlib.util.module_from_spec(specification)
-    specification.loader.exec_module(module)
-    solver = getattr(module, "solve_sheet_electrical", None)
-    if not callable(solver):
-        raise RuntimeError("PR #8 test-only oracle solver is unavailable")
-    return solver
+    missing = object()
+    previous: ModuleType | object = sys.modules.get(
+        AUDIT_HARNESS_ORACLE_MODULE_NAME, missing
+    )
+    sys.modules[AUDIT_HARNESS_ORACLE_MODULE_NAME] = module
+    try:
+        specification.loader.exec_module(module)
+        solver = getattr(module, "solve_sheet_electrical", None)
+        if not callable(solver):
+            raise RuntimeError("PR #8 test-only oracle solver is unavailable")
+        yield solver
+    finally:
+        if previous is missing:
+            sys.modules.pop(AUDIT_HARNESS_ORACLE_MODULE_NAME, None)
+        else:
+            sys.modules[AUDIT_HARNESS_ORACLE_MODULE_NAME] = previous
 
 
-def _run_frozen_equivalence(candidate_identity_sha256: str) -> dict[str, Any]:
-    """Execute and publish the only frozen 57-row equivalence audit."""
+def check_audit_harness_loader() -> dict[str, Any]:
+    """Exercise the actual runner loader without performing numerical work."""
 
-    candidate_identity = validate_optimized_candidate_identity(
+    previous = sys.modules.get(AUDIT_HARNESS_ORACLE_MODULE_NAME)
+    with _loaded_pr8_test_only_oracle_solver() as solver:
+        registered = sys.modules.get(AUDIT_HARNESS_ORACLE_MODULE_NAME)
+        if registered is None or solver.__module__ != AUDIT_HARNESS_ORACLE_MODULE_NAME:
+            raise RuntimeError("oracle was not registered for its complete load scope")
+    if sys.modules.get(AUDIT_HARNESS_ORACLE_MODULE_NAME) is not previous:
+        raise RuntimeError("oracle module registration was not restored")
+    return {
+        "status": "audit_harness_loader_pass",
+        "oracle_sha256": PR8_ORACLE_SHA256,
+        "module_registration_scoped": True,
+        "numerical_execution_performed": False,
+        "formal_execution_count": 0,
+        "formal_artifact_count": 0,
+    }
+
+
+def _equivalence_output_paths() -> dict[str, Path]:
+    return {
+        "electrical": PERFORMANCE_OUTPUT_DIR / "electrical_equivalence.csv",
+        "interval": PERFORMANCE_OUTPUT_DIR / "interval_equivalence.csv",
+        "progression": PERFORMANCE_OUTPUT_DIR / "progression_equivalence.csv",
+        "failure": PERFORMANCE_OUTPUT_DIR / "failure_equivalence.csv",
+        "summary": EQUIVALENCE_SUMMARY_PATH,
+    }
+
+
+def _require_equivalence_outputs_absent() -> None:
+    existing = [path for path in _equivalence_output_paths().values() if path.exists()]
+    if EQUIVALENCE_ATTEMPT_PROVENANCE_PATH.exists():
+        existing.append(EQUIVALENCE_ATTEMPT_PROVENANCE_PATH)
+    if existing:
+        raise RuntimeError(
+            "refusing to overwrite standard equivalence evidence: "
+            + ", ".join(str(path) for path in existing)
+        )
+
+
+def _append_equivalence_attempt_event(event: Mapping[str, Any]) -> None:
+    data = json.dumps(dict(event), sort_keys=True, allow_nan=False) + "\n"
+    with EQUIVALENCE_ATTEMPT_PROVENANCE_PATH.open(
+        "a", encoding="utf-8", newline="\n"
+    ) as handle:
+        handle.write(data)
+        handle.flush()
+        os.fsync(handle.fileno())
+
+
+def _begin_equivalence_attempt(
+    *, candidate_identity: Mapping[str, Any], harness_identity: Mapping[str, Any]
+) -> None:
+    EQUIVALENCE_ATTEMPT_PROVENANCE_PATH.parent.mkdir(parents=True, exist_ok=True)
+    scheduled = {
+        "attempt": 1,
+        "event": "SCHEDULED",
+        "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+        "candidate_commit": candidate_identity["candidate_commit"],
+        "candidate_identity_sha256": candidate_identity["file_sha256"],
+        "audit_harness_erratum_commit": harness_identity["erratum_commit"],
+        "audit_harness_identity_file_sha256": harness_identity["file_sha256"],
+        "audit_identity_sha256": harness_identity["audit_identity_sha256"],
+        "formal_execution_count": 0,
+        "formal_artifact_count": 0,
+    }
+    data = json.dumps(scheduled, sort_keys=True, allow_nan=False) + "\n"
+    with EQUIVALENCE_ATTEMPT_PROVENANCE_PATH.open(
+        "x", encoding="utf-8", newline="\n"
+    ) as handle:
+        handle.write(data)
+        handle.flush()
+        os.fsync(handle.fileno())
+    _append_equivalence_attempt_event(
+        {
+            **scheduled,
+            "event": "STARTED",
+            "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+        }
+    )
+
+
+def _validate_equivalence_result(result: Any) -> tuple[str, dict[str, int]]:
+    expected_counts = {
+        "electrical": 9,
+        "interval": 18,
+        "progression": 9,
+        "failure": 21,
+    }
+    rows = tuple(result.rows)
+    indexes = [int(row.plan_index) for row in rows]
+    if indexes != list(range(len(indexes))):
+        raise RuntimeError("equivalence rows are missing, duplicated, or out of plan order")
+    counts = {
+        family: sum(row.family == family for row in rows)
+        for family in expected_counts
+    }
+    summary = result.summary
+    if summary.get("plan_identities_valid") is not True:
+        raise RuntimeError("equivalence row plan identities are invalid")
+    if summary.get("hash_fields_valid") is not True:
+        raise RuntimeError("equivalence row hash fields are invalid")
+    if summary.get("completed_counts") != counts:
+        raise RuntimeError("equivalence completed-count summary mismatch")
+    failed = [row for row in rows if not bool(row.passed)]
+    if failed:
+        if len(failed) != 1 or failed[0] is not rows[-1]:
+            raise RuntimeError("valid mismatch did not stop the matrix immediately")
+        if summary.get("disposition") != "NO_GO_EQUIVALENT_PERFORMANCE_REPAIR":
+            raise RuntimeError("valid mismatch has the wrong disposition")
+        if summary.get("failing_plan_index") != failed[0].plan_index:
+            raise RuntimeError("valid mismatch plan index is inconsistent")
+        if summary.get("failing_sample_id") != failed[0].sample_id:
+            raise RuntimeError("valid mismatch sample identity is inconsistent")
+        return "NO_GO_EQUIVALENT_PERFORMANCE_REPAIR", counts
+    if any(
+        not math.isfinite(float(row.maximum_normalized_difference))
+        for row in rows
+    ):
+        raise RuntimeError("passing equivalence evidence contains a non-finite comparison")
+    if counts != expected_counts or len(rows) != 57:
+        raise RuntimeError("equivalence audit ended incomplete without a valid mismatch")
+    if result.summary.get("all_equivalence_votes_pass") is not True:
+        raise RuntimeError("complete equivalence audit did not pass all row votes")
+    return "GO_FOR_SOURCE_CORRECTED_RUNTIME_READINESS_AUTHORIZATION", counts
+
+
+def _run_frozen_equivalence(
+    candidate_identity_sha256: str,
+    audit_harness_identity_sha256: str,
+) -> dict[str, Any]:
+    """Execute and publish the only authorized valid strict-equivalence audit."""
+
+    _require_equivalence_outputs_absent()
+    candidate_identity = validate_frozen_candidate_identity_for_harness(
         expected_file_sha256=candidate_identity_sha256
     )
+    harness_identity = validate_audit_harness_erratum_identity(
+        expected_file_sha256=audit_harness_identity_sha256
+    )
+    _validate_loaded_candidate_module_origins()
     resolved = resolve_controller_v2(
         SOURCE_CORRECTED_CONFIG_PATH,
         SOURCE_CORRECTED_CONTROLLER_OVERLAY_PATH,
     )
-    result = run_equivalence_audit(
-        oracle_solver=_load_pr8_test_only_oracle_solver(),
-        source_config=resolved.base_config,
-        resolved_controller=resolved,
-        publish=False,
+    _begin_equivalence_attempt(
+        candidate_identity=candidate_identity,
+        harness_identity=harness_identity,
     )
-    summary = dict(result.summary)
-    summary.update(
-        {
+    audit_started_utc = datetime.now(timezone.utc).isoformat()
+    numeric_disposition: str | None = None
+    completed_rows: int | None = None
+    try:
+        with _loaded_pr8_test_only_oracle_solver() as oracle_solver:
+            result = run_equivalence_audit(
+                oracle_solver=oracle_solver,
+                source_config=resolved.base_config,
+                resolved_controller=resolved,
+                publish=False,
+            )
+            disposition, completed_counts = _validate_equivalence_result(result)
+            numeric_disposition = disposition
+            completed_rows = len(result.rows)
+            _append_equivalence_attempt_event(
+                {
+                    "attempt": 1,
+                    "event": "NUMERIC_DISPOSITION",
+                    "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+                    "disposition": disposition,
+                    "completed_rows": completed_rows,
+                    "completed_counts": completed_counts,
+                    "formal_execution_count": 0,
+                    "formal_artifact_count": 0,
+                }
+            )
+            worst_row = max(
+                result.rows,
+                key=lambda row: row.maximum_normalized_difference,
+                default=None,
+            )
+            summary = dict(result.summary)
+            summary.update(
+                {
+                    "status": (
+                        "strict_equivalence_pass_pending_runtime_readiness"
+                        if disposition
+                        == "GO_FOR_SOURCE_CORRECTED_RUNTIME_READINESS_AUTHORIZATION"
+                        else "strict_equivalence_failed_fail_fast"
+                    ),
+                    "disposition": disposition,
+                    "execution_validity": "valid",
+                    "candidate_identity_sha256": candidate_identity["file_sha256"],
+                    "candidate_commit": candidate_identity["candidate_commit"],
+                    "candidate_tree": candidate_identity["candidate_tree"],
+                    "audit_harness_identity_file_sha256": harness_identity["file_sha256"],
+                    "audit_identity_sha256": harness_identity["audit_identity_sha256"],
+                    "audit_harness_erratum_commit": harness_identity["erratum_commit"],
+                    "audit_harness_erratum_tree": harness_identity["erratum_tree"],
+                    "performance_repair_preregistration_sha256": (
+                        PERFORMANCE_PREREGISTRATION_SHA256
+                    ),
+                    "audit_harness_addendum_sha256": _sha256(
+                        AUDIT_HARNESS_ADDENDUM_PATH
+                    ),
+                    "base_source_corrected_config_sha256": _sha256(
+                        SOURCE_CORRECTED_CONFIG_PATH
+                    ),
+                    "controller_overlay_sha256": _sha256(
+                        SOURCE_CORRECTED_CONTROLLER_OVERLAY_PATH
+                    ),
+                    "PR8_test_only_oracle_sha256": PR8_ORACLE_SHA256,
+                    "completed_counts": completed_counts,
+                    "maximum_normalized_relative_difference": (
+                        0.0 if worst_row is None else worst_row.maximum_normalized_difference
+                    ),
+                    "maximum_difference_plan_index": (
+                        None if worst_row is None else worst_row.plan_index
+                    ),
+                    "maximum_difference_sample_id": (
+                        None if worst_row is None else worst_row.sample_id
+                    ),
+                    "maximum_difference_field": (
+                        None if worst_row is None else worst_row.worst_field
+                    ),
+                    "failure_topology_exact_match": all(
+                        row.exact_mismatch_count == 0
+                        for row in result.rows
+                        if row.family == "failure"
+                    ),
+                    "evidence_table_sha256": {
+                        f"{family}_equivalence.csv": hashlib.sha256(
+                            table.encode("utf-8")
+                        ).hexdigest()
+                        for family, table in result.tables.items()
+                    },
+                    "audit_events": ["SCHEDULED", "STARTED", "COMPLETED"],
+                    "audit_started_utc": audit_started_utc,
+                    "audit_finished_utc": datetime.now(timezone.utc).isoformat(),
+                    "valid_frozen_equivalence_audit_attempt": 1,
+                    "automatic_retry": "forbidden",
+                    "runtime_readiness_executed": False,
+                    "runtime_readiness_authorization_status": (
+                        "pending_fresh_user_authorization"
+                    ),
+                    "formal_execution_count": 0,
+                    "formal_artifact_count": 0,
+                }
+            )
+            if set(result.tables) != {
+                "electrical",
+                "interval",
+                "progression",
+                "failure",
+            }:
+                raise RuntimeError("equivalence table family set is invalid")
+            if not math.isfinite(
+                float(summary["maximum_normalized_relative_difference"])
+            ):
+                raise RuntimeError("equivalence summary maximum is non-finite")
+            for family, table in result.tables.items():
+                if not isinstance(table, str) or not table.startswith("plan_index,"):
+                    raise RuntimeError(f"invalid equivalence CSV serialization: {family}")
+
+            PERFORMANCE_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+            for family, table in result.tables.items():
+                atomic_write_equivalence_text(
+                    PERFORMANCE_OUTPUT_DIR / f"{family}_equivalence.csv", table
+                )
+            atomic_write_equivalence_json(EQUIVALENCE_SUMMARY_PATH, summary)
+            _append_equivalence_attempt_event(
+                {
+                    "attempt": 1,
+                    "event": "COMPLETED",
+                    "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+                    "disposition": disposition,
+                    "completed_rows": completed_rows,
+                    "output_sha256": {
+                        path.name: _sha256(path)
+                        for path in _equivalence_output_paths().values()
+                    },
+                    "formal_execution_count": 0,
+                    "formal_artifact_count": 0,
+                }
+            )
+        return summary
+    except Exception as error:
+        disposition = (
+            "NO_GO_EQUIVALENT_PERFORMANCE_REPAIR"
+            if numeric_disposition == "NO_GO_EQUIVALENT_PERFORMANCE_REPAIR"
+            else "INVALID_PREFLIGHT_INFRASTRUCTURE"
+        )
+        invalid_summary = {
+            "task_id": "PHASE1_V2_EQUIVALENCE_AUDIT_HARNESS_ERRATUM_AND_VALID_AUDIT",
+            "schema_version": "geophase_phase1_v2_strict_equivalence_result_v1",
+            "status": (
+                "valid_numeric_mismatch_with_later_publication_error"
+                if disposition == "NO_GO_EQUIVALENT_PERFORMANCE_REPAIR"
+                else "invalid_preflight_infrastructure"
+            ),
+            "disposition": disposition,
+            "execution_validity": (
+                "valid_numeric_mismatch"
+                if disposition == "NO_GO_EQUIVALENT_PERFORMANCE_REPAIR"
+                else "invalid"
+            ),
+            "audit_events": ["SCHEDULED", "STARTED", "INTERRUPTED"],
+            "audit_started_utc": audit_started_utc,
+            "audit_finished_utc": datetime.now(timezone.utc).isoformat(),
+            "equivalence_rows_completed": completed_rows,
+            "equivalence_votes_cast": completed_rows,
+            "error_class": type(error).__name__,
+            "error_message": str(error),
             "candidate_identity_sha256": candidate_identity["file_sha256"],
             "candidate_commit": candidate_identity["candidate_commit"],
             "candidate_tree": candidate_identity["candidate_tree"],
-            "performance_repair_preregistration_sha256": (
-                PERFORMANCE_PREREGISTRATION_SHA256
-            ),
-            "base_source_corrected_config_sha256": _sha256(
-                SOURCE_CORRECTED_CONFIG_PATH
-            ),
-            "controller_overlay_sha256": _sha256(
-                SOURCE_CORRECTED_CONTROLLER_OVERLAY_PATH
-            ),
-            "PR8_test_only_oracle_sha256": PR8_ORACLE_SHA256,
-            "maximum_normalized_relative_difference": max(
-                (row.maximum_normalized_difference for row in result.rows),
-                default=0.0,
-            ),
-            "evidence_table_sha256": {
-                f"{family}_equivalence.csv": hashlib.sha256(
-                    table.encode("utf-8")
-                ).hexdigest()
-                for family, table in result.tables.items()
-            },
-            "final_frozen_equivalence_audit_attempt": 1,
+            "audit_harness_identity_file_sha256": harness_identity["file_sha256"],
+            "audit_identity_sha256": harness_identity["audit_identity_sha256"],
+            "valid_frozen_equivalence_audit_attempt": 1,
+            "automatic_retry": "forbidden",
+            "runtime_readiness_executed": False,
             "formal_execution_count": 0,
             "formal_artifact_count": 0,
         }
-    )
-    PERFORMANCE_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    for family, table in result.tables.items():
-        atomic_write_equivalence_text(
-            PERFORMANCE_OUTPUT_DIR / f"{family}_equivalence.csv", table
-        )
-    atomic_write_equivalence_json(EQUIVALENCE_SUMMARY_PATH, summary)
-    return summary
+        try:
+            _append_equivalence_attempt_event(
+                {
+                    "attempt": 1,
+                    "event": "FAILED",
+                    "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+                    "primary_disposition": disposition,
+                    "completed_rows": completed_rows,
+                    "error_class": type(error).__name__,
+                    "error_message": str(error),
+                    "formal_execution_count": 0,
+                    "formal_artifact_count": 0,
+                }
+            )
+        except Exception as provenance_error:
+            invalid_summary["provenance_append_error"] = {
+                "error_class": type(provenance_error).__name__,
+                "error_message": str(provenance_error),
+            }
+        if not EQUIVALENCE_SUMMARY_PATH.exists():
+            atomic_write_equivalence_json(EQUIVALENCE_SUMMARY_PATH, invalid_summary)
+        return invalid_summary
 
 
 def validate_active_route() -> dict[str, Any]:
@@ -677,6 +1321,33 @@ def validate_frozen_equivalence_summary(
         raise RuntimeError("equivalence summary consumed formal execution")
     if summary.get("formal_artifact_count") != 0:
         raise RuntimeError("equivalence summary created a formal artifact")
+    if "audit_harness_identity_file_sha256" in summary:
+        if summary.get("disposition") != (
+            "GO_FOR_SOURCE_CORRECTED_RUNTIME_READINESS_AUTHORIZATION"
+        ):
+            raise RuntimeError("versioned audit has the wrong GO disposition")
+        expected_counts = {
+            "electrical": 9,
+            "interval": 18,
+            "progression": 9,
+            "failure": 21,
+        }
+        if summary.get("complete") is not True:
+            raise RuntimeError("versioned audit is incomplete")
+        if summary.get("completed_total") != 57:
+            raise RuntimeError("versioned audit did not complete 57 rows")
+        if summary.get("completed_counts") != expected_counts:
+            raise RuntimeError("versioned audit family counts are invalid")
+        if summary.get("failure_topology_exact_match") is not True:
+            raise RuntimeError("versioned audit failure topology differs")
+        if summary.get("valid_frozen_equivalence_audit_attempt") != 1:
+            raise RuntimeError("versioned audit attempt identity is invalid")
+        if summary.get("automatic_retry") != "forbidden":
+            raise RuntimeError("versioned audit permits retry")
+        if summary.get("runtime_readiness_authorization_status") != (
+            "pending_fresh_user_authorization"
+        ):
+            raise RuntimeError("versioned audit bypasses readiness authorization")
     result = dict(summary)
     result["file_sha256"] = expected_file
     return result
@@ -1626,10 +2297,13 @@ def _parser() -> argparse.ArgumentParser:
     modes = parser.add_mutually_exclusive_group()
     modes.add_argument("--check-route", action="store_true")
     modes.add_argument("--write-candidate-identity", action="store_true")
+    modes.add_argument("--check-audit-harness", action="store_true")
+    modes.add_argument("--write-audit-harness-identity", action="store_true")
     modes.add_argument("--run-equivalence", action="store_true")
     modes.add_argument("--measure-worker-rss", action="store_true")
     modes.add_argument("--run-readiness", action="store_true")
     parser.add_argument("--candidate-identity-sha256")
+    parser.add_argument("--audit-harness-identity-sha256")
     parser.add_argument("--equivalence-summary", type=Path, default=EQUIVALENCE_SUMMARY_PATH)
     parser.add_argument("--equivalence-summary-sha256")
     parser.add_argument("--worker-rss-summary", type=Path, default=WORKER_RSS_PATH)
@@ -1642,6 +2316,8 @@ def main(argv: Sequence[str] | None = None) -> None:
         (
             args.check_route,
             args.write_candidate_identity,
+            args.check_audit_harness,
+            args.write_audit_harness_identity,
             args.run_equivalence,
             args.measure_worker_rss,
             args.run_readiness,
@@ -1649,7 +2325,8 @@ def main(argv: Sequence[str] | None = None) -> None:
     ):
         raise SystemExit(
             "no execution mode selected; choose --check-route, "
-            "--write-candidate-identity, --run-equivalence, "
+            "--write-candidate-identity, --check-audit-harness, "
+            "--write-audit-harness-identity, --run-equivalence, "
             "--measure-worker-rss, or --run-readiness"
         )
     route = validate_active_route()
@@ -1667,15 +2344,34 @@ def main(argv: Sequence[str] | None = None) -> None:
         result = write_optimized_candidate_identity(route=route)
         print(json.dumps(result, indent=2, sort_keys=True, allow_nan=False))
         return
+    if args.check_audit_harness:
+        result = check_audit_harness_loader()
+        print(json.dumps(result, indent=2, sort_keys=True, allow_nan=False))
+        return
+    if args.write_audit_harness_identity:
+        result = write_audit_harness_erratum_identity()
+        print(json.dumps(result, indent=2, sort_keys=True, allow_nan=False))
+        return
     if args.run_equivalence:
         if not args.candidate_identity_sha256:
             raise SystemExit(
                 "--run-equivalence requires --candidate-identity-sha256"
             )
+        if not args.audit_harness_identity_sha256:
+            raise SystemExit(
+                "--run-equivalence requires --audit-harness-identity-sha256"
+            )
         candidate_identity = _require_sha256(
             args.candidate_identity_sha256, "candidate_identity_sha256"
         )
-        result = _run_frozen_equivalence(candidate_identity)
+        audit_harness_identity = _require_sha256(
+            args.audit_harness_identity_sha256,
+            "audit_harness_identity_sha256",
+        )
+        result = _run_frozen_equivalence(
+            candidate_identity,
+            audit_harness_identity,
+        )
         print(json.dumps(result, indent=2, sort_keys=True, allow_nan=False))
         return
     if args.measure_worker_rss:

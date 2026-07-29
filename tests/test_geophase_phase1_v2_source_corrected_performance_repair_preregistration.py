@@ -20,6 +20,17 @@ PREREG_PATH = (
     / "performance_repair"
     / "preregistration.json"
 )
+HARNESS_ERRATUM_PATH = (
+    ROOT / "configs" / "geophase_phase1_v2_equivalence_audit_harness_erratum_v1.yaml"
+)
+CANDIDATE_IDENTITY_PATH = (
+    ROOT
+    / "outputs"
+    / "tables"
+    / "geophase_phase1_v2_source_corrected_v3"
+    / "performance_repair"
+    / "optimized_candidate_identity.json"
+)
 
 pytestmark = [pytest.mark.phase1, pytest.mark.current]
 
@@ -30,6 +41,12 @@ def _sha256(path: Path) -> str:
 
 def _config() -> dict:
     payload = yaml.safe_load(CONFIG_PATH.read_text(encoding="utf-8"))
+    assert isinstance(payload, dict)
+    return payload
+
+
+def _harness_erratum() -> dict:
+    payload = yaml.safe_load(HARNESS_ERRATUM_PATH.read_text(encoding="utf-8"))
     assert isinstance(payload, dict)
     return payload
 
@@ -235,3 +252,74 @@ def test_machine_preregistration_hashes_config_and_has_no_execution() -> None:
     namespace = PREREG_PATH.parent.parent
     assert not (namespace / "formal_summary.json").exists()
     assert not (namespace / "formal_convergence.csv").exists()
+
+
+def test_harness_erratum_preserves_candidate_and_authorizes_one_valid_audit() -> None:
+    erratum = _harness_erratum()
+    invalid = erratum["invalid_launch"]
+    candidate = erratum["frozen_candidate"]
+    audit = erratum["valid_audit"]
+
+    assert invalid["disposition"] == (
+        "INVALID_EQUIVALENCE_AUDIT_INFRASTRUCTURE_BEFORE_EXECUTION"
+    )
+    assert invalid["completed_rows"] == invalid["votes_cast"] == 0
+    assert invalid["consumes_valid_frozen_audit"] is False
+    assert candidate["commit"] == "1ae2704f6d84a3733d9de58aa23d992aa0c471a5"
+    assert candidate["tree"] == "d3833a4a5dd067dab72c84f15fe2f8e726bd9512"
+    assert candidate["identity"]["sha256"] == _sha256(CANDIDATE_IDENTITY_PATH)
+    assert candidate["identity"]["byte_change"] == "forbidden"
+    assert audit["permitted_valid_attempts"] == 1
+    assert audit["automatic_retry"] == "forbidden"
+    assert audit["exclusive_attempt_provenance"].endswith(
+        "equivalence_valid_attempt_provenance.jsonl"
+    )
+    assert audit["provenance_events"] == [
+        "SCHEDULED",
+        "STARTED",
+        "NUMERIC_DISPOSITION",
+        "COMPLETED",
+        "FAILED",
+    ]
+    assert audit["preexisting_attempt_provenance"] == (
+        "refuse_before_numerical_execution"
+    )
+    assert audit["flush_and_fsync_each_event"] is True
+    assert audit["matrix"] == {
+        "electrical": 9,
+        "single_interval": 18,
+        "progression": 9,
+        "failure_topology": 21,
+        "total": 57,
+    }
+    assert audit["normalized_relative_difference_max"] == pytest.approx(1.0e-12)
+    assert audit["valid_mismatch_fail_fast"] is True
+    assert audit["mismatch_precedes_later_infrastructure_state"] is True
+
+
+def test_harness_erratum_is_loader_only_and_keeps_formal_boundary_zero() -> None:
+    erratum = _harness_erratum()
+    revision = erratum["harness_revision"]
+    boundary = erratum["execution_boundary"]
+    frozen = erratum["frozen_semantics"]
+
+    assert revision["combination_rule"] == (
+        "frozen_candidate_identity_plus_versioned_harness_identity"
+    )
+    assert revision["loader_semantics"] == {
+        "module_registered_in_sys_modules_before_exec_module": True,
+        "registration_scope": "complete_equivalence_audit_and_atomic_publication",
+        "prior_module_restored_after_scope": True,
+        "absent_prior_module_removed_after_scope": True,
+        "cleanup_on_load_or_audit_failure": True,
+    }
+    assert revision["wrapper_semantics"]["readiness_modes_exposed"] is False
+    assert boundary["C1_C2_C3_readiness"] == "forbidden"
+    assert boundary["runtime_cost_forecast"] == "forbidden"
+    assert boundary["formal_execution_count"] == 0
+    assert boundary["formal_artifact_count"] == 0
+    assert frozen["S2_equations_parameters_source_scale"] == "unchanged"
+    assert frozen["full_3N_plus_1_residual"] == "unchanged"
+    assert frozen["full_step_two_half_step_controller"] == "unchanged"
+    assert frozen["tolerances_ledgers_failure_topology"] == "unchanged"
+    assert frozen["evaluations_unique_executions_reuses"] == [63, 60, 3]

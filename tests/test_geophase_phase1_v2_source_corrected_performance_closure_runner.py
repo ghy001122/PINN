@@ -4,7 +4,11 @@ import hashlib
 import importlib.util
 import inspect
 import json
+import os
 from pathlib import Path
+import subprocess
+import sys
+from types import ModuleType, SimpleNamespace
 from typing import Any
 
 import pytest
@@ -15,6 +19,9 @@ RUNNER_PATH = (
     ROOT
     / "scripts"
     / "run_geophase_phase1_v2_source_corrected_performance_readiness.py"
+)
+HARNESS_WRAPPER_PATH = (
+    ROOT / "scripts" / "run_geophase_phase1_v2_equivalence_audit_harness.py"
 )
 HASH_A = "a" * 64
 HASH_B = "b" * 64
@@ -216,6 +223,8 @@ def test_runner_modes_are_explicit_and_the_production_adapter_is_not_cli_selecta
 
     parser_help = module._parser().format_help()
     assert "--write-candidate-identity" in parser_help
+    assert "--check-audit-harness" in parser_help
+    assert "--write-audit-harness-identity" in parser_help
     assert "--run-equivalence" in parser_help
     assert "--measure-worker-rss" in parser_help
     assert "--run-readiness" in parser_help
@@ -265,11 +274,11 @@ def test_equivalence_and_RSS_modes_require_and_bind_candidate_identity(
         return {"status": "synthetic_interface_check"}
 
     monkeypatch.setattr(module, "_invoke_task_adapter", adapter)
-    equivalence_calls: list[str] = []
+    equivalence_calls: list[tuple[str, str]] = []
     monkeypatch.setattr(
         module,
         "_run_frozen_equivalence",
-        lambda candidate: equivalence_calls.append(candidate)
+        lambda candidate, harness: equivalence_calls.append((candidate, harness))
         or {"status": "synthetic_interface_check"},
     )
     with pytest.raises(SystemExit, match="candidate-identity"):
@@ -282,9 +291,186 @@ def test_equivalence_and_RSS_modes_require_and_bind_candidate_identity(
     assert calls[-1][1] == "measure_worker_rss"
     assert calls[-1][2]["candidate_identity_sha256"] == HASH_B
 
-    module.main(["--run-equivalence", "--candidate-identity-sha256", HASH_B])
+    with pytest.raises(SystemExit, match="audit-harness-identity"):
+        module.main(["--run-equivalence", "--candidate-identity-sha256", HASH_B])
+    module.main(
+        [
+            "--run-equivalence",
+            "--candidate-identity-sha256",
+            HASH_B,
+            "--audit-harness-identity-sha256",
+            HASH_C,
+        ]
+    )
     capsys.readouterr()
-    assert equivalence_calls == [HASH_B]
+    assert equivalence_calls == [(HASH_B, HASH_C)]
+
+
+def test_actual_oracle_loader_registers_for_full_scope_and_cleans_up() -> None:
+    module = _runner_module()
+    name = module.AUDIT_HARNESS_ORACLE_MODULE_NAME
+    previous = sys.modules.pop(name, None)
+    try:
+        with module._loaded_pr8_test_only_oracle_solver() as solver:
+            assert callable(solver)
+            assert solver.__module__ == name
+            assert name in sys.modules
+        assert name not in sys.modules
+
+        sentinel = ModuleType(name)
+        sys.modules[name] = sentinel
+        with module._loaded_pr8_test_only_oracle_solver() as solver:
+            assert callable(solver)
+            assert sys.modules[name] is not sentinel
+        assert sys.modules[name] is sentinel
+    finally:
+        sys.modules.pop(name, None)
+        if previous is not None:
+            sys.modules[name] = previous
+
+
+def test_oracle_loader_cleans_registration_when_exec_module_fails(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    module = _runner_module()
+    broken = tmp_path / "broken_oracle.py"
+    broken.write_text("raise RuntimeError('synthetic loader failure')\n", encoding="utf-8")
+    monkeypatch.setattr(module, "PR8_ORACLE_PATH", broken)
+    monkeypatch.setattr(
+        module,
+        "PR8_ORACLE_SHA256",
+        hashlib.sha256(broken.read_bytes()).hexdigest(),
+    )
+    name = module.AUDIT_HARNESS_ORACLE_MODULE_NAME
+    previous = sys.modules.pop(name, None)
+    try:
+        with pytest.raises(RuntimeError, match="synthetic loader failure"):
+            with module._loaded_pr8_test_only_oracle_solver():
+                raise AssertionError("broken oracle must never yield")
+        assert name not in sys.modules
+    finally:
+        if previous is not None:
+            sys.modules[name] = previous
+
+
+def test_harness_wrapper_imports_the_current_worktree_before_editable_install() -> None:
+    environment = dict(os.environ)
+    environment.pop("PYTHONPATH", None)
+    environment["PYTHONDONTWRITEBYTECODE"] = "1"
+    completed = subprocess.run(
+        [sys.executable, str(HARNESS_WRAPPER_PATH), "--check-harness-loader"],
+        cwd=ROOT,
+        env=environment,
+        check=False,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+    )
+    assert completed.returncode == 0, completed.stderr
+    payload = json.loads(completed.stdout)
+    assert Path(payload["wrapper_src_root"]).resolve() == (ROOT / "src").resolve()
+    assert payload["status"] == "audit_harness_loader_pass"
+    assert payload["numerical_execution_performed"] is False
+
+
+def test_one_shot_attempt_journal_is_exclusive_and_fsynced_by_interface(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    module = _runner_module()
+    journal = tmp_path / "attempt.jsonl"
+    monkeypatch.setattr(module, "EQUIVALENCE_ATTEMPT_PROVENANCE_PATH", journal)
+    candidate = {"candidate_commit": "candidate", "file_sha256": HASH_A}
+    harness = {
+        "erratum_commit": "erratum",
+        "file_sha256": HASH_B,
+        "audit_identity_sha256": HASH_C,
+    }
+
+    module._begin_equivalence_attempt(
+        candidate_identity=candidate,
+        harness_identity=harness,
+    )
+    events = [json.loads(line) for line in journal.read_text().splitlines()]
+    assert [event["event"] for event in events] == ["SCHEDULED", "STARTED"]
+    with pytest.raises(FileExistsError):
+        module._begin_equivalence_attempt(
+            candidate_identity=candidate,
+            harness_identity=harness,
+        )
+
+
+def test_runner_rejects_foreign_loaded_pinnpcm_modules() -> None:
+    module = _runner_module()
+    name = "pinnpcm.synthetic_foreign_checkout"
+    foreign = ModuleType(name)
+    foreign.__file__ = str(ROOT.parent / "foreign" / "module.py")
+    previous = sys.modules.get(name)
+    sys.modules[name] = foreign
+    try:
+        with pytest.raises(RuntimeError, match="foreign checkout"):
+            module._validate_loaded_candidate_module_origins()
+    finally:
+        if previous is None:
+            sys.modules.pop(name, None)
+        else:
+            sys.modules[name] = previous
+
+
+def _synthetic_equivalence_result(*, failed_index: int | None = None, total: int = 57):
+    families = ["electrical"] * 9 + ["interval"] * 18 + ["progression"] * 9 + ["failure"] * 21
+    rows = []
+    for index, family in enumerate(families[:total]):
+        failed = index == failed_index
+        rows.append(
+            SimpleNamespace(
+                plan_index=index,
+                sample_id=f"ROW-{index:02d}",
+                family=family,
+                passed=not failed,
+                maximum_normalized_difference=(float("inf") if failed else 0.0),
+                exact_mismatch_count=int(failed),
+            )
+        )
+        if failed:
+            break
+    counts = {
+        family: sum(row.family == family for row in rows)
+        for family in ("electrical", "interval", "progression", "failure")
+    }
+    summary = {
+        "plan_identities_valid": True,
+        "hash_fields_valid": True,
+        "completed_counts": counts,
+        "disposition": (
+            "NO_GO_EQUIVALENT_PERFORMANCE_REPAIR"
+            if failed_index is not None
+            else "PASS_PENDING_RUNTIME_READINESS"
+        ),
+        "failing_plan_index": None if failed_index is None else rows[-1].plan_index,
+        "failing_sample_id": None if failed_index is None else rows[-1].sample_id,
+        "all_equivalence_votes_pass": failed_index is None and total == 57,
+    }
+    return SimpleNamespace(rows=tuple(rows), summary=summary)
+
+
+def test_equivalence_validation_distinguishes_pass_mismatch_and_incomplete() -> None:
+    module = _runner_module()
+    disposition, counts = module._validate_equivalence_result(
+        _synthetic_equivalence_result()
+    )
+    assert disposition == "GO_FOR_SOURCE_CORRECTED_RUNTIME_READINESS_AUTHORIZATION"
+    assert counts == {"electrical": 9, "interval": 18, "progression": 9, "failure": 21}
+
+    disposition, _ = module._validate_equivalence_result(
+        _synthetic_equivalence_result(failed_index=0)
+    )
+    assert disposition == "NO_GO_EQUIVALENT_PERFORMANCE_REPAIR"
+
+    with pytest.raises(RuntimeError, match="incomplete"):
+        module._validate_equivalence_result(_synthetic_equivalence_result(total=1))
 
 
 def test_frozen_equivalence_requires_content_candidate_and_file_hashes(
@@ -322,6 +508,47 @@ def test_frozen_equivalence_requires_content_candidate_and_file_hashes(
             expected_file_sha256=HASH_A,
             expected_candidate_identity_sha256=HASH_B,
         )
+
+
+def test_versioned_GO_summary_remains_compatible_with_future_readiness_validator(
+    tmp_path: Path,
+) -> None:
+    module = _runner_module()
+    summary = _equivalence(module)
+    summary.pop("file_sha256")
+    summary.update(
+        {
+            "disposition": "GO_FOR_SOURCE_CORRECTED_RUNTIME_READINESS_AUTHORIZATION",
+            "complete": True,
+            "completed_total": 57,
+            "completed_counts": {
+                "electrical": 9,
+                "interval": 18,
+                "progression": 9,
+                "failure": 21,
+            },
+            "failure_topology_exact_match": True,
+            "valid_frozen_equivalence_audit_attempt": 1,
+            "automatic_retry": "forbidden",
+            "runtime_readiness_authorization_status": (
+                "pending_fresh_user_authorization"
+            ),
+            "audit_harness_identity_file_sha256": HASH_C,
+        }
+    )
+    path = tmp_path / "versioned_go.json"
+    path.write_text(
+        json.dumps(summary, sort_keys=True, allow_nan=False) + "\n",
+        encoding="utf-8",
+    )
+    file_hash = hashlib.sha256(path.read_bytes()).hexdigest()
+
+    validated = module.validate_frozen_equivalence_summary(
+        path,
+        expected_file_sha256=file_hash,
+        expected_candidate_identity_sha256=HASH_B,
+    )
+    assert validated["completed_total"] == 57
 
 
 @pytest.mark.parametrize("failed_gate", ["C1", "C2"])
