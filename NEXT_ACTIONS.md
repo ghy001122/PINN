@@ -4,7 +4,7 @@
 
 Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
 
-Checkpoint state: `PHASE1_V2_NO_GO_RUNTIME_PENDING_USER_DECISION`.
+Checkpoint state: `PHASE1_V2_CONTROLLER_V2_NO_GO_RUNTIME_PERFORMANCE_ONLY`.
 
 > The Phase 1-v2 preregistration anchors are remote. S2 implementation and its
 > bounded non-voting smoke are complete; no formal item has executed.
@@ -25,7 +25,8 @@ S2 remains the nominal Phase 1-v2 thermal closure. Completed:
 6. preserve the single bounded audit-metric repair and its exact machine
    criterion.
 
-The runtime/formal-runner readiness audit is complete with `NO_GO_RUNTIME`.
+The historical controller-v1 runtime/formal-runner readiness audit is complete
+with `NO_GO_RUNTIME`.
 The legal-critical `PRE-*` trajectory failed the locked transition-increment
 condition at the locked minimum step before the required sample matrix or cost
 forecast could be completed. Dormant-runner integrity passed, but cannot
@@ -35,10 +36,20 @@ The one-replay mechanism audit reproduced the failure. All six returned
 candidates passed integrity gates; branch memory alone exceeded `0.02` at the
 floor. Disposition: `GO_FOR_ONE_VERSIONED_TIME_CONTROLLER_REVISION`.
 
-The only next eligible positive-route action is one versioned controller
-revision under fresh user authorization. The audit set no production floor and
-must not be rerun. Do not modify the controller or rerun readiness implicitly;
-the performance-only repair remains ineligible.
+The single versioned controller revision is complete. Its independent overlay
+left the base S2 YAML unchanged. C1 passed the locked critical fixture and C2
+passed 128 accepted intervals with all bounded integrity and streaming-parity
+checks. C3 then reached the global worker deadline at `0/18` single-interval
+samples and `1/9` short trajectories, before an eligible campaign forecast or
+dormant-runner dry-run existed. Disposition:
+`NO_GO_RUNTIME_PERFORMANCE_ONLY`.
+
+Stop now. The next single decision is whether the user authorizes the one
+remaining pure-equivalence performance optimization and an identical
+readiness rerun. That opportunity is not yet authorized or consumed. It may
+not modify S2 physics, tolerances, protocols, grids, the 63-item manifest,
+time-controller semantics, or scientific gates. Formal execution remains
+unauthorized regardless of this decision.
 
 ## Parallel work that cannot block S2
 

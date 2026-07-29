@@ -31,6 +31,8 @@ RUNNER_STATES = (
 REQUIRED_IDENTITY_HASHES = (
     "code_tree",
     "S2_config",
+    "controller_v2_overlay",
+    "resolved_runtime_identity",
     "formal_manifest_contract",
     "expanded_manifest",
     "execution_addendum",

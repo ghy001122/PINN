@@ -411,19 +411,67 @@ $$
 d_{\mathrm{floor}}\right]}.
 $$
 
-Backward-Euler stepping begins at the locked base maximum step. If an accepted
-trial would satisfy
+The Phase 1-v2 time controller is explicitly versioned. The historical v1
+controller in the immutable base S2 YAML started at the configured maximum
+step and rejected a candidate when
 
 $$
-\max\{\|s^n-s^{n-1}\|_\infty,\|b^n-b^{n-1}\|_\infty\}>0.02,
+\max\{\|s^n-s^{n-1}\|_\infty,\|b^n-b^{n-1}\|_\infty\}>0.02.
 $$
 
-the trial is rejected and retried by halving \(\Delta t\), never below the
-locked transition maximum step. At most four rejections are permitted per
-accepted step and 1000 per case; exceeding either cap fails closed. The
-matrix-free LGMRES Newton correction is subjected to the locked Armijo
+Its YAML rejection cap was six; the earlier prose value of four was erroneous.
+The v1 controller, PR #6/#7 failure evidence, hashes, and claim boundary remain
+historical and are not an active runtime option.
+
+The preregistered v2 candidate controller instead estimates temporal
+consistency over an outer interval \(H\). From the same state it computes one
+backward-Euler full step and two consecutive backward-Euler half steps. The
+two-half-step state is the only path eligible for acceptance, events,
+streaming, or QoI output. Define
+
+$$
+e_T=\frac{\|T_{hh}-T_h\|_\infty}{7.19\,\mathrm K},\qquad
+e_s=\|s_{hh}-s_h\|_\infty,\qquad
+e_b=\|b_{hh}-b_h\|_\infty,
+$$
+
+$$
+e_V=\frac{|V_{d,hh}-V_{d,h}|}{V_{\mathrm{scale}}},\qquad
+e_{\max}=\max(e_T,e_s,e_b,e_V).
+$$
+
+Here \(V_{\mathrm{scale}}=\max(1\,\mathrm V,\max_t|V_{\mathrm{in}}(t)|)\)
+is resolved and recorded for each protocol/device channel before execution; it
+cannot depend on an observed device voltage. The interval is accepted only if
+\(e_{\max}\le 0.02\) and the full step, both half steps, and the aggregate
+two-half-step ledgers pass their existing integrity gates. The historical
+state increment is telemetry only and cannot veto acceptance.
+
+For divisor \(d\in\{1,2,4\}\),
+
+$$
+H_{\max}=\frac{10^{-8}\,\mathrm s}{d},\qquad
+H_{\min}=\frac{9.765625\times10^{-12}\,\mathrm s}{d}.
+$$
+
+The floor applies to the outer interval, so the two internal \(H/2\) solves
+remain legal at \(H=H_{\min}\). A failed candidate bundle counts as one outer
+rejection. Ten halvings are permitted and the floor candidate is evaluated
+once; its failure is a locked-floor failure, not an eleventh ordinary
+rejection. A smaller remainder is allowed only to land exactly on a terminal,
+fixed-output, or protocol-discontinuity time and fails closed without further
+bisection if it does not pass. Two consecutive accepted intervals with
+\(e_{\max}\le0.005\), no rejection, and no fallback double \(H\), capped at
+\(H_{\max}\). No PID or adjustable safety factor is used.
+
+The aggregate thermal, circuit, combined, and device-power ledgers are rebuilt
+from signed half-step energies. Midpoint storage cancels algebraically;
+the circuit-capacitor backward-Euler numerical dissipation is counted once for
+each half step; no unregistered thermal dissipation term is introduced. The
+matrix-free LGMRES Newton correction remains subject to the locked Armijo
 coefficient and damping floor rather than an implementation-default line
-search.
+search. No S2 equation, physical parameter, protocol, scientific gate, or
+formal evaluation item is changed by this controller overlay.
 
 The immutable v6 history used a normalized 400/800 nm substrate-truncation
 comparison. Its recorded failure remains unchanged. The separately

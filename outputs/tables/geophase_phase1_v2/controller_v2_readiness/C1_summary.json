@@ -1,0 +1,47 @@
+{
+  "accepted_fine_event_parity": {
+    "maximum_relative_error": 0.0,
+    "pass": true,
+    "reconstructed_count": 0,
+    "streamed_count": 0,
+    "worst_component": ""
+  },
+  "accepted_fine_reversal_parity": {
+    "maximum_relative_error": 0.0,
+    "pass": true,
+    "reconstructed_count": 0,
+    "streamed_count": 0,
+    "worst_component": ""
+  },
+  "accepted_interval_count": 23,
+  "attempt_marker_created_before_numerics": true,
+  "attempt_started_utc": "2026-07-28T09:10:16.062634+00:00",
+  "completed": true,
+  "failure_class": null,
+  "finite_nonlinear_ledger_lateral_pass": true,
+  "formal_artifact_count": 0,
+  "formal_execution_count": 0,
+  "full_history_and_streaming_same_run": true,
+  "full_history_streaming_parity": {
+    "maximum_relative_error": 3.386422838785608e-16,
+    "pass": true,
+    "worst_component": "scalar.mean_temperature_K"
+  },
+  "maximum_embedded_error": 0.17635990677171753,
+  "numerical_attempt_count": 1,
+  "path_integrity": {
+    "aggregate": true,
+    "first_half_step": true,
+    "full_step": true,
+    "second_half_step": true
+  },
+  "preflight_deadline_utc": "2026-07-28T09:25:16.061628+00:00",
+  "protocol_voltage_scale_V": [
+    12.5
+  ],
+  "sample_id": "PRE-CTRL-LEGAL-CRITICAL",
+  "single_numerical_run": true,
+  "status": "pass",
+  "stop_reason": "requested_final_time_reached",
+  "wall_clock_s": 72.53363620000164
+}

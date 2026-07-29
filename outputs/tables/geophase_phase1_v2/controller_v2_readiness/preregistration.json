@@ -1,0 +1,24 @@
+{
+  "base_S2_config_sha256": "0600498590a8c100ec8dee95621719ea655354ec118015868cb07fedf89f85d5",
+  "controller_v2_implementation_before_preregistration_push": false,
+  "controller_v2_overlay_sha256": "eaca81d59b9a52c21fe60fab213a8f7fd65d83a674fd2ef27746d164e163c528",
+  "formal_artifact_count": 0,
+  "formal_case_artifacts_generated": false,
+  "formal_execution_consumed": false,
+  "formal_execution_count": 0,
+  "new_controller_v2_numerical_execution_before_preregistration_push": false,
+  "pr7_merge_commit": "8a8541f19ab5b5baeda5102a70e593f996c59224",
+  "pr7_merge_tree": "5ab294e8048ec04da1d4ad2cbc8cb8f4b0eb6c5d",
+  "preregistration_commit": "406207b02adaa37953ff4d3813aaeee3235c004f",
+  "preregistration_tree": "17bc0163a154a1778aa9109e719d019f4be11b5f",
+  "resolution_schema_version": "geophase_phase1_v2_controller_overlay_resolution_v1",
+  "resolved_runtime_identity": {
+    "base_S2_config_sha256": "0600498590a8c100ec8dee95621719ea655354ec118015868cb07fedf89f85d5",
+    "controller_v2_overlay_sha256": "eaca81d59b9a52c21fe60fab213a8f7fd65d83a674fd2ef27746d164e163c528",
+    "resolution_schema_version": "geophase_phase1_v2_controller_overlay_resolution_v1"
+  },
+  "resolved_runtime_identity_sha256": "b0030d0156d68f2940fb686dbd88ae55db7ed8a9352b8f06bff59ca64b09fea7",
+  "schema_version": "geophase_phase1_v2_controller_v2_preregistration_v1",
+  "status": "preregistered_not_executed",
+  "task_id": "Q2_PHASE1_V2_EMBEDDED_TIME_CONTROLLER_REVISION"
+}

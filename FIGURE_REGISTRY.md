@@ -529,3 +529,11 @@ No runtime-readiness or formal Phase 1-v2 figure was generated. The
 dormant-runner dry-run may not be plotted as a positive scientific or compute-
 feasibility result. Any future figure remains blocked by a fresh user decision
 and a separately authorized route.
+
+## Phase 1-v2 Controller-v2 Readiness Figure Disposition
+
+No controller-v2 readiness or formal Phase 1-v2 figure was generated. The C1
+and C2 bounded integrity telemetry, C3 performance-only stop, header-only cost
+forecast, and `not_reached` dormant-runner record may not be plotted as a
+positive scientific result, four-hour feasibility result, or memory/disk
+failure. Scientific figures remain blocked by a passed formal Phase 1-v2 gate.

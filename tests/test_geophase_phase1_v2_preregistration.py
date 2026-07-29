@@ -52,7 +52,7 @@ def test_phase1v2_identity_authority_and_execution_boundary() -> None:
 
     assert stage["schema_version"] == "geo2p5d_stage_v2"
     assert stage["current_checkpoint"] == (
-        "PHASE1_V2_NO_GO_RUNTIME_PENDING_USER_DECISION"
+        "PHASE1_V2_CONTROLLER_V2_NO_GO_RUNTIME_PERFORMANCE_ONLY"
     )
     assert stage["authority"]["current_contract"].endswith(
         "phase1_geophase_2p5d_reference_v2_contract.md"
@@ -75,6 +75,7 @@ def test_phase1v2_identity_authority_and_execution_boundary() -> None:
     }
     assert stage["phase1_v2_runtime_state"] == {
         "status": "NO_GO_RUNTIME",
+        "controller": "historical_controller_v1",
         "unique_primary_cause": (
             "S2_transition_increment_failed_at_locked_floor_for_legal_critical_PRE_case"
         ),
@@ -82,9 +83,7 @@ def test_phase1v2_identity_authority_and_execution_boundary() -> None:
         "performance_repair_consumed": False,
         "formal_execution_count": 0,
         "formal_artifact_count": 0,
-        "next_action": (
-            "one_versioned_time_controller_revision_pending_user_authorization"
-        ),
+        "next_action": "retained_history_only",
     }
     assert stage["phase1_v2_critical_transition_audit"] == {
         "status": "GO_FOR_ONE_VERSIONED_TIME_CONTROLLER_REVISION",
@@ -96,10 +95,37 @@ def test_phase1v2_identity_authority_and_execution_boundary() -> None:
         ),
         "production_floor_determined": False,
         "scientific_phase1_result": "forbidden_unassessed",
-        "time_controller_revision_authorized": False,
+        "time_controller_revision_authorized": True,
+        "time_controller_revision_execution_status": "consumed_by_controller_v2",
         "formal_execution_count": 0,
         "formal_artifact_count": 0,
     }
+    controller = stage["phase1_v2_controller_revision"]
+    assert controller["status"] == "NO_GO_RUNTIME_PERFORMANCE_ONLY"
+    assert controller["implementation_and_nonformal_readiness_authorized"] is False
+    assert controller["implementation_and_nonformal_readiness_completed"] is True
+    assert controller["readiness_rerun_authorized"] is False
+    assert controller["performance_optimization_authorized"] is False
+    assert controller["controller_revision_opportunity_remaining"] is False
+    assert controller["C1_status"] == "pass"
+    assert controller["C1_accepted_intervals"] == 23
+    assert controller["C2_status"] == "pass"
+    assert controller["C2_accepted_intervals"] == 128
+    assert controller["C2_event_observation"] == (
+        "NA_not_observed_within_bounded_C2_window"
+    )
+    assert controller["C3_status"] == "performance_only_fail"
+    assert controller["C3_single_interval_samples_completed"] == 0
+    assert controller["C3_single_interval_samples_expected"] == 18
+    assert controller["C3_short_trajectories_completed"] == 1
+    assert controller["C3_short_trajectories_expected"] == 9
+    assert controller["campaign_cost_forecast"] == "not_eligible"
+    assert controller["dormant_runner_status"] == "not_reached"
+    assert controller["performance_repair_consumed"] is False
+    assert controller["performance_repair_opportunity_remaining"] is True
+    assert controller["formal_campaign_authorized"] is False
+    assert controller["formal_execution_count"] == 0
+    assert controller["formal_artifact_count"] == 0
 
 
 def test_legacy_phase1_and_source_files_are_immutable() -> None:

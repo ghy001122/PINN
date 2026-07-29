@@ -520,3 +520,27 @@ critical-state gate failed before a forecast became eligible. Missing step,
 ledger, wall-clock, and peak-RSS telemetry remains blank/null rather than being
 reconstructed. `formal_execution_count=0`, formal artifact count is zero, and
 all 63 formal manifest items remain `planned_not_executed`.
+
+## Phase 1-v2 Controller-v2 Readiness Data Disposition
+
+The following files are lightweight, non-formal synthetic numerical runtime
+telemetry, not a training, Ground Truth, Phase 2, experimental, or formal
+solver dataset:
+
+- `outputs/tables/geophase_phase1_v2/controller_v2_readiness/C1_summary.json`
+- `outputs/tables/geophase_phase1_v2/controller_v2_readiness/C2_summary.json`
+- `outputs/tables/geophase_phase1_v2/controller_v2_readiness/preflight_samples.csv`
+- `outputs/tables/geophase_phase1_v2/controller_v2_readiness/preflight_summary.json`
+- `outputs/tables/geophase_phase1_v2/controller_v2_readiness/campaign_cost_forecast.csv`
+- `outputs/tables/geophase_phase1_v2/controller_v2_readiness/runner_dry_run.json`
+- `outputs/tables/geophase_phase1_v2/controller_v2_readiness/readiness_summary.json`
+
+C1/C2 bounded integrity passed, but C3 reached the global worker deadline.
+The forecast CSV contains its schema header only and the dormant runner is
+`not_reached`; these files preserve the stopping boundary rather than missing
+data. C2's `NA_not_observed_within_bounded_C2_window` is not evidence that an
+event is absent and cannot vote on a formal trend/event gate.
+
+Disposition: `NO_GO_RUNTIME_PERFORMANCE_ONLY`;
+`formal_execution_count=0`; `formal_artifact_count=0`; frozen GT v1.1 is
+unchanged.

@@ -1,9 +1,9 @@
 schema_version: geo2p5d_stage_v2
 delivery_mode: Q2_SCI_DELIVERY_MODE
 current_phase: Q2_PHASE1_2P5D_REFERENCE_SOLVER
-current_checkpoint: PHASE1_V2_NO_GO_RUNTIME_PENDING_USER_DECISION
+current_checkpoint: PHASE1_V2_CONTROLLER_V2_NO_GO_RUNTIME_PERFORMANCE_ONLY
 formal_execution_count: 0
-formal_campaign_authorization: blocked_by_runtime_NO_GO_and_pending_user_decision
+formal_campaign_authorization: blocked_by_controller_v2_runtime_performance_no_go
 evidence_type: literature_guided_synthetic_numerical_digital_twin
 
 authority:
@@ -13,6 +13,9 @@ authority:
   phase1_config: configs/geophase_phase1_v2_s2_reference.yaml
   phase1_manifest: configs/geophase_phase1_v2_formal_manifest.yaml
   phase1_execution_addendum: configs/geophase_phase1_v2_execution_addendum.yaml
+  phase1_active_time_controller: configs/geophase_phase1_v2_embedded_time_controller_v2.yaml
+  phase1_controller_v2_readiness: outputs/tables/geophase_phase1_v2/controller_v2_readiness/readiness_summary.json
+  phase1_controller_v2_report: docs/codex_reports/geophase_phase1_v2_embedded_controller_readiness.md
   phase1_runtime_readiness: outputs/tables/geophase_phase1_v2/runtime_readiness/readiness_summary.json
   phase1_runtime_report: docs/codex_reports/geophase_phase1_v2_runtime_formal_runner_readiness.md
   phase1_critical_transition_audit: configs/geophase_phase1_v2_critical_transition_failure_audit.yaml
@@ -34,12 +37,13 @@ nonblocking_S1_state:
 
 phase1_v2_runtime_state:
   status: NO_GO_RUNTIME
+  controller: historical_controller_v1
   unique_primary_cause: S2_transition_increment_failed_at_locked_floor_for_legal_critical_PRE_case
   scientific_phase1_result: forbidden_unassessed
   performance_repair_consumed: false
   formal_execution_count: 0
   formal_artifact_count: 0
-  next_action: one_versioned_time_controller_revision_pending_user_authorization
+  next_action: retained_history_only
 
 phase1_v2_critical_transition_audit:
   status: GO_FOR_ONE_VERSIONED_TIME_CONTROLLER_REVISION
@@ -49,7 +53,39 @@ phase1_v2_critical_transition_audit:
   conditional_frozen_activation_dt_max_b_s: 1.010415820055618e-11
   production_floor_determined: false
   scientific_phase1_result: forbidden_unassessed
-  time_controller_revision_authorized: false
+  time_controller_revision_authorized: true
+  time_controller_revision_execution_status: consumed_by_controller_v2
+  formal_execution_count: 0
+  formal_artifact_count: 0
+
+phase1_v2_controller_revision:
+  status: NO_GO_RUNTIME_PERFORMANCE_ONLY
+  active_controller: embedded_time_consistency_v2_only
+  overlay_path: configs/geophase_phase1_v2_embedded_time_controller_v2.yaml
+  base_config_sha256: 0600498590a8c100ec8dee95621719ea655354ec118015868cb07fedf89f85d5
+  resolution_schema_version: geophase_phase1_v2_controller_overlay_resolution_v1
+  historical_controller_v1_active_runtime_selection: forbidden
+  implementation_and_nonformal_readiness_authorized: false
+  implementation_and_nonformal_readiness_completed: true
+  readiness_rerun_authorized: false
+  performance_optimization_authorized: false
+  controller_revision_opportunity_remaining: false
+  C1_status: pass
+  C1_accepted_intervals: 23
+  C2_status: pass
+  C2_accepted_intervals: 128
+  C2_event_observation: NA_not_observed_within_bounded_C2_window
+  C3_status: performance_only_fail
+  C3_single_interval_samples_completed: 0
+  C3_single_interval_samples_expected: 18
+  C3_short_trajectories_completed: 1
+  C3_short_trajectories_expected: 9
+  campaign_cost_forecast: not_eligible
+  dormant_runner_status: not_reached
+  performance_repair_consumed: false
+  performance_repair_opportunity_remaining: true
+  next_action: await_fresh_user_decision_on_one_pure_equivalence_performance_optimization
+  formal_campaign_authorized: false
   formal_execution_count: 0
   formal_artifact_count: 0
 
@@ -78,7 +114,7 @@ routes:
 
 phase_sequence:
   - {phase: 0, id: Q2_PHASE0_REPOSITORY_GOVERNANCE, status: complete_governance_only}
-  - {phase: 1, id: Q2_PHASE1_2P5D_REFERENCE_SOLVER, status: phase1v2_NO_GO_RUNTIME_pending_user_decision}
+  - {phase: 1, id: Q2_PHASE1_2P5D_REFERENCE_SOLVER, status: phase1v2_controller_v2_no_go_runtime_performance_only}
   - {phase: 2, id: Q2_PHASE2_DATASET_AND_SPLITS, status: blocked_by_phase1}
   - {phase: 3, id: Q2_PHASE3_BASELINES, status: blocked_by_phase2}
   - {phase: 4, id: Q2_PHASE4_R1_HYSGEO_HYBRID_PINN, status: blocked_by_phase3}
