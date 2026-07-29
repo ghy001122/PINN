@@ -7,6 +7,9 @@ Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
 Checkpoint state:
 `PHASE1_V2_SOURCE_CORRECTED_V3_PERFORMANCE_REPAIR_PREREGISTERED_PENDING_IMPLEMENTATION`.
 
+Equivalence-audit substate:
+`INVALID_EQUIVALENCE_AUDIT_INFRASTRUCTURE_BEFORE_EXECUTION`.
+
 > The Phase 1-v2 preregistration anchors are remote. S2 implementation and its
 > bounded non-voting smoke are complete; no formal item has executed.
 
@@ -50,13 +53,14 @@ active qualitative high-bias lock probe and eight evaluation identifiers:
 15.8 V is active, while the old 15 V bundle remains historical and unexecuted.
 The new inventory remains 63 evaluations / 60 executions / 3 reuses.
 
-The strict-equivalence performance contract is locked at config SHA-256
-`84e1ecb...`. First make its containing commit remote; until then the new
-runner remains route-check-only and all microbenchmarks/numerics are forbidden.
-Afterward, implement only the allowlist, freeze and push the candidate, prove
-legacy-oracle equivalence once, and run at most one source-corrected C1/C2/C3
-readiness preflight. Formal execution remains unauthorized regardless of
-readiness.
+Contract SHA-256 is `84e1ecb...`; candidate commit/tree/identity are
+`1ae2704...`/`d3833a4...`/`39044f37...`. Its oracle loader failed before
+row 1: `0/57`, zero votes, no comparison or readiness. This is infrastructure
+provenance; equivalence, performance, and S2 science remain unassessed.
+
+Next: commit that evidence, push one versioned harness-only erratum, wait for
+fast CI, then run one valid 57-row audit. A pass may request readiness
+authorization but cannot run C1/C2/C3 or formal work in this task.
 
 ## Parallel work that cannot block S2
 
@@ -84,4 +88,5 @@ about `0.4118 > 0.05`. Its configs, reports, tests, hashes, and 96-item
 Do not resume the depth ladder, re-anchor material-stack comparators, run a
 formal campaign, train a PINN, generate Phase 2 data, run inverse work, fit or
 digitize source data, modify frozen GT, repair M44, execute NbO2, build 3D/FEM,
-or add nonzero dual-device coupling.
+add nonzero dual-device coupling, or run source-corrected C1/C2/C3 readiness
+without a later explicit authorization.

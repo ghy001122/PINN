@@ -7,6 +7,9 @@ Status: `phase1v2_source_corrected_v3_performance_repair_preregistered_pending_i
 Current checkpoint:
 `PHASE1_V2_SOURCE_CORRECTED_V3_PERFORMANCE_REPAIR_PREREGISTERED_PENDING_IMPLEMENTATION`
 
+Equivalence-audit substate:
+`INVALID_EQUIVALENCE_AUDIT_INFRASTRUCTURE_BEFORE_EXECUTION`
+
 ## Objective
 
 Establish the independent conservative judge required before Phase 2 or any
@@ -61,10 +64,15 @@ manifest.
   The correction changes no S2 equation, controller semantic, scientific
   threshold, inventory count, or formal execution state; it is not calibration
   or independent validation.
-- The user authorized the one strict-equivalence performance attempt. Its
-  contract is locked at config SHA-256 `84e1ecb...`; it is unconsumed and
-  remains implementation/numerics-blocked until the containing commit is
-  remote.
+- Contract SHA-256 is `84e1ecb...`; candidate commit/tree/identity are
+  `1ae2704...`/`d3833a4...`/`39044f37...`.
+- Its oracle loader failed before row 1 because the dataclass module was absent
+  from `sys.modules`: `0/57`, zero votes, no numerical comparison.
+  Lifecycle is `implemented`, validity `invalid`, claim status
+  `forbidden`. This is infrastructure provenance, not equivalence,
+  performance, or S2-physics failure.
+- One versioned harness-only erratum and one valid audit are authorized.
+  Runtime readiness still requires later authorization.
 
 ## Pass And Stop Rules
 
@@ -81,15 +89,16 @@ v3 manifest remain fixed.
 
 ## Restrictions
 
-Do not run readiness before performance preregistration and parity; execute a formal item; create a
-real formal registry; train a PINN; generate Phase 2 data; run inverse; fit or
-digitize sources; rerun S1/v6-v8; modify frozen GT; add nonzero coupling; or run
-FEM/3D, M44, or NbO2. Phase 1/Qiu/experimental, R1/R2, OQ, sensitivity, and
-cross-material success claims remain `forbidden`.
+Do not run C1/C2/C3 readiness in this task; execute a formal item; create a real
+formal registry; train a PINN; generate Phase 2 data; run inverse; fit or
+digitize sources; rerun S1/v6-v8; modify frozen GT; add nonzero coupling; or
+run FEM/3D, M44, or NbO2. Phase 1/Qiu/experimental, R1/R2, OQ, sensitivity,
+and cross-material success claims remain `forbidden`.
 
 ## Immediate Next Checkpoint
 
-After the independent performance-preregistration commit is remote, implement
-its allowlist, freeze and push the candidate, execute the legacy-oracle audit
-once, and only on equivalence PASS run one source-corrected readiness preflight.
-Even a GO requires fresh formal-campaign authorization.
+Preserve and commit the invalid pre-row launch, then implement and push only
+the versioned loader erratum with its harness identity. After fast CI succeeds,
+execute one valid strict 57-row equivalence audit. Even a GO stops at
+`GO_FOR_SOURCE_CORRECTED_RUNTIME_READINESS_AUTHORIZATION`; it cannot dispatch
+readiness or formal work.

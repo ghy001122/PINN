@@ -4,8 +4,10 @@
 
 - Delivery/phase: `Q2_SCI_DELIVERY_MODE` /
   `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Checkpoint:
+- Parent checkpoint:
   `PHASE1_V2_SOURCE_CORRECTED_V3_PERFORMANCE_REPAIR_PREREGISTERED_PENDING_IMPLEMENTATION`.
+- Equivalence-audit substate:
+  `INVALID_EQUIVALENCE_AUDIT_INFRASTRUCTURE_BEFORE_EXECUTION`.
 - R1 `HysGeo-Hybrid-PINN` remains the minimum manuscript route; R2
   `GeoPhase-HomoMoE-PINN` is the preferred upgrade; R3 is conditional.
 - Phase 1-v2 is a Qiu-inspired single-device VO2 x-y plane with explicit VO2,
@@ -33,11 +35,16 @@
 - The controller-revision opportunity is consumed. Source-corrected v3 is
   preregistered at `0ebe037...`: 15.8 V replaces the erroneous 15.0 V lock
   probe, while the old 63-item bundle remains immutable and unexecuted. The
-  new bundle remains 63 evaluations / 60 executions / 3 reuses and has run no
-  numerical item.
-- The single pure-equivalence performance attempt is authorized but unconsumed.
-  Its independent contract is locked at SHA-256 `84e1ecb...`; the containing
-  commit must be remote before implementation, microbenchmarking, or readiness.
+  new bundle remains 63 evaluations / 60 executions / 3 reuses; no formal
+  evaluation item has run.
+- The optimized candidate is frozen at commit/tree
+  `1ae2704...`/`d3833a4...` and identity SHA-256 `39044f37...`. Its
+  oracle loader failed before row 1 because the dataclass module was absent
+  from `sys.modules`: `0/57` rows and zero votes. Lifecycle is
+  `implemented`, validity `invalid`, claim status `forbidden`; this is
+  infrastructure provenance, not equivalence, performance, or physics failure.
+- One versioned harness-only erratum and one valid audit are authorized;
+  C1/C2/C3 and formal execution are not.
 - The S1 scientific claim is `forbidden`/unassessed; its timeouts are supported
   infrastructure provenance only. The v6-v8 material-stack route remains
   `failed_but_informative` with no formal execution.
@@ -61,6 +68,7 @@
 | Controller-v2 campaign runtime feasibility | `forbidden` / unassessed | C3 produced no forecast, aggregate resource, or dormant-runner vote. |
 | Controller-v2 C3 performance provenance | `supported` bounded readiness provenance | The locked preflight stopped at its worker backstop; no science vote. |
 | Source-corrected v3 bundle | `supported` config-only preregistration | Qiu Figure 2/SI Figure S2 correct the active qualitative lock probe to 15.8 V; 63/60/3, formal count zero, no calibration/validation claim. |
+| Strict-equivalence invalid launch | `supported` infrastructure provenance; numerical claim `forbidden` / unassessed | Frozen candidate `1ae2704...`; invalid before row 1; 0/57 rows, zero votes, no candidate/oracle numerical comparison, formal execution/artifact counts zero. |
 | v6-v8 material-stack route | `failed_but_informative` | v8 depth-frequency gate failed; 96 items unexecuted. |
 | Phase 1-v2 reference result | `forbidden` | Requires every gate in an authorized formal campaign. |
 | R1/R2/R3 positive claims | `forbidden` | Require sequential direct evidence. |
@@ -75,12 +83,13 @@
 
 ## Delivery Boundary
 
-After the performance-preregistration commit is remote, implement only its
-allowlist, freeze and push the candidate, execute one frozen-oracle audit, and
-only after equivalence passes run one source-corrected readiness preflight.
-Physics, tolerances, grids, controller semantics, scientific thresholds, and
-the v3 manifest remain locked. Formal execution, Phase 2, R1, and R2 remain
-blocked.
+Record the invalid pre-row launch, version and push only the authorized
+audit-harness loader erratum, then execute one valid 57-row frozen-candidate
+equivalence audit after fast CI passes. Even an equivalence GO only permits a
+future request for runtime-readiness authorization; this task may not run
+C1/C2/C3. Physics, tolerances, grids, controller semantics, scientific
+thresholds, the v3 manifest, the frozen candidate, and the oracle remain
+locked. Formal execution, Phase 2, R1, and R2 remain blocked.
 
 Do not rerun S1 or v6-v8; train a PINN; generate Phase 2 data; run inverse;
 modify frozen GT; add nonzero coupling; run FEM/3D, M44, or NbO2; or claim

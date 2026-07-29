@@ -21,7 +21,7 @@ evidence unless provenance explicitly says otherwise.
 | Controller-v2 campaign runtime feasibility | `forbidden` / unassessed | no forecast, aggregate resource, or dormant-runner vote |
 | Controller-v2 C3 performance provenance | `supported` bounded readiness provenance | stopped at `0/18` samples and `1/9` trajectories; no science vote |
 | Source-corrected v3 bundle | `supported` config-only preregistration | 15.8 V qualitative lock probe; 63/60/3; old 15 V bundle immutable; formal zero |
-| Strict-equivalence performance repair | `supported` preregistration fact only | one allowlisted attempt; config SHA-256 `84e1ecb...`; implementation/numerics blocked until commit is remote |
+| Strict-equivalence invalid launch | `supported` infrastructure provenance only; numerical equivalence `forbidden` / unassessed | frozen candidate `1ae2704...`; invalid before row 1; 0/57 rows and zero votes; no candidate/oracle comparison or readiness execution |
 | Retired material stack | `failed_but_informative` | v8 gate failed; 96 items unexecuted |
 | Frozen GT integrity | `supported` when hashes pass | acceptance report/manifest; governance audit |
 | Claim vocabulary | `supported` governance fact | `docs/paper/final_claim_matrix.md` |
@@ -66,7 +66,8 @@ VO2-to-NbO2 zero-shot transfer.
 - Strategy: canonical execution guide.
 - Claims: `docs/paper/final_claim_matrix.md`.
 - History: `docs/archive/README.md`, registries, and named reports.
-- Boundary: source-corrected v3 is active and config-only. The one strict-
-  equivalence performance contract is locked; implementation begins only after
-  its commit is remote, followed by one frozen-candidate audit and at most one
-  readiness run. Formal execution, Phase 2, and PINN remain blocked.
+- Boundary: source-corrected v3 is active. The candidate is frozen, but its
+  first audit launch is invalid pre-row infrastructure provenance, not an
+  equivalence result. One versioned harness-only erratum and one valid 57-row
+  audit are authorized; C1/C2/C3 readiness, formal execution, Phase 2, and
+  PINN remain blocked.
