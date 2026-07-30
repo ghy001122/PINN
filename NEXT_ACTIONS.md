@@ -3,7 +3,7 @@
 ## Authoritative Current Queue
 
 - Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Checkpoint: `PHASE1_V2_EQUIVALENCE_V2_COMPARATOR_CLOSURE_V3`.
+- Checkpoint: `PHASE1_V2_EQUIVALENCE_V2_ONE_SHOT_AUDIT`.
 - Strict-equivalence-v1: `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`.
 - Metric validity: `GO_VERSIONED_EQUIVALENCE_V2_AUDIT`.
 - The 63 formal evaluations / 60 executions / 3 reuses remain
@@ -29,8 +29,9 @@ PR #11/12 lock 638 templates, 57 rows and unchanged record-level A/B/C rules.
 Their solver-free controls executed no audit row; both execution counts are
 zero. Metric validity remains qualified, not an equivalence pass.
 
-Validate and merge closure v3, which fixes only dynamic-index completeness,
-grid shape, row/failure identity, exact completion and result tracking. Retain:
+Closure v3 is merged at `85d5c7ba...`; it fixed only dynamic-index
+completeness, grid shape, row/failure identity, exact completion and result
+tracking. Retain:
 
 - `1e-12` for primary fields;
 - preregistered analytic mixed bounds for physical lateral fields;
@@ -38,11 +39,13 @@ grid shape, row/failure identity, exact completion and result tracking. Retain:
 - no candidate, oracle, physics, controller, parameter, protocol, inventory,
   or scientific-gate change.
 
-The current dual-stage instruction conditionally authorizes one audit after
-closure v3 is merged and a separate one-shot runner identity is pushed and
-passes clean-checkout CI. Closure-v3 fixtures are solver-free and cannot count
-as audit rows. If a future primary/physical/topology vote fails, activate the
-retained `gamma_sub` plus identifiability-boundary manuscript route.
+The current instruction authorizes one audit only after the separate one-shot
+runner identity is pushed and its current clean-checkout CI passes. The runner
+must consume the count atomically, execute `0..56` once without retry, and
+fail-fast on the first valid A/B/C failure. Stub and closure fixtures are
+solver-free and cannot count as audit rows. A valid primary/physical/topology
+failure routes to the retained `gamma_sub` plus identifiability-boundary
+manuscript route without starting it automatically.
 
 ## Locked Side And Historical Routes
 
@@ -53,8 +56,8 @@ retained `gamma_sub` plus identifiability-boundary manuscript route.
 
 ## Scope Boundary
 
-Do not run equivalence-v2 from the closure branch. The one authorized attempt
-may start only after closure-v3 merge and a separately frozen runner anchor.
+Do not run equivalence-v2 before the separately frozen runner anchor is pushed
+and its clean-checkout CI passes. The authorized attempt is non-retryable.
 Do not run C1/C2/C3, a formal campaign, PINN training, Phase 2 generation,
 inverse work, source fitting/digitization, S1/v6-v8, M44, NbO2, FEM/3D, or
 nonzero dual-device coupling.

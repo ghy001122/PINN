@@ -5,7 +5,7 @@
 - Delivery/phase: `Q2_SCI_DELIVERY_MODE` /
   `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
 - Parent checkpoint:
-  `PHASE1_V2_EQUIVALENCE_V2_COMPARATOR_CLOSURE_V3`.
+  `PHASE1_V2_EQUIVALENCE_V2_ONE_SHOT_AUDIT`.
 - Strict-equivalence-v1 substate: `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`.
 - Metric-validity substate: `GO_VERSIONED_EQUIVALENCE_V2_AUDIT`.
 - R1 `HysGeo-Hybrid-PINN` remains the minimum manuscript route; R2
@@ -40,9 +40,10 @@
 - Comparator closure v3 preserves every PR #12 identity and adds the narrow
   integrity gates needed to reject common-mode missing dynamic indices,
   common-mode wrong L1/L2/L4 shapes, caller-relabelled row/failure identities,
-  and incomplete or reordered terminal plans. Its local solver-free focused
-  gate passed `152/152`; clean-checkout CI and merge remain pending. No audit
-  row has executed and both execution counts remain zero.
+  and incomplete or reordered terminal plans. It passed clean-checkout CI and
+  merged at `85d5c7ba...`. A separate one-shot runner identity is now being
+  remotely anchored; no audit row has executed and both execution counts
+  remain zero.
 - The S1 scientific claim is `forbidden`/unassessed; its timeouts are supported
   infrastructure provenance only. The v6-v8 material-stack route remains
   `failed_but_informative` with no formal execution.
@@ -74,10 +75,11 @@
 
 ## Delivery Boundary
 
-Preserve strict-v1 and do not retry/optimize it. The one-shot v2 attempt may
-start only after closure-v3 merge and a frozen runner identity; C1/C2/C3 and
-formal execution remain blocked. A valid A/B/C failure routes to retained
-`gamma_sub` plus the identifiability-boundary route.
+Preserve strict-v1 and do not retry/optimize it. Closure v3 is merged, but the
+one-shot v2 attempt may start only after the separate runner identity is
+pushed and its current clean-checkout CI succeeds; C1/C2/C3 and formal
+execution remain blocked. A valid A/B/C failure routes to retained `gamma_sub`
+plus the identifiability-boundary route.
 
 Do not rerun S1 or v6-v8; train a PINN; generate Phase 2 data; run inverse;
 modify frozen GT; add nonzero coupling; run FEM/3D, M44, or NbO2; or claim

@@ -1,0 +1,195 @@
+task_id: Q2_PHASE1_V2_EQUIVALENCE_V2_ONE_SHOT_AUDIT
+schema_version: geophase_phase1_v2_equivalence_v2_one_shot_execution_v1
+status: authorized_pending_remote_execution_anchor_not_executed
+evidence_type: prospective_implementation_equivalence_execution_contract
+manuscript_use: reviewer_defense_for_reference_solver_implementation_equivalence
+
+authority_lock:
+  base_main: 85d5c7ba5b0da8c3919e2ccc5a844ded4dcbec68
+  closure_v3_merge_commit: 85d5c7ba5b0da8c3919e2ccc5a844ded4dcbec68
+  branch: codex/phase1-v2-equivalence-v2-one-shot-audit
+  strict_equivalence_v1:
+    disposition: NO_GO_EQUIVALENT_PERFORMANCE_REPAIR
+    completed_rows: 12
+    expected_rows: 57
+    immutable: true
+  user_authorization:
+    task_name: Q2_PHASE1_V2_EQUIVALENCE_V2_ONE_SHOT_AUDIT
+    authorization_date: 2026-07-31
+    scope: one_nonretryable_frozen_57_row_equivalence_v2_audit
+
+frozen_closure_v3:
+  config:
+    path: configs/geophase_phase1_v2_equivalence_v2_comparator_closure_v3.yaml
+    sha256: 931d69d23cd446c451288dc0f3c9f639e214721da7c6e50bc2b5aca01e852a1b
+  report:
+    path: docs/research_strategy/phase1_v2_equivalence_v2_comparator_closure_v3.md
+    sha256: 352a7a9fbf48c884d48e14ee5f401f3cfec39e6e2980b07748fa4ed44d37bf97
+  preregistration:
+    path: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_comparator_closure_v3/preregistration.json
+    sha256: cc6de62b4eebae48cbaebbf55ef4bbd8b022d60cc75276afba9ce44470d7d42a
+  comparator:
+    path: src/pinnpcm/audit/geophase_phase1_v2_equivalence_v2_comparator_v3.py
+    sha256: e902e6f06b9213e1ce4278b003de588358fe03fe193391fafebc26aeda095851
+  field_manifest:
+    path: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/coverage_correction/mechanical_field_contract.csv
+    sha256: 670dbb5acee9bc0bc4796e9c54d9de39c5a4016cc7344f1eff5f53291fb74f07
+    expected_templates: 638
+  plan_manifest:
+    path: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/coverage_correction/mechanical_plan_contract.csv
+    sha256: cc65de070be1efd9951d609a96e4e1311bbcbf178f9ff478d0a0a2cd3d149c0e
+    expected_rows: 57
+    exact_plan_indices:
+      inclusive_start: 0
+      inclusive_end: 56
+      order: strictly_increasing_by_one
+
+frozen_numerical_identity:
+  candidate:
+    commit: 1ae2704f6d84a3733d9de58aa23d992aa0c471a5
+    tree: d3833a4a5dd067dab72c84f15fe2f8e726bd9512
+    identity_path: outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/optimized_candidate_identity.json
+    identity_sha256: 39044f37c983060df48e9915c594f69fbfbeacc60eef9a32bc352bdb5ec25b10
+    code_change: forbidden
+  oracle:
+    commit: 85e4257fc01af2e0bf706ef9001f263b1420ecaa
+    tree: 50ef2214b19f98c6cada0f5f40c682de9eb16bee
+    source_git_blob: fd0e0773255181b037c4d6b6be4e482b735d1eff
+    source_sha256: e1a349ca0275021508cd07da02576adafbbcdae81e122659274769f329016a37
+    code_change: forbidden
+  production_plan_builder:
+    path: src/pinnpcm/solvers/geophase_phase1_v2_performance_equivalence.py
+    sha256: 05868658ca199737600d796fbdcd4eb2661d222cc749e95a3530c1ea7078ebdc
+    source_function: build_equivalence_plan
+    modification: forbidden
+  performance_contract:
+    path: configs/geophase_phase1_v2_source_corrected_performance_repair.yaml
+    sha256: 84e1ecb298cfa6264646cc5e74df602b3e9e790e3eecfdc1abea62c087e87db4
+  execution_DAG:
+    path: outputs/tables/geophase_phase1_v2_source_corrected_v3/runtime_readiness/execution_dag.json
+    sha256: da93d717e0fae2fb5431457b921f901a8651bd987346f4df493a94144ded786a
+
+execution_identity:
+  control_plane_source: src/pinnpcm/audit/geophase_phase1_v2_equivalence_v2_one_shot.py
+  production_wiring_source: src/pinnpcm/audit/geophase_phase1_v2_equivalence_v2_production_adapter.py
+  cli: scripts/run_geophase_phase1_v2_equivalence_v2_one_shot.py
+  source_sha256: cb0d644909faa9e8ea9161327d06c5b6f48243fde35e46c4116f5ca69af7a826
+  production_wiring_sha256: e4bc77d4e369aa1b90ecf99a9fb3ecb0217ba1253212e44b0c807167816a5899
+  cli_sha256: ef3d5fbde7537e55e93103066560cdf0b5181e7fc583792a49c5e4efa9202c3a
+  remote_anchor_commit: "0000000000000000000000000000000000000000"
+  clean_checkout_CI: required_before_execution_and_verified_externally
+  frozen_comparison_entrypoints:
+    - load_preregistered_contract_bundle
+    - observation_to_record
+    - compare_record_pair
+    - finalise_plan_terminal
+  forbidden_entrypoints:
+    - run_equivalence_audit
+    - compare_observations
+    - strict_equivalence_v1_comparator
+
+execution_control:
+  execution_attempt_limit: 1
+  initial_equivalence_v2_execution_count: 0
+  counter_transition: atomic_0_to_1_immediately_before_plan_index_0_schedule
+  automatic_retry: false
+  manual_retry: false
+  process_count: 1
+  thread_count: 1
+  exact_plan_order:
+    inclusive_start: 0
+    inclusive_end: 56
+    sequence: ascending_without_skip_reorder_or_retry
+  metric_development_partition:
+    inclusive_start: 0
+    inclusive_end: 11
+    count: 12
+  held_out_partition:
+    inclusive_start: 12
+    inclusive_end: 56
+    count: 45
+  fail_fast: first_valid_A_B_or_C_failure
+  preview_or_partial_trial_before_attempt: forbidden
+
+comparison_rules:
+  A_primary_physical:
+    threshold: 1.0e-12
+    formula_change: forbidden
+  B_topology_and_state_machine:
+    comparator: canonical_exact_equality
+  C_lateral_conservation_and_flux:
+    formulas_and_constants: frozen_closure_v3
+    candidate_and_oracle_each_pass_original_hard_gate: true
+    hard_gate_disposition_exact: true
+  field_manifest_bypass: forbidden
+  comparator_bypass: forbidden
+
+journal_and_publication:
+  journal_format: append_only_JSONL_hash_chain
+  writer: single_process_single_writer
+  row_publication: temp_write_flush_fsync_hash_verify_atomic_rename
+  output_publication: temp_write_flush_fsync_hash_verify_atomic_rename
+  partial_row_counts_as_completed: false
+  row_identity_binding:
+    - plan_index
+    - sample_id
+    - family
+    - grid_id
+    - input_sha256
+
+terminal_states:
+  PASS:
+    predicate: exact_explicit_ordered_57_of_57_rows_and_all_A_B_C_votes_pass
+  VALID_FAIL:
+    predicate: valid_bilateral_record_with_first_missing_extra_nonfinite_invalid_NA_validation_or_A_B_C_failure
+    route: STOP_S2_ACTIVATE_GAMMA_SUB_without_automatic_experiment
+  INVALID_INFRA:
+    predicate: authority_environment_IO_serialization_journal_or_execution_integrity_failure
+    vote: none
+
+environment_lock:
+  execution_processes: 1
+  thread_environment:
+    PYTHONHASHSEED: "0"
+    OMP_NUM_THREADS: "1"
+    OPENBLAS_NUM_THREADS: "1"
+    MKL_NUM_THREADS: "1"
+    NUMEXPR_NUM_THREADS: "1"
+  mismatch_disposition: INVALID_INFRA
+
+machine_records:
+  execution_authorization: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_audit/execution_authorization.json
+  execution_registry: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_audit/execution_registry.json
+  existing_preregistration: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_audit/preregistration.json
+
+planned_outputs:
+  namespace: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_audit
+  journal: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_audit/audit_journal.jsonl
+  electrical: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_audit/electrical_equivalence_v2.csv
+  interval: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_audit/interval_equivalence_v2.csv
+  progression: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_audit/progression_equivalence_v2.csv
+  failure: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_audit/failure_equivalence_v2.csv
+  summary: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_audit/equivalence_v2_summary.json
+  report: docs/codex_reports/geophase_phase1_v2_equivalence_v2_one_shot_audit.md
+
+execution_counts:
+  equivalence_v2_execution_count: 0
+  equivalence_v2_completed_rows: 0
+  equivalence_v2_result_artifact_count: 0
+  formal_execution_count: 0
+  formal_artifact_count: 0
+
+claim_boundary:
+  lifecycle_state: implemented
+  claim_status: forbidden
+  strict_equivalence_v1: NO_GO_12_of_57_unchanged
+  equivalence_v2: authorized_but_not_started
+  Phase1_S2_science: forbidden
+  PINN_claims: forbidden
+
+prohibitions:
+  v1_rerun: forbidden
+  metric_validity_or_coverage_recompute: forbidden
+  second_performance_optimization: forbidden
+  C1_C2_C3_runtime_or_formal: forbidden
+  PINN_or_Phase2: forbidden

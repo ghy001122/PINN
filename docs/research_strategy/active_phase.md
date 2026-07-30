@@ -2,10 +2,10 @@
 
 Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
 
-Status: `phase1v2_equivalence_v2_comparator_closure_v3_local_pass_CI_merge_pending`
+Status: `phase1v2_equivalence_v2_one_shot_identity_pre_anchor`
 
 Current checkpoint:
-`PHASE1_V2_EQUIVALENCE_V2_COMPARATOR_CLOSURE_V3`
+`PHASE1_V2_EQUIVALENCE_V2_ONE_SHOT_AUDIT`
 
 Strict-equivalence-v1 substate: `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`
 
@@ -32,6 +32,10 @@ independent from future PINN residual code.
 - `configs/geophase_phase1_v2_equivalence_v2_comparator_closure_v3.yaml`
 - `docs/research_strategy/phase1_v2_equivalence_v2_comparator_closure_v3.md`
 - `outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_comparator_closure_v3/preregistration.json`
+- `configs/geophase_phase1_v2_equivalence_v2_one_shot_execution.yaml`
+- `outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_audit/execution_authorization.json`
+- `outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_audit/execution_registry.json`
+- `docs/codex_reports/geophase_phase1_v2_equivalence_v2_one_shot_audit.md`
 - `outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/metric_validity_summary.json`
 - `docs/method_equations.md`
 - `NEXT_ACTIONS.md`
@@ -59,8 +63,9 @@ manifest.
 - Comparator closure v3 preserves those identities and adds only solver-free
   fail-closed gates for exact dynamic-index coverage, L1/L2/L4 topology shape,
   frozen row/failure identity, exact 57-outcome terminal reduction, and narrow
-  result tracking. Its local focused set passed `152/152`; clean-checkout CI
-  and merge remain pending on this branch. No audit row has executed.
+  result tracking. It passed clean-checkout CI and merged at `85d5c7ba...`.
+  The one-shot runner identity is being anchored on its separate branch; no
+  audit row has executed.
 
 ## Pass And Stop Rules
 
@@ -97,11 +102,11 @@ authorization is conditional on those two gates.
 
 ## Immediate Next Checkpoint
 
-Complete closure-v3 focused controls and clean-checkout CI, then merge it
-without rewriting PR #12. Only after that merge may the separately frozen
-one-shot runner identity be created under the current conditional authorization.
-Preserve invalid-launch, strict-v1, harness, and metric-validity evidence; do
-not retry v1, re-optimize, or run readiness. If a conditional execution gate
-blocks the v2 audit or a later valid A/B/C vote fails, route to `gamma_sub` plus the
-identifiability-boundary manuscript. Phase 1 science remains `forbidden` and
-unassessed.
+Commit and push the separately versioned runner identity, create its draft PR,
+bind the remote runner commit and source hashes, and require current-head
+clean-checkout CI before consuming the only attempt. Then execute the frozen
+`0..56` plan once, without preview or retry. Preserve invalid-launch,
+strict-v1, harness, metric-validity and closure-v3 evidence. A valid A/B/C
+failure routes to `gamma_sub` plus the identifiability-boundary manuscript;
+an infrastructure failure casts no vote. Phase 1 science remains `forbidden`
+and unassessed.
