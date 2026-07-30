@@ -165,8 +165,8 @@ def test_equivalence_v2_machine_preregistration_is_content_addressed_and_zero() 
     assert record["formal_artifact_count"] == 0
 
 
-def test_equivalence_v2_current_route_and_fast_CI_are_contract_only() -> None:
-    checkpoint = "PHASE1_V2_EQUIVALENCE_V2_COMPARATOR_CLOSURE_V3"
+def test_equivalence_v2_current_route_and_fast_CI_preserve_one_shot_gate() -> None:
+    checkpoint = "PHASE1_V2_EQUIVALENCE_V2_ONE_SHOT_AUDIT"
     for path in (
         ROOT / "CODEX_CONTEXT.md",
         ROOT / "PROJECT_STATE.md",
@@ -182,6 +182,14 @@ def test_equivalence_v2_current_route_and_fast_CI_are_contract_only() -> None:
     assert "tests/test_geophase_phase1_v2_equivalence_v2_executability.py" in workflow
     assert (
         "tests/test_geophase_phase1_v2_equivalence_v2_comparator_closure_v3.py"
+        in workflow
+    )
+    assert (
+        "tests/test_geophase_phase1_v2_equivalence_v2_one_shot_control_plane.py"
+        in workflow
+    )
+    assert (
+        "tests/test_geophase_phase1_v2_equivalence_v2_one_shot_execution_preregistration.py"
         in workflow
     )
     assert "run_geophase_phase1_v2_equivalence" not in workflow
