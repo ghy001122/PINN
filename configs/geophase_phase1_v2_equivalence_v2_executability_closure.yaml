@@ -1,0 +1,240 @@
+task_id: Q2_PHASE1_V2_EQUIVALENCE_V2_EXECUTABILITY_CLOSURE
+schema_version: geophase_phase1_v2_equivalence_v2_executability_closure_v2
+status: superseding_preregistered_not_authorized_not_executed
+evidence_type: prospective_solver_free_equivalence_contract_evidence
+manuscript_use: reviewer_defense_for_reference_solver_implementation_equivalence
+
+authority_lock:
+  PR12_original_head: 6526f2af087ca1a88b56e2ea0f9a2b68c41ac53b
+  PR12_base_main: 2da569e0bdb902ff665dcfce2ee019a6d36986d5
+  strict_equivalence_v1:
+    disposition: NO_GO_EQUIVALENT_PERFORMANCE_REPAIR
+    completed_rows: 12
+    expected_rows: 57
+    immutable: true
+  future_equivalence_v2_execution_authorized: false
+
+supersedes:
+  relation: contract_executability_correction_without_rewriting_predecessors
+  immutable_predecessors:
+    equivalence_v2_contract_v1:
+      path: configs/geophase_phase1_v2_equivalence_v2_audit.yaml
+      sha256: a8acdd1b0a56074b82cc000bc15846890a3cb3d913f863a7191786396747f851
+    equivalence_v2_contract_document_v1:
+      path: docs/research_strategy/phase1_v2_equivalence_v2_audit_contract.md
+      sha256: 8d25d6aad458b07f667eee5f594727e6097beb0992b1310f6c60df0f1078a945
+    equivalence_v2_machine_preregistration_v1:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_audit/preregistration.json
+      sha256: 3a7f8e506a21eeb088cef9896bcb1dd015bd125e5b01c37ded1c672262e22a08
+    performance_contract:
+      path: configs/geophase_phase1_v2_source_corrected_performance_repair.yaml
+      sha256: 84e1ecb298cfa6264646cc5e74df602b3e9e790e3eecfdc1abea62c087e87db4
+    coverage_correction_summary:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/coverage_correction/coverage_correction_summary.json
+      sha256: 41e54f6f64c3902f14e1ef00d579f48c23306d8bf5666999064a9e40e200d298
+    source_corrected_S2_config:
+      path: configs/geophase_phase1_v2_s2_reference_source_corrected_v3.yaml
+      sha256: ea668ac66c8f2f2267b059bd816a4116def086708f2f7eeded07d64a2857aff4
+    v1_comparator_and_plan_builder:
+      path: src/pinnpcm/solvers/geophase_phase1_v2_performance_equivalence.py
+      sha256: 05868658ca199737600d796fbdcd4eb2661d222cc749e95a3530c1ea7078ebdc
+    streaming_schema:
+      path: src/pinnpcm/solvers/geophase_phase1_v2_streaming.py
+      sha256: 80ab0f1729a94074b8cfd850f4e8f8450be28c7d2d6e33382f5a7b5294dc5923
+    lateral_audit:
+      path: src/pinnpcm/solvers/geophase_phase1_v2_fvm.py
+      sha256: 5ac770dbe038f69aa834917a3370c31a78a1ee6760abf618edd462245db08a62
+    controller_v2_hard_gate:
+      path: src/pinnpcm/solvers/geophase_phase1_v2_controller_v2.py
+      sha256: e4332c5b103072e3de277b8788dbbf2bda48c65636cb5c1d8dd361bc9953f7ed
+    execution_DAG:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/runtime_readiness/execution_dag.json
+      sha256: da93d717e0fae2fb5431457b921f901a8651bd987346f4df493a94144ded786a
+
+comparison_engine:
+  path: src/pinnpcm/audit/geophase_phase1_v2_equivalence_v2_comparator.py
+  sha256: 40418f346ca990d996bf4987b0494e6f1d3f5bc9590cd0c615cd9a327994a30c
+  input_boundary: normalized_candidate_and_oracle_records_plus_contract_and_manifests
+  solver_import_or_execution: forbidden
+  audit_plan_scheduler_or_runner: absent_by_contract
+
+field_manifest:
+  path: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/coverage_correction/mechanical_field_contract.csv
+  sha256: 670dbb5acee9bc0bc4796e9c54d9de39c5a4016cc7344f1eff5f53291fb74f07
+  parsed_template_count: 638
+  composite_identity_root_sha256: ee2bece1f6294ba1985f76bd7e3f613346bb94e24667e407063eecf2b12e8f31
+  stable_composite_identity: [family, value_kind, field_pattern]
+  all_templates_must_map_exactly_once: true
+  unregistered_or_bypassed_field_disposition: VALID_FAIL
+
+plan_manifest:
+  path: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/coverage_correction/mechanical_plan_contract.csv
+  sha256: cc65de070be1efd9951d609a96e4e1311bbcbf178f9ff478d0a0a2cd3d149c0e
+  parsed_plan_count: 57
+  ordered_rows_identity_sha256: 35ad1d096855fd87f23099bad371c9f44ecc7f1c449caa25ecdff814df0a57e5
+  record_metadata_must_bind_exact_row: true
+
+protocol_voltage_scale_V: 15.8
+
+A_primary_physical:
+  threshold: 1.0e-12
+  threshold_change: forbidden
+  normalized_denominators:
+    time_s: 1.0e-9
+    temperature_K: 7.19
+    conductive_state: 1.0
+    branch_memory: 1.0
+    device_voltage_V: fixed_protocol_V_scale
+    potential_V: fixed_protocol_V_scale
+    terminal_current_A: 1.0e-12
+    power_W: 1.0e-30
+    relative_residual: 1.0
+    ledger_power_terms: max_of_all_signed_terms_and_1e-30
+
+B_exact_topology:
+  comparator: canonical_exact_equality
+  accepted_tokens: [accepted, rejected]
+  event_direction_tokens: [upward, downward]
+  reversal_direction_tokens: [heating_to_cooling, cooling_to_heating]
+  empty_event_or_reversal_sequence_is_only_valid_NA: true
+  missing_extra_nonfinite_or_invalid_NA: VALID_FAIL
+
+C_lateral_rules:
+  roundoff_multiplier: 64.0
+  face_state_factor: 2.0
+  hard_relative_threshold: 1.0e-10
+  hard_roundoff_threshold: 1.0
+  vote_ratio_threshold: 1.0
+
+C_lateral_formulas:
+  x_face_bound: 2*g_x_max*delta_T_inf + 64*machine_epsilon*max(g_x_max*T_scale,q_scale)
+  y_face_bound: 2*g_y_max*delta_T_inf + 64*machine_epsilon*max(g_y_max*T_scale,q_scale)
+  net_cell_bound: L_infinity_norm*delta_T_inf + 64*machine_epsilon*max(L_infinity_norm*T_scale,q_scale)
+  cancellation_bound: 64*machine_epsilon*2*(n_x_faces*q_x_scale+n_y_faces*q_y_scale)
+  streaming_scalar_cancellation_scale: maximum_of_all_voting_history_x_and_y_flux_denominators_in_same_observation
+  observed_difference_derived_threshold: forbidden
+  physical_x_y_and_net_flux_remain_voting: true
+  candidate_and_oracle_each_pass_original_hard_gate: true
+  hard_gate_disposition_exact: true
+
+operator_contexts:
+  L1:
+    shape: [25, 10]
+    g_x_max_W_K: 2.6817e-05
+    g_y_max_W_K: 6.70425e-06
+    L_infinity_norm_W_K: 8.355830347249883e-05
+    n_x_faces: 225
+    n_y_faces: 240
+  L2:
+    shape: [50, 20]
+    g_x_max_W_K: 2.6817e-05
+    g_y_max_W_K: 6.70425e-06
+    L_infinity_norm_W_K: 0.00013408500000000001
+    n_x_faces: 950
+    n_y_faces: 980
+  L4:
+    shape: [100, 40]
+    g_x_max_W_K: 2.6817e-05
+    g_y_max_W_K: 6.70425e-06
+    L_infinity_norm_W_K: 0.00013408500000000001
+    n_x_faces: 3900
+    n_y_faces: 3960
+
+operator_context_provenance:
+  source_config:
+    path: configs/geophase_phase1_v2_s2_reference_source_corrected_v3.yaml
+    sha256: ea668ac66c8f2f2267b059bd816a4116def086708f2f7eeded07d64a2857aff4
+  lateral_implementation:
+    path: src/pinnpcm/solvers/geophase_phase1_v2_fvm.py
+    sha256: 5ac770dbe038f69aa834917a3370c31a78a1ee6760abf618edd462245db08a62
+  derivation_timing: solver_free_static_contract_construction_before_any_v2_audit
+
+ordered_plan_partition:
+  metric_development:
+    inclusive_start: 0
+    inclusive_end: 11
+    count: 12
+    execution_identity: frozen_v1_observation_only_not_a_v2_result
+  held_out:
+    inclusive_start: 12
+    inclusive_end: 56
+    count: 45
+    execution_before_fresh_authorization: forbidden
+
+environment_lock:
+  machine_bound: true
+  operating_system: Windows-10-10.0.26200-SP0
+  architecture: AMD64
+  python_implementation: CPython
+  python_version: 3.11.9
+  numpy_version: 1.26.4
+  scipy_version: 1.13.1
+  pyyaml_version: 6.0.1
+  logical_processors: 12
+  execution_processes: 1
+  thread_environment:
+    PYTHONHASHSEED: "0"
+    OMP_NUM_THREADS: "1"
+    OPENBLAS_NUM_THREADS: "1"
+    MKL_NUM_THREADS: "1"
+    NUMEXPR_NUM_THREADS: "1"
+  dependency_locks:
+    requirements_sha256: 93f371d6f39dc8477bc5090a1efc172955f40686c045f09551a18b1b9d0bfa5b
+    pyproject_sha256: 95140084a80d56cb823ff23121bc6580e8ec45a1b50201753e6baf9ca5c5391a
+  mismatch_disposition: INVALID_INFRA
+
+terminal_truth_table:
+  INVALID_INFRA:
+    events:
+      - AUTHORITY_FAILURE
+      - ENVIRONMENT_FAILURE
+      - MANIFEST_IO_FAILURE
+      - MANIFEST_HASH_FAILURE
+      - MANIFEST_PARSE_FAILURE
+      - CONTRACT_FAILURE
+      - CANONICAL_SERIALIZATION_FAILURE
+      - EXECUTION_INTEGRITY_FAILURE
+    stage: before_complete_auditable_bilateral_record_or_plan_integrity
+  VALID_FAIL:
+    events: [RECORD_VALIDATION_FAILURE, FIELD_VOTE_FAILURE]
+    stage: valid_contract_and_manifest_with_auditable_record_content_or_vote_failure
+  PASS:
+    events: [COMPLETE_PASS]
+    predicate: exact_plan_0_through_56_complete_and_all_fields_and_votes_pass
+  text_message_inference: forbidden
+
+sealed_synthetic_fixtures:
+  definitions_path: tests/fixtures/geophase_phase1_v2_equivalence_v2/sealed_contract_cases.json
+  definitions_sha256: f545e42346398aae4ebff73e90d94180c75876117dcdaf62cd2a6e2d2ca0e872
+  evidence_type: synthetic_contract_evidence_nonvoting
+  audit_row_count: 0
+  result_namespace_use: forbidden
+  production_extractor_path_required: true
+
+execution_counts:
+  equivalence_v2_execution_count: 0
+  equivalence_v2_completed_rows: 0
+  equivalence_v2_result_artifact_count: 0
+  formal_execution_count: 0
+  formal_artifact_count: 0
+
+execution_prohibitions:
+  equivalence_v1_remaining_45_rows: forbidden
+  equivalence_v2_57_rows: forbidden
+  candidate_or_oracle_execution: forbidden
+  C1_C2_C3_or_runtime_preflight: forbidden
+  formal_runner_or_campaign: forbidden
+  PINN_or_Phase2: forbidden
+  audit_runner_or_scheduler_creation: forbidden
+
+claim_boundary:
+  lifecycle_state: implemented
+  claim_status: forbidden
+  strict_equivalence_v1: NO_GO_12_of_57_unchanged
+  current_disposition_if_all_solver_free_gates_pass: READY_FOR_ONE_EQUIVALENCE_V2_AUDIT
+  meaning: contract_executable_but_future_57_row_execution_not_authorized
+
+planned_outputs:
+  namespace: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_contract_executability
+  preregistration: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_contract_executability/preregistration.json
+  numerical_result_files: forbidden

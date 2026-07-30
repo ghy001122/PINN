@@ -1,6 +1,6 @@
 {
   "audit": "project_governance",
-  "audit_scope": "full",
+  "audit_scope": "fast_checkout",
   "overall_status": "pass_with_manual_review",
   "failed_checks": [],
   "manual_review_required": [
@@ -14,7 +14,7 @@
     },
     "current_handoff": {
       "status": "pass",
-      "bytes": 1291,
+      "bytes": 2035,
       "missing_markers": []
     },
     "single_current_snapshot": {
@@ -30,6 +30,22 @@
     "delivery_contract": {
       "status": "pass",
       "missing": []
+    },
+    "revision_rules_integration": {
+      "status": "pass",
+      "source_sha256": "937F6C5CCF6132C9E396C3906F07BCC87F218438109560105C1E9F71CBEBF304",
+      "expected_rule_count": 75,
+      "mapped_rule_count": 75,
+      "missing_ids": [],
+      "unexpected_ids": [],
+      "duplicate_ids": [],
+      "missing_markers": [],
+      "problems": []
+    },
+    "current_router_semantics": {
+      "status": "pass",
+      "missing": [],
+      "obsolete": []
     },
     "no_obsolete_current_route": {
       "status": "pass",
@@ -72,6 +88,10 @@
       "status": "pass",
       "missing": []
     },
+    "phase1v2_preregistration": {
+      "status": "pass",
+      "missing": []
+    },
     "claim_vocabulary": {
       "status": "pass",
       "all_four_present": true
@@ -83,24 +103,24 @@
     "agents_chain_size": {
       "status": "pass",
       "bytes": {
-        "src/pinnpcm/physics/AGENTS.md": 8876,
-        "src/pinnpcm/pinn/AGENTS.md": 9008,
-        "scripts/AGENTS.md": 8863,
-        "tests/AGENTS.md": 8713,
-        "docs/AGENTS.md": 8843
+        "src/pinnpcm/physics/AGENTS.md": 14114,
+        "src/pinnpcm/pinn/AGENTS.md": 14330,
+        "scripts/AGENTS.md": 13903,
+        "tests/AGENTS.md": 13080,
+        "docs/AGENTS.md": 14538
       },
       "oversized": {}
     },
     "low_token_context_budget": {
       "status": "pass",
       "limit_bytes": 24576,
-      "total_bytes": 19847,
+      "total_bytes": 23996,
       "files": {
-        "CODEX_CONTEXT.md": 2611,
-        "docs/research_strategy/active_phase.md": 4325,
-        "PROJECT_STATE.md": 4369,
-        "NEXT_ACTIONS.md": 3266,
-        "docs/project_state/current_evidence_index.md": 5276
+        "CODEX_CONTEXT.md": 3410,
+        "docs/research_strategy/active_phase.md": 5663,
+        "PROJECT_STATE.md": 5867,
+        "NEXT_ACTIONS.md": 3240,
+        "docs/project_state/current_evidence_index.md": 5816
       }
     },
     "retired_generator_guard": {

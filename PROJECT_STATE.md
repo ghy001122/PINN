@@ -5,7 +5,7 @@
 - Delivery/phase: `Q2_SCI_DELIVERY_MODE` /
   `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
 - Parent checkpoint:
-  `PHASE1_V2_EQUIVALENCE_V2_CONTRACT_PREREGISTERED`.
+  `PHASE1_V2_EQUIVALENCE_V2_CONTRACT_EXECUTABLE_READY`.
 - Strict-equivalence-v1 substate: `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`.
 - Metric-validity substate: `GO_VERSIONED_EQUIVALENCE_V2_AUDIT`.
 - R1 `HysGeo-Hybrid-PINN` remains the minimum manuscript route; R2
@@ -27,17 +27,10 @@
 - Source-corrected v3 anchor `0ebe037...` replaces only the erroneous 15.0 V
   lock probe with qualitative 15.8 V. Its 63/60/3 inventory is unexecuted and
   the old bundle remains immutable.
-- The candidate remains frozen at commit/tree `1ae2704...`/`d3833a4...` and
-  identity `39044f37...`. Its historical pre-row launch remains invalid
-  infrastructure provenance: `0/57` rows, zero votes, and no comparison.
-- Harness identity `73f7d7d1...` enabled the sole valid audit. It completed
-  `12/57` rows and fail-fast rejected plan 11,
-  `EQ-INTERVAL-L1-legal_critical-base`: normalized difference
-  `1.4757614757614759 > 1e-12` at
-  `full_step.lateral.face_to_cell_global_residual_W`.
-- Disposition is `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`. This rejects strict
-  implementation equivalence, not S2 physics. No retry, further optimization,
-  C1/C2/C3, or formal execution is authorized.
+- Frozen candidate `1ae2704...`/`d3833a4...`/`39044f37...` and harness
+  `73f7d7d1...` produced the sole valid strict audit. It fail-fast rejected
+  plan 11 after `12/57`: `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`. This rejects
+  strict implementation equivalence, not S2 physics; retry is unauthorized.
 - A solver-free metric-validity audit was preregistered at `460cbef...` and
   completed in result commit `5301ce0...`. It preserved all v1 evidence,
   found `0/202` non-lateral v1 failures, kept all physical lateral quantities
@@ -49,6 +42,12 @@
   extractors and streaming AST yield 638 family-qualified templates across all
   57 rows; 21/21 raw controls pass. The v2 contract is preregistered with zero
   executions; no row is authorized.
+- The superseding PR #12 executability closure adds a record-only comparator,
+  direct content-addressed consumption of all 638 field templates and the
+  frozen 57-row plan, exhaustive typed terminal routing, explicit 12/45
+  partitions, and sealed raw-record negative controls. This is solver-free
+  contract evidence only: it executed no v1/v2 row, leaves
+  `equivalence_v2_execution_count=0`, and does not authorize the audit.
 - The S1 scientific claim is `forbidden`/unassessed; its timeouts are supported
   infrastructure provenance only. The v6-v8 material-stack route remains
   `failed_but_informative` with no formal execution.
@@ -82,8 +81,9 @@
 
 Strict-equivalence-v1 remains rejected at plan 11. Preserve its provenance,
 harness identity, and atomic outputs; do not retry it or optimize again. The
-solver-free validity audit supports the preregistered equivalence-v2 contract,
-but fresh authorization is still required. Do not run its 57 rows or C1/C2/C3.
+solver-free validity and executability audits support only a future one-shot
+equivalence-v2 contract; fresh authorization is still required. Do not run its
+57 rows or C1/C2/C3.
 Phase 1/S2 science remains `forbidden` and unassessed;
 formal execution, Phase 2, R1, and R2 stay blocked. If the versioned audit is
 not authorized or later fails a primary/physical/topology vote, activate the

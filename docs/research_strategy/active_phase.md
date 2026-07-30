@@ -2,10 +2,10 @@
 
 Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
 
-Status: `phase1v2_equivalence_v2_contract_preregistered_not_authorized`
+Status: `phase1v2_equivalence_v2_contract_executable_ready_not_authorized`
 
 Current checkpoint:
-`PHASE1_V2_EQUIVALENCE_V2_CONTRACT_PREREGISTERED`
+`PHASE1_V2_EQUIVALENCE_V2_CONTRACT_EXECUTABLE_READY`
 
 Strict-equivalence-v1 substate: `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`
 
@@ -31,6 +31,9 @@ independent from future PINN residual code.
 - `configs/geo2p5d_stage_source_corrected_v3.yaml`
 - `configs/geophase_phase1_v2_equivalence_v2_audit.yaml`
 - `docs/research_strategy/phase1_v2_equivalence_v2_audit_contract.md`
+- `configs/geophase_phase1_v2_equivalence_v2_executability_closure.yaml`
+- `docs/research_strategy/phase1_v2_equivalence_v2_executability_closure.md`
+- `outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_contract_executability/preregistration.json`
 - `outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/metric_validity_summary.json`
 - `docs/method_equations.md`
 - `NEXT_ACTIONS.md`
@@ -60,6 +63,10 @@ manifest.
   equivalence remains `forbidden`/unassessed.
 - The v2 contract locks identities, 57-row order, A/B/C rules, and terminal
   states; execution is zero and unauthorized.
+- Its superseding executability closure directly loads all 638 field templates
+  and the 57-row plan, binds record metadata, executes the unchanged A/B/C
+  rules, and seals solver-free tamper controls. It contains no audit scheduler
+  or numerical entry point; both equivalence-v2 and formal counts remain zero.
 
 ## Pass And Stop Rules
 
@@ -94,7 +101,8 @@ equivalence-v2 57-row audit without fresh user authorization.
 
 ## Immediate Next Checkpoint
 
-Stop at the draft v2-contract PR and wait for explicit audit authorization.
+Stop after the executable v2 contract is merged and wait for explicit audit
+authorization.
 Preserve invalid-launch, strict-v1, harness, and metric-validity evidence; do
 not retry v1, re-optimize, or run readiness. If the v2 audit is not authorized
 or later has a valid A/B/C failure, route to retained `gamma_sub` plus the
