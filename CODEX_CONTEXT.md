@@ -4,7 +4,7 @@
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
 - Active phase/checkpoint: `Q2_PHASE1_2P5D_REFERENCE_SOLVER` /
-  `PHASE1_V2_SOURCE_CORRECTED_V3_PERFORMANCE_REPAIR_PREREGISTERED_PENDING_IMPLEMENTATION`.
+  `PHASE1_V2_EQUIVALENCE_METRIC_VALIDITY_AUDIT_COMPLETE`.
 - Current contract/config:
   `docs/research_strategy/phase1_geophase_2p5d_reference_v2_contract.md` /
   `configs/geophase_phase1_v2_s2_reference_source_corrected_v3.yaml`.
@@ -47,21 +47,30 @@ aggregate memory/disk vote, or dormant-runner result was eligible. Disposition:
 `NO_GO_RUNTIME_PERFORMANCE_ONLY`.
 
 The versioned v3 source correction replaces the erroneous 15.0 V lock probe
-with the qualitative 15.8 V lock probe. Its config-only bundle is anchored at
-`0ebe037...`; the old 15 V bundle remains immutable and unexecuted. The user
-authorized the single strict-equivalence performance attempt. Its versioned
-contract is locked at config SHA-256 `84e1ecb...`; the containing commit must
-be remote before implementation, microbenchmarking, or numerics.
-Formal execution, Phase 2, R1, and R2 remain blocked.
+with the qualitative 15.8 V lock probe and remains anchored at `0ebe037...`.
+The sole strict-equivalence-v1 attempt remains
+`NO_GO_EQUIVALENT_PERFORMANCE_REPAIR` at `12/57` and is immutable.
+
+A separately preregistered solver-free metric-validity audit is complete:
+`GO_VERSIONED_EQUIVALENCE_V2_AUDIT`. All 202 non-lateral fields retained and
+passed the `1e-12` v1 gate; all nine physical lateral comparisons remained
+voting and passed analytic mixed bounds (maximum ratio `0.129647`); six
+cancellation checks and 13 synthetic tamper controls passed. This authorizes
+only a fresh, separately versioned 57-row audit after explicit user approval.
+Optimized equivalence, runtime readiness, formal execution, Phase 2, R1, and
+R2 remain blocked.
 
 ## Claim Boundary
 
 Allowed: describe the guide, preregistered contracts, implemented S2 solver,
 bounded smoke/C1/C2 integrity, performance-only C3 stop, the versioned 15.8 V
-source correction, source audit, and historical results with qualifications.
+source correction, source audit, the qualified metric-validity result, and
+historical results with qualifications.
 
 Forbidden: Phase 1 success or scientific failure; campaign four-hour
 feasibility/infeasibility; memory/disk pass or failure; formal authorization;
+optimized-solver equivalence or permission to run equivalence-v2 without fresh
+authorization; demotion of physical lateral fluxes to telemetry;
 Qiu reproduction/calibration; positive R1/R2; OQ or sensitivity fidelity;
 arbitrary hidden-field recovery; experimental/FEM/3D validation; universal
 spectral superiority; or VO2-to-NbO2 zero-shot transfer.

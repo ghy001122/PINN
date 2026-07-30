@@ -87,10 +87,7 @@ def test_route_only_runner_validates_v3_and_cannot_execute_before_preregistratio
 
 
 def test_authority_chain_and_fast_validation_select_the_v3_route_tests() -> None:
-    checkpoint = (
-        "PHASE1_V2_SOURCE_CORRECTED_V3_"
-        "PERFORMANCE_REPAIR_PREREGISTERED_PENDING_IMPLEMENTATION"
-    )
+    checkpoint = "PHASE1_V2_EQUIVALENCE_METRIC_VALIDITY_AUDIT_COMPLETE"
     for path in (
         ROOT / "CODEX_CONTEXT.md",
         ROOT / "PROJECT_STATE.md",
@@ -100,6 +97,7 @@ def test_authority_chain_and_fast_validation_select_the_v3_route_tests() -> None
         text = path.read_text(encoding="utf-8")
         assert checkpoint in text
         assert "0ebe037" in text
+        assert "GO_VERSIONED_EQUIVALENCE_V2_AUDIT" in text
 
     workflow = WORKFLOW_PATH.read_text(encoding="utf-8")
     assert "tests/test_geophase_phase1_v2_source_corrected_v3_preregistration.py" in workflow

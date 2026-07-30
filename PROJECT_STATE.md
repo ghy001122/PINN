@@ -5,9 +5,9 @@
 - Delivery/phase: `Q2_SCI_DELIVERY_MODE` /
   `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
 - Parent checkpoint:
-  `PHASE1_V2_SOURCE_CORRECTED_V3_PERFORMANCE_REPAIR_PREREGISTERED_PENDING_IMPLEMENTATION`.
-- Equivalence-audit substate:
-  `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`.
+  `PHASE1_V2_EQUIVALENCE_METRIC_VALIDITY_AUDIT_COMPLETE`.
+- Strict-equivalence-v1 substate: `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`.
+- Metric-validity substate: `GO_VERSIONED_EQUIVALENCE_V2_AUDIT`.
 - R1 `HysGeo-Hybrid-PINN` remains the minimum manuscript route; R2
   `GeoPhase-HomoMoE-PINN` is the preferred upgrade; R3 is conditional.
 - Phase 1-v2 is a Qiu-inspired single-device VO2 x-y plane with explicit VO2,
@@ -38,6 +38,12 @@
 - Disposition is `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`. This rejects strict
   implementation equivalence, not S2 physics. No retry, further optimization,
   C1/C2/C3, or formal execution is authorized.
+- A solver-free metric-validity audit was preregistered at `460cbef...` and
+  completed in result commit `5301ce0...`. It preserved all v1 evidence,
+  found `0/202` non-lateral v1 failures, kept all physical lateral quantities
+  voting, and passed `9/9` analytic physical bounds, `6/6` cancellation bounds,
+  and `13/13` synthetic tamper controls. Its qualified disposition is
+  `GO_VERSIONED_EQUIVALENCE_V2_AUDIT`, not an equivalence pass.
 - The S1 scientific claim is `forbidden`/unassessed; its timeouts are supported
   infrastructure provenance only. The v6-v8 material-stack route remains
   `failed_but_informative` with no formal execution.
@@ -63,6 +69,7 @@
 | Source-corrected v3 bundle | `supported` config-only preregistration | Qiu Figure 2/SI Figure S2 correct the active qualitative lock probe to 15.8 V; 63/60/3, formal count zero, no calibration/validation claim. |
 | Strict-equivalence invalid launch | `supported` infrastructure provenance; numerical claim `forbidden` / unassessed | Frozen candidate `1ae2704...`; invalid before row 1; 0/57 rows, zero votes, no candidate/oracle numerical comparison, formal execution/artifact counts zero. |
 | Valid strict-equivalence audit | `failed_but_informative` for implementation equivalence; S2 science remains `forbidden` / unassessed | Valid fail-fast at plan 11 after 12/57 rows; maximum `1.4757614757614759 > 1e-12`; progression/failure-topology were not reached; formal counts zero. |
+| Equivalence metric-validity audit | `qualified_supported` solver-free audit | General category mismatch demonstrated; physical lateral fluxes remain voting; maximum analytic-bound ratio `0.129647`; optimized equivalence remains unassessed. |
 | v6-v8 material-stack route | `failed_but_informative` | v8 depth-frequency gate failed; 96 items unexecuted. |
 | Phase 1-v2 reference result | `forbidden` | Requires every gate in an authorized formal campaign. |
 | R1/R2/R3 positive claims | `forbidden` | Require sequential direct evidence. |
@@ -77,12 +84,14 @@
 
 ## Delivery Boundary
 
-The sole valid audit rejected strict equivalence at plan 11. Preserve the
-invalid-launch provenance, harness identity, and atomic outputs; do not retry,
-optimize again, or run C1/C2/C3. Under the locked performance budget the S2
-positive route stops pending explicit activation of the retained `gamma_sub`
-plus identifiability-boundary manuscript route. Phase 1/S2 science remains
-`forbidden` and unassessed; formal execution, Phase 2, R1, and R2 stay blocked.
+Strict-equivalence-v1 remains rejected at plan 11. Preserve its provenance,
+harness identity, and atomic outputs; do not retry it or optimize again. The
+solver-free validity audit supports only a separately versioned equivalence-v2
+audit after fresh user authorization. Until that decision, do not run the
+57-row audit or C1/C2/C3. Phase 1/S2 science remains `forbidden` and unassessed;
+formal execution, Phase 2, R1, and R2 stay blocked. If the versioned audit is
+not authorized or later fails a primary/physical/topology vote, activate the
+retained `gamma_sub` plus identifiability-boundary route.
 
 Do not rerun S1 or v6-v8; train a PINN; generate Phase 2 data; run inverse;
 modify frozen GT; add nonzero coupling; run FEM/3D, M44, or NbO2; or claim

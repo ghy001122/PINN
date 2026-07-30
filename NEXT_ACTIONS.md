@@ -2,84 +2,68 @@
 
 ## Authoritative Current Queue
 
-Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
+- Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
+- Checkpoint: `PHASE1_V2_EQUIVALENCE_METRIC_VALIDITY_AUDIT_COMPLETE`.
+- Strict-equivalence-v1: `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`.
+- Metric validity: `GO_VERSIONED_EQUIVALENCE_V2_AUDIT`.
+- The 63 formal evaluations / 60 executions / 3 reuses remain
+  `planned_not_executed`; `formal_execution_count=0` and formal artifacts are
+  zero.
 
-Checkpoint state:
-`PHASE1_V2_SOURCE_CORRECTED_V3_PERFORMANCE_REPAIR_PREREGISTERED_PENDING_IMPLEMENTATION`.
+## Preserved Predecessor Evidence
 
-Equivalence-audit substate:
-`NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`.
+- Source-corrected v3 remains anchored at `0ebe037...`; the active qualitative
+  high-bias probe is 15.8 V and the old 15 V bundle is historical/unexecuted.
+- S2 implementation and `7/7` bounded smoke are software evidence only.
+- Controller-v2 C1/C2 passed bounded integrity/parity. C3 stopped at `0/18`
+  intervals and `1/9` trajectories before forecast/dormant-runner votes:
+  `NO_GO_RUNTIME_PERFORMANCE_ONLY`.
+- The sole valid strict-v1 audit used frozen candidate
+  `1ae2704...`/`d3833a4...`/`39044f37...` and harness `73f7d7d1...`. It
+  completed `12/57` and fail-fast rejected plan 11 at
+  `1.4757614757614759 > 1e-12`. Do not retry or re-optimize it.
 
-> The Phase 1-v2 preregistration anchors are remote. S2 implementation and its
-> bounded non-voting smoke are complete; no formal item has executed.
+## Completed Metric-Validity Audit
 
-## Single delivery-critical path
+The solver-free audit was preregistered at `460cbef...` and its result code and
+evidence are anchored at `5301ce0...`. It preserved all strict-v1 evidence and
+used no candidate/oracle or 57-row execution.
 
-S2 remains the nominal Phase 1-v2 thermal closure. Completed:
+- Failing-row inventory: 229 numeric fields; 202 non-lateral with zero v1
+  failures; 27 lateral with 21 v1 failures.
+- Physical lateral fluxes remain voting: `9/9` analytic mixed bounds pass;
+  maximum ratio `0.129647`.
+- Cancellation diagnostics: `6/6` roundoff bounds pass.
+- Synthetic tamper controls: `13/13` pass, including rejection of field
+  demotion and above-bound perturbations.
+- Result: `qualified_supported` metric validity only. Optimized equivalence,
+  runtime feasibility, S2 science, and Phase 1 remain `forbidden`/unassessed.
 
-1. implement the explicit VO2 plus mask-local Ti/Au areal thermal fields;
-2. derive nominal \(C_m=C_\theta-C_{\rm explicit}>0\), freeze its areal
-   value for overlap audits, and add the local S2 sink/capacity without an
-   independent vertical state;
-3. implement the S2-specific thermal, circuit, combined, and device-power
-   ledgers and independent lateral face-flux checks;
-4. pass focused algebraic, manufactured, FVM, analytic-limit, conservation,
-   failure-path, and anti-import tests;
-5. run only the preregistered bounded non-voting S2 smoke (`7/7` pass);
-6. preserve the single bounded audit-metric repair and its exact machine
-   criterion.
+## Single Next Decision
 
-Controller-v1 is historical `NO_GO_RUNTIME`; its one-replay diagnostic
-supported the single controller revision, now consumed. Controller-v2 C1/C2
-passed bounded integrity/parity, but C3 stopped at `0/18` intervals and `1/9`
-trajectories before forecast/dormant-runner votes:
-`NO_GO_RUNTIME_PERFORMANCE_ONLY`. No formal item executed.
+Await fresh user authorization for one separately versioned audit of the
+frozen candidate/oracle on the original 57-row plan. It must retain:
 
-The v3 source-correction bundle is pushed at `0ebe037...`. It replaces only the
-active qualitative high-bias lock probe and eight evaluation identifiers:
-15.8 V is active, while the old 15 V bundle remains historical and unexecuted.
-The new inventory remains 63 evaluations / 60 executions / 3 reuses.
+- `1e-12` for primary fields;
+- preregistered analytic mixed bounds for physical lateral fields;
+- exact controller hard-gate and event/reversal/failure topology votes;
+- no candidate, oracle, physics, controller, parameter, protocol, inventory,
+  or scientific-gate change.
 
-Contract SHA-256 is `84e1ecb...`; candidate commit/tree/identity are
-`1ae2704...`/`d3833a4...`/`39044f37...`. The historical invalid launch remains
-infrastructure provenance only: `0/57` rows, zero votes, no comparison.
+This file does not itself authorize that audit. If authorization is declined,
+or a future primary/physical/topology vote fails, activate the retained
+`gamma_sub` plus identifiability-boundary manuscript route.
 
-Harness identity `73f7d7d1...` enabled one valid audit. It completed `12/57`
-rows before fail-fast: electrical `9/9`, interval `3/18`, progression `0/9`,
-and failure topology `0/21`. Plan 11,
-`EQ-INTERVAL-L1-legal_critical-base`, reached
-`1.4757614757614759 > 1e-12` at
-`full_step.lateral.face_to_cell_global_residual_W`.
+## Locked Side And Historical Routes
 
-Disposition: `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`. Do not retry, optimize
-again, or run C1/C2/C3. Await explicit activation of the retained `gamma_sub`
-plus identifiability-boundary manuscript route.
+- S1 science remains `forbidden`/unassessed; its timeouts are supported
+  infrastructure provenance only and cannot be rerun.
+- v6-v8 remains terminal `failed_but_informative`; its 96 items are unexecuted.
+- Frozen GT v1.1 and all historical evidence identities remain immutable.
 
-## Parallel work that cannot block S2
+## Scope Boundary
 
-- Same-device source audit: complete with
-  `no_eligible_holdout_found_within_bounded_audit`; no digitization or fit was
-  triggered. Exact elapsed time was not instrumented and is not claimed.
-- S1 positive-real diffusive MVE: closed at
-  `STOP_S1_REFERENCE_EVALUATION_INFRASTRUCTURE_BLOCKED_BEFORE_ATOMIC_EVIDENCE`.
-  Three tool timeouts created no atomic MVE output; two reached the same binary
-  modal-reference failure. No K fit or scientific model-order result exists,
-  and no further S1 run is authorized.
-
-The absent eligible holdout and stopped S1 MVE do not alter this equivalence
-NO-GO or authorize another S2 execution.
-
-## Locked historical evidence
-
-The v6-v8 fixed-bottom material-stack/K-state route remains terminal
-`failed_but_informative`. The v8 pullback depth-frequency errors remained
-about `0.4118 > 0.05`. Its configs, reports, tests, hashes, and 96-item
-`planned_not_executed` manifest are immutable; `formal_execution_count=0`.
-
-## Scope boundary
-
-Do not resume the depth ladder, re-anchor material-stack comparators, run a
-formal campaign, train a PINN, generate Phase 2 data, run inverse work, fit or
-digitize source data, modify frozen GT, repair M44, execute NbO2, build 3D/FEM,
-add nonzero dual-device coupling, or run source-corrected C1/C2/C3 readiness
-without a later explicit authorization.
+Do not run equivalence-v2, C1/C2/C3, a formal campaign, PINN training, Phase 2
+generation, inverse work, source fitting/digitization, S1/v6-v8, M44, NbO2,
+FEM/3D, or nonzero dual-device coupling without a later explicit
+authorization.
