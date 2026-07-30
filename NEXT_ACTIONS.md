@@ -3,7 +3,7 @@
 ## Authoritative Current Queue
 
 - Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Checkpoint: `PHASE1_V2_EQUIVALENCE_V2_CONTRACT_EXECUTABLE_READY`.
+- Checkpoint: `PHASE1_V2_EQUIVALENCE_V2_COMPARATOR_CLOSURE_V3`.
 - Strict-equivalence-v1: `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`.
 - Metric validity: `GO_VERSIONED_EQUIVALENCE_V2_AUDIT`.
 - The 63 formal evaluations / 60 executions / 3 reuses remain
@@ -23,26 +23,14 @@
   completed `12/57` and fail-fast rejected plan 11 at
   `1.4757614757614759 > 1e-12`. Do not retry or re-optimize it.
 
-## Completed Metric-Validity Audit
-
-The solver-free result (`460cbef...` / `5301ce0...`) preserved strict-v1 and
-ran no audit row. Primary fields retained `1e-12`; physical lateral fields
-remained voting; `9/9` mixed bounds, `6/6` cancellation bounds and `13/13`
-tamper controls passed. This is `qualified_supported` metric validity only;
-optimized equivalence and Phase 1 remain unassessed.
-
 ## Single Next Decision
 
-PR #11 is merged. Its correction closes both coverage gaps without rerunning
-the parent audit: 638 derived templates map all 57 rows and 21/21 raw controls
-pass. The superseding PR #12 closure makes those rules executable through a
-record-only comparator, direct field/plan manifests, exact terminal routing,
-explicit 12/45 partitions and sealed solver-free controls. No v1/v2 numerical
-row was run; equivalence-v2 and formal execution counts remain zero.
+PR #11/12 lock 638 templates, 57 rows and unchanged record-level A/B/C rules.
+Their solver-free controls executed no audit row; both execution counts are
+zero. Metric validity remains qualified, not an equivalence pass.
 
-After this contract-only checkpoint, the single next decision is whether to
-authorize one audit of the frozen
-candidate/oracle on the original 57-row order. It must retain:
+Validate and merge closure v3, which fixes only dynamic-index completeness,
+grid shape, row/failure identity, exact completion and result tracking. Retain:
 
 - `1e-12` for primary fields;
 - preregistered analytic mixed bounds for physical lateral fields;
@@ -50,9 +38,11 @@ candidate/oracle on the original 57-row order. It must retain:
 - no candidate, oracle, physics, controller, parameter, protocol, inventory,
   or scientific-gate change.
 
-This file does not itself authorize that audit. If authorization is declined,
-or a future primary/physical/topology vote fails, activate the retained
-`gamma_sub` plus identifiability-boundary manuscript route.
+The current dual-stage instruction conditionally authorizes one audit after
+closure v3 is merged and a separate one-shot runner identity is pushed and
+passes clean-checkout CI. Closure-v3 fixtures are solver-free and cannot count
+as audit rows. If a future primary/physical/topology vote fails, activate the
+retained `gamma_sub` plus identifiability-boundary manuscript route.
 
 ## Locked Side And Historical Routes
 
@@ -63,7 +53,8 @@ or a future primary/physical/topology vote fails, activate the retained
 
 ## Scope Boundary
 
-Do not run equivalence-v2, C1/C2/C3, a formal campaign, PINN training, Phase 2
-generation, inverse work, source fitting/digitization, S1/v6-v8, M44, NbO2,
-FEM/3D, or nonzero dual-device coupling without a later explicit
-authorization.
+Do not run equivalence-v2 from the closure branch. The one authorized attempt
+may start only after closure-v3 merge and a separately frozen runner anchor.
+Do not run C1/C2/C3, a formal campaign, PINN training, Phase 2 generation,
+inverse work, source fitting/digitization, S1/v6-v8, M44, NbO2, FEM/3D, or
+nonzero dual-device coupling.

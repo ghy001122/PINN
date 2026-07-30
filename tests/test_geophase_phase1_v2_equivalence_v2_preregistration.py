@@ -166,7 +166,7 @@ def test_equivalence_v2_machine_preregistration_is_content_addressed_and_zero() 
 
 
 def test_equivalence_v2_current_route_and_fast_CI_are_contract_only() -> None:
-    checkpoint = "PHASE1_V2_EQUIVALENCE_V2_CONTRACT_EXECUTABLE_READY"
+    checkpoint = "PHASE1_V2_EQUIVALENCE_V2_COMPARATOR_CLOSURE_V3"
     for path in (
         ROOT / "CODEX_CONTEXT.md",
         ROOT / "PROJECT_STATE.md",
@@ -180,4 +180,8 @@ def test_equivalence_v2_current_route_and_fast_CI_are_contract_only() -> None:
     )
     assert "tests/test_geophase_phase1_v2_equivalence_v2_preregistration.py" in workflow
     assert "tests/test_geophase_phase1_v2_equivalence_v2_executability.py" in workflow
+    assert (
+        "tests/test_geophase_phase1_v2_equivalence_v2_comparator_closure_v3.py"
+        in workflow
+    )
     assert "run_geophase_phase1_v2_equivalence" not in workflow

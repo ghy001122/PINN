@@ -1,0 +1,31 @@
+{
+  "schema_version": "geophase_phase1_v2_equivalence_v2_comparator_closure_sealed_cases_v3",
+  "evidence_type": "synthetic_contract_evidence_nonvoting",
+  "audit_row_count": 0,
+  "cases": [
+    {"fixture_id": "V3-VALID-EXACT-PLAN", "group": "terminal", "mutation": "none"},
+    {"fixture_id": "V3-DYNAMIC-HISTORY-COMMON-MISSING", "group": "dynamic", "field": "history.1.accepted.state.time_s"},
+    {"fixture_id": "V3-DYNAMIC-SCALAR-COMMON-MISSING", "group": "dynamic_scalar_nonanchor", "field": "streaming.scalar.1.maximum_temperature_K"},
+    {"fixture_id": "V3-DYNAMIC-SNAPSHOT-COMMON-MISSING", "group": "dynamic_snapshot_nonanchor", "field": "streaming.snapshot.1.temperature_K"},
+    {"fixture_id": "V3-SHAPE-L1-CELL", "group": "shape", "plan_index": 11, "field": "full_step.state.temperature_K"},
+    {"fixture_id": "V3-SHAPE-L1-XFACE", "group": "shape", "plan_index": 11, "field": "full_step.lateral.x_face_flux_W"},
+    {"fixture_id": "V3-SHAPE-L1-YFACE", "group": "shape", "plan_index": 11, "field": "full_step.lateral.y_face_flux_W"},
+    {"fixture_id": "V3-SHAPE-L2-CELL", "group": "shape", "plan_index": 17, "field": "full_step.state.temperature_K"},
+    {"fixture_id": "V3-SHAPE-L2-XFACE", "group": "shape", "plan_index": 17, "field": "full_step.lateral.x_face_flux_W"},
+    {"fixture_id": "V3-SHAPE-L2-YFACE", "group": "shape", "plan_index": 17, "field": "full_step.lateral.y_face_flux_W"},
+    {"fixture_id": "V3-SHAPE-L4-CELL", "group": "shape", "plan_index": 23, "field": "full_step.state.temperature_K"},
+    {"fixture_id": "V3-SHAPE-L4-XFACE", "group": "shape", "plan_index": 23, "field": "full_step.lateral.x_face_flux_W"},
+    {"fixture_id": "V3-SHAPE-L4-YFACE", "group": "shape", "plan_index": 23, "field": "full_step.lateral.y_face_flux_W"},
+    {"fixture_id": "V3-IDENTITY-INPUT", "group": "identity", "mutation": "input_sha256"},
+    {"fixture_id": "V3-IDENTITY-SAMPLE", "group": "identity", "mutation": "sample_id"},
+    {"fixture_id": "V3-IDENTITY-FAMILY", "group": "identity", "mutation": "family"},
+    {"fixture_id": "V3-FAILURE-TYPE", "group": "failure", "mutation": "failure_type"},
+    {"fixture_id": "V3-FAILURE-LOCATION", "group": "failure", "mutation": "failure_location"},
+    {"fixture_id": "V3-SUCCESS-FAILURE-INVERSION", "group": "identity", "mutation": "success_failure_inversion"},
+    {"fixture_id": "V3-PLAN-MISSING", "group": "terminal", "mutation": "missing"},
+    {"fixture_id": "V3-PLAN-DUPLICATE", "group": "terminal", "mutation": "duplicate"},
+    {"fixture_id": "V3-PLAN-REORDERED", "group": "terminal", "mutation": "reordered"},
+    {"fixture_id": "V3-PLAN-REPLACED", "group": "terminal", "mutation": "replaced"},
+    {"fixture_id": "V3-PLAN-OUT-OF-RANGE", "group": "terminal", "mutation": "out_of_range"}
+  ]
+}
