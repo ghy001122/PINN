@@ -92,8 +92,9 @@ The immutable pre-execution runner anchor is
 - tracked JSON: `251/251` valid;
 - staged diff format: passed.
 
-The branch is `codex/phase1-v2-equivalence-v2-one-shot-audit`; the final result
-commit and clean-checkout CI are reported in draft PR #14. Evidence is
+The branch is `codex/phase1-v2-equivalence-v2-one-shot-audit`; the atomic result
+evidence commit is `eccc6082d1db0924269e25d587ba20217033915e`. Final
+clean-checkout CI is reported in draft PR #14. Evidence is
 literature-guided synthetic numerical digital-twin implementation-audit
 evidence, not measurement or experimental validation. Strict-v1 remains
 `NO_GO`, `12/57`; no historical v1 or closure-v3 record was modified. Phase 1,
