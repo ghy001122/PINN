@@ -2,7 +2,7 @@
 
 ## Current disposition
 
-`PREPARED_PENDING_REMOTE_ANCHOR_NOT_EXECUTED`
+`READY_FROZEN_REMOTE_ANCHOR_NOT_EXECUTED`
 
 This version records only the authorized execution identity. It is not an
 equivalence result: no candidate or oracle numerical row has executed under
@@ -77,8 +77,9 @@ or PINN claim is supported by this prospective execution identity.
 
 The solver-free control plane, production adapter, and CLI source hashes are
 bound in the config and machine authorization, and the prospective focused
-set passes locally. The remote anchor commit and clean-checkout CI are not yet
-complete in this pre-anchor version. Execution is fail-closed until those
-remaining identities replace the explicit zero-commit sentinel. The report
-will be updated with the single attempt's actual terminal evidence, but
-historical v1 and closure-v3 records will remain unchanged.
+set passes locally. The immutable pre-execution runner anchor is
+`85c3709337430dddb93f69f13e4214532513f5f3`. Current-head clean-checkout CI
+remains the final external execution gate. Execution is fail-closed until that
+CI succeeds and every frozen identity is revalidated. The report will then be
+updated with the single attempt's actual terminal evidence, while historical
+v1 and closure-v3 records remain unchanged.

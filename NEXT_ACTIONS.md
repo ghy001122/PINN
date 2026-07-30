@@ -39,8 +39,9 @@ tracking. Retain:
 - no candidate, oracle, physics, controller, parameter, protocol, inventory,
   or scientific-gate change.
 
-The current instruction authorizes one audit only after the separate one-shot
-runner identity is pushed and its current clean-checkout CI passes. The runner
+The one-shot runner identity is anchored at `85c3709...`; the current
+instruction authorizes one audit only after its current clean-checkout CI
+passes. The runner
 must consume the count atomically, execute `0..56` once without retry, and
 fail-fast on the first valid A/B/C failure. Stub and closure fixtures are
 solver-free and cannot count as audit rows. A valid primary/physical/topology

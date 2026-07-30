@@ -2,7 +2,7 @@
 
 Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
 
-Status: `phase1v2_equivalence_v2_one_shot_identity_pre_anchor`
+Status: `phase1v2_equivalence_v2_one_shot_identity_frozen_CI_pending`
 
 Current checkpoint:
 `PHASE1_V2_EQUIVALENCE_V2_ONE_SHOT_AUDIT`
@@ -64,8 +64,8 @@ manifest.
   fail-closed gates for exact dynamic-index coverage, L1/L2/L4 topology shape,
   frozen row/failure identity, exact 57-outcome terminal reduction, and narrow
   result tracking. It passed clean-checkout CI and merged at `85d5c7ba...`.
-  The one-shot runner identity is being anchored on its separate branch; no
-  audit row has executed.
+  The one-shot runner identity is anchored at `85c3709...` on its separate
+  branch; current-head clean-checkout CI remains and no audit row has executed.
 
 ## Pass And Stop Rules
 
@@ -102,9 +102,8 @@ authorization is conditional on those two gates.
 
 ## Immediate Next Checkpoint
 
-Commit and push the separately versioned runner identity, create its draft PR,
-bind the remote runner commit and source hashes, and require current-head
-clean-checkout CI before consuming the only attempt. Then execute the frozen
+Require current-head clean-checkout CI for the remotely anchored runner before
+consuming the only attempt. Then execute the frozen
 `0..56` plan once, without preview or retry. Preserve invalid-launch,
 strict-v1, harness, metric-validity and closure-v3 evidence. A valid A/B/C
 failure routes to `gamma_sub` plus the identifiability-boundary manuscript;

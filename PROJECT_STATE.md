@@ -41,9 +41,9 @@
   integrity gates needed to reject common-mode missing dynamic indices,
   common-mode wrong L1/L2/L4 shapes, caller-relabelled row/failure identities,
   and incomplete or reordered terminal plans. It passed clean-checkout CI and
-  merged at `85d5c7ba...`. A separate one-shot runner identity is now being
-  remotely anchored; no audit row has executed and both execution counts
-  remain zero.
+  merged at `85d5c7ba...`. A separate one-shot runner identity is remotely
+  anchored at `85c3709...`; current-head clean-checkout CI remains before
+  execution. No audit row has executed and both execution counts remain zero.
 - The S1 scientific claim is `forbidden`/unassessed; its timeouts are supported
   infrastructure provenance only. The v6-v8 material-stack route remains
   `failed_but_informative` with no formal execution.

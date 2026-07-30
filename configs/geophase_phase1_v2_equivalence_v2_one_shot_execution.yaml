@@ -1,6 +1,6 @@
 task_id: Q2_PHASE1_V2_EQUIVALENCE_V2_ONE_SHOT_AUDIT
 schema_version: geophase_phase1_v2_equivalence_v2_one_shot_execution_v1
-status: authorized_pending_remote_execution_anchor_not_executed
+status: ready_frozen_remote_anchor_not_executed
 evidence_type: prospective_implementation_equivalence_execution_contract
 manuscript_use: reviewer_defense_for_reference_solver_implementation_equivalence
 
@@ -76,7 +76,7 @@ execution_identity:
   source_sha256: cb0d644909faa9e8ea9161327d06c5b6f48243fde35e46c4116f5ca69af7a826
   production_wiring_sha256: e4bc77d4e369aa1b90ecf99a9fb3ecb0217ba1253212e44b0c807167816a5899
   cli_sha256: ef3d5fbde7537e55e93103066560cdf0b5181e7fc583792a49c5e4efa9202c3a
-  remote_anchor_commit: "0000000000000000000000000000000000000000"
+  remote_anchor_commit: "85c3709337430dddb93f69f13e4214532513f5f3"
   clean_checkout_CI: required_before_execution_and_verified_externally
   frozen_comparison_entrypoints:
     - load_preregistered_contract_bundle

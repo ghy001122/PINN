@@ -78,6 +78,7 @@ def test_execution_contract_freezes_closure_and_historical_v1() -> None:
 def test_execution_authorization_binds_config_manifests_and_attempt_limit() -> None:
     config = _yaml()
     authorization = _json(AUTHORIZATION_PATH)
+    registry = _json(REGISTRY_PATH)
 
     assert authorization["execution_config_sha256"] == _sha256(CONFIG_PATH)
     assert authorization["contract_bundle_sha256"] == (
@@ -92,6 +93,12 @@ def test_execution_authorization_binds_config_manifests_and_attempt_limit() -> N
     assert authorization["automatic_retry"] is False
     assert authorization["manual_retry"] is False
     assert authorization["formal_execution_count"] == 0
+    remote_anchor = "85c3709337430dddb93f69f13e4214532513f5f3"
+    assert config["status"] == "ready_frozen_remote_anchor_not_executed"
+    assert authorization["status"] == "READY_FROZEN_REMOTE_ANCHOR_NOT_EXECUTED"
+    assert config["execution_identity"]["remote_anchor_commit"] == remote_anchor
+    assert authorization["remote_anchor_commit"] == remote_anchor
+    assert registry["remote_anchor_commit"] == remote_anchor
     assert config["execution_control"]["counter_transition"] == (
         "atomic_0_to_1_immediately_before_plan_index_0_schedule"
     )
