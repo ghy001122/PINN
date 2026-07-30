@@ -5,7 +5,7 @@
 - Delivery/phase: `Q2_SCI_DELIVERY_MODE` /
   `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
 - Parent checkpoint:
-  `PHASE1_V2_EQUIVALENCE_V2_CONTRACT_EXECUTABLE_READY`.
+  `PHASE1_V2_EQUIVALENCE_V2_COMPARATOR_CLOSURE_V3`.
 - Strict-equivalence-v1 substate: `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`.
 - Metric-validity substate: `GO_VERSIONED_EQUIVALENCE_V2_AUDIT`.
 - R1 `HysGeo-Hybrid-PINN` remains the minimum manuscript route; R2
@@ -31,23 +31,18 @@
   `73f7d7d1...` produced the sole valid strict audit. It fail-fast rejected
   plan 11 after `12/57`: `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`. This rejects
   strict implementation equivalence, not S2 physics; retry is unauthorized.
-- A solver-free metric-validity audit was preregistered at `460cbef...` and
-  completed in result commit `5301ce0...`. It preserved all v1 evidence,
-  found `0/202` non-lateral v1 failures, kept all physical lateral quantities
-  voting, and passed `9/9` analytic physical bounds, `6/6` cancellation bounds,
-  and `13/13` synthetic tamper controls. Its qualified disposition is
-  `GO_VERSIONED_EQUIVALENCE_V2_AUDIT`, not an equivalence pass.
-- The PR #11 coverage correction preserves that parent result but supersedes
-  the original hand-mirrored 209-template completeness claim. Production
-  extractors and streaming AST yield 638 family-qualified templates across all
-  57 rows; 21/21 raw controls pass. The v2 contract is preregistered with zero
-  executions; no row is authorized.
-- The superseding PR #12 executability closure adds a record-only comparator,
-  direct content-addressed consumption of all 638 field templates and the
-  frozen 57-row plan, exhaustive typed terminal routing, explicit 12/45
-  partitions, and sealed raw-record negative controls. This is solver-free
-  contract evidence only: it executed no v1/v2 row, leaves
-  `equivalence_v2_execution_count=0`, and does not authorize the audit.
+- Metric validity (`460cbef...`/`5301ce0...`) is qualified
+  `GO_VERSIONED_EQUIVALENCE_V2_AUDIT`: `9/9` physical, `6/6` cancellation and
+  `13/13` tamper controls passed; it is not an equivalence vote.
+- PR #11 mechanically maps 638 templates over 57 rows and passed `21/21` raw
+  controls. PR #12 makes the unchanged A/B/C rules record-executable. Both are
+  solver-free, preserve strict-v1, and executed zero audit rows.
+- Comparator closure v3 preserves every PR #12 identity and adds the narrow
+  integrity gates needed to reject common-mode missing dynamic indices,
+  common-mode wrong L1/L2/L4 shapes, caller-relabelled row/failure identities,
+  and incomplete or reordered terminal plans. Its local solver-free focused
+  gate passed `152/152`; clean-checkout CI and merge remain pending. No audit
+  row has executed and both execution counts remain zero.
 - The S1 scientific claim is `forbidden`/unassessed; its timeouts are supported
   infrastructure provenance only. The v6-v8 material-stack route remains
   `failed_but_informative` with no formal execution.
@@ -79,15 +74,10 @@
 
 ## Delivery Boundary
 
-Strict-equivalence-v1 remains rejected at plan 11. Preserve its provenance,
-harness identity, and atomic outputs; do not retry it or optimize again. The
-solver-free validity and executability audits support only a future one-shot
-equivalence-v2 contract; fresh authorization is still required. Do not run its
-57 rows or C1/C2/C3.
-Phase 1/S2 science remains `forbidden` and unassessed;
-formal execution, Phase 2, R1, and R2 stay blocked. If the versioned audit is
-not authorized or later fails a primary/physical/topology vote, activate the
-retained `gamma_sub` plus identifiability-boundary route.
+Preserve strict-v1 and do not retry/optimize it. The one-shot v2 attempt may
+start only after closure-v3 merge and a frozen runner identity; C1/C2/C3 and
+formal execution remain blocked. A valid A/B/C failure routes to retained
+`gamma_sub` plus the identifiability-boundary route.
 
 Do not rerun S1 or v6-v8; train a PINN; generate Phase 2 data; run inverse;
 modify frozen GT; add nonzero coupling; run FEM/3D, M44, or NbO2; or claim

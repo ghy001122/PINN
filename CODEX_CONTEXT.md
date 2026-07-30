@@ -4,10 +4,11 @@
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
 - Active phase/checkpoint: `Q2_PHASE1_2P5D_REFERENCE_SOLVER` /
-  `PHASE1_V2_EQUIVALENCE_V2_CONTRACT_EXECUTABLE_READY`.
+  `PHASE1_V2_EQUIVALENCE_V2_COMPARATOR_CLOSURE_V3` (local focused gate passed;
+  clean-checkout CI and merge are the remaining closure gates).
 - Current contract/config:
-  `docs/research_strategy/phase1_v2_equivalence_v2_executability_closure.md` /
-  `configs/geophase_phase1_v2_equivalence_v2_executability_closure.yaml`.
+  `docs/research_strategy/phase1_v2_equivalence_v2_comparator_closure_v3.md` /
+  `configs/geophase_phase1_v2_equivalence_v2_comparator_closure_v3.yaml`.
 - Source contract: `configs/qiu_vo2_phase1_source_contract_v3.yaml`.
 - Active stage router: `configs/geo2p5d_stage_source_corrected_v3.yaml`.
 - Source-corrected v3 remains anchored at `0ebe037...`; the closure changes
@@ -36,34 +37,25 @@ infrastructure provenance only. The material-stack route remains historical
 
 ## One Active Priority
 
-Controller-v2 C1/C2 passed bounded integrity/parity; C3 stopped before any
-forecast or dormant-runner vote: `NO_GO_RUNTIME_PERFORMANCE_ONLY`. Source v3
-replaces only the erroneous 15.0 V lock probe with qualitative 15.8 V.
+Controller-v2 C1/C2 passed bounded integrity; C3 has no forecast. Strict-v1
+remains immutable `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`, `12/57`. Metric
+validity is `GO_VERSIONED_EQUIVALENCE_V2_AUDIT`; 638 templates/57 rows remain
+locked and physical lateral fields still vote.
 
-Strict-equivalence-v1 remains immutable
-`NO_GO_EQUIVALENT_PERFORMANCE_REPAIR` at `12/57`. The solver-free
-metric-validity result is `GO_VERSIONED_EQUIVALENCE_V2_AUDIT`: primary fields
-retain `1e-12`, physical lateral fields remain voting, and analytic/tamper
-controls passed. Coverage correction mechanically maps 638 templates across
-57 rows and passed 21/21 raw-record controls.
-
-The superseding record-only contract consumes the frozen field/plan manifests,
-binds plan identity, executes unchanged A/B/C rules, and seals solver-free
-negative controls. It ran no audit row; `equivalence_v2_execution_count=0` and
-`formal_execution_count=0`. Fresh authorization is required, so runtime,
-formal execution, Phase 2, R1, and R2 remain blocked.
+Closure v3 preserves PR #12 and adds dynamic-index, topology-shape,
+row/failure-identity and exact-terminal gates. Local focused tests passed
+`152/152`; clean-checkout CI and merge remain. Both execution counts are zero.
+Only a separately frozen post-merge runner may use the one-shot authorization.
 
 ## Claim Boundary
 
-Allowed: describe the guide, preregistered contracts, implemented S2 solver,
-bounded smoke/C1/C2 integrity, performance-only C3 stop, the versioned 15.8 V
-source correction, source audit, the qualified metric-validity result, and
-historical results with qualifications.
+Allowed: describe contracts, implemented S2, bounded smoke/C1/C2, the C3 stop,
+15.8 V source correction, qualified metric validity, and qualified history.
 
 Forbidden: Phase 1 success or scientific failure; campaign four-hour
 feasibility/infeasibility; memory/disk pass or failure; formal authorization;
-optimized-solver equivalence or permission to run equivalence-v2 without fresh
-authorization; demotion of physical lateral fluxes to telemetry;
+optimized-solver equivalence or execution before the closure-v3 and frozen
+runner-identity gates; demotion of physical lateral fluxes to telemetry;
 Qiu reproduction/calibration; positive R1/R2; OQ or sensitivity fidelity;
 arbitrary hidden-field recovery; experimental/FEM/3D validation; universal
 spectral superiority; or VO2-to-NbO2 zero-shot transfer.

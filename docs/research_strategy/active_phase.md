@@ -2,10 +2,10 @@
 
 Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
 
-Status: `phase1v2_equivalence_v2_contract_executable_ready_not_authorized`
+Status: `phase1v2_equivalence_v2_comparator_closure_v3_local_pass_CI_merge_pending`
 
 Current checkpoint:
-`PHASE1_V2_EQUIVALENCE_V2_CONTRACT_EXECUTABLE_READY`
+`PHASE1_V2_EQUIVALENCE_V2_COMPARATOR_CLOSURE_V3`
 
 Strict-equivalence-v1 substate: `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`
 
@@ -29,11 +29,9 @@ independent from future PINN residual code.
 - `configs/geophase_phase1_v2_embedded_time_controller_v2_source_corrected_v3.yaml`
 - `configs/qiu_vo2_phase1_source_contract_v3.yaml`
 - `configs/geo2p5d_stage_source_corrected_v3.yaml`
-- `configs/geophase_phase1_v2_equivalence_v2_audit.yaml`
-- `docs/research_strategy/phase1_v2_equivalence_v2_audit_contract.md`
-- `configs/geophase_phase1_v2_equivalence_v2_executability_closure.yaml`
-- `docs/research_strategy/phase1_v2_equivalence_v2_executability_closure.md`
-- `outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_contract_executability/preregistration.json`
+- `configs/geophase_phase1_v2_equivalence_v2_comparator_closure_v3.yaml`
+- `docs/research_strategy/phase1_v2_equivalence_v2_comparator_closure_v3.md`
+- `outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_comparator_closure_v3/preregistration.json`
 - `outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/metric_validity_summary.json`
 - `docs/method_equations.md`
 - `NEXT_ACTIONS.md`
@@ -53,20 +51,16 @@ manifest.
 - Source-corrected v3 is anchored at `0ebe037...` and uses 15.8 V only as the
   qualitative metallic-lock probe. S1 is unassessed; v6-v8 is terminal
   `failed_but_informative` history.
-- Frozen candidate commit/tree/identity are
-  `1ae2704...`/`d3833a4...`/`39044f37...`; harness `73f7d7d1...` enabled the
-  sole valid v1 audit. It fail-fast rejected plan 11 after `12/57` at
-  `1.4757614757614759 > 1e-12`: `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`.
-- The solver-free validity audit preserved v1, retained physical lateral
-  voting, and passed `9/9` physical bounds, `6/6` cancellation bounds, and
-  `13/13` tamper controls: `GO_VERSIONED_EQUIVALENCE_V2_AUDIT`. Optimized
-  equivalence remains `forbidden`/unassessed.
-- The v2 contract locks identities, 57-row order, A/B/C rules, and terminal
-  states; execution is zero and unauthorized.
-- Its superseding executability closure directly loads all 638 field templates
-  and the 57-row plan, binds record metadata, executes the unchanged A/B/C
-  rules, and seals solver-free tamper controls. It contains no audit scheduler
-  or numerical entry point; both equivalence-v2 and formal counts remain zero.
+- Frozen candidate `1ae2704...` and harness `73f7d7d1...` produced strict-v1
+  `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`, `12/57`; no retry is authorized.
+- Solver-free metric validity is `GO_VERSIONED_EQUIVALENCE_V2_AUDIT` with
+  physical lateral voting retained. PR #11/12 lock 638 templates, 57 rows and
+  unchanged A/B/C rules; both execution counts remain zero.
+- Comparator closure v3 preserves those identities and adds only solver-free
+  fail-closed gates for exact dynamic-index coverage, L1/L2/L4 topology shape,
+  frozen row/failure identity, exact 57-outcome terminal reduction, and narrow
+  result tracking. Its local focused set passed `152/152`; clean-checkout CI
+  and merge remain pending on this branch. No audit row has executed.
 
 ## Pass And Stop Rules
 
@@ -97,14 +91,17 @@ formal registry; train a PINN; generate Phase 2 data; run inverse; fit or
 digitize sources; rerun S1/v6-v8; modify frozen GT; add nonzero coupling; or
 run FEM/3D, M44, or NbO2. Phase 1/Qiu/experimental, R1/R2, OQ, sensitivity,
 and cross-material success claims remain `forbidden`. Do not execute an
-equivalence-v2 57-row audit without fresh user authorization.
+equivalence-v2 row before closure v3 is merged and a separately frozen
+one-shot runner identity passes clean-checkout CI. The current dual-stage
+authorization is conditional on those two gates.
 
 ## Immediate Next Checkpoint
 
-Stop after the executable v2 contract is merged and wait for explicit audit
-authorization.
+Complete closure-v3 focused controls and clean-checkout CI, then merge it
+without rewriting PR #12. Only after that merge may the separately frozen
+one-shot runner identity be created under the current conditional authorization.
 Preserve invalid-launch, strict-v1, harness, and metric-validity evidence; do
-not retry v1, re-optimize, or run readiness. If the v2 audit is not authorized
-or later has a valid A/B/C failure, route to retained `gamma_sub` plus the
+not retry v1, re-optimize, or run readiness. If a conditional execution gate
+blocks the v2 audit or a later valid A/B/C vote fails, route to `gamma_sub` plus the
 identifiability-boundary manuscript. Phase 1 science remains `forbidden` and
 unassessed.
