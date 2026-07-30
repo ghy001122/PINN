@@ -41,8 +41,14 @@ used no candidate/oracle or 57-row execution.
 
 ## Single Next Decision
 
-Review draft PR #11: its static 57-row/209-template addendum passes `28/28`
-synthetic controls but authorizes no execution. Run no rows during review.
+The PR #11 correction closes both verified coverage gaps without rerunning the
+parent audit: 638 family-qualified templates are mechanically derived and map
+to all 57 rows; 21/21 raw-record production-extractor controls pass. The old
+209 completeness claim is retained only as superseded provenance.
+
+After clean-checkout CI and authority-stable merge, create a separate branch
+and preregister the one-shot equivalence-v2 contract. Stop after opening its
+draft PR; do not execute a row.
 
 Only after a separate fresh authorization may one versioned audit of the
 frozen candidate/oracle run on the original 57-row plan. It must retain:

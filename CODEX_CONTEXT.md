@@ -57,6 +57,11 @@ passed the `1e-12` v1 gate; all nine physical lateral comparisons remained
 voting and passed analytic mixed bounds (maximum ratio `0.129647`); six
 cancellation checks and 13 synthetic tamper controls passed. This authorizes
 only a fresh, separately versioned 57-row audit after explicit user approval.
+The pre-merge coverage correction supersedes only the original hand-mirrored
+209-template completeness claim: 638 family-qualified templates were derived
+mechanically from production extractors/streaming AST and mapped to all 57
+rows; 21/21 raw-record controls passed through production extraction. No parent
+result or audit row was rerun.
 Optimized equivalence, runtime readiness, formal execution, Phase 2, R1, and
 R2 remain blocked.
 

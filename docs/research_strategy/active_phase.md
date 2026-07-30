@@ -76,6 +76,10 @@ The metric-validity result can authorize only a separately versioned 57-row
 audit. Primary physical fields retain `1e-12`; physical lateral fluxes remain
 voting under analytic mixed bounds; hard-gate dispositions and topology votes
 remain exact. No result in the metric-validity audit can vote for Phase 1.
+The solver-free coverage correction mechanically maps 638 family-qualified
+templates to all 57 rows and passes 21/21 raw production-extractor controls;
+it supersedes only the old hand-mirrored 209 completeness claim and executes no
+audit row.
 
 ## Restrictions
 
@@ -88,7 +92,8 @@ equivalence-v2 57-row audit without fresh user authorization.
 
 ## Immediate Next Checkpoint
 
-Await user review of draft PR #11 and its coverage addendum. This review is not
+Close PR #11 only after stable clean-checkout CI, then freeze a separate
+equivalence-v2 execution contract and stop at its draft PR. This is not
 authorization to run equivalence-v2. Preserve invalid-launch, strict-v1,
 harness, and metric-validity evidence; do not retry v1, re-optimize, or run
 readiness. If a later versioned audit is not authorized or fails a primary,

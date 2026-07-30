@@ -44,6 +44,10 @@
   voting, and passed `9/9` analytic physical bounds, `6/6` cancellation bounds,
   and `13/13` synthetic tamper controls. Its qualified disposition is
   `GO_VERSIONED_EQUIVALENCE_V2_AUDIT`, not an equivalence pass.
+- The PR #11 coverage correction preserves that parent result but supersedes
+  the original hand-mirrored 209-template completeness claim. Production
+  extractors and streaming AST yield 638 family-qualified templates across all
+  57 rows; 21/21 raw-record topology/schema controls pass. No row was executed.
 - The S1 scientific claim is `forbidden`/unassessed; its timeouts are supported
   infrastructure provenance only. The v6-v8 material-stack route remains
   `failed_but_informative` with no formal execution.
@@ -56,21 +60,10 @@
 | Item | Status | Boundary |
 | --- | --- | --- |
 | Phase 0 governance | `supported` | Repository routing/integrity only. |
-| S2 contract and 63-item manifest | `supported` preregistration facts | Formal count zero; all items unexecuted. |
-| S2 implementation/smoke | `supported` software facts | Solver and 7/7 non-voting smoke; no science vote. |
-| Source audit | `supported` bounded provenance audit | No eligible holdout found; not proof of nonexistence or validation. |
-| S1 diffusive model-form claim | `forbidden` / unassessed | No atomic metric, K fit, or scientific vote. |
-| S1 interruption provenance | `supported` infrastructure provenance only | Timeouts/stdout do not establish scientific failure. |
-| Controller-v1 readiness | `failed_but_informative` | Historical floor failure; no formal result. |
-| Critical mechanism audit | `supported` bounded diagnostic | One replay; branch-memory-only trigger; no production floor. |
-| Controller-v2 C1/C2 integrity | `supported` bounded readiness | Hash-locked overlay; integrity/parity pass; no formal/science vote. |
-| Controller-v2 campaign runtime feasibility | `forbidden` / unassessed | C3 produced no forecast, aggregate resource, or dormant-runner vote. |
-| Controller-v2 C3 performance provenance | `supported` bounded readiness provenance | The locked preflight stopped at its worker backstop; no science vote. |
-| Source-corrected v3 bundle | `supported` config-only preregistration | Qiu Figure 2/SI Figure S2 correct the active qualitative lock probe to 15.8 V; 63/60/3, formal count zero, no calibration/validation claim. |
-| Strict-equivalence invalid launch | `supported` infrastructure provenance; numerical claim `forbidden` / unassessed | Frozen candidate `1ae2704...`; invalid before row 1; 0/57 rows, zero votes, no candidate/oracle numerical comparison, formal execution/artifact counts zero. |
-| Valid strict-equivalence audit | `failed_but_informative` for implementation equivalence; S2 science remains `forbidden` / unassessed | Valid fail-fast at plan 11 after 12/57 rows; maximum `1.4757614757614759 > 1e-12`; progression/failure-topology were not reached; formal counts zero. |
-| Equivalence metric-validity audit | `qualified_supported` solver-free audit | General category mismatch demonstrated; physical lateral fluxes remain voting; maximum analytic-bound ratio `0.129647`; optimized equivalence remains unassessed. |
-| v6-v8 material-stack route | `failed_but_informative` | v8 depth-frequency gate failed; 96 items unexecuted. |
+| S2/controller software | `supported` bounded software/readiness | 7/7 smoke and C1/C2 integrity pass; C3 has no forecast; 63/60/3 and formal zero. |
+| Strict-equivalence-v1 | `failed_but_informative` implementation result | Frozen valid audit stopped at plan 11 after 12/57; S2 science remains unassessed. |
+| Metric validity and coverage | `qualified_supported` solver-free audits | 9/9 physical, 6/6 cancellation, 13/13 parent controls; corrected 57-row map and 21/21 raw controls; optimized equivalence unassessed. |
+| S1 and v6-v8 | `forbidden`/unassessed and historical `failed_but_informative` | S1 has infrastructure provenance only; retired material-stack route stays closed. |
 | Phase 1-v2 reference result | `forbidden` | Requires every gate in an authorized formal campaign. |
 | R1/R2/R3 positive claims | `forbidden` | Require sequential direct evidence. |
 
