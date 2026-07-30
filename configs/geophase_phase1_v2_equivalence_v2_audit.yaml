@@ -1,0 +1,259 @@
+task_id: Q2_PHASE1_V2_EQUIVALENCE_V2_ONE_SHOT_AUDIT
+schema_version: geophase_phase1_v2_equivalence_v2_audit_contract_v1
+status: preregistered_not_authorized_not_executed
+evidence_type: prospective_implementation_equivalence_audit_contract
+manuscript_use: reviewer_defense_for_reference_solver_implementation_equivalence
+
+authority_lock:
+  PR11_merge_commit: 2da569e0bdb902ff665dcfce2ee019a6d36986d5
+  PR11_head_commit: ecec0eca576432ac15a5deba243d4f361b4bce81
+  strict_equivalence_v1:
+    disposition: NO_GO_EQUIVALENT_PERFORMANCE_REPAIR
+    completed_rows: 12
+    expected_rows: 57
+    failing_plan_index: 11
+    failing_sample_id: EQ-INTERVAL-L1-legal_critical-base
+    evidence_summary:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/equivalence_summary.json
+      sha256: e0df8aad70c57f8c2f37c23d135c2d81964a6783b453d39e0eeef99f30f92574
+    historical_result_and_hashes: immutable
+  metric_validity:
+    disposition: GO_VERSIONED_EQUIVALENCE_V2_AUDIT
+    scope: qualified_solver_free_metric_definition_only
+    config:
+      path: configs/geophase_phase1_v2_equivalence_metric_validity_audit.yaml
+      sha256: 89492b603d51558d58ea51aa19a7c78c3fea8e5d3012bbd8723070ea6b1f2a8a
+    result:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/metric_validity_summary.json
+      sha256: 7d9a022f16cacdb9efc37024152c34ee160d23dc492babffd59076f4f283ae7d
+    observed_parent_gates: {physical_bounds: 9, cancellation_bounds: 6, controls: 13}
+  coverage_correction:
+    disposition: COVERAGE_CORRECTION_PASS
+    config:
+      path: configs/geophase_phase1_v2_equivalence_metric_validity_coverage_correction.yaml
+      sha256: ac42b9a3197f7194eb6c71dede1cf108c1a4c6ef84c387c4076ec2e73f1e13d5
+    result:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/coverage_correction/coverage_correction_summary.json
+      sha256: 41e54f6f64c3902f14e1ef00d579f48c23306d8bf5666999064a9e40e200d298
+    family_qualified_parameterized_templates: 638
+    static_plan_rows: 57
+    raw_record_controls: 21
+  frozen_candidate:
+    commit: 1ae2704f6d84a3733d9de58aa23d992aa0c471a5
+    tree: d3833a4a5dd067dab72c84f15fe2f8e726bd9512
+    identity:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/optimized_candidate_identity.json
+      sha256: 39044f37c983060df48e9915c594f69fbfbeacc60eef9a32bc352bdb5ec25b10
+    code_change: forbidden
+  frozen_oracle:
+    PR8_commit: 85e4257fc01af2e0bf706ef9001f263b1420ecaa
+    PR8_tree: 50ef2214b19f98c6cada0f5f40c682de9eb16bee
+    source_git_blob: fd0e0773255181b037c4d6b6be4e482b735d1eff
+    source_sha256: e1a349ca0275021508cd07da02576adafbbcdae81e122659274769f329016a37
+    code_change: forbidden
+  frozen_files:
+    performance_contract:
+      path: configs/geophase_phase1_v2_source_corrected_performance_repair.yaml
+      sha256: 84e1ecb298cfa6264646cc5e74df602b3e9e790e3eecfdc1abea62c087e87db4
+    audit_harness_contract:
+      path: configs/geophase_phase1_v2_equivalence_audit_harness_erratum_v1.yaml
+      sha256: 83d21818ca8254adabcca7ccf13b10ed97aa01780a22343943fcc96674109916
+    audit_harness_identity:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/audit_harness_erratum_identity.json
+      sha256: 5f46cebadeea454b29abe4add46320461dec38fcdccede24f65f7efa24b94729
+    v1_comparator_and_plan_builder:
+      path: src/pinnpcm/solvers/geophase_phase1_v2_performance_equivalence.py
+      sha256: 05868658ca199737600d796fbdcd4eb2661d222cc749e95a3530c1ea7078ebdc
+    streaming_schema:
+      path: src/pinnpcm/solvers/geophase_phase1_v2_streaming.py
+      sha256: 80ab0f1729a94074b8cfd850f4e8f8450be28c7d2d6e33382f5a7b5294dc5923
+    lateral_audit:
+      path: src/pinnpcm/solvers/geophase_phase1_v2_fvm.py
+      sha256: 5ac770dbe038f69aa834917a3370c31a78a1ee6760abf618edd462245db08a62
+    controller_hard_gate:
+      path: src/pinnpcm/solvers/geophase_phase1_v2_controller_v2.py
+      sha256: e4332c5b103072e3de277b8788dbbf2bda48c65636cb5c1d8dd361bc9953f7ed
+    execution_DAG:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/runtime_readiness/execution_dag.json
+      sha256: da93d717e0fae2fb5431457b921f901a8651bd987346f4df493a94144ded786a
+
+environment_lock:
+  machine_bound: true
+  operating_system: Windows-10-10.0.26200-SP0
+  architecture: AMD64
+  python_implementation: CPython
+  python_version: 3.11.9
+  numpy_version: 1.26.4
+  scipy_version: 1.13.1
+  pyyaml_version: 6.0.1
+  logical_processors: 12
+  execution_processes: 1
+  thread_environment:
+    PYTHONHASHSEED: "0"
+    OMP_NUM_THREADS: "1"
+    OPENBLAS_NUM_THREADS: "1"
+    MKL_NUM_THREADS: "1"
+    NUMEXPR_NUM_THREADS: "1"
+  dependency_locks:
+    requirements_sha256: 93f371d6f39dc8477bc5090a1efc172955f40686c045f09551a18b1b9d0bfa5b
+    pyproject_sha256: 95140084a80d56cb823ff23121bc6580e8ec45a1b50201753e6baf9ca5c5391a
+  mismatch_disposition: INVALID_INFRA
+
+ordered_plan_lock:
+  source_path: src/pinnpcm/solvers/geophase_phase1_v2_performance_equivalence.py
+  source_function: build_equivalence_plan
+  source_contract_path: configs/geophase_phase1_v2_source_corrected_performance_repair.yaml
+  source_contract_sha256: 84e1ecb298cfa6264646cc5e74df602b3e9e790e3eecfdc1abea62c087e87db4
+  canonical_ordered_plan_sha256: d88b88f04f1a5fe6bafd80702eebb29e8f48656b456879e092dafd1d01f1bce2
+  expected_total: 57
+  expected_counts: {electrical: 9, interval: 18, progression: 9, failure: 21}
+  first_row: {plan_index: 0, sample_id: EQ-ELECTRICAL-L1-equilibrium, input_sha256: 1626c3a7b27e1524b69e33a547a2467b633d43a3c0eef0ed901010dac58cd540}
+  last_metric_development_row: {plan_index: 11, sample_id: EQ-INTERVAL-L1-legal_critical-base, input_sha256: 795f223a10abea7b12b0ee11e24a9c324e85d4a40daa0a777599efa1babceed9}
+  first_held_out_row: {plan_index: 12, sample_id: EQ-INTERVAL-L1-legal_critical-floor, input_sha256: e510bb6fb515cc14b725cf697f0065d0352717e501e007147985d3621abd156a}
+  final_row: {plan_index: 56, sample_id: EQ-FAILURE-second_half_step-device_power_identity, input_sha256: 3ca31c1e172079cc14cb8e9582523360aa2683393f1ad7316861422da6916743}
+  development_partition:
+    label: metric-development
+    plan_indices: [0, 11]
+    count: 12
+    provenance: observed_under_strict_equivalence_v1_not_a_v2_result
+  held_out_partition:
+    label: held-out
+    plan_indices: [12, 56]
+    count: 45
+    execution_before_explicit_authorization: forbidden
+  reorder_insert_delete_or_skip: forbidden
+
+field_rules:
+  A_primary_physical:
+    threshold: 1.0e-12
+    threshold_change: forbidden
+    comparator: strict_equivalence_v1_normalized_relative_difference
+    fields:
+      - T
+      - s
+      - b
+      - V_d
+      - phi
+      - terminal_current
+      - field_Joule_power
+      - device_Joule_power
+      - thermal_ledger
+      - circuit_ledger
+      - combined_ledger
+      - device_power_ledger
+      - embedded_temporal_error
+    missing_extra_or_nonfinite: VALID_FAIL
+  B_topology_and_state_machine:
+    comparator: exact_match
+    fields:
+      - nonlinear_method
+      - converged_disposition
+      - fallback_disposition
+      - accepted_rejected_sequence
+      - failure_classification
+      - event_count_direction_and_order
+      - reversal_count_direction_and_order
+    missing_extra_or_validation_error: VALID_FAIL
+  C_lateral_conservation_and_flux:
+    physical_fluxes:
+      voting: true
+      threshold_ratio: 1.0
+      empirical_multiplier: forbidden
+      x_face_bound: 2*g_x_max*delta_T_inf + 64*machine_epsilon*max(g_x_max*T_scale,q_scale)
+      y_face_bound: 2*g_y_max*delta_T_inf + 64*machine_epsilon*max(g_y_max*T_scale,q_scale)
+      net_cell_bound: L_infinity_norm*delta_T_inf + 64*machine_epsilon*max(L_infinity_norm*T_scale,q_scale)
+    hard_gate:
+      voting: true
+      predicate: matrix_face_relative_mismatch_le_1e-10_OR_matrix_face_roundoff_ratio_le_1
+      required: candidate_and_oracle_each_pass_and_dispositions_match
+    cancellation_roundoff:
+      voting: true
+      bound: 64*machine_epsilon*2*(n_x_faces*q_x_scale+n_y_faces*q_y_scale)
+      raw_signed_values_preserved: true
+    observed_difference_derived_threshold: forbidden
+  complete_field_contract:
+    source: mechanically_derived_638_family_qualified_parameterized_templates
+    unregistered_extra_field: VALID_FAIL
+    conditionally_required_missing_field: VALID_FAIL
+    invalid_NA_or_validation_error: VALID_FAIL
+
+execution_control:
+  authorization_required: fresh_explicit_user_authorization
+  execution_attempt_limit: 1
+  equivalence_v2_execution_count: 0
+  counter_transition: atomic_0_to_1_before_plan_index_0_is_scheduled
+  execution_now: forbidden
+  fail_fast_on_first_valid_comparison_failure: true
+  automatic_retry: forbidden
+  manual_retry_under_same_contract: forbidden
+  candidate_or_oracle_change: forbidden
+  comparator_formula_or_threshold_change: forbidden
+  solver_controller_physics_or_protocol_change: forbidden
+  C1_C2_C3_runtime_or_formal_execution: forbidden
+  atomic_journal:
+    format: append_only_JSONL_hash_chain
+    writer: single_process
+    required_fields:
+      - sequence
+      - previous_record_sha256
+      - record_sha256
+      - plan_index
+      - sample_id
+      - partition_label
+      - state
+      - timestamp_utc
+      - input_sha256
+      - candidate_output_sha256
+      - oracle_output_sha256
+      - comparison_sha256
+      - terminal_class
+    per_row_publication: temp_write_fsync_hash_verify_atomic_rename
+    partial_row_counts_as_completed: false
+
+terminal_states:
+  PASS:
+    predicate: 57_of_57_rows_complete_and_all_A_B_C_votes_pass
+    meaning: optimized_candidate_equivalent_under_versioned_v2_contract_only
+  VALID_FAIL:
+    predicate: first_valid_A_B_or_C_vote_failure
+    meaning: optimized_candidate_not_equivalent_under_versioned_v2_contract
+    route: STOP_S2_ACTIVATE_GAMMA_SUB_without_automatic_experiment
+  INVALID_INFRA:
+    predicate: authority_environment_hash_IO_schema_or_execution_integrity_failure
+    meaning: no_scientific_or_equivalence_vote
+    route: preserve_partial_provenance_and_request_user_decision
+
+claim_boundary:
+  current_lifecycle_state: planned
+  current_claim_status: forbidden
+  strict_equivalence_v1_remains: failed_but_informative
+  metric_validity_remains: qualified_supported
+  optimized_equivalence_before_authorized_execution: forbidden
+  Phase1_S2_science: forbidden
+  allowed_current_wording: >-
+    A one-shot equivalence-v2 audit contract is preregistered; no v2 row has
+    executed and optimized-solver equivalence remains unassessed.
+  forbidden_wording:
+    - strict_equivalence_v1_passed
+    - equivalence_v2_executed_or_passed
+    - optimized_solver_is_equivalent
+    - runtime_readiness_authorized_or_passed
+    - Phase1_reference_solver_validated
+
+execution_counts:
+  equivalence_v2_execution_count: 0
+  equivalence_v2_completed_rows: 0
+  equivalence_v2_result_artifact_count: 0
+  formal_execution_count: 0
+  formal_artifact_count: 0
+
+planned_outputs:
+  namespace: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_audit
+  preregistration: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_audit/preregistration.json
+  journal: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_audit/audit_journal.jsonl
+  electrical_table: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_audit/electrical_equivalence.csv
+  interval_table: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_audit/interval_equivalence.csv
+  progression_table: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_audit/progression_equivalence.csv
+  failure_table: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_audit/failure_equivalence.csv
+  summary: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_audit/equivalence_v2_summary.json
+  result_files_present_now: false

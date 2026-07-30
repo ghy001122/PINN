@@ -4,10 +4,10 @@
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
 - Active phase/checkpoint: `Q2_PHASE1_2P5D_REFERENCE_SOLVER` /
-  `PHASE1_V2_EQUIVALENCE_METRIC_VALIDITY_AUDIT_COMPLETE`.
+  `PHASE1_V2_EQUIVALENCE_V2_CONTRACT_PREREGISTERED`.
 - Current contract/config:
-  `docs/research_strategy/phase1_geophase_2p5d_reference_v2_contract.md` /
-  `configs/geophase_phase1_v2_s2_reference_source_corrected_v3.yaml`.
+  `docs/research_strategy/phase1_v2_equivalence_v2_audit_contract.md` /
+  `configs/geophase_phase1_v2_equivalence_v2_audit.yaml`.
 - Source contract: `configs/qiu_vo2_phase1_source_contract_v3.yaml`.
 - Active stage router: `configs/geo2p5d_stage_source_corrected_v3.yaml`.
 - R1 `HysGeo-Hybrid-PINN` is the minimum route; R2
@@ -62,8 +62,9 @@ The pre-merge coverage correction supersedes only the original hand-mirrored
 mechanically from production extractors/streaming AST and mapped to all 57
 rows; 21/21 raw-record controls passed through production extraction. No parent
 result or audit row was rerun.
-Optimized equivalence, runtime readiness, formal execution, Phase 2, R1, and
-R2 remain blocked.
+The one-shot v2 contract is preregistered but unauthorized and unexecuted;
+optimized equivalence, runtime, formal execution, Phase 2, R1, and R2 remain
+blocked.
 
 ## Claim Boundary
 

@@ -5,7 +5,7 @@
 - Delivery/phase: `Q2_SCI_DELIVERY_MODE` /
   `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
 - Parent checkpoint:
-  `PHASE1_V2_EQUIVALENCE_METRIC_VALIDITY_AUDIT_COMPLETE`.
+  `PHASE1_V2_EQUIVALENCE_V2_CONTRACT_PREREGISTERED`.
 - Strict-equivalence-v1 substate: `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`.
 - Metric-validity substate: `GO_VERSIONED_EQUIVALENCE_V2_AUDIT`.
 - R1 `HysGeo-Hybrid-PINN` remains the minimum manuscript route; R2
@@ -47,7 +47,8 @@
 - The PR #11 coverage correction preserves that parent result but supersedes
   the original hand-mirrored 209-template completeness claim. Production
   extractors and streaming AST yield 638 family-qualified templates across all
-  57 rows; 21/21 raw-record topology/schema controls pass. No row was executed.
+  57 rows; 21/21 raw controls pass. The v2 contract is preregistered with zero
+  executions; no row is authorized.
 - The S1 scientific claim is `forbidden`/unassessed; its timeouts are supported
   infrastructure provenance only. The v6-v8 material-stack route remains
   `failed_but_informative` with no formal execution.
@@ -81,9 +82,9 @@
 
 Strict-equivalence-v1 remains rejected at plan 11. Preserve its provenance,
 harness identity, and atomic outputs; do not retry it or optimize again. The
-solver-free validity audit supports only a separately versioned equivalence-v2
-audit after fresh user authorization. Until that decision, do not run the
-57-row audit or C1/C2/C3. Phase 1/S2 science remains `forbidden` and unassessed;
+solver-free validity audit supports the preregistered equivalence-v2 contract,
+but fresh authorization is still required. Do not run its 57 rows or C1/C2/C3.
+Phase 1/S2 science remains `forbidden` and unassessed;
 formal execution, Phase 2, R1, and R2 stay blocked. If the versioned audit is
 not authorized or later fails a primary/physical/topology vote, activate the
 retained `gamma_sub` plus identifiability-boundary route.

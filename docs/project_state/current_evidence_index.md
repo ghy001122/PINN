@@ -26,6 +26,7 @@ evidence unless provenance explicitly says otherwise.
 | Equivalence metric-validity audit | `qualified_supported` solver-free audit | v1 preserved; 202 non-lateral fields retain strict gate; 9/9 physical lateral analytic bounds, 6/6 cancellation bounds, and 13/13 tamper controls pass; optimized equivalence unassessed |
 | Metric-validity coverage addendum | `qualified_supported` historical static coverage | Original 57-row/209-template and 28/28-control result retained; its hand-mirrored completeness claim is superseded by the correction. |
 | Metric-validity coverage correction | `qualified_supported` solver-free coverage | 638 family-qualified templates mechanically derived from production extractors/streaming AST; 57/57 row map; 21/21 raw production-extractor controls; zero held-out execution. |
+| Equivalence-v2 contract | `supported` preregistration | 57 rows locked; zero execution/authorization. |
 | Retired material stack | `failed_but_informative` | v8 gate failed; 96 items unexecuted |
 | Frozen GT integrity | `supported` when hashes pass | acceptance report/manifest; governance audit |
 | Claim vocabulary | `supported` governance fact | `docs/paper/final_claim_matrix.md` |
@@ -73,6 +74,6 @@ VO2-to-NbO2 zero-shot transfer.
 - Boundary: the invalid pre-row launch remains infrastructure provenance. The
   sole valid audit fail-fast rejected strict equivalence at plan 11 after
   `12/57` rows. The solver-free validity audit and corrected static coverage
-  support only preparing a separately versioned 57-row audit after fresh user
-  authorization. No retry, held-out row, further optimization, C1/C2/C3,
-  formal execution, Phase 2, or PINN is authorized.
+  support the preregistered 57-row v2 contract, not its execution. Fresh user
+  authorization remains required; no retry, held-out row, optimization,
+  C1/C2/C3, formal execution, Phase 2, or PINN is authorized.

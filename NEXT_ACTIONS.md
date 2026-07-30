@@ -3,7 +3,7 @@
 ## Authoritative Current Queue
 
 - Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Checkpoint: `PHASE1_V2_EQUIVALENCE_METRIC_VALIDITY_AUDIT_COMPLETE`.
+- Checkpoint: `PHASE1_V2_EQUIVALENCE_V2_CONTRACT_PREREGISTERED`.
 - Strict-equivalence-v1: `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`.
 - Metric validity: `GO_VERSIONED_EQUIVALENCE_V2_AUDIT`.
 - The 63 formal evaluations / 60 executions / 3 reuses remain
@@ -41,17 +41,13 @@ used no candidate/oracle or 57-row execution.
 
 ## Single Next Decision
 
-The PR #11 correction closes both verified coverage gaps without rerunning the
-parent audit: 638 family-qualified templates are mechanically derived and map
-to all 57 rows; 21/21 raw-record production-extractor controls pass. The old
-209 completeness claim is retained only as superseded provenance.
+PR #11 is merged. Its correction closes both coverage gaps without rerunning
+the parent audit: 638 derived templates map all 57 rows and 21/21 raw controls
+pass. The one-shot equivalence-v2 contract is now preregistered; execution count
+is zero and no row is authorized.
 
-After clean-checkout CI and authority-stable merge, create a separate branch
-and preregister the one-shot equivalence-v2 contract. Stop after opening its
-draft PR; do not execute a row.
-
-Only after a separate fresh authorization may one versioned audit of the
-frozen candidate/oracle run on the original 57-row plan. It must retain:
+The single next decision is whether to authorize one audit of the frozen
+candidate/oracle on the original 57-row order. It must retain:
 
 - `1e-12` for primary fields;
 - preregistered analytic mixed bounds for physical lateral fields;
