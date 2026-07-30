@@ -63,7 +63,9 @@
 | S2/controller software | `supported` bounded software/readiness | 7/7 smoke and C1/C2 integrity pass; C3 has no forecast; 63/60/3 and formal zero. |
 | Strict-equivalence-v1 | `failed_but_informative` implementation result | Frozen valid audit stopped at plan 11 after 12/57; S2 science remains unassessed. |
 | Metric validity and coverage | `qualified_supported` solver-free audits | 9/9 physical, 6/6 cancellation, 13/13 parent controls; corrected 57-row map and 21/21 raw controls; optimized equivalence unassessed. |
-| S1 and v6-v8 | `forbidden`/unassessed and historical `failed_but_informative` | S1 has infrastructure provenance only; retired material-stack route stays closed. |
+| S1 diffusive model-form claim | `forbidden` / unassessed | No atomic metric, K fit, or scientific vote. |
+| S1 interruption provenance | `supported` infrastructure provenance only | Timeouts only. |
+| v6-v8 material-stack route | `failed_but_informative` | Retired history; no formal execution. |
 | Phase 1-v2 reference result | `forbidden` | Requires every gate in an authorized formal campaign. |
 | R1/R2/R3 positive claims | `forbidden` | Require sequential direct evidence. |
 
