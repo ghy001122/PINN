@@ -10,6 +10,8 @@
   `configs/geophase_phase1_v2_equivalence_v2_executability_closure.yaml`.
 - Source contract: `configs/qiu_vo2_phase1_source_contract_v3.yaml`.
 - Active stage router: `configs/geo2p5d_stage_source_corrected_v3.yaml`.
+- Source-corrected v3 remains anchored at `0ebe037...`; the closure changes
+  only the equivalence-v2 contract layer and preserves that source identity.
 - R1 `HysGeo-Hybrid-PINN` is the minimum route; R2
   `GeoPhase-HomoMoE-PINN` is preferred; R3 is conditional.
 

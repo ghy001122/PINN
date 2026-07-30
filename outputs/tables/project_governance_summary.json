@@ -114,9 +114,9 @@
     "low_token_context_budget": {
       "status": "pass",
       "limit_bytes": 24576,
-      "total_bytes": 23996,
+      "total_bytes": 24149,
       "files": {
-        "CODEX_CONTEXT.md": 3410,
+        "CODEX_CONTEXT.md": 3563,
         "docs/research_strategy/active_phase.md": 5663,
         "PROJECT_STATE.md": 5867,
         "NEXT_ACTIONS.md": 3240,
