@@ -2,12 +2,13 @@
 
 ## Current disposition
 
-`READY_FROZEN_REMOTE_ANCHOR_NOT_EXECUTED`
+`VALID_FAIL / STOP_S2_ACTIVATE_GAMMA_SUB`
 
-This version records only the authorized execution identity. It is not an
-equivalence result: no candidate or oracle numerical row has executed under
-equivalence-v2, and the result sections below therefore report the actual
-pre-execution state rather than inferred outcomes.
+The single authorized attempt executed once and stopped at the first valid
+record-validation failure. Rows `0..8` passed; row `9`,
+`EQ-INTERVAL-L1-equilibrium-base`, failed before A/B/C voting because 91 ledger
+fields did not carry the canonical manifest-defined `scale_group`. Rows
+`10..56` remain unassessed. No retry or rule change is allowed.
 
 ## Task contract
 
@@ -46,40 +47,55 @@ and
 - The one-shot control plane may consume the frozen v3 comparator entrypoints;
   it may not invoke the v1 audit runner or v1 observation comparator.
 
-## Pre-execution evidence state
+## Executed evidence state
 
 | Item | Current value |
 |---|---:|
-| equivalence-v2 execution count | 0 |
-| completed v2 rows | 0 |
-| result artifacts | 0 |
+| equivalence-v2 execution count | 1 |
+| completed v2 rows | 10/57 |
+| passed v2 rows | 9 |
 | formal execution count | 0 |
 | formal artifacts | 0 |
-| terminal state | not formed before the one-shot attempt |
-| first failed row/field/category | not assessed |
+| terminal state | `VALID_FAIL` |
+| terminal event | `RECORD_VALIDATION_FAILURE` |
+| first failed row | `9 / EQ-INTERVAL-L1-equilibrium-base` |
+| first failed field/category | 91 canonical ledger `scale_group` validation issues; record-validity stage before A/B/C votes |
+| unassessed rows | `10..56` (47 rows) |
 
-No equivalence-v2 claim, Phase 1/S2 scientific claim, runtime-readiness claim,
-or PINN claim is supported by this prospective execution identity.
+Candidate and oracle record SHA-256 were identical on the failed row
+(`6b14db5d...`), but the shared record did not satisfy the frozen manifest's
+canonical ledger grouping. Therefore this result does not prove S2 physics
+unequal; it does prove that the frozen one-shot contract did not yield a valid
+implementation-equivalence pass. Equivalence-v2, Phase 1/S2 science,
+runtime-readiness, and PINN claims remain `forbidden`/unassessed.
 
-## Allowed terminal interpretation after the one-shot attempt
+## Terminal interpretation
 
-- `PASS`: only 57 explicit ordered row passes support the narrow statement that
-  the optimized candidate is implementation-equivalent to the frozen oracle
-  under the versioned equivalence-v2 contract.
-- `VALID_FAIL`: the first valid A/B/C or record-validity failure stops the
-  attempt; unvisited rows remain unassessed and the route becomes
-  `STOP_S2_ACTIVATE_GAMMA_SUB` without starting that alternative.
-- `INVALID_INFRA`: authority, environment, I/O, serialization, journal, or
-  execution-integrity failure produces no equivalence or scientific vote and
-  cannot be retried automatically.
+The actual terminal state is `VALID_FAIL`. The journal contains 22 chained
+records and terminates at SHA-256 `13d010ff...`; its file SHA-256 is
+`9dd51259...`. The immutable registry records
+`equivalence_v2_execution_count=1`, `completed_rows=10`, and
+`formal_execution_count=0`. The required route is
+`STOP_S2_ACTIVATE_GAMMA_SUB`; the retained fixed-rank-1 `gamma_sub` plus
+calibration gate and identifiability-boundary route is only a recommendation
+and was not started.
 
 ## Validation and publication status
 
-The solver-free control plane, production adapter, and CLI source hashes are
-bound in the config and machine authorization, and the prospective focused
-set passes locally. The immutable pre-execution runner anchor is
-`85c3709337430dddb93f69f13e4214532513f5f3`. Current-head clean-checkout CI
-remains the final external execution gate. Execution is fail-closed until that
-CI succeeds and every frozen identity is revalidated. The report will then be
-updated with the single attempt's actual terminal evidence, while historical
-v1 and closure-v3 records remain unchanged.
+The immutable pre-execution runner anchor is
+`85c3709337430dddb93f69f13e4214532513f5f3`; current-head pre-execution CI run
+`30564151079` succeeded before the attempt. Closeout validation is:
+
+- one-shot identity/result and journal-chain tests: `8 passed`;
+- project governance: `pass_with_manual_review`, zero failed checks;
+- Frozen GT: `8/8` hashes unchanged;
+- tracked JSON: `251/251` valid;
+- staged diff format: passed.
+
+The branch is `codex/phase1-v2-equivalence-v2-one-shot-audit`; the final result
+commit and clean-checkout CI are reported in draft PR #14. Evidence is
+literature-guided synthetic numerical digital-twin implementation-audit
+evidence, not measurement or experimental validation. Strict-v1 remains
+`NO_GO`, `12/57`; no historical v1 or closure-v3 record was modified. Phase 1,
+S2 scientific success/failure, runtime feasibility and PINN claims remain
+forbidden.

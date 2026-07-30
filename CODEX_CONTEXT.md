@@ -4,9 +4,8 @@
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
 - Active phase/checkpoint: `Q2_PHASE1_2P5D_REFERENCE_SOLVER` /
-  `PHASE1_V2_EQUIVALENCE_V2_ONE_SHOT_AUDIT` (closure v3 is merged; the
-  one-shot runner identity is frozen and current-head clean-checkout CI remains
-  before any audit row may execute).
+  `PHASE1_V2_EQUIVALENCE_V2_ONE_SHOT_AUDIT` (`VALID_FAIL` after 10/57 rows;
+  `STOP_S2_ACTIVATE_GAMMA_SUB`, with no retry or automatic downgrade work).
 - Current contract/config:
   `docs/codex_reports/geophase_phase1_v2_equivalence_v2_one_shot_audit.md` /
   `configs/geophase_phase1_v2_equivalence_v2_one_shot_execution.yaml`.
@@ -45,9 +44,11 @@ locked and physical lateral fields still vote.
 
 Closure v3 preserves PR #12 and adds dynamic-index, topology-shape,
 row/failure-identity and exact-terminal gates. It merged at `85d5c7ba...` after
-clean-checkout CI. The separately versioned one-shot control plane is remotely
-anchored at `85c3709...`; both execution counts remain zero, no audit row has
-executed, and current-head clean-checkout CI remains.
+clean-checkout CI. The one-shot control plane is anchored at `85c3709...`.
+Its sole attempt stopped at row 9 after 10 completed rows with
+`RECORD_VALIDATION_FAILURE`: 91 ledger fields had noncanonical `scale_group`
+metadata. Rows 10..56 are unassessed; `equivalence_v2_execution_count=1` and
+`formal_execution_count=0`.
 
 ## Claim Boundary
 
@@ -56,8 +57,8 @@ Allowed: describe contracts, implemented S2, bounded smoke/C1/C2, the C3 stop,
 
 Forbidden: Phase 1 success or scientific failure; campaign four-hour
 feasibility/infeasibility; memory/disk pass or failure; formal authorization;
-optimized-solver equivalence or execution before the closure-v3 and frozen
-runner-identity gates; demotion of physical lateral fluxes to telemetry;
+optimized-solver equivalence; retry or reinterpretation of the v2 attempt;
+demotion of physical lateral fluxes to telemetry;
 Qiu reproduction/calibration; positive R1/R2; OQ or sensitivity fidelity;
 arbitrary hidden-field recovery; experimental/FEM/3D validation; universal
 spectral superiority; or VO2-to-NbO2 zero-shot transfer.

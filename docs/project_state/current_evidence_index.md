@@ -23,10 +23,11 @@ evidence unless provenance explicitly says otherwise.
 | Source-corrected v3 bundle | `supported` config-only preregistration | 15.8 V qualitative lock probe; 63/60/3; old 15 V bundle immutable; formal zero |
 | Strict-equivalence invalid launch | `supported` infrastructure provenance only; numerical equivalence `forbidden` / unassessed | frozen candidate `1ae2704...`; invalid before row 1; 0/57 rows and zero votes; no candidate/oracle comparison or readiness execution |
 | Valid strict-equivalence audit | `failed_but_informative` implementation-equivalence result; S2 science `forbidden` / unassessed | one valid attempt; 12/57 rows; fail-fast at plan 11 with `1.4757614757614759 > 1e-12`; C1/C2/C3 not executed; formal zero |
-| Equivalence metric-validity audit | `qualified_supported` solver-free audit | v1 preserved; 202 non-lateral fields retain strict gate; 9/9 physical lateral analytic bounds, 6/6 cancellation bounds, and 13/13 tamper controls pass; optimized equivalence unassessed |
+| Equivalence metric-validity audit | `qualified_supported` solver-free audit | v1 preserved; 202 non-lateral fields retain strict gate; 9/9 physical lateral analytic bounds, 6/6 cancellation bounds, and 13/13 tamper controls pass; it does not override the v2 valid failure |
 | Metric-validity coverage addendum | `qualified_supported` historical static coverage | Original 57-row/209-template and 28/28-control result retained; its hand-mirrored completeness claim is superseded by the correction. |
 | Metric-validity coverage correction | `qualified_supported` solver-free coverage | 638 family-qualified templates mechanically derived from production extractors/streaming AST; 57/57 row map; 21/21 raw production-extractor controls; zero held-out execution. |
-| Equivalence-v2 contract | `supported` preregistration | 57 rows locked; zero execution/authorization. |
+| Equivalence-v2 contract | `supported` preregistration | 57 rows locked; one non-retryable execution authorized and consumed. |
+| Equivalence-v2 one-shot audit | implementation-equivalence claim `forbidden`; S2 science unassessed | `VALID_FAIL` at plan 9 after 10/57 rows; 91 canonical ledger `scale_group` record-validation issues; rows 10..56 unassessed; formal zero |
 | Retired material stack | `failed_but_informative` | v8 gate failed; 96 items unexecuted |
 | Frozen GT integrity | `supported` when hashes pass | acceptance report/manifest; governance audit |
 | Claim vocabulary | `supported` governance fact | `docs/paper/final_claim_matrix.md` |

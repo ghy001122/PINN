@@ -6,6 +6,8 @@
 - Checkpoint: `PHASE1_V2_EQUIVALENCE_V2_ONE_SHOT_AUDIT`.
 - Strict-equivalence-v1: `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`.
 - Metric validity: `GO_VERSIONED_EQUIVALENCE_V2_AUDIT`.
+- Equivalence-v2 one-shot: `VALID_FAIL`, `10/57`,
+  `STOP_S2_ACTIVATE_GAMMA_SUB`; no retry.
 - The 63 formal evaluations / 60 executions / 3 reuses remain
   `planned_not_executed`; `formal_execution_count=0` and formal artifacts are
   zero.
@@ -26,8 +28,8 @@
 ## Single Next Decision
 
 PR #11/12 lock 638 templates, 57 rows and unchanged record-level A/B/C rules.
-Their solver-free controls executed no audit row; both execution counts are
-zero. Metric validity remains qualified, not an equivalence pass.
+Their solver-free controls remain qualified metric evidence, not an
+equivalence pass.
 
 Closure v3 is merged at `85d5c7ba...`; it fixed only dynamic-index
 completeness, grid shape, row/failure identity, exact completion and result
@@ -39,14 +41,16 @@ tracking. Retain:
 - no candidate, oracle, physics, controller, parameter, protocol, inventory,
   or scientific-gate change.
 
-The one-shot runner identity is anchored at `85c3709...`; the current
-instruction authorizes one audit only after its current clean-checkout CI
-passes. The runner
-must consume the count atomically, execute `0..56` once without retry, and
-fail-fast on the first valid A/B/C failure. Stub and closure fixtures are
-solver-free and cannot count as audit rows. A valid primary/physical/topology
-failure routes to the retained `gamma_sub` plus identifiability-boundary
-manuscript route without starting it automatically.
+The one-shot runner identity is anchored at `85c3709...`. The only attempt
+consumed its count and stopped at plan 9 after 10 completed rows. Rows 0..8
+passed; row 9 produced `RECORD_VALIDATION_FAILURE` because 91 interval-ledger
+fields had noncanonical `scale_group` metadata. Rows 10..56 are unassessed.
+Do not retry, change rules, or restart performance work.
+
+The terminal route is `STOP_S2_ACTIVATE_GAMMA_SUB`. The only eligible next
+research decision is whether to activate the already retained fixed-rank-1
+`gamma_sub` plus calibration gate and identifiability-boundary manuscript
+route. This file does not authorize that work automatically.
 
 ## Locked Side And Historical Routes
 
@@ -57,8 +61,7 @@ manuscript route without starting it automatically.
 
 ## Scope Boundary
 
-Do not run equivalence-v2 before the separately frozen runner anchor is pushed
-and its clean-checkout CI passes. The authorized attempt is non-retryable.
+Do not rerun equivalence-v2; its sole authorized attempt is consumed.
 Do not run C1/C2/C3, a formal campaign, PINN training, Phase 2 generation,
 inverse work, source fitting/digitization, S1/v6-v8, M44, NbO2, FEM/3D, or
 nonzero dual-device coupling.

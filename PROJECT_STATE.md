@@ -41,9 +41,11 @@
   integrity gates needed to reject common-mode missing dynamic indices,
   common-mode wrong L1/L2/L4 shapes, caller-relabelled row/failure identities,
   and incomplete or reordered terminal plans. It passed clean-checkout CI and
-  merged at `85d5c7ba...`. A separate one-shot runner identity is remotely
-  anchored at `85c3709...`; current-head clean-checkout CI remains before
-  execution. No audit row has executed and both execution counts remain zero.
+  merged at `85d5c7ba...`. The one-shot runner is anchored at `85c3709...`.
+  Its unique attempt completed 10/57 rows and stopped at plan 9 with
+  `VALID_FAIL / RECORD_VALIDATION_FAILURE`: the identical candidate/oracle
+  interval records carried 91 noncanonical ledger `scale_group` values. Rows
+  10..56 remain unassessed; equivalence-v2 count is one and formal count zero.
 - The S1 scientific claim is `forbidden`/unassessed; its timeouts are supported
   infrastructure provenance only. The v6-v8 material-stack route remains
   `failed_but_informative` with no formal execution.
@@ -58,7 +60,8 @@
 | Phase 0 governance | `supported` | Repository routing/integrity only. |
 | S2/controller software | `supported` bounded software/readiness | 7/7 smoke and C1/C2 integrity pass; C3 has no forecast; 63/60/3 and formal zero. |
 | Strict-equivalence-v1 | `failed_but_informative` implementation result | Frozen valid audit stopped at plan 11 after 12/57; S2 science remains unassessed. |
-| Metric validity and coverage | `qualified_supported` solver-free audits | 9/9 physical, 6/6 cancellation, 13/13 parent controls; corrected 57-row map and 21/21 raw controls; optimized equivalence unassessed. |
+| Metric validity and coverage | `qualified_supported` solver-free audits | 9/9 physical, 6/6 cancellation, 13/13 parent controls; corrected 57-row map and 21/21 raw controls; does not override the one-shot record-validity failure. |
+| Equivalence-v2 one-shot | `forbidden` implementation-equivalence claim | `VALID_FAIL` at plan 9 after 10/57 rows; record-validation failure before A/B/C voting; no retry. |
 | S1 diffusive model-form claim | `forbidden` / unassessed | No atomic metric, K fit, or scientific vote. |
 | S1 interruption provenance | `supported` infrastructure provenance only | Timeouts only. |
 | v6-v8 material-stack route | `failed_but_informative` | Retired history; no formal execution. |
@@ -75,11 +78,11 @@
 
 ## Delivery Boundary
 
-Preserve strict-v1 and do not retry/optimize it. Closure v3 is merged, but the
-one-shot v2 attempt may start only after the separate runner identity is
-pushed and its current clean-checkout CI succeeds; C1/C2/C3 and formal
-execution remain blocked. A valid A/B/C failure routes to retained `gamma_sub`
-plus the identifiability-boundary route.
+Preserve strict-v1 and the completed one-shot v2 evidence; do not retry,
+reinterpret, or optimize either audit. The terminal route is
+`STOP_S2_ACTIVATE_GAMMA_SUB`; C1/C2/C3 and formal execution remain blocked.
+Only a separate user decision may activate the retained fixed-rank-1
+`gamma_sub` plus calibration-gate and identifiability-boundary manuscript route.
 
 Do not rerun S1 or v6-v8; train a PINN; generate Phase 2 data; run inverse;
 modify frozen GT; add nonzero coupling; run FEM/3D, M44, or NbO2; or claim

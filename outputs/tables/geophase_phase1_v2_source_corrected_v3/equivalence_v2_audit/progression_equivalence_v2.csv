@@ -1,0 +1,1 @@
+plan_index,sample_id,partition_label,family,input_sha256,candidate_record_sha256,oracle_record_sha256,comparison_sha256,row_pass,failure_event,failed_fields,failed_categories,issues

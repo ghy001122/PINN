@@ -31,6 +31,8 @@ FIELD_MANIFEST_PATH = (
     / "mechanical_field_contract.csv"
 )
 PLAN_MANIFEST_PATH = FIELD_MANIFEST_PATH.with_name("mechanical_plan_contract.csv")
+JOURNAL_PATH = OUTPUT_ROOT / "audit_journal.jsonl"
+SUMMARY_PATH = OUTPUT_ROOT / "equivalence_v2_summary.json"
 
 
 def _sha256(path: Path) -> str:
@@ -249,3 +251,55 @@ def test_claim_and_result_boundaries_remain_fail_closed() -> None:
     assert claims["equivalence_v2"] == "authorized_but_not_started"
     assert claims["Phase1_S2_science"] == "forbidden"
     assert claims["PINN_claims"] == "forbidden"
+
+
+def test_single_executed_attempt_is_a_hash_chained_valid_fail() -> None:
+    from pinnpcm.audit.geophase_phase1_v2_equivalence_v2_one_shot import (
+        validate_journal,
+    )
+
+    registry = _json(REGISTRY_PATH)
+    summary = _json(SUMMARY_PATH)
+    journal = validate_journal(JOURNAL_PATH)
+
+    assert registry["equivalence_v2_execution_count"] == 1
+    assert registry["formal_execution_count"] == 0
+    assert registry["state"] == "TERMINAL"
+    assert registry["terminal_state"] == "VALID_FAIL"
+    assert registry["terminal_event"] == "RECORD_VALIDATION_FAILURE"
+    assert registry["completed_rows"] == 10
+
+    assert summary["terminal_state"] == "VALID_FAIL"
+    assert summary["terminal_event"] == "RECORD_VALIDATION_FAILURE"
+    assert summary["completed_rows"] == 10
+    assert summary["equivalence_v2_execution_count"] == 1
+    assert summary["formal_execution_count"] == 0
+    assert summary["unassessed_plan_indices"] == list(range(10, 57))
+    failure = summary["first_failure"]
+    assert failure["plan_index"] == 9
+    assert failure["sample_id"] == "EQ-INTERVAL-L1-equilibrium-base"
+    assert failure["failure_event"] == "RECORD_VALIDATION_FAILURE"
+    assert failure["field"] is None
+    assert failure["category"] is None
+    assert len(failure["issues"]) == 91
+    assert all(issue.startswith("canonical scale_group differs: ") for issue in failure["issues"])
+
+    completed = [record for record in journal if record["event"] == "ROW_COMPLETED"]
+    assert [record["plan_index"] for record in completed] == list(range(10))
+    assert all(record["row_pass"] is True for record in completed[:9])
+    assert completed[9]["row_pass"] is False
+    assert completed[9]["candidate_record_sha256"] == completed[9]["oracle_record_sha256"]
+    assert journal[-1]["event"] == "ATTEMPT_TERMINATED"
+    assert journal[-1]["terminal_state"] == "VALID_FAIL"
+    assert journal[-1]["record_sha256"] == registry["final_journal_sha256"]
+    assert journal[-1]["record_sha256"] == summary["journal_final_record_sha256"]
+    assert _sha256(JOURNAL_PATH) == summary["journal_file_sha256"]
+
+    table_paths = {
+        "electrical": OUTPUT_ROOT / "electrical_equivalence_v2.csv",
+        "interval": OUTPUT_ROOT / "interval_equivalence_v2.csv",
+        "progression": OUTPUT_ROOT / "progression_equivalence_v2.csv",
+        "failure": OUTPUT_ROOT / "failure_equivalence_v2.csv",
+    }
+    for family, path in table_paths.items():
+        assert _sha256(path) == summary["family_table_sha256"][family]
