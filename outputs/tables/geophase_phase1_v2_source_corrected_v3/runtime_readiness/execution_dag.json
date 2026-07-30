@@ -1,0 +1,869 @@
+{
+  "addendum_sha256": "d7f9c3beb94036131b30431f22afca95bf3542568151094c9d53dee22185715f",
+  "authority_hashes_sha256": {
+    "configs/geophase_phase1_v2_formal_manifest_source_corrected_v3.yaml": "240e45435505626b2bfb5a71cb95d8d18b2c7e4c2a5beac8aeb7cb843bf2f739",
+    "configs/geophase_phase1_v2_s2_reference_source_corrected_v3.yaml": "ea668ac66c8f2f2267b059bd816a4116def086708f2f7eeded07d64a2857aff4",
+    "configs/qiu_vo2_phase1_source_contract_v3.yaml": "17a0accc906d68fffc35ee40be9d41c36bd1a7d0514e9a539cfcfd4fc4bcc621",
+    "outputs/tables/geophase_phase1_v2_source_corrected_v3/formal_evaluation_manifest.csv": "d48646069e16e255bb857f2bdff406315513aa2e62214be50deb8cf6919d5737",
+    "outputs/tables/geophase_phase1_v2_source_corrected_v3/formal_evaluation_manifest.json": "803e83e5c5b13ba3546b4262e4d9658be53b255188541aa60dce63d0f7174ac7"
+  },
+  "evaluation_item_count": 63,
+  "execution_units": [
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-FAIL-negative_effective_capacity"
+      ],
+      "execution_group": "FAIL",
+      "execution_stage": 2,
+      "execution_stage_id": "FAIL_fail_closed_controls",
+      "execution_unit_id": "TRJ-P1V2-FAIL-negative_effective_capacity",
+      "fixture_id": "negative_effective_capacity",
+      "primary_evaluation_id": "P1V2-FAIL-negative_effective_capacity",
+      "protocol_id": null,
+      "spatial_level": null,
+      "time_divisor": null
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-FAIL-negative_vertical_conductance"
+      ],
+      "execution_group": "FAIL",
+      "execution_stage": 2,
+      "execution_stage_id": "FAIL_fail_closed_controls",
+      "execution_unit_id": "TRJ-P1V2-FAIL-negative_vertical_conductance",
+      "fixture_id": "negative_vertical_conductance",
+      "primary_evaluation_id": "P1V2-FAIL-negative_vertical_conductance",
+      "protocol_id": null,
+      "spatial_level": null,
+      "time_divisor": null
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-FAIL-nonfinite_newton"
+      ],
+      "execution_group": "FAIL",
+      "execution_stage": 2,
+      "execution_stage_id": "FAIL_fail_closed_controls",
+      "execution_unit_id": "TRJ-P1V2-FAIL-nonfinite_newton",
+      "fixture_id": "nonfinite_newton",
+      "primary_evaluation_id": "P1V2-FAIL-nonfinite_newton",
+      "protocol_id": null,
+      "spatial_level": null,
+      "time_divisor": null
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-FAIL-ledger_tamper"
+      ],
+      "execution_group": "FAIL",
+      "execution_stage": 2,
+      "execution_stage_id": "FAIL_fail_closed_controls",
+      "execution_unit_id": "TRJ-P1V2-FAIL-ledger_tamper",
+      "fixture_id": "ledger_tamper",
+      "primary_evaluation_id": "P1V2-FAIL-ledger_tamper",
+      "protocol_id": null,
+      "spatial_level": null,
+      "time_divisor": null
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-FAIL-coordinate_swap"
+      ],
+      "execution_group": "FAIL",
+      "execution_stage": 2,
+      "execution_stage_id": "FAIL_fail_closed_controls",
+      "execution_unit_id": "TRJ-P1V2-FAIL-coordinate_swap",
+      "fixture_id": "coordinate_swap",
+      "primary_evaluation_id": "P1V2-FAIL-coordinate_swap",
+      "protocol_id": null,
+      "spatial_level": null,
+      "time_divisor": null
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-MMS-electrical_linear_field-L1"
+      ],
+      "execution_group": "MMS",
+      "execution_stage": 3,
+      "execution_stage_id": "MMS_manufactured_foundations",
+      "execution_unit_id": "TRJ-P1V2-MMS-electrical_linear_field-L1",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-MMS-electrical_linear_field-L1",
+      "protocol_id": null,
+      "spatial_level": 1,
+      "time_divisor": null
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-MMS-electrical_linear_field-L2"
+      ],
+      "execution_group": "MMS",
+      "execution_stage": 3,
+      "execution_stage_id": "MMS_manufactured_foundations",
+      "execution_unit_id": "TRJ-P1V2-MMS-electrical_linear_field-L2",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-MMS-electrical_linear_field-L2",
+      "protocol_id": null,
+      "spatial_level": 2,
+      "time_divisor": null
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-MMS-electrical_linear_field-L4"
+      ],
+      "execution_group": "MMS",
+      "execution_stage": 3,
+      "execution_stage_id": "MMS_manufactured_foundations",
+      "execution_unit_id": "TRJ-P1V2-MMS-electrical_linear_field-L4",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-MMS-electrical_linear_field-L4",
+      "protocol_id": null,
+      "spatial_level": 4,
+      "time_divisor": null
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-MMS-thermal_diffusion_with_source_and_sink-L1"
+      ],
+      "execution_group": "MMS",
+      "execution_stage": 3,
+      "execution_stage_id": "MMS_manufactured_foundations",
+      "execution_unit_id": "TRJ-P1V2-MMS-thermal_diffusion_with_source_and_sink-L1",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-MMS-thermal_diffusion_with_source_and_sink-L1",
+      "protocol_id": null,
+      "spatial_level": 1,
+      "time_divisor": null
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-MMS-thermal_diffusion_with_source_and_sink-L2"
+      ],
+      "execution_group": "MMS",
+      "execution_stage": 3,
+      "execution_stage_id": "MMS_manufactured_foundations",
+      "execution_unit_id": "TRJ-P1V2-MMS-thermal_diffusion_with_source_and_sink-L2",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-MMS-thermal_diffusion_with_source_and_sink-L2",
+      "protocol_id": null,
+      "spatial_level": 2,
+      "time_divisor": null
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-MMS-thermal_diffusion_with_source_and_sink-L4"
+      ],
+      "execution_group": "MMS",
+      "execution_stage": 3,
+      "execution_stage_id": "MMS_manufactured_foundations",
+      "execution_unit_id": "TRJ-P1V2-MMS-thermal_diffusion_with_source_and_sink-L4",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-MMS-thermal_diffusion_with_source_and_sink-L4",
+      "protocol_id": null,
+      "spatial_level": 4,
+      "time_divisor": null
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-MMS-S2_forced_uniform_temperature_response-L1"
+      ],
+      "execution_group": "MMS",
+      "execution_stage": 3,
+      "execution_stage_id": "MMS_manufactured_foundations",
+      "execution_unit_id": "TRJ-P1V2-MMS-S2_forced_uniform_temperature_response-L1",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-MMS-S2_forced_uniform_temperature_response-L1",
+      "protocol_id": null,
+      "spatial_level": 1,
+      "time_divisor": null
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-MMS-S2_forced_uniform_temperature_response-L2"
+      ],
+      "execution_group": "MMS",
+      "execution_stage": 3,
+      "execution_stage_id": "MMS_manufactured_foundations",
+      "execution_unit_id": "TRJ-P1V2-MMS-S2_forced_uniform_temperature_response-L2",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-MMS-S2_forced_uniform_temperature_response-L2",
+      "protocol_id": null,
+      "spatial_level": 2,
+      "time_divisor": null
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-MMS-S2_forced_uniform_temperature_response-L4"
+      ],
+      "execution_group": "MMS",
+      "execution_stage": 3,
+      "execution_stage_id": "MMS_manufactured_foundations",
+      "execution_unit_id": "TRJ-P1V2-MMS-S2_forced_uniform_temperature_response-L4",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-MMS-S2_forced_uniform_temperature_response-L4",
+      "protocol_id": null,
+      "spatial_level": 4,
+      "time_divisor": null
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-LIM-zero_drive_equilibrium"
+      ],
+      "execution_group": "LIM",
+      "execution_stage": 4,
+      "execution_stage_id": "LIM_analytic_and_zero_input_foundations",
+      "execution_unit_id": "TRJ-P1V2-LIM-zero_drive_equilibrium",
+      "fixture_id": "zero_drive_equilibrium",
+      "primary_evaluation_id": "P1V2-LIM-zero_drive_equilibrium",
+      "protocol_id": null,
+      "spatial_level": null,
+      "time_divisor": null
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-LIM-uniform_conductivity_linear_potential"
+      ],
+      "execution_group": "LIM",
+      "execution_stage": 4,
+      "execution_stage_id": "LIM_analytic_and_zero_input_foundations",
+      "execution_unit_id": "TRJ-P1V2-LIM-uniform_conductivity_linear_potential",
+      "fixture_id": "uniform_conductivity_linear_potential",
+      "primary_evaluation_id": "P1V2-LIM-uniform_conductivity_linear_potential",
+      "protocol_id": null,
+      "spatial_level": null,
+      "time_divisor": null
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-LIM-zero_joule_cooling"
+      ],
+      "execution_group": "LIM",
+      "execution_stage": 4,
+      "execution_stage_id": "LIM_analytic_and_zero_input_foundations",
+      "execution_unit_id": "TRJ-P1V2-LIM-zero_joule_cooling",
+      "fixture_id": "zero_joule_cooling",
+      "primary_evaluation_id": "P1V2-LIM-zero_joule_cooling",
+      "protocol_id": null,
+      "spatial_level": null,
+      "time_divisor": null
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-LIM-steady_thermal_resistance"
+      ],
+      "execution_group": "LIM",
+      "execution_stage": 4,
+      "execution_stage_id": "LIM_analytic_and_zero_input_foundations",
+      "execution_unit_id": "TRJ-P1V2-LIM-steady_thermal_resistance",
+      "fixture_id": "steady_thermal_resistance",
+      "primary_evaluation_id": "P1V2-LIM-steady_thermal_resistance",
+      "protocol_id": null,
+      "spatial_level": null,
+      "time_divisor": null
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-LIM-local_single_cell_backward_euler"
+      ],
+      "execution_group": "LIM",
+      "execution_stage": 4,
+      "execution_stage_id": "LIM_analytic_and_zero_input_foundations",
+      "execution_unit_id": "TRJ-P1V2-LIM-local_single_cell_backward_euler",
+      "fixture_id": "local_single_cell_backward_euler",
+      "primary_evaluation_id": "P1V2-LIM-local_single_cell_backward_euler",
+      "protocol_id": null,
+      "spatial_level": null,
+      "time_divisor": null
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-LIM-rc_open_device"
+      ],
+      "execution_group": "LIM",
+      "execution_stage": 4,
+      "execution_stage_id": "LIM_analytic_and_zero_input_foundations",
+      "execution_unit_id": "TRJ-P1V2-LIM-rc_open_device",
+      "fixture_id": "rc_open_device",
+      "primary_evaluation_id": "P1V2-LIM-rc_open_device",
+      "protocol_id": null,
+      "spatial_level": null,
+      "time_divisor": null
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-REF-zero_drive-S1T4"
+      ],
+      "execution_group": "REF",
+      "execution_stage": 5,
+      "execution_stage_id": "REF_independent_refinement_trajectories",
+      "execution_unit_id": "TRJ-P1V2-REF-zero_drive-S1T4",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-REF-zero_drive-S1T4",
+      "protocol_id": "zero_drive",
+      "spatial_level": 1,
+      "time_divisor": 4
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-REF-zero_drive-S2T4"
+      ],
+      "execution_group": "REF",
+      "execution_stage": 5,
+      "execution_stage_id": "REF_independent_refinement_trajectories",
+      "execution_unit_id": "TRJ-P1V2-REF-zero_drive-S2T4",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-REF-zero_drive-S2T4",
+      "protocol_id": "zero_drive",
+      "spatial_level": 2,
+      "time_divisor": 4
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-REF-zero_drive-S4T1"
+      ],
+      "execution_group": "REF",
+      "execution_stage": 5,
+      "execution_stage_id": "REF_independent_refinement_trajectories",
+      "execution_unit_id": "TRJ-P1V2-REF-zero_drive-S4T1",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-REF-zero_drive-S4T1",
+      "protocol_id": "zero_drive",
+      "spatial_level": 4,
+      "time_divisor": 1
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-REF-zero_drive-S4T2"
+      ],
+      "execution_group": "REF",
+      "execution_stage": 5,
+      "execution_stage_id": "REF_independent_refinement_trajectories",
+      "execution_unit_id": "TRJ-P1V2-REF-zero_drive-S4T2",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-REF-zero_drive-S4T2",
+      "protocol_id": "zero_drive",
+      "spatial_level": 4,
+      "time_divisor": 2
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-REF-zero_drive-S4T4"
+      ],
+      "execution_group": "REF",
+      "execution_stage": 5,
+      "execution_stage_id": "REF_independent_refinement_trajectories",
+      "execution_unit_id": "TRJ-P1V2-REF-zero_drive-S4T4",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-REF-zero_drive-S4T4",
+      "protocol_id": "zero_drive",
+      "spatial_level": 4,
+      "time_divisor": 4
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-REF-quiescent_9V-S1T4"
+      ],
+      "execution_group": "REF",
+      "execution_stage": 5,
+      "execution_stage_id": "REF_independent_refinement_trajectories",
+      "execution_unit_id": "TRJ-P1V2-REF-quiescent_9V-S1T4",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-REF-quiescent_9V-S1T4",
+      "protocol_id": "quiescent_9V",
+      "spatial_level": 1,
+      "time_divisor": 4
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-REF-quiescent_9V-S2T4"
+      ],
+      "execution_group": "REF",
+      "execution_stage": 5,
+      "execution_stage_id": "REF_independent_refinement_trajectories",
+      "execution_unit_id": "TRJ-P1V2-REF-quiescent_9V-S2T4",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-REF-quiescent_9V-S2T4",
+      "protocol_id": "quiescent_9V",
+      "spatial_level": 2,
+      "time_divisor": 4
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-REF-quiescent_9V-S4T1"
+      ],
+      "execution_group": "REF",
+      "execution_stage": 5,
+      "execution_stage_id": "REF_independent_refinement_trajectories",
+      "execution_unit_id": "TRJ-P1V2-REF-quiescent_9V-S4T1",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-REF-quiescent_9V-S4T1",
+      "protocol_id": "quiescent_9V",
+      "spatial_level": 4,
+      "time_divisor": 1
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-REF-quiescent_9V-S4T2"
+      ],
+      "execution_group": "REF",
+      "execution_stage": 5,
+      "execution_stage_id": "REF_independent_refinement_trajectories",
+      "execution_unit_id": "TRJ-P1V2-REF-quiescent_9V-S4T2",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-REF-quiescent_9V-S4T2",
+      "protocol_id": "quiescent_9V",
+      "spatial_level": 4,
+      "time_divisor": 2
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-REF-quiescent_9V-S4T4"
+      ],
+      "execution_group": "REF",
+      "execution_stage": 5,
+      "execution_stage_id": "REF_independent_refinement_trajectories",
+      "execution_unit_id": "TRJ-P1V2-REF-quiescent_9V-S4T4",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-REF-quiescent_9V-S4T4",
+      "protocol_id": "quiescent_9V",
+      "spatial_level": 4,
+      "time_divisor": 4
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-REF-nominal_12V-S1T4"
+      ],
+      "execution_group": "REF",
+      "execution_stage": 5,
+      "execution_stage_id": "REF_independent_refinement_trajectories",
+      "execution_unit_id": "TRJ-P1V2-REF-nominal_12V-S1T4",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-REF-nominal_12V-S1T4",
+      "protocol_id": "nominal_12V",
+      "spatial_level": 1,
+      "time_divisor": 4
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-REF-nominal_12V-S2T4"
+      ],
+      "execution_group": "REF",
+      "execution_stage": 5,
+      "execution_stage_id": "REF_independent_refinement_trajectories",
+      "execution_unit_id": "TRJ-P1V2-REF-nominal_12V-S2T4",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-REF-nominal_12V-S2T4",
+      "protocol_id": "nominal_12V",
+      "spatial_level": 2,
+      "time_divisor": 4
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-REF-nominal_12V-S4T1"
+      ],
+      "execution_group": "REF",
+      "execution_stage": 5,
+      "execution_stage_id": "REF_independent_refinement_trajectories",
+      "execution_unit_id": "TRJ-P1V2-REF-nominal_12V-S4T1",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-REF-nominal_12V-S4T1",
+      "protocol_id": "nominal_12V",
+      "spatial_level": 4,
+      "time_divisor": 1
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-REF-nominal_12V-S4T2"
+      ],
+      "execution_group": "REF",
+      "execution_stage": 5,
+      "execution_stage_id": "REF_independent_refinement_trajectories",
+      "execution_unit_id": "TRJ-P1V2-REF-nominal_12V-S4T2",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-REF-nominal_12V-S4T2",
+      "protocol_id": "nominal_12V",
+      "spatial_level": 4,
+      "time_divisor": 2
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-REF-nominal_12V-S4T4",
+        "P1V2-TOP-O20-nominal_12V"
+      ],
+      "execution_group": "REF",
+      "execution_stage": 5,
+      "execution_stage_id": "REF_independent_refinement_trajectories",
+      "execution_unit_id": "TRJ-P1V2-REF-nominal_12V-S4T4",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-REF-nominal_12V-S4T4",
+      "protocol_id": "nominal_12V",
+      "spatial_level": 4,
+      "time_divisor": 4
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-REF-transition_probe_12p5V-S1T4"
+      ],
+      "execution_group": "REF",
+      "execution_stage": 5,
+      "execution_stage_id": "REF_independent_refinement_trajectories",
+      "execution_unit_id": "TRJ-P1V2-REF-transition_probe_12p5V-S1T4",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-REF-transition_probe_12p5V-S1T4",
+      "protocol_id": "transition_probe_12p5V",
+      "spatial_level": 1,
+      "time_divisor": 4
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-REF-transition_probe_12p5V-S2T4"
+      ],
+      "execution_group": "REF",
+      "execution_stage": 5,
+      "execution_stage_id": "REF_independent_refinement_trajectories",
+      "execution_unit_id": "TRJ-P1V2-REF-transition_probe_12p5V-S2T4",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-REF-transition_probe_12p5V-S2T4",
+      "protocol_id": "transition_probe_12p5V",
+      "spatial_level": 2,
+      "time_divisor": 4
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-REF-transition_probe_12p5V-S4T1"
+      ],
+      "execution_group": "REF",
+      "execution_stage": 5,
+      "execution_stage_id": "REF_independent_refinement_trajectories",
+      "execution_unit_id": "TRJ-P1V2-REF-transition_probe_12p5V-S4T1",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-REF-transition_probe_12p5V-S4T1",
+      "protocol_id": "transition_probe_12p5V",
+      "spatial_level": 4,
+      "time_divisor": 1
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-REF-transition_probe_12p5V-S4T2"
+      ],
+      "execution_group": "REF",
+      "execution_stage": 5,
+      "execution_stage_id": "REF_independent_refinement_trajectories",
+      "execution_unit_id": "TRJ-P1V2-REF-transition_probe_12p5V-S4T2",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-REF-transition_probe_12p5V-S4T2",
+      "protocol_id": "transition_probe_12p5V",
+      "spatial_level": 4,
+      "time_divisor": 2
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-REF-transition_probe_12p5V-S4T4",
+        "P1V2-TOP-O20-transition_probe_12p5V"
+      ],
+      "execution_group": "REF",
+      "execution_stage": 5,
+      "execution_stage_id": "REF_independent_refinement_trajectories",
+      "execution_unit_id": "TRJ-P1V2-REF-transition_probe_12p5V-S4T4",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-REF-transition_probe_12p5V-S4T4",
+      "protocol_id": "transition_probe_12p5V",
+      "spatial_level": 4,
+      "time_divisor": 4
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-REF-high_bias_lock_15p8V-S1T4"
+      ],
+      "execution_group": "REF",
+      "execution_stage": 5,
+      "execution_stage_id": "REF_independent_refinement_trajectories",
+      "execution_unit_id": "TRJ-P1V2-REF-high_bias_lock_15p8V-S1T4",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-REF-high_bias_lock_15p8V-S1T4",
+      "protocol_id": "high_bias_lock_15p8V",
+      "spatial_level": 1,
+      "time_divisor": 4
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-REF-high_bias_lock_15p8V-S2T4"
+      ],
+      "execution_group": "REF",
+      "execution_stage": 5,
+      "execution_stage_id": "REF_independent_refinement_trajectories",
+      "execution_unit_id": "TRJ-P1V2-REF-high_bias_lock_15p8V-S2T4",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-REF-high_bias_lock_15p8V-S2T4",
+      "protocol_id": "high_bias_lock_15p8V",
+      "spatial_level": 2,
+      "time_divisor": 4
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-REF-high_bias_lock_15p8V-S4T1"
+      ],
+      "execution_group": "REF",
+      "execution_stage": 5,
+      "execution_stage_id": "REF_independent_refinement_trajectories",
+      "execution_unit_id": "TRJ-P1V2-REF-high_bias_lock_15p8V-S4T1",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-REF-high_bias_lock_15p8V-S4T1",
+      "protocol_id": "high_bias_lock_15p8V",
+      "spatial_level": 4,
+      "time_divisor": 1
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-REF-high_bias_lock_15p8V-S4T2"
+      ],
+      "execution_group": "REF",
+      "execution_stage": 5,
+      "execution_stage_id": "REF_independent_refinement_trajectories",
+      "execution_unit_id": "TRJ-P1V2-REF-high_bias_lock_15p8V-S4T2",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-REF-high_bias_lock_15p8V-S4T2",
+      "protocol_id": "high_bias_lock_15p8V",
+      "spatial_level": 4,
+      "time_divisor": 2
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-REF-high_bias_lock_15p8V-S4T4",
+        "P1V2-TOP-O20-high_bias_lock_15p8V"
+      ],
+      "execution_group": "REF",
+      "execution_stage": 5,
+      "execution_stage_id": "REF_independent_refinement_trajectories",
+      "execution_unit_id": "TRJ-P1V2-REF-high_bias_lock_15p8V-S4T4",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-REF-high_bias_lock_15p8V-S4T4",
+      "protocol_id": "high_bias_lock_15p8V",
+      "spatial_level": 4,
+      "time_divisor": 4
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-REF-pulse_12p5V-S1T4"
+      ],
+      "execution_group": "REF",
+      "execution_stage": 5,
+      "execution_stage_id": "REF_independent_refinement_trajectories",
+      "execution_unit_id": "TRJ-P1V2-REF-pulse_12p5V-S1T4",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-REF-pulse_12p5V-S1T4",
+      "protocol_id": "pulse_12p5V",
+      "spatial_level": 1,
+      "time_divisor": 4
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-REF-pulse_12p5V-S2T4"
+      ],
+      "execution_group": "REF",
+      "execution_stage": 5,
+      "execution_stage_id": "REF_independent_refinement_trajectories",
+      "execution_unit_id": "TRJ-P1V2-REF-pulse_12p5V-S2T4",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-REF-pulse_12p5V-S2T4",
+      "protocol_id": "pulse_12p5V",
+      "spatial_level": 2,
+      "time_divisor": 4
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-REF-pulse_12p5V-S4T1"
+      ],
+      "execution_group": "REF",
+      "execution_stage": 5,
+      "execution_stage_id": "REF_independent_refinement_trajectories",
+      "execution_unit_id": "TRJ-P1V2-REF-pulse_12p5V-S4T1",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-REF-pulse_12p5V-S4T1",
+      "protocol_id": "pulse_12p5V",
+      "spatial_level": 4,
+      "time_divisor": 1
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-REF-pulse_12p5V-S4T2"
+      ],
+      "execution_group": "REF",
+      "execution_stage": 5,
+      "execution_stage_id": "REF_independent_refinement_trajectories",
+      "execution_unit_id": "TRJ-P1V2-REF-pulse_12p5V-S4T2",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-REF-pulse_12p5V-S4T2",
+      "protocol_id": "pulse_12p5V",
+      "spatial_level": 4,
+      "time_divisor": 2
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-REF-pulse_12p5V-S4T4"
+      ],
+      "execution_group": "REF",
+      "execution_stage": 5,
+      "execution_stage_id": "REF_independent_refinement_trajectories",
+      "execution_unit_id": "TRJ-P1V2-REF-pulse_12p5V-S4T4",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-REF-pulse_12p5V-S4T4",
+      "protocol_id": "pulse_12p5V",
+      "spatial_level": 4,
+      "time_divisor": 4
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-DUAL0-A_only_drive"
+      ],
+      "execution_group": "DUAL0",
+      "execution_stage": 6,
+      "execution_stage_id": "DUAL0_zero_coupling_limits",
+      "execution_unit_id": "TRJ-P1V2-DUAL0-A_only_drive",
+      "fixture_id": "A_only_drive",
+      "primary_evaluation_id": "P1V2-DUAL0-A_only_drive",
+      "protocol_id": null,
+      "spatial_level": null,
+      "time_divisor": null
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-DUAL0-B_only_drive"
+      ],
+      "execution_group": "DUAL0",
+      "execution_stage": 6,
+      "execution_stage_id": "DUAL0_zero_coupling_limits",
+      "execution_unit_id": "TRJ-P1V2-DUAL0-B_only_drive",
+      "fixture_id": "B_only_drive",
+      "primary_evaluation_id": "P1V2-DUAL0-B_only_drive",
+      "protocol_id": null,
+      "spatial_level": null,
+      "time_divisor": null
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-DUAL0-equal_drive_symmetry"
+      ],
+      "execution_group": "DUAL0",
+      "execution_stage": 6,
+      "execution_stage_id": "DUAL0_zero_coupling_limits",
+      "execution_unit_id": "TRJ-P1V2-DUAL0-equal_drive_symmetry",
+      "fixture_id": "equal_drive_symmetry",
+      "primary_evaluation_id": "P1V2-DUAL0-equal_drive_symmetry",
+      "protocol_id": null,
+      "spatial_level": null,
+      "time_divisor": null
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-DUAL0-swapped_label_invariance"
+      ],
+      "execution_group": "DUAL0",
+      "execution_stage": 6,
+      "execution_stage_id": "DUAL0_zero_coupling_limits",
+      "execution_unit_id": "TRJ-P1V2-DUAL0-swapped_label_invariance",
+      "fixture_id": "swapped_label_invariance",
+      "primary_evaluation_id": "P1V2-DUAL0-swapped_label_invariance",
+      "protocol_id": null,
+      "spatial_level": null,
+      "time_divisor": null
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-TOP-O10-nominal_12V"
+      ],
+      "execution_group": "TOP",
+      "execution_stage": 7,
+      "execution_stage_id": "TOP_unique_overlap_trajectories_then_reused_evaluations",
+      "execution_unit_id": "TRJ-P1V2-TOP-O10-nominal_12V",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-TOP-O10-nominal_12V",
+      "protocol_id": "nominal_12V",
+      "spatial_level": 4,
+      "time_divisor": 4
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-TOP-O10-transition_probe_12p5V"
+      ],
+      "execution_group": "TOP",
+      "execution_stage": 7,
+      "execution_stage_id": "TOP_unique_overlap_trajectories_then_reused_evaluations",
+      "execution_unit_id": "TRJ-P1V2-TOP-O10-transition_probe_12p5V",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-TOP-O10-transition_probe_12p5V",
+      "protocol_id": "transition_probe_12p5V",
+      "spatial_level": 4,
+      "time_divisor": 4
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-TOP-O10-high_bias_lock_15p8V"
+      ],
+      "execution_group": "TOP",
+      "execution_stage": 7,
+      "execution_stage_id": "TOP_unique_overlap_trajectories_then_reused_evaluations",
+      "execution_unit_id": "TRJ-P1V2-TOP-O10-high_bias_lock_15p8V",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-TOP-O10-high_bias_lock_15p8V",
+      "protocol_id": "high_bias_lock_15p8V",
+      "spatial_level": 4,
+      "time_divisor": 4
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-TOP-O30-nominal_12V"
+      ],
+      "execution_group": "TOP",
+      "execution_stage": 7,
+      "execution_stage_id": "TOP_unique_overlap_trajectories_then_reused_evaluations",
+      "execution_unit_id": "TRJ-P1V2-TOP-O30-nominal_12V",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-TOP-O30-nominal_12V",
+      "protocol_id": "nominal_12V",
+      "spatial_level": 4,
+      "time_divisor": 4
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-TOP-O30-transition_probe_12p5V"
+      ],
+      "execution_group": "TOP",
+      "execution_stage": 7,
+      "execution_stage_id": "TOP_unique_overlap_trajectories_then_reused_evaluations",
+      "execution_unit_id": "TRJ-P1V2-TOP-O30-transition_probe_12p5V",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-TOP-O30-transition_probe_12p5V",
+      "protocol_id": "transition_probe_12p5V",
+      "spatial_level": 4,
+      "time_divisor": 4
+    },
+    {
+      "consumer_evaluation_ids": [
+        "P1V2-TOP-O30-high_bias_lock_15p8V"
+      ],
+      "execution_group": "TOP",
+      "execution_stage": 7,
+      "execution_stage_id": "TOP_unique_overlap_trajectories_then_reused_evaluations",
+      "execution_unit_id": "TRJ-P1V2-TOP-O30-high_bias_lock_15p8V",
+      "fixture_id": null,
+      "primary_evaluation_id": "P1V2-TOP-O30-high_bias_lock_15p8V",
+      "protocol_id": "high_bias_lock_15p8V",
+      "spatial_level": 4,
+      "time_divisor": 4
+    }
+  ],
+  "formal_artifacts_created": false,
+  "formal_execution_consumed": false,
+  "formal_execution_count": 0,
+  "reuse_map": {
+    "P1V2-TOP-O20-high_bias_lock_15p8V": "P1V2-REF-high_bias_lock_15p8V-S4T4",
+    "P1V2-TOP-O20-nominal_12V": "P1V2-REF-nominal_12V-S4T4",
+    "P1V2-TOP-O20-transition_probe_12p5V": "P1V2-REF-transition_probe_12p5V-S4T4"
+  },
+  "reused_evaluation_count": 3,
+  "schema_version": "geophase_phase1_v2_execution_dag_source_corrected_v3",
+  "status": "config_only_preregistered_not_executed",
+  "task_id": "Q2_PHASE1_V2_SOURCE_CORRECTED_RUNTIME_AND_FORMAL_RUNNER_READINESS_V3",
+  "unique_execution_unit_count": 60
+}

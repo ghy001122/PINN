@@ -1,0 +1,77 @@
+{
+  "candidate_branch": "codex/phase1-v2-source-corrected-performance-repair",
+  "candidate_commit": "1ae2704f6d84a3733d9de58aa23d992aa0c471a5",
+  "candidate_tree": "d3833a4a5dd067dab72c84f15fe2f8e726bd9512",
+  "code_change_after_freeze": "forbidden",
+  "final_equivalence_audit_attempt_limit": 1,
+  "formal_artifact_count": 0,
+  "formal_execution_count": 0,
+  "implementation_paths": [
+    {
+      "git_blob": "9effe11bb13f6c2ce0146ea1a9edbabb4adc70fa",
+      "path": "scripts/run_geophase_phase1_v2_source_corrected_performance_readiness.py",
+      "sha256": "4b3482b05f06c0f5671a4bd2dfb31a4f70d2047ce87e27bfd9d0d900b187938e"
+    },
+    {
+      "git_blob": "e7be485197d25840ed030bcb85f59abfd686e301",
+      "path": "src/pinnpcm/solvers/geophase_2p5d_fvm.py",
+      "sha256": "38e00c00710a5bb443c0cfa6270f35e35060ab81a30932af33d3d058c9db0aa4"
+    },
+    {
+      "git_blob": "92482adfa0c326653dccd95c1091b186c1be69ec",
+      "path": "src/pinnpcm/solvers/geophase_phase1_v2_fvm.py",
+      "sha256": "5ac770dbe038f69aa834917a3370c31a78a1ee6760abf618edd462245db08a62"
+    },
+    {
+      "git_blob": "9ec470fccb55d427d472c240d745456d9cc5cbc5",
+      "path": "src/pinnpcm/solvers/geophase_phase1_v2_controller_v2.py",
+      "sha256": "e4332c5b103072e3de277b8788dbbf2bda48c65636cb5c1d8dd361bc9953f7ed"
+    },
+    {
+      "git_blob": "3a6dc34e1e60e1d39d54b1b2d7cad49956862449",
+      "path": "src/pinnpcm/solvers/geophase_phase1_v2_implicit.py",
+      "sha256": "56e92761a7f8e9ffec0bfe2d73b7b67eca00993ff1852c219437711ee33d5a16"
+    },
+    {
+      "git_blob": "76bf3557a7757bdf8997a1701c9902293c1d8b1f",
+      "path": "src/pinnpcm/solvers/geophase_phase1_v2_runtime.py",
+      "sha256": "0c014c82406ee2243ef1d512865091d90cb958fcb78238807d679a46236e13de"
+    },
+    {
+      "git_blob": "7f1bad450c9edbc97ad5dadc27efcebf447d5544",
+      "path": "src/pinnpcm/solvers/geophase_phase1_v2_streaming.py",
+      "sha256": "80ab0f1729a94074b8cfd850f4e8f8450be28c7d2d6e33382f5a7b5294dc5923"
+    },
+    {
+      "git_blob": "cdf147b7de8a4ee480aaf9fb0a39de298576e888",
+      "path": "src/pinnpcm/solvers/geophase_phase1_v2_performance_equivalence.py",
+      "sha256": "05868658ca199737600d796fbdcd4eb2661d222cc749e95a3530c1ea7078ebdc"
+    },
+    {
+      "git_blob": "48f4a89a60f8ba0320dccc7d64bda2f5c08f4109",
+      "path": "src/pinnpcm/solvers/geophase_phase1_v2_readiness_journal.py",
+      "sha256": "f995718189f6547b7da564b3c865947937046de6b71818d4b2ab7d04ec0782d6"
+    },
+    {
+      "git_blob": "9bffbb4ee0d9279f062d9e712aaa2f94a342fbda",
+      "path": "src/pinnpcm/solvers/geophase_phase1_v2_source_corrected_performance.py",
+      "sha256": "ce66cf40f266c7a8fc51d9dd2daf1e6fd49c8e6e736b45daf0ad10be57d4f379"
+    },
+    {
+      "git_blob": "fd0e0773255181b037c4d6b6be4e482b735d1eff",
+      "path": "tests/oracles/pr8_geophase_2p5d_fvm.py",
+      "sha256": "e1a349ca0275021508cd07da02576adafbbcdae81e122659274769f329016a37"
+    }
+  ],
+  "numerical_execution_performed": false,
+  "performance_repair_preregistration": {
+    "path": "configs/geophase_phase1_v2_source_corrected_performance_repair.yaml",
+    "sha256": "84e1ecb298cfa6264646cc5e74df602b3e9e790e3eecfdc1abea62c087e87db4"
+  },
+  "remote_tracking_commit": "1ae2704f6d84a3733d9de58aa23d992aa0c471a5",
+  "remote_tracking_ref": "refs/remotes/origin/codex/phase1-v2-source-corrected-performance-repair",
+  "resolved_runtime_identity_sha256": "d6d75b0101152593599f53438718cba68c6c382e2650779de2c83ffbcee44977",
+  "schema_version": "geophase_phase1_v2_source_corrected_optimized_candidate_identity_v1",
+  "status": "optimized_candidate_frozen_before_final_equivalence_audit",
+  "task_id": "PHASE1_V2_SOURCE_CORRECTED_PERFORMANCE_CLOSURE"
+}

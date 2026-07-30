@@ -1,0 +1,118 @@
+task_id: PHASE1_V2_EQUIVALENCE_AUDIT_HARNESS_ERRATUM_AND_VALID_AUDIT
+schema_version: geophase_phase1_v2_equivalence_audit_harness_erratum_v1
+status: preregistered_harness_only_no_valid_audit_executed
+manuscript_use: contribution_1_reference_solver_implementation_equivalence_only
+
+invalid_launch:
+  evidence_commit: 8e4f787e3b349c1858f53847c9f7f2bc4e712627
+  evidence_tree: 2a2a3b74692a64482c212214146cf8add263f111
+  disposition: INVALID_EQUIVALENCE_AUDIT_INFRASTRUCTURE_BEFORE_EXECUTION
+  failure_stage: dynamic_import_before_first_equivalence_row
+  completed_rows: 0
+  votes_cast: 0
+  numerical_candidate_executions: 0
+  consumes_valid_frozen_audit: false
+  provenance:
+    path: outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/invalid_equivalence_launch_provenance.json
+    sha256: 58443b4a6961926c43c60b205e0abe407cb4217360912aef28489d3d7697ea2b
+
+frozen_candidate:
+  commit: 1ae2704f6d84a3733d9de58aa23d992aa0c471a5
+  tree: d3833a4a5dd067dab72c84f15fe2f8e726bd9512
+  identity:
+    path: outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/optimized_candidate_identity.json
+    sha256: 39044f37c983060df48e9915c594f69fbfbeacc60eef9a32bc352bdb5ec25b10
+    byte_change: forbidden
+  numerical_algorithm_change: forbidden
+  runner_path_harness_override:
+    path: scripts/run_geophase_phase1_v2_source_corrected_performance_readiness.py
+    scope: audit_orchestration_and_dynamic_loader_only
+  all_other_candidate_implementation_paths_must_match_frozen_identity: true
+
+oracle:
+  role: test_only_implementation_equivalence_oracle_not_scientific_truth
+  path: tests/oracles/pr8_geophase_2p5d_fvm.py
+  sha256: e1a349ca0275021508cd07da02576adafbbcdae81e122659274769f329016a37
+  byte_change: forbidden
+
+harness_revision:
+  identity_schema: geophase_phase1_v2_equivalence_audit_harness_identity_v1
+  identity_output: outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/audit_harness_erratum_identity.json
+  identity_written_after_erratum_commit_is_pushed: true
+  identity_committed_with_final_result_to_avoid_commit_self_reference: true
+  combination_rule: frozen_candidate_identity_plus_versioned_harness_identity
+  allowed_paths:
+    - .gitignore
+    - configs/geophase_phase1_v2_equivalence_audit_harness_erratum_v1.yaml
+    - scripts/run_geophase_phase1_v2_source_corrected_performance_readiness.py
+    - scripts/run_geophase_phase1_v2_equivalence_audit_harness.py
+    - tests/test_geophase_phase1_v2_source_corrected_performance_closure_runner.py
+    - tests/test_geophase_phase1_v2_source_corrected_performance_oracle.py
+    - tests/test_geophase_phase1_v2_source_corrected_performance_repair_preregistration.py
+  loader_semantics:
+    module_registered_in_sys_modules_before_exec_module: true
+    registration_scope: complete_equivalence_audit_and_atomic_publication
+    prior_module_restored_after_scope: true
+    absent_prior_module_removed_after_scope: true
+    cleanup_on_load_or_audit_failure: true
+  wrapper_semantics:
+    current_worktree_src_precedes_editable_install: true
+    loaded_candidate_modules_must_resolve_under_current_worktree_src: true
+    readiness_modes_exposed: false
+
+valid_audit:
+  permitted_valid_attempts: 1
+  automatic_retry: forbidden
+  exclusive_attempt_provenance: outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/equivalence_valid_attempt_provenance.jsonl
+  provenance_events: [SCHEDULED, STARTED, NUMERIC_DISPOSITION, COMPLETED, FAILED]
+  preexisting_attempt_provenance: refuse_before_numerical_execution
+  flush_and_fsync_each_event: true
+  matrix:
+    electrical: 9
+    single_interval: 18
+    progression: 9
+    failure_topology: 21
+    total: 57
+  normalized_relative_difference_max: 1.0e-12
+  valid_mismatch_fail_fast: true
+  mismatch_precedes_later_infrastructure_state: true
+  failure_topology_must_match_exactly: true
+  output_overwrite: forbidden
+  atomic_files:
+    - outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/electrical_equivalence.csv
+    - outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/interval_equivalence.csv
+    - outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/progression_equivalence.csv
+    - outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/failure_equivalence.csv
+    - outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/equivalence_summary.json
+
+dispositions:
+  all_57_valid_and_equivalent: GO_FOR_SOURCE_CORRECTED_RUNTIME_READINESS_AUTHORIZATION
+  first_valid_numeric_or_topology_mismatch: NO_GO_EQUIVALENT_PERFORMANCE_REPAIR
+  infrastructure_failure_without_prior_valid_mismatch: INVALID_PREFLIGHT_INFRASTRUCTURE
+  readiness_after_equivalence_GO: forbidden_without_fresh_user_authorization
+
+frozen_semantics:
+  S2_equations_parameters_source_scale: unchanged
+  high_bias_lock_15p8V: unchanged
+  full_3N_plus_1_residual: unchanged
+  full_step_two_half_step_controller: unchanged
+  Picard_Newton_Krylov_Armijo_fallback: unchanged
+  tolerances_ledgers_failure_topology: unchanged
+  evaluations_unique_executions_reuses: [63, 60, 3]
+  T_only_elimination: forbidden
+  actual_voltage_from_unit_solution_scaling: forbidden
+  dyadic_retry_reuse: forbidden
+  worker_migration_or_automatic_retry: forbidden
+
+execution_boundary:
+  C1_C2_C3_readiness: forbidden
+  runtime_cost_forecast: forbidden
+  dormant_formal_runner: forbidden
+  formal_execution_count: 0
+  formal_artifact_count: 0
+  Phase2_PINN_inverse_S1_historical_routes: forbidden
+
+claim_boundary:
+  equivalence_pass_means_only: frozen_candidate_matches_test_only_oracle_under_locked_matrix
+  Phase1_or_S2_scientific_success: forbidden
+  runtime_readiness: forbidden_until_separately_authorized

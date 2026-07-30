@@ -4,7 +4,11 @@
 
 Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
 
-Checkpoint state: `PHASE1_V2_CONTROLLER_V2_NO_GO_RUNTIME_PERFORMANCE_ONLY`.
+Checkpoint state:
+`PHASE1_V2_SOURCE_CORRECTED_V3_PERFORMANCE_REPAIR_PREREGISTERED_PENDING_IMPLEMENTATION`.
+
+Equivalence-audit substate:
+`NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`.
 
 > The Phase 1-v2 preregistration anchors are remote. S2 implementation and its
 > bounded non-voting smoke are complete; no formal item has executed.
@@ -25,31 +29,31 @@ S2 remains the nominal Phase 1-v2 thermal closure. Completed:
 6. preserve the single bounded audit-metric repair and its exact machine
    criterion.
 
-The historical controller-v1 runtime/formal-runner readiness audit is complete
-with `NO_GO_RUNTIME`.
-The legal-critical `PRE-*` trajectory failed the locked transition-increment
-condition at the locked minimum step before the required sample matrix or cost
-forecast could be completed. Dormant-runner integrity passed, but cannot
-override this numerical stability failure. No formal item executed.
+Controller-v1 is historical `NO_GO_RUNTIME`; its one-replay diagnostic
+supported the single controller revision, now consumed. Controller-v2 C1/C2
+passed bounded integrity/parity, but C3 stopped at `0/18` intervals and `1/9`
+trajectories before forecast/dormant-runner votes:
+`NO_GO_RUNTIME_PERFORMANCE_ONLY`. No formal item executed.
 
-The one-replay mechanism audit reproduced the failure. All six returned
-candidates passed integrity gates; branch memory alone exceeded `0.02` at the
-floor. Disposition: `GO_FOR_ONE_VERSIONED_TIME_CONTROLLER_REVISION`.
+The v3 source-correction bundle is pushed at `0ebe037...`. It replaces only the
+active qualitative high-bias lock probe and eight evaluation identifiers:
+15.8 V is active, while the old 15 V bundle remains historical and unexecuted.
+The new inventory remains 63 evaluations / 60 executions / 3 reuses.
 
-The single versioned controller revision is complete. Its independent overlay
-left the base S2 YAML unchanged. C1 passed the locked critical fixture and C2
-passed 128 accepted intervals with all bounded integrity and streaming-parity
-checks. C3 then reached the global worker deadline at `0/18` single-interval
-samples and `1/9` short trajectories, before an eligible campaign forecast or
-dormant-runner dry-run existed. Disposition:
-`NO_GO_RUNTIME_PERFORMANCE_ONLY`.
+Contract SHA-256 is `84e1ecb...`; candidate commit/tree/identity are
+`1ae2704...`/`d3833a4...`/`39044f37...`. The historical invalid launch remains
+infrastructure provenance only: `0/57` rows, zero votes, no comparison.
 
-Stop now. The next single decision is whether the user authorizes the one
-remaining pure-equivalence performance optimization and an identical
-readiness rerun. That opportunity is not yet authorized or consumed. It may
-not modify S2 physics, tolerances, protocols, grids, the 63-item manifest,
-time-controller semantics, or scientific gates. Formal execution remains
-unauthorized regardless of this decision.
+Harness identity `73f7d7d1...` enabled one valid audit. It completed `12/57`
+rows before fail-fast: electrical `9/9`, interval `3/18`, progression `0/9`,
+and failure topology `0/21`. Plan 11,
+`EQ-INTERVAL-L1-legal_critical-base`, reached
+`1.4757614757614759 > 1e-12` at
+`full_step.lateral.face_to_cell_global_residual_W`.
+
+Disposition: `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`. Do not retry, optimize
+again, or run C1/C2/C3. Await explicit activation of the retained `gamma_sub`
+plus identifiability-boundary manuscript route.
 
 ## Parallel work that cannot block S2
 
@@ -62,8 +66,8 @@ unauthorized regardless of this decision.
   modal-reference failure. No K fit or scientific model-order result exists,
   and no further S1 run is authorized.
 
-The absent eligible holdout and stopped S1 MVE leave S2 nominal and do not
-delay the runtime/formal-runner readiness task.
+The absent eligible holdout and stopped S1 MVE do not alter this equivalence
+NO-GO or authorize another S2 execution.
 
 ## Locked historical evidence
 
@@ -77,4 +81,5 @@ about `0.4118 > 0.05`. Its configs, reports, tests, hashes, and 96-item
 Do not resume the depth ladder, re-anchor material-stack comparators, run a
 formal campaign, train a PINN, generate Phase 2 data, run inverse work, fit or
 digitize source data, modify frozen GT, repair M44, execute NbO2, build 3D/FEM,
-or add nonzero dual-device coupling.
+add nonzero dual-device coupling, or run source-corrected C1/C2/C3 readiness
+without a later explicit authorization.

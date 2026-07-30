@@ -4,7 +4,10 @@
 
 - Delivery/phase: `Q2_SCI_DELIVERY_MODE` /
   `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Checkpoint: `PHASE1_V2_CONTROLLER_V2_NO_GO_RUNTIME_PERFORMANCE_ONLY`.
+- Parent checkpoint:
+  `PHASE1_V2_SOURCE_CORRECTED_V3_PERFORMANCE_REPAIR_PREREGISTERED_PENDING_IMPLEMENTATION`.
+- Equivalence-audit substate:
+  `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`.
 - R1 `HysGeo-Hybrid-PINN` remains the minimum manuscript route; R2
   `GeoPhase-HomoMoE-PINN` is the preferred upgrade; R3 is conditional.
 - Phase 1-v2 is a Qiu-inspired single-device VO2 x-y plane with explicit VO2,
@@ -16,21 +19,25 @@
   campaign is authorized.
 - The solver and `7/7` non-voting smoke cases pass after one historical
   zero-signal audit-metric repair. This is software evidence only.
-- Historical controller-v1 runtime readiness is `NO_GO_RUNTIME`: its critical
-  PRE trajectory hit the locked state-increment floor. The one-replay audit
-  isolated a branch-memory time-resolution mechanism and supported one
-  versioned controller revision.
-- Controller-v2 was preregistered at `406207b...` with the base S2 YAML
-  byte-identical. C1 passed 23 accepted intervals. C2 passed 128 intervals and
-  finite/nonlinear, four-ledger, lateral, bounded-state, and streaming-parity
-  checks. Event/reversal status is only
-  `NA_not_observed_within_bounded_C2_window`.
-- C3 reached the 880 s worker backstop inside the 900 s envelope at `0/18`
-  single-interval samples and `1/9` trajectories. No cost, aggregate RSS/disk,
-  or dormant-runner vote was eligible. Disposition:
-  `NO_GO_RUNTIME_PERFORMANCE_ONLY`.
-- The controller-revision opportunity is consumed. The single pure-equivalence
-  performance opportunity is unconsumed and awaits fresh authorization.
+- Controller-v1 is historical `NO_GO_RUNTIME`; its one-replay diagnostic
+  supported the now-consumed single controller revision.
+- Controller-v2 C1/C2 passed bounded integrity/parity. C3 stopped at the worker
+  backstop with `0/18` intervals and `1/9` trajectories before forecast or
+  dormant-runner votes: `NO_GO_RUNTIME_PERFORMANCE_ONLY`.
+- Source-corrected v3 anchor `0ebe037...` replaces only the erroneous 15.0 V
+  lock probe with qualitative 15.8 V. Its 63/60/3 inventory is unexecuted and
+  the old bundle remains immutable.
+- The candidate remains frozen at commit/tree `1ae2704...`/`d3833a4...` and
+  identity `39044f37...`. Its historical pre-row launch remains invalid
+  infrastructure provenance: `0/57` rows, zero votes, and no comparison.
+- Harness identity `73f7d7d1...` enabled the sole valid audit. It completed
+  `12/57` rows and fail-fast rejected plan 11,
+  `EQ-INTERVAL-L1-legal_critical-base`: normalized difference
+  `1.4757614757614759 > 1e-12` at
+  `full_step.lateral.face_to_cell_global_residual_W`.
+- Disposition is `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`. This rejects strict
+  implementation equivalence, not S2 physics. No retry, further optimization,
+  C1/C2/C3, or formal execution is authorized.
 - The S1 scientific claim is `forbidden`/unassessed; its timeouts are supported
   infrastructure provenance only. The v6-v8 material-stack route remains
   `failed_but_informative` with no formal execution.
@@ -53,6 +60,9 @@
 | Controller-v2 C1/C2 integrity | `supported` bounded readiness | Hash-locked overlay; integrity/parity pass; no formal/science vote. |
 | Controller-v2 campaign runtime feasibility | `forbidden` / unassessed | C3 produced no forecast, aggregate resource, or dormant-runner vote. |
 | Controller-v2 C3 performance provenance | `supported` bounded readiness provenance | The locked preflight stopped at its worker backstop; no science vote. |
+| Source-corrected v3 bundle | `supported` config-only preregistration | Qiu Figure 2/SI Figure S2 correct the active qualitative lock probe to 15.8 V; 63/60/3, formal count zero, no calibration/validation claim. |
+| Strict-equivalence invalid launch | `supported` infrastructure provenance; numerical claim `forbidden` / unassessed | Frozen candidate `1ae2704...`; invalid before row 1; 0/57 rows, zero votes, no candidate/oracle numerical comparison, formal execution/artifact counts zero. |
+| Valid strict-equivalence audit | `failed_but_informative` for implementation equivalence; S2 science remains `forbidden` / unassessed | Valid fail-fast at plan 11 after 12/57 rows; maximum `1.4757614757614759 > 1e-12`; progression/failure-topology were not reached; formal counts zero. |
 | v6-v8 material-stack route | `failed_but_informative` | v8 depth-frequency gate failed; 96 items unexecuted. |
 | Phase 1-v2 reference result | `forbidden` | Requires every gate in an authorized formal campaign. |
 | R1/R2/R3 positive claims | `forbidden` | Require sequential direct evidence. |
@@ -67,11 +77,12 @@
 
 ## Delivery Boundary
 
-Stop at `NO_GO_RUNTIME_PERFORMANCE_ONLY`. The only next decision is whether to
-authorize one mathematically equivalent performance optimization and an
-identical readiness rerun. Such work may not change physics, tolerances,
-protocols, grids, controller semantics, scientific gates, or the manifest.
-Formal execution, Phase 2, R1, and R2 remain blocked.
+The sole valid audit rejected strict equivalence at plan 11. Preserve the
+invalid-launch provenance, harness identity, and atomic outputs; do not retry,
+optimize again, or run C1/C2/C3. Under the locked performance budget the S2
+positive route stops pending explicit activation of the retained `gamma_sub`
+plus identifiability-boundary manuscript route. Phase 1/S2 science remains
+`forbidden` and unassessed; formal execution, Phase 2, R1, and R2 stay blocked.
 
 Do not rerun S1 or v6-v8; train a PINN; generate Phase 2 data; run inverse;
 modify frozen GT; add nonzero coupling; run FEM/3D, M44, or NbO2; or claim

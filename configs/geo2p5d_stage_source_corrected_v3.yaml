@@ -1,0 +1,74 @@
+schema_version: geo2p5d_stage_source_corrected_v3
+router_id: Q2_PHASE1_V2_SOURCE_CORRECTED_ACTIVE_ROUTER
+current_phase: Q2_PHASE1_2P5D_REFERENCE_SOLVER
+current_checkpoint: PHASE1_V2_SOURCE_CORRECTED_V3_PERFORMANCE_REPAIR_PREREGISTERED_PENDING_IMPLEMENTATION
+formal_execution_count: 0
+formal_artifact_count: 0
+formal_campaign_authorization: blocked_pending_equivalence_and_runtime_readiness
+evidence_type: literature_guided_synthetic_numerical_digital_twin
+
+active_bundle:
+  source_correction_preregistration_commit: 0ebe037ef707a56750c5db0c52f7a312ee251b6c
+  source_correction_preregistration_sha256: 5b132f85c4d94ac504a6558ad889f69f094e30797c694015bb96904268d0e966
+  source_contract: configs/qiu_vo2_phase1_source_contract_v3.yaml
+  phase1_config: configs/geophase_phase1_v2_s2_reference_source_corrected_v3.yaml
+  phase1_manifest: configs/geophase_phase1_v2_formal_manifest_source_corrected_v3.yaml
+  phase1_execution_addendum: configs/geophase_phase1_v2_execution_addendum_source_corrected_v3.yaml
+  phase1_active_time_controller: configs/geophase_phase1_v2_embedded_time_controller_v2_source_corrected_v3.yaml
+  resolved_runtime_identity: outputs/tables/geophase_phase1_v2_source_corrected_v3/resolved_runtime_identity.json
+  execution_DAG: outputs/tables/geophase_phase1_v2_source_corrected_v3/runtime_readiness/execution_dag.json
+  performance_repair_preregistration: configs/geophase_phase1_v2_source_corrected_performance_repair.yaml
+  performance_repair_preregistration_sha256: 84e1ecb298cfa6264646cc5e74df602b3e9e790e3eecfdc1abea62c087e87db4
+  runner: scripts/run_geophase_phase1_v2_source_corrected_performance_readiness.py
+  output_namespace: outputs/tables/geophase_phase1_v2_source_corrected_v3
+  active_high_bias_protocol: high_bias_lock_15p8V
+  active_high_bias_voltage_V: 15.8
+  high_bias_role: qualitative_source_trend_probe
+  high_bias_15V_compatibility_alias: forbidden
+
+historical_bundle:
+  status: immutable_planned_not_executed
+  stage_router: configs/geo2p5d_stage.yaml
+  source_contract: configs/qiu_vo2_phase1_source_contract.yaml
+  phase1_config: configs/geophase_phase1_v2_s2_reference.yaml
+  phase1_manifest: configs/geophase_phase1_v2_formal_manifest.yaml
+  phase1_execution_addendum: configs/geophase_phase1_v2_execution_addendum.yaml
+  phase1_controller_v2: configs/geophase_phase1_v2_embedded_time_controller_v2.yaml
+  controller_v2_readiness: outputs/tables/geophase_phase1_v2/controller_v2_readiness/readiness_summary.json
+  old_high_bias_protocol: high_bias_15V
+  active_runtime_selection: forbidden
+
+source_correction_state:
+  lifecycle_state: planned
+  claim_status: forbidden
+  validity: valid_config_only
+  evidence_role: external_literature_source_correction_and_preregistration
+  evaluation_item_count: 63
+  unique_execution_unit_count: 60
+  legal_reuse_count: 3
+  numerical_execution_performed: false
+
+performance_repair_state:
+  authorization: user_authorized_single_strict_equivalence_attempt
+  preregistration_status: versioned_contract_locked
+  implementation_prerequisite: preregistration_commit_must_be_remote
+  implementation_status: pending_after_preregistration_push
+  numerical_execution_status: forbidden_until_preregistration_commit_is_remote
+  opportunity_consumed: false
+  readiness_execution_count: 0
+  parity_gate: 1.0e-12
+
+science_boundary:
+  phase1_v2_reference_claim: forbidden_unassessed
+  formal_campaign: forbidden
+  phase2_R1_R2: blocked_by_phase1
+  Qiu_calibration_reproduction_or_validation: forbidden
+  S1_scientific_claim: forbidden_unassessed
+  S1_infrastructure_provenance: supported
+  v6_v8_historical_status: failed_but_informative
+
+next_action: >-
+  After this independent performance-repair preregistration commit is remote,
+  implement only its allowlisted strict-equivalence optimization, freeze the
+  candidate, and execute one equivalence audit followed by at most one
+  source-corrected readiness preflight.

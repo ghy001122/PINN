@@ -1,0 +1,71 @@
+{
+  "audit_identity_sha256": "73f7d7d1d6fe204f219e9cab323e9fee0073b7531d9930ba9f5e8cbbb92005ef",
+  "automatic_retry": "forbidden",
+  "erratum_base_evidence_commit": "8e4f787e3b349c1858f53847c9f7f2bc4e712627",
+  "erratum_base_evidence_tree": "2a2a3b74692a64482c212214146cf8add263f111",
+  "erratum_commit": "6d8fa8759363132f838e513f911626cae82624c9",
+  "erratum_tree": "0d5bfbb8d97466a98381532b73e5589dfcb9ea09",
+  "formal_artifact_count": 0,
+  "formal_execution_count": 0,
+  "frozen_candidate": {
+    "commit": "1ae2704f6d84a3733d9de58aa23d992aa0c471a5",
+    "identity_path": "outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/optimized_candidate_identity.json",
+    "identity_sha256": "39044f37c983060df48e9915c594f69fbfbeacc60eef9a32bc352bdb5ec25b10",
+    "runner_harness_only_override": "scripts/run_geophase_phase1_v2_source_corrected_performance_readiness.py",
+    "tree": "d3833a4a5dd067dab72c84f15fe2f8e726bd9512"
+  },
+  "harness_paths": [
+    {
+      "git_blob": "85ce27f150cbb62db02219b7b92dd7cf393c45b9",
+      "path": ".gitignore",
+      "sha256": "43158d2e1b00d69fd06214d5cfed822b58d301db7aea991d366d880888197b17"
+    },
+    {
+      "git_blob": "cbb83af05870d3e5220270f8f9f1249dcbf8877d",
+      "path": "configs/geophase_phase1_v2_equivalence_audit_harness_erratum_v1.yaml",
+      "sha256": "83d21818ca8254adabcca7ccf13b10ed97aa01780a22343943fcc96674109916"
+    },
+    {
+      "git_blob": "e146662486153845b167bee71c70c564a0931528",
+      "path": "scripts/run_geophase_phase1_v2_source_corrected_performance_readiness.py",
+      "sha256": "ae63ef7778948ca5f49bc04be964b4fd5f2eea08d8a4c0d97e26e1a39fc56932"
+    },
+    {
+      "git_blob": "7125e7d250b6c5e990225457daf1d5bbc5eef388",
+      "path": "scripts/run_geophase_phase1_v2_equivalence_audit_harness.py",
+      "sha256": "02978b49cb1322dfd64d6e48923358292f327fa32ec0ec0940f5792c927207cd"
+    },
+    {
+      "git_blob": "a0ae193f7fbd89edda0d75e0cab2fef72a58a6c4",
+      "path": "tests/test_geophase_phase1_v2_source_corrected_performance_closure_runner.py",
+      "sha256": "6012eda5655d634b55806b6b63ffa92721f56d0c61e6444e22fe9ebe850077de"
+    },
+    {
+      "git_blob": "15a162e767f14227277009781cf14f18ab80534d",
+      "path": "tests/test_geophase_phase1_v2_source_corrected_performance_oracle.py",
+      "sha256": "fded4d61d3ca160ad14cfb6ced55b6a338cbe7d3afba7b28efdcdeb7fbaad3f1"
+    },
+    {
+      "git_blob": "aa99ba82de558c20287961319d5d2b347aa4e2c9",
+      "path": "tests/test_geophase_phase1_v2_source_corrected_performance_repair_preregistration.py",
+      "sha256": "c9958546f58ad2637def9b7d2ad03e94249e9d0f8a57b304fd91c491b660fd03"
+    }
+  ],
+  "identity_schema_version": "geophase_phase1_v2_equivalence_audit_harness_identity_v1",
+  "invalid_launch_provenance": {
+    "equivalence_rows_completed": 0,
+    "equivalence_votes_cast": 0,
+    "path": "outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/invalid_equivalence_launch_provenance.json",
+    "sha256": "58443b4a6961926c43c60b205e0abe407cb4217360912aef28489d3d7697ea2b"
+  },
+  "oracle": {
+    "path": "tests/oracles/pr8_geophase_2p5d_fvm.py",
+    "sha256": "e1a349ca0275021508cd07da02576adafbbcdae81e122659274769f329016a37"
+  },
+  "readiness_execution": "forbidden_without_fresh_user_authorization",
+  "remote_tracking_commit": "6d8fa8759363132f838e513f911626cae82624c9",
+  "remote_tracking_ref": "refs/remotes/origin/codex/phase1-v2-source-corrected-performance-repair",
+  "status": "versioned_harness_fixed_one_valid_audit_authorized",
+  "task_id": "PHASE1_V2_EQUIVALENCE_AUDIT_HARNESS_ERRATUM_AND_VALID_AUDIT",
+  "valid_audit_attempt_limit": 1
+}

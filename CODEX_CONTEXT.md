@@ -4,11 +4,12 @@
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
 - Active phase/checkpoint: `Q2_PHASE1_2P5D_REFERENCE_SOLVER` /
-  `PHASE1_V2_CONTROLLER_V2_NO_GO_RUNTIME_PERFORMANCE_ONLY`.
+  `PHASE1_V2_SOURCE_CORRECTED_V3_PERFORMANCE_REPAIR_PREREGISTERED_PENDING_IMPLEMENTATION`.
 - Current contract/config:
   `docs/research_strategy/phase1_geophase_2p5d_reference_v2_contract.md` /
-  `configs/geophase_phase1_v2_s2_reference.yaml`.
-- Source contract: `configs/qiu_vo2_phase1_source_contract.yaml`.
+  `configs/geophase_phase1_v2_s2_reference_source_corrected_v3.yaml`.
+- Source contract: `configs/qiu_vo2_phase1_source_contract_v3.yaml`.
+- Active stage router: `configs/geo2p5d_stage_source_corrected_v3.yaml`.
 - R1 `HysGeo-Hybrid-PINN` is the minimum route; R2
   `GeoPhase-HomoMoE-PINN` is preferred; R3 is conditional.
 
@@ -45,16 +46,19 @@ single-interval samples and `1/9` short trajectories. No campaign forecast,
 aggregate memory/disk vote, or dormant-runner result was eligible. Disposition:
 `NO_GO_RUNTIME_PERFORMANCE_ONLY`.
 
-The controller-revision opportunity is consumed. The only next decision is
-whether to authorize one mathematically equivalent performance optimization
-and an identical readiness rerun. It is currently unconsumed and unauthorized.
+The versioned v3 source correction replaces the erroneous 15.0 V lock probe
+with the qualitative 15.8 V lock probe. Its config-only bundle is anchored at
+`0ebe037...`; the old 15 V bundle remains immutable and unexecuted. The user
+authorized the single strict-equivalence performance attempt. Its versioned
+contract is locked at config SHA-256 `84e1ecb...`; the containing commit must
+be remote before implementation, microbenchmarking, or numerics.
 Formal execution, Phase 2, R1, and R2 remain blocked.
 
 ## Claim Boundary
 
 Allowed: describe the guide, preregistered contracts, implemented S2 solver,
-bounded smoke/C1/C2 integrity, performance-only C3 stop, source audit, and
-historical results with their qualifications.
+bounded smoke/C1/C2 integrity, performance-only C3 stop, the versioned 15.8 V
+source correction, source audit, and historical results with qualifications.
 
 Forbidden: Phase 1 success or scientific failure; campaign four-hour
 feasibility/infeasibility; memory/disk pass or failure; formal authorization;

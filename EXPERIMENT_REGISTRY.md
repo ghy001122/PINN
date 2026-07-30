@@ -1049,3 +1049,65 @@ Claim result: multilayer forward, terminal-only rescue, low-dimensional sandwich
   remain `planned_not_executed`.
 - Report:
   `docs/codex_reports/geophase_phase1_v2_embedded_controller_readiness.md`.
+
+## Phase 1-v2 Source-Corrected Equivalence Audit Invalid Launch
+
+- Date: 2026-07-29.
+- Task: `PHASE1_V2_SOURCE_CORRECTED_PERFORMANCE_CLOSURE`.
+- Frozen candidate commit/tree:
+  `1ae2704f6d84a3733d9de58aa23d992aa0c471a5` /
+  `d3833a4a5dd067dab72c84f15fe2f8e726bd9512`.
+- Candidate-identity SHA-256:
+  `39044f37c983060df48e9915c594f69fbfbeacc60eef9a32bc352bdb5ec25b10`.
+- Lifecycle state: `implemented`; execution validity: `invalid`; claim
+  status: `forbidden`.
+- Disposition:
+  `INVALID_EQUIVALENCE_AUDIT_INFRASTRUCTURE_BEFORE_EXECUTION`.
+- The test-only PR #8 oracle loader called `exec_module` without first
+  registering the dynamically loaded dataclass module in `sys.modules`.
+  The launch therefore stopped before planned row 1 with `0/57` rows,
+  zero votes, and zero candidate/oracle numerical comparisons.
+- This is supported infrastructure provenance only. It is not an equivalence
+  failure, a performance failure, or an S2-physics failure and does not
+  establish `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`.
+- The user subsequently authorized one independently versioned harness-only
+  loader erratum and one valid frozen-candidate equivalence audit. C1/C2/C3
+  readiness and all formal execution remain unauthorized in that task.
+- Formal execution count: `0`; formal artifact count: `0`.
+- Evidence:
+  `outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/invalid_equivalence_launch_provenance.json`
+  and
+  `docs/codex_reports/geophase_phase1_v2_source_corrected_performance_readiness.md`.
+
+## Phase 1-v2 Versioned Harness And Valid Strict Equivalence Audit
+
+- Date: 2026-07-29.
+- Task: `PHASE1_V2_EQUIVALENCE_AUDIT_HARNESS_ERRATUM_AND_VALID_AUDIT`.
+- Frozen candidate commit/tree/identity:
+  `1ae2704f6d84a3733d9de58aa23d992aa0c471a5` /
+  `d3833a4a5dd067dab72c84f15fe2f8e726bd9512` /
+  `39044f37c983060df48e9915c594f69fbfbeacc60eef9a32bc352bdb5ec25b10`.
+- Harness commit/tree/combined identity:
+  `6d8fa8759363132f838e513f911626cae82624c9` /
+  `0d5bfbb8d97466a98381532b73e5589dfcb9ea09` /
+  `73f7d7d1d6fe204f219e9cab323e9fee0073b7531d9930ba9f5e8cbbb92005ef`.
+- Evidence type: one valid, non-formal strict implementation-equivalence
+  audit. The earlier `0/57` invalid launch remains separate supported
+  infrastructure provenance.
+- Completed: electrical `9/9`, interval `3/18`, progression `0/9`, failure
+  topology `0/21`; total `12/57`. Eleven rows passed.
+- Fail-fast row: plan index `11`,
+  `EQ-INTERVAL-L1-legal_critical-base`; maximum normalized difference
+  `1.4757614757614759 > 1e-12` at
+  `full_step.lateral.face_to_cell_global_residual_W`.
+- Disposition: `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`. This validly rejects
+  strict equivalence of the frozen optimized implementation; it is not an
+  S2-physics or Phase 1 scientific failure. No retry, further optimization,
+  or C1/C2/C3 execution is authorized.
+- Lifecycle: `executed`; validity: `valid`; implementation-equivalence claim:
+  `failed_but_informative`; S2 scientific claim: `forbidden` / unassessed.
+- Formal execution count: `0`; formal artifact count: `0`.
+- Evidence:
+  `outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/equivalence_summary.json`
+  and
+  `docs/codex_reports/geophase_phase1_v2_source_corrected_performance_readiness.md`.

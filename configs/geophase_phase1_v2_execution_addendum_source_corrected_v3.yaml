@@ -1,0 +1,496 @@
+task_id: Q2_PHASE1_V2_SOURCE_CORRECTED_RUNTIME_AND_FORMAL_RUNNER_READINESS_V3
+schema_version: geophase_phase1_v2_execution_addendum_source_corrected_v3
+status: preregistered_source_corrected_pending_push_no_runtime_preflight_executed
+evidence_type: nonvoting_runtime_and_formal_runner_readiness
+manuscript_use: reproducibility_and_compute_feasibility_only
+
+authority_lock:
+  base_main_commit: 5dcd23f8ad1c47a01105d62c526d12dc886c8568
+  base_main_tree: 7a06d2b38d5203c580dffa0b13174729db591ae7
+  S2_config:
+    path: configs/geophase_phase1_v2_s2_reference_source_corrected_v3.yaml
+    sha256: ea668ac66c8f2f2267b059bd816a4116def086708f2f7eeded07d64a2857aff4
+  formal_manifest_contract:
+    path: configs/geophase_phase1_v2_formal_manifest_source_corrected_v3.yaml
+    sha256: 240e45435505626b2bfb5a71cb95d8d18b2c7e4c2a5beac8aeb7cb843bf2f739
+  expanded_manifest_csv:
+    path: outputs/tables/geophase_phase1_v2_source_corrected_v3/formal_evaluation_manifest.csv
+    sha256: d48646069e16e255bb857f2bdff406315513aa2e62214be50deb8cf6919d5737
+  expanded_manifest_json:
+    path: outputs/tables/geophase_phase1_v2_source_corrected_v3/formal_evaluation_manifest.json
+    sha256: 803e83e5c5b13ba3546b4262e4d9658be53b255188541aa60dce63d0f7174ac7
+  source_corrected_contract:
+    path: configs/qiu_vo2_phase1_source_contract_v3.yaml
+    sha256: 17a0accc906d68fffc35ee40be9d41c36bd1a7d0514e9a539cfcfd4fc4bcc621
+  immutable_fields:
+    - S2_equations
+    - S2_parameters
+    - nonlinear_and_linear_tolerances
+    - adaptive_time_controller
+    - scientific_threshold_values
+    - non_high_bias_formal_protocols
+    - evaluation_execution_and_reuse_counts
+  source_correction_scope:
+    protocol_replacement: high_bias_15V_to_high_bias_lock_15p8V
+    renamed_evaluation_ID_count: 8
+    renamed_unique_trajectory_ID_count: 7
+    evaluation_item_count: 63
+    unique_execution_unit_count: 60
+    legal_reuse_count: 3
+    added_or_removed_gate: false
+  formal_execution_count: 0
+  formal_execution_consumed: false
+  formal_campaign_authorized: false
+  formal_case_execution_in_readiness: forbidden
+
+execution_dependency_graph:
+  evaluation_item_count: 63
+  unique_execution_unit_count: 60
+  reused_evaluation_count: 3
+  mapping_rule: >-
+    Every non-reused manifest row maps to its declared trajectory_id as one
+    execution unit. Each TOP O20 row maps to the identical REF S4T4
+    trajectory_id named in dependency_ids and creates no new execution unit.
+  reuse_rows:
+    - evaluation_id: P1V2-TOP-O20-nominal_12V
+      dependency_id: P1V2-REF-nominal_12V-S4T4
+    - evaluation_id: P1V2-TOP-O20-transition_probe_12p5V
+      dependency_id: P1V2-REF-transition_probe_12p5V-S4T4
+    - evaluation_id: P1V2-TOP-O20-high_bias_lock_15p8V
+      dependency_id: P1V2-REF-high_bias_lock_15p8V-S4T4
+  generated_csv: outputs/tables/geophase_phase1_v2_source_corrected_v3/runtime_readiness/execution_dag.csv
+  generated_json: outputs/tables/geophase_phase1_v2_source_corrected_v3/runtime_readiness/execution_dag.json
+  undeclared_reuse: INVALID_CONTRACT
+  missing_or_duplicate_mapping: INVALID_CONTRACT
+
+future_formal_execution_order:
+  stages:
+    - stage: 0
+      id: immutable_contract_environment_and_registry_verification
+      execution_units: 0
+    - stage: 1
+      id: source_scale_foundation_preflights
+      execution_units: 0
+    - stage: 2
+      id: FAIL_fail_closed_controls
+      execution_units: 5
+    - stage: 3
+      id: MMS_manufactured_foundations
+      execution_units: 9
+    - stage: 4
+      id: LIM_analytic_and_zero_input_foundations
+      execution_units: 6
+    - stage: 5
+      id: REF_independent_refinement_trajectories
+      execution_units: 30
+    - stage: 6
+      id: DUAL0_zero_coupling_limits
+      execution_units: 4
+    - stage: 7
+      id: TOP_unique_overlap_trajectories_then_reused_evaluations
+      execution_units: 6
+  deterministic_within_stage_order: expanded_manifest_group_index_order
+
+foundation_fail_fast:
+  pre_inventory_checks:
+    - insulating_electrical_endpoint
+    - metallic_electrical_endpoint
+    - C_m_positivity_and_nominal_capacity_identity
+    - area_integrated_Gtheta_identity
+    - electrode_mask_capacity_and_sheet_conductance_identity
+  formal_foundation_groups: [FAIL, MMS, LIM]
+  dynamic_foundation_checks:
+    - finite_state_and_outputs
+    - nonlinear_convergence_or_locked_fail_closed_fallback
+    - terminal_current_balance
+    - device_power_identity
+    - thermal_ledger
+    - circuit_ledger
+    - combined_ledger
+    - lateral_matrix_face_parity
+  failure_action: >-
+    Atomically preserve completed evidence, classify the scientific or
+    contract failure, mark every unscheduled dependent evaluation blocked, and
+    stop scheduling costly dynamic units.
+  later_comparative_or_trend_failure: >-
+    Record COMPLETED_SCIENTIFIC_FAIL after the dependency set required to
+    evaluate that gate is complete; never alter a gate or protocol.
+
+group_execution_semantics:
+  MMS:
+    spatial_level: from_existing_manifest_row
+    time_rule: minimal_manufactured_fixture_declared_by_existing_problem
+    protocol: analytic_manufactured_source_not_a_formal_voltage_trend
+  REF:
+    final_time_s: 2.0e-5
+    protocol: from_existing_manifest_row
+    spatial_level: from_existing_manifest_row
+    time_divisor: from_existing_manifest_row
+    spatial_pairing:
+      diagnostic_coarse_pair: [S1T4, S2T4]
+      voting_fine_pair: [S2T4, S4T4]
+    temporal_pairing:
+      diagnostic_coarse_pair: [S4T1, S4T2]
+      voting_fine_pair: [S4T2, S4T4]
+    event_pairing_uses_same_spatial_and_temporal_pairs: true
+  TOP:
+    spatial_level: 4
+    time_divisor: 4
+    final_time_s: 2.0e-5
+    protocols: [nominal_12V, transition_probe_12p5V, high_bias_lock_15p8V]
+    overlap_m: [1.0e-8, 2.0e-8, 3.0e-8]
+    O20_rule: exact_reuse_of_matching_REF_S4T4
+    O10_and_O30_rule: independent_trajectories
+    nominal_cm_A_frozen_for_all_overlaps: true
+  DUAL0:
+    spatial_level: 1
+    time_divisor: 1
+    final_time_s: 2.0e-5
+    coupling: exactly_zero
+    fixtures:
+      A_only_drive: {protocol_A: transition_probe_12p5V, voltage_A_V: 12.5, protocol_B: zero_drive, voltage_B_V: 0.0}
+      B_only_drive: {protocol_A: zero_drive, voltage_A_V: 0.0, protocol_B: transition_probe_12p5V, voltage_B_V: 12.5}
+      equal_drive_symmetry: {protocol_A: transition_probe_12p5V, voltage_A_V: 12.5, protocol_B: transition_probe_12p5V, voltage_B_V: 12.5}
+      swapped_label_invariance: {protocol_A: transition_probe_12p5V, voltage_A_V: 12.5, protocol_B: transition_probe_12p5V, voltage_B_V: 12.5, compare_after_A_B_label_swap: true}
+  FAIL:
+    spatial_level: 1
+    time_divisor: 1
+    stop: immediately_when_expected_failure_is_triggered_and_verified
+    maximum_time_s: 2.0e-5
+    fixtures:
+      negative_effective_capacity: {protocol: zero_drive, trigger: constructor_or_first_assembly_validation}
+      negative_vertical_conductance: {protocol: zero_drive, trigger: constructor_or_first_assembly_validation}
+      nonfinite_newton: {protocol: transition_probe_12p5V, trigger: first_nonlinear_residual_evaluation}
+      ledger_tamper: {protocol: transition_probe_12p5V, trigger: first_accepted_step_ledger_validation}
+      coordinate_swap: {protocol: zero_drive, trigger: grid_contract_validation_before_solve}
+  LIM:
+    fixtures:
+      zero_drive_equilibrium:
+        spatial_level: 1
+        time_divisor: 1
+        final_time_s: 2.0e-5
+        protocol: zero_drive
+        execution: trajectory_required_for_locked_drift_gate
+      uniform_conductivity_linear_potential:
+        spatial_level: 1
+        execution: one_static_electrical_solve
+        protocol: analytic_unit_voltage_boundary
+      zero_joule_cooling:
+        spatial_level: 1
+        time_divisor: 1
+        execution: one_backward_euler_step
+        protocol: zero_drive
+      steady_thermal_resistance:
+        spatial_level: 1
+        execution: minimal_analytic_or_single_linear_solve_fixture
+        protocol: constant_areal_heat_source
+      local_single_cell_backward_euler:
+        spatial_level: 1
+        time_divisor: 1
+        execution: one_cell_one_backward_euler_step
+        protocol: analytic_heat_input
+      rc_open_device:
+        spatial_level: 1
+        time_divisor: 1
+        execution: one_analytic_or_backward_euler_RC_step
+        protocol: existing_RC_open_device_fixture
+
+event_comparison_contract:
+  comparison_signal: physical_area_weighted_domain_mean_conductive_state_s
+  crossing_definition_source: authority_lock.S2_config
+  time_gate_s: 5.0e-8
+  protocol_requires_events:
+    transition_probe_12p5V: true
+    zero_drive: false
+    quiescent_9V: false
+    nominal_12V: false
+    high_bias_lock_15p8V: false
+    pulse_12p5V: false
+  both_zero_and_protocol_does_not_require_events: NA
+  one_side_missing_events: FAIL
+  event_count_mismatch: FAIL
+  direction_or_order_mismatch: FAIL
+  matched_rule: pair_in_order_and_vote_maximum_absolute_time_difference
+  required_protocol_zero_events: >-
+    Event convergence is NA but the existing literature-trend gate fails; the
+    trend gate is never replaced by event-comparison NA.
+
+source_envelope_noise_contract:
+  evaluated_independently_per_protocol_and_qoi: true
+  protocols: [nominal_12V, transition_probe_12p5V, high_bias_lock_15p8V]
+  qois:
+    terminal_current_A:
+      definition: RMS_terminal_current_on_fixed_4001_point_grid_over_0_to_20us
+      epsilon_q: 1.0e-12
+      epsilon_source: existing_metric_denominator_floor_terminal_current_A
+    temperature_rise_K:
+      definition: maximum_domain_temperature_minus_ambient_on_fixed_4001_point_grid
+      epsilon_q: 1.0e-3
+      epsilon_source: existing_metric_denominator_floor_temperature_rise_K
+    conductive_state_change:
+      definition: maximum_absolute_area_weighted_mean_s_minus_initial_on_fixed_4001_point_grid
+      epsilon_q: 1.0e-6
+      epsilon_source: existing_metric_denominator_floor_conductive_state_change
+  envelope_formula: E_equals_max_q10_q20_q30_minus_min_q10_q20_q30
+  numerical_noise_formula: N_equals_absolute_qS4T4_minus_qS2T4_at_nominal_20nm
+  vote_formula: E_divided_by_max_N_epsilon_q_greater_than_or_equal_to_1
+  cross_protocol_or_cross_qoi_averaging: forbidden
+  post_observation_epsilon_change: forbidden
+
+topology_claim_boundary:
+  contact_overlap_qoi_reporting: required
+  geometry_robust_wording: >-
+    Allowed only for a protocol/QoI whose overlap effect does not exceed its
+    matching nominal-geometry spatial S2T4-to-S4T4 fine-pair error.
+  failed_source_envelope_vote: >-
+    The corresponding source-envelope trend cannot vote and the all-required-
+    gates formal disposition is scientific fail; no protocol or QoI averaging
+    may hide it.
+  forbidden_claims:
+    - geometry_robustness_when_overlap_effect_exceeds_discretization_error
+    - source_envelope_trend_when_E_over_max_N_epsilon_is_below_one
+    - Qiu_device_calibration_or_reproduction
+
+streaming_contract:
+  fixed_scalar_sample_grid:
+    start_s: 0.0
+    stop_s: 2.0e-5
+    points: 4001
+    interval_s: 5.0e-9
+    solver_must_land_exactly_on_each_sample: true
+  scalar_records_at_every_sample:
+    - port_observables
+    - state_summaries
+    - thermal_ledger
+    - circuit_ledger
+    - combined_ledger
+    - device_power_ledger
+    - scalar_event_bookkeeping
+  fixed_full_field_times_s: [0.0, 5.0e-6, 1.0e-5, 1.5e-5, 2.0e-5]
+  include_protocol_discontinuity_full_fields: true
+  solver_must_land_on_full_field_and_protocol_discontinuity_times: true
+  event_full_field_snapshots:
+    snapshot_before_and_after_each_retained_event: true
+    maximum_snapshots: 16
+    when_event_count_at_most_8: retain_before_and_after_all_events
+    when_event_count_above_8: retain_before_and_after_earliest_4_and_latest_4_events
+    scalar_event_records_for_unretained_middle_events: complete
+  accepted_step_full_field_history: forbidden
+  memory_scaling: independent_of_accepted_steps_times_full_grid_history
+  per_case_output:
+    write_to_case_temporary_directory: true
+    validate_schema_hashes_and_completion_marker_before_publish: true
+    publish_with_atomic_rename: true
+  output_order: [case_JSON_and_CSV, campaign_JSON_and_CSV, figures, report]
+
+mathematically_equivalent_optimization_contract:
+  baseline_optimizations_not_counted_as_performance_repair:
+    - streaming
+    - reuse_FVM_topology_and_sparse_structure
+    - cache_invariant_matrices_or_factorizations
+    - frozen_context_unit_voltage_potential_scaling_and_quadratic_Joule_scaling
+    - case_level_CPU_parallelism
+  unit_voltage_scaling_scope:
+    same_geometry_and_grid_required: true
+    identical_frozen_temperature_s_and_conductivity_context_required: true
+    cross_Newton_or_Picard_state_reuse: forbidden
+    cross_accepted_step_reuse: forbidden
+  parity_required_for_each_optimization:
+    outputs: [full_fields, ports, conductive_and_branch_states, thermal_ledger, circuit_ledger, combined_ledger, device_power_ledger]
+    relative_tolerance: 1.0e-12
+    absolute_floor_source: existing_SI_denominator_floors
+    cached_and_uncached_paths_must_both_be_exercised: true
+  lateral_matrix_face_audit:
+    formula_id: lateral_matrix_face_parity_v1
+    acceptance: relative_mismatch_le_1e-10_OR_roundoff_ratio_le_1
+    backward_error_bound: 64_times_float64_epsilon_times_max_L_infinity_norm_1e-300_times_max_T_l2_norm_1
+    tamper_must_fail_both_paths: true
+    third_acceptance_criterion: forbidden
+  worker_runtime:
+    BLAS_threads_per_worker: 1
+    OpenMP_threads_per_worker: 1
+    safe_worker_count_rule: min_physical_cores_and_memory_limited_worker_count
+
+runtime_preflight:
+  formal: false
+  id_prefix: PRE-
+  temporary_directory_only: true
+  formal_artifacts: forbidden
+  formal_execution_count: 0
+  cpu_only: true
+  wall_clock_s_max: 900
+  wall_clock_scope: preflight_only_excludes_tests_and_CI
+  launch_environment_measurements:
+    - total_and_available_RAM
+    - physical_and_logical_core_count
+    - disk_total_and_free_bytes
+    - safe_worker_count
+    - BLAS_and_OpenMP_thread_settings
+  grids:
+    L1: {nx: 10, ny: 25, spatial_level: 1}
+    L2: {nx: 20, ny: 50, spatial_level: 2}
+    L4: {nx: 40, ny: 100, spatial_level: 4}
+  deterministic_states:
+    equilibrium:
+      temperature_K: ambient_temperature_K
+      branch_memory: 1.0
+      conductive_state: equilibrium_at_temperature_and_branch
+      short_protocol: zero_drive
+    legal_critical:
+      temperature_K: T_c_up_K
+      branch_memory: 1.0
+      conductive_state: 0.5
+      short_protocol: transition_probe_12p5V
+    high_conductive:
+      temperature_K: upper_validity_temperature_380K
+      branch_memory: 1.0
+      conductive_state: equilibrium_at_temperature_and_branch
+      short_protocol: high_bias_lock_15p8V
+  initial_state_or_protocol_search: forbidden
+  single_step_matrix:
+    cartesian_product: [3_grids, 3_states, base_dt_and_floor_dt]
+    expected_samples: 18
+  short_trajectory_matrix:
+    cartesian_product: [3_grids, 3_states]
+    stop_at_first: [128_accepted_steps, 1.0e-6_simulated_seconds]
+    expected_samples: 9
+  optional_coarse_transition_trajectory:
+    grid: L1
+    protocol: transition_probe_12p5V
+    final_time_s: 2.0e-5
+    wall_clock_stop_s: 600
+    early_wall_clock_stop_alone_is_not_NO_GO: true
+    evaluate_oscillation_or_trend_gate: false
+    telemetry_only: true
+  required_telemetry:
+    - accepted_and_rejected_steps
+    - Newton_iterations
+    - Krylov_iterations
+    - Armijo_backtracks
+    - fixed_point_fallback_count
+    - p50_p90_and_max_step_wall_time_s
+    - accepted_dt_distribution
+    - nonfinite_and_convergence_failures
+    - four_ledgers
+    - peak_RSS_bytes
+    - predicted_disk_bytes
+    - streaming_output_bytes
+  target_machine_binding: environment_hash
+  different_formal_machine_requires_identical_preflight_rerun: true
+
+campaign_cost_forecast:
+  unit_count: 60
+  scheduler: deterministic_longest_processing_time_first
+  accepted_step_forecast:
+    observed_rate: maximum_accepted_steps_per_simulated_second_over_matching_grid_and_three_deterministic_states
+    time_divisor_scaling: multiply_observed_T1_rate_by_formal_time_divisor
+    optional_long_prefix: include_by_taking_the_max_rate_if_any_prefix_exists
+    unreserved_steps: ceil_duration_times_observed_rate_times_time_divisor
+    safety_steps: ceil_1p25_times_unreserved_steps
+    absolute_floor_bound_reported_separately: ceil_duration_divided_by_locked_floor_dt
+  unit_wall_clock_forecast:
+    unreserved: one_observed_max_step_plus_remaining_unreserved_steps_times_observed_p90_step_time_plus_streaming_IO
+    with_safety: one_observed_max_step_plus_remaining_safety_steps_times_1p25_observed_p90_step_time_plus_1p25_streaming_IO
+    dual0_multiplier: 2.0
+    TOP_O10_O30_geometry_multiplier: 1.10
+  worker_count:
+    physical_core_limit: one_worker_per_physical_core
+    memory_limit: floor_0p70_times_available_RAM_divided_by_peak_worker_RSS
+    selected: minimum_of_physical_core_and_memory_limits_at_least_one
+  GO_gates:
+    safety_margin_LPT_makespan_s_max: 11520
+    unreserved_LPT_makespan_s_max: 14400
+    aggregate_worker_RSS_fraction_of_launch_available_RAM_max: 0.70
+    disk_free_fraction_after_forecast_min: 0.20
+    preflight_wall_clock_s_max: 900
+    parity_nonfinite_ledger_and_critical_state_failures: 0
+  target_machine_only: true
+
+performance_repair_policy:
+  baseline_streaming_sparse_cache_and_parallelism_consume_repair: false
+  performance_repair_limit: 1
+  current_performance_repair_count: 0
+  eligibility: >-
+    All parity, finite, ledger, scientific-foundation, and critical-state
+    stability checks pass and the only failing readiness criterion is campaign
+    cost.
+  allowed_repair: mathematically_equivalent_pure_engineering_optimization_only
+  rerun: exactly_the_same_runtime_preflight_once
+  second_performance_failure: NO_GO_RUNTIME
+  existing_S2_implementation_repair_quota: exhausted
+  new_physics_conservation_or_nonlinear_implementation_defect: stop_preserve_evidence_and_request_user_decision
+
+dormant_formal_runner:
+  readiness_execution: PRE_synthetic_and_injected_state_tests_only
+  registry_location: temporary_directory_only
+  real_formal_run_ID: forbidden
+  formal_execution_unit_call: forbidden
+  states:
+    - PREPARED
+    - RUNNING
+    - INTERRUPTED_RESUMABLE
+    - COMPLETED_PASS
+    - COMPLETED_SCIENTIFIC_FAIL
+    - INVALID_CONTRACT
+    - BUDGET_EXHAUSTED
+  required_hashes:
+    - code_tree
+    - S2_config
+    - formal_manifest_contract
+    - expanded_manifest
+    - execution_addendum
+    - execution_DAG
+    - environment
+  immutable_registry:
+    initial_identity_document_content_addressed: true
+    append_only_state_journal: true
+    mutation_or_reordering: INVALID_CONTRACT
+  coverage_checks:
+    evaluation_items: 63
+    execution_units: 60
+    legal_reuses: 3
+  behavior_tests:
+    - foundation_fail_fast
+    - per_case_atomic_completion
+    - same_PRE_run_ID_resume
+    - resume_hash_mismatch_rejected
+    - remaining_items_blocked_after_foundation_failure
+    - scientific_failure_separate_from_infrastructure_failure
+    - interrupted_partial_case_not_published
+  future_real_registry_semantics:
+    fresh_user_authorization_required: true
+    create_registry_and_set_formal_execution_count_to_1_atomically_before_first_unit_is_scheduled: true
+    same_run_ID_resume_does_not_increment_count: true
+    second_real_run_ID: forbidden
+
+readiness_disposition:
+  allowed: [GO_FOR_PHASE1_V2_FORMAL_AUTHORIZATION, NO_GO_RUNTIME]
+  GO_requires_every_runtime_GO_gate: true
+  GO_still_requires_fresh_user_authorization_for_formal_campaign: true
+  NO_GO_requires_unique_primary_cause: true
+  NO_GO_reports_whether_performance_repair_was_consumed: true
+  formal_execution_count_must_remain_zero: true
+  formal_artifact_count_must_remain_zero: true
+
+outputs:
+  preregistration_json: outputs/tables/geophase_phase1_v2_source_corrected_v3/runtime_readiness/execution_preregistration.json
+  execution_dag_csv: outputs/tables/geophase_phase1_v2_source_corrected_v3/runtime_readiness/execution_dag.csv
+  execution_dag_json: outputs/tables/geophase_phase1_v2_source_corrected_v3/runtime_readiness/execution_dag.json
+  environment_json: outputs/tables/geophase_phase1_v2_source_corrected_v3/runtime_readiness/environment.json
+  preflight_samples_csv: outputs/tables/geophase_phase1_v2_source_corrected_v3/runtime_readiness/preflight_samples.csv
+  preflight_summary_json: outputs/tables/geophase_phase1_v2_source_corrected_v3/runtime_readiness/preflight_summary.json
+  campaign_cost_csv: outputs/tables/geophase_phase1_v2_source_corrected_v3/runtime_readiness/campaign_cost_forecast.csv
+  runner_dry_run_json: outputs/tables/geophase_phase1_v2_source_corrected_v3/runtime_readiness/runner_dry_run.json
+  readiness_summary_json: outputs/tables/geophase_phase1_v2_source_corrected_v3/runtime_readiness/readiness_summary.json
+  report: docs/codex_reports/geophase_phase1_v2_runtime_formal_runner_readiness.md
+
+claim_boundary:
+  allowed: >-
+    Runtime readiness and dormant-runner integrity were assessed on the named
+    workstation using non-formal PRE cases under the locked Phase 1-v2 S2
+    contract.
+  forbidden:
+    - Phase1_v2_formal_campaign_executed_or_passed
+    - any_formal_scientific_gate_passed_from_PRE_data
+    - oscillation_or_Qiu_reproduction_from_optional_trajectory
+    - Phase2_or_PINN_unlocked

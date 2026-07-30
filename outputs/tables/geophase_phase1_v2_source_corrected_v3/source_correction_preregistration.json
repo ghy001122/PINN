@@ -1,0 +1,59 @@
+{
+  "base_main_commit": "5dcd23f8ad1c47a01105d62c526d12dc886c8568",
+  "base_main_tree": "7a06d2b38d5203c580dffa0b13174729db591ae7",
+  "claim_status": "forbidden",
+  "config_sha256": "ea668ac66c8f2f2267b059bd816a4116def086708f2f7eeded07d64a2857aff4",
+  "evaluation_item_count": 63,
+  "evidence_type": "external_literature_source_correction_and_config_only_preregistration",
+  "formal_artifact_count": 0,
+  "formal_execution_consumed": false,
+  "formal_execution_count": 0,
+  "high_bias_protocol_rename": {
+    "historical": "high_bias_15V",
+    "source_corrected_v3": "high_bias_lock_15p8V"
+  },
+  "lifecycle_state": "planned",
+  "manifest_contract_sha256": "240e45435505626b2bfb5a71cb95d8d18b2c7e4c2a5beac8aeb7cb843bf2f739",
+  "manifest_csv_sha256": "d48646069e16e255bb857f2bdff406315513aa2e62214be50deb8cf6919d5737",
+  "manifest_metadata_sha256": "803e83e5c5b13ba3546b4262e4d9658be53b255188541aa60dce63d0f7174ac7",
+  "new_bundle_hashes_sha256": {
+    "configs/geophase_phase1_v2_embedded_time_controller_v2_source_corrected_v3.yaml": "8da3f056a197502d01abd26ccec8f0fa7d73276da770162048607d225dc8400e",
+    "configs/geophase_phase1_v2_execution_addendum_source_corrected_v3.yaml": "d7f9c3beb94036131b30431f22afca95bf3542568151094c9d53dee22185715f",
+    "configs/geophase_phase1_v2_formal_manifest_source_corrected_v3.yaml": "240e45435505626b2bfb5a71cb95d8d18b2c7e4c2a5beac8aeb7cb843bf2f739",
+    "configs/geophase_phase1_v2_s2_reference_source_corrected_v3.yaml": "ea668ac66c8f2f2267b059bd816a4116def086708f2f7eeded07d64a2857aff4",
+    "configs/qiu_vo2_phase1_source_contract_v3.yaml": "17a0accc906d68fffc35ee40be9d41c36bd1a7d0514e9a539cfcfd4fc4bcc621",
+    "outputs/tables/geophase_phase1_v2_source_corrected_v3/formal_evaluation_manifest.csv": "d48646069e16e255bb857f2bdff406315513aa2e62214be50deb8cf6919d5737",
+    "outputs/tables/geophase_phase1_v2_source_corrected_v3/formal_evaluation_manifest.json": "803e83e5c5b13ba3546b4262e4d9658be53b255188541aa60dce63d0f7174ac7",
+    "outputs/tables/geophase_phase1_v2_source_corrected_v3/resolved_runtime_identity.json": "9b132d16b2ccf2d9e77351ff61dc86d24d50c949679523bb47142c350ffdad91",
+    "outputs/tables/geophase_phase1_v2_source_corrected_v3/runtime_readiness/execution_dag.csv": "473a02cba79ab2d2db9a9b5efc4dcb8a573e51762c6a88ec049824ad57a3f4d7",
+    "outputs/tables/geophase_phase1_v2_source_corrected_v3/runtime_readiness/execution_dag.json": "da93d717e0fae2fb5431457b921f901a8651bd987346f4df493a94144ded786a"
+  },
+  "new_numerical_work_before_preregistration_push": false,
+  "old_96_item_campaign_status": "permanently_planned_not_executed",
+  "old_bundle_disposition": "immutable_historical_planned_not_executed",
+  "old_bundle_hashes_sha256": {
+    "configs/geophase_phase1_v2_embedded_time_controller_v2.yaml": "eaca81d59b9a52c21fe60fab213a8f7fd65d83a674fd2ef27746d164e163c528",
+    "configs/geophase_phase1_v2_execution_addendum.yaml": "9d477b79a6a598b5032f104bea5b92290026b798e6599c2e9813c9ba11083640",
+    "configs/geophase_phase1_v2_formal_manifest.yaml": "54823e83d813ec4acd8df25354b62c38d58be158548414e637282383d1dc14a5",
+    "configs/geophase_phase1_v2_s2_reference.yaml": "0600498590a8c100ec8dee95621719ea655354ec118015868cb07fedf89f85d5",
+    "configs/qiu_vo2_phase1_source_contract.yaml": "857410517d5b955e2018d4b002fcbbe92bb320c451021b49ae27be1351cb1252",
+    "outputs/tables/geophase_phase1_v2/formal_evaluation_manifest.csv": "c2b04c31c21e27a21b9ac90d1c9c9edfc05e6ea75dee7bf3b0dad180f8804a89",
+    "outputs/tables/geophase_phase1_v2/formal_evaluation_manifest.json": "c5b903997cb0c4d1a9df7c11c2d881bc391d326dfdcccd60d4d0a2d52a25176b",
+    "outputs/tables/geophase_phase1_v2/runtime_readiness/execution_dag.csv": "b506021bd2c3b64be917e728da463349b774ada6dd1c402eaf4c602a7b750fd2",
+    "outputs/tables/geophase_phase1_v2/runtime_readiness/execution_dag.json": "1f8a5ef122898974224c2208a0b41af0f776b5ef07bca444f5f0a727b5c9c87a"
+  },
+  "reused_evaluation_item_count": 3,
+  "schema_version": "geophase_phase1_v2_source_correction_preregistration_v3",
+  "source_contract_sha256": "17a0accc906d68fffc35ee40be9d41c36bd1a7d0514e9a539cfcfd4fc4bcc621",
+  "source_evidence": {
+    "main_article_sha256": "d842e8bf1b5ac609ab504d8bf6104cfd3efea59697a5c7ac21664a99eb7d3c67",
+    "main_locator": "Figure_2A_to_2C_printed_page_2306818_3_of_8",
+    "manifest_sha256": "9fe009f6b4cd61243e6614fbb53210f6042d53d826fad31b06c7ca7a6cdb253f",
+    "supporting_information_locator": "Figure_S2_supporting_information_page_7",
+    "supporting_information_sha256": "d47ed95cd5782c3e632bbc440c1fcc681870e0ff303f0b05f8cd8f30cec70bfd"
+  },
+  "status": "preregistered_source_correction_no_new_numerical_execution",
+  "task_id": "Q2_PHASE1_V2_SOURCE_CORRECTED_REFERENCE_V3",
+  "unique_execution_unit_count": 60,
+  "validity": "valid_config_only"
+}

@@ -1,0 +1,21 @@
+{
+  "formal_artifact_count": 0,
+  "formal_execution_count": 0,
+  "identity_fields_sha256": {
+    "base_S2_config_sha256": "ea668ac66c8f2f2267b059bd816a4116def086708f2f7eeded07d64a2857aff4",
+    "controller_v2_overlay_sha256": "8da3f056a197502d01abd26ccec8f0fa7d73276da770162048607d225dc8400e",
+    "execution_DAG_CSV_sha256": "473a02cba79ab2d2db9a9b5efc4dcb8a573e51762c6a88ec049824ad57a3f4d7",
+    "execution_DAG_JSON_sha256": "da93d717e0fae2fb5431457b921f901a8651bd987346f4df493a94144ded786a",
+    "execution_addendum_sha256": "d7f9c3beb94036131b30431f22afca95bf3542568151094c9d53dee22185715f",
+    "expanded_manifest_CSV_sha256": "d48646069e16e255bb857f2bdff406315513aa2e62214be50deb8cf6919d5737",
+    "expanded_manifest_JSON_sha256": "803e83e5c5b13ba3546b4262e4d9658be53b255188541aa60dce63d0f7174ac7",
+    "formal_manifest_sha256": "240e45435505626b2bfb5a71cb95d8d18b2c7e4c2a5beac8aeb7cb843bf2f739",
+    "resolution_schema_version": "geophase_phase1_v2_source_corrected_controller_overlay_resolution_v3",
+    "source_contract_sha256": "17a0accc906d68fffc35ee40be9d41c36bd1a7d0514e9a539cfcfd4fc4bcc621"
+  },
+  "numerical_execution_performed": false,
+  "resolved_runtime_identity_sha256": "d6d75b0101152593599f53438718cba68c6c382e2650779de2c83ffbcee44977",
+  "schema_version": "geophase_phase1_v2_source_corrected_runtime_identity_v3",
+  "status": "preregistered_not_executed",
+  "task_id": "Q2_PHASE1_V2_SOURCE_CORRECTED_RUNTIME_IDENTITY_V3"
+}

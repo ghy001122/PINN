@@ -19,7 +19,13 @@ from pinnpcm.physics.geophase_geometry import GeoPhaseGrid
 from pinnpcm.physics.geophase_s2_ledgers import S2LedgerBundle, build_s2_ledgers
 from pinnpcm.physics.geophase_s2_thermal import S2ThermalFields
 from pinnpcm.physics.vo2_effective_conductivity import EffectiveVO2Closure
-from pinnpcm.solvers.geophase_2p5d_fvm import SheetElectricalSolution, solve_sheet_electrical
+from pinnpcm.solvers.geophase_2p5d_fvm import (
+    SheetElectricalSolution,
+    SheetElectricalTopology,
+    build_sheet_electrical_topology,
+    factor_sheet_electrical,
+    solve_sheet_electrical,
+)
 from pinnpcm.solvers.geophase_phase1_v2_fvm import (
     LateralFluxAudit,
     ThermalLinearSolver,
@@ -115,6 +121,37 @@ class S2ProtocolResult:
     stop_reason: str
 
 
+PERFORMANCE_TIMING_SEMANTICS = (
+    "hierarchical_nonadditive_use_observed_sample_wall_time_for_forecast"
+)
+
+
+@dataclass
+class S2PerformanceTimings:
+    """Hierarchical, non-additive telemetry for repair bottleneck diagnosis."""
+
+    electrical_assembly_wall_s: float = 0.0
+    factorization_wall_s: float = 0.0
+    linear_solves_wall_s: float = 0.0
+    Joule_port_postprocess_wall_s: float = 0.0
+    Picard_predictor_wall_s: float = 0.0
+    Newton_Krylov_wall_s: float = 0.0
+    fallback_wall_s: float = 0.0
+
+    def add(self, name: str, elapsed_s: float) -> None:
+        if name not in self.__dataclass_fields__:
+            raise ValueError(f"undeclared S2 performance timing field: {name}")
+        elapsed = float(elapsed_s)
+        if not np.isfinite(elapsed) or elapsed < 0.0:
+            raise ValueError("S2 performance timing must be finite and nonnegative")
+        setattr(self, name, float(getattr(self, name)) + elapsed)
+
+    def as_dict(self) -> dict[str, float]:
+        return {
+            name: float(getattr(self, name)) for name in self.__dataclass_fields__
+        }
+
+
 @dataclass
 class S2SolverCache:
     """Case-local invariant sparse structures and exact-dt factorizations."""
@@ -122,6 +159,7 @@ class S2SolverCache:
     grid: GeoPhaseGrid
     fields: S2ThermalFields
     lateral_matrix: object
+    electrical_topology: SheetElectricalTopology
     thermal_linear_solvers: dict[float, ThermalLinearSolver] = field(
         default_factory=dict
     )
@@ -155,7 +193,12 @@ def build_s2_solver_cache(
     lateral = assemble_sheet_thermal_matrix(
         grid, fields.sheet_thermal_conductance_W_K
     )
-    return S2SolverCache(grid=grid, fields=fields, lateral_matrix=lateral)
+    return S2SolverCache(
+        grid=grid,
+        fields=fields,
+        lateral_matrix=lateral,
+        electrical_topology=build_sheet_electrical_topology(grid),
+    )
 
 
 class _CountingKrylovJacobian(KrylovJacobian):
@@ -248,6 +291,65 @@ def _circuit_parameters(config: dict) -> tuple[float, float]:
     return load, capacitance
 
 
+def _electrical_unit_and_actual(
+    *,
+    grid: GeoPhaseGrid,
+    conductivity_S_m: np.ndarray,
+    actual_voltage_V: float,
+    topology: SheetElectricalTopology | None,
+    use_equivalent_optimizations: bool,
+    use_unit_voltage_scaling: bool,
+    performance_timings: S2PerformanceTimings | None,
+) -> tuple[SheetElectricalSolution, SheetElectricalSolution]:
+    """Solve the unit and actual RHS without sharing a conductivity across calls."""
+
+    if use_equivalent_optimizations:
+        factorization = factor_sheet_electrical(
+            grid,
+            conductivity_S_m,
+            topology=topology,
+            timing_callback=(
+                None if performance_timings is None else performance_timings.add
+            ),
+        )
+        unit = factorization.solve(1.0)
+        actual = (
+            scale_unit_sheet_electrical_solution(unit, actual_voltage_V)
+            if use_unit_voltage_scaling
+            else factorization.solve(actual_voltage_V)
+        )
+        return unit, actual
+    unit = solve_sheet_electrical(grid, conductivity_S_m, 1.0)
+    actual = (
+        scale_unit_sheet_electrical_solution(unit, actual_voltage_V)
+        if use_unit_voltage_scaling
+        else solve_sheet_electrical(grid, conductivity_S_m, actual_voltage_V)
+    )
+    return unit, actual
+
+
+def _electrical_actual_only(
+    *,
+    grid: GeoPhaseGrid,
+    conductivity_S_m: np.ndarray,
+    actual_voltage_V: float,
+    topology: SheetElectricalTopology | None,
+    use_equivalent_optimizations: bool,
+    performance_timings: S2PerformanceTimings | None,
+) -> SheetElectricalSolution:
+    if not use_equivalent_optimizations:
+        return solve_sheet_electrical(grid, conductivity_S_m, actual_voltage_V)
+    factorization = factor_sheet_electrical(
+        grid,
+        conductivity_S_m,
+        topology=topology,
+        timing_callback=(
+            None if performance_timings is None else performance_timings.add
+        ),
+    )
+    return factorization.solve(actual_voltage_V)
+
+
 def _fixed_point_map(
     vector: np.ndarray,
     *,
@@ -259,13 +361,28 @@ def _fixed_point_map(
     fields: S2ThermalFields,
     lateral_matrix,
     thermal_linear_solver: ThermalLinearSolver | None,
+    electrical_topology: SheetElectricalTopology | None,
+    use_equivalent_optimizations: bool,
     use_unit_voltage_scaling: bool,
+    performance_timings: S2PerformanceTimings | None,
     load_resistance_ohm: float,
     capacitance_F: float,
 ) -> np.ndarray:
     temperature, conductive, branch, _ = _unpack(vector, grid)
     conductivity = closure.conductivity_S_m(temperature, conductive)
-    unit = solve_sheet_electrical(grid, conductivity, 1.0)
+    factorization = None
+    if use_equivalent_optimizations:
+        factorization = factor_sheet_electrical(
+            grid,
+            conductivity,
+            topology=electrical_topology,
+            timing_callback=(
+                None if performance_timings is None else performance_timings.add
+            ),
+        )
+        unit = factorization.solve(1.0)
+    else:
+        unit = solve_sheet_electrical(grid, conductivity, 1.0)
     device_conductance = unit.source_current_A
     denominator = (
         capacitance_F / dt_s
@@ -276,11 +393,13 @@ def _fixed_point_map(
         capacitance_F / dt_s * old_state.device_voltage_V
         + input_voltage_V / load_resistance_ohm
     ) / denominator
-    electrical = (
-        scale_unit_sheet_electrical_solution(unit, voltage)
-        if use_unit_voltage_scaling
-        else solve_sheet_electrical(grid, conductivity, voltage)
-    )
+    if use_unit_voltage_scaling:
+        electrical = scale_unit_sheet_electrical_solution(unit, voltage)
+    elif use_equivalent_optimizations:
+        assert factorization is not None
+        electrical = factorization.solve(voltage)
+    else:
+        electrical = solve_sheet_electrical(grid, conductivity, voltage)
     new_temperature = solve_s2_thermal_backward_euler(
         grid,
         fields,
@@ -317,7 +436,10 @@ def _scaled_residual(
     fields: S2ThermalFields,
     lateral_matrix,
     thermal_linear_solver: ThermalLinearSolver | None,
+    electrical_topology: SheetElectricalTopology | None,
+    use_equivalent_optimizations: bool,
     use_unit_voltage_scaling: bool,
+    performance_timings: S2PerformanceTimings | None,
     load_resistance_ohm: float,
     capacitance_F: float,
 ) -> np.ndarray:
@@ -328,11 +450,14 @@ def _scaled_residual(
     if np.any(np.abs(branch) > 1.0):
         raise ValueError("S2 nonlinear branch state left [-1,1]")
     conductivity = closure.conductivity_S_m(temperature, conductive)
-    unit_electrical = solve_sheet_electrical(grid, conductivity, 1.0)
-    electrical = (
-        scale_unit_sheet_electrical_solution(unit_electrical, voltage)
-        if use_unit_voltage_scaling
-        else solve_sheet_electrical(grid, conductivity, voltage)
+    unit_electrical, electrical = _electrical_unit_and_actual(
+        grid=grid,
+        conductivity_S_m=conductivity,
+        actual_voltage_V=voltage,
+        topology=electrical_topology,
+        use_equivalent_optimizations=use_equivalent_optimizations,
+        use_unit_voltage_scaling=use_unit_voltage_scaling,
+        performance_timings=performance_timings,
     )
     area = grid.cell_area_m2
     capacity_cell = fields.effective_areal_capacity_J_m2K.reshape(-1) * area
@@ -542,6 +667,7 @@ def advance_s2_backward_euler(
     cache: S2SolverCache | None = None,
     use_equivalent_optimizations: bool = True,
     use_unit_voltage_scaling: bool = False,
+    performance_timings: S2PerformanceTimings | None = None,
 ) -> S2StepResult:
     if not np.isfinite([input_voltage_V, dt_s]).all() or dt_s <= 0.0:
         raise ValueError("S2 input voltage and positive dt must be finite")
@@ -561,6 +687,13 @@ def advance_s2_backward_euler(
     thermal_linear_solver = (
         cache.thermal_solver(dt_s)
         if cache is not None and use_equivalent_optimizations
+        else None
+    )
+    electrical_topology = (
+        cache.electrical_topology
+        if cache is not None and use_equivalent_optimizations
+        else build_sheet_electrical_topology(grid)
+        if use_equivalent_optimizations
         else None
     )
     old_vector = _pack(
@@ -585,7 +718,14 @@ def advance_s2_backward_euler(
         conductivity = closure.conductivity_S_m(
             old_state.temperature_K, old_state.conductive_state
         )
-        electrical = solve_sheet_electrical(grid, conductivity, 0.0)
+        electrical = _electrical_actual_only(
+            grid=grid,
+            conductivity_S_m=conductivity,
+            actual_voltage_V=0.0,
+            topology=electrical_topology,
+            use_equivalent_optimizations=use_equivalent_optimizations,
+            performance_timings=performance_timings,
+        )
         flux = reconstruct_lateral_fluxes(
             grid,
             fields.sheet_thermal_conductance_W_K,
@@ -639,27 +779,38 @@ def advance_s2_backward_euler(
         fields=fields,
         lateral_matrix=lateral,
         thermal_linear_solver=thermal_linear_solver,
+        electrical_topology=electrical_topology,
+        use_equivalent_optimizations=bool(use_equivalent_optimizations),
         use_unit_voltage_scaling=bool(use_unit_voltage_scaling),
+        performance_timings=performance_timings,
         load_resistance_ohm=load,
         capacitance_F=capacitance,
     )
     mapping = lambda vector: _fixed_point_map(vector, **common)
     residual = lambda vector: _scaled_residual(vector, **common)
     nonlinear = config["reference_solver"]["nonlinear_tolerances"]
-    predictor, predictor_iterations, _ = _picard(
-        old_vector,
-        mapping,
-        maximum_iterations=min(
-            8, int(nonlinear["fixed_point_fallback_maximum_iterations"])
-        ),
-        relaxation=float(nonlinear["fixed_point_relaxation"]),
-        update_tolerance=float(nonlinear["scaled_update_relative"]),
-    )
+    predictor_started = perf_counter()
+    try:
+        predictor, predictor_iterations, _ = _picard(
+            old_vector,
+            mapping,
+            maximum_iterations=min(
+                8, int(nonlinear["fixed_point_fallback_maximum_iterations"])
+            ),
+            relaxation=float(nonlinear["fixed_point_relaxation"]),
+            update_tolerance=float(nonlinear["scaled_update_relative"]),
+        )
+    finally:
+        if performance_timings is not None:
+            performance_timings.add(
+                "Picard_predictor_wall_s", perf_counter() - predictor_started
+            )
     method = "damped_newton_krylov"
     krylov_matvecs = 0
     armijo_backtracks = 0
     fallback_iterations = 0
     newton_telemetry: dict[str, int] = {}
+    newton_started = perf_counter()
     try:
         (
             solved,
@@ -676,20 +827,36 @@ def advance_s2_backward_euler(
             telemetry=newton_telemetry,
         )
     except (RuntimeError, ValueError, FloatingPointError, np.linalg.LinAlgError):
+        if performance_timings is not None:
+            performance_timings.add(
+                "Newton_Krylov_wall_s", perf_counter() - newton_started
+            )
         krylov_matvecs = int(newton_telemetry.get("krylov_matvecs", 0))
         armijo_backtracks = int(newton_telemetry.get("armijo_backtracks", 0))
         method = "fail_closed_fixed_point_fallback"
-        solved, fallback_iterations, update_inf = _picard(
-            predictor,
-            mapping,
-            maximum_iterations=int(
-                nonlinear["fixed_point_fallback_maximum_iterations"]
-            ),
-            relaxation=float(nonlinear["fixed_point_relaxation"]),
-            update_tolerance=float(nonlinear["scaled_update_relative"]),
-        )
+        fallback_started = perf_counter()
+        try:
+            solved, fallback_iterations, update_inf = _picard(
+                predictor,
+                mapping,
+                maximum_iterations=int(
+                    nonlinear["fixed_point_fallback_maximum_iterations"]
+                ),
+                relaxation=float(nonlinear["fixed_point_relaxation"]),
+                update_tolerance=float(nonlinear["scaled_update_relative"]),
+            )
+        finally:
+            if performance_timings is not None:
+                performance_timings.add(
+                    "fallback_wall_s", perf_counter() - fallback_started
+                )
         iterations = fallback_iterations
         residual_inf = float(np.max(np.abs(residual(solved))))
+    else:
+        if performance_timings is not None:
+            performance_timings.add(
+                "Newton_Krylov_wall_s", perf_counter() - newton_started
+            )
     mapped = mapping(solved)
     update_inf = float(
         np.max(np.abs(mapped - solved) / np.maximum(np.abs(solved), 1.0))
@@ -717,10 +884,25 @@ def advance_s2_backward_euler(
     conductivity = closure.conductivity_S_m(temperature, conductive)
     electrical = (
         scale_unit_sheet_electrical_solution(
-            solve_sheet_electrical(grid, conductivity, 1.0), voltage
+            _electrical_actual_only(
+                grid=grid,
+                conductivity_S_m=conductivity,
+                actual_voltage_V=1.0,
+                topology=electrical_topology,
+                use_equivalent_optimizations=use_equivalent_optimizations,
+                performance_timings=performance_timings,
+            ),
+            voltage,
         )
         if use_unit_voltage_scaling
-        else solve_sheet_electrical(grid, conductivity, voltage)
+        else _electrical_actual_only(
+            grid=grid,
+            conductivity_S_m=conductivity,
+            actual_voltage_V=voltage,
+            topology=electrical_topology,
+            use_equivalent_optimizations=use_equivalent_optimizations,
+            performance_timings=performance_timings,
+        )
     )
     flux = reconstruct_lateral_fluxes(
         grid,
@@ -1168,9 +1350,11 @@ def simulate_s2_decoupled_copies(
 
 
 __all__ = [
+    "PERFORMANCE_TIMING_SEMANTICS",
     "S2AdaptiveDiagnostics",
     "S2AttemptObservation",
     "S2NonlinearDiagnostics",
+    "S2PerformanceTimings",
     "S2ProtocolResult",
     "S2SolverCache",
     "S2State",

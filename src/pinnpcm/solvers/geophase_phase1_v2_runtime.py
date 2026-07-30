@@ -4,8 +4,9 @@ from __future__ import annotations
 
 import ctypes
 from dataclasses import dataclass
-from decimal import Decimal, ROUND_CEILING
+from decimal import Decimal, ROUND_CEILING, ROUND_FLOOR
 import math
+import operator
 import os
 from pathlib import Path
 import platform
@@ -22,6 +23,61 @@ import scipy
 class ProcessMemory:
     working_set_bytes: int
     peak_working_set_bytes: int
+
+
+class C3WorkerMemoryLimitError(RuntimeError):
+    """Signal that the locked RAM fraction cannot support one C3 worker."""
+
+    disposition = "NO_GO_RUNTIME"
+    failure_class = "memory"
+    memory_worker_limit = 0
+
+
+C3_RAM_FRACTION = 0.70
+
+
+def _positive_integer(value: int, label: str) -> int:
+    if isinstance(value, bool):
+        raise ValueError(f"{label} must be a finite positive integer")
+    try:
+        integer = operator.index(value)
+    except TypeError as exc:
+        raise ValueError(f"{label} must be a finite positive integer") from exc
+    if integer <= 0:
+        raise ValueError(f"{label} must be a finite positive integer")
+    return int(integer)
+
+
+def select_c3_worker_count(
+    physical_core_count: int,
+    launch_available_RAM_bytes: int,
+    measured_peak_worker_RSS_bytes: int,
+    independent_sample_count: int = 26,
+) -> int:
+    """Return the preregistered 70%-RAM worker limit."""
+
+    physical = _positive_integer(physical_core_count, "physical_core_count")
+    available = _positive_integer(
+        launch_available_RAM_bytes, "launch_available_RAM_bytes"
+    )
+    peak_rss = _positive_integer(
+        measured_peak_worker_RSS_bytes, "measured_peak_worker_RSS_bytes"
+    )
+    sample_count = _positive_integer(
+        independent_sample_count, "independent_sample_count"
+    )
+    memory_limit = int(
+        (
+            Decimal(str(C3_RAM_FRACTION))
+            * Decimal(available)
+            / Decimal(peak_rss)
+        ).to_integral_value(rounding=ROUND_FLOOR)
+    )
+    if memory_limit == 0:
+        raise C3WorkerMemoryLimitError(
+            "NO_GO_RUNTIME memory: the launch RAM fraction supports zero C3 workers"
+        )
+    return min(physical, memory_limit, sample_count)
 
 
 class _MemoryStatusEx(ctypes.Structure):
@@ -540,9 +596,12 @@ def build_campaign_cost_forecast(
 
 
 __all__ = [
+    "C3_RAM_FRACTION",
+    "C3WorkerMemoryLimitError",
     "ProcessMemory",
     "build_campaign_cost_forecast",
     "deterministic_lpt_schedule",
     "measure_launch_environment",
     "process_memory",
+    "select_c3_worker_count",
 ]

@@ -1,0 +1,27 @@
+{
+  "active_routing_commit": "b7d47c9dbb29611ab07abc85fae7bcdbf18d8a58",
+  "active_routing_tree": "0a462f979abf99be750035604aa269b8cc781b90",
+  "allowed_final_dispositions": [
+    "GO_FOR_PHASE1_V2_FORMAL_AUTHORIZATION",
+    "NO_GO_EQUIVALENT_PERFORMANCE_REPAIR",
+    "NO_GO_RUNTIME",
+    "INVALID_PREFLIGHT_INFRASTRUCTURE"
+  ],
+  "candidate_implementation_frozen": false,
+  "formal_artifact_count": 0,
+  "formal_execution_count": 0,
+  "legacy_oracle_commit": "85e4257fc01af2e0bf706ef9001f263b1420ecaa",
+  "legacy_oracle_git_blob": "fd0e0773255181b037c4d6b6be4e482b735d1eff",
+  "legacy_oracle_sha256": "e1a349ca0275021508cd07da02576adafbbcdae81e122659274769f329016a37",
+  "new_numerical_execution_before_preregistration_push": false,
+  "performance_implementation_started": false,
+  "performance_repair_limit": 1,
+  "performance_repair_ordinal": 1,
+  "performance_repair_yaml_sha256": "84e1ecb298cfa6264646cc5e74df602b3e9e790e3eecfdc1abea62c087e87db4",
+  "resolved_runtime_identity_sha256": "d6d75b0101152593599f53438718cba68c6c382e2650779de2c83ffbcee44977",
+  "schema_version": "geophase_phase1_v2_source_corrected_performance_repair_preregistration_v1",
+  "source_corrected_bundle_commit": "0ebe037ef707a56750c5db0c52f7a312ee251b6c",
+  "source_corrected_bundle_tree": "4fc400a0dff50d598319be0bde540120c966f602",
+  "status": "preregistered_no_performance_implementation_or_numerics",
+  "task_id": "PHASE1_V2_SOURCE_CORRECTED_PERFORMANCE_CLOSURE"
+}
