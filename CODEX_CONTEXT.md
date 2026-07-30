@@ -4,12 +4,14 @@
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
 - Active phase/checkpoint: `Q2_PHASE1_2P5D_REFERENCE_SOLVER` /
-  `PHASE1_V2_EQUIVALENCE_METRIC_VALIDITY_AUDIT_COMPLETE`.
+  `PHASE1_V2_EQUIVALENCE_V2_CONTRACT_EXECUTABLE_READY`.
 - Current contract/config:
-  `docs/research_strategy/phase1_geophase_2p5d_reference_v2_contract.md` /
-  `configs/geophase_phase1_v2_s2_reference_source_corrected_v3.yaml`.
+  `docs/research_strategy/phase1_v2_equivalence_v2_executability_closure.md` /
+  `configs/geophase_phase1_v2_equivalence_v2_executability_closure.yaml`.
 - Source contract: `configs/qiu_vo2_phase1_source_contract_v3.yaml`.
 - Active stage router: `configs/geo2p5d_stage_source_corrected_v3.yaml`.
+- Source-corrected v3 remains anchored at `0ebe037...`; the closure changes
+  only the equivalence-v2 contract layer and preserves that source identity.
 - R1 `HysGeo-Hybrid-PINN` is the minimum route; R2
   `GeoPhase-HomoMoE-PINN` is preferred; R3 is conditional.
 
@@ -34,36 +36,22 @@ infrastructure provenance only. The material-stack route remains historical
 
 ## One Active Priority
 
-Historical controller-v1 readiness is `NO_GO_RUNTIME`; its bounded mechanism
-audit supported one controller revision. Controller-v2 was preregistered before
-computation with the base S2 YAML unchanged. C1 passed 23 accepted intervals;
-C2 passed 128 intervals with finite/nonlinear, four-ledger, lateral,
-bounded-state, and streaming-parity checks. Event/reversal status is only
-`NA_not_observed_within_bounded_C2_window`.
+Controller-v2 C1/C2 passed bounded integrity/parity; C3 stopped before any
+forecast or dormant-runner vote: `NO_GO_RUNTIME_PERFORMANCE_ONLY`. Source v3
+replaces only the erroneous 15.0 V lock probe with qualitative 15.8 V.
 
-C3 stopped at the 880 s worker backstop inside the 900 s envelope, with `0/18`
-single-interval samples and `1/9` short trajectories. No campaign forecast,
-aggregate memory/disk vote, or dormant-runner result was eligible. Disposition:
-`NO_GO_RUNTIME_PERFORMANCE_ONLY`.
+Strict-equivalence-v1 remains immutable
+`NO_GO_EQUIVALENT_PERFORMANCE_REPAIR` at `12/57`. The solver-free
+metric-validity result is `GO_VERSIONED_EQUIVALENCE_V2_AUDIT`: primary fields
+retain `1e-12`, physical lateral fields remain voting, and analytic/tamper
+controls passed. Coverage correction mechanically maps 638 templates across
+57 rows and passed 21/21 raw-record controls.
 
-The versioned v3 source correction replaces the erroneous 15.0 V lock probe
-with the qualitative 15.8 V lock probe and remains anchored at `0ebe037...`.
-The sole strict-equivalence-v1 attempt remains
-`NO_GO_EQUIVALENT_PERFORMANCE_REPAIR` at `12/57` and is immutable.
-
-A separately preregistered solver-free metric-validity audit is complete:
-`GO_VERSIONED_EQUIVALENCE_V2_AUDIT`. All 202 non-lateral fields retained and
-passed the `1e-12` v1 gate; all nine physical lateral comparisons remained
-voting and passed analytic mixed bounds (maximum ratio `0.129647`); six
-cancellation checks and 13 synthetic tamper controls passed. This authorizes
-only a fresh, separately versioned 57-row audit after explicit user approval.
-The pre-merge coverage correction supersedes only the original hand-mirrored
-209-template completeness claim: 638 family-qualified templates were derived
-mechanically from production extractors/streaming AST and mapped to all 57
-rows; 21/21 raw-record controls passed through production extraction. No parent
-result or audit row was rerun.
-Optimized equivalence, runtime readiness, formal execution, Phase 2, R1, and
-R2 remain blocked.
+The superseding record-only contract consumes the frozen field/plan manifests,
+binds plan identity, executes unchanged A/B/C rules, and seals solver-free
+negative controls. It ran no audit row; `equivalence_v2_execution_count=0` and
+`formal_execution_count=0`. Fresh authorization is required, so runtime,
+formal execution, Phase 2, R1, and R2 remain blocked.
 
 ## Claim Boundary
 

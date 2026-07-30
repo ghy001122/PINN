@@ -87,7 +87,7 @@ def test_route_only_runner_validates_v3_and_cannot_execute_before_preregistratio
 
 
 def test_authority_chain_and_fast_validation_select_the_v3_route_tests() -> None:
-    checkpoint = "PHASE1_V2_EQUIVALENCE_METRIC_VALIDITY_AUDIT_COMPLETE"
+    checkpoint = "PHASE1_V2_EQUIVALENCE_V2_CONTRACT_EXECUTABLE_READY"
     for path in (
         ROOT / "CODEX_CONTEXT.md",
         ROOT / "PROJECT_STATE.md",

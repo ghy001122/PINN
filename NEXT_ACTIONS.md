@@ -3,7 +3,7 @@
 ## Authoritative Current Queue
 
 - Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Checkpoint: `PHASE1_V2_EQUIVALENCE_METRIC_VALIDITY_AUDIT_COMPLETE`.
+- Checkpoint: `PHASE1_V2_EQUIVALENCE_V2_CONTRACT_EXECUTABLE_READY`.
 - Strict-equivalence-v1: `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`.
 - Metric validity: `GO_VERSIONED_EQUIVALENCE_V2_AUDIT`.
 - The 63 formal evaluations / 60 executions / 3 reuses remain
@@ -25,33 +25,24 @@
 
 ## Completed Metric-Validity Audit
 
-The solver-free audit was preregistered at `460cbef...` and its result code and
-evidence are anchored at `5301ce0...`. It preserved all strict-v1 evidence and
-used no candidate/oracle or 57-row execution.
-
-- Failing-row inventory: 229 numeric fields; 202 non-lateral with zero v1
-  failures; 27 lateral with 21 v1 failures.
-- Physical lateral fluxes remain voting: `9/9` analytic mixed bounds pass;
-  maximum ratio `0.129647`.
-- Cancellation diagnostics: `6/6` roundoff bounds pass.
-- Synthetic tamper controls: `13/13` pass, including rejection of field
-  demotion and above-bound perturbations.
-- Result: `qualified_supported` metric validity only. Optimized equivalence,
-  runtime feasibility, S2 science, and Phase 1 remain `forbidden`/unassessed.
+The solver-free result (`460cbef...` / `5301ce0...`) preserved strict-v1 and
+ran no audit row. Primary fields retained `1e-12`; physical lateral fields
+remained voting; `9/9` mixed bounds, `6/6` cancellation bounds and `13/13`
+tamper controls passed. This is `qualified_supported` metric validity only;
+optimized equivalence and Phase 1 remain unassessed.
 
 ## Single Next Decision
 
-The PR #11 correction closes both verified coverage gaps without rerunning the
-parent audit: 638 family-qualified templates are mechanically derived and map
-to all 57 rows; 21/21 raw-record production-extractor controls pass. The old
-209 completeness claim is retained only as superseded provenance.
+PR #11 is merged. Its correction closes both coverage gaps without rerunning
+the parent audit: 638 derived templates map all 57 rows and 21/21 raw controls
+pass. The superseding PR #12 closure makes those rules executable through a
+record-only comparator, direct field/plan manifests, exact terminal routing,
+explicit 12/45 partitions and sealed solver-free controls. No v1/v2 numerical
+row was run; equivalence-v2 and formal execution counts remain zero.
 
-After clean-checkout CI and authority-stable merge, create a separate branch
-and preregister the one-shot equivalence-v2 contract. Stop after opening its
-draft PR; do not execute a row.
-
-Only after a separate fresh authorization may one versioned audit of the
-frozen candidate/oracle run on the original 57-row plan. It must retain:
+After this contract-only checkpoint, the single next decision is whether to
+authorize one audit of the frozen
+candidate/oracle on the original 57-row order. It must retain:
 
 - `1e-12` for primary fields;
 - preregistered analytic mixed bounds for physical lateral fields;
