@@ -87,7 +87,7 @@ def test_route_only_runner_validates_v3_and_cannot_execute_before_preregistratio
 
 
 def test_authority_chain_and_fast_validation_select_the_v3_route_tests() -> None:
-    checkpoint = "PHASE1_V2_EQUIVALENCE_V2_CONTRACT_EXECUTABLE_READY"
+    checkpoint = "PHASE1_V2_EQUIVALENCE_V2_COMPARATOR_CLOSURE_V3"
     for path in (
         ROOT / "CODEX_CONTEXT.md",
         ROOT / "PROJECT_STATE.md",
@@ -102,6 +102,10 @@ def test_authority_chain_and_fast_validation_select_the_v3_route_tests() -> None
     workflow = WORKFLOW_PATH.read_text(encoding="utf-8")
     assert "tests/test_geophase_phase1_v2_source_corrected_v3_preregistration.py" in workflow
     assert "tests/test_geophase_phase1_v2_source_corrected_v3_active_routing.py" in workflow
+    assert (
+        "tests/test_geophase_phase1_v2_equivalence_v2_comparator_closure_v3.py"
+        in workflow
+    )
 
     identity = json.loads(
         (
