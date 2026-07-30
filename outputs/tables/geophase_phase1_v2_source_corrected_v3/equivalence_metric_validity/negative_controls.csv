@@ -1,0 +1,14 @@
+control_id,category,expected_accept,observed_accept,passed
+NC-PRIMARY-ABOVE-STRICT-GATE,primary_strict,False,False,True
+NC-PHYSICAL-X-WITHIN-BOUND,physical_lateral_flux,True,True,True
+NC-PHYSICAL-X-ABOVE-BOUND,physical_lateral_flux,False,False,True
+NC-PHYSICAL-Y-WITHIN-BOUND,physical_lateral_flux,True,True,True
+NC-PHYSICAL-Y-ABOVE-BOUND,physical_lateral_flux,False,False,True
+NC-PHYSICAL-NET-WITHIN-BOUND,physical_lateral_flux,True,True,True
+NC-PHYSICAL-NET-ABOVE-BOUND,physical_lateral_flux,False,False,True
+NC-PHYSICAL-RECLASSIFICATION-NONVOTING,field_classification_guard,False,False,True
+NC-HARD-GATE-CANDIDATE-FAIL,lateral_hard_gate_diagnostics,False,False,True
+NC-HARD-GATE-DISPOSITION-MISMATCH,lateral_hard_gate_diagnostics,False,False,True
+NC-CANCELLATION-WITHIN-ROUNDOFF,cancellation_roundoff_diagnostics,True,True,True
+NC-CANCELLATION-ABOVE-ROUNDOFF,cancellation_roundoff_diagnostics,False,False,True
+NC-MISSING-REQUIRED-FIELD,field_presence_guard,False,False,True

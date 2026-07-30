@@ -1,0 +1,219 @@
+task_id: Q2_PHASE1_V2_EQUIVALENCE_METRIC_VALIDITY_AUDIT
+schema_version: geophase_phase1_v2_equivalence_metric_validity_audit_v1
+status: preregistered_solver_free_not_executed
+evidence_type: solver_free_metric_validity_audit
+manuscript_use: reviewer_defense_for_reference_solver_equivalence_gate
+
+authority_lock:
+  merged_PR10_commit: f40cce457269787f579430ec30d59c46fea08765
+  strict_equivalence_v1:
+    disposition: NO_GO_EQUIVALENT_PERFORMANCE_REPAIR
+    completed_rows: 12
+    expected_rows: 57
+    failing_plan_index: 11
+    failing_sample_id: EQ-INTERVAL-L1-legal_critical-base
+    maximum_normalized_difference: 1.4757614757614759
+    maximum_difference_field: full_step.lateral.face_to_cell_global_residual_W
+    formal_execution_count: 0
+    formal_artifact_count: 0
+  frozen_candidate:
+    commit: 1ae2704f6d84a3733d9de58aa23d992aa0c471a5
+    tree: d3833a4a5dd067dab72c84f15fe2f8e726bd9512
+    identity_sha256: 39044f37c983060df48e9915c594f69fbfbeacc60eef9a32bc352bdb5ec25b10
+  frozen_oracle:
+    PR8_commit: 85e4257fc01af2e0bf706ef9001f263b1420ecaa
+    PR8_tree: 50ef2214b19f98c6cada0f5f40c682de9eb16bee
+    source_git_blob: fd0e0773255181b037c4d6b6be4e482b735d1eff
+    source_sha256: e1a349ca0275021508cd07da02576adafbbcdae81e122659274769f329016a37
+  frozen_files:
+    performance_contract:
+      path: configs/geophase_phase1_v2_source_corrected_performance_repair.yaml
+      sha256: 84e1ecb298cfa6264646cc5e74df602b3e9e790e3eecfdc1abea62c087e87db4
+    audit_harness:
+      path: configs/geophase_phase1_v2_equivalence_audit_harness_erratum_v1.yaml
+      sha256: 83d21818ca8254adabcca7ccf13b10ed97aa01780a22343943fcc96674109916
+    strict_v1_summary:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/equivalence_summary.json
+      sha256: e0df8aad70c57f8c2f37c23d135c2d81964a6783b453d39e0eeef99f30f92574
+    electrical_table:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/electrical_equivalence.csv
+      sha256: 0863beea8d3783e35736d7aa3a5fe7a574107d3b95e34667d29819bfa1b1b05f
+    interval_table:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/interval_equivalence.csv
+      sha256: 7a9ba6b8282f03e56162921057133279241d11d4c49deace7644152efb6dc897
+    progression_table:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/progression_equivalence.csv
+      sha256: 4a6f2533f3304711375d47c15e69bdf4e4c30f08f3833a641bc18bd8282e1a6f
+    failure_table:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/failure_equivalence.csv
+      sha256: 4a6f2533f3304711375d47c15e69bdf4e4c30f08f3833a641bc18bd8282e1a6f
+    strict_v1_report:
+      path: docs/codex_reports/geophase_phase1_v2_source_corrected_performance_readiness.md
+      sha256: f3010de6dcc8fb4fb693da0b7037903dafac38fcec3bbace7f3f8b0fdfd13281
+    strict_v1_comparator:
+      path: src/pinnpcm/solvers/geophase_phase1_v2_performance_equivalence.py
+      sha256: 05868658ca199737600d796fbdcd4eb2661d222cc749e95a3530c1ea7078ebdc
+    lateral_audit:
+      path: src/pinnpcm/solvers/geophase_phase1_v2_fvm.py
+      sha256: 5ac770dbe038f69aa834917a3370c31a78a1ee6760abf618edd462245db08a62
+    controller_hard_gate:
+      path: src/pinnpcm/solvers/geophase_phase1_v2_controller_v2.py
+      sha256: e4332c5b103072e3de277b8788dbbf2bda48c65636cb5c1d8dd361bc9953f7ed
+
+execution_boundary:
+  numerical_solver_execution: forbidden
+  frozen_candidate_or_oracle_import: forbidden
+  strict_equivalence_57_row_rerun: forbidden
+  runtime_readiness: forbidden
+  formal_campaign: forbidden
+  performance_code_change: forbidden
+  comparator_v1_change: forbidden
+  physical_equations_parameters_or_tolerances_change: forbidden
+  scientific_gate_change: forbidden
+  automatic_retry: forbidden
+  static_audit_attempts: 1
+  maximum_solver_execution_count: 0
+  formal_execution_count: 0
+  formal_artifact_count: 0
+  allowed_inputs:
+    - frozen_strict_v1_JSON_and_CSV
+    - frozen_YAML_contracts
+    - static_FVM_geometry_and_operator_coefficients
+    - comparator_and_hard_gate_source_text
+    - deterministic_synthetic_negative_controls
+
+unresolved_problem:
+  observation: >-
+    strict-equivalence-v1 applies one self-normalized relative comparator to
+    primary physical fields, physical lateral fluxes, hard-gate diagnostics,
+    and near-zero cancellation residues.
+  decision_question: >-
+    determine whether this is a general metric-category error without
+    reclassifying physical x/y flux or net cell outflow as telemetry.
+  forbidden_shortcut: reclassify_all_lateral_fields_as_nonvoting
+
+field_categories:
+  primary_strict:
+    selection: all_v1_numeric_fields_except_the_lateral_fields_listed_below
+    voting: true
+    comparator: strict_equivalence_v1_normalized_relative_difference
+    threshold: 1.0e-12
+    threshold_change: forbidden
+  no_flux_boundary:
+    suffixes:
+      - lateral.boundary_face_flux_W
+      - lateral.boundary_outflow_W
+    voting: true
+    comparator: strict_equivalence_v1_normalized_relative_difference
+    threshold: 1.0e-12
+  physical_lateral_flux:
+    suffixes:
+      - lateral.x_face_flux_W
+      - lateral.y_face_flux_W
+      - lateral.net_cell_outflow_W
+    voting: true
+    comparator: analytic_mixed_absolute_bound
+    threshold_ratio: 1.0
+    empirical_multiplier: forbidden
+    temperature_difference_source: matching_path_state_temperature_K_v1_detail
+    temperature_scale_source: matching_path_state_temperature_K_v1_denominator
+    flux_scale_source: matching_v1_lateral_field_denominator
+    x_face_bound: >-
+      2*g_x_max*delta_T_inf + 64*machine_epsilon*max(g_x_max*T_scale, q_scale)
+    y_face_bound: >-
+      2*g_y_max*delta_T_inf + 64*machine_epsilon*max(g_y_max*T_scale, q_scale)
+    net_cell_bound: >-
+      L_infinity_norm*delta_T_inf + 64*machine_epsilon*max(L_infinity_norm*T_scale, q_scale)
+    coefficient_source: frozen_source_corrected_v3_grid_and_S2_sheet_conductance
+  lateral_hard_gate_diagnostics:
+    suffixes:
+      - lateral.matrix_face_relative_mismatch
+      - lateral.matrix_face_roundoff_ratio
+    voting: true
+    comparator: exact_hard_gate_disposition
+    predicate: matrix_face_relative_mismatch_le_1e-10_OR_matrix_face_roundoff_ratio_le_1
+    raw_cross_implementation_relative_equality: invalid_for_this_category
+    required: candidate_and_oracle_each_pass_and_dispositions_match
+  cancellation_roundoff_diagnostics:
+    suffixes:
+      - lateral.internal_pair_cancellation_W
+      - lateral.face_to_cell_global_residual_W
+    voting: true
+    comparator: analytic_roundoff_bound
+    threshold_ratio: 1.0
+    empirical_multiplier: forbidden
+    bound: >-
+      64*machine_epsilon*2*(n_x_faces*q_x_scale+n_y_faces*q_y_scale)
+    raw_values_preserved: true
+
+observed_v1_audit_checks:
+  expected_numeric_fields_in_failing_row: 229
+  expected_nonlateral_fields: 202
+  expected_nonlateral_failures: 0
+  expected_lateral_fields: 27
+  expected_lateral_failures: 21
+  expected_lateral_passes: 6
+  physical_lateral_fields_must_remain_voting: true
+  all_exact_votes_must_match: true
+  validation_errors_must_be_empty: true
+
+negative_controls:
+  primary_field_above_1e_12_must_fail: true
+  physical_x_flux_above_analytic_bound_must_fail: true
+  physical_y_flux_above_analytic_bound_must_fail: true
+  physical_net_outflow_above_analytic_bound_must_fail: true
+  physical_flux_field_reclassified_nonvoting_must_fail: true
+  candidate_or_oracle_hard_gate_failure_must_fail: true
+  hard_gate_disposition_mismatch_must_fail: true
+  cancellation_residue_within_roundoff_bound_must_pass: true
+  cancellation_residue_above_roundoff_bound_must_fail: true
+  missing_required_field_must_fail: true
+
+decision_rule:
+  GO_VERSIONED_EQUIVALENCE_V2_AUDIT_requires:
+    - every_authority_hash_matches
+    - strict_v1_NO_GO_and_12_of_57_are_preserved
+    - all_202_nonlateral_fields_pass_unchanged_strict_v1_gate
+    - observed_physical_lateral_fields_pass_the_preregistered_analytic_bounds
+    - observed_cancellation_residues_pass_the_preregistered_roundoff_bound
+    - accepted_v1_row_proves_both_implementations_passed_the_original_controller_hard_gate
+    - every_synthetic_negative_control_passes
+    - no_solver_or_57_row_execution_occurs
+  GO_meaning: >-
+    authorize_only_a_separately_versioned_frozen_57_row_equivalence_v2_audit
+    after_fresh_user_authorization
+  GO_does_not_mean:
+    - optimized_candidate_equivalence_passed
+    - runtime_readiness_authorized
+    - formal_campaign_authorized
+    - Phase1_scientific_claim_supported
+  otherwise: STOP_S2_ACTIVATE_GAMMA_SUB
+
+allowed_final_dispositions:
+  - GO_VERSIONED_EQUIVALENCE_V2_AUDIT
+  - STOP_S2_ACTIVATE_GAMMA_SUB
+
+claim_boundary:
+  lifecycle_state_on_completion: numerically_validated
+  strict_v1_claim_status: failed_but_informative
+  metric_validity_claim_status_if_GO: qualified_supported
+  S2_scientific_claim_status: forbidden
+  allowed_wording_if_GO: >-
+    A solver-free audit found a general category mismatch in the v1
+    equivalence metric and justified a separately versioned audit protocol;
+    optimized-solver equivalence remains unassessed.
+  forbidden_wording:
+    - strict_equivalence_v1_passed
+    - optimized_solver_is_equivalent
+    - all_lateral_fields_are_telemetry
+    - runtime_readiness_passed
+    - Phase1_reference_solver_validated
+
+outputs:
+  namespace: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity
+  preregistration: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/preregistration.json
+  field_classification: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/field_classification.csv
+  observed_bound_audit: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/observed_bound_audit.csv
+  negative_controls: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/negative_controls.csv
+  summary: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/metric_validity_summary.json
+  report: docs/codex_reports/geophase_phase1_v2_equivalence_metric_validity_audit.md

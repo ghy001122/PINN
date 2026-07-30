@@ -1,0 +1,109 @@
+task_id: Q2_PHASE1_V2_EQUIVALENCE_METRIC_VALIDITY_COVERAGE_CORRECTION
+schema_version: geophase_phase1_v2_equivalence_metric_validity_coverage_correction_v1
+status: pre_merge_solver_free_coverage_correction
+evidence_type: solver_free_production_extractor_schema_coverage
+manuscript_use: reviewer_defense_for_equivalence_metric_coverage
+
+authority:
+  PR11_head_before_correction: a26dcb527e34f093fa304d81e9d212392ac5a08a
+  immutable_files:
+    parent_metric_summary:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/metric_validity_summary.json
+      sha256: 7d9a022f16cacdb9efc37024152c34ee160d23dc492babffd59076f4f283ae7d
+    original_coverage_config:
+      path: configs/geophase_phase1_v2_equivalence_metric_validity_coverage_addendum.yaml
+      sha256: 974bdd76c2ac1dea99c26e89603ac4d5661fdf2f0155d8c7342e7cddd16ab890
+    original_coverage_module:
+      path: src/pinnpcm/audit/geophase_phase1_v2_equivalence_metric_validity_coverage.py
+      sha256: 3d42066b1a93f1b2e0ae24c669eea01890496269d7d3f839ed027b10f1cf05f7
+    original_coverage_summary:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/coverage_addendum/coverage_addendum_summary.json
+      sha256: 2532bc1d183bcfec4a3dc316463b469da0cd1d27ec96b5e8fee1fd1e76d3e7c6
+    original_coverage_fields:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/coverage_addendum/static_field_contract.csv
+      sha256: cd6266f3434aa25e2e30f9968a5868a434b7de02204981d6781511e4d929b8e1
+    original_coverage_plan:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/coverage_addendum/plan_output_contract.csv
+      sha256: b97f8a4a4e39ecf2dd5fe2f7a0aeaa8b93baa0d9ba1f7feade9f03f46413c4aa
+    original_coverage_controls:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/coverage_addendum/synthetic_controls.csv
+      sha256: ab5d2f73e958d5871dd429ffcfcd559725f233a2d3c0f68b72284f07d4e79de2
+    strict_v1_comparator:
+      path: src/pinnpcm/solvers/geophase_phase1_v2_performance_equivalence.py
+      sha256: 05868658ca199737600d796fbdcd4eb2661d222cc749e95a3530c1ea7078ebdc
+    streaming_schema_source:
+      path: src/pinnpcm/solvers/geophase_phase1_v2_streaming.py
+      sha256: 80ab0f1729a94074b8cfd850f4e8f8450be28c7d2d6e33382f5a7b5294dc5923
+    performance_contract:
+      path: configs/geophase_phase1_v2_source_corrected_performance_repair.yaml
+      sha256: 84e1ecb298cfa6264646cc5e74df602b3e9e790e3eecfdc1abea62c087e87db4
+    source_corrected_execution_DAG:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/runtime_readiness/execution_dag.json
+      sha256: da93d717e0fae2fb5431457b921f901a8651bd987346f4df493a94144ded786a
+
+preserved_results:
+  strict_equivalence_v1:
+    disposition: NO_GO_EQUIVALENT_PERFORMANCE_REPAIR
+    completed_rows: 12
+    expected_rows: 57
+  parent_metric_validity:
+    disposition: GO_VERSIONED_EQUIVALENCE_V2_AUDIT
+    physical_bounds: 9
+    cancellation_bounds: 6
+    negative_controls: 13
+  original_coverage_addendum:
+    disposition: COVERAGE_ADDENDUM_PASS
+    claimed_template_count: 209
+    synthetic_controls: 28
+    coverage_scope: superseded_for_completeness_only
+
+mechanical_coverage:
+  field_name_sources:
+    - strict_v1.electrical_observation
+    - strict_v1._attempt_observation
+    - strict_v1._progression_observation
+    - strict_v1.EXPECTED_EXACT_VOTES
+    - strict_v1.EXPECTED_TELEMETRY
+    - streaming_source_AST
+  plan_source: strict_v1.build_equivalence_plan
+  execution_DAG_required:
+    evaluation_item_count: 63
+    unique_execution_unit_count: 60
+    reused_evaluation_count: 3
+    formal_execution_count: 0
+  field_discovery_by_row_execution: forbidden
+  claimed_template_count_is_not_a_prior: true
+
+decision:
+  pass_requires:
+    - all_authority_hashes_match
+    - all_57_rows_mechanically_map_to_production_extractors
+    - all_comparison_fields_come_from_production_extractors_or_streaming_AST
+    - conditional_and_NA_semantics_are_parameterized
+    - all_raw_B_controls_reject_their_tamper
+    - no_solver_candidate_oracle_controller_execution
+  pass_disposition: COVERAGE_CORRECTION_PASS
+  pass_route: GO_VERSIONED_EQUIVALENCE_V2_AUDIT
+  failure_disposition: COVERAGE_ADDENDUM_FAIL
+  failure_route: STOP_S2_ACTIVATE_GAMMA_SUB
+
+execution_boundary:
+  frozen_v1_rows: forbidden
+  held_out_45_rows: forbidden
+  equivalence_v2_rows: forbidden
+  candidate_oracle_controller_execution: forbidden
+  C1_C2_C3: forbidden
+  runtime_preflight: forbidden
+  formal_runner: forbidden
+  PINN_or_Phase2: forbidden
+  parent_result_regeneration: forbidden
+  formal_execution_count: 0
+  equivalence_v2_execution_count: 0
+
+outputs:
+  namespace: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/coverage_correction
+  mechanical_field_contract: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/coverage_correction/mechanical_field_contract.csv
+  mechanical_plan_contract: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/coverage_correction/mechanical_plan_contract.csv
+  raw_topology_controls: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/coverage_correction/raw_topology_controls.csv
+  summary: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/coverage_correction/coverage_correction_summary.json
+  report: docs/codex_reports/geophase_phase1_v2_equivalence_metric_validity_coverage_correction.md

@@ -1111,3 +1111,36 @@ Claim result: multilayer forward, terminal-only rescue, low-dimensional sandwich
   `outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/equivalence_summary.json`
   and
   `docs/codex_reports/geophase_phase1_v2_source_corrected_performance_readiness.md`.
+
+## Phase 1-v2 Equivalence Metric Validity Audit
+
+- Date: 2026-07-30.
+- Task: `Q2_PHASE1_V2_EQUIVALENCE_METRIC_VALIDITY_AUDIT`.
+- Base/PR #10 merge: `f40cce457269787f579430ec30d59c46fea08765`.
+- Preregistration commit/config SHA-256:
+  `460cbefbe692c4e7fab22e951ea3de71318601ae` /
+  `89492b603d51558d58ea51aa19a7c78c3fea8e5d3012bbd8723070ea6b1f2a8a`.
+- Result implementation/evidence commit:
+  `5301ce0cf8929f73b43de961064cfd4ed77c6ccf`.
+- Evidence type: one solver-free static metric-validity audit with synthetic
+  tamper controls; no candidate/oracle or 57-row numerical execution.
+- Strict-equivalence-v1 remains
+  `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`, `12/57`, fail-fast at plan 11.
+- The frozen failing row contains 229 numeric fields: 202 non-lateral fields
+  with zero v1 failures and 27 lateral fields with 21 v1 failures.
+- Physical lateral fluxes remain voting. All `9/9` observed physical
+  comparisons pass analytic state-propagation plus roundoff bounds; maximum
+  ratio is `0.12964720443313635`.
+- Cancellation diagnostics pass `6/6` analytic roundoff bounds; all three
+  original controller hard-gate dispositions are supported by the completed
+  three-path/aggregate execution structure.
+- Synthetic tamper controls pass `13/13`, including rejection of physical
+  flux demotion and above-bound perturbations.
+- Disposition: `GO_VERSIONED_EQUIVALENCE_V2_AUDIT`. This is
+  `qualified_supported` metric-validity evidence only. Optimized-solver
+  equivalence and S2/Phase 1 science remain `forbidden`/unassessed.
+- Formal execution count: `0`; formal artifact count: `0`.
+- Evidence:
+  `outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/metric_validity_summary.json`
+  and
+  `docs/codex_reports/geophase_phase1_v2_equivalence_metric_validity_audit.md`.

@@ -1,0 +1,22 @@
+control_id,expected_accept,observed_accept,passed,failure_reasons,raw_record_origin,production_extractor,direct_exact_vote_mutation,candidate_or_oracle_execution_count
+baseline_raw_attempt,True,True,True,,SimpleNamespace_or_dict,_attempt_observation,False,0
+accepted_rejected_sequence_change,False,False,True,accepted_rejected_sequence,SimpleNamespace_or_dict,_attempt_observation,False,0
+nonlinear_method_change,False,False,True,nonlinear_method,SimpleNamespace_or_dict,_attempt_observation,False,0
+converged_disposition_change,False,False,True,converged_disposition,SimpleNamespace_or_dict,_attempt_observation,False,0
+fallback_disposition_change,False,False,True,fallback_disposition|nonlinear_method,SimpleNamespace_or_dict,_attempt_observation,False,0
+expected_failure_type_change,False,False,True,failure_classification,SimpleNamespace_or_dict,_attempt_observation,False,0
+expected_failure_location_change,False,False,True,failure_classification,SimpleNamespace_or_dict,_attempt_observation,False,0
+failure_changed_to_success,False,False,True,failure_classification,SimpleNamespace_or_dict,_attempt_observation,False,0
+success_changed_to_failure,False,False,True,failure_classification,SimpleNamespace_or_dict,_attempt_observation,False,0
+event_count_change,False,False,True,event_count_direction_and_order,SimpleNamespace_or_dict,_progression_observation,False,0
+event_direction_change,False,False,True,event_count_direction_and_order,SimpleNamespace_or_dict,_progression_observation,False,0
+event_chronology_change,False,False,True,event_count_direction_and_order,SimpleNamespace_or_dict,_progression_observation,False,0
+reversal_count_change,False,False,True,reversal_count_direction_and_order,SimpleNamespace_or_dict,_progression_observation,False,0
+reversal_direction_change,False,False,True,reversal_count_direction_and_order,SimpleNamespace_or_dict,_progression_observation,False,0
+reversal_order_change,False,False,True,reversal_count_direction_and_order,SimpleNamespace_or_dict,_progression_observation,False,0
+required_topology_field_missing,False,False,True,"event[0] schema differs: missing=['direction'], extra=[]",SimpleNamespace_or_dict,_progression_observation,False,0
+unregistered_topology_field_extra,False,False,True,"event[0] schema differs: missing=[], extra=['unregistered_topology']",SimpleNamespace_or_dict,_progression_observation,False,0
+required_numeric_field_missing,False,False,True,"numeric field sets differ: candidate_only=[], oracle_only=['streaming.scalar.0.time_s']",SimpleNamespace_or_dict,_progression_observation,False,0
+unregistered_numeric_field_extra,False,False,True,"numeric field sets differ: candidate_only=['streaming.scalar.0.unregistered_power_W'], oracle_only=[]",SimpleNamespace_or_dict,_progression_observation,False,0
+validation_error_injected,False,False,True,"progression accepted 3, expected 4 intervals",SimpleNamespace_or_dict,_progression_observation+_progression_validation_errors,False,0
+required_telemetry_source_field_missing,False,False,True,production attempt extractor rejected raw record: 'types.SimpleNamespace' object has no attribute 'krylov_matvecs',SimpleNamespace_or_dict,_attempt_observation,False,0

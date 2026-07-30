@@ -1,0 +1,22 @@
+{
+  "allowed_final_dispositions": [
+    "GO_VERSIONED_EQUIVALENCE_V2_AUDIT",
+    "STOP_S2_ACTIVATE_GAMMA_SUB"
+  ],
+  "branch": "codex/phase1-v2-equivalence-metric-validity",
+  "config_path": "configs/geophase_phase1_v2_equivalence_metric_validity_audit.yaml",
+  "config_sha256": "89492b603d51558d58ea51aa19a7c78c3fea8e5d3012bbd8723070ea6b1f2a8a",
+  "formal_artifact_count": 0,
+  "formal_execution_count": 0,
+  "metric_validity_audit_executed": false,
+  "numerical_solver_execution_count": 0,
+  "preregistration_commit_is_the_commit_containing_this_record": true,
+  "preregistration_must_be_pushed_before_static_audit": true,
+  "schema_version": "geophase_phase1_v2_equivalence_metric_validity_preregistration_v1",
+  "starting_main_commit": "f40cce457269787f579430ec30d59c46fea08765",
+  "status": "preregistered_solver_free_not_executed",
+  "strict_equivalence_v1_completed_rows": 12,
+  "strict_equivalence_v1_disposition": "NO_GO_EQUIVALENT_PERFORMANCE_REPAIR",
+  "strict_equivalence_v1_expected_rows": 57,
+  "task_id": "Q2_PHASE1_V2_EQUIVALENCE_METRIC_VALIDITY_AUDIT"
+}

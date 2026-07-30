@@ -23,6 +23,9 @@ evidence unless provenance explicitly says otherwise.
 | Source-corrected v3 bundle | `supported` config-only preregistration | 15.8 V qualitative lock probe; 63/60/3; old 15 V bundle immutable; formal zero |
 | Strict-equivalence invalid launch | `supported` infrastructure provenance only; numerical equivalence `forbidden` / unassessed | frozen candidate `1ae2704...`; invalid before row 1; 0/57 rows and zero votes; no candidate/oracle comparison or readiness execution |
 | Valid strict-equivalence audit | `failed_but_informative` implementation-equivalence result; S2 science `forbidden` / unassessed | one valid attempt; 12/57 rows; fail-fast at plan 11 with `1.4757614757614759 > 1e-12`; C1/C2/C3 not executed; formal zero |
+| Equivalence metric-validity audit | `qualified_supported` solver-free audit | v1 preserved; 202 non-lateral fields retain strict gate; 9/9 physical lateral analytic bounds, 6/6 cancellation bounds, and 13/13 tamper controls pass; optimized equivalence unassessed |
+| Metric-validity coverage addendum | `qualified_supported` historical static coverage | Original 57-row/209-template and 28/28-control result retained; its hand-mirrored completeness claim is superseded by the correction. |
+| Metric-validity coverage correction | `qualified_supported` solver-free coverage | 638 family-qualified templates mechanically derived from production extractors/streaming AST; 57/57 row map; 21/21 raw production-extractor controls; zero held-out execution. |
 | Retired material stack | `failed_but_informative` | v8 gate failed; 96 items unexecuted |
 | Frozen GT integrity | `supported` when hashes pass | acceptance report/manifest; governance audit |
 | Claim vocabulary | `supported` governance fact | `docs/paper/final_claim_matrix.md` |
@@ -69,5 +72,7 @@ VO2-to-NbO2 zero-shot transfer.
 - History: `docs/archive/README.md`, registries, and named reports.
 - Boundary: the invalid pre-row launch remains infrastructure provenance. The
   sole valid audit fail-fast rejected strict equivalence at plan 11 after
-  `12/57` rows. No retry, further optimization, C1/C2/C3, formal execution,
-  Phase 2, or PINN is authorized; await explicit downgrade-route activation.
+  `12/57` rows. The solver-free validity audit and corrected static coverage
+  support only preparing a separately versioned 57-row audit after fresh user
+  authorization. No retry, held-out row, further optimization, C1/C2/C3,
+  formal execution, Phase 2, or PINN is authorized.
