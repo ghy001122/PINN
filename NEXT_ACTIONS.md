@@ -41,8 +41,11 @@ used no candidate/oracle or 57-row execution.
 
 ## Single Next Decision
 
-Await fresh user authorization for one separately versioned audit of the
-frozen candidate/oracle on the original 57-row plan. It must retain:
+Review draft PR #11: its static 57-row/209-template addendum passes `28/28`
+synthetic controls but authorizes no execution. Run no rows during review.
+
+Only after a separate fresh authorization may one versioned audit of the
+frozen candidate/oracle run on the original 57-row plan. It must retain:
 
 - `1e-12` for primary fields;
 - preregistered analytic mixed bounds for physical lateral fields;

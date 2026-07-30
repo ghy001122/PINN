@@ -147,7 +147,12 @@ solver is equivalent.
 
 ## Single Next Decision
 
-Await fresh user authorization for one separately versioned, frozen-candidate
-equivalence-v2 audit over the original 57-row plan. Without that authorization,
-or if any primary/physical/topology vote fails in that future audit, stop S2 and
-activate the retained `gamma_sub` plus identifiability-boundary route.
+A pre-merge coverage addendum subsequently mapped all 57 rows to a static
+209-template comparison contract and passed 27 required negative controls plus
+one positive baseline without rerunning this audit. See
+`geophase_phase1_v2_equivalence_metric_validity_coverage_addendum.md`.
+
+Keep PR #11 draft pending user review. A future 57-row equivalence-v2 audit
+still requires fresh authorization. Without that authorization, or if any
+primary/physical/topology vote fails in that future audit, stop S2 and activate
+the retained `gamma_sub` plus identifiability-boundary route.

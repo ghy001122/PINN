@@ -88,9 +88,10 @@ equivalence-v2 57-row audit without fresh user authorization.
 
 ## Immediate Next Checkpoint
 
-Await a user decision on one separately versioned, frozen-candidate
-equivalence-v2 audit. Preserve invalid-launch, strict-v1, harness, and
-metric-validity evidence; do not retry v1, re-optimize, or run readiness. If
-the versioned audit is not authorized or later fails a primary, physical, or
-topology vote, activate the retained `gamma_sub` plus identifiability-boundary
-manuscript route. Phase 1 science remains `forbidden` and unassessed.
+Await user review of draft PR #11 and its coverage addendum. This review is not
+authorization to run equivalence-v2. Preserve invalid-launch, strict-v1,
+harness, and metric-validity evidence; do not retry v1, re-optimize, or run
+readiness. If a later versioned audit is not authorized or fails a primary,
+physical, or topology vote, activate the retained `gamma_sub` plus
+identifiability-boundary manuscript route. Phase 1 science remains `forbidden`
+and unassessed.

@@ -1,0 +1,189 @@
+task_id: Q2_PHASE1_V2_EQUIVALENCE_METRIC_VALIDITY_COVERAGE_ADDENDUM
+schema_version: geophase_phase1_v2_equivalence_metric_validity_coverage_addendum_v1
+status: pre_merge_static_coverage_addendum
+evidence_type: solver_free_comparator_schema_coverage
+manuscript_use: reviewer_defense_for_equivalence_metric_coverage
+
+parent_metric_validity:
+  PR11_head_before_addendum: c28bfe0debee619c2856633b749c139d484dc671
+  disposition: GO_VERSIONED_EQUIVALENCE_V2_AUDIT
+  scope: observed_failing_row_229_numeric_fields_plus_13_synthetic_controls
+  immutable_files:
+    preregistration:
+      path: configs/geophase_phase1_v2_equivalence_metric_validity_audit.yaml
+      sha256: 89492b603d51558d58ea51aa19a7c78c3fea8e5d3012bbd8723070ea6b1f2a8a
+    summary:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/metric_validity_summary.json
+      sha256: 7d9a022f16cacdb9efc37024152c34ee160d23dc492babffd59076f4f283ae7d
+    observed_field_classification:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/field_classification.csv
+      sha256: e5d926b75401157d285af27a7a48cb7681044ff543fb8ee5eaec4e2ae872c73e
+    observed_bound_audit:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/observed_bound_audit.csv
+      sha256: bb219a21edf8f43adc8ae8b6e19047c1184cc6143f6e0400093d656f4614a9de
+    observed_negative_controls:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/negative_controls.csv
+      sha256: b91e70686a907f1b44253ce112d559dbec7fff723a091d0aaa4063f442745047
+
+frozen_static_authority:
+  metric_validity_formula_module:
+    path: src/pinnpcm/audit/geophase_phase1_v2_equivalence_metric_validity.py
+    sha256: baccbcb49fe457b2247477406f388c58d0d7efe08f54314859c2391e90f81e5b
+  performance_contract:
+    path: configs/geophase_phase1_v2_source_corrected_performance_repair.yaml
+    sha256: 84e1ecb298cfa6264646cc5e74df602b3e9e790e3eecfdc1abea62c087e87db4
+  strict_v1_comparator:
+    path: src/pinnpcm/solvers/geophase_phase1_v2_performance_equivalence.py
+    sha256: 05868658ca199737600d796fbdcd4eb2661d222cc749e95a3530c1ea7078ebdc
+  streaming_output_schema:
+    path: src/pinnpcm/solvers/geophase_phase1_v2_streaming.py
+    sha256: 80ab0f1729a94074b8cfd850f4e8f8450be28c7d2d6e33382f5a7b5294dc5923
+  source_corrected_execution_DAG:
+    path: outputs/tables/geophase_phase1_v2_source_corrected_v3/runtime_readiness/execution_dag.json
+    sha256: da93d717e0fae2fb5431457b921f901a8651bd987346f4df493a94144ded786a
+
+strict_v1_preservation:
+  disposition: NO_GO_EQUIVALENT_PERFORMANCE_REPAIR
+  completed_rows: 12
+  expected_rows: 57
+  failing_plan_index: 11
+  observed_metric_development_numeric_fields: 229
+  existing_physical_bounds: 9
+  existing_cancellation_bounds: 6
+  existing_negative_controls: 13
+  recompute_existing_evidence: forbidden
+
+static_plan_contract:
+  families:
+    electrical: 9
+    interval: 18
+    progression: 9
+    failure: 21
+  expected_total: 57
+  execution: forbidden
+  field_discovery_by_execution: forbidden
+  output_contracts:
+    electrical: electrical_v1
+    interval: interval_three_path_v1
+    progression: progression_four_accepted_intervals_v1
+    failure: failure_path_fail_closed_v1
+
+field_classes:
+  A_primary_physical:
+    comparator: unchanged_strict_v1_normalized_relative_difference
+    threshold: 1.0e-12
+    threshold_change: forbidden
+  B_exact_topology:
+    comparator: canonical_exact_equality
+    required_fields:
+      - nonlinear_method
+      - converged_disposition
+      - fallback_disposition
+      - accepted_rejected_sequence
+      - failure_classification
+      - event_count_direction_and_order
+      - reversal_count_direction_and_order
+  C_no_flux_boundary:
+    comparator: unchanged_strict_v1_normalized_relative_difference
+    threshold: 1.0e-12
+  C_physical_lateral_flux:
+    comparator: parent_analytic_mixed_bound_unchanged
+    voting: true
+    empirical_multiplier: forbidden
+  C_lateral_hard_gate:
+    comparator: exact_original_hard_gate_disposition
+    required: candidate_and_oracle_each_pass_and_dispositions_match
+  C_cancellation_roundoff:
+    comparator: parent_analytic_backward_error_bound_unchanged
+    raw_signed_values_preserved: true
+  telemetry_nonvoting:
+    comparator: recorded_but_nonvoting
+  structural_fail_closed:
+    required:
+      - numeric_field_sets_exact
+      - exact_vote_field_sets_exact
+      - telemetry_field_sets_exact
+      - denominator_identities_exact
+      - shapes_exact
+      - all_numeric_values_finite
+      - validation_errors_empty
+
+progression_schema:
+  maximum_accepted_intervals: 4
+  history_paths_per_accepted_interval:
+    - accepted
+    - accepted_first_half
+  scalar_record_index: repeated_runtime_index_without_execution
+  field_snapshot_index: repeated_runtime_index_without_execution
+  event_topology_source: ordered_event_record_direction_sequence
+  reversal_topology_source: ordered_reversal_record_direction_sequence
+
+required_new_synthetic_controls:
+  - finite_temperature_field_perturbation
+  - internal_x_face_flux_sign_flip
+  - terminal_current_tamper
+  - Joule_power_tamper
+  - global_net_outflow_leak
+  - ledger_tamper
+  - accepted_rejected_sequence_change
+  - event_count_change
+  - event_direction_change
+  - event_chronology_change
+  - reversal_count_change
+  - reversal_direction_change
+  - reversal_order_change
+  - nonlinear_method_change
+  - converged_disposition_change
+  - fallback_disposition_change
+  - expected_failure_type_change
+  - expected_failure_location_change
+  - failure_changed_to_success
+  - success_changed_to_failure
+  - required_numeric_field_missing
+  - unregistered_numeric_field_extra
+  - required_topology_field_missing
+  - unregistered_topology_field_extra
+  - required_telemetry_field_missing
+  - unregistered_telemetry_field_extra
+  - validation_error_injected
+
+execution_boundary:
+  candidate_import_or_execution: forbidden
+  oracle_import_or_execution: forbidden
+  controller_import_or_execution: forbidden
+  remaining_45_rows: forbidden
+  C1_C2_C3: forbidden
+  runtime_preflight: forbidden
+  formal_runner: forbidden
+  formal_campaign: forbidden
+  PINN_or_Phase2: forbidden
+  parent_result_regeneration: forbidden
+  parent_formula_change: forbidden
+  formal_execution_count: 0
+  formal_artifact_count: 0
+
+decision_rule:
+  pass_requires:
+    - every_parent_and_static_authority_hash_matches
+    - all_57_plan_rows_map_to_one_static_output_contract
+    - every_comparison_field_template_is_classified
+    - all_B_fields_remain_exact
+    - every_required_new_synthetic_control_rejects_its_tamper
+    - no_solver_or_frozen_row_execution_occurs
+  pass_disposition: COVERAGE_ADDENDUM_PASS
+  pass_metric_route: GO_VERSIONED_EQUIVALENCE_V2_AUDIT
+  failure_disposition: COVERAGE_ADDENDUM_FAIL
+  failure_metric_route: STOP_S2_ACTIVATE_GAMMA_SUB
+  pass_does_not_authorize:
+    - equivalence_v2_57_row_execution
+    - runtime_readiness
+    - formal_campaign
+    - Phase1_scientific_claim
+
+outputs:
+  namespace: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/coverage_addendum
+  static_field_contract: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/coverage_addendum/static_field_contract.csv
+  plan_output_contract: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/coverage_addendum/plan_output_contract.csv
+  synthetic_controls: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/coverage_addendum/synthetic_controls.csv
+  summary: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/coverage_addendum/coverage_addendum_summary.json
+  report: docs/codex_reports/geophase_phase1_v2_equivalence_metric_validity_coverage_addendum.md
