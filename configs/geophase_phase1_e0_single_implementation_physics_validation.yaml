@@ -46,7 +46,7 @@ single_implementation_selection:
   implementation_role: independent_reference_judge_candidate_for_direct_physical_validation
   selected_implementation: source_corrected_performance_candidate
   origin_commit: 1ae2704f6d84a3733d9de58aa23d992aa0c471a5
-  origin_tree: 86c32f6d80fa4beedbb83e17b96567591f777555
+  origin_tree: d3833a4a5dd067dab72c84f15fe2f8e726bd9512
   frozen_candidate_identity_sha256: 39044f37c983060df48e9915c594f69fbfbeacc60eef9a32bc352bdb5ec25b10
   implementation_equivalence_to_PR8: forbidden_unassessed
   selection_basis: >-
@@ -69,6 +69,12 @@ single_implementation_selection:
       sha256: 0c014c82406ee2243ef1d512865091d90cb958fcb78238807d679a46236e13de
     - path: src/pinnpcm/solvers/geophase_phase1_v2_streaming.py
       sha256: 80ab0f1729a94074b8cfd850f4e8f8450be28c7d2d6e33382f5a7b5294dc5923
+  identity_correction:
+    previous_incorrect_origin_tree_value: 86c32f6d80fa4beedbb83e17b96567591f777555
+    previous_value_git_object_type: commit
+    corrected_from: git_rev_parse_origin_commit_tree_and_frozen_candidate_identity
+    correction_scope: metadata_only_before_any_e0_numerical_execution
+    scientific_impact: none
 
 physics_authority:
   source_contract:

@@ -39,12 +39,15 @@ evidence only; they cannot modify this E0 route or vote for S2 physics.
 ## Selected Implementation
 
 - Origin commit: `1ae2704f6d84a3733d9de58aa23d992aa0c471a5`.
-- Origin tree: `86c32f6d80fa4beedbb83e17b96567591f777555`.
+- Origin tree: `d3833a4a5dd067dab72c84f15fe2f8e726bd9512`.
 - Frozen identity: `39044f37...`.
 - Role: one implementation awaiting direct physical validation.
 - PR #8 equivalence: `forbidden` / unassessed and not required by E0.
 - Switching implementation after any E0 numerical result: forbidden.
 - Reuse of future PINN residual code: forbidden.
+- The activation package's former `86c32f6d...` tree label was a metadata
+  defect: that object is the preceding preregistration commit. The correction
+  was made before any E0 numerical execution and does not change solver bytes.
 
 ## Preserved History
 

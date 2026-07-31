@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import hashlib
+import json
 from pathlib import Path
+import subprocess
 
 import yaml
 
@@ -14,6 +16,14 @@ SOURCE_CONTRACT = ROOT / "configs" / "qiu_vo2_phase1_source_contract_v3.yaml"
 EXECUTION_ADDENDUM = (
     ROOT / "configs" / "geophase_phase1_v2_execution_addendum_source_corrected_v3.yaml"
 )
+CANDIDATE_IDENTITY = (
+    ROOT
+    / "outputs"
+    / "tables"
+    / "geophase_phase1_v2_source_corrected_v3"
+    / "performance_repair"
+    / "optimized_candidate_identity.json"
+)
 
 
 def _yaml(path: Path) -> dict:
@@ -22,6 +32,21 @@ def _yaml(path: Path) -> dict:
 
 def _sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def _json(path: Path) -> dict:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _commit_tree(commit: str) -> str:
+    return subprocess.run(
+        ["git", "rev-parse", f"{commit}^{{tree}}"],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+    ).stdout.strip()
 
 
 def test_e0_activation_is_zero_computation_and_waits_for_fresh_authorization() -> None:
@@ -56,9 +81,12 @@ def test_consumed_equivalence_routes_are_immutable_and_have_no_e0_vote() -> None
 
 def test_single_selected_implementation_is_frozen_without_equivalence_claim() -> None:
     selection = _yaml(CONFIG)["single_implementation_selection"]
+    candidate_identity = _json(CANDIDATE_IDENTITY)
 
-    assert selection["origin_commit"] == "1ae2704f6d84a3733d9de58aa23d992aa0c471a5"
-    assert selection["origin_tree"] == "86c32f6d80fa4beedbb83e17b96567591f777555"
+    assert selection["origin_commit"] == candidate_identity["candidate_commit"]
+    assert selection["origin_tree"] == candidate_identity["candidate_tree"]
+    assert selection["origin_tree"] == _commit_tree(selection["origin_commit"])
+    assert selection["frozen_candidate_identity_sha256"] == _sha256(CANDIDATE_IDENTITY)
     assert selection["implementation_equivalence_to_PR8"] == "forbidden_unassessed"
     assert selection["switching_after_any_e0_numerical_result"] == "forbidden"
     assert selection["future_PINN_residual_code_reuse"] == "forbidden"

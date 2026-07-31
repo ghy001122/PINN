@@ -96,7 +96,14 @@ of them.
 
 The selected implementation is the source-corrected performance candidate
 originating at commit `1ae2704f6d84a3733d9de58aa23d992aa0c471a5`, tree
-`86c32f6d80fa4beedbb83e17b96567591f777555`.
+`d3833a4a5dd067dab72c84f15fe2f8e726bd9512`.
+
+The initial activation metadata incorrectly copied the preceding
+preregistration commit `86c32f6d80fa4beedbb83e17b96567591f777555`
+into the tree field. Git object inspection and the immutable optimized-
+candidate identity both resolve the selected commit to `d3833a4a...`. This
+metadata-only correction occurred before any E0 numerical execution; it does
+not modify the selected implementation or any historical result.
 
 This selection does **not** claim equivalence to PR #8. It will be judged
 directly against independent mathematical and physical gates. The PR #8 code
