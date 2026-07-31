@@ -44,6 +44,7 @@ def test_fast_validation_covers_phase1_checkpoint_a_and_authority_paths() -> Non
         "tests/test_geophase_phase1_v2_equivalence_v2_executability.py",
         "tests/test_geophase_phase1_v2_equivalence_v2_one_shot_control_plane.py",
         "tests/test_geophase_phase1_v2_equivalence_v2_one_shot_execution_preregistration.py",
+        "tests/test_geophase_phase1_v2_ledger_record_schema_closure_v4.py",
         "tests/test_geophase_phase1_s1_diffusive_mve_v2_preregistration.py",
         "tests/test_geophase_phase1_s1_diffusive_mve.py",
         "tests/test_geophase_phase1_v2_solver.py",

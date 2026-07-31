@@ -5,7 +5,10 @@
 - Delivery/phase: `Q2_SCI_DELIVERY_MODE` /
   `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
 - Parent checkpoint:
-  `PHASE1_V2_EQUIVALENCE_V2_ONE_SHOT_AUDIT`.
+  `Q2_PHASE1_V2_LEDGER_SCHEMA_CLOSURE_AND_EQUIVALENCE_V3_INDEPENDENT_AUDIT`.
+- Consumed predecessor checkpoint:
+  `PHASE1_V2_EQUIVALENCE_V2_ONE_SHOT_AUDIT` (`VALID_FAIL`, no retry).
+- Consumed comparator-closure-v3 anchor: `85d5c7ba...`.
 - Strict-equivalence-v1 substate: `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`.
 - Metric-validity substate: `GO_VERSIONED_EQUIVALENCE_V2_AUDIT`.
 - R1 `HysGeo-Hybrid-PINN` remains the minimum manuscript route; R2
@@ -19,33 +22,25 @@
   campaign is authorized.
 - The solver and `7/7` non-voting smoke cases pass after one historical
   zero-signal audit-metric repair. This is software evidence only.
-- Controller-v1 is historical `NO_GO_RUNTIME`; its one-replay diagnostic
-  supported the now-consumed single controller revision.
-- Controller-v2 C1/C2 passed bounded integrity/parity. C3 stopped at the worker
-  backstop with `0/18` intervals and `1/9` trajectories before forecast or
-  dormant-runner votes: `NO_GO_RUNTIME_PERFORMANCE_ONLY`.
-- Source-corrected v3 anchor `0ebe037...` replaces only the erroneous 15.0 V
-  lock probe with qualitative 15.8 V. Its 63/60/3 inventory is unexecuted and
-  the old bundle remains immutable.
+- Controller-v2 C1/C2 passed bounded integrity; C3 produced no forecast.
+  Source-corrected v3 (`0ebe037...`) uses the qualitative 15.8 V lock probe;
+  its 63/60/3 inventory remains unexecuted.
 - Frozen candidate `1ae2704...`/`d3833a4...`/`39044f37...` and harness
   `73f7d7d1...` produced the sole valid strict audit. It fail-fast rejected
   plan 11 after `12/57`: `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`. This rejects
   strict implementation equivalence, not S2 physics; retry is unauthorized.
-- Metric validity (`460cbef...`/`5301ce0...`) is qualified
-  `GO_VERSIONED_EQUIVALENCE_V2_AUDIT`: `9/9` physical, `6/6` cancellation and
-  `13/13` tamper controls passed; it is not an equivalence vote.
-- PR #11 mechanically maps 638 templates over 57 rows and passed `21/21` raw
-  controls. PR #12 makes the unchanged A/B/C rules record-executable. Both are
-  solver-free, preserve strict-v1, and executed zero audit rows.
-- Comparator closure v3 preserves every PR #12 identity and adds the narrow
-  integrity gates needed to reject common-mode missing dynamic indices,
-  common-mode wrong L1/L2/L4 shapes, caller-relabelled row/failure identities,
-  and incomplete or reordered terminal plans. It passed clean-checkout CI and
-  merged at `85d5c7ba...`. The one-shot runner is anchored at `85c3709...`.
-  Its unique attempt completed 10/57 rows and stopped at plan 9 with
-  `VALID_FAIL / RECORD_VALIDATION_FAILURE`: the identical candidate/oracle
-  interval records carried 91 noncanonical ledger `scale_group` values. Rows
-  10..56 remain unassessed; equivalence-v2 count is one and formal count zero.
+- Solver-free metric/coverage/closure work locks 638 templates, 57 rows and
+  unchanged A/B/C rules. The unique v2 attempt (`85c3709...`) stopped before
+  voting at plan 9: `VALID_FAIL / RECORD_VALIDATION_FAILURE`, 10/57; rows
+  10..56 are unassessed and its count is one.
+- PR #14 merged the immutable v2 negative record at `f49ac79...`; it did not
+  authorize a retry. The new closure-v4 Stage A is a solver-free superseding
+  record schema: 252 ledger-power templates are mechanically derived from
+  production constructors/extractors, while real producer balance names and
+  structural normalization groups remain separate identities. Its local
+  focused controls pass and it has executed zero numerical audit rows; cloud
+  CI/merge is the remaining Stage-A gate before the separately authorized,
+  independent equivalence-v3 attempt may start.
 - The S1 scientific claim is `forbidden`/unassessed; its timeouts are supported
   infrastructure provenance only. The v6-v8 material-stack route remains
   `failed_but_informative` with no formal execution.
@@ -79,10 +74,12 @@
 ## Delivery Boundary
 
 Preserve strict-v1 and the completed one-shot v2 evidence; do not retry,
-reinterpret, or optimize either audit. The terminal route is
-`STOP_S2_ACTIVATE_GAMMA_SUB`; C1/C2/C3 and formal execution remain blocked.
-Only a separate user decision may activate the retained fixed-rank-1
-`gamma_sub` plus calibration-gate and identifiability-boundary manuscript route.
+reinterpret, stitch, resume, or optimize either audit. A separate user
+authorization now permits one new schema-corrected equivalence-v3 identity,
+but only after solver-free closure-v4 passes and merges. That future attempt
+must start from row 0, consume its own `0→1` count once, and may terminate
+`PASS`, `VALID_FAIL`, or `INVALID_INFRA` without rule changes or retry.
+C1/C2/C3, runtime, formal execution, Phase 2, and PINN remain blocked.
 
 Do not rerun S1 or v6-v8; train a PINN; generate Phase 2 data; run inverse;
 modify frozen GT; add nonzero coupling; run FEM/3D, M44, or NbO2; or claim

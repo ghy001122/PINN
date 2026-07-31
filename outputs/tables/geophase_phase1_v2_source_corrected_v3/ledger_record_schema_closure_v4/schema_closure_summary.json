@@ -1,0 +1,62 @@
+{
+  "task_id": "Q2_PHASE1_V2_LEDGER_RECORD_SCHEMA_CLOSURE_V4",
+  "schema_version": "geophase_phase1_v2_ledger_record_schema_closure_summary_v4",
+  "status": "SCHEMA_CLOSURE_PASS_PENDING_CLEAN_CHECKOUT_CI",
+  "evidence_type": "solver_free_record_schema_evidence",
+  "authority_base_main": "f49ac79fcf8cb617e15665ab57c84375ae6c5b8c",
+  "strict_equivalence_v1": {
+    "disposition": "NO_GO_EQUIVALENT_PERFORMANCE_REPAIR",
+    "completed_rows": 12,
+    "expected_rows": 57,
+    "immutable": true
+  },
+  "equivalence_v2": {
+    "terminal_state": "VALID_FAIL",
+    "terminal_event": "RECORD_VALIDATION_FAILURE",
+    "completed_rows": 10,
+    "expected_rows": 57,
+    "failed_plan_index": 9,
+    "A_B_C_vote_cast": false,
+    "execution_count": 1,
+    "immutable": true
+  },
+  "closure_v4": {
+    "mechanically_derived_ledger_template_count": 252,
+    "family_template_counts": {
+      "failure": 84,
+      "interval": 112,
+      "progression": 56
+    },
+    "ledger_group_manifest_sha256": "cc0b4fd769567740975f6e7ded6110e826dad484fcda76fa76514ccd476a87f5",
+    "ledger_group_template_identity_sha256": "78069215049a4f326de4b88c3039916178c8d8c299afde0d41450b21a0370323",
+    "record_schema_module_sha256": "4f7d9e8715c90fd8e336724bb36cba6c9882cf919b70e0fee314dbb4589aa39d",
+    "comparator_sha256": "f162bbdc975124557dfb515e4195265a7c61d48aefe5042f48744640d17c602e",
+    "config_sha256": "bdf0ceda1502f30fa0397b87c4a6e4f78b98be38d8f583debeb476933859c6a3",
+    "preregistration_sha256": "071e96080ff3aaab104a3fc2611ba7728634af2d61d70b9d017b23b08052437c",
+    "production_real_negative_controls_passed": true,
+    "atomic_content_addressed_record_publication_passed": true,
+    "focused_tests": {
+      "passed": 103,
+      "failed": 0
+    },
+    "numerical_audit_rows_executed": 0
+  },
+  "immutable_rules": {
+    "A_class_threshold": 1e-12,
+    "B_class_exact_comparison_unchanged": true,
+    "C_class_analytic_bounds_unchanged": true,
+    "lateral_hard_gate_unchanged": true,
+    "candidate_oracle_S2_v1_modules_changed": false
+  },
+  "equivalence_v3_execution_count": 0,
+  "formal_execution_count": 0,
+  "formal_artifact_count": 0,
+  "claim_status": "forbidden",
+  "allowed_claim": "solver_free ledger schema closure is locally validated pending clean-checkout CI",
+  "forbidden_claims": [
+    "optimized_candidate_is_equivalent",
+    "S2_or_Phase1_success_or_failure",
+    "runtime_feasibility",
+    "PINN_success"
+  ]
+}
