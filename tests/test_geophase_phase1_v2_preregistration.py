@@ -341,8 +341,8 @@ def test_s1_science_is_unassessed_while_interruption_provenance_is_supported() -
     assert stage["nonblocking_S1_state"]["rerun_authorization"] == (
         "forbidden_without_fresh_user_authorization"
     )
-    assert "| S1 diffusive model-form claim | `forbidden` / unassessed |" in project_state
-    assert "| S1 interruption provenance | `supported` infrastructure provenance only |" in project_state
+    assert "S1 science is `forbidden`/unassessed" in project_state
+    assert "interruption facts are supported" in project_state
     assert "| S1 diffusive scientific claim | `forbidden`;" in evidence_index
     assert "| S1 interruption provenance | `supported` infrastructure provenance only;" in evidence_index
     s1_claim_row = next(

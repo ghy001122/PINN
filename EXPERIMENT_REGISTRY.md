@@ -1144,3 +1144,27 @@ Claim result: multilayer forward, terminal-only rescue, low-dimensional sandwich
   `outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/metric_validity_summary.json`
   and
   `docs/codex_reports/geophase_phase1_v2_equivalence_metric_validity_audit.md`.
+## Phase 1 E0 Single-Implementation Route Activation
+
+- Date: 2026-07-31.
+- Task: `Q2_PHASE1_E0_SINGLE_IMPLEMENTATION_PHYSICS_VALIDATION`.
+- Evidence closeout merge: PR #16 / `06096e7bb2d89928d7cc8718e84da8a497cfaf23`.
+- Evidence type: governance and preregistration only; no numerical execution.
+- Strict-equivalence-v1, equivalence-v2, and equivalence-v3 remain immutable,
+  consumed, and non-retryable. Equivalence-v4/v5 is forbidden.
+- Selected future E0 implementation origin commit/tree/identity:
+  `1ae2704f6d84a3733d9de58aa23d992aa0c471a5` /
+  `86c32f6d80fa4beedbb83e17b96567591f777555` /
+  `39044f37c983060df48e9915c594f69fbfbeacc60eef9a32bc352bdb5ec25b10`.
+- Selection does not support PR #8 implementation equivalence. Future E0 uses
+  direct analytic, manufactured, conservation, refinement, topology, trend,
+  failure-path, and resource gates.
+- The source-corrected S2 contract and 63/60/3 scientific inventory are
+  unchanged and remain `planned_not_executed`.
+- `formal_execution_count=0`; formal artifact count: `0`.
+- E0 preflight, formal campaign, Phase 2, PINN, inverse, and downstream work
+  require fresh authorization.
+- Contract:
+  `docs/research_strategy/phase1_e0_single_implementation_physics_validation.md`
+  and
+  `configs/geophase_phase1_e0_single_implementation_physics_validation.yaml`.

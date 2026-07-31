@@ -4,83 +4,65 @@
 
 - Delivery/phase: `Q2_SCI_DELIVERY_MODE` /
   `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Parent checkpoint:
-  `Q2_PHASE1_V2_LEDGER_SCHEMA_CLOSURE_AND_EQUIVALENCE_V3_INDEPENDENT_AUDIT`.
-- Consumed predecessor checkpoint:
-  `PHASE1_V2_EQUIVALENCE_V2_ONE_SHOT_AUDIT` (`VALID_FAIL`, no retry).
-- Consumed comparator-closure-v3 anchor: `85d5c7ba...`.
-- Strict-equivalence-v1 substate: `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`.
-- Metric-validity substate: `GO_VERSIONED_EQUIVALENCE_V2_AUDIT`.
+- Active checkpoint:
+  `Q2_PHASE1_E0_SINGLE_IMPLEMENTATION_PHYSICS_VALIDATION`.
+- Immediate next checkpoint:
+  `Q2_PHASE1_E0_PREFLIGHT_PENDING_FRESH_AUTHORIZATION`.
+- PR #16 merged the immutable equivalence-v3 closeout at `06096e7...`.
 - R1 `HysGeo-Hybrid-PINN` remains the minimum manuscript route; R2
   `GeoPhase-HomoMoE-PINN` is the preferred upgrade; R3 is conditional.
-- Phase 1-v2 is a Qiu-inspired single-device VO2 x-y plane with explicit VO2,
-  mask-local Ti/Au terms, and the source-scale-preserving S2 closure. Qiu
-  quantities constrain device-level uniform-mode coefficients, not a local
-  material stack or thermal spectrum.
-- S2 anchor `d37745b...`; base config SHA-256 `06004985...`. The 63 formal
-  items remain `planned_not_executed`; `formal_execution_count=0`; no formal
-  campaign is authorized.
-- The solver and `7/7` non-voting smoke cases pass after one historical
-  zero-signal audit-metric repair. This is software evidence only.
-- Controller-v2 C1/C2 passed bounded integrity; C3 produced no forecast.
-  Source-corrected v3 (`0ebe037...`) uses the qualitative 15.8 V lock probe;
-  its 63/60/3 inventory remains unexecuted.
-- Frozen candidate `1ae2704...`/`d3833a4...`/`39044f37...` and harness
-  `73f7d7d1...` produced the sole valid strict audit. It fail-fast rejected
-  plan 11 after `12/57`: `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`. This rejects
-  strict implementation equivalence, not S2 physics; retry is unauthorized.
-- Solver-free metric/coverage/closure work locks 638 templates, 57 rows and
-  unchanged A/B/C rules. The unique v2 attempt (`85c3709...`) stopped before
-  voting at plan 9: `VALID_FAIL / RECORD_VALIDATION_FAILURE`, 10/57; rows
-  10..56 are unassessed and its count is one.
-- PR #14 merged the immutable v2 negative record at `f49ac79...`; it did not
-  authorize a retry. Solver-free closure-v4 mechanically derives 252 ledger
-  templates, separates producer and normalization identities, passed its
-  production-real controls, and merged through PR #15 at `3110b85...`.
-- Independent equivalence-v3 (`01850a8...`) consumed its sole attempt:
-  `VALID_FAIL`, 12/57. Plans 0..10 passed; plan 11 failed record cardinality
-  validation before A/B/C voting; rows 12..56 are unassessed. V3 count is one,
-  formal count is zero, implementation equivalence is unsupported, and retry
-  is forbidden.
-- The S1 scientific claim is `forbidden`/unassessed; its timeouts are supported
-  infrastructure provenance only. The v6-v8 material-stack route remains
-  `failed_but_informative` with no formal execution.
-- Phase 1 science, Phase 2, R1-R3, nonzero coupling, FEM/3D, and NbO2 remain
-  blocked. Frozen GT v1.1 is unchanged. New evidence is synthetic numerical
-  digital-twin evidence, not measurement or experimental validation.
+- Phase 1-v2 remains a Qiu-inspired single-device VO2 real `x-y` plane with
+  explicit VO2, mask-local Ti/Au terms, source-scale-preserving S2 closure,
+  white-box hysteresis, terminal flux, RC coupling, and full ledgers.
+- The source-corrected 15.8 V contract and 63 formal evaluations / 60 unique
+  executions / 3 legal reuses are unchanged and `planned_not_executed`.
+- `formal_execution_count=0`; formal artifacts are zero.
+- The selected future E0 implementation originates at `1ae2704...`, tree
+  `86c32f6...`, identity `39044f37...`. It is selected for direct physical
+  validation, not claimed equivalent to PR #8.
+- No E0 numerical preflight or formal campaign is authorized.
+- Frozen GT v1.1 is unchanged. New scientific outputs, if later authorized,
+  remain literature-guided synthetic numerical digital-twin evidence.
+
+## Preserved Evidence Boundary
+
+- Strict-equivalence-v1 remains `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`, 12/57;
+  it rejects its named strict-equivalence attempt, not S2 physics.
+- Equivalence-v2 remains `VALID_FAIL / RECORD_VALIDATION_FAILURE`, 10/57;
+  rows 10..56 are unassessed and no retry is allowed.
+- Equivalence-v3 remains `VALID_FAIL`, 12/57; plans 0..10 passed and plan 11
+  failed record-cardinality validation before A/B/C voting; rows 12..56 are
+  unassessed and no retry is allowed.
+- Equivalence-v4/v5 is forbidden.
+- S1 science is `forbidden`/unassessed; interruption facts are supported
+  infrastructure provenance only.
+- The v6-v8 material-stack route remains `failed_but_informative`.
 
 ## Current Evidence
 
 | Item | Status | Boundary |
 | --- | --- | --- |
-| Phase 0 governance | `supported` | Repository routing/integrity only. |
-| S2/controller software | `supported` bounded software/readiness | 7/7 smoke and C1/C2 integrity pass; C3 has no forecast; 63/60/3 and formal zero. |
-| Strict-equivalence-v1 | `failed_but_informative` implementation result | Frozen valid audit stopped at plan 11 after 12/57; S2 science remains unassessed. |
-| Metric validity and coverage | `qualified_supported` solver-free audits | 9/9 physical, 6/6 cancellation, 13/13 parent controls; corrected 57-row map and 21/21 raw controls; does not override the one-shot record-validity failure. |
-| Equivalence-v2 one-shot | `forbidden` implementation-equivalence claim | `VALID_FAIL` at plan 9 after 10/57 rows; record-validation failure before A/B/C voting; no retry. |
-| Equivalence-v3 independent audit | `forbidden` implementation-equivalence claim | `VALID_FAIL` at plan 11 after 12/57 rows; cardinality validation failed before A/B/C voting; no retry. |
-| S1 diffusive model-form claim | `forbidden` / unassessed | No atomic metric, K fit, or scientific vote. |
-| S1 interruption provenance | `supported` infrastructure provenance only | Timeouts only. |
-| v6-v8 material-stack route | `failed_but_informative` | Retired history; no formal execution. |
-| Phase 1-v2 reference result | `forbidden` | Requires every gate in an authorized formal campaign. |
-| R1/R2/R3 positive claims | `forbidden` | Require sequential direct evidence. |
+| E0 activation contract | `supported` governance/preregistration fact | One implementation, unchanged 63/60/3 map, failure taxonomy, and budgets are locked; no numerical result. |
+| S2/controller software | `supported` bounded software/readiness | 7/7 smoke and historical C1/C2 integrity only; no Phase 1 vote. |
+| Strict-equivalence-v1 | `failed_but_informative` implementation result | 12/57; immutable; no S2-physics vote. |
+| Equivalence-v2 | implementation-equivalence claim `forbidden` | 10/57 record-validation fail before A/B/C; immutable. |
+| Equivalence-v3 | implementation-equivalence claim `forbidden` | 12/57 cardinality-validation fail before A/B/C; immutable. |
+| Phase 1-v2 reference result | `forbidden` / unassessed | Requires every gate in a separately authorized formal campaign. |
+| R1/R2/R3 positive claims | `forbidden` | Require sequential configured evidence. |
 
-## Retained Historical Evidence
+## Route To The Manuscript
 
-- Frozen synthetic 1D GT v1.1 is immutable.
-- Constrained `gamma_sub` recovery remains `qualified_supported` only inside
-  its named prior/calibration boundary and is the downgrade route.
-- Complete-PINN, M40/M40R, M44, OASIS, public-source, and other retained
-  outcomes keep their claim-matrix statuses; none validates Phase 1-v2.
+An E0 formal pass would complete the independent judge for the implemented
+real-geometry/S2/white-box/port-ledger foundation. It would then unlock:
 
-## Delivery Boundary
+1. C01 `HysGeo-Hybrid-PINN`;
+2. C06 homotopy-only ablation;
+3. C05 transition-localized-expert-only ablation;
+4. C11 combined `GeoPhase-HomoMoE-PINN` if both modules add independent value;
+5. conditional C04/sensitivity gates before C07/C13/C15 inverse work.
 
-Preserve v1/v2/v3 evidence without retry, reinterpretation, stitching or
-resume. V3 terminated `VALID_FAIL` after 12 rows and requires
-`STOP_S2_IMPLEMENTATION_EQUIVALENCE_FAILED`. S2 physics remains unassessed.
-C1/C2/C3, runtime, formal, Phase 2 and PINN remain blocked; a `gamma_sub`
-downgrade assessment requires separate authorization.
+## Current Scope Boundary
 
-Do not rerun S1 or v6-v8; train a PINN; generate Phase 2 data; run inverse;
-modify frozen GT; add nonzero coupling; run FEM/3D, M44, or NbO2; or claim
-Phase 1/Qiu/experimental success.
+No numerical execution is authorized. Do not run E0, C1/C2/C3, formal, Phase
+2, PINN, inverse, S1/v6-v8, FEM/3D, M44, NbO2, or nonzero coupling; modify
+frozen GT; create equivalence-v4/v5; or claim Phase 1/Qiu/experimental success.
