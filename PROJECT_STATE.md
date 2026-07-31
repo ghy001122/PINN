@@ -34,13 +34,14 @@
   voting at plan 9: `VALID_FAIL / RECORD_VALIDATION_FAILURE`, 10/57; rows
   10..56 are unassessed and its count is one.
 - PR #14 merged the immutable v2 negative record at `f49ac79...`; it did not
-  authorize a retry. The new closure-v4 Stage A is a solver-free superseding
-  record schema: 252 ledger-power templates are mechanically derived from
-  production constructors/extractors, while real producer balance names and
-  structural normalization groups remain separate identities. Its local
-  focused controls pass and it has executed zero numerical audit rows; cloud
-  CI/merge is the remaining Stage-A gate before the separately authorized,
-  independent equivalence-v3 attempt may start.
+  authorize a retry. Solver-free closure-v4 mechanically derives 252 ledger
+  templates, separates producer and normalization identities, passed its
+  production-real controls, and merged through PR #15 at `3110b85...`.
+- Independent equivalence-v3 (`01850a8...`) consumed its sole attempt:
+  `VALID_FAIL`, 12/57. Plans 0..10 passed; plan 11 failed record cardinality
+  validation before A/B/C voting; rows 12..56 are unassessed. V3 count is one,
+  formal count is zero, implementation equivalence is unsupported, and retry
+  is forbidden.
 - The S1 scientific claim is `forbidden`/unassessed; its timeouts are supported
   infrastructure provenance only. The v6-v8 material-stack route remains
   `failed_but_informative` with no formal execution.
@@ -57,6 +58,7 @@
 | Strict-equivalence-v1 | `failed_but_informative` implementation result | Frozen valid audit stopped at plan 11 after 12/57; S2 science remains unassessed. |
 | Metric validity and coverage | `qualified_supported` solver-free audits | 9/9 physical, 6/6 cancellation, 13/13 parent controls; corrected 57-row map and 21/21 raw controls; does not override the one-shot record-validity failure. |
 | Equivalence-v2 one-shot | `forbidden` implementation-equivalence claim | `VALID_FAIL` at plan 9 after 10/57 rows; record-validation failure before A/B/C voting; no retry. |
+| Equivalence-v3 independent audit | `forbidden` implementation-equivalence claim | `VALID_FAIL` at plan 11 after 12/57 rows; cardinality validation failed before A/B/C voting; no retry. |
 | S1 diffusive model-form claim | `forbidden` / unassessed | No atomic metric, K fit, or scientific vote. |
 | S1 interruption provenance | `supported` infrastructure provenance only | Timeouts only. |
 | v6-v8 material-stack route | `failed_but_informative` | Retired history; no formal execution. |
@@ -73,13 +75,11 @@
 
 ## Delivery Boundary
 
-Preserve strict-v1 and the completed one-shot v2 evidence; do not retry,
-reinterpret, stitch, resume, or optimize either audit. A separate user
-authorization now permits one new schema-corrected equivalence-v3 identity,
-but only after solver-free closure-v4 passes and merges. That future attempt
-must start from row 0, consume its own `0→1` count once, and may terminate
-`PASS`, `VALID_FAIL`, or `INVALID_INFRA` without rule changes or retry.
-C1/C2/C3, runtime, formal execution, Phase 2, and PINN remain blocked.
+Preserve v1/v2/v3 evidence without retry, reinterpretation, stitching or
+resume. V3 terminated `VALID_FAIL` after 12 rows and requires
+`STOP_S2_IMPLEMENTATION_EQUIVALENCE_FAILED`. S2 physics remains unassessed.
+C1/C2/C3, runtime, formal, Phase 2 and PINN remain blocked; a `gamma_sub`
+downgrade assessment requires separate authorization.
 
 Do not rerun S1 or v6-v8; train a PINN; generate Phase 2 data; run inverse;
 modify frozen GT; add nonzero coupling; run FEM/3D, M44, or NbO2; or claim

@@ -5,9 +5,10 @@
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
 - Active phase/checkpoint: `Q2_PHASE1_2P5D_REFERENCE_SOLVER` /
   `Q2_PHASE1_V2_LEDGER_SCHEMA_CLOSURE_AND_EQUIVALENCE_V3_INDEPENDENT_AUDIT`.
-- Current Stage-A contract/config:
-  `docs/research_strategy/phase1_v2_ledger_record_schema_closure_v4.md` /
-  `configs/geophase_phase1_v2_ledger_record_schema_closure_v4.yaml`.
+- Current Stage-B contract:
+  `docs/research_strategy/phase1_v2_equivalence_v3_independent_audit.md` /
+  `configs/geophase_phase1_v2_equivalence_v3_independent_audit.yaml` /
+  `outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v3_independent_audit/preregistration.json`.
 - Consumed historical checkpoint: `PHASE1_V2_EQUIVALENCE_V2_ONE_SHOT_AUDIT`
   (`VALID_FAIL`, immutable, no retry).
 - Source contract: `configs/qiu_vo2_phase1_source_contract_v3.yaml`.
@@ -17,8 +18,7 @@
 - R1 `HysGeo-Hybrid-PINN` is the minimum route; R2
   `GeoPhase-HomoMoE-PINN` is preferred; R3 is conditional.
 
-Phase 0 governance is `supported` repository evidence only; it produced no new
-solver, training, inverse, or validation result.
+Phase 0 governance is repository evidence only; it produced no scientific result.
 
 ## Current Evidence Boundary
 
@@ -26,11 +26,10 @@ Frozen GT v1.1 is read-only. Historical `gamma_sub`, complete-PINN,
 M40/M40R/M44, OASIS, public-source, SID/OQ, and v6-v8 outcomes keep their exact
 claim-matrix boundaries and do not vote for Phase 1 or R1-R3.
 
-Phase 1-v2 S2 is preregistered, implemented, and through bounded non-voting
-smoke. The 63 formal items remain `planned_not_executed` and formal count is
-zero. All outputs are synthetic numerical digital-twin evidence, not
-measurements. No positive Phase 1, R1/R2, sensitivity, inverse/refusal, or NbO2
-result exists.
+Phase 1-v2 S2 is implemented and through bounded non-voting smoke. Its 63
+formal items remain `planned_not_executed`; formal count is zero. Outputs are
+synthetic numerical digital-twin evidence, not measurements. No positive
+Phase 1, R1/R2, inverse, sensitivity, or NbO2 result exists.
 
 S1 science is `forbidden`/unassessed; its timeouts/stdout are supported
 infrastructure provenance only. The material-stack route remains historical
@@ -43,35 +42,27 @@ remains immutable `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`, `12/57`. Metric
 validity is `GO_VERSIONED_EQUIVALENCE_V2_AUDIT`; 638 templates/57 rows remain
 locked and physical lateral fields still vote.
 
-Closure v3 preserves PR #12 and adds dynamic-index, topology-shape,
-row/failure-identity and exact-terminal gates. It merged at `85d5c7ba...` after
-clean-checkout CI. The one-shot control plane is anchored at `85c3709...`.
-Its sole attempt stopped at row 9 after 10 completed rows with
+Closure v3 merged at `85d5c7ba...`; the one-shot control plane is anchored at
+`85c3709...`. Its sole attempt stopped at row 9 after 10 rows with
 `RECORD_VALIDATION_FAILURE`: 91 ledger fields had noncanonical `scale_group`
 metadata. Rows 10..56 are unassessed; `equivalence_v2_execution_count=1` and
 `formal_execution_count=0`.
 
-PR #14 preserved that attempt as immutable evidence and merged at `f49ac79...`.
-The separately authorized Stage A now closes only the ledger record interface:
-it mechanically maps all 252 ledger-power templates, preserves both real
-producer balance names and structural normalization groups, and executes zero
-numerical audit rows. Only after its clean-checkout CI and merge may the new,
-independent, non-retryable equivalence-v3 audit be remotely anchored and run.
+PR #14 preserved v2 at `f49ac79...`; ledger closure-v4 merged at `3110b85...`.
+The independent v3 identity was anchored at `01850a8...` and consumed its sole
+attempt: `VALID_FAIL`, 12/57 (11 pass, plan 11 record-validation failure), v3
+count one, formal count zero. Rows 12..56 are unassessed; no retry is allowed.
 
 ## Claim Boundary
 
-Allowed: describe contracts, implemented S2, bounded smoke/C1/C2, the C3 stop,
-15.8 V source correction, qualified metric validity, and qualified history.
+Allowed: contracts, implemented S2, bounded smoke/C1/C2, the C3 stop, 15.8 V
+source correction, qualified metric validity, and qualified history.
 
-Forbidden: Phase 1 success or scientific failure; reinterpretation, recovery,
-or retry of v1/v2; equivalence-v3 success before its independent execution;
-campaign four-hour
-feasibility/infeasibility; memory/disk pass or failure; formal authorization;
-optimized-solver equivalence; retry or reinterpretation of the v2 attempt;
-demotion of physical lateral fluxes to telemetry;
-Qiu reproduction/calibration; positive R1/R2; OQ or sensitivity fidelity;
-arbitrary hidden-field recovery; experimental/FEM/3D validation; universal
-spectral superiority; or VO2-to-NbO2 zero-shot transfer.
+Forbidden: Phase 1 success/failure; v1/v2/v3 reinterpretation or retry;
+equivalence-v3 success; campaign feasibility; formal
+authorization; optimized-solver equivalence; demoting lateral fluxes to
+telemetry; Qiu reproduction; positive R1/R2; OQ/sensitivity fidelity; hidden
+field recovery; experimental/FEM/3D validation; or VO2-to-NbO2 transfer.
 
 Read `docs/research_strategy/context_loading_policy.md` and
 `docs/research_strategy/context_index.md` before loading long history.
