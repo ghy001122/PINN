@@ -3,9 +3,11 @@
 ## Authoritative Current Queue
 
 - Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Checkpoint: `PHASE1_V2_EQUIVALENCE_V2_COMPARATOR_CLOSURE_V3`.
+- Checkpoint: `PHASE1_V2_EQUIVALENCE_V2_ONE_SHOT_AUDIT`.
 - Strict-equivalence-v1: `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`.
 - Metric validity: `GO_VERSIONED_EQUIVALENCE_V2_AUDIT`.
+- Equivalence-v2 one-shot: `VALID_FAIL`, `10/57`,
+  `STOP_S2_ACTIVATE_GAMMA_SUB`; no retry.
 - The 63 formal evaluations / 60 executions / 3 reuses remain
   `planned_not_executed`; `formal_execution_count=0` and formal artifacts are
   zero.
@@ -26,11 +28,12 @@
 ## Single Next Decision
 
 PR #11/12 lock 638 templates, 57 rows and unchanged record-level A/B/C rules.
-Their solver-free controls executed no audit row; both execution counts are
-zero. Metric validity remains qualified, not an equivalence pass.
+Their solver-free controls remain qualified metric evidence, not an
+equivalence pass.
 
-Validate and merge closure v3, which fixes only dynamic-index completeness,
-grid shape, row/failure identity, exact completion and result tracking. Retain:
+Closure v3 is merged at `85d5c7ba...`; it fixed only dynamic-index
+completeness, grid shape, row/failure identity, exact completion and result
+tracking. Retain:
 
 - `1e-12` for primary fields;
 - preregistered analytic mixed bounds for physical lateral fields;
@@ -38,11 +41,16 @@ grid shape, row/failure identity, exact completion and result tracking. Retain:
 - no candidate, oracle, physics, controller, parameter, protocol, inventory,
   or scientific-gate change.
 
-The current dual-stage instruction conditionally authorizes one audit after
-closure v3 is merged and a separate one-shot runner identity is pushed and
-passes clean-checkout CI. Closure-v3 fixtures are solver-free and cannot count
-as audit rows. If a future primary/physical/topology vote fails, activate the
-retained `gamma_sub` plus identifiability-boundary manuscript route.
+The one-shot runner identity is anchored at `85c3709...`. The only attempt
+consumed its count and stopped at plan 9 after 10 completed rows. Rows 0..8
+passed; row 9 produced `RECORD_VALIDATION_FAILURE` because 91 interval-ledger
+fields had noncanonical `scale_group` metadata. Rows 10..56 are unassessed.
+Do not retry, change rules, or restart performance work.
+
+The terminal route is `STOP_S2_ACTIVATE_GAMMA_SUB`. The only eligible next
+research decision is whether to activate the already retained fixed-rank-1
+`gamma_sub` plus calibration gate and identifiability-boundary manuscript
+route. This file does not authorize that work automatically.
 
 ## Locked Side And Historical Routes
 
@@ -53,8 +61,7 @@ retained `gamma_sub` plus identifiability-boundary manuscript route.
 
 ## Scope Boundary
 
-Do not run equivalence-v2 from the closure branch. The one authorized attempt
-may start only after closure-v3 merge and a separately frozen runner anchor.
+Do not rerun equivalence-v2; its sole authorized attempt is consumed.
 Do not run C1/C2/C3, a formal campaign, PINN training, Phase 2 generation,
 inverse work, source fitting/digitization, S1/v6-v8, M44, NbO2, FEM/3D, or
 nonzero dual-device coupling.

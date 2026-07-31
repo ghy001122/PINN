@@ -86,8 +86,8 @@ def test_route_only_runner_validates_v3_and_cannot_execute_before_preregistratio
     assert "run_C1" not in runner_source
 
 
-def test_authority_chain_and_fast_validation_select_the_v3_route_tests() -> None:
-    checkpoint = "PHASE1_V2_EQUIVALENCE_V2_COMPARATOR_CLOSURE_V3"
+def test_authority_chain_and_fast_validation_select_the_one_shot_route_tests() -> None:
+    checkpoint = "PHASE1_V2_EQUIVALENCE_V2_ONE_SHOT_AUDIT"
     for path in (
         ROOT / "CODEX_CONTEXT.md",
         ROOT / "PROJECT_STATE.md",
@@ -97,6 +97,7 @@ def test_authority_chain_and_fast_validation_select_the_v3_route_tests() -> None
         text = path.read_text(encoding="utf-8")
         assert checkpoint in text
         assert "0ebe037" in text
+        assert "85d5c7ba" in text
         assert "GO_VERSIONED_EQUIVALENCE_V2_AUDIT" in text
 
     workflow = WORKFLOW_PATH.read_text(encoding="utf-8")
@@ -104,6 +105,14 @@ def test_authority_chain_and_fast_validation_select_the_v3_route_tests() -> None
     assert "tests/test_geophase_phase1_v2_source_corrected_v3_active_routing.py" in workflow
     assert (
         "tests/test_geophase_phase1_v2_equivalence_v2_comparator_closure_v3.py"
+        in workflow
+    )
+    assert (
+        "tests/test_geophase_phase1_v2_equivalence_v2_one_shot_control_plane.py"
+        in workflow
+    )
+    assert (
+        "tests/test_geophase_phase1_v2_equivalence_v2_one_shot_execution_preregistration.py"
         in workflow
     )
 

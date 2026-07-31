@@ -2,10 +2,10 @@
 
 Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
 
-Status: `phase1v2_equivalence_v2_comparator_closure_v3_local_pass_CI_merge_pending`
+Status: `phase1v2_equivalence_v2_VALID_FAIL_STOP_S2_ACTIVATE_GAMMA_SUB`
 
 Current checkpoint:
-`PHASE1_V2_EQUIVALENCE_V2_COMPARATOR_CLOSURE_V3`
+`PHASE1_V2_EQUIVALENCE_V2_ONE_SHOT_AUDIT`
 
 Strict-equivalence-v1 substate: `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`
 
@@ -32,6 +32,10 @@ independent from future PINN residual code.
 - `configs/geophase_phase1_v2_equivalence_v2_comparator_closure_v3.yaml`
 - `docs/research_strategy/phase1_v2_equivalence_v2_comparator_closure_v3.md`
 - `outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_comparator_closure_v3/preregistration.json`
+- `configs/geophase_phase1_v2_equivalence_v2_one_shot_execution.yaml`
+- `outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_audit/execution_authorization.json`
+- `outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_audit/execution_registry.json`
+- `docs/codex_reports/geophase_phase1_v2_equivalence_v2_one_shot_audit.md`
 - `outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/metric_validity_summary.json`
 - `docs/method_equations.md`
 - `NEXT_ACTIONS.md`
@@ -55,12 +59,17 @@ manifest.
   `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`, `12/57`; no retry is authorized.
 - Solver-free metric validity is `GO_VERSIONED_EQUIVALENCE_V2_AUDIT` with
   physical lateral voting retained. PR #11/12 lock 638 templates, 57 rows and
-  unchanged A/B/C rules; both execution counts remain zero.
+  unchanged A/B/C rules; those controls executed zero numerical audit rows.
 - Comparator closure v3 preserves those identities and adds only solver-free
   fail-closed gates for exact dynamic-index coverage, L1/L2/L4 topology shape,
   frozen row/failure identity, exact 57-outcome terminal reduction, and narrow
-  result tracking. Its local focused set passed `152/152`; clean-checkout CI
-  and merge remain pending on this branch. No audit row has executed.
+  result tracking. It passed clean-checkout CI and merged at `85d5c7ba...`.
+  The one-shot runner identity is anchored at `85c3709...`. Its unique attempt
+  ended `VALID_FAIL` after 10/57 rows at plan 9. The failed interval record had
+  91 canonical ledger `scale_group` validation issues; candidate and oracle
+  record hashes were identical, so no A/B/C vote or S2-science vote was cast.
+  Rows 10..56 remain unassessed; equivalence-v2 count is one and formal count
+  remains zero.
 
 ## Pass And Stop Rules
 
@@ -86,22 +95,19 @@ audit row.
 
 ## Restrictions
 
-Do not run C1/C2/C3 readiness in this task; execute a formal item; create a real
+Do not rerun equivalence-v2; do not run C1/C2/C3 readiness in this task,
+execute a formal item, or create a real
 formal registry; train a PINN; generate Phase 2 data; run inverse; fit or
 digitize sources; rerun S1/v6-v8; modify frozen GT; add nonzero coupling; or
 run FEM/3D, M44, or NbO2. Phase 1/Qiu/experimental, R1/R2, OQ, sensitivity,
-and cross-material success claims remain `forbidden`. Do not execute an
-equivalence-v2 row before closure v3 is merged and a separately frozen
-one-shot runner identity passes clean-checkout CI. The current dual-stage
-authorization is conditional on those two gates.
+and cross-material success claims remain `forbidden`. The unique v2 attempt is
+consumed and cannot be retried or reinterpreted.
 
 ## Immediate Next Checkpoint
 
-Complete closure-v3 focused controls and clean-checkout CI, then merge it
-without rewriting PR #12. Only after that merge may the separately frozen
-one-shot runner identity be created under the current conditional authorization.
-Preserve invalid-launch, strict-v1, harness, and metric-validity evidence; do
-not retry v1, re-optimize, or run readiness. If a conditional execution gate
-blocks the v2 audit or a later valid A/B/C vote fails, route to `gamma_sub` plus the
-identifiability-boundary manuscript. Phase 1 science remains `forbidden` and
+Preserve strict-v1, metric-validity, closure-v3 and the one-shot `VALID_FAIL`
+without retry or rule changes. The route is `STOP_S2_ACTIVATE_GAMMA_SUB`.
+Only a separate user instruction may activate the fixed-rank-1 `gamma_sub`
+plus calibration-gate and identifiability-boundary manuscript route; no such
+experiment is authorized here. Phase 1 science remains `forbidden` and
 unassessed.
