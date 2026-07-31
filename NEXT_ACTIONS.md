@@ -3,58 +3,48 @@
 ## Authoritative Current Queue
 
 - Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Checkpoint:
-  `Q2_PHASE1_V2_LEDGER_SCHEMA_CLOSURE_AND_EQUIVALENCE_V3_INDEPENDENT_AUDIT`.
-- Historical consumed checkpoint: `PHASE1_V2_EQUIVALENCE_V2_ONE_SHOT_AUDIT`
-  (`VALID_FAIL`, no retry).
-- Strict-equivalence-v1: `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`.
-- Metric validity: `GO_VERSIONED_EQUIVALENCE_V2_AUDIT`.
-- Source-corrected v3 anchor: `0ebe037...`.
-- Equivalence-v2 one-shot: `VALID_FAIL`, `10/57`,
-  `STOP_S2_ACTIVATE_GAMMA_SUB`; no retry.
-- Equivalence-v3 independent audit: `VALID_FAIL`, `12/57`,
-  `STOP_S2_IMPLEMENTATION_EQUIVALENCE_FAILED`; no retry.
-- The 63 formal evaluations / 60 executions / 3 reuses remain
-  `planned_not_executed`; `formal_execution_count=0` and formal artifacts are
-  zero.
+- Active checkpoint:
+  `Q2_PHASE1_E0_SINGLE_IMPLEMENTATION_PHYSICS_VALIDATION`.
+- Immediate next checkpoint:
+  `Q2_PHASE1_E0_PREFLIGHT_PENDING_FRESH_AUTHORIZATION`.
+- Activation contract:
+  `configs/geophase_phase1_e0_single_implementation_physics_validation.yaml`.
+- Evidence closeout merge: PR #16 / `06096e7...`.
+- The selected implementation, S2 physics, source contract, controller, and
+  63/60/3 scientific inventory are frozen.
+- `formal_execution_count=0`; formal artifacts are zero.
 
 ## Single Next Action
 
-PR #11/12 lock 638 templates, 57 rows and unchanged A/B/C rules; their
-solver-free controls are metric evidence, not an equivalence pass.
+Review the zero-computation E0 activation package. If accepted, the next task
+requires fresh user authorization for one bounded, non-voting E0 preflight.
 
-Closure v3 merged at `85d5c7ba...`. Retain:
+That future preflight may evaluate only:
 
-- `1e-12` for primary fields;
-- preregistered analytic mixed bounds for physical lateral fields;
-- exact controller hard-gate and event/reversal/failure topology votes;
-- no candidate, oracle, physics, controller, parameter, protocol, inventory,
-  or scientific-gate change.
+1. source-scale and positive-coefficient identities;
+2. analytic/manufactured electrical and thermal limits;
+3. current, device-power, thermal, circuit, and combined ledgers;
+4. the locked C1 critical state and bounded C2 critical trajectory;
+5. L1/L2/L4 runtime, memory, and makespan forecast.
 
-The v2 runner `85c3709...` stopped at plan 9 after 10 rows: rows 0..8 passed;
-row 9 had `RECORD_VALIDATION_FAILURE` on 91 ledger `scale_group` fields; rows
-10..56 are unassessed. Do not retry or change rules.
+Its maximum CPU wall time is provisionally 7200 s. A pass permits only a
+request for formal-campaign authorization. It does not unlock Phase 2 or PINN.
 
-PR #14 merged v2 evidence at `f49ac79...`; closure-v4 merged at `3110b85...`.
-Independent v3 (`01850a8...`) consumed its sole attempt: plans 0..10 passed;
-plan 11 failed record cardinality validation before A/B/C voting; rows 12..56
-are unassessed. V3 count is one and formal count is zero.
+No numerical execution is authorized in the current task.
 
-No computation is authorized. Preserve the result and stop S2 implementation-
-equivalence work. A future assessment of the retained fixed-rank-1 `gamma_sub`
-plus calibration-gate and identifiability-boundary downgrade requires explicit
-authorization and was not started here.
+## Locked Historical Routes
 
-## Locked Side And Historical Routes
-
-- S1 science remains `forbidden`/unassessed; its timeouts are supported
-  infrastructure provenance only and cannot be rerun.
-- v6-v8 remains terminal `failed_but_informative`; its 96 items are unexecuted.
-- Frozen GT v1.1 and all historical evidence identities remain immutable.
+- strict-equivalence-v1: immutable 12/57 `NO_GO`; no retry;
+- equivalence-v2: immutable 10/57 `VALID_FAIL`; no retry;
+- equivalence-v3: immutable 12/57 `VALID_FAIL`; no A/B/C vote; no retry;
+- equivalence-v4/v5: forbidden;
+- S1: science unassessed and no rerun;
+- v6-v8: terminal `failed_but_informative` history;
+- frozen GT v1.1: immutable.
 
 ## Scope Boundary
 
-Do not rerun equivalence-v2; its sole authorized attempt is consumed.
-Do not run C1/C2/C3, a formal campaign, PINN training, Phase 2 generation,
-inverse work, source fitting/digitization, S1/v6-v8, M44, NbO2, FEM/3D, or
-nonzero dual-device coupling.
+Do not run E0 preflight, C1/C2/C3, a formal campaign, PINN training, Phase 2
+generation, inverse work, source fitting/digitization, S1/v6-v8, M44, NbO2,
+FEM/3D, or nonzero dual-device coupling. Do not change the selected
+implementation, S2 equations/parameters, protocols, manifest, or gates.

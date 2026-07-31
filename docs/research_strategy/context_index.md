@@ -14,10 +14,11 @@
 - `PROJECT_STATE.md`: single current fact snapshot.
 - `NEXT_ACTIONS.md`: single active task.
 - `docs/research_strategy/pinn_phase_change_q2_sci_execution_guide.md`: complete research strategy, phase ladder, downgrade rules, and writing guide.
-- `docs/research_strategy/phase1_geophase_2p5d_reference_v2_contract.md`: current Phase 1-v2 S2 technical contract.
-- `configs/geophase_phase1_v2_s2_reference.yaml` and `configs/geophase_phase1_v2_formal_manifest.yaml`: current machine-readable S2 and formal-inventory locks.
+- `docs/research_strategy/phase1_e0_single_implementation_physics_validation.md` and `configs/geophase_phase1_e0_single_implementation_physics_validation.yaml`: active zero-computation E0 route and next authorization boundary.
+- `docs/research_strategy/phase1_geophase_2p5d_reference_v2_contract.md`: inherited Phase 1-v2 S2 technical contract.
+- `configs/geophase_phase1_v2_s2_reference_source_corrected_v3.yaml` and `configs/geophase_phase1_v2_formal_manifest_source_corrected_v3.yaml`: current machine-readable S2 and 63-item scientific-inventory locks.
 - `configs/geophase_phase1_s1_diffusive_sensitivity_mve.yaml` and `configs/qiu_same_device_thermal_holdout_audit.yaml`: bounded non-blocking auxiliary contracts.
-- `configs/qiu_vo2_phase1_source_contract.yaml`: Qiu source facts, fitted-lumped values, engineering priors, unresolved semantics, and historical non-inheritance boundary.
+- `configs/qiu_vo2_phase1_source_contract_v3.yaml`: active Qiu source facts and 15.8 V qualitative high-bias correction; the older source contract is historical.
 - `docs/research_strategy/sci_delivery_pipeline.md`: reusable evidence lifecycle.
 - `docs/project_state/current_evidence_index.md`: current/historical/candidate/forbidden evidence routing.
 

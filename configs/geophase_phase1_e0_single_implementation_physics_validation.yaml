@@ -1,0 +1,200 @@
+schema_version: geophase_phase1_e0_single_implementation_activation_v1
+task_id: Q2_PHASE1_E0_SINGLE_IMPLEMENTATION_PHYSICS_VALIDATION
+phase_id: Q2_PHASE1_2P5D_REFERENCE_SOLVER
+status: activated_contract_only_waiting_fresh_e0_preflight_authorization
+evidence_type: preregistration_and_governance_only
+manuscript_use: >-
+  Establish the independent numerical judge required for Figure 2, the Phase 1
+  gate, and all later HysGeo-Hybrid-PINN field, port, event, and ledger claims.
+
+activation_authority:
+  user_authorization: explicit_zero_computation_route_activation_2026_07_31
+  evidence_merge_commit: 06096e7bb2d89928d7cc8718e84da8a497cfaf23
+  activation_base_branch: main
+  activation_base_commit: 06096e7bb2d89928d7cc8718e84da8a497cfaf23
+  numerical_execution_authorized: false
+  e0_preflight_requires_fresh_user_authorization: true
+  formal_campaign_requires_fresh_user_authorization: true
+  formal_execution_count: 0
+  formal_artifact_count: 0
+
+historical_route_lock:
+  strict_equivalence_v1:
+    status: NO_GO_EQUIVALENT_PERFORMANCE_REPAIR
+    completed_rows: 12
+    total_rows: 57
+    retry: forbidden
+  equivalence_v2:
+    status: VALID_FAIL_RECORD_VALIDATION_FAILURE
+    completed_rows: 10
+    total_rows: 57
+    retry: forbidden
+  equivalence_v3:
+    status: VALID_FAIL_RECORD_CARDINALITY_VALIDATION
+    completed_rows: 12
+    total_rows: 57
+    failed_plan_index: 11
+    A_B_C_vote_formed: false
+    retry: forbidden
+  equivalence_v4_or_v5: forbidden
+  interpretation: >-
+    Historical implementation-equivalence outcomes remain immutable. They do
+    not vote for S2 physics or Phase 1 and are not repaired, rerun, stitched,
+    or reinterpreted by this route.
+
+single_implementation_selection:
+  implementation_role: independent_reference_judge_candidate_for_direct_physical_validation
+  selected_implementation: source_corrected_performance_candidate
+  origin_commit: 1ae2704f6d84a3733d9de58aa23d992aa0c471a5
+  origin_tree: 86c32f6d80fa4beedbb83e17b96567591f777555
+  frozen_candidate_identity_sha256: 39044f37c983060df48e9915c594f69fbfbeacc60eef9a32bc352bdb5ec25b10
+  implementation_equivalence_to_PR8: forbidden_unassessed
+  selection_basis: >-
+    The implementation is evaluated directly against analytic, manufactured,
+    conservation, refinement, topology, trend, and failure-path gates. Cross-
+    implementation bitwise or record equivalence is not an E0 prerequisite.
+  switching_after_any_e0_numerical_result: forbidden
+  PR8_role: retained_historical_nonvoting_context_not_an_oracle_gate
+  future_PINN_residual_code_reuse: forbidden
+  frozen_core_paths:
+    - path: src/pinnpcm/solvers/geophase_2p5d_fvm.py
+      sha256: 38e00c00710a5bb443c0cfa6270f35e35060ab81a30932af33d3d058c9db0aa4
+    - path: src/pinnpcm/solvers/geophase_phase1_v2_implicit.py
+      sha256: 56e92761a7f8e9ffec0bfe2d73b7b67eca00993ff1852c219437711ee33d5a16
+    - path: src/pinnpcm/solvers/geophase_phase1_v2_controller_v2.py
+      sha256: e4332c5b103072e3de277b8788dbbf2bda48c65636cb5c1d8dd361bc9953f7ed
+    - path: src/pinnpcm/solvers/geophase_phase1_v2_source_corrected_performance.py
+      sha256: ce66cf40f266c7a8fc51d9dd2daf1e6fd49c8e6e736b45daf0ad10be57d4f379
+    - path: src/pinnpcm/solvers/geophase_phase1_v2_runtime.py
+      sha256: 0c014c82406ee2243ef1d512865091d90cb958fcb78238807d679a46236e13de
+    - path: src/pinnpcm/solvers/geophase_phase1_v2_streaming.py
+      sha256: 80ab0f1729a94074b8cfd850f4e8f8450be28c7d2d6e33382f5a7b5294dc5923
+
+physics_authority:
+  source_contract:
+    path: configs/qiu_vo2_phase1_source_contract_v3.yaml
+    sha256: 17a0accc906d68fffc35ee40be9d41c36bd1a7d0514e9a539cfcfd4fc4bcc621
+  S2_config:
+    path: configs/geophase_phase1_v2_s2_reference_source_corrected_v3.yaml
+    sha256: ea668ac66c8f2f2267b059bd816a4116def086708f2f7eeded07d64a2857aff4
+  formal_manifest:
+    path: configs/geophase_phase1_v2_formal_manifest_source_corrected_v3.yaml
+    sha256: 240e45435505626b2bfb5a71cb95d8d18b2c7e4c2a5beac8aeb7cb843bf2f739
+  execution_addendum:
+    path: configs/geophase_phase1_v2_execution_addendum_source_corrected_v3.yaml
+    sha256: d7f9c3beb94036131b30431f22afca95bf3542568151094c9d53dee22185715f
+  high_bias_protocol: high_bias_lock_15p8V
+  contact_resistance_model: omitted_and_not_claimed
+  nonzero_dual_device_coupling: forbidden
+  nominal_vertical_memory_states: []
+
+governing_equations:
+  electrical: div_parallel_t_sigma_grad_phi_equals_zero
+  thermal: Ceff_A_dT_dt_equals_div_parallel_Kparallel_A_gradT_plus_qJ_minus_gtheta_A_T_minus_T0
+  conductive_state: tau_s_ds_dt_equals_s_equilibrium_T_b_minus_s
+  branch_memory: bounded_rate_activated_directional_memory
+  circuit: Cp_dVd_dt_equals_Vin_minus_Vd_over_RL_minus_Idevice
+  terminal_current: boundary_integral_of_sheet_current
+
+scientific_inventory_mapping:
+  reuse_existing_manifest_without_modification: true
+  evaluation_item_count: 63
+  unique_execution_unit_count: 60
+  legal_reuse_count: 3
+  groups:
+    MMS: {evaluation_items: 9, role: manufactured_foundations}
+    REF: {evaluation_items: 30, role: single_device_space_time_event_refinement}
+    TOP: {evaluation_items: 9, role: contact_overlap_qoi_audit, legal_reuses: 3}
+    DUAL0: {evaluation_items: 4, role: zero_coupling_duplicate_limits_only}
+    FAIL: {evaluation_items: 5, role: fail_closed_controls}
+    LIM: {evaluation_items: 6, role: analytic_and_zero_input_limits}
+  inventory_execution_during_activation: forbidden
+  inventory_status: planned_not_executed
+
+future_e0_preflight:
+  current_authorization: forbidden_pending_fresh_user_authorization
+  evidence_class: bounded_nonvoting_preflight
+  maximum_wall_clock_s: 7200
+  cpu_only: true
+  stages:
+    - source_scale_and_positive_coefficient_identities
+    - analytic_and_manufactured_electrical_thermal_limits
+    - current_power_and_thermal_circuit_combined_ledgers
+    - locked_critical_state_C1
+    - bounded_critical_trajectory_C2
+    - L1_L2_L4_runtime_memory_and_makespan_forecast
+  success_disposition: READY_TO_REQUEST_FORMAL_CAMPAIGN_AUTHORIZATION
+  success_does_not_mean: PHASE1_PASS
+
+future_formal_campaign:
+  current_authorization: forbidden_pending_fresh_user_authorization
+  formal_execution_limit: 1
+  formal_execution_count: 0
+  inherited_maximum_wall_clock_s: 14400
+  target_machine_or_budget_change_requires_user_authorization: true
+  all_63_items_must_retain_existing_scientific_gates: true
+  phase2_and_PINN_unlock_only_after_all_required_phase1_gates_pass: true
+
+failure_taxonomy:
+  record_schema_runner_or_environment_failure:
+    validity: invalid
+    claim_status: forbidden
+    scientific_vote: false
+    formal_scientific_failure: false
+    repair_rule: one_bounded_versioned_code_defect_repair_with_regression
+  implementation_code_defect:
+    validity: invalid
+    claim_status: forbidden
+    scientific_vote: false
+    repair_rule: one_bounded_versioned_code_defect_repair_with_regression
+  bounded_preflight_numerical_or_integrity_failure:
+    validity: valid_if_contract_and_execution_are_complete
+    claim_status: failed_but_informative_for_readiness_only
+    phase1_scientific_claim: forbidden_unassessed
+    action: stop_before_formal_and_report_unique_root_cause
+  performance_or_resource_only_failure:
+    validity: valid_readiness_provenance
+    claim_status: forbidden_for_phase1_science
+    scientific_vote: false
+    action: request_target_machine_or_budget_decision_without_changing_physics
+  valid_formal_scientific_gate_failure:
+    validity: valid
+    claim_status: failed_but_informative
+    action: preserve_all_results_block_phase2_and_follow_versioned_downgrade_route
+
+route_to_innovation:
+  E0_supports: A_double_prime_plus_white_box_kernel_plus_port_RC_ledger_reference_foundation
+  E0_main_figure: Figure_2_reference_solver_convergence_conservation_and_trends
+  E0_reviewer_question: whether_the_independent_judge_is_physically_and_numerically_credible
+  after_E0_pass: C01_HysGeo_Hybrid_PINN
+  after_C01_pass_order: [C06_homotopy_only, C05_local_expert_only, C11_combined]
+  conditional_inverse: C04_then_sensitivity_gate_before_C07_C13_or_C15
+
+guide_alignment:
+  R1_PINN_field_outputs: [phi, T, s, b]
+  R1_circuit_state: Vd
+  R1_vertical_state_outputs: []
+  phase2_nonzero_dual_device_coupling_data: forbidden_without_new_validated_coupling_contract
+  phase2_contact_resistance_parameter: forbidden_until_contact_resistance_model_is_implemented_and_validated
+
+activation_outputs:
+  contract: docs/research_strategy/phase1_e0_single_implementation_physics_validation.md
+  config: configs/geophase_phase1_e0_single_implementation_physics_validation.yaml
+  formal_or_preflight_outputs_created: false
+  formal_execution_count: 0
+
+next_checkpoint:
+  id: Q2_PHASE1_E0_PREFLIGHT_PENDING_FRESH_AUTHORIZATION
+  allowed_now: contract_review_static_tests_and_CI_only
+  prohibited_now:
+    - any_E0_numerical_preflight
+    - C1_C2_C3
+    - any_63_item_formal_execution
+    - Phase2_data_generation
+    - PINN_training
+    - inverse
+    - S1_or_v6_v8
+    - equivalence_v4_or_v5
+    - FEM_or_full_3D
+    - nonzero_dual_device_coupling
+    - NbO2

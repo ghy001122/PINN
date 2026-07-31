@@ -10,6 +10,7 @@ evidence unless provenance explicitly says otherwise.
 | --- | --- | --- |
 | Q2 ladder | `supported` governance fact | `PROJECT_GOAL.md`; execution guide |
 | Phase 0 | `supported` governance only | Phase 0 report and machine summary |
+| E0 single-implementation activation | `supported` governance/preregistration only | New E0 config/contract; one frozen implementation; no numerical run; formal zero |
 | Phase 1-v2 contract | `supported` preregistration fact | S2 YAML, v2 contract, 63-item manifest, stage YAML |
 | S2 implementation/smoke | `supported` software fact | solver/tests; 7/7 non-voting smoke; formal zero |
 | Source audit | `supported` bounded provenance | no eligible holdout found; no fitting/validation |
@@ -28,6 +29,7 @@ evidence unless provenance explicitly says otherwise.
 | Metric-validity coverage correction | `qualified_supported` solver-free coverage | 638 family-qualified templates mechanically derived from production extractors/streaming AST; 57/57 row map; 21/21 raw production-extractor controls; zero held-out execution. |
 | Equivalence-v2 contract | `supported` preregistration | 57 rows locked; one non-retryable execution authorized and consumed. |
 | Equivalence-v2 one-shot audit | implementation-equivalence claim `forbidden`; S2 science unassessed | `VALID_FAIL` at plan 9 after 10/57 rows; 91 canonical ledger `scale_group` record-validation issues; rows 10..56 unassessed; formal zero |
+| Equivalence-v3 independent audit | implementation-equivalence claim `forbidden`; S2 science unassessed | `VALID_FAIL` at plan 11 after 12/57 rows; record-cardinality validation failed before A/B/C voting; rows 12..56 unassessed; no retry; formal zero |
 | Retired material stack | `failed_but_informative` | v8 gate failed; 96 items unexecuted |
 | Frozen GT integrity | `supported` when hashes pass | acceptance report/manifest; governance audit |
 | Claim vocabulary | `supported` governance fact | `docs/paper/final_claim_matrix.md` |
@@ -49,6 +51,7 @@ details through the claim matrix, experiment registry, and named reports.
 
 | Candidate | Status | Required predecessor |
 | --- | --- | --- |
+| E0 bounded physical preflight | `forbidden` as executed work; contract activated | fresh user authorization; frozen selected implementation and unchanged S2/63-item identities |
 | Phase 1-v2 conservative reference | `forbidden` | all gates in an authorized formal campaign |
 | S1 production kernel | `forbidden` | eligible holdout, authorized ingestion, passed MVE/effect gate |
 | Nonzero dual-device coupling | `forbidden` | explicit/high-order-validated substrate coupling and independent gates |
@@ -72,9 +75,7 @@ VO2-to-NbO2 zero-shot transfer.
 - Strategy: canonical execution guide.
 - Claims: `docs/paper/final_claim_matrix.md`.
 - History: `docs/archive/README.md`, registries, and named reports.
-- Boundary: the invalid pre-row launch remains infrastructure provenance. The
-  sole valid audit fail-fast rejected strict equivalence at plan 11 after
-  `12/57` rows. The solver-free validity audit and corrected static coverage
-  support the preregistered 57-row v2 contract, not its execution. Fresh user
-  authorization remains required; no retry, held-out row, optimization,
-  C1/C2/C3, formal execution, Phase 2, or PINN is authorized.
+- Boundary: v1/v2/v3 remain immutable and non-retryable. The E0 route does not
+  repair or extend them and makes no implementation-equivalence claim. Fresh
+  user authorization is required before the bounded E0 preflight; no numerical
+  E0, C1/C2/C3, formal execution, Phase 2, or PINN is authorized now.
