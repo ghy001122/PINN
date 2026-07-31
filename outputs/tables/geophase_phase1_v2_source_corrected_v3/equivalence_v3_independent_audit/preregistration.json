@@ -1,7 +1,7 @@
 {
   "task_id": "Q2_PHASE1_V2_EQUIVALENCE_V3_INDEPENDENT_AUDIT",
   "schema_version": "geophase_phase1_v2_equivalence_v3_independent_audit_preregistration_v1",
-  "status": "prospective_authorized_not_started_pending_remote_runner_anchor",
+  "status": "prospective_authorized_not_started_remote_runner_anchor_frozen_pending_CI",
   "evidence_type": "prospective_implementation_equivalence_audit_contract",
   "authority_base_main": "3110b85d0931a36394b302f0df2d11b04a0959a8",
   "authority_base_tree": "260feaf32a36226f257f549216e4fba5fdb157b3",
@@ -88,13 +88,19 @@
     }
   },
   "planned_execution_identity": {
-    "state": "pending_remote_anchor_before_execution",
+    "state": "remote_anchor_frozen_pending_current_head_CI",
     "contract_path": "configs/geophase_phase1_v2_equivalence_v3_independent_audit.yaml",
     "runner_source_path": "src/pinnpcm/audit/geophase_phase1_v2_equivalence_v3_one_shot.py",
     "production_adapter_path": "src/pinnpcm/audit/geophase_phase1_v2_equivalence_v3_production_adapter.py",
     "runner_cli_path": "scripts/run_geophase_phase1_v2_equivalence_v3_independent_audit.py",
     "focused_test_path": "tests/test_geophase_phase1_v2_equivalence_v3_independent_audit.py",
-    "hashes_must_be_filled_after_files_settle_and_before_remote_anchor": true,
+    "contract_sha256": "d003d71f8b1f89ea131d2157b24c9dabb66345df52f3b60840dd74aae800ec98",
+    "runner_source_sha256": "01318e71ccdc690e089fd9f7268cc5eac5447d00b16b9622a5f98b668b110473",
+    "production_adapter_sha256": "ef067aa2a0243703566095172cb727ce6d2a963dfcb924743a9f4396364dcc25",
+    "runner_cli_sha256": "d5b84b876c4f8cb579f1d01d7a3268984ffbb1985a1706ad4e2c4d5723a97bf6",
+    "focused_test_sha256": "60c15e8500ddd37dd28a59b82ac2d417d09981f5361456a990c22820bd150b23",
+    "remote_anchor_commit": "01850a8e13bc671d5a19e612798d295b3af43d31",
+    "hashes_must_be_filled_after_files_settle_and_before_remote_anchor": false,
     "execution_before_remote_anchor": false
   },
   "ordered_plan": {

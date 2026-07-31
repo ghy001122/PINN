@@ -1,7 +1,7 @@
 {
   "task_id": "Q2_PHASE1_V2_EQUIVALENCE_V3_INDEPENDENT_AUDIT",
   "schema_version": "geophase_phase1_v2_equivalence_v3_execution_authorization_v1",
-  "status": "AUTHORIZED_NOT_STARTED_PENDING_REMOTE_ANCHOR",
+  "status": "AUTHORIZED_NOT_STARTED_REMOTE_ANCHOR_FROZEN_PENDING_CI",
   "authorization_scope": "one_new_independent_nonretryable_57_row_equivalence_v3_audit_after_remote_anchor",
   "authority_base_main": "3110b85d0931a36394b302f0df2d11b04a0959a8",
   "stage_a_merge_commit": "3110b85d0931a36394b302f0df2d11b04a0959a8",
@@ -40,12 +40,12 @@
     "environment_lock_sha256": "7f4d1f5ca36e3ec2e8639fcb7f083eab8d7fe27c6253b1e9e3c8c73d9d8ef23b"
   },
   "remote_execution_anchor": {
-    "state": "PENDING",
-    "commit": null,
-    "contract_sha256": null,
-    "runner_source_sha256": null,
-    "production_adapter_sha256": null,
-    "runner_cli_sha256": null,
+    "state": "FROZEN_PENDING_CURRENT_HEAD_CI",
+    "commit": "01850a8e13bc671d5a19e612798d295b3af43d31",
+    "contract_sha256": "d003d71f8b1f89ea131d2157b24c9dabb66345df52f3b60840dd74aae800ec98",
+    "runner_source_sha256": "01318e71ccdc690e089fd9f7268cc5eac5447d00b16b9622a5f98b668b110473",
+    "production_adapter_sha256": "ef067aa2a0243703566095172cb727ce6d2a963dfcb924743a9f4396364dcc25",
+    "runner_cli_sha256": "d5b84b876c4f8cb579f1d01d7a3268984ffbb1985a1706ad4e2c4d5723a97bf6",
     "clean_checkout_CI": "required_and_must_pass_before_plan_0"
   },
   "counter_transition": "equivalence_v3_execution_count 0_to_1 atomically before plan index 0",

@@ -4,9 +4,10 @@
 
 This is a prospective, authorized-but-not-started execution contract based on
 `main@3110b85d0931a36394b302f0df2d11b04a0959a8`. It has executed zero v3
-audit rows. The runner, adapter, CLI, contract hash, and remote commit must be
-frozen in a draft PR and pass current-head clean-checkout CI before plan row 0
-may be scheduled.
+audit rows. The runner, adapter and CLI are frozen by remote commit
+`01850a8e13bc671d5a19e612798d295b3af43d31`; the contract hash is
+`d003d71f...`. Current-head clean-checkout CI must pass before plan row 0 may
+be scheduled.
 
 The manuscript use is limited to implementation-equivalence provenance for
 the independent S2 reference judge. Even a future equivalence pass would not
@@ -53,8 +54,8 @@ Before execution, the draft PR must freeze hashes for:
 - `src/pinnpcm/audit/geophase_phase1_v2_equivalence_v3_production_adapter.py`;
 - `scripts/run_geophase_phase1_v2_equivalence_v3_independent_audit.py`.
 
-Until those hashes and a successful current-head CI are recorded, the state is
-`AUTHORIZED_NOT_STARTED`, not executable.
+Those hashes are now recorded. Until current-head CI succeeds, the state
+remains `AUTHORIZED_NOT_STARTED` and is not executable.
 
 ## Terminal states
 

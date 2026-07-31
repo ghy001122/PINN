@@ -48,8 +48,9 @@ Do not retry, change rules, or restart performance work.
 
 PR #14 merged the v2 result evidence-only at `f49ac79...`; PR #15 then merged
 the solver-free closure-v4 at `3110b85...`. The independent equivalence-v3
-registry is `AUTHORIZED_NOT_STARTED`, with v3 count zero. Freeze and push its
-runner/config/adapter identities, obtain current-head clean-checkout CI, then
+registry is `AUTHORIZED_NOT_STARTED`, with v3 count zero. Its
+runner/config/adapter identity is remotely anchored at `01850a8...`; obtain
+current-head clean-checkout CI, then
 consume one non-retryable row-0-to-56 attempt. Do not splice or resume v2. A
 v3 `PASS` may unlock only a later runtime-feasibility decision; a valid A/B/C
 failure stops implementation equivalence; an infrastructure failure casts no

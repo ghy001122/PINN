@@ -39,8 +39,8 @@
   production-real controls, and merged through PR #15 at `3110b85...`.
 - The independent equivalence-v3 contract is now prospective and
   `AUTHORIZED_NOT_STARTED`. Its v3 execution count and completed-row count are
-  zero. Runner/config/adapter identities and a successful remote current-head
-  CI must be frozen before the one permitted row-0-to-56 attempt starts.
+  zero. Runner/config/adapter identities are frozen at `01850a8...`; remote
+  current-head CI must pass before the one permitted row-0-to-56 attempt starts.
 - The S1 scientific claim is `forbidden`/unassessed; its timeouts are supported
   infrastructure provenance only. The v6-v8 material-stack route remains
   `failed_but_informative` with no formal execution.

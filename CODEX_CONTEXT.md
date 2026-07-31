@@ -56,8 +56,8 @@ PR #14 preserved that attempt as immutable evidence and merged at `f49ac79...`.
 Ledger schema closure-v4 subsequently passed its solver-free controls and
 merged through PR #15 at `3110b85...`. A new independent equivalence-v3
 identity is now `AUTHORIZED_NOT_STARTED`: its runner, adapter, CLI, contract
-and remote commit must be hash-locked and pass current-head CI before its sole
-row-0-to-56 attempt can change the v3 count from zero to one.
+and remote commit are hash-locked at `01850a8...`; current-head CI must pass
+before its sole row-0-to-56 attempt can change the v3 count from zero to one.
 
 ## Claim Boundary
 

@@ -2,7 +2,7 @@
 
 Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
 
-Status: `phase1v2_equivalence_v3_authorized_not_started_pending_remote_anchor`
+Status: `phase1v2_equivalence_v3_remote_anchored_pending_clean_checkout_CI`
 
 Current checkpoint:
 `Q2_PHASE1_V2_LEDGER_SCHEMA_CLOSURE_AND_EQUIVALENCE_V3_INDEPENDENT_AUDIT`
@@ -73,8 +73,8 @@ manifest.
   mechanically covers all 252 ledger-power templates, separates real producer
   identity from structural denominator grouping, passed its cloud gate, and
   merged at `3110b85...` through PR #15. The independent equivalence-v3
-  registry remains `AUTHORIZED_NOT_STARTED`, count zero, pending its own
-  frozen remote runner identity and clean-checkout CI.
+  registry remains `AUTHORIZED_NOT_STARTED`, count zero. Its runner identity
+  is remotely frozen at `01850a8...`, pending current-head clean-checkout CI.
 
 ## Pass And Stop Rules
 
@@ -110,8 +110,8 @@ consumed and cannot be retried or reinterpreted.
 
 ## Immediate Next Checkpoint
 
-Remotely anchor the independent equivalence-v3 runner/config/adapter and pass
-current-head CI before atomically changing its count from zero to one. Then
+Pass current-head CI for the remotely anchored independent equivalence-v3
+runner/config/adapter before atomically changing its count from zero to one. Then
 execute its ordered row-0-to-56 plan once. Preserve v1/v2 histories and counts;
 do not stitch old rows, retry, alter A/B/C, or run downstream work. Phase 1
 science remains `forbidden` and unassessed regardless of this
