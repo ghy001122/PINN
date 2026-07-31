@@ -34,13 +34,13 @@
   voting at plan 9: `VALID_FAIL / RECORD_VALIDATION_FAILURE`, 10/57; rows
   10..56 are unassessed and its count is one.
 - PR #14 merged the immutable v2 negative record at `f49ac79...`; it did not
-  authorize a retry. The new closure-v4 Stage A is a solver-free superseding
-  record schema: 252 ledger-power templates are mechanically derived from
-  production constructors/extractors, while real producer balance names and
-  structural normalization groups remain separate identities. Its local
-  focused controls pass and it has executed zero numerical audit rows; cloud
-  CI/merge is the remaining Stage-A gate before the separately authorized,
-  independent equivalence-v3 attempt may start.
+  authorize a retry. Solver-free closure-v4 mechanically derives 252 ledger
+  templates, separates producer and normalization identities, passed its
+  production-real controls, and merged through PR #15 at `3110b85...`.
+- The independent equivalence-v3 contract is now prospective and
+  `AUTHORIZED_NOT_STARTED`. Its v3 execution count and completed-row count are
+  zero. Runner/config/adapter identities and a successful remote current-head
+  CI must be frozen before the one permitted row-0-to-56 attempt starts.
 - The S1 scientific claim is `forbidden`/unassessed; its timeouts are supported
   infrastructure provenance only. The v6-v8 material-stack route remains
   `failed_but_informative` with no formal execution.
@@ -75,9 +75,10 @@
 
 Preserve strict-v1 and the completed one-shot v2 evidence; do not retry,
 reinterpret, stitch, resume, or optimize either audit. A separate user
-authorization now permits one new schema-corrected equivalence-v3 identity,
-but only after solver-free closure-v4 passes and merges. That future attempt
-must start from row 0, consume its own `0→1` count once, and may terminate
+authorization now permits one new schema-corrected equivalence-v3 identity.
+Closure-v4 has passed and merged; the new execution identity still requires a
+remote anchor and CI. The future attempt must start from row 0, consume its
+own `0→1` count once, and may terminate
 `PASS`, `VALID_FAIL`, or `INVALID_INFRA` without rule changes or retry.
 C1/C2/C3, runtime, formal execution, Phase 2, and PINN remain blocked.
 

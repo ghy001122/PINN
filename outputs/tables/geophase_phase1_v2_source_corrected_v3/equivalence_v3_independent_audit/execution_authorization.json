@@ -1,0 +1,58 @@
+{
+  "task_id": "Q2_PHASE1_V2_EQUIVALENCE_V3_INDEPENDENT_AUDIT",
+  "schema_version": "geophase_phase1_v2_equivalence_v3_execution_authorization_v1",
+  "status": "AUTHORIZED_NOT_STARTED_PENDING_REMOTE_ANCHOR",
+  "authorization_scope": "one_new_independent_nonretryable_57_row_equivalence_v3_audit_after_remote_anchor",
+  "authority_base_main": "3110b85d0931a36394b302f0df2d11b04a0959a8",
+  "stage_a_merge_commit": "3110b85d0931a36394b302f0df2d11b04a0959a8",
+  "execution_attempt_limit": 1,
+  "automatic_retry": false,
+  "manual_retry": false,
+  "ordered_plan": {
+    "inclusive_start": 0,
+    "inclusive_end": 56,
+    "row_count": 57,
+    "no_skip_reorder_stitch_or_resume": true
+  },
+  "metric_development_partition": {
+    "inclusive_start": 0,
+    "inclusive_end": 11,
+    "count": 12
+  },
+  "held_out_partition": {
+    "inclusive_start": 12,
+    "inclusive_end": 56,
+    "count": 45
+  },
+  "frozen_contract_bundle": {
+    "closure_v4_comparator_sha256": "f162bbdc975124557dfb515e4195265a7c61d48aefe5042f48744640d17c602e",
+    "closure_v4_config_sha256": "bdf0ceda1502f30fa0397b87c4a6e4f78b98be38d8f583debeb476933859c6a3",
+    "closure_v4_preregistration_sha256": "071e96080ff3aaab104a3fc2611ba7728634af2d61d70b9d017b23b08052437c",
+    "ledger_group_manifest_sha256": "cc0b4fd769567740975f6e7ded6110e826dad484fcda76fa76514ccd476a87f5",
+    "field_manifest_sha256": "670dbb5acee9bc0bc4796e9c54d9de39c5a4016cc7344f1eff5f53291fb74f07",
+    "plan_manifest_sha256": "cc65de070be1efd9951d609a96e4e1311bbcbf178f9ff478d0a0a2cd3d149c0e",
+    "candidate_commit": "1ae2704f6d84a3733d9de58aa23d992aa0c471a5",
+    "candidate_tree": "d3833a4a5dd067dab72c84f15fe2f8e726bd9512",
+    "candidate_identity_sha256": "39044f37c983060df48e9915c594f69fbfbeacc60eef9a32bc352bdb5ec25b10",
+    "oracle_commit": "85e4257fc01af2e0bf706ef9001f263b1420ecaa",
+    "oracle_tree": "50ef2214b19f98c6cada0f5f40c682de9eb16bee",
+    "oracle_source_sha256": "e1a349ca0275021508cd07da02576adafbbcdae81e122659274769f329016a37",
+    "environment_lock_sha256": "7f4d1f5ca36e3ec2e8639fcb7f083eab8d7fe27c6253b1e9e3c8c73d9d8ef23b"
+  },
+  "remote_execution_anchor": {
+    "state": "PENDING",
+    "commit": null,
+    "contract_sha256": null,
+    "runner_source_sha256": null,
+    "production_adapter_sha256": null,
+    "runner_cli_sha256": null,
+    "clean_checkout_CI": "required_and_must_pass_before_plan_0"
+  },
+  "counter_transition": "equivalence_v3_execution_count 0_to_1 atomically before plan index 0",
+  "equivalence_v2_execution_count": 1,
+  "equivalence_v3_execution_count": 0,
+  "equivalence_v3_completed_rows": 0,
+  "formal_execution_count": 0,
+  "formal_artifact_count": 0,
+  "numerical_audit_rows_executed_under_v3": 0
+}

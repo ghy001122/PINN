@@ -5,9 +5,10 @@
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
 - Active phase/checkpoint: `Q2_PHASE1_2P5D_REFERENCE_SOLVER` /
   `Q2_PHASE1_V2_LEDGER_SCHEMA_CLOSURE_AND_EQUIVALENCE_V3_INDEPENDENT_AUDIT`.
-- Current Stage-A contract/config:
-  `docs/research_strategy/phase1_v2_ledger_record_schema_closure_v4.md` /
-  `configs/geophase_phase1_v2_ledger_record_schema_closure_v4.yaml`.
+- Current Stage-B contract:
+  `docs/research_strategy/phase1_v2_equivalence_v3_independent_audit.md` /
+  `configs/geophase_phase1_v2_equivalence_v3_independent_audit.yaml` /
+  `outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v3_independent_audit/preregistration.json`.
 - Consumed historical checkpoint: `PHASE1_V2_EQUIVALENCE_V2_ONE_SHOT_AUDIT`
   (`VALID_FAIL`, immutable, no retry).
 - Source contract: `configs/qiu_vo2_phase1_source_contract_v3.yaml`.
@@ -52,11 +53,11 @@ metadata. Rows 10..56 are unassessed; `equivalence_v2_execution_count=1` and
 `formal_execution_count=0`.
 
 PR #14 preserved that attempt as immutable evidence and merged at `f49ac79...`.
-The separately authorized Stage A now closes only the ledger record interface:
-it mechanically maps all 252 ledger-power templates, preserves both real
-producer balance names and structural normalization groups, and executes zero
-numerical audit rows. Only after its clean-checkout CI and merge may the new,
-independent, non-retryable equivalence-v3 audit be remotely anchored and run.
+Ledger schema closure-v4 subsequently passed its solver-free controls and
+merged through PR #15 at `3110b85...`. A new independent equivalence-v3
+identity is now `AUTHORIZED_NOT_STARTED`: its runner, adapter, CLI, contract
+and remote commit must be hash-locked and pass current-head CI before its sole
+row-0-to-56 attempt can change the v3 count from zero to one.
 
 ## Claim Boundary
 

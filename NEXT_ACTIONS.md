@@ -46,13 +46,14 @@ passed; row 9 produced `RECORD_VALIDATION_FAILURE` because 91 interval-ledger
 fields had noncanonical `scale_group` metadata. Rows 10..56 are unassessed.
 Do not retry, change rules, or restart performance work.
 
-PR #14 has merged the v2 result evidence-only at `f49ac79...`. Complete the
-solver-free closure-v4 cloud gate and merge first. If and only if it passes,
-create a new independent equivalence-v3 identity, remotely anchor its frozen
-runner/registry/contract, then consume one non-retryable row-0-to-56 attempt.
-Do not splice or resume v2. A v3 `PASS` may unlock only a later runtime
-feasibility decision; a valid A/B/C failure stops implementation equivalence;
-an infrastructure failure casts no equivalence or science vote.
+PR #14 merged the v2 result evidence-only at `f49ac79...`; PR #15 then merged
+the solver-free closure-v4 at `3110b85...`. The independent equivalence-v3
+registry is `AUTHORIZED_NOT_STARTED`, with v3 count zero. Freeze and push its
+runner/config/adapter identities, obtain current-head clean-checkout CI, then
+consume one non-retryable row-0-to-56 attempt. Do not splice or resume v2. A
+v3 `PASS` may unlock only a later runtime-feasibility decision; a valid A/B/C
+failure stops implementation equivalence; an infrastructure failure casts no
+equivalence or science vote.
 
 ## Locked Side And Historical Routes
 

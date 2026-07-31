@@ -2,7 +2,7 @@
 
 Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
 
-Status: `phase1v2_ledger_schema_closure_v4_pending_cloud_gate`
+Status: `phase1v2_equivalence_v3_authorized_not_started_pending_remote_anchor`
 
 Current checkpoint:
 `Q2_PHASE1_V2_LEDGER_SCHEMA_CLOSURE_AND_EQUIVALENCE_V3_INDEPENDENT_AUDIT`
@@ -44,6 +44,11 @@ independent from future PINN residual code.
 - `configs/geophase_phase1_v2_ledger_record_schema_closure_v4.yaml`
 - `docs/research_strategy/phase1_v2_ledger_record_schema_closure_v4.md`
 - `outputs/tables/geophase_phase1_v2_source_corrected_v3/ledger_record_schema_closure_v4/preregistration.json`
+- `configs/geophase_phase1_v2_equivalence_v3_independent_audit.yaml`
+- `docs/research_strategy/phase1_v2_equivalence_v3_independent_audit.md`
+- `outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v3_independent_audit/preregistration.json`
+- `outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v3_independent_audit/execution_authorization.json`
+- `outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v3_independent_audit/execution_registry.json`
 - `outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/metric_validity_summary.json`
 - `docs/method_equations.md`
 - `NEXT_ACTIONS.md`
@@ -64,11 +69,12 @@ manifest.
 - Solver-free metric/coverage/closure locks 638 templates, 57 rows and the
   original A/B/C rules. The unique v2 attempt (`85c3709...`) stopped before
   voting at plan 9: `VALID_FAIL`, 10/57; later rows are unassessed.
-- PR #14 merged that immutable record at `f49ac79...`. Closure-v4 is a new,
-  solver-free Stage-A identity that mechanically covers all 252 ledger-power
-  templates and separates real producer balance identity from structural
-  denominator grouping. It executes no audit row. Only a clean-checkout CI
-  pass and merge can unlock the independently counted equivalence-v3 attempt.
+- PR #14 merged that immutable record at `f49ac79...`. Solver-free closure-v4
+  mechanically covers all 252 ledger-power templates, separates real producer
+  identity from structural denominator grouping, passed its cloud gate, and
+  merged at `3110b85...` through PR #15. The independent equivalence-v3
+  registry remains `AUTHORIZED_NOT_STARTED`, count zero, pending its own
+  frozen remote runner identity and clean-checkout CI.
 
 ## Pass And Stop Rules
 
@@ -104,9 +110,9 @@ consumed and cannot be retried or reinterpreted.
 
 ## Immediate Next Checkpoint
 
-Close and merge ledger schema closure-v4 without any numerical row. Then, and
-only then, remotely anchor and execute the separately authorized independent
-equivalence-v3 plan exactly once from row 0. Preserve v1/v2 histories and
-counts; do not stitch old rows, retry, alter A/B/C, or run downstream work.
-Phase 1 science remains `forbidden` and unassessed regardless of this
+Remotely anchor the independent equivalence-v3 runner/config/adapter and pass
+current-head CI before atomically changing its count from zero to one. Then
+execute its ordered row-0-to-56 plan once. Preserve v1/v2 histories and counts;
+do not stitch old rows, retry, alter A/B/C, or run downstream work. Phase 1
+science remains `forbidden` and unassessed regardless of this
 implementation-equivalence audit.
