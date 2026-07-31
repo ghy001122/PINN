@@ -12,6 +12,8 @@
 - Source-corrected v3 anchor: `0ebe037...`.
 - Equivalence-v2 one-shot: `VALID_FAIL`, `10/57`,
   `STOP_S2_ACTIVATE_GAMMA_SUB`; no retry.
+- Equivalence-v3 independent audit: `VALID_FAIL`, `12/57`,
+  `STOP_S2_IMPLEMENTATION_EQUIVALENCE_FAILED`; no retry.
 - The 63 formal evaluations / 60 executions / 3 reuses remain
   `planned_not_executed`; `formal_execution_count=0` and formal artifacts are
   zero.
@@ -33,15 +35,15 @@ The v2 runner `85c3709...` stopped at plan 9 after 10 rows: rows 0..8 passed;
 row 9 had `RECORD_VALIDATION_FAILURE` on 91 ledger `scale_group` fields; rows
 10..56 are unassessed. Do not retry or change rules.
 
-PR #14 merged the v2 result evidence-only at `f49ac79...`; PR #15 then merged
-the solver-free closure-v4 at `3110b85...`. The independent equivalence-v3
-registry is `AUTHORIZED_NOT_STARTED`, with v3 count zero. Its
-runner/config/adapter identity is remotely anchored at `01850a8...`; obtain
-current-head clean-checkout CI, then
-consume one non-retryable row-0-to-56 attempt. Do not splice or resume v2. A
-v3 `PASS` may unlock only a later runtime-feasibility decision; a valid A/B/C
-failure stops implementation equivalence; an infrastructure failure casts no
-equivalence or science vote.
+PR #14 merged v2 evidence at `f49ac79...`; closure-v4 merged at `3110b85...`.
+Independent v3 (`01850a8...`) consumed its sole attempt: plans 0..10 passed;
+plan 11 failed record cardinality validation before A/B/C voting; rows 12..56
+are unassessed. V3 count is one and formal count is zero.
+
+No computation is authorized. Preserve the result and stop S2 implementation-
+equivalence work. A future assessment of the retained fixed-rank-1 `gamma_sub`
+plus calibration-gate and identifiability-boundary downgrade requires explicit
+authorization and was not started here.
 
 ## Locked Side And Historical Routes
 

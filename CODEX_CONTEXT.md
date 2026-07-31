@@ -48,20 +48,18 @@ Closure v3 merged at `85d5c7ba...`; the one-shot control plane is anchored at
 metadata. Rows 10..56 are unassessed; `equivalence_v2_execution_count=1` and
 `formal_execution_count=0`.
 
-PR #14 preserved that attempt as immutable evidence and merged at `f49ac79...`.
-Ledger schema closure-v4 subsequently passed its solver-free controls and
-merged through PR #15 at `3110b85...`. A new independent equivalence-v3
-identity is now `AUTHORIZED_NOT_STARTED`: its runner, adapter, CLI, contract
-and remote commit are hash-locked at `01850a8...`; current-head CI must pass
-before its sole row-0-to-56 attempt can change the v3 count from zero to one.
+PR #14 preserved v2 at `f49ac79...`; ledger closure-v4 merged at `3110b85...`.
+The independent v3 identity was anchored at `01850a8...` and consumed its sole
+attempt: `VALID_FAIL`, 12/57 (11 pass, plan 11 record-validation failure), v3
+count one, formal count zero. Rows 12..56 are unassessed; no retry is allowed.
 
 ## Claim Boundary
 
 Allowed: contracts, implemented S2, bounded smoke/C1/C2, the C3 stop, 15.8 V
 source correction, qualified metric validity, and qualified history.
 
-Forbidden: Phase 1 success/failure; v1/v2 reinterpretation or retry;
-equivalence-v3 success before execution; campaign feasibility; formal
+Forbidden: Phase 1 success/failure; v1/v2/v3 reinterpretation or retry;
+equivalence-v3 success; campaign feasibility; formal
 authorization; optimized-solver equivalence; demoting lateral fluxes to
 telemetry; Qiu reproduction; positive R1/R2; OQ/sensitivity fidelity; hidden
 field recovery; experimental/FEM/3D validation; or VO2-to-NbO2 transfer.

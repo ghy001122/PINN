@@ -2,7 +2,7 @@
 
 Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
 
-Status: `phase1v2_equivalence_v3_remote_anchored_pending_clean_checkout_CI`
+Status: `phase1v2_equivalence_v3_valid_fail_stop`
 
 Current checkpoint:
 `Q2_PHASE1_V2_LEDGER_SCHEMA_CLOSURE_AND_EQUIVALENCE_V3_INDEPENDENT_AUDIT`
@@ -65,12 +65,11 @@ Auxiliary/history evidence cannot modify S2 or the formal manifest.
 - Solver-free metric/coverage/closure locks 638 templates, 57 rows and the
   original A/B/C rules. The unique v2 attempt (`85c3709...`) stopped before
   voting at plan 9: `VALID_FAIL`, 10/57; later rows are unassessed.
-- PR #14 merged that immutable record at `f49ac79...`. Solver-free closure-v4
-  mechanically covers all 252 ledger-power templates, separates real producer
-  identity from structural denominator grouping, passed its cloud gate, and
-  merged at `3110b85...` through PR #15. The independent equivalence-v3
-  registry remains `AUTHORIZED_NOT_STARTED`, count zero. Its runner identity
-  is remotely frozen at `01850a8...`, pending current-head clean-checkout CI.
+- PR #14 merged immutable v2 evidence at `f49ac79...`; ledger closure-v4 merged
+  at `3110b85...`. Independent v3 (`01850a8...`) consumed its sole attempt:
+  `VALID_FAIL`, 12/57, with plan 11 failing record cardinality validation before
+  A/B/C voting. V3 count is one; formal count is zero; rows 12..56 are
+  unassessed and retry is forbidden.
 
 ## Pass And Stop Rules
 
@@ -92,9 +91,7 @@ R1/R2, OQ, sensitivity and cross-material success remain `forbidden`.
 
 ## Immediate Next Checkpoint
 
-Pass current-head CI for the remotely anchored independent equivalence-v3
-runner/config/adapter before atomically changing its count from zero to one. Then
-execute its ordered row-0-to-56 plan once. Preserve v1/v2 histories and counts;
-do not stitch old rows, retry, alter A/B/C, or run downstream work. Phase 1
-science remains `forbidden` and unassessed regardless of this
-implementation-equivalence audit.
+`STOP_S2_IMPLEMENTATION_EQUIVALENCE_FAILED`. No computation is authorized.
+Preserve v1/v2/v3 histories and counts; do not retry, alter A/B/C, or run
+downstream work. A future `gamma_sub` downgrade assessment requires separate
+authorization. Phase 1 science remains `forbidden` and unassessed.
