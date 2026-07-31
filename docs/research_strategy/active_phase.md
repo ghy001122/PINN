@@ -2,10 +2,10 @@
 
 Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
 
-Status: `phase1v2_equivalence_v2_VALID_FAIL_STOP_S2_ACTIVATE_GAMMA_SUB`
+Status: `phase1v2_ledger_schema_closure_v4_pending_cloud_gate`
 
 Current checkpoint:
-`PHASE1_V2_EQUIVALENCE_V2_ONE_SHOT_AUDIT`
+`Q2_PHASE1_V2_LEDGER_SCHEMA_CLOSURE_AND_EQUIVALENCE_V3_INDEPENDENT_AUDIT`
 
 Strict-equivalence-v1 substate: `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`
 
@@ -36,6 +36,9 @@ independent from future PINN residual code.
 - `outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_audit/execution_authorization.json`
 - `outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_audit/execution_registry.json`
 - `docs/codex_reports/geophase_phase1_v2_equivalence_v2_one_shot_audit.md`
+- `configs/geophase_phase1_v2_ledger_record_schema_closure_v4.yaml`
+- `docs/research_strategy/phase1_v2_ledger_record_schema_closure_v4.md`
+- `outputs/tables/geophase_phase1_v2_source_corrected_v3/ledger_record_schema_closure_v4/preregistration.json`
 - `outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/metric_validity_summary.json`
 - `docs/method_equations.md`
 - `NEXT_ACTIONS.md`
@@ -49,27 +52,18 @@ manifest.
 - S2/controller-v2 anchors are `d37745b...`/`406207b...`; the solver and seven
   bounded smoke cases exist. All 63 formal items remain
   `planned_not_executed`; `formal_execution_count=0`.
-- Controller-v2 C1/C2 passed bounded integrity/parity. C3 stopped at `0/18`
-  intervals and `1/9` trajectories before forecast/dormant-runner votes:
-  `NO_GO_RUNTIME_PERFORMANCE_ONLY`, not a physics/science vote.
-- Source-corrected v3 is anchored at `0ebe037...` and uses 15.8 V only as the
-  qualitative metallic-lock probe. S1 is unassessed; v6-v8 is terminal
-  `failed_but_informative` history.
+- Controller-v2 C1/C2 passed bounded integrity; C3 has no forecast.
+  Source-corrected v3 (`0ebe037...`) uses the qualitative 15.8 V lock probe.
 - Frozen candidate `1ae2704...` and harness `73f7d7d1...` produced strict-v1
   `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`, `12/57`; no retry is authorized.
-- Solver-free metric validity is `GO_VERSIONED_EQUIVALENCE_V2_AUDIT` with
-  physical lateral voting retained. PR #11/12 lock 638 templates, 57 rows and
-  unchanged A/B/C rules; those controls executed zero numerical audit rows.
-- Comparator closure v3 preserves those identities and adds only solver-free
-  fail-closed gates for exact dynamic-index coverage, L1/L2/L4 topology shape,
-  frozen row/failure identity, exact 57-outcome terminal reduction, and narrow
-  result tracking. It passed clean-checkout CI and merged at `85d5c7ba...`.
-  The one-shot runner identity is anchored at `85c3709...`. Its unique attempt
-  ended `VALID_FAIL` after 10/57 rows at plan 9. The failed interval record had
-  91 canonical ledger `scale_group` validation issues; candidate and oracle
-  record hashes were identical, so no A/B/C vote or S2-science vote was cast.
-  Rows 10..56 remain unassessed; equivalence-v2 count is one and formal count
-  remains zero.
+- Solver-free metric/coverage/closure locks 638 templates, 57 rows and the
+  original A/B/C rules. The unique v2 attempt (`85c3709...`) stopped before
+  voting at plan 9: `VALID_FAIL`, 10/57; later rows are unassessed.
+- PR #14 merged that immutable record at `f49ac79...`. Closure-v4 is a new,
+  solver-free Stage-A identity that mechanically covers all 252 ledger-power
+  templates and separates real producer balance identity from structural
+  denominator grouping. It executes no audit row. Only a clean-checkout CI
+  pass and merge can unlock the independently counted equivalence-v3 attempt.
 
 ## Pass And Stop Rules
 
@@ -105,9 +99,9 @@ consumed and cannot be retried or reinterpreted.
 
 ## Immediate Next Checkpoint
 
-Preserve strict-v1, metric-validity, closure-v3 and the one-shot `VALID_FAIL`
-without retry or rule changes. The route is `STOP_S2_ACTIVATE_GAMMA_SUB`.
-Only a separate user instruction may activate the fixed-rank-1 `gamma_sub`
-plus calibration-gate and identifiability-boundary manuscript route; no such
-experiment is authorized here. Phase 1 science remains `forbidden` and
-unassessed.
+Close and merge ledger schema closure-v4 without any numerical row. Then, and
+only then, remotely anchor and execute the separately authorized independent
+equivalence-v3 plan exactly once from row 0. Preserve v1/v2 histories and
+counts; do not stitch old rows, retry, alter A/B/C, or run downstream work.
+Phase 1 science remains `forbidden` and unassessed regardless of this
+implementation-equivalence audit.

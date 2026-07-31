@@ -1,0 +1,236 @@
+task_id: Q2_PHASE1_V2_LEDGER_RECORD_SCHEMA_CLOSURE_V4
+schema_version: geophase_phase1_v2_ledger_record_schema_closure_v4
+status: superseding_solver_free_schema_closure_locally_validated_pending_clean_checkout_CI
+evidence_type: prospective_solver_free_record_contract_evidence
+manuscript_use: reviewer_defense_for_implementation_equivalence_provenance
+
+authority_lock:
+  base_main: f49ac79fcf8cb617e15665ab57c84375ae6c5b8c
+  PR14_merge_commit: f49ac79fcf8cb617e15665ab57c84375ae6c5b8c
+  PR14_historical_head: c51008e24f36505ab02737bee69844cbec0e3d4d
+  strict_equivalence_v1:
+    disposition: NO_GO_EQUIVALENT_PERFORMANCE_REPAIR
+    completed_rows: 12
+    expected_rows: 57
+    immutable: true
+  equivalence_v2:
+    terminal_state: VALID_FAIL
+    terminal_event: RECORD_VALIDATION_FAILURE
+    completed_rows: 10
+    expected_rows: 57
+    equivalence_v2_execution_count: 1
+    failed_plan_index: 9
+    failed_sample_id: EQ-INTERVAL-L1-equilibrium-base
+    A_B_C_vote_cast: false
+    immutable: true
+  formal_execution_count: 0
+  formal_artifact_count: 0
+
+immutable_v2_evidence:
+  summary:
+    path: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_audit/equivalence_v2_summary.json
+    sha256: 1ad0e13e847b05512e71c95719a8c359c7112c5ece0a8da9b6b2d8ed488f08d9
+  journal:
+    path: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_audit/audit_journal.jsonl
+    file_sha256: 9dd5125940bedced216168dc6df32262a99220b51d7981f7f0de95e2d5f7b18f
+    terminal_record_sha256: 13d010ffc79956d3afcfbd3367fb54181971f5f59da2d7a3da721aacdd2ddeef
+  atomic_tables:
+    electrical:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_audit/electrical_equivalence_v2.csv
+      sha256: 0bde3224cca42fd0523ede530e4372f0d7a89e64c68fc51862cb62fd5ed91763
+    interval:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_audit/interval_equivalence_v2.csv
+      sha256: c1072d3b734e268a1f415784fe4eaafd52b96685c4f04e8deb2ab0937c570c33
+    progression:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_audit/progression_equivalence_v2.csv
+      sha256: 2c431f1c9bfe209cf473069e359d2d43bb43af56ca027424ee73da5b4926bebd
+    failure:
+      path: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_audit/failure_equivalence_v2.csv
+      sha256: 2c431f1c9bfe209cf473069e359d2d43bb43af56ca027424ee73da5b4926bebd
+
+supersedes:
+  relation: ledger_record_identity_closure_without_rewriting_v1_or_v2
+  predecessor_comparator:
+    path: src/pinnpcm/audit/geophase_phase1_v2_equivalence_v2_comparator_v3.py
+    sha256: e902e6f06b9213e1ce4278b003de588358fe03fe193391fafebc26aeda095851
+  predecessor_preregistration:
+    path: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v2_comparator_closure_v3/preregistration.json
+    sha256: cc6de62b4eebae48cbaebbf55ef4bbd8b022d60cc75276afba9ce44470d7d42a
+  predecessor_field_manifest:
+    path: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/coverage_correction/mechanical_field_contract.csv
+    sha256: 670dbb5acee9bc0bc4796e9c54d9de39c5a4016cc7344f1eff5f53291fb74f07
+  predecessor_plan_manifest:
+    path: outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_metric_validity/coverage_correction/mechanical_plan_contract.csv
+    sha256: cc65de070be1efd9951d609a96e4e1311bbcbf178f9ff478d0a0a2cd3d149c0e
+  immutable_candidate:
+    commit: 1ae2704f6d84a3733d9de58aa23d992aa0c471a5
+    tree: d3833a4a5dd067dab72c84f15fe2f8e726bd9512
+    identity_sha256: 39044f37c983060df48e9915c594f69fbfbeacc60eef9a32bc352bdb5ec25b10
+  immutable_oracle:
+    commit: 85e4257fc01af2e0bf706ef9001f263b1420ecaa
+    tree: 50ef2214b19f98c6cada0f5f40c682de9eb16bee
+    source_sha256: e1a349ca0275021508cd07da02576adafbbcdae81e122659274769f329016a37
+
+single_schema_source:
+  module:
+    path: src/pinnpcm/audit/geophase_phase1_v2_ledger_record_schema_v4.py
+    sha256: 4f7d9e8715c90fd8e336724bb36cba6c9882cf919b70e0fee314dbb4589aa39d
+  comparator:
+    path: src/pinnpcm/audit/geophase_phase1_v2_equivalence_v3_comparator.py
+    sha256: f162bbdc975124557dfb515e4195265a7c61d48aefe5042f48744640d17c602e
+  generation_script:
+    path: scripts/build_geophase_phase1_v2_ledger_record_schema_closure_v4.py
+    sha256: bca17a31165232e2acc2eeecd02016e26723d4f104fafb32ad53ecc74fa1367e
+  ledger_group_manifest:
+    path: outputs/tables/geophase_phase1_v2_source_corrected_v3/ledger_record_schema_closure_v4/ledger_group_manifest.csv
+    sha256: cc0b4fd769567740975f6e7ded6110e826dad484fcda76fa76514ccd476a87f5
+    mechanically_derived_template_count: 252
+    family_counts: {interval: 112, progression: 56, failure: 84}
+    template_identity_sha256: 78069215049a4f326de4b88c3039916178c8d8c299afde0d41450b21a0370323
+  preregistration:
+    path: outputs/tables/geophase_phase1_v2_source_corrected_v3/ledger_record_schema_closure_v4/preregistration.json
+    identity_is_frozen_after_config: true
+  manifest_columns:
+    - family
+    - profile
+    - field_pattern
+    - producer_balance_name
+    - normalized_scale_group_id
+    - required_when
+    - source_constructor
+    - source_extractor
+  generation_rules:
+    source: frozen_production_ledger_constructors_plus_observation_extractors
+    candidate_or_oracle_execution: forbidden
+    solver_or_controller_execution: forbidden
+    handwritten_production_balance_name_list: forbidden
+    ledger_power_template_count_source: mechanical_filter_of_frozen_field_contract
+    expected_ledger_power_templates: 252
+    fixed_count_loop_as_completeness_proof: forbidden
+    content_addressed_manifest_required: true
+
+normalized_record_schema:
+  required_identity_fields:
+    - ledger_balance_name
+    - scale_group_id
+  ledger_balance_name:
+    source: actual_production_balance_name
+    included_in_canonical_record_and_record_hash: true
+  scale_group_id:
+    source: mechanically_derived_structural_ledger_slot
+    use: denominator_normalization_only
+  invariants:
+    all_signed_terms_of_one_ledger_map_to_one_group: true
+    cross_ledger_collision: forbidden
+    ledger_split: forbidden
+    ledger_merge: forbidden
+    candidate_oracle_common_wrong_string_pass: forbidden
+    field_membership_before_after_identical: required
+    per_field_denominator_before_after_identical: required
+
+unchanged_comparison_rules:
+  A_primary_physical:
+    threshold: 1.0e-12
+    change: forbidden
+  B_exact_topology:
+    comparator: canonical_exact_equality
+    change: forbidden
+  C_lateral:
+    analytic_bounds_change: forbidden
+    hard_gate_change: forbidden
+    physical_fluxes_remain_voting: true
+  candidate_oracle_S2_v1_module_change: forbidden
+
+production_real_sealed_fixtures:
+  solver_free: true
+  required_grid_profiles: [L1, L2, L4]
+  required_step_profiles: [full, first_half, second_half, aggregate]
+  required_ledgers: [thermal, circuit, combined, device_power]
+  required_controls:
+    - actual_production_name_positive_baseline
+    - common_old_simplified_name
+    - common_forged_name
+    - ledger_slot_swap
+    - single_field_wrong_group
+    - one_ledger_split_into_multiple_groups
+    - multiple_ledgers_merged
+    - missing_group
+    - extra_group
+    - group_collision
+    - exact_once_consumption_of_every_ledger_power_template
+  negative_control_miss_disposition: SCHEMA_CLOSURE_FAIL
+  rule_relaxation_after_failure: forbidden
+  test_path: tests/test_geophase_phase1_v2_ledger_record_schema_closure_v4.py
+  test_sha256: 9aff03fb81e59c2d6bbbb60fed8f36b21bfda54e1245bde52d264bd150b462ff
+  local_result: {passed: 41, failed: 0}
+
+terminal_classification:
+  classifier_input: explicit_failure_stage_and_category
+  message_text_inference: forbidden
+  INVALID_INFRA:
+    stages:
+      - producer
+      - schema_loading
+      - normalization
+      - canonical_record_formation
+      - serialization
+      - IO
+  VALID_FAIL:
+    prerequisite: valid_schema_and_auditable_bilateral_records
+    causes:
+      - missing
+      - extra
+      - nonfinite
+      - invalid_NA
+      - A_vote_failure
+      - B_vote_failure
+      - C_vote_failure
+  PASS:
+    prerequisite: exact_ordered_57_rows_complete_and_all_valid_votes_pass
+
+normalized_record_publication:
+  implementation_path: src/pinnpcm/audit/geophase_phase1_v2_ledger_record_schema_v4.py
+  canonical_JSON: required
+  SHA256: required
+  temporary_write: required
+  flush_and_fsync: required
+  hash_verify_before_publish: required
+  atomic_rename: required
+  journal_may_reference_only_published_record_hash: true
+  stage_A_scientific_execution_output: forbidden
+
+execution_counts:
+  equivalence_v1_execution_count: 1
+  equivalence_v2_execution_count: 1
+  equivalence_v3_execution_count: 0
+  equivalence_v3_completed_rows: 0
+  formal_execution_count: 0
+  formal_artifact_count: 0
+
+stage_A_validation:
+  focused_schema_and_comparator_tests: {status: passed, passed: 103, failed: 0}
+  governance_once_at_closeout: required
+  tracked_JSON_once_at_closeout: required
+  frozen_GT_once_at_closeout: required
+  format_check_once_at_closeout: required
+  clean_checkout_CI_required_before_merge: true
+  numerical_audit_rows_executed: 0
+
+execution_prohibitions:
+  rewrite_or_resume_v1_or_v2: forbidden
+  equivalence_v3_numerical_rows_during_stage_A: forbidden
+  metric_validity_or_209_638_coverage_recalculation: forbidden
+  second_performance_optimization: forbidden
+  C1_C2_C3_runtime_or_formal: forbidden
+  PINN_or_Phase2: forbidden
+  FEM_3D_NbO2: forbidden
+
+claim_boundary:
+  lifecycle_state: implemented
+  claim_status: forbidden
+  allowed_if_passed: schema_contract_is_mechanically_closed_for_a_separately_authorized_v3_audit
+  forbidden_claims:
+    - optimized_candidate_is_equivalent
+    - S2_or_Phase1_success_or_failure
+    - runtime_feasibility
+    - PINN_success

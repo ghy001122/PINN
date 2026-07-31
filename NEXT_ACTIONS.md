@@ -3,7 +3,8 @@
 ## Authoritative Current Queue
 
 - Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Checkpoint: `PHASE1_V2_EQUIVALENCE_V2_ONE_SHOT_AUDIT`.
+- Checkpoint:
+  `Q2_PHASE1_V2_LEDGER_SCHEMA_CLOSURE_AND_EQUIVALENCE_V3_INDEPENDENT_AUDIT`.
 - Strict-equivalence-v1: `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`.
 - Metric validity: `GO_VERSIONED_EQUIVALENCE_V2_AUDIT`.
 - Equivalence-v2 one-shot: `VALID_FAIL`, `10/57`,
@@ -14,18 +15,14 @@
 
 ## Preserved Predecessor Evidence
 
-- Source-corrected v3 remains anchored at `0ebe037...`; the active qualitative
-  high-bias probe is 15.8 V and the old 15 V bundle is historical/unexecuted.
-- S2 implementation and `7/7` bounded smoke are software evidence only.
-- Controller-v2 C1/C2 passed bounded integrity/parity. C3 stopped at `0/18`
-  intervals and `1/9` trajectories before forecast/dormant-runner votes:
-  `NO_GO_RUNTIME_PERFORMANCE_ONLY`.
-- The sole valid strict-v1 audit used frozen candidate
-  `1ae2704...`/`d3833a4...`/`39044f37...` and harness `73f7d7d1...`. It
-  completed `12/57` and fail-fast rejected plan 11 at
-  `1.4757614757614759 > 1e-12`. Do not retry or re-optimize it.
+- Source-corrected v3 (`0ebe037...`) keeps 15.8 V and an unexecuted 63/60/3
+  inventory. S2 smoke and controller C1/C2 are bounded software evidence;
+  C3 has no forecast.
+- Strict-v1 used frozen candidate `1ae2704...` and stopped at 12/57. V2 used
+  its own single attempt and stopped before voting at 10/57. Neither may be
+  retried, resumed, stitched, or re-optimized.
 
-## Single Next Decision
+## Single Next Action
 
 PR #11/12 lock 638 templates, 57 rows and unchanged record-level A/B/C rules.
 Their solver-free controls remain qualified metric evidence, not an
@@ -47,10 +44,13 @@ passed; row 9 produced `RECORD_VALIDATION_FAILURE` because 91 interval-ledger
 fields had noncanonical `scale_group` metadata. Rows 10..56 are unassessed.
 Do not retry, change rules, or restart performance work.
 
-The terminal route is `STOP_S2_ACTIVATE_GAMMA_SUB`. The only eligible next
-research decision is whether to activate the already retained fixed-rank-1
-`gamma_sub` plus calibration gate and identifiability-boundary manuscript
-route. This file does not authorize that work automatically.
+PR #14 has merged the v2 result evidence-only at `f49ac79...`. Complete the
+solver-free closure-v4 cloud gate and merge first. If and only if it passes,
+create a new independent equivalence-v3 identity, remotely anchor its frozen
+runner/registry/contract, then consume one non-retryable row-0-to-56 attempt.
+Do not splice or resume v2. A v3 `PASS` may unlock only a later runtime
+feasibility decision; a valid A/B/C failure stops implementation equivalence;
+an infrastructure failure casts no equivalence or science vote.
 
 ## Locked Side And Historical Routes
 

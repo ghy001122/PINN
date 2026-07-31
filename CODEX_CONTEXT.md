@@ -4,11 +4,10 @@
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
 - Active phase/checkpoint: `Q2_PHASE1_2P5D_REFERENCE_SOLVER` /
-  `PHASE1_V2_EQUIVALENCE_V2_ONE_SHOT_AUDIT` (`VALID_FAIL` after 10/57 rows;
-  `STOP_S2_ACTIVATE_GAMMA_SUB`, with no retry or automatic downgrade work).
-- Current contract/config:
-  `docs/codex_reports/geophase_phase1_v2_equivalence_v2_one_shot_audit.md` /
-  `configs/geophase_phase1_v2_equivalence_v2_one_shot_execution.yaml`.
+  `Q2_PHASE1_V2_LEDGER_SCHEMA_CLOSURE_AND_EQUIVALENCE_V3_INDEPENDENT_AUDIT`.
+- Current Stage-A contract/config:
+  `docs/research_strategy/phase1_v2_ledger_record_schema_closure_v4.md` /
+  `configs/geophase_phase1_v2_ledger_record_schema_closure_v4.yaml`.
 - Source contract: `configs/qiu_vo2_phase1_source_contract_v3.yaml`.
 - Active stage router: `configs/geo2p5d_stage_source_corrected_v3.yaml`.
 - Source-corrected v3 remains anchored at `0ebe037...`; the closure changes
@@ -50,12 +49,21 @@ Its sole attempt stopped at row 9 after 10 completed rows with
 metadata. Rows 10..56 are unassessed; `equivalence_v2_execution_count=1` and
 `formal_execution_count=0`.
 
+PR #14 preserved that attempt as immutable evidence and merged at `f49ac79...`.
+The separately authorized Stage A now closes only the ledger record interface:
+it mechanically maps all 252 ledger-power templates, preserves both real
+producer balance names and structural normalization groups, and executes zero
+numerical audit rows. Only after its clean-checkout CI and merge may the new,
+independent, non-retryable equivalence-v3 audit be remotely anchored and run.
+
 ## Claim Boundary
 
 Allowed: describe contracts, implemented S2, bounded smoke/C1/C2, the C3 stop,
 15.8 V source correction, qualified metric validity, and qualified history.
 
-Forbidden: Phase 1 success or scientific failure; campaign four-hour
+Forbidden: Phase 1 success or scientific failure; reinterpretation, recovery,
+or retry of v1/v2; equivalence-v3 success before its independent execution;
+campaign four-hour
 feasibility/infeasibility; memory/disk pass or failure; formal authorization;
 optimized-solver equivalence; retry or reinterpretation of the v2 attempt;
 demotion of physical lateral fluxes to telemetry;
