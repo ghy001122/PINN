@@ -8,6 +8,8 @@
 - Current Stage-A contract/config:
   `docs/research_strategy/phase1_v2_ledger_record_schema_closure_v4.md` /
   `configs/geophase_phase1_v2_ledger_record_schema_closure_v4.yaml`.
+- Consumed historical checkpoint: `PHASE1_V2_EQUIVALENCE_V2_ONE_SHOT_AUDIT`
+  (`VALID_FAIL`, immutable, no retry).
 - Source contract: `configs/qiu_vo2_phase1_source_contract_v3.yaml`.
 - Active stage router: `configs/geo2p5d_stage_source_corrected_v3.yaml`.
 - Source-corrected v3 remains anchored at `0ebe037...`; the closure changes

@@ -6,6 +6,9 @@
   `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
 - Parent checkpoint:
   `Q2_PHASE1_V2_LEDGER_SCHEMA_CLOSURE_AND_EQUIVALENCE_V3_INDEPENDENT_AUDIT`.
+- Consumed predecessor checkpoint:
+  `PHASE1_V2_EQUIVALENCE_V2_ONE_SHOT_AUDIT` (`VALID_FAIL`, no retry).
+- Consumed comparator-closure-v3 anchor: `85d5c7ba...`.
 - Strict-equivalence-v1 substate: `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`.
 - Metric-validity substate: `GO_VERSIONED_EQUIVALENCE_V2_AUDIT`.
 - R1 `HysGeo-Hybrid-PINN` remains the minimum manuscript route; R2

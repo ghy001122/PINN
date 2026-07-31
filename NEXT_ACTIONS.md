@@ -5,6 +5,8 @@
 - Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
 - Checkpoint:
   `Q2_PHASE1_V2_LEDGER_SCHEMA_CLOSURE_AND_EQUIVALENCE_V3_INDEPENDENT_AUDIT`.
+- Historical consumed checkpoint: `PHASE1_V2_EQUIVALENCE_V2_ONE_SHOT_AUDIT`
+  (`VALID_FAIL`, no retry).
 - Strict-equivalence-v1: `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`.
 - Metric validity: `GO_VERSIONED_EQUIVALENCE_V2_AUDIT`.
 - Equivalence-v2 one-shot: `VALID_FAIL`, `10/57`,
