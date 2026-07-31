@@ -9,30 +9,19 @@
   (`VALID_FAIL`, no retry).
 - Strict-equivalence-v1: `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`.
 - Metric validity: `GO_VERSIONED_EQUIVALENCE_V2_AUDIT`.
+- Source-corrected v3 anchor: `0ebe037...`.
 - Equivalence-v2 one-shot: `VALID_FAIL`, `10/57`,
   `STOP_S2_ACTIVATE_GAMMA_SUB`; no retry.
 - The 63 formal evaluations / 60 executions / 3 reuses remain
   `planned_not_executed`; `formal_execution_count=0` and formal artifacts are
   zero.
 
-## Preserved Predecessor Evidence
-
-- Source-corrected v3 (`0ebe037...`) keeps 15.8 V and an unexecuted 63/60/3
-  inventory. S2 smoke and controller C1/C2 are bounded software evidence;
-  C3 has no forecast.
-- Strict-v1 used frozen candidate `1ae2704...` and stopped at 12/57. V2 used
-  its own single attempt and stopped before voting at 10/57. Neither may be
-  retried, resumed, stitched, or re-optimized.
-
 ## Single Next Action
 
-PR #11/12 lock 638 templates, 57 rows and unchanged record-level A/B/C rules.
-Their solver-free controls remain qualified metric evidence, not an
-equivalence pass.
+PR #11/12 lock 638 templates, 57 rows and unchanged A/B/C rules; their
+solver-free controls are metric evidence, not an equivalence pass.
 
-Closure v3 is merged at `85d5c7ba...`; it fixed only dynamic-index
-completeness, grid shape, row/failure identity, exact completion and result
-tracking. Retain:
+Closure v3 merged at `85d5c7ba...`. Retain:
 
 - `1e-12` for primary fields;
 - preregistered analytic mixed bounds for physical lateral fields;
@@ -40,11 +29,9 @@ tracking. Retain:
 - no candidate, oracle, physics, controller, parameter, protocol, inventory,
   or scientific-gate change.
 
-The one-shot runner identity is anchored at `85c3709...`. The only attempt
-consumed its count and stopped at plan 9 after 10 completed rows. Rows 0..8
-passed; row 9 produced `RECORD_VALIDATION_FAILURE` because 91 interval-ledger
-fields had noncanonical `scale_group` metadata. Rows 10..56 are unassessed.
-Do not retry, change rules, or restart performance work.
+The v2 runner `85c3709...` stopped at plan 9 after 10 rows: rows 0..8 passed;
+row 9 had `RECORD_VALIDATION_FAILURE` on 91 ledger `scale_group` fields; rows
+10..56 are unassessed. Do not retry or change rules.
 
 PR #14 merged the v2 result evidence-only at `f49ac79...`; PR #15 then merged
 the solver-free closure-v4 at `3110b85...`. The independent equivalence-v3
