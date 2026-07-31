@@ -165,15 +165,23 @@ def test_equivalence_v2_machine_preregistration_is_content_addressed_and_zero() 
     assert record["formal_artifact_count"] == 0
 
 
-def test_equivalence_v2_current_route_and_fast_CI_preserve_one_shot_gate() -> None:
-    checkpoint = "PHASE1_V2_EQUIVALENCE_V2_ONE_SHOT_AUDIT"
+def test_e0_current_route_and_fast_CI_preserve_consumed_v2_gate() -> None:
+    checkpoint = "Q2_PHASE1_E0_PREFLIGHT_PENDING_FRESH_AUTHORIZATION"
+    authority_texts = []
     for path in (
         ROOT / "CODEX_CONTEXT.md",
         ROOT / "PROJECT_STATE.md",
         ROOT / "NEXT_ACTIONS.md",
         ROOT / "docs" / "research_strategy" / "active_phase.md",
     ):
-        assert checkpoint in path.read_text(encoding="utf-8")
+        text = path.read_text(encoding="utf-8")
+        authority_texts.append(text)
+        assert checkpoint in text
+
+    preserved_history = "\n".join(authority_texts)
+    assert "Equivalence-v2 remains" in preserved_history
+    assert "no retry" in preserved_history
+    assert "equivalence-v4/v5" in preserved_history.lower()
 
     workflow = (ROOT / ".github" / "workflows" / "read_only_validation.yml").read_text(
         encoding="utf-8"
