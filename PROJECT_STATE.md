@@ -55,7 +55,8 @@ not measurements or experimental validation.
 - equivalence-v3: immutable `VALID_FAIL`, 12/57; no A/B/C vote; no retry.
 - equivalence-v4/v5: forbidden.
 - Prior E0: immutable invalid runner provenance, no scientific vote.
-- S1 science remains `forbidden`/unassessed; v6-v8 remain historical
+- S1 science is `forbidden`/unassessed; interruption facts are supported
+  infrastructure provenance only. The v6-v8 route remains historical
   `failed_but_informative` evidence.
 
 ## Manuscript Route And Stop
