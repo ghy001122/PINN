@@ -35,6 +35,9 @@ from pinnpcm.solvers.geophase_phase1_v2_implicit import (
 from pinnpcm.solvers.geophase_phase1_v2_streaming_v3 import (
     run_s2_streaming_protocol_v3,
 )
+from pinnpcm.solvers.geophase_phase1_v2_controller_v3 import (
+    ControllerV3ExecutionError,
+)
 from pinnpcm.solvers.geophase_phase1_v2_streaming import fixed_scalar_sample_times
 
 
@@ -474,7 +477,11 @@ def run_controller_v3_qualification(
     except Exception as error:
         registry.update(
             {
-                "state": "INVALID_CONTROLLER_V3_QUALIFICATION",
+                "state": (
+                    "CONTROLLER_V3_CANDIDATE_REJECTED"
+                    if isinstance(error, ControllerV3ExecutionError)
+                    else "INVALID_CONTROLLER_V3_QUALIFICATION"
+                ),
                 "error_type": type(error).__name__,
                 "error_message": str(error),
             }

@@ -1,4 +1,4 @@
-"""Nonzero-drive controller-v3 with output-grid-independent integration.
+"""Nonzero-drive controller-v3 with output-independent sub-floor recovery.
 
 The inner backward-Euler solves, embedded full-step/two-half-step estimator,
 integrity gates, and numerical thresholds are inherited unchanged from
@@ -39,8 +39,10 @@ from pinnpcm.solvers.geophase_phase1_v2_implicit import (
 )
 
 
-CONTROLLER_V3_ID = "nonzero_drive_output_decoupled_controller_v3"
-FAILURE_SCHEMA_VERSION = "geophase_controller_v3_failure_attempt_v1"
+CONTROLLER_V3_ID = "nonzero_drive_output_decoupled_subfloor_recovery_controller_v3"
+CONTROLLER_V3_CANDIDATE_INDEX = 2
+SUBFLOOR_RECOVERY_MIN_FACTOR = 1.0 / 16.0
+FAILURE_SCHEMA_VERSION = "geophase_controller_v3_failure_attempt_v2"
 
 
 def _state_hash(state: S2State) -> str:
@@ -96,6 +98,7 @@ def _attempt_payload(
     target_time_s: float,
     next_discontinuity_s: float | None,
     remaining_to_target_s: float,
+    minimum_recoverable_interval_s: float,
     terminal: bool,
     terminal_reason: str | None = None,
 ) -> dict[str, Any]:
@@ -125,6 +128,8 @@ def _attempt_payload(
         "proposed_outer_interval_s": float(proposed_outer_interval_s),
         "attempted_outer_interval_s": float(attempted_outer_interval_s),
         "floor_outer_interval_s": float(floor_outer_interval_s),
+        "minimum_recoverable_interval_s": float(minimum_recoverable_interval_s),
+        "subfloor_recovery_policy": "geometric_halving_to_floor_div_16",
         "below_floor_mandatory_remainder": bool(
             observation.diagnostics.below_floor_remainder
         ),
@@ -309,6 +314,7 @@ def simulate_s2_protocol_v3(
         raise ValueError("retained_step_limit cannot be negative")
 
     maximum_H, floor_H = controller_v2_limits(config, time_divisor)
+    minimum_recoverable_H = floor_H * SUBFLOOR_RECOVERY_MIN_FACTOR
     stop = float(
         config["reference_solver"]["time_grid"]["final_time_s"]
         if final_time_s is None
@@ -345,7 +351,7 @@ def simulate_s2_protocol_v3(
     interval_wall_times: list[float] = []
     accepted_steps = rejected = 0
     embedded_rejections = integrity_rejections = 0
-    endpoint_remainders = growth_events = 0
+    endpoint_remainders = growth_events = locked_floor_failures = 0
     full_solves = half_solves = total_solves = 0
     newton_iterations = krylov = armijo = fallback_picard = fallback_steps = 0
     maximum_increment = 0.0
@@ -370,13 +376,13 @@ def simulate_s2_protocol_v3(
         proposal_H = current_H
         remaining = target - state.time_s
         H = min(proposal_H, remaining)
-        below_floor_remainder = H < floor_H - eps
         previous_state = state
         rejection_index = 0
         had_rejection = False
         interval_started = perf_counter()
 
         while True:
+            below_floor_remainder = H < floor_H - eps
             observation = attempt_s2_embedded_interval(
                 state,
                 protocol=protocol,
@@ -407,6 +413,7 @@ def simulate_s2_protocol_v3(
                 target_time_s=target,
                 next_discontinuity_s=next_discontinuity,
                 remaining_to_target_s=remaining,
+                minimum_recoverable_interval_s=minimum_recoverable_H,
                 terminal=False,
             )
             if attempt_record_callback is not None:
@@ -439,15 +446,14 @@ def simulate_s2_protocol_v3(
             integrity_failure = bool(attempt_record["rejection_class"] == "integrity_or_solver")
             integrity_rejections += int(integrity_failure)
             embedded_rejections += int(not integrity_failure)
+            locked_floor_failures += int(H <= floor_H * (1.0 + 1.0e-12))
             terminal_message: str | None = None
-            if below_floor_remainder:
-                terminal_message = "controller-v3 mandatory landing remainder failed closed"
-            elif H <= floor_H * (1.0 + 1.0e-12):
-                terminal_message = "controller-v3 failed at locked outer floor"
-            elif rejected + 1 > case_rejection_cap:
+            if rejected + 1 > case_rejection_cap:
                 terminal_message = "controller-v3 per-case rejection cap exceeded"
             elif rejection_index + 1 > rejection_cap:
                 terminal_message = "controller-v3 outer rejection cap exceeded"
+            elif H <= minimum_recoverable_H * (1.0 + 1.0e-12):
+                terminal_message = "controller-v3 sub-floor recovery exhausted"
             if terminal_message is not None:
                 _raise_terminal(
                     terminal_message,
@@ -458,7 +464,7 @@ def simulate_s2_protocol_v3(
             rejected += 1
             rejection_index += 1
             had_rejection = True
-            H = max(0.5 * H, floor_H)
+            H = max(0.5 * H, minimum_recoverable_H)
 
         interval_wall = perf_counter() - interval_started
         accepted_steps += 1
@@ -534,6 +540,7 @@ def simulate_s2_protocol_v3(
         accepted_dt_p90_s=float(np.quantile(dt_values, 0.90)) if dt_values.size else 0.0,
         embedded_error_rejections=embedded_rejections,
         integrity_rejections=integrity_rejections,
+        locked_floor_failures=locked_floor_failures,
         growth_events=growth_events,
         full_step_solves=full_solves,
         half_step_solves=half_solves,
@@ -551,8 +558,10 @@ def simulate_s2_protocol_v3(
 
 
 __all__ = [
+    "CONTROLLER_V3_CANDIDATE_INDEX",
     "CONTROLLER_V3_ID",
     "ControllerV3ExecutionError",
     "FAILURE_SCHEMA_VERSION",
+    "SUBFLOOR_RECOVERY_MIN_FACTOR",
     "simulate_s2_protocol_v3",
 ]

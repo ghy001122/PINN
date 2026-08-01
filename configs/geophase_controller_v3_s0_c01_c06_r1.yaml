@@ -5,11 +5,12 @@ evidence_type: literature-guided synthetic numerical digital-twin evidence
 
 identity:
   base_main_commit: b28aa97ccbdbc1b03b43e8deb13b3bbc35c71ead
-  controller_id: nonzero_drive_output_decoupled_controller_v3
-  controller_candidate_index: 1
-  qualification_id: CTRLV3-QUAL-20260801-V2
+  controller_id: nonzero_drive_output_decoupled_subfloor_recovery_controller_v3
+  controller_candidate_index: 2
+  qualification_id: CTRLV3-QUAL-20260801-V3
   prior_invalid_qualification_invocation: CTRLV3-QUAL-20260801-V1
-  qualification_invocation_count: 2
+  prior_rejected_controller_candidate: CTRLV3-QUAL-20260801-V2
+  qualification_invocation_count: 3
   formal_campaign_id: S0-V3-FORMAL-20260801-V1
   phase2_dataset_id: PHASE2-C01-20260801-V1
   old_s0_v1_v2_reuse: forbidden
@@ -29,8 +30,12 @@ implementation:
   outer_schedule: protocol_discontinuities_and_final_time_are_only_mandatory_landings
   fixed_output: accepted_two_half_path_piecewise_linear_state_v1
   ledger_output: accepted_fine_interval_not_interpolated
+  subfloor_recovery:
+    policy: geometric_halving_with_all_checks
+    minimum_interval: controller_floor_div_16
+    forced_acceptance: forbidden
   source_files:
-    - {path: src/pinnpcm/solvers/geophase_phase1_v2_controller_v3.py, sha256: 77de72fd5684be730a40a8f42ec9c8a40fde1427f8bb16c52c1dd5bf9db4338d}
+    - {path: src/pinnpcm/solvers/geophase_phase1_v2_controller_v3.py, sha256: 30c5658e944e800bb975920f23e79c4c01097861539cbc6402b129f14c89dc4b}
     - {path: src/pinnpcm/solvers/geophase_phase1_v2_streaming_v3.py, sha256: 0912899730183ce3fd67ac0811e8fce78f94a3990e14a6774e62447e19e8224a}
   prohibited_imports: [equivalence_runner, readiness_runner, historical_e0_runner, historical_s0_runner]
   physical_equations_changed: false
@@ -136,7 +141,7 @@ training:
     valid_seed_success_minimum: 4
 
 outputs:
-  qualification: outputs/tables/geophase_controller_v3/qualification/CTRLV3-QUAL-20260801-V2
+  qualification: outputs/tables/geophase_controller_v3/qualification/CTRLV3-QUAL-20260801-V3
   formal_s0: outputs/tables/geophase_controller_v3/formal/S0-V3-FORMAL-20260801-V1
   phase2: outputs/tables/geophase_controller_v3/phase2/PHASE2-C01-20260801-V1
   training: outputs/tables/geophase_controller_v3/training
