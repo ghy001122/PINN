@@ -23,6 +23,7 @@ from pinnpcm.evaluation.geophase_controller_v3_qualification import (
     validate_controller_v3_config,
 )
 from pinnpcm.evaluation.geophase_s0_direct_physics import ROOT
+from pinnpcm.evaluation.geophase_s0_formal_v3 import run_formal_campaign_v3
 
 
 DEFAULT_CONFIG = ROOT / "configs" / "geophase_controller_v3_s0_c01_c06_r1.yaml"
@@ -41,6 +42,7 @@ def parse_args() -> argparse.Namespace:
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("--validate-only", action="store_true")
     group.add_argument("--qualify-controller", action="store_true")
+    group.add_argument("--formal-s0", action="store_true")
     parser.add_argument("--anchor-commit", default="")
     return parser.parse_args()
 
@@ -51,11 +53,20 @@ def main() -> None:
     config = _config(config_path)
     if args.validate_only:
         result = validate_controller_v3_config(config_path)
-    else:
+    elif args.qualify_controller:
         if not args.anchor_commit:
             raise SystemExit("--qualify-controller requires --anchor-commit")
         output_root = ROOT / str(config["outputs"]["qualification"])
         result = run_controller_v3_qualification(
+            config_path=config_path,
+            output_root=output_root,
+            anchor_commit=str(args.anchor_commit),
+        )
+    else:
+        if not args.anchor_commit:
+            raise SystemExit("--formal-s0 requires --anchor-commit")
+        output_root = ROOT / str(config["outputs"]["formal_s0"])
+        result = run_formal_campaign_v3(
             config_path=config_path,
             output_root=output_root,
             anchor_commit=str(args.anchor_commit),

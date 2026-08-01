@@ -109,6 +109,9 @@ formal_s0:
   unique_execution_units: 60
   legal_reuses: 3
   formal_execution_count: 0
+  worker_count: 4
+  maximum_wall_clock_s: 86400
+  maximum_cpu_time_s: 345600
   all_required_gates_must_pass: true
 
 phase2:
