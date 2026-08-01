@@ -349,6 +349,29 @@ outputs/tables/geophase_phase1_e0/runs/E0-PREFLIGHT-20260801-V1/*
 !outputs/tables/geophase_phase1_e0/runs/E0-PREFLIGHT-20260801-V1/journal.jsonl
 !outputs/tables/geophase_phase1_e0/runs/E0-PREFLIGHT-20260801-V1/preflight_summary.json
 !outputs/tables/geophase_phase1_e0/runs/E0-PREFLIGHT-20260801-V1/registry.json
+
+# Fresh S0 direct-physics evidence.  Only the bounded smoke summary and the
+# authorized formal campaign's canonical registry, verdicts, summary, and
+# compressed per-unit raw records are tracked.
+!outputs/tables/geophase_s0_direct_physics/
+outputs/tables/geophase_s0_direct_physics/*
+!outputs/tables/geophase_s0_direct_physics/smoke/
+outputs/tables/geophase_s0_direct_physics/smoke/*
+!outputs/tables/geophase_s0_direct_physics/smoke/S0-SMOKE-20260801-V1/
+outputs/tables/geophase_s0_direct_physics/smoke/S0-SMOKE-20260801-V1/*
+!outputs/tables/geophase_s0_direct_physics/smoke/S0-SMOKE-20260801-V1/smoke_summary.json
+!outputs/tables/geophase_s0_direct_physics/formal/
+outputs/tables/geophase_s0_direct_physics/formal/*
+!outputs/tables/geophase_s0_direct_physics/formal/S0-FORMAL-20260801-V1/
+outputs/tables/geophase_s0_direct_physics/formal/S0-FORMAL-20260801-V1/*
+!outputs/tables/geophase_s0_direct_physics/formal/S0-FORMAL-20260801-V1/config_snapshot.json
+!outputs/tables/geophase_s0_direct_physics/formal/S0-FORMAL-20260801-V1/campaign_registry.json
+!outputs/tables/geophase_s0_direct_physics/formal/S0-FORMAL-20260801-V1/foundation.json
+!outputs/tables/geophase_s0_direct_physics/formal/S0-FORMAL-20260801-V1/evaluation_verdicts.csv
+!outputs/tables/geophase_s0_direct_physics/formal/S0-FORMAL-20260801-V1/s0_summary.json
+!outputs/tables/geophase_s0_direct_physics/formal/S0-FORMAL-20260801-V1/units/
+outputs/tables/geophase_s0_direct_physics/formal/S0-FORMAL-20260801-V1/units/*
+!outputs/tables/geophase_s0_direct_physics/formal/S0-FORMAL-20260801-V1/units/*.json.gz
 !outputs/tables/gamma_sub_evidence_lock_summary.json
 !outputs/tables/vo2_d0a_source_discrepancies.csv
 !outputs/tables/vo2_d0a_source_reproduction.json
