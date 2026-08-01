@@ -2,107 +2,90 @@
 
 Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
 
-Status: `stopped_invalid_second_e0_runner_defect`
+Status: `stopped_invalid_s0_after_repair_budget_exhausted`
 
 Current checkpoint:
-`Q2_PHASE1_E0_SINGLE_IMPLEMENTATION_PHYSICS_VALIDATION`
-
-Immediate checkpoint:
-`Q2_PHASE1_E0_STOP_SECOND_IMPLEMENTATION_DEFECT`
+`Q2_S0_STOP_INVALID_EXECUTION_AFTER_REPAIR_BUDGET_EXHAUSTED`
 
 ## Objective
 
-Establish the independent conservative judge required before Phase 2 or PINN:
-the Qiu-inspired VO2 real `x-y` S2 model, hysteresis, RC/terminal coupling, and
-ledgers, with discretization independent from future PINN residual code.
+Establish an independent conservative judge before Phase 2 or PINN: the
+Qiu-inspired VO2 real `x-y` S2 model with hysteresis, RC/terminal coupling,
+and complete ledgers, independently discretized from future PINN residuals.
 
-The direct-physics preflight was authorized and attempted, but no physical gate
-completed. The second runner implementation defect exhausted the registered
-one-repair budget.
+The fresh S0 goal attempted this qualification directly on one frozen
+implementation. It did not reuse E0 or equivalence execution paths.
 
-## Current Authority
+## Frozen Authority
 
-- `docs/research_strategy/pinn_phase_change_q2_sci_execution_guide.md`
-- `docs/research_strategy/phase1_e0_single_implementation_physics_validation.md`
-- `configs/geophase_phase1_e0_single_implementation_physics_validation.yaml`
-- `docs/research_strategy/phase1_geophase_2p5d_reference_v2_contract.md`
+- `configs/geophase_s0_direct_physics_qualification_v2.yaml`
 - `configs/geophase_phase1_v2_s2_reference_source_corrected_v3.yaml`
 - `configs/geophase_phase1_v2_formal_manifest_source_corrected_v3.yaml`
 - `configs/geophase_phase1_v2_execution_addendum_source_corrected_v3.yaml`
 - `configs/geophase_phase1_v2_embedded_time_controller_v2_source_corrected_v3.yaml`
 - `configs/qiu_vo2_phase1_source_contract_v3.yaml`
-- `docs/method_equations.md`
-- `NEXT_ACTIONS.md`
+- `outputs/tables/geophase_phase1_v2_source_corrected_v3/formal_evaluation_manifest.csv`
+- `outputs/tables/geophase_phase1_v2_source_corrected_v3/runtime_readiness/execution_dag.json`
 
-Historical equivalence contracts, runners, outputs, and reports are immutable
-evidence only; they cannot modify this E0 route or vote for S2 physics.
+Selected implementation origin: commit `1ae2704f...`, tree `d3833a4a...`.
+Changing implementation, physics, thresholds, protocols, or the 63/60/3 plan
+after observing results is forbidden.
 
-## Selected Implementation
+## Actual S0 Execution
 
-- Origin commit: `1ae2704f6d84a3733d9de58aa23d992aa0c471a5`.
-- Origin tree: `d3833a4a5dd067dab72c84f15fe2f8e726bd9512`.
-- Frozen identity: `39044f37...`.
-- Role: one implementation awaiting direct physical validation.
-- PR #8 equivalence: `forbidden` / unassessed and not required by E0.
-- Switching implementation after any E0 numerical result: forbidden.
-- Reuse of future PINN residual code: forbidden.
-- The activation package's former `86c32f6d...` tree label was a metadata
-  defect: that object is the preceding preregistration commit. The correction
-  was made before any E0 numerical execution and does not change solver bytes.
+### Non-voting smoke
 
-## Preserved History
+- V1: 4/4 passed.
+- After the sole runner repair, V2: 4/4 passed.
+- These are software/mechanism checks only and cast no scientific vote.
 
-- Strict-equivalence-v1 remains
-  `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`, 12/57; no retry.
-- Equivalence-v2 remains `VALID_FAIL / RECORD_VALIDATION_FAILURE`, 10/57;
-  rows 10..56 unassessed; no retry.
-- Equivalence-v3 remains `VALID_FAIL`, 12/57; plan 11 failed record-cardinality
-  validation before A/B/C voting; rows 12..56 unassessed; no retry.
-- Equivalence-v4/v5 is forbidden.
-- S1 science remains `forbidden`/unassessed. The v6-v8 material-stack route
-  remains historical `failed_but_informative` evidence.
+### Formal attempt V1
 
-## Current Evidence And Authorization
+- Terminal: `INVALID_S0_EXECUTION`.
+- Published units: 14/60.
+- Root cause: nullable zero-drive LIM axes were passed to `int()`.
+- Scientific vote: false; `formal_execution_count=0`.
+- One bounded runner repair was consumed and remotely anchored.
 
-- PR #16 merged the immutable v3 evidence at `06096e7...`.
-- S2/controller-v2 software and bounded smoke/C1/C2 evidence remain supported
-  only within their recorded scope.
-- The source-corrected 15.8 V contract and 63/60/3 scientific inventory are
-  unchanged and remain `planned_not_executed`.
-- `formal_execution_count=0`; formal artifacts are zero.
-- E0 preflight invocations: 2; valid executions: 0; completed cases: 0.
-- Sole runner repair: consumed; remaining repair budget: 0.
-- Terminal state: `INVALID_E0_EXECUTION`; scientific vote: false.
-- Formal campaign authorization: false.
-- Phase 1 science and R1-R3 remain `forbidden`/unassessed.
+### Formal attempt V2
 
-## Terminal E0 Evidence
+- Terminal: `INVALID_S0_EXECUTION`.
+- Published units: 25/60, all content-addressed and locally passing.
+- Coverage: 5 FAIL, 9 MMS, 6 LIM, and 5 zero-drive REF units.
+- First unpublished unit: `TRJ-P1V2-REF-quiescent_9V-S1T4`.
+- Trigger: `controller-v2 forced remainder failed closed`.
+- Scientific vote: false; `formal_execution_count=0`.
+- Remaining 35 execution units and aggregate 63-item gates are unassessed.
 
-- Invocation 1: invalid before dispatch because the worker call was unreachable;
-  zero registry cases and no vote.
-- After the single permitted repair and current-head CI, invocation 2 reached
-  the first foundation record but failed canonical JSON serialization on a
-  NumPy `bool_`; zero published cases and no vote.
-- Authority, journal, registry, summary, and the first-invalid-attempt record
-  are preserved in the E0 output namespace and terminal report.
+The trigger is a fail-closed numerical execution-integrity boundary. Because
+no auditable unit record was formed, it is neither a valid Phase 1 failure nor
+a physical-law vote. The repair budget is exhausted, so this goal cannot
+modify the runner/controller or retry.
 
-## Failure Rules
+## Claim And Lifecycle State
 
-- Schema, runner, environment, config, or implementation-code defects use
-  `validity: invalid` and `claim_status: forbidden`; they cast no scientific
-  vote. The one bounded repair was consumed; the second defect is terminal for
-  this goal.
-- A complete readiness failure may be `failed_but_informative` for readiness
-  only; Phase 1 science remains unassessed.
-- A performance/resource-only failure cannot falsify S2 physics; a target-
-  machine or budget change requires fresh user authorization.
-- Only a valid formal scientific-gate failure may become a Phase 1
-  `failed_but_informative` result.
+- S0 runner/control plane: `implemented`.
+- S0 attempts: `executed`, validity `invalid`.
+- S0/Phase 1 claim status: `forbidden` / unassessed.
+- Phase 2, C01, C06, OOD, and manuscript-positive PINN claims: `forbidden`.
+- Evidence type: literature-guided synthetic numerical digital-twin evidence.
+- `formal_execution_count=0`; no formal campaign result exists.
 
-These rules are prospective and do not reclassify v1/v2/v3.
+The 25 partial unit passes may be cited only as bounded unit-level provenance;
+they cannot be aggregated into a judge qualification or manuscript result.
 
-## Restrictions
+## Stop And Next Technical Bottleneck
 
-Do not rerun or repair E0 in this goal. Do not run C1/C2/C3, the 63-item formal
-campaign, Phase 2, PINN, inverse, S1/v6-v8, FEM/3D, M44, NbO2, or nonzero
-coupling; do not modify frozen GT; and do not create equivalence-v4/v5.
+No further execution is authorized. The next scientifically useful problem is
+the nonzero-drive controller forced-remainder boundary, not equivalence or
+PINN training. Reopening requires a new versioned goal that explicitly changes
+the exhausted repair policy and preregisters how controller convergence
+failures become auditable unit outcomes. No existing S0 row may be resumed or
+reused as a completed campaign.
+
+Equivalence-v2 remains immutable and non-retryable. Equivalence-v3 remains
+immutable and non-retryable.
+Equivalence-v4/v5 is forbidden (`equivalence-v4/v5`). Do not run Phase 2,
+C01/C06, C1/C2/C3,
+inverse work, S1, K-state, gamma_sub as the main route, FEM/3D, NbO2, or
+nonzero coupling.

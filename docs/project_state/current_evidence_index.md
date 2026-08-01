@@ -10,8 +10,9 @@ evidence unless provenance explicitly says otherwise.
 | --- | --- | --- |
 | Q2 ladder | `supported` governance fact | `PROJECT_GOAL.md`; execution guide |
 | Phase 0 | `supported` governance only | Phase 0 report and machine summary |
-| E0 single-implementation activation | `supported` governance/preregistration only | E0 config/contract and one frozen implementation; formal zero |
-| E0 direct-physics preflight | scientific claim `forbidden`; invalid execution provenance | Two invocations; one allowed runner repair consumed; second defect stopped canonical serialization before the first case publication; 0 completed cases, no vote, formal zero |
+| E0 single-implementation activation | `supported` historical governance/preregistration only | E0 config/contract and one frozen implementation; its invalid terminal evidence remains immutable |
+| Fresh S0 direct-physics runner | `supported` software/reproducibility fact | Independent single-implementation runner, atomic registry, content-addressed units, two 4/4 non-voting smoke runs; no equivalence/E0 runner reuse |
+| Fresh S0 direct-physics qualification | scientific claim `forbidden`; invalid execution provenance | V1 stopped invalid after 14/60 and consumed the one repair; V2 stopped invalid after 25/60 when the first nonzero-drive unit hit controller forced-remainder fail-closed before publication; no global vote, formal zero |
 | Phase 1-v2 contract | `supported` preregistration fact | S2 YAML, v2 contract, 63-item manifest, stage YAML |
 | S2 implementation/smoke | `supported` software fact | solver/tests; 7/7 non-voting smoke; formal zero |
 | Source audit | `supported` bounded provenance | no eligible holdout found; no fitting/validation |
@@ -52,7 +53,7 @@ details through the claim matrix, experiment registry, and named reports.
 
 | Candidate | Status | Required predecessor |
 | --- | --- | --- |
-| E0 bounded physical preflight | stopped; invalid and non-voting | repair budget exhausted after second runner defect; cannot be retried in this goal |
+| Fresh S0 / Phase 1 judge qualification | stopped; invalid and non-voting | repair budget exhausted; 35 units and all aggregate gates unassessed; cannot be retried in this goal |
 | Phase 1-v2 conservative reference | `forbidden` | all gates in an authorized formal campaign |
 | S1 production kernel | `forbidden` | eligible holdout, authorized ingestion, passed MVE/effect gate |
 | Nonzero dual-device coupling | `forbidden` | explicit/high-order-validated substrate coupling and independent gates |
@@ -62,7 +63,7 @@ details through the claim matrix, experiment registry, and named reports.
 
 ## Forbidden Manuscript Claims
 
-Successful or scientifically failed E0/Phase 1; campaign four-hour feasibility or
+Successful or scientifically failed E0/S0/Phase 1; campaign four-hour feasibility or
 infeasibility; Qiu quantitative reproduction; experimental validation; positive
 R1/R2; OQ/sensitivity fidelity; unique raw-parameter or arbitrary hidden-field
 recovery; full FEM/3D equivalence; universal Fourier superiority; and
@@ -76,6 +77,6 @@ VO2-to-NbO2 zero-shot transfer.
 - Strategy: canonical execution guide.
 - Claims: `docs/paper/final_claim_matrix.md`.
 - History: `docs/archive/README.md`, registries, and named reports.
-- Boundary: v1/v2/v3 remain immutable and non-retryable. E0 produced invalid
-  runner provenance only; its one repair budget is exhausted. No E0 rerun,
+- Boundary: v1/v2/v3 and prior E0 remain immutable. Fresh S0 V1/V2 produced
+  invalid provenance only; its one repair budget is exhausted. No retry,
   formal execution, Phase 2, or PINN is authorized now.

@@ -151,7 +151,7 @@ def test_current_authority_routes_to_e0_without_unlocking_downstream_work() -> N
     context = (ROOT / "CODEX_CONTEXT.md").read_text(encoding="utf-8")
     next_actions = (ROOT / "NEXT_ACTIONS.md").read_text(encoding="utf-8")
 
-    checkpoint = "Q2_PHASE1_E0_STOP_SECOND_IMPLEMENTATION_DEFECT"
+    checkpoint = "Q2_S0_STOP_INVALID_EXECUTION_AFTER_REPAIR_BUDGET_EXHAUSTED"
     assert checkpoint in active
     assert checkpoint in context
     assert checkpoint in next_actions
