@@ -7,7 +7,9 @@ identity:
   base_main_commit: b28aa97ccbdbc1b03b43e8deb13b3bbc35c71ead
   controller_id: nonzero_drive_output_decoupled_controller_v3
   controller_candidate_index: 1
-  qualification_id: CTRLV3-QUAL-20260801-V1
+  qualification_id: CTRLV3-QUAL-20260801-V2
+  prior_invalid_qualification_invocation: CTRLV3-QUAL-20260801-V1
+  qualification_invocation_count: 2
   formal_campaign_id: S0-V3-FORMAL-20260801-V1
   phase2_dataset_id: PHASE2-C01-20260801-V1
   old_s0_v1_v2_reuse: forbidden
@@ -134,7 +136,7 @@ training:
     valid_seed_success_minimum: 4
 
 outputs:
-  qualification: outputs/tables/geophase_controller_v3/qualification/CTRLV3-QUAL-20260801-V1
+  qualification: outputs/tables/geophase_controller_v3/qualification/CTRLV3-QUAL-20260801-V2
   formal_s0: outputs/tables/geophase_controller_v3/formal/S0-V3-FORMAL-20260801-V1
   phase2: outputs/tables/geophase_controller_v3/phase2/PHASE2-C01-20260801-V1
   training: outputs/tables/geophase_controller_v3/training

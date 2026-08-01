@@ -41,6 +41,7 @@ def parse_args() -> argparse.Namespace:
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("--validate-only", action="store_true")
     group.add_argument("--qualify-controller", action="store_true")
+    parser.add_argument("--anchor-commit", default="")
     return parser.parse_args()
 
 
@@ -51,9 +52,13 @@ def main() -> None:
     if args.validate_only:
         result = validate_controller_v3_config(config_path)
     else:
+        if not args.anchor_commit:
+            raise SystemExit("--qualify-controller requires --anchor-commit")
         output_root = ROOT / str(config["outputs"]["qualification"])
         result = run_controller_v3_qualification(
-            config_path=config_path, output_root=output_root
+            config_path=config_path,
+            output_root=output_root,
+            anchor_commit=str(args.anchor_commit),
         )
     print(json.dumps(result, indent=2, sort_keys=True, allow_nan=False))
 

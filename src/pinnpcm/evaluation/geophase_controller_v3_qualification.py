@@ -411,10 +411,16 @@ def _runtime_projection(
 
 
 def run_controller_v3_qualification(
-    *, config_path: Path, output_root: Path
+    *, config_path: Path, output_root: Path, anchor_commit: str
 ) -> dict[str, Any]:
     config = _load_yaml(config_path)
     authority = _validate_authority(config)
+    if len(anchor_commit) != 40 or any(
+        character not in "0123456789abcdef" for character in anchor_commit
+    ):
+        raise S0ExecutionError(
+            "controller-v3 qualification anchor must be a lowercase 40-character SHA"
+        )
     qualification = config["qualification"]
     standard_divisor = int(qualification["standard_time_divisor"])
     stricter_divisor = int(qualification["stricter_time_divisor"])
@@ -427,6 +433,7 @@ def run_controller_v3_qualification(
     registry: dict[str, Any] = {
         "schema_version": "geophase_controller_v3_qualification_registry_v1",
         "qualification_id": config["identity"]["qualification_id"],
+        "anchor_commit": anchor_commit,
         "state": "RUNNING",
         "scientific_vote": False,
         "authority_sha256": authority,
@@ -504,6 +511,7 @@ def run_controller_v3_qualification(
     summary = {
         "schema_version": "geophase_controller_v3_qualification_summary_v1",
         "qualification_id": config["identity"]["qualification_id"],
+        "anchor_commit": anchor_commit,
         "terminal_state": (
             "CONTROLLER_V3_QUALIFIED" if passed else "CONTROLLER_V3_CANDIDATE_REJECTED"
         ),
