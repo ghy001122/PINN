@@ -166,7 +166,7 @@ def test_equivalence_v2_machine_preregistration_is_content_addressed_and_zero() 
 
 
 def test_e0_current_route_and_fast_CI_preserve_consumed_v2_gate() -> None:
-    checkpoint = "Q2_PHASE1_E0_PREFLIGHT_PENDING_FRESH_AUTHORIZATION"
+    checkpoint = "Q2_PHASE1_E0_STOP_SECOND_IMPLEMENTATION_DEFECT"
     authority_texts = []
     for path in (
         ROOT / "CODEX_CONTEXT.md",

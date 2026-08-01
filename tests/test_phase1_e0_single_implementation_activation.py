@@ -151,10 +151,10 @@ def test_current_authority_routes_to_e0_without_unlocking_downstream_work() -> N
     context = (ROOT / "CODEX_CONTEXT.md").read_text(encoding="utf-8")
     next_actions = (ROOT / "NEXT_ACTIONS.md").read_text(encoding="utf-8")
 
-    checkpoint = "Q2_PHASE1_E0_PREFLIGHT_PENDING_FRESH_AUTHORIZATION"
+    checkpoint = "Q2_PHASE1_E0_STOP_SECOND_IMPLEMENTATION_DEFECT"
     assert checkpoint in active
     assert checkpoint in context
     assert checkpoint in next_actions
     assert "formal_execution_count=0" in active
     assert "equivalence-v4/v5" in active
-    assert "No numerical execution is authorized" in next_actions
+    assert "No experiment is authorized" in next_actions
