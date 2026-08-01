@@ -5,8 +5,8 @@
 - Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
 - Active checkpoint:
   `Q2_PHASE1_E0_SINGLE_IMPLEMENTATION_PHYSICS_VALIDATION`.
-- Immediate next checkpoint:
-  `Q2_PHASE1_E0_PREFLIGHT_PENDING_FRESH_AUTHORIZATION`.
+- Immediate checkpoint:
+  `Q2_PHASE1_E0_STOP_SECOND_IMPLEMENTATION_DEFECT`.
 - Activation contract:
   `configs/geophase_phase1_e0_single_implementation_physics_validation.yaml`.
 - Evidence closeout merge: PR #16 / `06096e7...`.
@@ -16,21 +16,14 @@
 
 ## Single Next Action
 
-Review the zero-computation E0 activation package. If accepted, the next task
-requires fresh user authorization for one bounded, non-voting E0 preflight.
+No experiment is authorized. Preserve and merge the terminal invalid E0
+provenance. The second runner implementation defect occurred after the sole
+permitted repair, before any completed case or scientific vote. Formal E0,
+Phase 2, C01, and diagnosis-driven upgrades remain blocked.
 
-That future preflight may evaluate only:
-
-1. source-scale and positive-coefficient identities;
-2. analytic/manufactured electrical and thermal limits;
-3. current, device-power, thermal, circuit, and combined ledgers;
-4. the locked C1 critical state and bounded C2 critical trajectory;
-5. L1/L2/L4 runtime, memory, and makespan forecast.
-
-Its maximum CPU wall time is provisionally 7200 s. A pass permits only a
-request for formal-campaign authorization. It does not unlock Phase 2 or PINN.
-
-No numerical execution is authorized in the current task.
+Any future attempt to reopen the reference-judge route would require a new goal
+that explicitly changes the exhausted repair policy; it cannot be treated as a
+continuation, retry, or scientific rescue.
 
 ## Locked Historical Routes
 
@@ -44,7 +37,7 @@ No numerical execution is authorized in the current task.
 
 ## Scope Boundary
 
-Do not run E0 preflight, C1/C2/C3, a formal campaign, PINN training, Phase 2
-generation, inverse work, source fitting/digitization, S1/v6-v8, M44, NbO2,
-FEM/3D, or nonzero dual-device coupling. Do not change the selected
+Do not repair or rerun E0; run C1/C2/C3, a formal campaign, PINN training,
+Phase 2 generation, inverse work, source fitting/digitization, S1/v6-v8, M44,
+NbO2, FEM/3D, or nonzero dual-device coupling. Do not change the selected
 implementation, S2 equations/parameters, protocols, manifest, or gates.

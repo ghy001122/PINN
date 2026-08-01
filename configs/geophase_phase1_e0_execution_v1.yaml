@@ -1,6 +1,6 @@
 schema_version: geophase_phase1_e0_execution_v1
 task_id: Q2_PHASE1_E0_TO_C01_POSITIVE_EVIDENCE
-status: bounded_runner_repair_1_frozen_pending_current_head_CI
+status: terminal_invalid_second_runner_defect_stop
 evidence_type: literature-guided synthetic numerical digital-twin evidence
 manuscript_use: >-
   Establish the independently validated 2.5D FVM judge for Figure 2 and, only
@@ -16,6 +16,7 @@ authorization:
   equivalence_v4_or_v5: forbidden
   E0_code_defect_repair_limit: 1
   E0_code_defect_repair_count: 1
+  E0_code_defect_repair_budget_remaining: 0
   C01_scientific_rescue_limit: 1
 
 authority:
@@ -52,8 +53,15 @@ preflight:
   run_id: E0-PREFLIGHT-20260801-V1
   formal: false
   formal_execution_count: 0
-  invalid_attempt_count: 1
+  invocation_count: 2
+  invalid_attempt_count: 2
+  valid_execution_count: 0
   scheduled_case_count_before_repair: 0
+  completed_case_count_after_repair: 0
+  terminal_state: INVALID_E0_EXECUTION
+  terminal_reason: numpy_bool_not_canonical_JSON_serializable
+  scientific_vote: false
+  downstream_disposition: STOP_E0_SECOND_IMPLEMENTATION_DEFECT
   profile_matrix:
     spatial_levels: [1, 2, 4]
     state_ids: [equilibrium, legal_critical, high_conductive]

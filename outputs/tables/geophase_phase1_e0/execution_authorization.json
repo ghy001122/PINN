@@ -2,14 +2,24 @@
   "CLI_source_sha256": "6de36ef494c4382d5181bb5076ec3ae068483e3379e918e94e978a8a9b302d3c",
   "authorization": "continuous_E0_and_conditional_C01_authorization_2026_08_01",
   "code_anchor_commit": "4dec78ef7ab691a599bdafcd320958e1e2049321",
-  "config_sha256": "7d4e18eb8c88d2b291e29613cd2a8e9c264022b4b5f00668af0de3486816c53d",
+  "config_sha256": "2504f3d47586d657ab72b9426b6de5ad27ccb39bbd37cc50c362a67488866055",
   "formal_execution_count": 0,
+  "preflight_completed_case_count": 0,
   "preflight_execution_count": 0,
-  "preflight_invalid_attempt_count": 1,
+  "preflight_invalid_attempt_count": 2,
+  "preflight_invocation_count": 2,
   "runner_implementation_repair_count": 1,
+  "runner_implementation_repair_limit": 1,
   "runner_source_sha256": "6ee3d475988c4f739dd7432370d4da16fbc6c2ef37ce886d9c98cf91619e6e6c",
   "schema_version": "geophase_phase1_e0_execution_authorization_v1",
-  "status": "bounded_runner_repair_1_frozen_pending_current_head_CI",
+  "scientific_vote": false,
+  "status": "terminal_invalid_second_runner_defect_stop",
   "supersedes_code_anchor_commit": "31c23251d48135308829ed7cd64d631d82acf7e5",
-  "task_id": "Q2_PHASE1_E0_TO_C01_POSITIVE_EVIDENCE"
+  "task_id": "Q2_PHASE1_E0_TO_C01_POSITIVE_EVIDENCE",
+  "terminal_evidence": {
+    "journal_sha256": "5528beb69f772332621bcb7afc39fc91b73dbde686c6b504f486d537bed4a273",
+    "preflight_summary_sha256": "79265d994fe0594a1322a88017df89206213077e14d575f8890df7d4ec285e45",
+    "registry_sha256": "44f333e6dacd9b2af97b384e83dfda523ef350a4d6ccbe07c6dcf8a9cec7b5b9",
+    "terminal_state": "INVALID_E0_EXECUTION"
+  }
 }

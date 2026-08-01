@@ -10,7 +10,8 @@ evidence unless provenance explicitly says otherwise.
 | --- | --- | --- |
 | Q2 ladder | `supported` governance fact | `PROJECT_GOAL.md`; execution guide |
 | Phase 0 | `supported` governance only | Phase 0 report and machine summary |
-| E0 single-implementation activation | `supported` governance/preregistration only | New E0 config/contract; one frozen implementation; no numerical run; formal zero |
+| E0 single-implementation activation | `supported` governance/preregistration only | E0 config/contract and one frozen implementation; formal zero |
+| E0 direct-physics preflight | scientific claim `forbidden`; invalid execution provenance | Two invocations; one allowed runner repair consumed; second defect stopped canonical serialization before the first case publication; 0 completed cases, no vote, formal zero |
 | Phase 1-v2 contract | `supported` preregistration fact | S2 YAML, v2 contract, 63-item manifest, stage YAML |
 | S2 implementation/smoke | `supported` software fact | solver/tests; 7/7 non-voting smoke; formal zero |
 | Source audit | `supported` bounded provenance | no eligible holdout found; no fitting/validation |
@@ -51,7 +52,7 @@ details through the claim matrix, experiment registry, and named reports.
 
 | Candidate | Status | Required predecessor |
 | --- | --- | --- |
-| E0 bounded physical preflight | `forbidden` as executed work; contract activated | fresh user authorization; frozen selected implementation and unchanged S2/63-item identities |
+| E0 bounded physical preflight | stopped; invalid and non-voting | repair budget exhausted after second runner defect; cannot be retried in this goal |
 | Phase 1-v2 conservative reference | `forbidden` | all gates in an authorized formal campaign |
 | S1 production kernel | `forbidden` | eligible holdout, authorized ingestion, passed MVE/effect gate |
 | Nonzero dual-device coupling | `forbidden` | explicit/high-order-validated substrate coupling and independent gates |
@@ -61,7 +62,7 @@ details through the claim matrix, experiment registry, and named reports.
 
 ## Forbidden Manuscript Claims
 
-Successful or scientifically failed Phase 1; campaign four-hour feasibility or
+Successful or scientifically failed E0/Phase 1; campaign four-hour feasibility or
 infeasibility; Qiu quantitative reproduction; experimental validation; positive
 R1/R2; OQ/sensitivity fidelity; unique raw-parameter or arbitrary hidden-field
 recovery; full FEM/3D equivalence; universal Fourier superiority; and
@@ -75,7 +76,6 @@ VO2-to-NbO2 zero-shot transfer.
 - Strategy: canonical execution guide.
 - Claims: `docs/paper/final_claim_matrix.md`.
 - History: `docs/archive/README.md`, registries, and named reports.
-- Boundary: v1/v2/v3 remain immutable and non-retryable. The E0 route does not
-  repair or extend them and makes no implementation-equivalence claim. Fresh
-  user authorization is required before the bounded E0 preflight; no numerical
-  E0, C1/C2/C3, formal execution, Phase 2, or PINN is authorized now.
+- Boundary: v1/v2/v3 remain immutable and non-retryable. E0 produced invalid
+  runner provenance only; its one repair budget is exhausted. No E0 rerun,
+  formal execution, Phase 2, or PINN is authorized now.

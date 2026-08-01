@@ -6,8 +6,8 @@
   `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
 - Active checkpoint:
   `Q2_PHASE1_E0_SINGLE_IMPLEMENTATION_PHYSICS_VALIDATION`.
-- Immediate next checkpoint:
-  `Q2_PHASE1_E0_PREFLIGHT_PENDING_FRESH_AUTHORIZATION`.
+- Immediate checkpoint:
+  `Q2_PHASE1_E0_STOP_SECOND_IMPLEMENTATION_DEFECT`.
 - PR #16 merged the immutable equivalence-v3 closeout at `06096e7...`.
 - R1 `HysGeo-Hybrid-PINN` remains the minimum manuscript route; R2
   `GeoPhase-HomoMoE-PINN` is the preferred upgrade; R3 is conditional.
@@ -23,7 +23,12 @@
 - The former `86c32f6...` tree label was corrected as a zero-computation
   metadata defect; that object is a commit, and no implementation bytes or
   scientific evidence changed.
-- No E0 numerical preflight or formal campaign is authorized.
+- The authorized E0 preflight produced two invalid invocations and no physical
+  vote. The first dispatched no case; after the sole repair, the second stopped
+  on canonical serialization of a NumPy `bool_` before publishing the first
+  foundation case.
+- E0 completed cases: 0; valid preflights: 0; `formal_execution_count=0`.
+- Formal E0, Phase 2, C01, and further E0 repair/rerun are not authorized.
 - Frozen GT v1.1 is unchanged. New scientific outputs, if later authorized,
   remain literature-guided synthetic numerical digital-twin evidence.
 
@@ -46,6 +51,7 @@
 | Item | Status | Boundary |
 | --- | --- | --- |
 | E0 activation contract | `supported` governance/preregistration fact | One implementation, unchanged 63/60/3 map, failure taxonomy, and budgets are locked; no numerical result. |
+| E0 preflight terminal | `forbidden` scientific claim; invalid execution provenance | Two invalid invocations, one permitted repair consumed, zero completed cases, no physical vote, formal zero. |
 | S2/controller software | `supported` bounded software/readiness | 7/7 smoke and historical C1/C2 integrity only; no Phase 1 vote. |
 | Strict-equivalence-v1 | `failed_but_informative` implementation result | 12/57; immutable; no S2-physics vote. |
 | Equivalence-v2 | implementation-equivalence claim `forbidden` | 10/57 record-validation fail before A/B/C; immutable. |
@@ -55,8 +61,7 @@
 
 ## Route To The Manuscript
 
-An E0 formal pass would complete the independent judge for the implemented
-real-geometry/S2/white-box/port-ledger foundation. It would then unlock:
+The intended route remains conceptually:
 
 1. C01 `HysGeo-Hybrid-PINN`;
 2. C06 homotopy-only ablation;
@@ -66,6 +71,7 @@ real-geometry/S2/white-box/port-ledger foundation. It would then unlock:
 
 ## Current Scope Boundary
 
-No numerical execution is authorized. Do not run E0, C1/C2/C3, formal, Phase
-2, PINN, inverse, S1/v6-v8, FEM/3D, M44, NbO2, or nonzero coupling; modify
-frozen GT; create equivalence-v4/v5; or claim Phase 1/Qiu/experimental success.
+The route is stopped by the registered second-defect rule. Do not rerun or
+repair E0 in this goal; run formal, Phase 2, PINN, inverse, S1/v6-v8, FEM/3D,
+M44, NbO2, or nonzero coupling; modify frozen GT; create equivalence-v4/v5; or
+claim Phase 1/Qiu/experimental success.

@@ -8,14 +8,18 @@
 - Current activation contract:
   `docs/research_strategy/phase1_e0_single_implementation_physics_validation.md` /
   `configs/geophase_phase1_e0_single_implementation_physics_validation.yaml`.
+- PR #18 merged the origin-tree identity repair at `5fe7f25d...`.
+- The authorized E0 preflight stopped invalid after its one permitted runner
+  repair; no physical gate or profile case completed.
 - Evidence closeout merge: PR #16 / `06096e7...`.
 - Source contract: `configs/qiu_vo2_phase1_source_contract_v3.yaml`.
 - S2 physics/config/63-item manifest remain unchanged.
 - R1 `HysGeo-Hybrid-PINN` is the minimum route; R2
   `GeoPhase-HomoMoE-PINN` is preferred; R3 is conditional.
 
-Phase 0 and this E0 activation are governance/preregistration evidence only;
-they produced no scientific result.
+Phase 0 and E0 activation are governance/preregistration evidence only. The
+subsequent E0 execution produced invalid software provenance, not a scientific
+result.
 
 ## Current Evidence Boundary
 
@@ -29,32 +33,35 @@ Phase 1-v2 S2 is implemented and through bounded non-voting smoke/C1/C2. Its
 formal artifacts are zero. New project outputs would be literature-guided
 synthetic numerical digital-twin evidence, not measurements.
 
+E0 preflight invocation 1 returned before dispatching a case. After the sole
+allowed repair, invocation 2 stopped at the first foundation-record
+serialization with `Object of type bool_ is not JSON serializable`. Its atomic
+registry is `INVALID_E0_EXECUTION`, completed cases are 0, and the scientific
+vote is false. The repair budget is exhausted.
+
 Strict-v1 remains `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`, 12/57. Equivalence-v2
 remains `VALID_FAIL / RECORD_VALIDATION_FAILURE`, 10/57. Equivalence-v3 remains
 `VALID_FAIL`, 12/57, with plan 11 failing record-cardinality validation before
 any A/B/C vote. All three are immutable and non-retryable.
 
-## One Active Priority
+## Current Stop
 
-The zero-computation route activation selects one frozen implementation for
-future direct physical validation. It does not claim PR #8 equivalence and does
-not repair or extend the consumed equivalence route. The selected solver will
-be judged only by source-scale, analytic/manufactured, conservation, refinement,
-topology, trend, failure-path, and resource gates after fresh authorization.
+Checkpoint: `Q2_PHASE1_E0_STOP_SECOND_IMPLEMENTATION_DEFECT`.
 
-Immediate checkpoint:
-`Q2_PHASE1_E0_PREFLIGHT_PENDING_FRESH_AUTHORIZATION`.
+The frozen implementation was not physically judged. The current goal must
+stop because the second runner defect occurred after the one permitted repair.
+No formal E0, Phase 2, C01, or diagnosis-driven module run is authorized.
 
 ## Claim Boundary
 
 Allowed now: the versioned E0 contract, selected implementation identity,
-unchanged 63/60/3 mapping, zero-computation activation, qualified history, and
-`formal_execution_count=0`.
+unchanged 63/60/3 mapping, both invalid preflight provenance records, qualified
+history, and `formal_execution_count=0`.
 
-Forbidden: any E0 numerical preflight; C1/C2/C3; formal authorization or
-execution; Phase 1 success/failure; equivalence-v1/v2/v3 reinterpretation or
-retry; equivalence-v4/v5; implementation equivalence; campaign feasibility;
-Qiu reproduction; Phase 2; positive R1/R2; OQ/sensitivity fidelity; hidden-field
+Forbidden: any E0 rerun or repair in this goal; formal execution; Phase 1
+success/failure; equivalence-v1/v2/v3 reinterpretation or retry;
+equivalence-v4/v5; implementation equivalence; campaign feasibility; Qiu
+reproduction; Phase 2; positive R1/R2; OQ/sensitivity fidelity; hidden-field
 recovery; experimental/FEM/3D validation; nonzero coupling; or VO2-to-NbO2
 transfer.
 

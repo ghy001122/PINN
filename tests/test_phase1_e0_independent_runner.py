@@ -28,6 +28,14 @@ CLI_PATH = ROOT / "scripts" / "run_geophase_phase1_e0.py"
 AUTHORIZATION_PATH = (
     ROOT / "outputs" / "tables" / "geophase_phase1_e0" / "execution_authorization.json"
 )
+TERMINAL_RUN_ROOT = (
+    ROOT
+    / "outputs"
+    / "tables"
+    / "geophase_phase1_e0"
+    / "runs"
+    / "E0-PREFLIGHT-20260801-V1"
+)
 
 
 def _sha256(path: Path) -> str:
@@ -154,6 +162,29 @@ def test_execution_authorization_binds_runner_CLI_and_config_bytes() -> None:
         "code_anchor_commit"
     ]
     assert authorization["formal_execution_count"] == 0
+
+
+def test_terminal_preflight_evidence_is_invalid_and_has_no_scientific_vote() -> None:
+    authorization = json.loads(AUTHORIZATION_PATH.read_text(encoding="utf-8"))
+    summary = json.loads(
+        (TERMINAL_RUN_ROOT / "preflight_summary.json").read_text(encoding="utf-8")
+    )
+    view = load_registry(TERMINAL_RUN_ROOT)
+
+    assert view.state == "INVALID_E0_EXECUTION"
+    assert view.registry["validity"] == "invalid"
+    assert view.registry["scientific_vote"] is False
+    assert view.published_cases == {}
+    assert len(view.events) == 3
+    assert summary["completed_case_count"] == 0
+    assert summary["formal_execution_count"] == 0
+    assert summary["scientific_vote"] is False
+    assert summary["error_class"] == "TypeError"
+    assert summary["error"] == "Object of type bool_ is not JSON serializable"
+    assert authorization["preflight_invocation_count"] == 2
+    assert authorization["preflight_invalid_attempt_count"] == 2
+    assert authorization["runner_implementation_repair_count"] == 1
+    assert authorization["runner_implementation_repair_limit"] == 1
 
 
 def test_preflight_plan_is_exact_18_plus_9_without_reordering() -> None:

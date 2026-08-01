@@ -87,7 +87,7 @@ def test_route_only_runner_validates_v3_and_cannot_execute_before_preregistratio
 
 
 def test_authority_chain_activates_e0_and_preserves_old_route_tests() -> None:
-    checkpoint = "Q2_PHASE1_E0_PREFLIGHT_PENDING_FRESH_AUTHORIZATION"
+    checkpoint = "Q2_PHASE1_E0_STOP_SECOND_IMPLEMENTATION_DEFECT"
     for path in (
         ROOT / "CODEX_CONTEXT.md",
         ROOT / "PROJECT_STATE.md",

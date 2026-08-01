@@ -2,13 +2,13 @@
 
 Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
 
-Status: `e0_single_implementation_route_activated_waiting_preflight_authorization`
+Status: `stopped_invalid_second_e0_runner_defect`
 
 Current checkpoint:
 `Q2_PHASE1_E0_SINGLE_IMPLEMENTATION_PHYSICS_VALIDATION`
 
-Immediate next checkpoint:
-`Q2_PHASE1_E0_PREFLIGHT_PENDING_FRESH_AUTHORIZATION`
+Immediate checkpoint:
+`Q2_PHASE1_E0_STOP_SECOND_IMPLEMENTATION_DEFECT`
 
 ## Objective
 
@@ -16,8 +16,9 @@ Establish the independent conservative judge required before Phase 2 or PINN:
 the Qiu-inspired VO2 real `x-y` S2 model, hysteresis, RC/terminal coupling, and
 ledgers, with discretization independent from future PINN residual code.
 
-The current task only activates a new direct-physics-validation route. It does
-not execute that validation.
+The direct-physics preflight was authorized and attempted, but no physical gate
+completed. The second runner implementation defect exhausted the registered
+one-repair budget.
 
 ## Current Authority
 
@@ -69,28 +70,28 @@ evidence only; they cannot modify this E0 route or vote for S2 physics.
 - The source-corrected 15.8 V contract and 63/60/3 scientific inventory are
   unchanged and remain `planned_not_executed`.
 - `formal_execution_count=0`; formal artifacts are zero.
-- E0 preflight authorization: false.
+- E0 preflight invocations: 2; valid executions: 0; completed cases: 0.
+- Sole runner repair: consumed; remaining repair budget: 0.
+- Terminal state: `INVALID_E0_EXECUTION`; scientific vote: false.
 - Formal campaign authorization: false.
 - Phase 1 science and R1-R3 remain `forbidden`/unassessed.
 
-## Future E0 Gate
+## Terminal E0 Evidence
 
-After fresh authorization, a bounded non-voting E0 preflight may evaluate:
-
-1. source-scale, positivity, mask, and uniform-mode identities;
-2. analytic/manufactured electrical and thermal limits;
-3. current balance, power identity, and all ledgers;
-4. locked critical-state C1 and bounded critical-trajectory C2;
-5. L1/L2/L4 runtime, RSS, and campaign forecast.
-
-Its pass disposition is only
-`READY_TO_REQUEST_FORMAL_CAMPAIGN_AUTHORIZATION`, not a Phase 1 pass.
+- Invocation 1: invalid before dispatch because the worker call was unreachable;
+  zero registry cases and no vote.
+- After the single permitted repair and current-head CI, invocation 2 reached
+  the first foundation record but failed canonical JSON serialization on a
+  NumPy `bool_`; zero published cases and no vote.
+- Authority, journal, registry, summary, and the first-invalid-attempt record
+  are preserved in the E0 output namespace and terminal report.
 
 ## Failure Rules
 
 - Schema, runner, environment, config, or implementation-code defects use
   `validity: invalid` and `claim_status: forbidden`; they cast no scientific
-  vote and allow one bounded versioned repair with a regression.
+  vote. The one bounded repair was consumed; the second defect is terminal for
+  this goal.
 - A complete readiness failure may be `failed_but_informative` for readiness
   only; Phase 1 science remains unassessed.
 - A performance/resource-only failure cannot falsify S2 physics; a target-
@@ -102,7 +103,6 @@ These rules are prospective and do not reclassify v1/v2/v3.
 
 ## Restrictions
 
-No numerical execution is authorized. Do not run E0 preflight, C1/C2/C3, the
-63-item formal campaign, Phase 2, PINN, inverse, S1/v6-v8, FEM/3D, M44, NbO2,
-or nonzero coupling; do not modify frozen GT; and do not create
-equivalence-v4/v5.
+Do not rerun or repair E0 in this goal. Do not run C1/C2/C3, the 63-item formal
+campaign, Phase 2, PINN, inverse, S1/v6-v8, FEM/3D, M44, NbO2, or nonzero
+coupling; do not modify frozen GT; and do not create equivalence-v4/v5.
