@@ -1,0 +1,134 @@
+schema_version: geophase_controller_v3_s0_c01_c06_r1_v1
+task_id: Q2_CONTROLLER_V3_S0_TO_COMPLETE_C01_C06_METHOD_AND_R1_EVIDENCE
+status: authorized_active_goal
+evidence_type: literature-guided synthetic numerical digital-twin evidence
+
+identity:
+  base_main_commit: b28aa97ccbdbc1b03b43e8deb13b3bbc35c71ead
+  controller_id: nonzero_drive_output_decoupled_controller_v3
+  controller_candidate_index: 1
+  qualification_id: CTRLV3-QUAL-20260801-V1
+  formal_campaign_id: S0-V3-FORMAL-20260801-V1
+  phase2_dataset_id: PHASE2-C01-20260801-V1
+  old_s0_v1_v2_reuse: forbidden
+  old_equivalence_or_e0_runner_reuse: forbidden
+
+frozen_authority:
+  - {path: configs/geophase_phase1_v2_s2_reference_source_corrected_v3.yaml, sha256: ea668ac66c8f2f2267b059bd816a4116def086708f2f7eeded07d64a2857aff4}
+  - {path: configs/geophase_phase1_v2_embedded_time_controller_v2_source_corrected_v3.yaml, sha256: 8da3f056a197502d01abd26ccec8f0fa7d73276da770162048607d225dc8400e}
+  - {path: configs/geophase_phase1_v2_formal_manifest_source_corrected_v3.yaml, sha256: 240e45435505626b2bfb5a71cb95d8d18b2c7e4c2a5beac8aeb7cb843bf2f739}
+  - {path: configs/geophase_phase1_v2_execution_addendum_source_corrected_v3.yaml, sha256: d7f9c3beb94036131b30431f22afca95bf3542568151094c9d53dee22185715f}
+  - {path: configs/qiu_vo2_phase1_source_contract_v3.yaml, sha256: 17a0accc906d68fffc35ee40be9d41c36bd1a7d0514e9a539cfcfd4fc4bcc621}
+  - {path: outputs/tables/geophase_phase1_v2_source_corrected_v3/formal_evaluation_manifest.csv, sha256: d48646069e16e255bb857f2bdff406315513aa2e62214be50deb8cf6919d5737}
+  - {path: outputs/tables/geophase_phase1_v2_source_corrected_v3/runtime_readiness/execution_dag.json, sha256: da93d717e0fae2fb5431457b921f901a8651bd987346f4df493a94144ded786a}
+
+implementation:
+  inner_step_and_embedded_estimator: frozen_controller_v2_full_step_two_half_step
+  outer_schedule: protocol_discontinuities_and_final_time_are_only_mandatory_landings
+  fixed_output: accepted_two_half_path_piecewise_linear_state_v1
+  ledger_output: accepted_fine_interval_not_interpolated
+  source_files:
+    - {path: src/pinnpcm/solvers/geophase_phase1_v2_controller_v3.py, sha256: 77de72fd5684be730a40a8f42ec9c8a40fde1427f8bb16c52c1dd5bf9db4338d}
+    - {path: src/pinnpcm/solvers/geophase_phase1_v2_streaming_v3.py, sha256: 0912899730183ce3fd67ac0811e8fce78f94a3990e14a6774e62447e19e8224a}
+  prohibited_imports: [equivalence_runner, readiness_runner, historical_e0_runner, historical_s0_runner]
+  physical_equations_changed: false
+  thresholds_changed: false
+
+failure_observability:
+  publish_before_terminal: true
+  fields:
+    - case_id
+    - current_time_s
+    - target_time_s
+    - next_discontinuity_s
+    - proposed_outer_interval_s
+    - attempted_outer_interval_s
+    - floor_outer_interval_s
+    - rejection_class
+    - embedded_error
+    - candidate_presence
+    - path_integrity
+    - nonlinear
+    - last_valid_state_sha256
+    - exception_message
+    - traceback
+    - replay
+
+qualification:
+  scientific_vote: false
+  fixed_output_points: 4001
+  standard_time_divisor: 1
+  stricter_time_divisor: 4
+  exact_prior_failure_time_divisor: 4
+  final_time_s: 2.0e-5
+  cases:
+    - {case_id: CTRLV3-QUAL-QUIESCENT-9V, protocol_id: quiescent_9V, spatial_level: 1}
+    - {case_id: CTRLV3-QUAL-TRANSITION-12P5V, protocol_id: transition_probe_12p5V, spatial_level: 1}
+    - {case_id: CTRLV3-QUAL-HIGH-BIAS-15P8V, protocol_id: high_bias_lock_15p8V, spatial_level: 1}
+    - {case_id: CTRLV3-QUAL-PULSE-12P5V, protocol_id: pulse_12p5V, spatial_level: 1}
+  gates:
+    all_cases_reach_final_time: true
+    ordered_unique_output_timestamps: true
+    exact_discontinuity_and_final_landing: true
+    nonfinite_forbidden: true
+    all_integrity_and_ledger_checks_required: true
+    standard_vs_stricter_terminal_current_nrmse_max: 0.01
+    standard_vs_stricter_event_time_relative_error_max: 0.01
+    dense_output_vs_stricter_port_nrmse_max: 0.005
+    branch_and_event_sequence_exact: true
+    combined_ledger_relative_residual_max: 0.01
+    projected_60_unit_wall_clock_s_max: 86400
+
+budgets:
+  controller_active_hours_max: 12
+  controller_cpu_hours_max: 48
+  controller_numerical_policies_max: 2
+  formal_s0_wall_clock_s_max: 86400
+  formal_s0_cpu_hours_max: 96
+  post_qualification_technical_repair_active_hours_max: 8
+  phase2_cpu_hours_max: 48
+  blas_threads: 1
+  openmp_threads: 1
+
+formal_s0:
+  evaluation_items: 63
+  unique_execution_units: 60
+  legal_reuses: 3
+  formal_execution_count: 0
+  all_required_gates_must_pass: true
+
+phase2:
+  nominal_contact_overlap_nm: 20
+  geometry_ood_contact_overlap_nm: [10, 30]
+  geometry_primary_aggregation: fixed_macro_average_10_30_nm
+  protocol_ood: pulse_12p5V
+  split_unit: complete_case
+  ood_leakage: forbidden
+
+training:
+  pilot_seed: 20260801
+  paired_seeds: [20260801, 20260802, 20260803, 20260804, 20260805]
+  models: [data_only_mlp, vanilla_pinn, C01_hysgeo_hybrid_pinn]
+  c06_attribution: [C01_direct, C06_T, C06_J, C06_TJ]
+  failed_seed_policy: preregistered_worst_case_penalty
+  valid_seed_success_minimum: 4
+  c06:
+    w_T_multipliers: [4.0, 2.0, 1.0]
+    joule_feedback_multipliers: [0.2, 0.5, 1.0]
+    transition_window: absolute_T_minus_branch_Tc_le_2wT
+  gates:
+    geometry_and_protocol_terminal_current_nrmse_better_than_each_baseline: true
+    geometry_ood_relative_mlp_improvement_min: 0.20
+    port_median_relative_error_max: 0.05
+    port_p95_relative_error_max: 0.10
+    event_time_median_relative_error_max: 0.05
+    combined_energy_ledger_relative_residual_max: 0.01
+    temperature_field_median_nrmse_max: 0.05
+    conductive_state_field_median_nrmse_max: 0.10
+    valid_seed_success_minimum: 4
+
+outputs:
+  qualification: outputs/tables/geophase_controller_v3/qualification/CTRLV3-QUAL-20260801-V1
+  formal_s0: outputs/tables/geophase_controller_v3/formal/S0-V3-FORMAL-20260801-V1
+  phase2: outputs/tables/geophase_controller_v3/phase2/PHASE2-C01-20260801-V1
+  training: outputs/tables/geophase_controller_v3/training

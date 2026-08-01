@@ -106,6 +106,7 @@ jobs:
           tests/test_geophase_s0_direct_physics.py
           tests/test_geophase_s0_formal.py
           tests/test_geophase_s0_terminal_evidence.py
+          tests/test_geophase_controller_v3.py
           tests/test_geophase_phase1_v2_source_corrected_performance_repair_preregistration.py
           tests/test_geophase_phase1_v2_source_corrected_performance_electrical.py
           tests/test_geophase_phase1_v2_source_corrected_performance_coupled.py
