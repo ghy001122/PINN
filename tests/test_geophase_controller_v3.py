@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 import hashlib
+import json
 from types import SimpleNamespace
 
 import numpy as np
@@ -260,3 +261,33 @@ def test_v3_qualification_rejection_metrics_remain_canonical_json_finite() -> No
     assert np.isfinite(event_penalty)
     assert penalty > 1.0
     assert event_penalty > 1.0
+
+
+def test_controller_v3_terminal_evidence_exhausts_two_policies_without_s0() -> None:
+    root = Path(__file__).resolve().parents[1]
+    summary_path = (
+        root
+        / "outputs"
+        / "tables"
+        / "geophase_controller_v3"
+        / "controller_v3_terminal_summary.json"
+    )
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+
+    assert summary["terminal_state"] == "GOAL_UNSUCCESSFUL_CONTROLLER_V3_EXHAUSTED"
+    assert summary["scientific_vote"] is False
+    assert summary["controller_policy_budget"] == {
+        "allowed": 2,
+        "consumed": 2,
+        "remaining": 0,
+    }
+    assert len(summary["candidates"]) == 2
+    assert [candidate["published_runs"] for candidate in summary["candidates"]] == [0, 0]
+    assert summary["downstream"]["fresh_s0_started"] is False
+    assert summary["downstream"]["formal_execution_count"] == 0
+    assert summary["downstream"]["c01_trained"] is False
+
+    for candidate in summary["candidates"]:
+        qualification = root / "outputs" / "tables" / "geophase_controller_v3" / "qualification" / candidate["qualification_id"]
+        failure = qualification / "failures" / "CTRLV3-QUAL-QUIESCENT-9V-T1.json"
+        assert hashlib.sha256(failure.read_bytes()).hexdigest() == candidate["failure_sha256"]
