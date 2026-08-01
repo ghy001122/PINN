@@ -40,4 +40,6 @@ This is bounded numerical-integration evidence, not experimental validation and 
 
 strict-equivalence-v1 and equivalence-v2/v3 remain immutable and non-retryable; equivalence-v4/v5 is forbidden. Historical E0/S0 outcomes remain immutable. No current experiment is authorized.
 
+S1 science is `forbidden`/unassessed; interruption facts are supported infrastructure provenance only and cast no scientific vote.
+
 The next high-value bottleneck is the shared nonzero-drive implicit-step convergence at the two frozen failure states. Reopening requires a new bounded goal and solver-level identity; it cannot be framed as qualification continuation, controller candidate 3, equivalence work, or permission to bypass S0 before C01.
