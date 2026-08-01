@@ -236,9 +236,10 @@ def test_v3_goal_config_freezes_new_identity_without_one_defect_stop_policy() ->
     assert config["qualification"]["fixed_output_points"] == 4001
     assert config["qualification"]["stricter_time_divisor"] == 4
     assert len(config["qualification"]["cases"]) == 4
-    assert config["identity"]["qualification_invocation_count"] == 3
+    assert config["identity"]["qualification_invocation_count"] == 4
     assert config["identity"]["prior_invalid_qualification_invocation"].endswith("-V1")
     assert config["identity"]["prior_rejected_controller_candidate"].endswith("-V2")
+    assert config["identity"]["prior_invalid_candidate2_invocation"].endswith("-V3")
     assert config["implementation"]["subfloor_recovery"]["forced_acceptance"] == "forbidden"
     assert [item["spatial_level"] for item in config["qualification"]["runtime_profiles"]] == [1, 2, 4]
     serialized = path.read_text(encoding="utf-8")
