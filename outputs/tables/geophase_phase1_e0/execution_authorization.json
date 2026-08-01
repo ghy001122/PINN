@@ -1,12 +1,12 @@
 {
   "CLI_source_sha256": "b069d87454795701109fcd8cfc748d88cd1cf19289f613a0fe5ab2a26e4cb205",
   "authorization": "continuous_E0_and_conditional_C01_authorization_2026_08_01",
-  "code_anchor_commit": "PENDING_REMOTE_ANCHOR",
-  "config_sha256": "d8605de648a2c0ed164df6f7e25d8676bac56367c5aac2011ad3dfea2c4e55c4",
+  "code_anchor_commit": "31c23251d48135308829ed7cd64d631d82acf7e5",
+  "config_sha256": "f0a07f46f8f3131aa92c7389a2d190876cbf0a56e9097cc3bece798588ef56f4",
   "formal_execution_count": 0,
   "preflight_execution_count": 0,
   "runner_source_sha256": "6ee3d475988c4f739dd7432370d4da16fbc6c2ef37ce886d9c98cf91619e6e6c",
   "schema_version": "geophase_phase1_e0_execution_authorization_v1",
-  "status": "prospective_pending_remote_code_anchor",
+  "status": "remote_code_anchor_frozen_pending_current_head_CI",
   "task_id": "Q2_PHASE1_E0_TO_C01_POSITIVE_EVIDENCE"
 }

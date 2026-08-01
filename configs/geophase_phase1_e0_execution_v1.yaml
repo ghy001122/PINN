@@ -1,6 +1,6 @@
 schema_version: geophase_phase1_e0_execution_v1
 task_id: Q2_PHASE1_E0_TO_C01_POSITIVE_EVIDENCE
-status: runner_implementation_pending_remote_anchor
+status: runner_identity_frozen_pending_current_head_CI
 evidence_type: literature-guided synthetic numerical digital-twin evidence
 manuscript_use: >-
   Establish the independently validated 2.5D FVM judge for Figure 2 and, only
@@ -9,7 +9,7 @@ manuscript_use: >-
 authorization:
   user_directive: continuous_E0_and_conditional_C01_authorization_2026_08_01
   PR18_merge_commit: 5fe7f25d856f66f063d488ef449af816106981d9
-  code_anchor_commit: PENDING_REMOTE_ANCHOR
+  code_anchor_commit: 31c23251d48135308829ed7cd64d631d82acf7e5
   automatic_stage_progression: true
   old_equivalence_or_readiness_runner_use: forbidden
   equivalence_v4_or_v5: forbidden
