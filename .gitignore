@@ -336,6 +336,11 @@ outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v3_independent
 !outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v3_independent_audit/normalized_records/oracle/
 outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v3_independent_audit/normalized_records/oracle/*
 !outputs/tables/geophase_phase1_v2_source_corrected_v3/equivalence_v3_independent_audit/normalized_records/oracle/*.json
+
+# Phase 1 E0 independent execution identity and authorized evidence only.
+!outputs/tables/geophase_phase1_e0/
+outputs/tables/geophase_phase1_e0/*
+!outputs/tables/geophase_phase1_e0/execution_authorization.json
 !outputs/tables/gamma_sub_evidence_lock_summary.json
 !outputs/tables/vo2_d0a_source_discrepancies.csv
 !outputs/tables/vo2_d0a_source_reproduction.json

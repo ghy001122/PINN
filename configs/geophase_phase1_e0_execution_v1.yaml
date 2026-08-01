@@ -1,0 +1,108 @@
+schema_version: geophase_phase1_e0_execution_v1
+task_id: Q2_PHASE1_E0_TO_C01_POSITIVE_EVIDENCE
+status: runner_implementation_pending_remote_anchor
+evidence_type: literature-guided synthetic numerical digital-twin evidence
+manuscript_use: >-
+  Establish the independently validated 2.5D FVM judge for Figure 2 and, only
+  after a formal E0 pass, unlock the minimal C01 HysGeo-Hybrid-PINN evidence.
+
+authorization:
+  user_directive: continuous_E0_and_conditional_C01_authorization_2026_08_01
+  PR18_merge_commit: 5fe7f25d856f66f063d488ef449af816106981d9
+  code_anchor_commit: PENDING_REMOTE_ANCHOR
+  automatic_stage_progression: true
+  old_equivalence_or_readiness_runner_use: forbidden
+  equivalence_v4_or_v5: forbidden
+  E0_code_defect_repair_limit: 1
+  C01_scientific_rescue_limit: 1
+
+authority:
+  selected_implementation_commit: 1ae2704f6d84a3733d9de58aa23d992aa0c471a5
+  selected_implementation_tree: d3833a4a5dd067dab72c84f15fe2f8e726bd9512
+  implementation_switch_after_result: forbidden
+  files:
+    - {path: configs/geophase_phase1_e0_single_implementation_physics_validation.yaml, sha256: c809e391c4c1d255c6afecd89d18a63ce3518c02c9236365ca0adcd5e0f0be9a}
+    - {path: configs/geophase_phase1_v2_s2_reference_source_corrected_v3.yaml, sha256: ea668ac66c8f2f2267b059bd816a4116def086708f2f7eeded07d64a2857aff4}
+    - {path: configs/geophase_phase1_v2_formal_manifest_source_corrected_v3.yaml, sha256: 240e45435505626b2bfb5a71cb95d8d18b2c7e4c2a5beac8aeb7cb843bf2f739}
+    - {path: configs/geophase_phase1_v2_execution_addendum_source_corrected_v3.yaml, sha256: d7f9c3beb94036131b30431f22afca95bf3542568151094c9d53dee22185715f}
+    - {path: configs/qiu_vo2_phase1_source_contract_v3.yaml, sha256: 17a0accc906d68fffc35ee40be9d41c36bd1a7d0514e9a539cfcfd4fc4bcc621}
+    - {path: configs/geophase_phase1_v2_embedded_time_controller_v2_source_corrected_v3.yaml, sha256: 8da3f056a197502d01abd26ccec8f0fa7d73276da770162048607d225dc8400e}
+    - {path: outputs/tables/geophase_phase1_v2_source_corrected_v3/formal_evaluation_manifest.json, sha256: 803e83e5c5b13ba3546b4262e4d9658be53b255188541aa60dce63d0f7174ac7}
+    - {path: outputs/tables/geophase_phase1_v2_source_corrected_v3/runtime_readiness/execution_dag.json, sha256: da93d717e0fae2fb5431457b921f901a8651bd987346f4df493a94144ded786a}
+    - {path: outputs/tables/geophase_phase1_v2_source_corrected_v3/resolved_runtime_identity.json, sha256: 9b132d16b2ccf2d9e77351ff61dc86d24d50c949679523bb47142c350ffdad91}
+    - {path: outputs/tables/geophase_phase1_v2_source_corrected_v3/performance_repair/optimized_candidate_identity.json, sha256: 39044f37c983060df48e9915c594f69fbfbeacc60eef9a32bc352bdb5ec25b10}
+    - {path: src/pinnpcm/solvers/geophase_2p5d_fvm.py, sha256: 38e00c00710a5bb443c0cfa6270f35e35060ab81a30932af33d3d058c9db0aa4}
+    - {path: src/pinnpcm/solvers/geophase_phase1_v2_implicit.py, sha256: 56e92761a7f8e9ffec0bfe2d73b7b67eca00993ff1852c219437711ee33d5a16}
+    - {path: src/pinnpcm/solvers/geophase_phase1_v2_controller_v2.py, sha256: e4332c5b103072e3de277b8788dbbf2bda48c65636cb5c1d8dd361bc9953f7ed}
+    - {path: src/pinnpcm/solvers/geophase_phase1_v2_source_corrected_performance.py, sha256: ce66cf40f266c7a8fc51d9dd2daf1e6fd49c8e6e736b45daf0ad10be57d4f379}
+    - {path: src/pinnpcm/solvers/geophase_phase1_v2_runtime.py, sha256: 0c014c82406ee2243ef1d512865091d90cb958fcb78238807d679a46236e13de}
+    - {path: src/pinnpcm/solvers/geophase_phase1_v2_streaming.py, sha256: 80ab0f1729a94074b8cfd850f4e8f8450be28c7d2d6e33382f5a7b5294dc5923}
+
+budgets:
+  preflight_wall_clock_s: 7200
+  formal_campaign_wall_clock_s: 14400
+  phase2_data_and_evaluation_cpu_wall_hours_max: 24
+  C01_total_aggregate_GPU_hours_max: 72
+  BLAS_threads: 1
+  OpenMP_threads: 1
+
+preflight:
+  run_id: E0-PREFLIGHT-20260801-V1
+  formal: false
+  formal_execution_count: 0
+  profile_matrix:
+    spatial_levels: [1, 2, 4]
+    state_ids: [equilibrium, legal_critical, high_conductive]
+    interval_classes: [base, floor]
+    protocol_by_state:
+      equilibrium: {protocol_id: zero_drive, voltage_V: 1.0}
+      legal_critical: {protocol_id: transition_probe_12p5V, voltage_V: 12.5}
+      high_conductive: {protocol_id: high_bias_lock_15p8V, voltage_V: 15.8}
+    expected_single_intervals: 18
+    expected_short_trajectories: 9
+  performance_gates:
+    safety_margin_LPT_makespan_s_max: 11520
+    unreserved_LPT_makespan_s_max: 14400
+    aggregate_worker_RSS_fraction_max: 0.70
+    disk_free_fraction_after_forecast_min: 0.20
+  pass_disposition: READY_FOR_IMMEDIATE_FORMAL_E0_CAMPAIGN
+
+formal_campaign:
+  execution_attempt_limit: 1
+  formal_execution_count: 0
+  invalid_attempt_count: 0
+  evaluation_items: 63
+  unique_execution_units: 60
+  legal_reuses: 3
+  valid_terminal_states: [PASS, VALID_SCIENTIFIC_FAIL]
+  invalid_terminal_state: INVALID_EXECUTION
+  defect_repair_pollution_rule: conservative_full_rerun_unless_scope_is_mechanically_proven
+
+C01:
+  execution_authorized_only_after_formal_E0_pass: true
+  nominal_contact_overlap_nm: 20
+  geometry_OOD_contact_overlap_nm: [10, 30]
+  geometry_primary_aggregation: fixed_10_and_30_nm_macro_average
+  protocol_OOD: pulse_12p5V
+  primary_metric: terminal_current_trajectory_NRMSE
+  paired_seeds: [20260801, 20260802, 20260803, 20260804, 20260805]
+  valid_seed_success_minimum: 4
+  failed_seed_aggregation: preregistered_worst_case_penalty
+  scientific_rescue_options: [one_budget_extension, one_diagnosis_driven_module]
+  scientific_rescue_choose_exactly_one: true
+  gates:
+    port_median_relative_error_max: 0.05
+    port_p95_relative_error_max: 0.10
+    event_time_median_relative_error_max: 0.05
+    energy_ledger_relative_residual_max: 0.01
+    geometry_OOD_relative_MLP_improvement_min: 0.20
+    geometry_and_protocol_median_NRMSE_better_than_each_baseline: true
+
+prohibitions:
+  - strict_equivalence_v1_v2_v3_rerun
+  - equivalence_v4_v5
+  - S1_or_K_state
+  - R3_inverse_or_OQ
+  - NbO2_or_FEM_or_3D
+  - nonzero_dual_device_coupling
+  - experimental_validation_claim
