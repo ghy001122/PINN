@@ -1154,8 +1154,13 @@ Claim result: multilayer forward, terminal-only rescue, low-dimensional sandwich
   consumed, and non-retryable. Equivalence-v4/v5 is forbidden.
 - Selected future E0 implementation origin commit/tree/identity:
   `1ae2704f6d84a3733d9de58aa23d992aa0c471a5` /
-  `86c32f6d80fa4beedbb83e17b96567591f777555` /
+  `d3833a4a5dd067dab72c84f15fe2f8e726bd9512` /
   `39044f37c983060df48e9915c594f69fbfbeacc60eef9a32bc352bdb5ec25b10`.
+- Zero-computation identity correction: the initial activation package
+  mislabeled preceding preregistration commit `86c32f6d...` as the origin
+  tree. Git resolves `1ae2704f...^{tree}` to `d3833a4a...`, matching the
+  immutable optimized-candidate identity. No E0 numerical result existed and
+  no implementation or historical evidence changed.
 - Selection does not support PR #8 implementation equivalence. Future E0 uses
   direct analytic, manufactured, conservation, refinement, topology, trend,
   failure-path, and resource gates.

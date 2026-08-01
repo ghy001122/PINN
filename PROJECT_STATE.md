@@ -18,8 +18,11 @@
   executions / 3 legal reuses are unchanged and `planned_not_executed`.
 - `formal_execution_count=0`; formal artifacts are zero.
 - The selected future E0 implementation originates at `1ae2704...`, tree
-  `86c32f6...`, identity `39044f37...`. It is selected for direct physical
+  `d3833a4a...`, identity `39044f37...`. It is selected for direct physical
   validation, not claimed equivalent to PR #8.
+- The former `86c32f6...` tree label was corrected as a zero-computation
+  metadata defect; that object is a commit, and no implementation bytes or
+  scientific evidence changed.
 - No E0 numerical preflight or formal campaign is authorized.
 - Frozen GT v1.1 is unchanged. New scientific outputs, if later authorized,
   remain literature-guided synthetic numerical digital-twin evidence.
