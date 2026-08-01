@@ -66,6 +66,11 @@ qualification:
     - {case_id: CTRLV3-QUAL-TRANSITION-12P5V, protocol_id: transition_probe_12p5V, spatial_level: 1}
     - {case_id: CTRLV3-QUAL-HIGH-BIAS-15P8V, protocol_id: high_bias_lock_15p8V, spatial_level: 1}
     - {case_id: CTRLV3-QUAL-PULSE-12P5V, protocol_id: pulse_12p5V, spatial_level: 1}
+  runtime_profile_worker_count_max: 4
+  runtime_profiles:
+    - {case_id: CTRLV3-PROFILE-L1, protocol_id: high_bias_lock_15p8V, spatial_level: 1, time_divisor: 4, final_time_s: 2.0e-8}
+    - {case_id: CTRLV3-PROFILE-L2, protocol_id: high_bias_lock_15p8V, spatial_level: 2, time_divisor: 4, final_time_s: 2.0e-8}
+    - {case_id: CTRLV3-PROFILE-L4, protocol_id: high_bias_lock_15p8V, spatial_level: 4, time_divisor: 4, final_time_s: 2.0e-8}
   gates:
     all_cases_reach_final_time: true
     ordered_unique_output_timestamps: true
@@ -78,6 +83,7 @@ qualification:
     branch_and_event_sequence_exact: true
     combined_ledger_relative_residual_max: 0.01
     projected_60_unit_wall_clock_s_max: 86400
+    projected_60_unit_cpu_time_s_max: 345600
 
 budgets:
   controller_active_hours_max: 12

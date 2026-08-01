@@ -35,6 +35,7 @@ from pinnpcm.solvers.geophase_phase1_v2_implicit import (
 from pinnpcm.solvers.geophase_phase1_v2_streaming_v3 import (
     run_s2_streaming_protocol_v3,
 )
+from pinnpcm.solvers.geophase_phase1_v2_streaming import fixed_scalar_sample_times
 
 
 _DAG_PATH = (
@@ -45,6 +46,8 @@ _DAG_PATH = (
     / "runtime_readiness"
     / "execution_dag.json"
 )
+
+_FINITE_REJECTION_PENALTY = 1.0e300
 
 
 def _load_yaml(path: Path) -> dict[str, Any]:
@@ -107,7 +110,7 @@ def _nrmse(observed: np.ndarray, reference: np.ndarray) -> float:
     observed = np.asarray(observed, dtype=float)
     reference = np.asarray(reference, dtype=float)
     if observed.shape != reference.shape or not np.isfinite(observed).all() or not np.isfinite(reference).all():
-        return float("inf")
+        return _FINITE_REJECTION_PENALTY
     scale = max(float(np.sqrt(np.mean(reference**2))), 1.0e-30)
     return float(np.sqrt(np.mean((observed - reference) ** 2)) / scale)
 
@@ -116,7 +119,7 @@ def _event_relative_error(observed: list[dict[str, Any]], reference: list[dict[s
     observed_directions = [str(item["direction"]) for item in observed]
     reference_directions = [str(item["direction"]) for item in reference]
     if observed_directions != reference_directions:
-        return float("inf")
+        return _FINITE_REJECTION_PENALTY
     if not reference:
         return 0.0
     differences = []
@@ -178,6 +181,7 @@ def _run_payload(
     wall_time_s = perf_counter() - started
     records = list(result.scalar_records)
     times = np.asarray([row["time_s"] for row in records], dtype=float)
+    expected_output_points = len(fixed_scalar_sample_times(scientific, final_time_s))
     discontinuities = [
         float(value)
         for value in protocol_discontinuities(protocol)
@@ -222,10 +226,10 @@ def _run_payload(
         and all(bool(row.get("branch_memory_in_declared_range", True)) for row in records)
     )
     local_pass = bool(
-        len(records) == 4001
-        and times.size == 4001
+        len(records) == expected_output_points
+        and times.size == expected_output_points
         and np.all(np.diff(times) > 0.0)
-        and len(np.unique(times)) == 4001
+        and len(np.unique(times)) == expected_output_points
         and abs(times[-1] - final_time_s) <= landing_tolerance
         and exact_landings
         and finite
@@ -252,8 +256,11 @@ def _run_payload(
         "required_landing_times_s": required_landings,
         "exact_mandatory_landings": exact_landings,
         "output_timestamp_count": len(records),
+        "expected_output_timestamp_count": expected_output_points,
         "ordered_unique_timestamps": bool(
-            times.size == 4001 and np.all(np.diff(times) > 0.0) and len(np.unique(times)) == 4001
+            times.size == expected_output_points
+            and np.all(np.diff(times) > 0.0)
+            and len(np.unique(times)) == expected_output_points
         ),
         "finite": finite,
         "integrity_pass": integrity,
@@ -315,16 +322,91 @@ def _comparison(
     }
 
 
-def _runtime_projection(run_payloads: list[Mapping[str, Any]]) -> dict[str, Any]:
+def _runtime_projection(
+    run_payloads: list[Mapping[str, Any]],
+    profile_payloads: list[Mapping[str, Any]],
+    *,
+    worker_count_max: int,
+) -> dict[str, Any]:
     strict_runs = [payload for payload in run_payloads if int(payload["time_divisor"]) == 4]
     if not strict_runs:
         raise S0ExecutionError("runtime projection requires divisor-4 qualification runs")
-    per_unit = max(float(payload["wall_time_s"]) for payload in strict_runs)
-    projected = 60.0 * per_unit
+    profiles_by_level = {
+        int(payload["spatial_level"]): payload for payload in profile_payloads
+    }
+    if set(profiles_by_level) != {1, 2, 4}:
+        raise S0ExecutionError("runtime projection requires L1/L2/L4 real-path profiles")
+    l1_profile = profiles_by_level[1]
+    l1_profile_wall = max(float(l1_profile["wall_time_s"]), 1.0e-12)
+    l1_profile_step = max(
+        float(l1_profile["diagnostics"]["step_wall_time_p90_s"]), 1.0e-12
+    )
+    max_l1_full_wall = max(float(payload["wall_time_s"]) for payload in strict_runs)
+    level_scales: dict[int, float] = {}
+    for level, payload in profiles_by_level.items():
+        wall_scale = float(payload["wall_time_s"]) / l1_profile_wall
+        step_scale = (
+            float(payload["diagnostics"]["step_wall_time_p90_s"])
+            / l1_profile_step
+        )
+        level_scales[level] = max(1.0, wall_scale, step_scale)
+
+    dag = json.loads(_DAG_PATH.read_text(encoding="utf-8"))
+    units = list(dag["execution_units"])
+    if len(units) != 60:
+        raise S0ExecutionError("runtime projection DAG no longer has 60 units")
+    unit_rows: list[dict[str, Any]] = []
+    for unit in units:
+        group = str(unit["execution_group"])
+        level = int(unit.get("spatial_level") or 1)
+        fixture = unit.get("fixture_id")
+        full_trajectory = group in {"REF", "TOP", "DUAL0"} or (
+            group == "LIM" and fixture == "zero_drive_equilibrium"
+        )
+        if full_trajectory:
+            estimate = max_l1_full_wall * level_scales[level]
+        else:
+            # One short real-path profile is deliberately conservative for
+            # manufactured, failure-control, and analytic single-call units.
+            estimate = float(profiles_by_level[level]["wall_time_s"])
+        if group == "DUAL0":
+            estimate *= 2.0
+        estimate *= 1.25
+        unit_rows.append(
+            {
+                "execution_unit_id": str(unit["execution_unit_id"]),
+                "execution_group": group,
+                "spatial_level": level,
+                "full_trajectory": full_trajectory,
+                "projected_wall_time_s": float(estimate),
+            }
+        )
+
+    worker_count = max(1, min(int(worker_count_max), int(os.cpu_count() or 1)))
+    loads = [0.0] * worker_count
+    for row in sorted(
+        unit_rows,
+        key=lambda item: (-float(item["projected_wall_time_s"]), item["execution_unit_id"]),
+    ):
+        worker = min(range(worker_count), key=lambda index: (loads[index], index))
+        row["worker"] = worker
+        row["start_s"] = loads[worker]
+        loads[worker] += float(row["projected_wall_time_s"])
+        row["finish_s"] = loads[worker]
+    projected_cpu = float(sum(float(row["projected_wall_time_s"]) for row in unit_rows))
+    projected_wall = float(max(loads))
     return {
-        "formula": "60_times_max_observed_L1_divisor4_full_protocol_wall_time",
-        "max_observed_unit_wall_time_s": per_unit,
-        "projected_60_unit_wall_time_s": projected,
+        "formula": (
+            "real_L1_full_divisor4_wall_x_empirical_L1_L2_L4_profile_scale_"
+            "x_1p25_safety_then_deterministic_LPT"
+        ),
+        "worker_count": worker_count,
+        "max_observed_L1_full_unit_wall_time_s": max_l1_full_wall,
+        "level_scales": {str(key): value for key, value in sorted(level_scales.items())},
+        "projected_60_unit_cpu_time_s": projected_cpu,
+        "projected_60_unit_wall_time_s": projected_wall,
+        "worker_loads_s": loads,
+        "unit_rows": unit_rows,
     }
 
 
@@ -352,6 +434,7 @@ def run_controller_v3_qualification(
     }
     atomic_json(output_root / "registry.json", registry)
     run_payloads: list[dict[str, Any]] = []
+    profile_payloads: list[dict[str, Any]] = []
     try:
         for case in qualification["cases"]:
             for divisor in (standard_divisor, stricter_divisor):
@@ -367,6 +450,20 @@ def run_controller_v3_qualification(
                 registry["run_hashes"][run_id] = hashes
                 atomic_json(output_root / "registry.json", registry)
                 run_payloads.append(payload)
+        for profile in qualification["runtime_profiles"]:
+            run_id = str(profile["case_id"])
+            failure_path = output_root / "failures" / f"{run_id}.json"
+            payload = _run_payload(
+                case=profile,
+                divisor=int(profile["time_divisor"]),
+                final_time_s=float(profile["final_time_s"]),
+                failure_path=failure_path,
+            )
+            payload["run_role"] = "runtime_profile"
+            hashes = _atomic_gzip_json(output_root / "profiles" / f"{run_id}.json.gz", payload)
+            registry["run_hashes"][run_id] = hashes
+            atomic_json(output_root / "registry.json", registry)
+            profile_payloads.append(payload)
     except Exception as error:
         registry.update(
             {
@@ -392,11 +489,17 @@ def run_controller_v3_qualification(
             if payload["case_id"] == case_id and payload["time_divisor"] == stricter_divisor
         )
         comparisons.append(_comparison(standard, stricter, qualification["gates"]))
-    projection = _runtime_projection(run_payloads)
+    projection = _runtime_projection(
+        run_payloads,
+        profile_payloads,
+        worker_count_max=int(qualification["runtime_profile_worker_count_max"]),
+    )
     passed = bool(
         all(item["passed"] for item in comparisons)
         and projection["projected_60_unit_wall_time_s"]
         <= float(qualification["gates"]["projected_60_unit_wall_clock_s_max"])
+        and projection["projected_60_unit_cpu_time_s"]
+        <= float(qualification["gates"]["projected_60_unit_cpu_time_s_max"])
     )
     summary = {
         "schema_version": "geophase_controller_v3_qualification_summary_v1",
@@ -406,7 +509,9 @@ def run_controller_v3_qualification(
         ),
         "scientific_vote": False,
         "controller_candidate_index": int(config["identity"]["controller_candidate_index"]),
-        "run_count": len(run_payloads),
+        "run_count": len(run_payloads) + len(profile_payloads),
+        "qualification_run_count": len(run_payloads),
+        "runtime_profile_run_count": len(profile_payloads),
         "comparisons": comparisons,
         "runtime_projection": projection,
         "all_required_gates_pass": passed,

@@ -8,6 +8,7 @@ import numpy as np
 import pytest
 import yaml
 
+from pinnpcm.evaluation import geophase_controller_v3_qualification as qualification
 from pinnpcm.evaluation.geophase_s0_direct_physics import resolved_s2_config
 from pinnpcm.physics.geophase_geometry import build_geophase_grid
 from pinnpcm.physics.geophase_s2_thermal import (
@@ -170,9 +171,22 @@ def test_v3_goal_config_freezes_new_identity_without_one_defect_stop_policy() ->
     assert config["qualification"]["fixed_output_points"] == 4001
     assert config["qualification"]["stricter_time_divisor"] == 4
     assert len(config["qualification"]["cases"]) == 4
+    assert [item["spatial_level"] for item in config["qualification"]["runtime_profiles"]] == [1, 2, 4]
     serialized = path.read_text(encoding="utf-8")
     assert "implementation_repair_limit" not in serialized
     assert "execution_attempt_limit" not in serialized
     for item in config["implementation"]["source_files"]:
         observed = hashlib.sha256((root / item["path"]).read_bytes()).hexdigest()
         assert observed == item["sha256"]
+
+
+def test_v3_qualification_rejection_metrics_remain_canonical_json_finite() -> None:
+    penalty = qualification._nrmse(np.asarray([np.nan]), np.asarray([1.0]))
+    event_penalty = qualification._event_relative_error(
+        [{"direction": "up", "crossing_time_s": 1.0}],
+        [{"direction": "down", "crossing_time_s": 1.0}],
+    )
+    assert np.isfinite(penalty)
+    assert np.isfinite(event_penalty)
+    assert penalty > 1.0
+    assert event_penalty > 1.0
