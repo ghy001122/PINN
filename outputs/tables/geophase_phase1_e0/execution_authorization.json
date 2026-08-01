@@ -1,15 +1,15 @@
 {
   "CLI_source_sha256": "6de36ef494c4382d5181bb5076ec3ae068483e3379e918e94e978a8a9b302d3c",
   "authorization": "continuous_E0_and_conditional_C01_authorization_2026_08_01",
-  "code_anchor_commit": "PENDING_REMOTE_REPAIR_ANCHOR",
-  "config_sha256": "4d1540a110f6bc92f69b1e752421a8109abbb6fd0fdad7677ca6c1d351cfa9df",
+  "code_anchor_commit": "4dec78ef7ab691a599bdafcd320958e1e2049321",
+  "config_sha256": "7d4e18eb8c88d2b291e29613cd2a8e9c264022b4b5f00668af0de3486816c53d",
   "formal_execution_count": 0,
   "preflight_execution_count": 0,
   "preflight_invalid_attempt_count": 1,
   "runner_implementation_repair_count": 1,
   "runner_source_sha256": "6ee3d475988c4f739dd7432370d4da16fbc6c2ef37ce886d9c98cf91619e6e6c",
   "schema_version": "geophase_phase1_e0_execution_authorization_v1",
-  "status": "bounded_runner_repair_1_pending_remote_anchor_and_CI",
+  "status": "bounded_runner_repair_1_frozen_pending_current_head_CI",
   "supersedes_code_anchor_commit": "31c23251d48135308829ed7cd64d631d82acf7e5",
   "task_id": "Q2_PHASE1_E0_TO_C01_POSITIVE_EVIDENCE"
 }
