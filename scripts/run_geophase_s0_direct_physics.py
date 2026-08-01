@@ -29,7 +29,7 @@ from pinnpcm.evaluation.geophase_s0_direct_physics import (
 from pinnpcm.evaluation.geophase_s0_formal import run_formal_campaign
 
 
-DEFAULT_CONFIG = ROOT / "configs" / "geophase_s0_direct_physics_qualification_v1.yaml"
+DEFAULT_CONFIG = ROOT / "configs" / "geophase_s0_direct_physics_qualification_v2.yaml"
 
 
 def validate_only(config_path: Path) -> dict[str, object]:

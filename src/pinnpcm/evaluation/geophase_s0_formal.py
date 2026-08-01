@@ -85,6 +85,11 @@ _DAG_JSON = (
     / "runtime_readiness"
     / "execution_dag.json"
 )
+_EXECUTION_ADDENDUM = (
+    ROOT
+    / "configs"
+    / "geophase_phase1_v2_execution_addendum_source_corrected_v3.yaml"
+)
 _FOUNDATION_GROUPS = {"FAIL", "MMS", "LIM"}
 
 
@@ -486,7 +491,18 @@ def _fail_fixture(unit: Mapping[str, Any]) -> dict[str, Any]:
 def _lim_payload(unit: Mapping[str, Any], *, remaining_s: float) -> dict[str, Any]:
     fixture = str(unit["fixture_id"])
     if fixture == "zero_drive_equilibrium":
-        return _run_trajectory(unit, remaining_s=remaining_s)
+        # The execution DAG intentionally stores fixture identity only for LIM
+        # rows.  Resolve its axes from the frozen execution addendum instead of
+        # assuming nullable DAG fields are directly executable.
+        addendum = load_yaml(_EXECUTION_ADDENDUM)
+        semantics = addendum["group_execution_semantics"]["LIM"]["fixtures"][fixture]
+        resolved_unit = dict(unit)
+        resolved_unit.update(
+            spatial_level=int(semantics["spatial_level"]),
+            time_divisor=int(semantics["time_divisor"]),
+            protocol_id=str(semantics["protocol"]),
+        )
+        return _run_trajectory(resolved_unit, remaining_s=remaining_s)
     grid, fields, closure, cache, config = _context(1)
     metrics: dict[str, Any]
     if fixture == "uniform_conductivity_linear_potential":

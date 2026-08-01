@@ -6,6 +6,7 @@ from pathlib import Path
 import pytest
 
 from pinnpcm.evaluation.geophase_s0_direct_physics import S0ExecutionError
+from pinnpcm.evaluation import geophase_s0_formal
 from pinnpcm.evaluation.geophase_s0_formal import execute_unit
 
 
@@ -106,3 +107,38 @@ def test_real_nontrajectory_limit_fixtures_pass(fixture: str) -> None:
 def test_unknown_group_fails_closed() -> None:
     with pytest.raises(S0ExecutionError, match="unsupported"):
         execute_unit(_unit("UNKNOWN"), remaining_s=1.0)
+
+
+def test_zero_drive_limit_resolves_nullable_dag_axes_from_frozen_addendum(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    observed: dict[str, object] = {}
+
+    def fake_trajectory(
+        unit: dict[str, object], *, remaining_s: float, overlap_m: float | None = None
+    ) -> dict[str, object]:
+        observed.update(unit)
+        return {
+            "execution_unit_id": unit["execution_unit_id"],
+            "execution_group": "LIM",
+            "validity": "valid",
+            "status": "PASS",
+            "scientific_vote": True,
+            "local_metrics": {},
+            "raw": {},
+        }
+
+    monkeypatch.setattr(geophase_s0_formal, "_run_trajectory", fake_trajectory)
+    execute_unit(
+        _unit(
+            "LIM",
+            fixture_id="zero_drive_equilibrium",
+            spatial_level=None,
+            time_divisor=None,
+            protocol_id=None,
+        ),
+        remaining_s=60.0,
+    )
+    assert observed["spatial_level"] == 1
+    assert observed["time_divisor"] == 1
+    assert observed["protocol_id"] == "zero_drive"

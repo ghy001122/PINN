@@ -21,7 +21,7 @@ from pinnpcm.evaluation.geophase_s0_direct_physics import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CONFIG = ROOT / "configs" / "geophase_s0_direct_physics_qualification_v1.yaml"
+CONFIG = ROOT / "configs" / "geophase_s0_direct_physics_qualification_v2.yaml"
 RUNNER = ROOT / "src" / "pinnpcm" / "evaluation" / "geophase_s0_direct_physics.py"
 CLI = ROOT / "scripts" / "run_geophase_s0_direct_physics.py"
 
@@ -106,6 +106,9 @@ def test_goal2_config_freezes_fresh_identity_budgets_ood_and_seeds() -> None:
     config = yaml.safe_load(CONFIG.read_text(encoding="utf-8"))
     assert config["identity"]["base_commit"] == "d1dd6921beb5614da7dedfe1e4e481b149309ed4"
     assert config["identity"]["old_e0_reuse"] == "forbidden"
+    assert config["identity"]["invalid_attempt_count"] == 1
+    assert config["identity"]["implementation_repair_count"] == 1
+    assert config["identity"]["implementation_repair_limit"] == 1
     assert config["budgets"]["smoke_wall_clock_s"] == 1800
     assert config["budgets"]["formal_campaign_wall_clock_s"] == 14400
     assert config["budgets"]["training_aggregate_gpu_hours_max"] == 72
