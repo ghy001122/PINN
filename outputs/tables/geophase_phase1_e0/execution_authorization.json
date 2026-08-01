@@ -11,6 +11,7 @@
   "runner_implementation_repair_count": 1,
   "runner_implementation_repair_limit": 1,
   "runner_source_sha256": "6ee3d475988c4f739dd7432370d4da16fbc6c2ef37ce886d9c98cf91619e6e6c",
+  "result_evidence_commit": "38abcb0060befb58ab173dc4871e98bcd6e9d596",
   "schema_version": "geophase_phase1_e0_execution_authorization_v1",
   "scientific_vote": false,
   "status": "terminal_invalid_second_runner_defect_stop",

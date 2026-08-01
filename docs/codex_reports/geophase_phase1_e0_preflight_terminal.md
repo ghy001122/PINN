@@ -16,6 +16,8 @@ started.
 - Initial runner code anchor: `31c23251d48135308829ed7cd64d631d82acf7e5`.
 - Single repair anchor: `4dec78ef7ab691a599bdafcd320958e1e2049321`.
 - Repaired current-head CI: run `30693018031`, success.
+- Immutable result evidence commit:
+  `38abcb0060befb58ab173dc4871e98bcd6e9d596`.
 - Command: `.venv/Scripts/python.exe scripts/run_geophase_phase1_e0.py --execute-preflight`.
 - Frozen budget: CPU-only, one thread, 7200 s wall-clock maximum.
 
@@ -63,3 +65,11 @@ exhausted, so no further repair or rerun is allowed in this goal.
 No Methods or Results sentence is eligible from an invalid execution. This
 report is reproducibility and reviewer-defense provenance only; it cannot be
 used as an S2 physical failure, a Phase 1 result, or evidence against PINNs.
+
+## Closeout validation
+
+- Focused E0/current-route tests: 26 passed.
+- Governance: zero failed checks; low-context budget 20,956/24,576 bytes.
+- Strict tracked JSON: 285/285 valid.
+- Frozen GT: 8/8 SHA-256 identities unchanged.
+- Staged-format check: passed.
