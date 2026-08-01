@@ -1,0 +1,3 @@
+candidate_index,controller_id,qualification_id,anchor_commit,terminal_state,published_runs,first_case_id,terminal_time_s,target_time_s,terminal_reason,scientific_vote
+1,nonzero_drive_output_decoupled_controller_v3,CTRLV3-QUAL-20260801-V2,06fb0038077e7c044a108e68c7460e57d7d91e82,INVALID_CONTROLLER_V3_QUALIFICATION,0,CTRLV3-QUAL-QUIESCENT-9V-T1,2.1094726562498093e-06,2.0e-05,controller-v3 failed at locked outer floor,false
+2,nonzero_drive_output_decoupled_subfloor_recovery_controller_v3,CTRLV3-QUAL-20260801-V4,324e23867fe963d57e10d7a1fb313dcf66bee45a,CONTROLLER_V3_CANDIDATE_REJECTED,0,CTRLV3-QUAL-QUIESCENT-9V-T1,2.2577221679678546e-06,2.0e-05,controller-v3 per-case rejection cap exceeded,false

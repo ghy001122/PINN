@@ -1,0 +1,65 @@
+{
+  "schema_version": "geophase_controller_v3_terminal_summary_v1",
+  "task_id": "Q2_CONTROLLER_V3_S0_TO_COMPLETE_C01_C06_METHOD_AND_R1_EVIDENCE",
+  "terminal_state": "GOAL_UNSUCCESSFUL_CONTROLLER_V3_EXHAUSTED",
+  "validity": "valid_controller_qualification_terminal",
+  "scientific_vote": false,
+  "evidence_type": "bounded_non_voting_controller_qualification",
+  "base_main_commit": "b28aa97ccbdbc1b03b43e8deb13b3bbc35c71ead",
+  "controller_policy_budget": {
+    "allowed": 2,
+    "consumed": 2,
+    "remaining": 0
+  },
+  "qualification_invocations": {
+    "total": 4,
+    "external_invalid_zero_publication": 2,
+    "numerically_executed": 2,
+    "qualified": 0,
+    "published_runs": 0
+  },
+  "candidates": [
+    {
+      "candidate_index": 1,
+      "controller_id": "nonzero_drive_output_decoupled_controller_v3",
+      "qualification_id": "CTRLV3-QUAL-20260801-V2",
+      "anchor_commit": "06fb0038077e7c044a108e68c7460e57d7d91e82",
+      "terminal_state": "INVALID_CONTROLLER_V3_QUALIFICATION",
+      "first_case_id": "CTRLV3-QUAL-QUIESCENT-9V-T1",
+      "terminal_time_s": 2.1094726562498093e-06,
+      "target_time_s": 2.0e-05,
+      "terminal_reason": "controller-v3 failed at locked outer floor",
+      "failure_sha256": "ae9962dbeb097ddc9f96d132ce39173273745314c0bb5382deccab1b8cf65d72",
+      "published_runs": 0,
+      "scientific_vote": false
+    },
+    {
+      "candidate_index": 2,
+      "controller_id": "nonzero_drive_output_decoupled_subfloor_recovery_controller_v3",
+      "qualification_id": "CTRLV3-QUAL-20260801-V4",
+      "anchor_commit": "324e23867fe963d57e10d7a1fb313dcf66bee45a",
+      "terminal_state": "CONTROLLER_V3_CANDIDATE_REJECTED",
+      "first_case_id": "CTRLV3-QUAL-QUIESCENT-9V-T1",
+      "terminal_time_s": 2.2577221679678546e-06,
+      "target_time_s": 2.0e-05,
+      "terminal_reason": "controller-v3 per-case rejection cap exceeded",
+      "failure_sha256": "1583208d843df67f7f68d3a3717300b54945af82ee870152ce360ae2c70ca79c",
+      "published_runs": 0,
+      "scientific_vote": false
+    }
+  ],
+  "downstream": {
+    "fresh_s0_started": false,
+    "formal_execution_count": 0,
+    "phase2_dataset_generated": false,
+    "c01_trained": false,
+    "c06_trained": false,
+    "baseline_or_ood_results": false
+  },
+  "claim_boundary": {
+    "controller_v3_qualification": "failed_but_informative",
+    "s0_phase1": "forbidden_unassessed",
+    "c01_c06_r1": "forbidden_not_executed",
+    "experimental_validation": "forbidden"
+  }
+}

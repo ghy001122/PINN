@@ -1,0 +1,12 @@
+{
+  "anchor_commit": "8d9be6d28090c158d63890c6f76e9793bdbe6608",
+  "controller_candidate_index": 2,
+  "error_message": "Invocation proactively terminated at the zero-publication boundary because the foreground host limit was shorter than the preregistered controller qualification budget",
+  "error_type": "EXTERNAL_FOREGROUND_HOST_LIMIT",
+  "qualification_id": "CTRLV3-QUAL-20260801-V3",
+  "run_hashes": {},
+  "schema_version": "geophase_controller_v3_qualification_registry_v1",
+  "scientific_vote": false,
+  "state": "INVALID_EXTERNAL_INVOCATION",
+  "valid_controller_candidate_vote": false
+}
