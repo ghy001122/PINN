@@ -83,7 +83,7 @@ def _validate_execution_anchor(config: Mapping[str, Any]) -> dict[str, Any]:
     anchor = str(authorization.get("code_anchor_commit", ""))
     if anchor != str(config["authorization"]["code_anchor_commit"]):
         raise E0ContractError("E0 code anchor differs between config and authorization")
-    if not anchor or anchor == "PENDING_REMOTE_ANCHOR":
+    if not anchor or anchor.startswith("PENDING_REMOTE_"):
         raise E0ContractError("E0 code anchor is not frozen")
     subprocess.run(
         ["git", "merge-base", "--is-ancestor", anchor, "HEAD"],
@@ -301,6 +301,13 @@ def run_preflight_worker() -> dict[str, Any]:
         for item in config["authority"]["files"]
         if item["path"].endswith("optimized_candidate_identity.json")
     )
+    return execute_preflight(
+        root=ROOT,
+        config=config,
+        output_root=OUTPUT_ROOT,
+        adapter=_SelectedImplementationAdapter(str(candidate)),
+        foundation_runner=_foundation_checks,
+    )
 
 
 def run_preflight_supervised() -> dict[str, Any]:
@@ -341,13 +348,6 @@ def run_preflight_supervised() -> dict[str, Any]:
             wall_clock_s=perf_counter() - started,
         )
     return json.loads(completed.stdout)
-    return execute_preflight(
-        root=ROOT,
-        config=config,
-        output_root=OUTPUT_ROOT,
-        adapter=_SelectedImplementationAdapter(str(candidate)),
-        foundation_runner=_foundation_checks,
-    )
 
 
 def main() -> None:

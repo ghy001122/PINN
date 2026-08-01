@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import ast
 import hashlib
+import importlib.util
 import json
 from pathlib import Path
 from typing import Any, Mapping
@@ -186,6 +187,44 @@ def test_runner_does_not_import_historical_equivalence_or_readiness_entrypoints(
         assert not any("equivalence" in item for item in imported)
         assert not any("runtime_readiness" in item for item in imported)
         assert not any("embedded_controller_readiness" in item for item in imported)
+
+
+def test_preflight_worker_dispatches_into_independent_runner(monkeypatch: pytest.MonkeyPatch) -> None:
+    spec = importlib.util.spec_from_file_location("phase1_e0_cli_regression", CLI_PATH)
+    assert spec is not None and spec.loader is not None
+    cli = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(cli)
+
+    config = {
+        "authority": {
+            "files": [
+                {
+                    "path": "optimized_candidate_identity.json",
+                    "sha256": "candidate-identity",
+                }
+            ]
+        }
+    }
+    sentinel = {"terminal_state": "PREFLIGHT_PASS"}
+    captured: dict[str, Any] = {}
+
+    monkeypatch.setattr(cli, "_apply_single_thread_environment", lambda: None)
+    monkeypatch.setattr(cli, "load_yaml", lambda _path: config)
+    monkeypatch.setattr(cli, "_validate_execution_anchor", lambda _config: {})
+
+    def fake_execute_preflight(**kwargs: Any) -> dict[str, str]:
+        captured.update(kwargs)
+        return sentinel
+
+    monkeypatch.setattr(cli, "execute_preflight", fake_execute_preflight)
+    result = cli.run_preflight_worker()
+
+    assert result is sentinel
+    assert captured["root"] == cli.ROOT
+    assert captured["config"] is config
+    assert captured["output_root"] == cli.OUTPUT_ROOT
+    assert captured["adapter"]._candidate_identity_sha256 == "candidate-identity"
+    assert captured["foundation_runner"] is cli._foundation_checks
 
 
 def test_stubbed_preflight_pass_requires_every_explicit_profile_case(tmp_path: Path) -> None:

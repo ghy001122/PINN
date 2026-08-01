@@ -1,0 +1,17 @@
+{
+  "attempt_id": "E0-PREFLIGHT-20260801-V1-INVALID-001",
+  "authority_head_sha": "ce8b90c5785615cc9cb950d743ebc310e442ddf3",
+  "case_records_published": 0,
+  "classification": "runner_implementation_defect",
+  "command": ".venv/Scripts/python.exe scripts/run_geophase_phase1_e0.py --execute-preflight",
+  "formal_execution_count": 0,
+  "invalid_attempt_count": 1,
+  "journal_entries_published": 0,
+  "observed_at_utc": "2026-08-01T08:58:55.2862565Z",
+  "preflight_execution_count": 0,
+  "reason": "run_preflight_worker returned null before execute_preflight because the dispatch call was unreachable",
+  "reported_shell_wall_time_s": 3.8,
+  "scientific_vote": false,
+  "terminal_state": "INVALID_E0_EXECUTION",
+  "validity": "invalid"
+}
