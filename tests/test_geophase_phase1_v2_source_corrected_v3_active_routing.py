@@ -86,8 +86,8 @@ def test_route_only_runner_validates_v3_and_cannot_execute_before_preregistratio
     assert "run_C1" not in runner_source
 
 
-def test_authority_chain_activates_e0_and_preserves_old_route_tests() -> None:
-    checkpoint = "Q2_PHASE1_E0_STOP_SECOND_IMPLEMENTATION_DEFECT"
+def test_authority_chain_records_terminal_s0_and_preserves_old_route_tests() -> None:
+    checkpoint = "Q2_S0_STOP_INVALID_EXECUTION_AFTER_REPAIR_BUDGET_EXHAUSTED"
     for path in (
         ROOT / "CODEX_CONTEXT.md",
         ROOT / "PROJECT_STATE.md",

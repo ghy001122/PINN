@@ -3,67 +3,65 @@
 ## Current Route
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
-- Active phase/checkpoint: `Q2_PHASE1_2P5D_REFERENCE_SOLVER` /
-  `Q2_PHASE1_E0_SINGLE_IMPLEMENTATION_PHYSICS_VALIDATION`.
-- Current activation contract:
-  `docs/research_strategy/phase1_e0_single_implementation_physics_validation.md` /
-  `configs/geophase_phase1_e0_single_implementation_physics_validation.yaml`.
-- PR #18 merged the origin-tree identity repair at `5fe7f25d...`.
-- The authorized E0 preflight stopped invalid after its one permitted runner
-  repair; no physical gate or profile case completed.
-- Evidence closeout merge: PR #16 / `06096e7...`.
-- Source contract: `configs/qiu_vo2_phase1_source_contract_v3.yaml`.
-- S2 physics/config/63-item manifest remain unchanged.
-- R1 `HysGeo-Hybrid-PINN` is the minimum route; R2
-  `GeoPhase-HomoMoE-PINN` is preferred; R3 is conditional.
+- Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
+- Terminal checkpoint:
+  `Q2_S0_STOP_INVALID_EXECUTION_AFTER_REPAIR_BUDGET_EXHAUSTED`.
+- Fresh task:
+  `Q2_S0_DIRECT_PHYSICS_QUALIFICATION_TO_C01_C06_R1_MANUSCRIPT_EVIDENCE`.
+- Base after the prior E0 closeout: `main@d1dd6921...`.
+- Result evidence commit: `adf6cc4...` on PR #20.
+- S2 physics/configuration, controller-v2, source contract, and the 63-item /
+  60-unit / 3-reuse plan remain unchanged.
+- The manuscript ladder remains R1 `HysGeo-Hybrid-PINN`, preferred R2
+  `GeoPhase-HomoMoE-PINN`, and conditional R3; none is executed or supported.
 
-Phase 0 and E0 activation are governance/preregistration evidence only. The
-subsequent E0 execution produced invalid software provenance, not a scientific
-result.
+The fresh S0 route did not reuse or rerun the old E0 or equivalence runners.
+It implemented a direct single-implementation runner, passed two 4/4
+non-voting smoke runs, and attempted the frozen formal plan under a 14,400 s
+CPU budget.
 
-## Current Evidence Boundary
+## Terminal S0 Evidence
 
-Frozen GT v1.1 is read-only. Historical `gamma_sub`, complete-PINN,
-M40/M40R/M44, OASIS, public-source, SID/OQ, S1, v6-v8 and equivalence-v1/v2/v3
-retain their exact claim-matrix boundaries and do not vote for E0, Phase 1, or
-R1-R3.
+- `S0-FORMAL-20260801-V1`: `INVALID_S0_EXECUTION`, 14/60 units published,
+  `formal_execution_count=0`, no global scientific vote. The nullable
+  zero-drive LIM axes triggered `int(None)`; the one permitted runner repair
+  resolved them mechanically from the frozen execution addendum.
+- `S0-FORMAL-20260801-V2`: `INVALID_S0_EXECUTION`, 25/60 units published,
+  `formal_execution_count=0`, no global scientific vote. The published units
+  comprise 5 FAIL controls, 9 MMS, 6 LIM, and 5 zero-drive REF units; each
+  published payload and hash is valid.
+- Before the first nonzero-drive unit could be published,
+  `TRJ-P1V2-REF-quiescent_9V-S1T4` raised
+  `controller-v2 forced remainder failed closed`.
+- The remaining 35 units and all dependent 63-item aggregate gates are
+  unassessed. No Phase 2 data, C01/vanilla/MLP training, OOD result, or
+  manuscript-positive PINN evidence was created.
 
-Phase 1-v2 S2 is implemented and through bounded non-voting smoke/C1/C2. Its
-63 formal items remain `planned_not_executed`; `formal_execution_count=0` and
-formal artifacts are zero. New project outputs would be literature-guided
-synthetic numerical digital-twin evidence, not measurements.
-
-E0 preflight invocation 1 returned before dispatching a case. After the sole
-allowed repair, invocation 2 stopped at the first foundation-record
-serialization with `Object of type bool_ is not JSON serializable`. Its atomic
-registry is `INVALID_E0_EXECUTION`, completed cases are 0, and the scientific
-vote is false. The repair budget is exhausted.
-
-Strict-v1 remains `NO_GO_EQUIVALENT_PERFORMANCE_REPAIR`, 12/57. Equivalence-v2
-remains `VALID_FAIL / RECORD_VALIDATION_FAILURE`, 10/57. Equivalence-v3 remains
-`VALID_FAIL`, 12/57, with plan 11 failing record-cardinality validation before
-any A/B/C vote. All three are immutable and non-retryable.
-
-## Current Stop
-
-Checkpoint: `Q2_PHASE1_E0_STOP_SECOND_IMPLEMENTATION_DEFECT`.
-
-The frozen implementation was not physically judged. The current goal must
-stop because the second runner defect occurred after the one permitted repair.
-No formal E0, Phase 2, C01, or diagnosis-driven module run is authorized.
+The controller exception is a fail-closed execution-integrity boundary. It is
+not a global S2 physics vote and cannot be reclassified post hoc. The one code
+repair allowed by this goal is consumed; no retry or second repair is allowed.
 
 ## Claim Boundary
 
-Allowed now: the versioned E0 contract, selected implementation identity,
-unchanged 63/60/3 mapping, both invalid preflight provenance records, qualified
-history, and `formal_execution_count=0`.
+Allowed: exact S0 execution provenance; two valid non-voting smoke results;
+the 25 content-addressed partial unit records; frozen identities; and the fact
+that the direct judge remains unqualified.
 
-Forbidden: any E0 rerun or repair in this goal; formal execution; Phase 1
-success/failure; equivalence-v1/v2/v3 reinterpretation or retry;
-equivalence-v4/v5; implementation equivalence; campaign feasibility; Qiu
-reproduction; Phase 2; positive R1/R2; OQ/sensitivity fidelity; hidden-field
-recovery; experimental/FEM/3D validation; nonzero coupling; or VO2-to-NbO2
-transfer.
+Forbidden: S0 or Phase 1 pass/fail as a global scientific result; runtime
+feasibility; C01/R1/R2 success; geometry/protocol OOD claims; Qiu quantitative
+reproduction; experiment/FEM/3D validation; or interpreting the controller
+exception as a physical-law failure.
 
-Read `docs/research_strategy/context_loading_policy.md` and
-`docs/research_strategy/context_index.md` before loading long history.
+Frozen GT v1.1 remains read-only. Strict-equivalence-v1 remains immutable.
+Equivalence-v2 remains immutable and non-retryable; equivalence-v3 does too.
+`formal_execution_count=0`.
+
+## Current Stop
+
+No experiment is authorized. A future route may be opened only by a new goal
+that explicitly addresses the nonzero-drive forced-remainder numerical-
+integration boundary and changes the exhausted repair policy. It must not be
+an equivalence audit, a continuation of either S0 attempt, or a PINN shortcut.
+
+Read `docs/research_strategy/context_loading_policy.md` before loading long
+history.
