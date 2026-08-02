@@ -24,6 +24,7 @@ from pinnpcm.physics.geophase_s2_thermal import (
 )
 from pinnpcm.solvers.geophase_nls_v1 import (
     NLS_V1_ID,
+    NLS_V1_TIME_LANDING_RELATIVE_TOLERANCE,
     NLSV1SolveError,
     advance_s2_backward_euler_nls_v1,
 )
@@ -158,7 +159,10 @@ def _run_payload(
         if initial.time_s < float(value) <= final_time_s
     ]
     required_landings = discontinuities + [float(final_time_s)]
-    landing_tolerance = max(1.0e-18, abs(final_time_s) * 1.0e-12)
+    landing_tolerance = max(
+        1.0e-18,
+        abs(final_time_s) * NLS_V1_TIME_LANDING_RELATIVE_TOLERANCE,
+    )
     exact_landings = all(
         any(abs(endpoint - target) <= landing_tolerance for endpoint in accepted_endpoints)
         for target in required_landings

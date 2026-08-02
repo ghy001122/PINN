@@ -24,7 +24,8 @@ from pinnpcm.solvers import geophase_phase1_v2_controller_v2 as controller_v2
 from pinnpcm.solvers import geophase_phase1_v2_controller_v3 as controller_v3
 
 
-NLS_V1_ID = "phase1_s2_dual_gate_nonlinear_solver_v1"
+NLS_V1_ID = "phase1_s2_dual_gate_nonlinear_solver_v1p1_endpoint_tolerance"
+NLS_V1_TIME_LANDING_RELATIVE_TOLERANCE = 1.0e-12
 
 
 @dataclass(frozen=True)
@@ -1058,7 +1059,14 @@ def simulate_s2_protocol_nls_v1(
     )
     easy_max = float(controller["growth"]["easy_error_max"])
     easy_required = int(controller["growth"]["required_consecutive_easy_intervals"])
-    eps = max(1.0e-18, abs(stop) * 1.0e-14)
+    # The public qualification gate already treats times within this relative
+    # tolerance as the same requested landing.  Reusing that tolerance here
+    # prevents a numerically meaningless sub-floor step whose ledger ratios
+    # are dominated by cancellation in a near-zero time interval.
+    eps = max(
+        1.0e-18,
+        abs(stop) * NLS_V1_TIME_LANDING_RELATIVE_TOLERANCE,
+    )
 
     state = initial_state
     current_interval = maximum_interval
@@ -1300,6 +1308,7 @@ def simulate_s2_protocol_nls_v1(
 
 __all__ = [
     "NLS_V1_ID",
+    "NLS_V1_TIME_LANDING_RELATIVE_TOLERANCE",
     "NLSV1Diagnostics",
     "NLSV1EmbeddedAttemptObservation",
     "NLSV1FixedPointIteration",

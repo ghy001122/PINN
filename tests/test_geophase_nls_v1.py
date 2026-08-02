@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+from dataclasses import replace
 import hashlib
+import json
 from pathlib import Path
 
 import numpy as np
@@ -25,6 +27,9 @@ pytestmark = [pytest.mark.phase1, pytest.mark.current]
 
 ROOT = Path(__file__).resolve().parents[1]
 GOAL_CONFIG = ROOT / "configs" / "geophase_nls_v1_s0_c01_c06_r1.yaml"
+TERMINAL_SUMMARY = (
+    ROOT / "outputs" / "tables" / "geophase_nls_v1" / "nls_v1_terminal_summary.json"
+)
 
 
 @pytest.fixture(scope="module")
@@ -239,6 +244,49 @@ def test_streaming_projection_preserves_nls_v1_identity(runtime_context) -> None
     )
 
 
+def test_final_time_landing_tolerance_skips_nonphysical_subfloor_residue(
+    runtime_context, monkeypatch
+) -> None:
+    config, grid, fields, closure = runtime_context
+    stop = 2.0e-5
+    residue = 1.73133534418779e-17
+    initial = replace(
+        implicit.initial_s2_state(grid, closure, fields, config),
+        time_s=stop - residue,
+    )
+
+    def fail_if_called(*_args, **_kwargs):
+        raise AssertionError("a within-tolerance endpoint must not invoke a solver")
+
+    monkeypatch.setattr(
+        nls,
+        "attempt_s2_embedded_interval_nls_v1",
+        fail_if_called,
+    )
+    result = nls.simulate_s2_protocol_nls_v1(
+        initial,
+        case_id="TEST-NLS-V1-ENDPOINT-TOLERANCE",
+        protocol=config["formal_protocols"]["protocols"]["quiescent_9V"],
+        protocol_id="quiescent_9V",
+        grid=grid,
+        closure=closure,
+        fields=fields,
+        config=config,
+        final_time_s=stop,
+        cache=implicit.build_s2_solver_cache(grid, fields),
+        use_equivalent_optimizations=True,
+        use_unit_voltage_scaling=True,
+    )
+
+    tolerance = max(
+        1.0e-18,
+        stop * nls.NLS_V1_TIME_LANDING_RELATIVE_TOLERANCE,
+    )
+    assert result.completed is True
+    assert result.diagnostics.accepted_steps == 0
+    assert abs(result.achieved_final_time_s - stop) <= tolerance
+
+
 def test_nls_v1_config_freezes_dual_gate_identity_and_source_hashes() -> None:
     config = yaml.safe_load(GOAL_CONFIG.read_text(encoding="utf-8"))
     assert config["identity"]["nonlinear_solver_id"] == nls.NLS_V1_ID
@@ -249,6 +297,15 @@ def test_nls_v1_config_freezes_dual_gate_identity_and_source_hashes() -> None:
     assert config["implementation"]["fallback_200_iteration_upgrade"].startswith(
         "forbidden"
     )
+    assert (
+        config["implementation"]["endpoint_landing_relative_tolerance"]
+        == nls.NLS_V1_TIME_LANDING_RELATIVE_TOLERANCE
+    )
+    assert config["implementation"]["schur_reduced_upgrade"].startswith(
+        "not_activated"
+    )
+    assert config["identity"]["qualification_id"] == "NLSV1-QUAL-20260802-V2"
+    assert config["prior_invalid_qualification"]["scientific_vote"] is False
     assert config["formal_s0"]["formal_execution_count"] == 0
     for item in (
         *config["frozen_authority"],
@@ -277,3 +334,19 @@ def test_frozen_controller_failure_states_pass_nls_v1_replay(
     assert payload["scaled_residual_inf"] <= 1.0e-8
     assert payload["fixed_point_defect_inf"] <= 1.0e-8
     assert payload["iterations"] <= 6
+
+
+def test_nls_v1_terminal_summary_preserves_fail_closed_downstream_boundary() -> None:
+    summary = json.loads(TERMINAL_SUMMARY.read_text(encoding="utf-8"))
+    run = summary["qualification_v1"]["standard_quiescent_run"]
+    assert summary["terminal_state"] == "GOAL_UNSUCCESSFUL_NLS_V1"
+    assert summary["scientific_vote"] is False
+    assert run["completed"] is False
+    assert run["stop_reason"] == "maximum_wall_clock_reached"
+    assert run["wall_time_s"] > run["per_run_wall_time_limit_s"]
+    assert summary["qualification_disposition"]["schur_eligibility_condition_met"] is False
+    assert summary["endpoint_correction"]["full_qualification_invoked"] is False
+    assert summary["downstream"]["formal_execution_count"] == 0
+    assert summary["downstream"]["phase2_dataset_generated"] is False
+    assert summary["downstream"]["c01_trained"] is False
+    assert summary["downstream"]["c06_trained"] is False

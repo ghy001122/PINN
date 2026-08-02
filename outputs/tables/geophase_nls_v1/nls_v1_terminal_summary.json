@@ -1,0 +1,118 @@
+{
+  "schema_version": "geophase_nls_v1_terminal_summary_v1",
+  "task_id": "Q2_NLS_V1_S0_TO_C01_C06_R1_COMPLETE_METHOD_EVIDENCE",
+  "terminal_state": "GOAL_UNSUCCESSFUL_NLS_V1",
+  "validity": "valid_bounded_numerical_qualification_terminal",
+  "scientific_vote": false,
+  "evidence_type": "bounded_non_voting_nonlinear_solver_qualification",
+  "base_main_commit": "42e16ff7b9abd34b5ce7272eaa74ad60d49348d3",
+  "initial_anchor_commit": "ee07846b89280fafdac18166f02ff688d8d92f58",
+  "solver": {
+    "initial_identity": "phase1_s2_dual_gate_nonlinear_solver_v1",
+    "corrected_identity": "phase1_s2_dual_gate_nonlinear_solver_v1p1_endpoint_tolerance",
+    "scaled_residual_limit": 1e-08,
+    "fixed_point_defect_limit": 1e-08,
+    "fallback_maximum_iterations": 80,
+    "fallback_200_iteration_upgrade": "not_activated",
+    "schur_reduced_upgrade": "not_activated_frozen_failure_replays_pass",
+    "endpoint_landing_relative_tolerance": 1e-12
+  },
+  "frozen_failure_state_replays": [
+    {
+      "source_path": "outputs/tables/geophase_controller_v3/qualification/CTRLV3-QUAL-20260801-V2/failures/CTRLV3-QUAL-QUIESCENT-9V-T1.json",
+      "source_sha256": "ae9962dbeb097ddc9f96d132ce39173273745314c0bb5382deccab1b8cf65d72",
+      "passed": true,
+      "iterations": 6,
+      "scaled_residual_inf": 4.884209208104767e-09,
+      "fixed_point_defect_inf": 5.008622738778001e-09
+    },
+    {
+      "source_path": "outputs/tables/geophase_controller_v3/qualification/CTRLV3-QUAL-20260801-V4/failures/CTRLV3-QUAL-QUIESCENT-9V-T1.json",
+      "source_sha256": "1583208d843df67f7f68d3a3717300b54945af82ee870152ce360ae2c70ca79c",
+      "passed": true,
+      "iterations": 4,
+      "scaled_residual_inf": 5.853515129323472e-09,
+      "fixed_point_defect_inf": 4.958286003997614e-09
+    }
+  ],
+  "qualification_v1": {
+    "qualification_id": "NLSV1-QUAL-20260802-V1",
+    "terminal_state": "INVALID_NLS_V1_QUALIFICATION",
+    "scientific_vote": false,
+    "published_run_artifacts": 1,
+    "qualified_runs": 0,
+    "standard_quiescent_run": {
+      "run_id": "NLSV1-QUAL-QUIESCENT-9V-T1",
+      "local_pass": false,
+      "completed": false,
+      "stop_reason": "maximum_wall_clock_reached",
+      "wall_time_s": 27136.618757699965,
+      "per_run_wall_time_limit_s": 21600,
+      "wall_time_limit_ratio": 1.2563249424861096,
+      "achieved_final_time_s": 1.7060156249987655e-05,
+      "requested_final_time_s": 2e-05,
+      "output_timestamp_count": 3413,
+      "expected_output_timestamp_count": 4001,
+      "accepted_steps": 61932,
+      "fallback_steps": 61383,
+      "fallback_step_fraction": 0.9911354388684364,
+      "maximum_scaled_residual_inf": 9.996601032876059e-09,
+      "maximum_fixed_point_defect_inf": 9.998639027841705e-09,
+      "finite": true,
+      "artifact_sha256": "ca311b396567c5682b0fb310049e5539e75121bdf43678ad2660b4ffc9c5b053",
+      "canonical_sha256": "834e673231c272da360b1109b48e01daf45d2b9f340ee9ae7b9478ba6dd9eeca"
+    },
+    "stricter_quiescent_failure": {
+      "run_id": "NLSV1-QUAL-QUIESCENT-9V-T4",
+      "failure_class": "endpoint_landing_tolerance_mismatch",
+      "current_time_s": 1.9999999999982688e-05,
+      "requested_final_time_s": 2e-05,
+      "remaining_to_target_s": 1.73133534418779e-17,
+      "full_step_scaled_residual_inf": 1.2596776847781368e-09,
+      "full_step_fixed_point_defect_inf": 3.1042358683563975e-09,
+      "failure_sha256": "698a44460ca13d4a4c13efd137d276992bb83836d4395631fae567c5c93eb776"
+    },
+    "registry_sha256": "7dad10e72eb51bd9f951edae0fdb80cba32b689eb76fab50c03da7ddf80fd042"
+  },
+  "endpoint_correction": {
+    "qualification_id": "NLSV1-QUAL-20260802-V2",
+    "source_hashes": {
+      "configs/geophase_nls_v1_s0_c01_c06_r1.yaml": "654de0f07a0036e9be3d716b1372f99ecf3e72c478536974a7cd6ea1a5154f0a",
+      "src/pinnpcm/solvers/geophase_nls_v1.py": "b3ed80bd95f0835b9c5342bd4fffdc68b224dbf773d58722d51f42a09a621196",
+      "src/pinnpcm/evaluation/geophase_nls_v1_qualification.py": "f567a2c835f3c66cb1f9922aa57da7b6301cdc35337bdcf78004b7f1823d37bb"
+    },
+    "focused_tests_passed": 11,
+    "full_qualification_invoked": false,
+    "reason_not_invoked": "The correction only changes within-tolerance final landing. The unaffected standard T1 path already exceeded the frozen per-run wall limit and stopped before the final-time tolerance can act; rerunning it cannot satisfy the qualification gate."
+  },
+  "qualification_disposition": {
+    "all_required_gates_pass": false,
+    "failure_class": "performance_budget_gate",
+    "failure_reason": "The required standard 9 V trajectory did not reach 20 microseconds within the frozen six-hour per-run limit.",
+    "schur_eligibility_condition_met": false,
+    "claim_status": "failed_but_informative"
+  },
+  "external_host_provenance": {
+    "invalid_zero_publication_invocations": 1,
+    "scientific_vote": false,
+    "registry_sha256": "19c70ddbdc62c9c35a99b7efd72822d2bc15e23b7e0da7ef1036a81b099dda56"
+  },
+  "downstream": {
+    "fresh_s0_started": false,
+    "formal_execution_count": 0,
+    "phase2_dataset_generated": false,
+    "mlp_trained": false,
+    "vanilla_pinn_trained": false,
+    "c01_trained": false,
+    "c06_trained": false,
+    "geometry_ood_evaluated": false,
+    "protocol_ood_evaluated": false,
+    "positive_pinn_manuscript_evidence": false
+  },
+  "claim_boundary": {
+    "nls_v1_qualification": "failed_but_informative_numerical_performance_evidence",
+    "s0_phase1": "forbidden_unassessed",
+    "c01_c06_r1": "forbidden_not_executed",
+    "experimental_validation": "forbidden"
+  }
+}

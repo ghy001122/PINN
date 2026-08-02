@@ -4,12 +4,12 @@ evidence_type: literature-guided synthetic numerical digital-twin evidence
 identity:
   base_main_commit: 42e16ff7b9abd34b5ce7272eaa74ad60d49348d3
   branch: codex/nls-v1-s0-c01-c06-r1
-  nonlinear_solver_id: phase1_s2_dual_gate_nonlinear_solver_v1
-  qualification_id: NLSV1-QUAL-20260802-V1
-  formal_s0_campaign_id: S0-NLSV1-FORMAL-20260802-V1
-  phase2_dataset_id: PHASE2-C01-NLSV1-20260802-V1
-  c01_experiment_id: C01-HYSGEO-NLSV1-20260802-V1
-  c06_experiment_id: C06-HOMOTOPY-NLSV1-20260802-V1
+  nonlinear_solver_id: phase1_s2_dual_gate_nonlinear_solver_v1p1_endpoint_tolerance
+  qualification_id: NLSV1-QUAL-20260802-V2
+  formal_s0_campaign_id: S0-NLSV1P1-FORMAL-20260802-V1
+  phase2_dataset_id: PHASE2-C01-NLSV1P1-20260802-V1
+  c01_experiment_id: C01-HYSGEO-NLSV1P1-20260802-V1
+  c06_experiment_id: C06-HOMOTOPY-NLSV1P1-20260802-V1
   historical_e0_s0_equivalence_reuse: forbidden
   controller_candidate_3_or_controller_v4: forbidden
 
@@ -26,9 +26,9 @@ frozen_authority:
 
 implementation:
   source_files:
-    - {path: src/pinnpcm/solvers/geophase_nls_v1.py, sha256: d4d9c7f58d04360feeac98c1d1cb8c5cf69024d27a5b475faf345f793f0fca8b}
+    - {path: src/pinnpcm/solvers/geophase_nls_v1.py, sha256: b3ed80bd95f0835b9c5342bd4fffdc68b224dbf773d58722d51f42a09a621196}
     - {path: src/pinnpcm/solvers/geophase_nls_v1_streaming.py, sha256: e021e05d0a2f733248dc2ddd9cfa4edf4e073fd6e9d718dee1709a5bc4929699}
-    - {path: src/pinnpcm/evaluation/geophase_nls_v1_qualification.py, sha256: e1021490740ccb2bc144293069e6b594d35f284916c7f88f10f9ad6583cbae82}
+    - {path: src/pinnpcm/evaluation/geophase_nls_v1_qualification.py, sha256: f567a2c835f3c66cb1f9922aa57da7b6301cdc35337bdcf78004b7f1823d37bb}
     - {path: scripts/run_geophase_nls_v1_qualification.py, sha256: 3d0e24c0ba1918356b77021c0595b8eb29b267f010fc8b4ee184a641b7b2214a}
   fixed_point_defect_definition: max(abs(G(x)-x)/max(abs(x),1))
   scaled_residual_definition: max_abs_frozen_scaled_residual
@@ -39,7 +39,17 @@ implementation:
   fixed_point_relaxation: 0.5
   fallback_maximum_iterations: 80
   fallback_200_iteration_upgrade: forbidden_replays_pass_within_6_iterations
-  schur_reduced_upgrade: conditional_only_if_qualification_fails
+  endpoint_landing_relative_tolerance: 1.0e-12
+  schur_reduced_upgrade: not_activated_frozen_failure_replays_pass
+
+prior_invalid_qualification:
+  qualification_id: NLSV1-QUAL-20260802-V1
+  output_path: outputs/tables/geophase_nls_v1/qualification/NLSV1-QUAL-20260802-V1
+  terminal_state: INVALID_NLS_V1_QUALIFICATION
+  published_runs: 1
+  failed_run: NLSV1-QUAL-QUIESCENT-9V-T4
+  failure_class: endpoint_landing_tolerance_mismatch
+  scientific_vote: false
 
 qualification:
   scientific_vote: false
@@ -115,7 +125,7 @@ budgets:
   training_aggregate_gpu_h_max: 96
 
 outputs:
-  qualification: outputs/tables/geophase_nls_v1/qualification/NLSV1-QUAL-20260802-V1
-  formal_s0: outputs/tables/geophase_nls_v1/formal/S0-NLSV1-FORMAL-20260802-V1
-  phase2: outputs/tables/geophase_nls_v1/phase2/PHASE2-C01-NLSV1-20260802-V1
-  training: outputs/tables/geophase_nls_v1/training/C01-C06-NLSV1-20260802-V1
+  qualification: outputs/tables/geophase_nls_v1/qualification/NLSV1-QUAL-20260802-V2
+  formal_s0: outputs/tables/geophase_nls_v1/formal/S0-NLSV1P1-FORMAL-20260802-V1
+  phase2: outputs/tables/geophase_nls_v1/phase2/PHASE2-C01-NLSV1P1-20260802-V1
+  training: outputs/tables/geophase_nls_v1/training/C01-C06-NLSV1P1-20260802-V1
