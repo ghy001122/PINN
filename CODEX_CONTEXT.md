@@ -4,35 +4,35 @@
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
 - Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Terminal checkpoint: `Q2_CONTROLLER_V3_EXHAUSTED_NO_S0`.
-- Terminal goal: `Q2_CONTROLLER_V3_S0_TO_COMPLETE_C01_C06_METHOD_AND_R1_EVIDENCE`.
-- Base: `main@b28aa97ccbdbc1b03b43e8deb13b3bbc35c71ead`.
-- Immutable controller-result evidence commit: `73dc41f81760a805cec0f768179f327c3abcbe9d` on PR #21.
+- Checkpoint: `Q2_NLS_V1_QUALIFICATION_REJECTED_NO_S0`.
+- Goal: `Q2_NLS_V1_S0_TO_C01_C06_R1_COMPLETE_METHOD_EVIDENCE`.
+- Base: `main@42e16ff7b9abd34b5ce7272eaa74ad60d49348d3`.
+- NLS-v1 anchor: `ee07846b89280fafdac18166f02ff688d8d92f58`.
+- Immutable NLS result commit: `f3b7db17126c5591569cb98839a2df3211b1fef9`.
 
-S2 equations, parameters, protocols, scientific thresholds, and the 63-item / 60-unit / 3-reuse plan were unchanged. The new controller path did not call historical E0, S0, readiness, or equivalence runners.
+S2 equations, physical parameters, protocols, controller-v2, and the 63/60/3 scientific plan were unchanged. Historical E0/S0/equivalence evidence and Frozen GT v1.1 remain read-only.
 
-The long-term manuscript ladder remains R1 `HysGeo-Hybrid-PINN`, preferred R2 `GeoPhase-HomoMoE-PINN`, and conditional R3. None is executed or supported.
+The long-term ladder remains R1 `HysGeo-Hybrid-PINN`, preferred R2 `GeoPhase-HomoMoE-PINN`, and conditional R3; none is currently executed or supported.
 
-## Controller-v3 Terminal Evidence
+## NLS-v1 Qualification Result
 
-- Candidate 1, output-decoupled controller: rejected in 9 V qualification at `2.1094726562498093e-6 s`; the implicit solve failed closed at the locked outer floor. No qualification run was published.
-- Candidate 2, bounded subfloor recovery to floor/16: rejected in the same 9 V qualification at `2.2577221679678546e-6 s`; the frozen 1000-rejection per-case cap was exceeded. No qualification run was published.
-- Invocation V1 and V3 were external zero-publication host failures and cast no numerical vote. V2 and V4 are the two numerical policy dispositions.
-- Controller policy budget: 2/2 consumed; a third policy is forbidden in this goal.
+The fallback now accepts only when both the full fixed-point defect and frozen scaled residual are at most `1e-8`. The two frozen controller-v3 failure states pass in 6 and 4 fallback iterations, respectively. The conditional Schur-reduced upgrade therefore was not activated.
 
-Terminal state: `GOAL_UNSUCCESSFUL_CONTROLLER_V3_EXHAUSTED`.
+The canonical `NLSV1-QUAL-20260802-V1` run produced one non-passing artifact. Standard 9 V T1 stopped at `1.7060156249987655e-5 s` after `27136.6188 s`, exceeding the frozen `21600 s` per-run limit; it published 3413/4001 output timestamps and did not reach 20 microseconds. In T4, a final residue of `1.73133534418779e-17 s` triggered a meaningless sub-floor ledger step. That endpoint defect was fixed under a new `v1p1` identity and covered by regression.
+
+The endpoint-only correction cannot change the T1 path before its wall-time stop. A full V2 rerun was therefore not launched: it could not satisfy the already-failed hard qualification gate and would only repeat a long run. Terminal state: `GOAL_UNSUCCESSFUL_NLS_V1`.
 
 ## Claim Boundary
 
-Controller-v3 qualification is `failed_but_informative` numerical-method evidence. It is not an S2 physics vote. Fresh S0 never started, `formal_execution_count=0`, and Phase 2, MLP, vanilla PINN, C01, C06, OOD, and R1 evidence were not created.
+NLS-v1 qualification is `failed_but_informative` bounded numerical-performance evidence. It is not an S2 physics vote. Fresh S0 never started, `formal_execution_count=0`, and Phase 2, MLP, vanilla PINN, C01, C06, OOD, and R1/R2/R3 were not executed.
 
-Allowed: exact controller identities, failure states, timestamps, hashes, and the two bounded rejection dispositions.
+Allowed: dual-gate repair behavior, frozen replay metrics, exact T1/T4 performance and endpoint evidence, and the frozen-budget rejection of this NLS-v1 qualification.
 
-Forbidden: S0/Phase 1 pass or scientific fail; runtime feasibility; positive or negative PINN conclusions; geometry/protocol OOD claims; Qiu quantitative reproduction; experimental validation; or any equivalence-v4/v5 route.
+Forbidden: S0/Phase 1 scientific PASS or FAIL; general campaign infeasibility; positive or negative PINN conclusions; Qiu quantitative reproduction; experimental validation; or equivalence-v4/v5.
 
 ## Current Stop
 
-No experiment is authorized. The next useful goal, if opened, is a bounded nonzero-drive implicit-solver convergence study using the two immutable failure states. It must not resume this qualification, add a third controller-v3 policy, or bypass the complete S0 judge before Phase 2/C01.
+No experiment is authorized. A future goal may evaluate a versioned, mathematically equivalent performance-oriented reduced solver against the same physical gates and full qualification trajectory. It must not call this a retry, activate Schur under the consumed goal, add controller candidate 3/controller-v4, return to equivalence, or bypass S0 before Phase 2/C01.
 
 Equivalence-v2 remains immutable and non-retryable. Equivalence-v3 remains immutable and non-retryable. Equivalence-v4/v5 is forbidden; no retry is authorized.
 

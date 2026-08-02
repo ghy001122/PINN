@@ -1,0 +1,131 @@
+task_id: Q2_NLS_V1_S0_TO_C01_C06_R1_COMPLETE_METHOD_EVIDENCE
+evidence_type: literature-guided synthetic numerical digital-twin evidence
+
+identity:
+  base_main_commit: 42e16ff7b9abd34b5ce7272eaa74ad60d49348d3
+  branch: codex/nls-v1-s0-c01-c06-r1
+  nonlinear_solver_id: phase1_s2_dual_gate_nonlinear_solver_v1p1_endpoint_tolerance
+  qualification_id: NLSV1-QUAL-20260802-V2
+  formal_s0_campaign_id: S0-NLSV1P1-FORMAL-20260802-V1
+  phase2_dataset_id: PHASE2-C01-NLSV1P1-20260802-V1
+  c01_experiment_id: C01-HYSGEO-NLSV1P1-20260802-V1
+  c06_experiment_id: C06-HOMOTOPY-NLSV1P1-20260802-V1
+  historical_e0_s0_equivalence_reuse: forbidden
+  controller_candidate_3_or_controller_v4: forbidden
+
+frozen_authority:
+  - {path: configs/geophase_phase1_v2_s2_reference_source_corrected_v3.yaml, sha256: ea668ac66c8f2f2267b059bd816a4116def086708f2f7eeded07d64a2857aff4}
+  - {path: configs/geophase_phase1_v2_embedded_time_controller_v2_source_corrected_v3.yaml, sha256: 8da3f056a197502d01abd26ccec8f0fa7d73276da770162048607d225dc8400e}
+  - {path: configs/geophase_phase1_v2_formal_manifest_source_corrected_v3.yaml, sha256: 240e45435505626b2bfb5a71cb95d8d18b2c7e4c2a5beac8aeb7cb843bf2f739}
+  - {path: configs/geophase_phase1_v2_execution_addendum_source_corrected_v3.yaml, sha256: d7f9c3beb94036131b30431f22afca95bf3542568151094c9d53dee22185715f}
+  - {path: configs/qiu_vo2_phase1_source_contract_v3.yaml, sha256: 17a0accc906d68fffc35ee40be9d41c36bd1a7d0514e9a539cfcfd4fc4bcc621}
+  - {path: outputs/tables/geophase_phase1_v2_source_corrected_v3/formal_evaluation_manifest.csv, sha256: d48646069e16e255bb857f2bdff406315513aa2e62214be50deb8cf6919d5737}
+  - {path: outputs/tables/geophase_phase1_v2_source_corrected_v3/runtime_readiness/execution_dag.json, sha256: da93d717e0fae2fb5431457b921f901a8651bd987346f4df493a94144ded786a}
+  - {path: outputs/tables/geophase_controller_v3/qualification/CTRLV3-QUAL-20260801-V2/failures/CTRLV3-QUAL-QUIESCENT-9V-T1.json, sha256: ae9962dbeb097ddc9f96d132ce39173273745314c0bb5382deccab1b8cf65d72}
+  - {path: outputs/tables/geophase_controller_v3/qualification/CTRLV3-QUAL-20260801-V4/failures/CTRLV3-QUAL-QUIESCENT-9V-T1.json, sha256: 1583208d843df67f7f68d3a3717300b54945af82ee870152ce360ae2c70ca79c}
+
+implementation:
+  source_files:
+    - {path: src/pinnpcm/solvers/geophase_nls_v1.py, sha256: b3ed80bd95f0835b9c5342bd4fffdc68b224dbf773d58722d51f42a09a621196}
+    - {path: src/pinnpcm/solvers/geophase_nls_v1_streaming.py, sha256: e021e05d0a2f733248dc2ddd9cfa4edf4e073fd6e9d718dee1709a5bc4929699}
+    - {path: src/pinnpcm/evaluation/geophase_nls_v1_qualification.py, sha256: f567a2c835f3c66cb1f9922aa57da7b6301cdc35337bdcf78004b7f1823d37bb}
+    - {path: scripts/run_geophase_nls_v1_qualification.py, sha256: 3d0e24c0ba1918356b77021c0595b8eb29b267f010fc8b4ee184a641b7b2214a}
+  fixed_point_defect_definition: max(abs(G(x)-x)/max(abs(x),1))
+  scaled_residual_definition: max_abs_frozen_scaled_residual
+  scaled_update_relative: 1.0e-8
+  scaled_residual_absolute: 1.0e-8
+  scaled_residual_relative: 1.0e-8
+  success_requires_both_gates: true
+  fixed_point_relaxation: 0.5
+  fallback_maximum_iterations: 80
+  fallback_200_iteration_upgrade: forbidden_replays_pass_within_6_iterations
+  endpoint_landing_relative_tolerance: 1.0e-12
+  schur_reduced_upgrade: not_activated_frozen_failure_replays_pass
+
+prior_invalid_qualification:
+  qualification_id: NLSV1-QUAL-20260802-V1
+  output_path: outputs/tables/geophase_nls_v1/qualification/NLSV1-QUAL-20260802-V1
+  terminal_state: INVALID_NLS_V1_QUALIFICATION
+  published_runs: 1
+  failed_run: NLSV1-QUAL-QUIESCENT-9V-T4
+  failure_class: endpoint_landing_tolerance_mismatch
+  scientific_vote: false
+
+qualification:
+  scientific_vote: false
+  fixed_output_points: 4001
+  standard_time_divisor: 1
+  stricter_time_divisor: 4
+  final_time_s: 2.0e-5
+  per_run_wall_time_s_max: 21600
+  failure_state_replays:
+    - {path: outputs/tables/geophase_controller_v3/qualification/CTRLV3-QUAL-20260801-V2/failures/CTRLV3-QUAL-QUIESCENT-9V-T1.json}
+    - {path: outputs/tables/geophase_controller_v3/qualification/CTRLV3-QUAL-20260801-V4/failures/CTRLV3-QUAL-QUIESCENT-9V-T1.json}
+  cases:
+    - {case_id: NLSV1-QUAL-QUIESCENT-9V, protocol_id: quiescent_9V, spatial_level: 1}
+    - {case_id: NLSV1-QUAL-TRANSITION-12P5V, protocol_id: transition_probe_12p5V, spatial_level: 1}
+  runtime_profile_worker_count_max: 4
+  runtime_profiles:
+    - {case_id: NLSV1-PROFILE-L1, protocol_id: high_bias_lock_15p8V, spatial_level: 1, time_divisor: 4, final_time_s: 2.0e-8}
+    - {case_id: NLSV1-PROFILE-L2, protocol_id: high_bias_lock_15p8V, spatial_level: 2, time_divisor: 4, final_time_s: 2.0e-8}
+    - {case_id: NLSV1-PROFILE-L4, protocol_id: high_bias_lock_15p8V, spatial_level: 4, time_divisor: 4, final_time_s: 2.0e-8}
+  gates:
+    all_cases_reach_final_time: true
+    ordered_unique_output_timestamps: true
+    exact_discontinuity_and_final_landing: true
+    nonfinite_forbidden: true
+    all_integrity_and_ledger_checks_required: true
+    full_fixed_point_defect_max: 1.0e-8
+    full_scaled_residual_max: 1.0e-8
+    standard_vs_stricter_terminal_current_nrmse_max: 0.01
+    standard_vs_stricter_event_time_relative_error_max: 0.01
+    dense_output_vs_stricter_port_nrmse_max: 0.005
+    branch_and_event_sequence_exact: true
+    combined_ledger_relative_residual_max: 0.01
+    projected_60_unit_wall_clock_s_max: 86400
+    projected_60_unit_cpu_time_s_max: 345600
+
+formal_s0:
+  formal_execution_count: 0
+  scientific_vote: false
+  unique_execution_units: 60
+  evaluation_items: 63
+  legal_reuses: 3
+  fresh_records_only: true
+  prior_partial_record_reuse: forbidden
+  wall_time_s_max: 86400
+  aggregate_cpu_time_s_max: 345600
+
+phase2:
+  locked_until_s0_pass: true
+  nominal_contact_overlap_nm: 20
+  held_out_geometry_ood_contact_overlap_nm: [10, 30]
+  geometry_ood_aggregation: fixed_macro_average_10nm_30nm
+  protocol_ood: pulse_12p5V
+  split_unit: complete_case
+  ood_use_in_normalization_early_stopping_or_model_selection: forbidden
+  aggregate_cpu_time_s_max: 172800
+
+training:
+  locked_until_s0_pass: true
+  paired_seeds: [20260801, 20260802, 20260803, 20260804, 20260805]
+  pilot_seed: 20260801
+  pilot_gpu_time_h_max: 4
+  aggregate_gpu_time_h_max: 96
+  failed_seed_removal: forbidden
+  ood_posthoc_tuning: forbidden
+  models: [data_only_mlp, vanilla_pinn, c01_hysgeo_hybrid_pinn, c06_T, c06_J, c06_TJ]
+
+budgets:
+  active_nls_implementation_and_diagnosis_h_max: 8
+  nls_qualification_aggregate_cpu_h_max: 24
+  formal_s0_wall_h_max: 24
+  formal_s0_aggregate_cpu_h_max: 96
+  dataset_aggregate_cpu_h_max: 48
+  training_aggregate_gpu_h_max: 96
+
+outputs:
+  qualification: outputs/tables/geophase_nls_v1/qualification/NLSV1-QUAL-20260802-V2
+  formal_s0: outputs/tables/geophase_nls_v1/formal/S0-NLSV1P1-FORMAL-20260802-V1
+  phase2: outputs/tables/geophase_nls_v1/phase2/PHASE2-C01-NLSV1P1-20260802-V1
+  training: outputs/tables/geophase_nls_v1/training/C01-C06-NLSV1P1-20260802-V1
