@@ -3,6 +3,7 @@ from __future__ import annotations
 import inspect
 import json
 from pathlib import Path
+from time import perf_counter
 from types import SimpleNamespace
 
 import numpy as np
@@ -31,6 +32,9 @@ def test_contract_locks_authority_limits_routes_and_corrected_r1_step() -> None:
     assert contract["scope"]["controller_v2_modification"] == "forbidden"
     assert contract["r1"]["central_difference_step"] == (
         "eps_to_one_third_times_max_1_and_temperature_inf"
+    )
+    assert contract["r1"]["parent_r0_summary_sha256"] == (
+        "e37eb472b6bd6ce4ddcb0d54b3ef17c1bcf7110cf1b39878062ab18d7c839b05"
     )
     assert contract["r2"]["map"]["maximum_map_evaluations_per_root"] == 80
     assert contract["r2"]["map"]["sufficient_decrease_c1"] == pytest.approx(
@@ -175,3 +179,50 @@ def test_attempt_csv_atomic_publication_keeps_destination_path(tmp_path: Path) -
     assert destination.is_file()
     assert not destination.with_suffix(".csv.tmp").exists()
     assert "writer-regression" in destination.read_text(encoding="utf-8")
+
+
+def test_r1_central_difference_recovers_contracting_relaxed_linear_map() -> None:
+    initial = np.asarray([[4.0, -2.0]], dtype=float)
+    metrics = rescue.audit_unscaled_fixed_point_contraction(
+        lambda temperature: 0.5 * temperature,
+        initial,
+        relaxation=0.5,
+        iteration_count=8,
+        gates={
+            "last_four_geometric_mean_max": 0.90,
+            "step_8_defect_relative_to_initial_max": 0.5,
+            "spectral_radius_max_exclusive": 1.0,
+            "maximum_power_norm_k_1_to_8": 2.0,
+        },
+        validate_temperature=lambda _: None,
+        deadline=perf_counter() + 10.0,
+    )
+    assert metrics["contraction_ratios"] == pytest.approx([0.75] * 8)
+    assert metrics["step_8_relative_defect"] == pytest.approx(0.75**8)
+    assert metrics["spectral_radius"] == pytest.approx(0.75, abs=1.0e-9)
+    assert metrics["operator_norm_2"] == pytest.approx(0.75, abs=1.0e-9)
+    assert metrics["maximum_power_norm_k_1_to_8"] == pytest.approx(
+        0.75, abs=1.0e-9
+    )
+    assert metrics["map_evaluations"] == 13
+    assert metrics["gates"]["all_required"] is True
+
+
+def test_r1_gate_rejects_expanding_relaxed_map() -> None:
+    metrics = rescue.audit_unscaled_fixed_point_contraction(
+        lambda temperature: 2.0 * temperature,
+        np.asarray([[1.0]], dtype=float),
+        relaxation=0.5,
+        iteration_count=8,
+        gates={
+            "last_four_geometric_mean_max": 0.90,
+            "step_8_defect_relative_to_initial_max": 0.5,
+            "spectral_radius_max_exclusive": 1.0,
+            "maximum_power_norm_k_1_to_8": 2.0,
+        },
+        validate_temperature=lambda _: None,
+        deadline=perf_counter() + 10.0,
+    )
+    assert metrics["last_four_ratios"] == pytest.approx([1.5] * 4)
+    assert metrics["spectral_radius"] == pytest.approx(1.5, abs=1.0e-9)
+    assert metrics["gates"]["all_required"] is False

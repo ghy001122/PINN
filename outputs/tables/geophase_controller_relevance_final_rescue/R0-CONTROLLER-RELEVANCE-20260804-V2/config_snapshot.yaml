@@ -6,7 +6,6 @@ identity:
   base_main_commit: 1c9758ef151299a4694b4edcc81dd48feec704ba
   branch: codex/controller-relevance-final-forward-rescue
   r0_run_id: R0-CONTROLLER-RELEVANCE-20260804-V2
-  r1_run_id: R1-CONTRACTION-20260804-V1
   r0_invocation_count: 2
   r0_invalid_invocation_count: 1
   runner_repair_count: 1
@@ -43,16 +42,6 @@ frozen_inputs:
     sha256: 90725861bdba8a578646a83193e6406c23b0b2aaf2a32942cceb990be3413565
   - path: outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V1/r0_attempt_paths.unpublished.csv
     sha256: d6e2ed63fb60b8dc5c01880737b8d0f6fbcb343b6587cc3560e3bca12a492783
-  - path: outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V2/config_snapshot.yaml
-    sha256: b3b7070bbaff1461c560a32faaf637ca71930c8fabc8b8eb55ceafb09806058a
-  - path: outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V2/r0_attempt_paths.csv
-    sha256: 03f0a9fcfa65cced1412a351ce0532a47694fc151472db6ead2a89e518b64e29
-  - path: outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V2/r0_summary.json
-    sha256: e37eb472b6bd6ce4ddcb0d54b3ef17c1bcf7110cf1b39878062ab18d7c839b05
-  - path: outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V2/cases/R0-A-QUIESCENT-9V-T1.json
-    sha256: 11c5d55d989ed21df900ef7f8912495715c816b2ac822978a19a751aaf8ed8ba
-  - path: outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V2/cases/R0-B-CRITICAL-TRANSITION-T4.json
-    sha256: 37b8bf8a9b70ce583b966e43cec1c1254f3ec89978e78e45469b8ee87b1563b1
 
 scope:
   d0_rerun_or_completion: forbidden
@@ -109,8 +98,6 @@ r0:
 
 r1:
   conditional_on: r0_terminal_floor_nonlinear_root_or_certification_failure
-  parent_r0_summary: outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V2/r0_summary.json
-  parent_r0_summary_sha256: e37eb472b6bd6ce4ddcb0d54b3ef17c1bcf7110cf1b39878062ab18d7c839b05
   wall_time_s_max: 3600
   relaxed_picard_steps: 8
   relaxation: 0.5
@@ -122,7 +109,6 @@ r1:
     step_8_defect_relative_to_initial_max: 0.5
     spectral_radius_max_exclusive: 1.0
     maximum_power_norm_k_1_to_8: 2.0
-  nonnormality_definition: frobenius_commutator_over_squared_frobenius_norm
 
 r2:
   conditional_on: r1_pass
@@ -168,5 +154,3 @@ outputs:
   attempts_csv: r0_attempt_paths.csv
   summary_json: r0_summary.json
   config_snapshot: config_snapshot.yaml
-  r1_case_directory: contexts
-  r1_summary_json: r1_summary.json

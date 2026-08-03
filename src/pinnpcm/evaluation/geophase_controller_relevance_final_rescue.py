@@ -20,7 +20,7 @@ import subprocess
 import sys
 from time import perf_counter
 import traceback
-from typing import Any, Mapping
+from typing import Any, Callable, Mapping
 
 import numpy as np
 import yaml
@@ -33,6 +33,7 @@ from pinnpcm.physics.geophase_s2_thermal import (
     effective_vo2_closure_from_v2_config,
 )
 from pinnpcm.solvers import geophase_phase1_v2_controller_v2 as controller_v2
+from pinnpcm.solvers import geophase_exact_condensed as exact_v1
 from pinnpcm.solvers import geophase_phase1_v2_implicit as production
 from pinnpcm.solvers.geophase_exact_condensed import ExactCondensedRootTelemetry
 from pinnpcm.solvers.geophase_exact_condensed_controller_v2 import (
@@ -42,6 +43,11 @@ from pinnpcm.solvers.geophase_exact_condensed_controller_v2 import (
 
 
 SCHEMA_VERSION = "geophase_controller_relevance_r0_v1"
+R1_SCHEMA_VERSION = "geophase_controller_relevance_r1_v1"
+
+
+class R1BudgetExceeded(RuntimeError):
+    """The preregistered R1 wall-time budget expired."""
 
 
 def _sha256(path: Path) -> str:
@@ -740,7 +746,8 @@ def run_r0_audit(config_path: Path, output_root: Path) -> dict[str, Any]:
                 exact_controller_hash_verified=(
                     exact_controller_expected
                     == (
-                        "9a8122949bcd4f7403fd93d627c00469e1fc8d622dc914750093b4989acd66fa"
+                        "9a8122949bcd4f7403fd93d627c00469e1fc8d622dc914750093b"
+                        "4989acd66fa"
                     )
                 ),
             )
@@ -854,12 +861,490 @@ def run_r0_audit(config_path: Path, output_root: Path) -> dict[str, Any]:
     return summary
 
 
+def audit_unscaled_fixed_point_contraction(
+    phi_temperature: Callable[[np.ndarray], np.ndarray],
+    initial_temperature_K: np.ndarray,
+    *,
+    relaxation: float,
+    iteration_count: int,
+    gates: Mapping[str, Any],
+    validate_temperature: Callable[[np.ndarray], None],
+    deadline: float,
+) -> dict[str, Any]:
+    """Audit the frozen relaxed temperature map without scaled residuals."""
+
+    if iteration_count != 8:
+        raise ValueError("the R1 contraction audit requires exactly eight steps")
+    if relaxation != 0.5:
+        raise ValueError("the R1 contraction audit requires relaxation 0.5")
+    temperature = np.asarray(initial_temperature_K, dtype=float).copy()
+    if not np.isfinite(temperature).all():
+        raise ValueError("R1 initial temperature is nonfinite")
+    validate_temperature(temperature)
+    shape = temperature.shape
+    cells = temperature.size
+    map_evaluations = 0
+
+    def checked_phi(candidate: np.ndarray) -> np.ndarray:
+        nonlocal map_evaluations
+        if perf_counter() >= deadline:
+            raise R1BudgetExceeded("R1 contraction audit exceeded its wall budget")
+        values = np.asarray(candidate, dtype=float).reshape(shape)
+        if not np.isfinite(values).all():
+            raise ValueError("R1 temperature iterate is nonfinite")
+        validate_temperature(values)
+        mapped = np.asarray(phi_temperature(values), dtype=float).reshape(shape)
+        map_evaluations += 1
+        if not np.isfinite(mapped).all():
+            raise FloatingPointError("R1 temperature map returned nonfinite values")
+        validate_temperature(mapped)
+        return mapped
+
+    def psi(candidate: np.ndarray) -> np.ndarray:
+        values = np.asarray(candidate, dtype=float).reshape(shape)
+        mapped = checked_phi(values)
+        relaxed = values + relaxation * (mapped - values)
+        if not np.isfinite(relaxed).all():
+            raise FloatingPointError("R1 relaxed Picard iterate is nonfinite")
+        validate_temperature(relaxed)
+        return relaxed
+
+    defect_history: list[float] = []
+    iterate_temperature_inf: list[float] = []
+    for step_index in range(iteration_count + 1):
+        mapped = checked_phi(temperature)
+        defect = temperature - mapped
+        defect_history.append(float(np.max(np.abs(defect))))
+        iterate_temperature_inf.append(float(np.max(np.abs(temperature))))
+        if step_index < iteration_count:
+            temperature = temperature - relaxation * defect
+            if not np.isfinite(temperature).all():
+                raise FloatingPointError("R1 relaxed Picard iterate is nonfinite")
+            validate_temperature(temperature)
+
+    ratios: list[float] = []
+    for previous, current in zip(defect_history[:-1], defect_history[1:]):
+        if previous == 0.0:
+            ratios.append(0.0 if current == 0.0 else float("inf"))
+        else:
+            ratios.append(float(current / previous))
+    last_four = ratios[-4:]
+    if len(last_four) != 4:
+        raise ValueError("R1 did not produce four terminal contraction ratios")
+    if any(not np.isfinite(value) for value in last_four):
+        geometric_mean = float("inf")
+    elif any(value == 0.0 for value in last_four):
+        geometric_mean = 0.0
+    else:
+        geometric_mean = float(
+            np.exp(np.mean(np.log(np.asarray(last_four, dtype=float))))
+        )
+
+    epsilon = np.finfo(float).eps
+    finite_difference_h = float(
+        epsilon ** (1.0 / 3.0)
+        * max(1.0, float(np.max(np.abs(temperature))))
+    )
+    jacobian = np.empty((cells, cells), dtype=float)
+    flat = temperature.reshape(-1)
+    for column in range(cells):
+        perturbation = np.zeros(cells, dtype=float)
+        perturbation[column] = finite_difference_h
+        plus = psi((flat + perturbation).reshape(shape)).reshape(-1)
+        minus = psi((flat - perturbation).reshape(shape)).reshape(-1)
+        jacobian[:, column] = (plus - minus) / (2.0 * finite_difference_h)
+    if not np.isfinite(jacobian).all():
+        raise FloatingPointError("R1 central-difference Jacobian is nonfinite")
+
+    eigenvalues, eigenvectors = np.linalg.eig(jacobian)
+    spectral_radius = float(np.max(np.abs(eigenvalues)))
+    operator_norm_2 = float(np.linalg.norm(jacobian, ord=2))
+    eigenvector_condition = float(np.linalg.cond(eigenvectors))
+    transpose_commutator = jacobian.T @ jacobian - jacobian @ jacobian.T
+    frobenius = float(np.linalg.norm(jacobian, ord="fro"))
+    nonnormality = float(
+        np.linalg.norm(transpose_commutator, ord="fro")
+        / max(frobenius * frobenius, epsilon)
+    )
+    power = np.eye(cells, dtype=float)
+    power_norms: list[float] = []
+    for _ in range(8):
+        power = power @ jacobian
+        power_norms.append(float(np.linalg.norm(power, ord=2)))
+    maximum_power_norm = float(max(power_norms))
+    jacobian_sha256 = hashlib.sha256(
+        np.asarray(jacobian, dtype="<f8", order="C").tobytes(order="C")
+    ).hexdigest()
+
+    gate_results = {
+        "all_iterates_finite_and_range_legal": True,
+        "last_four_ratios_strictly_below_one": bool(
+            all(value < 1.0 for value in last_four)
+        ),
+        "last_four_geometric_mean": bool(
+            geometric_mean
+            <= float(gates["last_four_geometric_mean_max"])
+        ),
+        "step_8_defect_relative_to_initial": bool(
+            defect_history[-1]
+            <= float(gates["step_8_defect_relative_to_initial_max"])
+            * defect_history[0]
+        ),
+        "spectral_radius": bool(
+            spectral_radius < float(gates["spectral_radius_max_exclusive"])
+        ),
+        "maximum_power_norm_k_1_to_8": bool(
+            maximum_power_norm
+            <= float(gates["maximum_power_norm_k_1_to_8"])
+        ),
+    }
+    gate_results["all_required"] = bool(all(gate_results.values()))
+    return {
+        "relaxation": float(relaxation),
+        "iteration_count": int(iteration_count),
+        "defect_history_inf_K": defect_history,
+        "contraction_ratios": ratios,
+        "last_four_ratios": last_four,
+        "last_four_geometric_mean_ratio": geometric_mean,
+        "step_8_relative_defect": (
+            0.0
+            if defect_history[0] == 0.0 and defect_history[-1] == 0.0
+            else float(defect_history[-1] / defect_history[0])
+        ),
+        "iterate_temperature_inf_K": iterate_temperature_inf,
+        "central_difference_h_K": finite_difference_h,
+        "central_difference_rule": "eps^(1/3)*max(1,||T8||inf)",
+        "jacobian_shape": [cells, cells],
+        "jacobian_sha256_little_endian_float64": jacobian_sha256,
+        "spectral_radius": spectral_radius,
+        "operator_norm_2": operator_norm_2,
+        "eigenvector_condition": (
+            None if not np.isfinite(eigenvector_condition) else eigenvector_condition
+        ),
+        "eigenvector_condition_finite": bool(np.isfinite(eigenvector_condition)),
+        "nonnormality_frobenius_commutator_ratio": nonnormality,
+        "power_norms_2_k_1_to_8": power_norms,
+        "maximum_power_norm_k_1_to_8": maximum_power_norm,
+        "map_evaluations": int(map_evaluations),
+        "gates": gate_results,
+    }
+
+
+def _r1_temperature_map(
+    candidate_temperature_K: np.ndarray,
+    *,
+    old_state: production.S2State,
+    input_voltage_V: float,
+    dt_s: float,
+    grid: Any,
+    closure: Any,
+    fields: Any,
+    scientific: dict[str, Any],
+    cache: production.S2SolverCache,
+) -> np.ndarray:
+    auxiliary = exact_v1.reconstruct_exact_auxiliary_state(
+        candidate_temperature_K,
+        old_state,
+        dt_s,
+        input_voltage_V,
+        grid=grid,
+        closure=closure,
+        fields=fields,
+        config=scientific,
+        cache=cache,
+    )
+    load_resistance, capacitance = production._circuit_parameters(scientific)
+    mapped = production._fixed_point_map(
+        auxiliary.full_vector,
+        old_state=old_state,
+        input_voltage_V=float(input_voltage_V),
+        dt_s=float(dt_s),
+        grid=grid,
+        closure=closure,
+        fields=fields,
+        lateral_matrix=cache.lateral_matrix,
+        thermal_linear_solver=cache.thermal_solver(dt_s),
+        electrical_topology=cache.electrical_topology,
+        use_equivalent_optimizations=True,
+        use_unit_voltage_scaling=True,
+        performance_timings=None,
+        load_resistance_ohm=load_resistance,
+        capacitance_F=capacitance,
+    )
+    mapped_temperature, _, _, _ = production._unpack(mapped, grid)
+    return np.asarray(mapped_temperature, dtype=float)
+
+
+def run_r1_context(
+    context: Mapping[str, Any],
+    *,
+    scientific: dict[str, Any],
+    contract: Mapping[str, Any],
+    deadline: float,
+) -> dict[str, Any]:
+    started = perf_counter()
+    level = int(context["spatial_level"])
+    grid = build_geophase_grid(scientific, spatial_level=level)
+    fields = build_s2_thermal_fields(grid, scientific)
+    closure = effective_vo2_closure_from_v2_config(scientific)
+    cache = production.build_s2_solver_cache(grid, fields)
+    old_state = _state_from_replay(context["old_state"])
+    production.validate_s2_state(old_state, grid, closure)
+    dt_s = float(context["dt_s"])
+    input_voltage = float(context["input_voltage_V"])
+    try:
+        predictor = exact_v1._predict_temperature(
+            old_state=old_state,
+            input_voltage_V=input_voltage,
+            dt_s=dt_s,
+            grid=grid,
+            closure=closure,
+            fields=fields,
+            config=scientific,
+            cache=cache,
+            performance_timings=None,
+        )
+        metrics = audit_unscaled_fixed_point_contraction(
+            lambda candidate: _r1_temperature_map(
+                candidate,
+                old_state=old_state,
+                input_voltage_V=input_voltage,
+                dt_s=dt_s,
+                grid=grid,
+                closure=closure,
+                fields=fields,
+                scientific=scientific,
+                cache=cache,
+            ),
+            predictor,
+            relaxation=float(contract["r1"]["relaxation"]),
+            iteration_count=int(contract["r1"]["relaxed_picard_steps"]),
+            gates=contract["r1"]["gates"],
+            validate_temperature=closure.validate_temperature,
+            deadline=deadline,
+        )
+    except R1BudgetExceeded as error:
+        return {
+            "schema_version": R1_SCHEMA_VERSION,
+            "context_sha256": context["complete_input_sha256"],
+            "context": dict(context),
+            "validity": "invalid",
+            "status": "R1_BUDGET_EXHAUSTED",
+            "route": "STOP_FINAL_FORWARD_SOLVER_RESCUE",
+            "lifecycle_state": "executed",
+            "claim_status": "forbidden",
+            "error_class": type(error).__name__,
+            "error_message": str(error),
+            "wall_time_s": float(perf_counter() - started),
+        }
+    except (
+        RuntimeError,
+        ValueError,
+        FloatingPointError,
+        np.linalg.LinAlgError,
+    ) as error:
+        return {
+            "schema_version": R1_SCHEMA_VERSION,
+            "context_sha256": context["complete_input_sha256"],
+            "context": dict(context),
+            "validity": "valid",
+            "status": "R1_VALID_MAP_OR_RANGE_FAILURE",
+            "route": "STOP_FINAL_FORWARD_SOLVER_RESCUE",
+            "lifecycle_state": "executed",
+            "claim_status": "failed_but_informative",
+            "error_class": type(error).__name__,
+            "error_message": str(error),
+            "wall_time_s": float(perf_counter() - started),
+        }
+    passed = bool(metrics["gates"]["all_required"])
+    return {
+        "schema_version": R1_SCHEMA_VERSION,
+        "context_sha256": context["complete_input_sha256"],
+        "context": dict(context),
+        "validity": "valid",
+        "status": "R1_CONTRACTION_PASS" if passed else "R1_CONTRACTION_VALID_FAIL",
+        "route": "R2" if passed else "STOP_FINAL_FORWARD_SOLVER_RESCUE",
+        "lifecycle_state": "numerically_validated",
+        "claim_status": "qualified_supported" if passed else "failed_but_informative",
+        "metrics": metrics,
+        "wall_time_s": float(perf_counter() - started),
+    }
+
+
+def run_r1_audit(config_path: Path, output_root: Path) -> dict[str, Any]:
+    config_path = Path(config_path).resolve()
+    contract = load_contract(config_path)
+    verified = verify_frozen_inputs(contract)
+    scientific = resolved_s2_config()
+    limits = resolve_and_validate_limits(scientific, contract)
+    thread_environment = validate_thread_environment(contract)
+    configured_branch = str(contract["identity"]["branch"])
+    branch = _git_value("branch", "--show-current")
+    if branch != configured_branch:
+        raise ValueError(f"R1 must run on {configured_branch}, observed {branch}")
+    if _git_value("status", "--porcelain"):
+        raise ValueError("R1 requires a clean anchored worktree")
+    git_sha = _git_value("rev-parse", "HEAD")
+    parent_path = (ROOT / str(contract["r1"]["parent_r0_summary"])).resolve()
+    if _sha256(parent_path) != str(contract["r1"]["parent_r0_summary_sha256"]):
+        raise ValueError("R1 parent R0 summary hash differs from its contract")
+    parent = json.loads(parent_path.read_text(encoding="utf-8"))
+    if parent.get("disposition") != "R0_NONLINEAR_FLOOR_FAILURE_R1_AUTHORIZED":
+        raise ValueError("R1 parent did not authorize the contraction audit")
+    contexts_by_hash: dict[str, dict[str, Any]] = {}
+    for case in parent["cases"]:
+        context = case.get("r1_terminal_context")
+        if not case.get("r1_eligible", False):
+            continue
+        if not isinstance(context, dict):
+            raise ValueError("R1-eligible case lacks its terminal root context")
+        contexts_by_hash[str(context["complete_input_sha256"])] = context
+    if not contexts_by_hash:
+        raise ValueError("R1 found no actual floor-terminal root context")
+
+    output_root = Path(output_root).resolve()
+    expected_output_root = (
+        ROOT
+        / str(contract["outputs"]["namespace"])
+        / str(contract["identity"]["r1_run_id"])
+    ).resolve()
+    if output_root != expected_output_root:
+        raise ValueError(
+            f"R1 output root must be {expected_output_root}, observed {output_root}"
+        )
+    output_root.mkdir(parents=True, exist_ok=True)
+    snapshot = output_root / str(contract["outputs"]["config_snapshot"])
+    _atomic_bytes(snapshot, config_path.read_bytes())
+
+    timebox_start = datetime.fromisoformat(
+        str(contract["timebox"]["started_utc"]).replace("Z", "+00:00")
+    )
+    cumulative_before_s = max(
+        0.0,
+        (
+            datetime.now(timezone.utc) - timebox_start.astimezone(timezone.utc)
+        ).total_seconds(),
+    )
+    cumulative_limit_s = float(
+        contract["timebox"]["r0_r1_r2_cumulative_wall_s_max"]
+    )
+    remaining = cumulative_limit_s - cumulative_before_s
+    if remaining <= 0.0:
+        raise RuntimeError("R0-R2 cumulative one-day timebox exhausted before R1")
+    budget = min(float(contract["r1"]["wall_time_s_max"]), remaining)
+    started = perf_counter()
+    deadline = started + budget
+    results: list[dict[str, Any]] = []
+    context_root = output_root / str(contract["outputs"]["r1_case_directory"])
+    for context_hash, context in contexts_by_hash.items():
+        try:
+            result = run_r1_context(
+                context,
+                scientific=scientific,
+                contract=contract,
+                deadline=deadline,
+            )
+        except Exception as error:
+            # The repair budget is exhausted; preserve an invalid terminal result.
+            result = {
+                "schema_version": R1_SCHEMA_VERSION,
+                "context_sha256": context_hash,
+                "context": context,
+                "validity": "invalid",
+                "status": "R1_INVALID_RUNNER_DEFECT",
+                "route": "STOP_FINAL_FORWARD_SOLVER_RESCUE",
+                "lifecycle_state": "executed",
+                "claim_status": "forbidden",
+                "error_class": type(error).__name__,
+                "error_message": str(error),
+                "traceback": traceback.format_exc(),
+                "wall_time_s": 0.0,
+            }
+        results.append(result)
+        _atomic_json(context_root / f"{context_hash}.json", result)
+        if result["status"] != "R1_CONTRACTION_PASS":
+            break
+
+    if len(results) == len(contexts_by_hash) and all(
+        result["status"] == "R1_CONTRACTION_PASS" for result in results
+    ):
+        disposition = "R1_CONTRACTION_PASS_R2_AUTHORIZED"
+        route = "R2"
+        validity = "valid"
+        claim_status = "qualified_supported"
+        lifecycle_state = "numerically_validated"
+    elif any(result["validity"] == "valid" for result in results):
+        disposition = "STOP_FINAL_FORWARD_SOLVER_RESCUE"
+        route = "STOP"
+        validity = "valid"
+        claim_status = "failed_but_informative"
+        lifecycle_state = "numerically_validated"
+    else:
+        disposition = "INVALID_R1_EXECUTION_STOP_FINAL_FORWARD_SOLVER_RESCUE"
+        route = "STOP"
+        validity = "invalid"
+        claim_status = "forbidden"
+        lifecycle_state = "executed"
+    summary = {
+        "schema_version": R1_SCHEMA_VERSION,
+        "task_id": contract["task_id"],
+        "run_id": contract["identity"]["r1_run_id"],
+        "git_sha": git_sha,
+        "branch": branch,
+        "config_path": config_path.relative_to(ROOT).as_posix(),
+        "config_sha256": _sha256(config_path),
+        "parent_r0_summary": parent_path.relative_to(ROOT).as_posix(),
+        "parent_r0_summary_sha256": _sha256(parent_path),
+        "verified_frozen_inputs": verified,
+        "resolved_controller_limits": limits,
+        "runtime": {
+            "python": sys.version,
+            "platform": platform.platform(),
+            "thread_environment": thread_environment,
+            "command": sys.argv,
+        },
+        "validity": validity,
+        "disposition": disposition,
+        "route": route,
+        "lifecycle_state": lifecycle_state,
+        "claim_status": claim_status,
+        "scientific_vote": False,
+        "formal_execution_count": 0,
+        "context_count": len(results),
+        "deduplicated_context_count": len(contexts_by_hash),
+        "contexts": results,
+        "wall_time_s": float(perf_counter() - started),
+        "budget_wall_time_s": budget,
+        "cumulative_timebox": {
+            "started_utc": contract["timebox"]["started_utc"],
+            "elapsed_before_r1_s": cumulative_before_s,
+            "limit_s": cumulative_limit_s,
+            "remaining_before_r1_s": remaining,
+            "external_ci_queue_excluded": bool(
+                contract["timebox"]["external_ci_queue_excluded"]
+            ),
+        },
+        "evidence_type": contract["evidence_type"],
+        "artifacts": {
+            "config_snapshot": snapshot.relative_to(ROOT).as_posix(),
+            "config_snapshot_sha256": _sha256(snapshot),
+        },
+    }
+    summary_path = output_root / str(contract["outputs"]["r1_summary_json"])
+    _atomic_json(summary_path, summary)
+    return summary
+
+
 __all__ = [
+    "R1_SCHEMA_VERSION",
     "SCHEMA_VERSION",
+    "audit_unscaled_fixed_point_contraction",
     "load_contract",
     "resolve_and_validate_limits",
     "run_r0_audit",
     "run_r0_case",
+    "run_r1_audit",
+    "run_r1_context",
     "validate_thread_environment",
     "verify_frozen_inputs",
 ]
