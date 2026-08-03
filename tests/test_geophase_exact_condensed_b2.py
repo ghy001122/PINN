@@ -14,6 +14,11 @@ from pinnpcm.evaluation.geophase_s0_direct_physics import ROOT
 
 
 CONFIG = ROOT / "configs/geophase_exact_condensed_s0_c01_c06_r1.yaml"
+TERMINAL_SUMMARY = (
+    ROOT
+    / "outputs/tables/geophase_exact_condensed/b2/"
+    "B2-EXACT-CONDENSED-20260803-V1/b2_summary.json"
+)
 
 
 def _config():
@@ -88,3 +93,32 @@ def test_first_b2_case_uses_frozen_replay_without_running_a_root() -> None:
         state.temperature_K,
         np.asarray(replay["previous_state"]["temperature_K"], dtype=float),
     )
+
+
+def test_b2_terminal_result_is_valid_fail_fast_without_downstream_unlock() -> None:
+    summary = json.loads(TERMINAL_SUMMARY.read_text(encoding="utf-8"))
+    assert summary["disposition"] == "B2_REDUCED_ROOT_VALID_FAIL"
+    assert summary["lifecycle_state"] == "executed"
+    assert summary["claim_status"] == "failed_but_informative"
+    assert summary["scientific_vote"] is False
+    assert summary["planned_roots"] == 24
+    assert summary["executed_roots"] == 1
+    assert summary["passed_roots"] == 0
+    assert summary["unassessed_roots"] == 23
+
+    failure = summary["first_failure"]
+    telemetry = failure["telemetry"]
+    assert failure["validity"] == "valid"
+    assert failure["status"] == "VALID_FAIL"
+    assert failure["failure_code"] == "ARMIJO_LINE_SEARCH_FAILURE"
+    assert telemetry["reduced_residual_inf"] > 1.0e-8
+    assert telemetry["full_scaled_residual_inf"] > 1.0e-8
+    assert telemetry["auxiliary_scaled_residual_inf"] <= 1.0e-12
+    assert telemetry["full_fixed_point_defect_inf"] is None
+    assert _config()["identity"]["fresh_s0_formal_execution_count"] == 0
+
+    workflow = (ROOT / ".github/workflows/read_only_validation.yml").read_text(
+        encoding="utf-8"
+    )
+    assert "tests/test_geophase_exact_condensed_solver.py" in workflow
+    assert "tests/test_geophase_exact_condensed_b2.py" in workflow

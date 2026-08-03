@@ -1,0 +1,2 @@
+case_id,status,spatial_level,dt_s,wall_time_s,failure_code,reduced_residual_inf,full_scaled_residual_inf,full_fixed_point_defect_inf,auxiliary_scaled_residual_inf,newton_iterations,krylov_matvecs,reduced_residual_evaluations,line_search_backtracks
+B2-ORIGINAL-S1-DT10p0NS,VALID_FAIL,1,1e-08,0.9530737000750378,ARMIJO_LINE_SEARCH_FAILURE,0.009519603587211078,0.009519603587211078,,1.4392805451179502e-16,5,100,135,23

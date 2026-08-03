@@ -165,8 +165,8 @@ def test_equivalence_v2_machine_preregistration_is_content_addressed_and_zero() 
     assert record["formal_artifact_count"] == 0
 
 
-def test_nls_v1_terminal_route_and_fast_CI_preserve_consumed_v2_gate() -> None:
-    checkpoint = "Q2_NLS_V1_QUALIFICATION_REJECTED_NO_S0"
+def test_exact_condensed_b2_terminal_route_preserves_consumed_v2_gate() -> None:
+    checkpoint = "Q2_EXACT_CONDENSED_B2_VALID_FAIL_NO_S0"
     authority_texts = []
     for path in (
         ROOT / "CODEX_CONTEXT.md",
