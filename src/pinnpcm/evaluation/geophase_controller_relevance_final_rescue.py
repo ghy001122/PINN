@@ -36,6 +36,12 @@ from pinnpcm.solvers import geophase_phase1_v2_controller_v2 as controller_v2
 from pinnpcm.solvers import geophase_exact_condensed as exact_v1
 from pinnpcm.solvers import geophase_phase1_v2_implicit as production
 from pinnpcm.solvers.geophase_exact_condensed import ExactCondensedRootTelemetry
+from pinnpcm.solvers.geophase_exact_condensed_anderson import (
+    SafeguardedAndersonSettings,
+)
+from pinnpcm.solvers.geophase_exact_condensed_anderson_controller_v2 import (
+    simulate_exact_condensed_anderson_protocol_v2,
+)
 from pinnpcm.solvers.geophase_exact_condensed_controller_v2 import (
     ExactCondensedEmbeddedAttemptObservation,
     simulate_exact_condensed_protocol_v2,
@@ -454,6 +460,10 @@ def run_r0_case(
     scientific: dict[str, Any],
     remaining_wall_s: float,
     exact_controller_hash_verified: bool,
+    simulate_protocol: Callable[..., Any] = simulate_exact_condensed_protocol_v2,
+    simulation_kwargs: Mapping[str, Any] | None = None,
+    stage_label: str = "R0",
+    nonlinear_failure_route: str = "R1",
 ) -> dict[str, Any]:
     grid = build_geophase_grid(scientific, spatial_level=int(case["spatial_level"]))
     fields = build_s2_thermal_fields(grid, scientific)
@@ -474,7 +484,7 @@ def run_r0_case(
     error_class = None
     error_message = None
     try:
-        result = simulate_exact_condensed_protocol_v2(
+        result = simulate_protocol(
             state,
             protocol=protocol,
             protocol_id=protocol_id,
@@ -490,6 +500,7 @@ def run_r0_case(
             retain_full_history=True,
             attempted_candidate_callback=attempts.append,
             cache=cache,
+            **dict(simulation_kwargs or {}),
         )
     except (
         RuntimeError,
@@ -527,12 +538,21 @@ def run_r0_case(
         claim_status = "qualified_supported"
         r1_eligible = False
     elif error_message == "controller-v2 failed at locked outer floor":
-        status, r1_eligible = _classify_terminal_failure(
+        status, terminal_is_nonlinear = _classify_terminal_failure(
             None if not attempts else attempts[-1]
         )
-        route = "R1" if r1_eligible else "STOP_FINAL_FORWARD_SOLVER_RESCUE"
+        status = status.replace("R0_", f"{stage_label}_", 1)
+        r1_eligible = bool(
+            terminal_is_nonlinear and nonlinear_failure_route == "R1"
+        )
+        route = (
+            "R1" if r1_eligible else "STOP_FINAL_FORWARD_SOLVER_RESCUE"
+        )
         validity = (
-            "valid" if status.startswith("R0_VALID") or r1_eligible else "invalid"
+            "valid"
+            if status.startswith(f"{stage_label}_VALID")
+            or terminal_is_nonlinear
+            else "invalid"
         )
         claim_status = "failed_but_informative" if validity == "valid" else "forbidden"
     elif result is not None and result.stop_reason == "maximum_wall_clock_reached":
@@ -552,6 +572,7 @@ def run_r0_case(
         terminal_context = _terminal_root_context(case, attempts[-1])
     return {
         "schema_version": SCHEMA_VERSION,
+        "stage": stage_label,
         "case": dict(case),
         "state_role": str(case["state_kind"]),
         "initial_state_sha256": _state_sha256(state),
@@ -645,9 +666,12 @@ def _write_attempts_csv(path: Path, cases: list[Mapping[str, Any]]) -> None:
                             "auxiliary_scaled_residual_inf": root.get(
                                 "auxiliary_scaled_residual_inf"
                             ),
-                            "root_iterations": root.get("newton_iterations"),
+                            "root_iterations": root.get(
+                                "iterations", root.get("newton_iterations")
+                            ),
                             "map_or_residual_evaluations": root.get(
-                                "reduced_residual_evaluations"
+                                "map_evaluations",
+                                root.get("reduced_residual_evaluations"),
                             ),
                             "krylov_matvecs": root.get("krylov_matvecs"),
                             "backtracks": root.get("line_search_backtracks"),
@@ -1335,6 +1359,199 @@ def run_r1_audit(config_path: Path, output_root: Path) -> dict[str, Any]:
     return summary
 
 
+def _r2_settings(contract: Mapping[str, Any]) -> SafeguardedAndersonSettings:
+    frozen = contract["r2"]["map"]
+    settings = SafeguardedAndersonSettings(
+        depth=int(frozen["anderson_depth"]),
+        relaxation=float(frozen["relaxation"]),
+        maximum_map_evaluations=int(frozen["maximum_map_evaluations_per_root"]),
+        coefficient_regularization=float(frozen["coefficient_regularization"]),
+        svd_rcond=float(frozen["svd_rcond"]),
+        residual_scale_floor_K=float(frozen["residual_scale_floor_K"]),
+        sufficient_decrease_c1=float(frozen["sufficient_decrease_c1"]),
+    )
+    settings.validate()
+    return settings
+
+
+def run_r2_qualification(config_path: Path, output_root: Path) -> dict[str, Any]:
+    config_path = Path(config_path).resolve()
+    contract = load_contract(config_path)
+    verified = verify_frozen_inputs(contract)
+    scientific = resolved_s2_config()
+    limits = resolve_and_validate_limits(scientific, contract)
+    thread_environment = validate_thread_environment(contract)
+    settings = _r2_settings(contract)
+    configured_branch = str(contract["identity"]["branch"])
+    branch = _git_value("branch", "--show-current")
+    if branch != configured_branch:
+        raise ValueError(f"R2 must run on {configured_branch}, observed {branch}")
+    if _git_value("status", "--porcelain"):
+        raise ValueError("R2 requires a clean anchored worktree")
+    git_sha = _git_value("rev-parse", "HEAD")
+    parent_path = (ROOT / str(contract["r2"]["parent_r1_summary"])).resolve()
+    if _sha256(parent_path) != str(contract["r2"]["parent_r1_summary_sha256"]):
+        raise ValueError("R2 parent R1 summary hash differs from its contract")
+    parent = json.loads(parent_path.read_text(encoding="utf-8"))
+    if parent.get("disposition") != "R1_CONTRACTION_PASS_R2_AUTHORIZED":
+        raise ValueError("R2 parent did not authorize safeguarded Anderson")
+
+    output_root = Path(output_root).resolve()
+    expected_output_root = (
+        ROOT
+        / str(contract["outputs"]["namespace"])
+        / str(contract["identity"]["r2_run_id"])
+    ).resolve()
+    if output_root != expected_output_root:
+        raise ValueError(
+            f"R2 output root must be {expected_output_root}, observed {output_root}"
+        )
+    output_root.mkdir(parents=True, exist_ok=True)
+    snapshot = output_root / str(contract["outputs"]["config_snapshot"])
+    _atomic_bytes(snapshot, config_path.read_bytes())
+
+    timebox_start = datetime.fromisoformat(
+        str(contract["timebox"]["started_utc"]).replace("Z", "+00:00")
+    )
+    cumulative_before_s = max(
+        0.0,
+        (
+            datetime.now(timezone.utc) - timebox_start.astimezone(timezone.utc)
+        ).total_seconds(),
+    )
+    cumulative_limit_s = float(
+        contract["timebox"]["r0_r1_r2_cumulative_wall_s_max"]
+    )
+    remaining = cumulative_limit_s - cumulative_before_s
+    if remaining <= 0.0:
+        raise RuntimeError("R0-R2 cumulative one-day timebox exhausted before R2")
+    budget = min(float(contract["r2"]["qualification_wall_time_s_max"]), remaining)
+    started = perf_counter()
+    results: list[dict[str, Any]] = []
+    exact_controller_expected = next(
+        item["sha256"]
+        for item in verified
+        if item["path"]
+        == "src/pinnpcm/solvers/geophase_exact_condensed_controller_v2.py"
+    )
+    for case in contract["r0"]["cases"]:
+        case_remaining = budget - (perf_counter() - started)
+        if case_remaining <= 0.0:
+            results.append(
+                {
+                    "schema_version": SCHEMA_VERSION,
+                    "stage": "R2",
+                    "case": dict(case),
+                    "validity": "invalid",
+                    "status": "R2_BUDGET_EXHAUSTED_BEFORE_CASE",
+                    "claim_status": "forbidden",
+                    "route": "STOP_FINAL_FORWARD_SOLVER_RESCUE",
+                    "r1_eligible": False,
+                    "attempts": [],
+                    "wall_time_s": 0.0,
+                }
+            )
+            break
+        result = run_r0_case(
+            case,
+            scientific=scientific,
+            remaining_wall_s=case_remaining,
+            exact_controller_hash_verified=(
+                exact_controller_expected
+                == (
+                    "9a8122949bcd4f7403fd93d627c00469e1fc8d622dc914750093b"
+                    "4989acd66fa"
+                )
+            ),
+            simulate_protocol=simulate_exact_condensed_anderson_protocol_v2,
+            simulation_kwargs={"anderson_settings": settings},
+            stage_label="R2",
+            nonlinear_failure_route="STOP_FINAL_FORWARD_SOLVER_RESCUE",
+        )
+        results.append(result)
+        case_root = output_root / str(contract["outputs"]["r2_case_directory"])
+        _atomic_json(case_root / f"{case['case_id']}.json", result)
+        if result["status"] != "PASS":
+            break
+
+    statuses = [result["status"] for result in results]
+    if len(results) == 2 and all(status == "PASS" for status in statuses):
+        disposition = "R2_CONTROLLER_ADMISSIBLE_QUALIFICATION_PASS"
+        route = "B3"
+        validity = "valid"
+        claim_status = "qualified_supported"
+        lifecycle_state = "numerically_validated"
+    elif any(result.get("validity") == "valid" for result in results):
+        disposition = "STOP_FINAL_FORWARD_SOLVER_RESCUE"
+        route = "STOP"
+        validity = "valid"
+        claim_status = "failed_but_informative"
+        lifecycle_state = "numerically_validated"
+    else:
+        disposition = "INVALID_R2_EXECUTION_STOP_FINAL_FORWARD_SOLVER_RESCUE"
+        route = "STOP"
+        validity = "invalid"
+        claim_status = "forbidden"
+        lifecycle_state = "executed"
+
+    attempts_path = output_root / str(contract["outputs"]["r2_attempts_csv"])
+    _write_attempts_csv(attempts_path, results)
+    summary = {
+        "schema_version": "geophase_controller_relevance_r2_v1",
+        "task_id": contract["task_id"],
+        "run_id": contract["identity"]["r2_run_id"],
+        "solver_id": contract["r2"]["solver_id"],
+        "git_sha": git_sha,
+        "branch": branch,
+        "config_path": config_path.relative_to(ROOT).as_posix(),
+        "config_sha256": _sha256(config_path),
+        "parent_r1_summary": parent_path.relative_to(ROOT).as_posix(),
+        "parent_r1_summary_sha256": _sha256(parent_path),
+        "verified_frozen_inputs": verified,
+        "resolved_controller_limits": limits,
+        "runtime": {
+            "python": sys.version,
+            "platform": platform.platform(),
+            "thread_environment": thread_environment,
+            "command": sys.argv,
+        },
+        "settings": asdict(settings),
+        "validity": validity,
+        "disposition": disposition,
+        "route": route,
+        "lifecycle_state": lifecycle_state,
+        "claim_status": claim_status,
+        "scientific_vote": False,
+        "formal_execution_count": 0,
+        "case_count": len(results),
+        "case_statuses": {
+            result["case"]["case_id"]: result["status"] for result in results
+        },
+        "cases": results,
+        "wall_time_s": float(perf_counter() - started),
+        "budget_wall_time_s": budget,
+        "cumulative_timebox": {
+            "started_utc": contract["timebox"]["started_utc"],
+            "elapsed_before_r2_s": cumulative_before_s,
+            "limit_s": cumulative_limit_s,
+            "remaining_before_r2_s": remaining,
+            "external_ci_queue_excluded": bool(
+                contract["timebox"]["external_ci_queue_excluded"]
+            ),
+        },
+        "evidence_type": contract["evidence_type"],
+        "artifacts": {
+            "attempts_csv": attempts_path.relative_to(ROOT).as_posix(),
+            "attempts_csv_sha256": _sha256(attempts_path),
+            "config_snapshot": snapshot.relative_to(ROOT).as_posix(),
+            "config_snapshot_sha256": _sha256(snapshot),
+        },
+    }
+    summary_path = output_root / str(contract["outputs"]["r2_summary_json"])
+    _atomic_json(summary_path, summary)
+    return summary
+
+
 __all__ = [
     "R1_SCHEMA_VERSION",
     "SCHEMA_VERSION",
@@ -1345,6 +1562,7 @@ __all__ = [
     "run_r0_case",
     "run_r1_audit",
     "run_r1_context",
+    "run_r2_qualification",
     "validate_thread_environment",
     "verify_frozen_inputs",
 ]

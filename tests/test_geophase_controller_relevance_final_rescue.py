@@ -67,8 +67,11 @@ def test_frozen_inputs_are_byte_identical_and_production_controller_is_called() 
     assert "src/pinnpcm/solvers/geophase_exact_condensed.py" in paths
     assert "src/pinnpcm/solvers/geophase_exact_condensed_controller_v2.py" in paths
 
+    signature = inspect.signature(rescue.run_r0_case)
+    assert signature.parameters["simulate_protocol"].default is (
+        rescue.simulate_exact_condensed_protocol_v2
+    )
     source = inspect.getsource(rescue.run_r0_case)
-    assert "simulate_exact_condensed_protocol_v2(" in source
     assert "attempt_exact_condensed_embedded_interval(" not in source
     assert "final_time_s=float(state.time_s + maximum_H)" in source
     assert "maximum_accepted_steps=1" in source

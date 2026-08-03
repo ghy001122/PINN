@@ -7,7 +7,6 @@ identity:
   branch: codex/controller-relevance-final-forward-rescue
   r0_run_id: R0-CONTROLLER-RELEVANCE-20260804-V2
   r1_run_id: R1-CONTRACTION-20260804-V1
-  r2_run_id: R2-ANDERSON-QUALIFICATION-20260804-V1
   r0_invocation_count: 2
   r0_invalid_invocation_count: 1
   runner_repair_count: 1
@@ -54,12 +53,6 @@ frozen_inputs:
     sha256: 11c5d55d989ed21df900ef7f8912495715c816b2ac822978a19a751aaf8ed8ba
   - path: outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V2/cases/R0-B-CRITICAL-TRANSITION-T4.json
     sha256: 37b8bf8a9b70ce583b966e43cec1c1254f3ec89978e78e45469b8ee87b1563b1
-  - path: outputs/tables/geophase_controller_relevance_final_rescue/R1-CONTRACTION-20260804-V1/config_snapshot.yaml
-    sha256: ec3512724e4c21e23c7a8fe29676aa9d414661abedb266cac731675c8e1991dc
-  - path: outputs/tables/geophase_controller_relevance_final_rescue/R1-CONTRACTION-20260804-V1/r1_summary.json
-    sha256: 733f3e908a69a185abefad7ffa50647d5dcbbf96e2ceb37ea9c5f744c7083de4
-  - path: outputs/tables/geophase_controller_relevance_final_rescue/R1-CONTRACTION-20260804-V1/contexts/67be93df84f4ab7de356924cb05e1b0c62112a632e2ddad6954a2205e830ab43.json
-    sha256: a3dbaf831900b2febccdb99db8e7919b9e8a51a8aec5d166ff371d2f0e69ebb6
 
 scope:
   d0_rerun_or_completion: forbidden
@@ -133,8 +126,6 @@ r1:
 
 r2:
   conditional_on: r1_pass
-  parent_r1_summary: outputs/tables/geophase_controller_relevance_final_rescue/R1-CONTRACTION-20260804-V1/r1_summary.json
-  parent_r1_summary_sha256: 733f3e908a69a185abefad7ffa50647d5dcbbf96e2ceb37ea9c5f744c7083de4
   solver_id: exact_condensed_temperature_safeguarded_anderson_v1
   implementation_human_hours_max: 6
   qualification_wall_time_s_max: 7200
@@ -144,7 +135,6 @@ r2:
     maximum_map_evaluations_per_root: 80
     coefficient_regularization: 1.0e-10
     svd_rcond: 1.0e-12
-    residual_scale_floor_K: 1.0e-30
     sufficient_decrease_c1: 1.0e-4
     all_actual_map_calls_count: true
   forbidden:
@@ -180,6 +170,3 @@ outputs:
   config_snapshot: config_snapshot.yaml
   r1_case_directory: contexts
   r1_summary_json: r1_summary.json
-  r2_case_directory: cases
-  r2_attempts_csv: r2_attempt_paths.csv
-  r2_summary_json: r2_summary.json
