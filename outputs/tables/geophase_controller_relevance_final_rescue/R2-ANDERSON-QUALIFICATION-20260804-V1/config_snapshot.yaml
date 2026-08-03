@@ -8,7 +8,6 @@ identity:
   r0_run_id: R0-CONTROLLER-RELEVANCE-20260804-V2
   r1_run_id: R1-CONTRACTION-20260804-V1
   r2_run_id: R2-ANDERSON-QUALIFICATION-20260804-V1
-  b3_run_id: B3-MATCHED-WINDOW-20260804-V1
   r0_invocation_count: 2
   r0_invalid_invocation_count: 1
   runner_repair_count: 1
@@ -61,18 +60,6 @@ frozen_inputs:
     sha256: 733f3e908a69a185abefad7ffa50647d5dcbbf96e2ceb37ea9c5f744c7083de4
   - path: outputs/tables/geophase_controller_relevance_final_rescue/R1-CONTRACTION-20260804-V1/contexts/67be93df84f4ab7de356924cb05e1b0c62112a632e2ddad6954a2205e830ab43.json
     sha256: a3dbaf831900b2febccdb99db8e7919b9e8a51a8aec5d166ff371d2f0e69ebb6
-  - path: outputs/tables/geophase_controller_relevance_final_rescue/R2-ANDERSON-QUALIFICATION-20260804-V1/config_snapshot.yaml
-    sha256: b9934c057208febc8078fb84c8d63aa81b744bb6816e0c360dbce74a86e2f047
-  - path: outputs/tables/geophase_controller_relevance_final_rescue/R2-ANDERSON-QUALIFICATION-20260804-V1/r2_attempt_paths.csv
-    sha256: bb41c83a1d3dc98856a011154b76b6386987d14435f9b2bf0bfc2570dcc3f8b5
-  - path: outputs/tables/geophase_controller_relevance_final_rescue/R2-ANDERSON-QUALIFICATION-20260804-V1/r2_summary.json
-    sha256: bf118642a6f6d67765760ffd2f855d5acac02f967cfd5bbaa170c038b7188a34
-  - path: outputs/tables/geophase_controller_relevance_final_rescue/R2-ANDERSON-QUALIFICATION-20260804-V1/cases/R0-A-QUIESCENT-9V-T1.json
-    sha256: 3914374e0b7a2649f04a3b62a6c002ca817728c6cc03843bfdd9166bda50df90
-  - path: outputs/tables/geophase_controller_relevance_final_rescue/R2-ANDERSON-QUALIFICATION-20260804-V1/cases/R0-B-CRITICAL-TRANSITION-T4.json
-    sha256: ef14350d171b348e48d162b3c637f5dafbd83db401b7c26d1a7d7b2abdbf66c7
-  - path: outputs/tables/geophase_nls_v1/qualification/NLSV1-QUAL-20260802-V1/runs/NLSV1-QUAL-QUIESCENT-9V-T1.json.gz
-    sha256: ca311b396567c5682b0fb310049e5539e75121bdf43678ad2660b4ffc9c5b053
 
 scope:
   d0_rerun_or_completion: forbidden
@@ -165,64 +152,6 @@ r2:
     - depth_change
     - newton_fallback
     - second_solver_identity
-
-b3:
-  conditional_on: R2_CONTROLLER_ADMISSIBLE_QUALIFICATION_PASS
-  parent_r2_summary: outputs/tables/geophase_controller_relevance_final_rescue/R2-ANDERSON-QUALIFICATION-20260804-V1/r2_summary.json
-  parent_r2_summary_sha256: bf118642a6f6d67765760ffd2f855d5acac02f967cfd5bbaa170c038b7188a34
-  solver_id: exact_condensed_temperature_safeguarded_anderson_v1
-  reference_solver_id: full_state_nls_v1_dual_gate
-  aggregate_cpu_time_s_max: 10800
-  comparison_sample_interval_s: 5.0e-9
-  nrmse_definition: rmse_candidate_minus_reference_divided_by_rms_reference
-  terminal_current_absolute_floor_A: 1.0e-12
-  device_voltage_absolute_floor_V: 1.0e-12
-  quiescent_9V:
-    state_source: outputs/tables/geophase_nls_v1/qualification/NLSV1-QUAL-20260802-V1/runs/NLSV1-QUAL-QUIESCENT-9V-T1.json.gz
-    accepted_time_s: 1.706015625e-5
-    relative_window_s: 5.0e-7
-    protocol_id: quiescent_9V
-    time_divisor: 1
-  transition_12p5V:
-    protocol_id: transition_probe_12p5V
-    time_divisor: 1
-    locator_maximum_horizon_s: 2.0e-6
-    event_signal: active_vo2_area_weighted_mean_conductive_state
-    event_threshold: 0.5
-    required_event_pair: first_upcrossing_then_first_downcrossing
-    window_padding_s: 5.0e-8
-    locator_invocation_limit: 1
-  correctness:
-    terminal_current_nrmse_max: 0.01
-    device_voltage_nrmse_max: 0.005
-    event_count_direction_order_exact: true
-    reversal_direction_order_exact: true
-    event_absolute_error_s_max: 5.0e-8
-    event_relative_error_max: 0.01
-    exact_all_local_and_aggregate_integrity_required: true
-    reference_all_local_and_aggregate_integrity_required: true
-    exact_fallback_steps_required: 0
-    quiescent_growth_events_min: 1
-  timing:
-    independent_process: true
-    fixed_affinity: true
-    blas_threads: 1
-    warmup_prefix_s: 2.0e-8
-    alternating_timed_repetitions: 3
-    statistic: median
-  performance:
-    speedup_9V_min: 1.95
-    historical_F9_wall_s: 31812.8608
-    projection_safety_factor: 1.10
-    projected_9V_wall_s_max: 18000
-    speedup_12p5V_min: 1.80
-  outputs:
-    config_snapshot: config_snapshot.yaml
-    states_directory: states
-    worker_directory: workers
-    comparison_csv: b3_comparisons.csv
-    timing_csv: b3_timings.csv
-    summary_json: b3_summary.json
 
 timebox:
   started_utc: "2026-08-03T17:14:35Z"

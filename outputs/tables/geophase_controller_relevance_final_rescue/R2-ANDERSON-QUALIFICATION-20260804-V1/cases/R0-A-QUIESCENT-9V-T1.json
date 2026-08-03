@@ -1,0 +1,719 @@
+{
+  "accepted_outer_interval_s": 6.24999999999994e-10,
+  "attempt_count": 5,
+  "attempted_outer_intervals_s": [
+    9.999999999999904e-09,
+    4.999999999999952e-09,
+    2.499999999999976e-09,
+    1.249999999999988e-09,
+    6.24999999999994e-10
+  ],
+  "attempts": [
+    {
+      "accepted": false,
+      "accepted_first_half_endpoint_sha256": null,
+      "aggregate_integrity": null,
+      "at_outer_floor": false,
+      "attempted_outer_interval_s": 9.999999999999904e-09,
+      "below_floor_remainder": false,
+      "case_id": "R0-A-QUIESCENT-9V-T1",
+      "committed_endpoint_is_second_half": false,
+      "committed_endpoint_sha256": null,
+      "embedded_error": null,
+      "error_class": "ExactCondensedRootFailure",
+      "error_message": "the frozen relaxed Picard safeguard failed the 1e-4 decrease gate",
+      "first_half_endpoint_preserved": false,
+      "first_half_endpoint_sha256": null,
+      "half_interval_s": 4.999999999999952e-09,
+      "paths": [
+        {
+          "candidate": null,
+          "path": "full_step",
+          "root": {
+            "accepted_step_kind_history": [
+              "safeguarded_picard"
+            ],
+            "anderson_accepted": 0,
+            "anderson_attempts": 1,
+            "anderson_rejected": 1,
+            "auxiliary_scaled_residual_inf": 1.7620325223069762e-16,
+            "certification_wall_s": 0.0,
+            "coefficient_history": [
+              [
+                -1.0548633700789265,
+                2.0548633700789276
+              ]
+            ],
+            "coefficient_wall_s": 0.0007912999717518687,
+            "failure_code": "SAFEGUARDED_PICARD_NO_SUFFICIENT_DECREASE",
+            "failure_message": "the frozen relaxed Picard safeguard failed the 1e-4 decrease gate",
+            "full_fixed_point_defect_inf": 0.5992308947359135,
+            "full_scaled_residual_inf": 0.010983655607742606,
+            "history_restarts": 0,
+            "iterations": 1,
+            "map_evaluations": 4,
+            "map_wall_s": 0.026476899860426784,
+            "predictor_wall_s": 0.007619299925863743,
+            "raw_thermal_residual_inf_W_per_cell": 4.313989201922065e-06,
+            "reduced_residual_inf": 0.010983655607742606,
+            "safeguarded_picard_steps": 1,
+            "solver_id": "exact_condensed_temperature_safeguarded_anderson_v1",
+            "status": "FAIL",
+            "total_wall_s": 0.035575599991716444,
+            "unscaled_temperature_defect_history_inf_K": [
+              0.24440016896028283,
+              0.12421983289436866
+            ]
+          }
+        },
+        {
+          "candidate": null,
+          "path": "first_half_step",
+          "root": null
+        },
+        {
+          "candidate": null,
+          "path": "second_half_step",
+          "root": null
+        }
+      ],
+      "previous_state_sha256": "fbacd222d15e1c8b889e587cbae95d0fe64bca5c77ecf6a7f0a9ed6630fbb118",
+      "rejection_index": 0,
+      "schema_version": "geophase_controller_relevance_r0_v1",
+      "second_half_endpoint_sha256": null,
+      "wall_time_s": 0.03579690004698932
+    },
+    {
+      "accepted": false,
+      "accepted_first_half_endpoint_sha256": null,
+      "aggregate_integrity": null,
+      "at_outer_floor": false,
+      "attempted_outer_interval_s": 4.999999999999952e-09,
+      "below_floor_remainder": false,
+      "case_id": "R0-A-QUIESCENT-9V-T1",
+      "committed_endpoint_is_second_half": false,
+      "committed_endpoint_sha256": null,
+      "embedded_error": null,
+      "error_class": "ExactCondensedRootFailure",
+      "error_message": "the frozen relaxed Picard safeguard failed the 1e-4 decrease gate",
+      "first_half_endpoint_preserved": false,
+      "first_half_endpoint_sha256": null,
+      "half_interval_s": 2.499999999999976e-09,
+      "paths": [
+        {
+          "candidate": null,
+          "path": "full_step",
+          "root": {
+            "accepted_step_kind_history": [
+              "safeguarded_picard",
+              "anderson"
+            ],
+            "anderson_accepted": 1,
+            "anderson_attempts": 2,
+            "anderson_rejected": 1,
+            "auxiliary_scaled_residual_inf": 1.6362560737158194e-16,
+            "certification_wall_s": 0.0,
+            "coefficient_history": [
+              [
+                -0.21037719936547095,
+                1.2103771993654713
+              ],
+              [
+                -0.20471316638910275,
+                1.1773346351221219,
+                0.02737853126698135
+              ]
+            ],
+            "coefficient_wall_s": 0.0008368999697268009,
+            "failure_code": "SAFEGUARDED_PICARD_NO_SUFFICIENT_DECREASE",
+            "failure_message": "the frozen relaxed Picard safeguard failed the 1e-4 decrease gate",
+            "full_fixed_point_defect_inf": 0.15356577300369162,
+            "full_scaled_residual_inf": 0.00026147211992252314,
+            "history_restarts": 0,
+            "iterations": 2,
+            "map_evaluations": 5,
+            "map_wall_s": 0.03217140003107488,
+            "predictor_wall_s": 0.006120000034570694,
+            "raw_thermal_residual_inf_W_per_cell": 2.237029912809401e-07,
+            "reduced_residual_inf": 0.00026147211992252314,
+            "safeguarded_picard_steps": 1,
+            "solver_id": "exact_condensed_temperature_safeguarded_anderson_v1",
+            "status": "FAIL",
+            "total_wall_s": 0.04001479991711676,
+            "unscaled_temperature_defect_history_inf_K": [
+              0.05277364546310537,
+              0.008448004742490411,
+              0.0025385578408645415
+            ]
+          }
+        },
+        {
+          "candidate": null,
+          "path": "first_half_step",
+          "root": null
+        },
+        {
+          "candidate": null,
+          "path": "second_half_step",
+          "root": null
+        }
+      ],
+      "previous_state_sha256": "fbacd222d15e1c8b889e587cbae95d0fe64bca5c77ecf6a7f0a9ed6630fbb118",
+      "rejection_index": 1,
+      "schema_version": "geophase_controller_relevance_r0_v1",
+      "second_half_endpoint_sha256": null,
+      "wall_time_s": 0.040252899983897805
+    },
+    {
+      "accepted": false,
+      "accepted_first_half_endpoint_sha256": null,
+      "aggregate_integrity": null,
+      "at_outer_floor": false,
+      "attempted_outer_interval_s": 2.499999999999976e-09,
+      "below_floor_remainder": false,
+      "case_id": "R0-A-QUIESCENT-9V-T1",
+      "committed_endpoint_is_second_half": false,
+      "committed_endpoint_sha256": null,
+      "embedded_error": null,
+      "error_class": "ExactCondensedRootFailure",
+      "error_message": "the frozen relaxed Picard safeguard failed the 1e-4 decrease gate",
+      "first_half_endpoint_preserved": false,
+      "first_half_endpoint_sha256": null,
+      "half_interval_s": 1.249999999999988e-09,
+      "paths": [
+        {
+          "candidate": null,
+          "path": "full_step",
+          "root": {
+            "accepted_step_kind_history": [
+              "safeguarded_picard",
+              "anderson",
+              "anderson",
+              "safeguarded_picard"
+            ],
+            "anderson_accepted": 2,
+            "anderson_attempts": 3,
+            "anderson_rejected": 1,
+            "auxiliary_scaled_residual_inf": 2.4405284976956793e-16,
+            "certification_wall_s": 0.0,
+            "coefficient_history": [
+              [
+                -0.3770075682959296,
+                1.3770075682959297
+              ],
+              [
+                1.4007895240069175,
+                -5.69267804858169,
+                5.29188852457477
+              ],
+              [
+                -3.142857006011497,
+                13.377556108685429,
+                -13.868824605247003,
+                4.634125502573073
+              ]
+            ],
+            "coefficient_wall_s": 0.0008292000275105238,
+            "failure_code": "SAFEGUARDED_PICARD_NO_SUFFICIENT_DECREASE",
+            "failure_message": "the frozen relaxed Picard safeguard failed the 1e-4 decrease gate",
+            "full_fixed_point_defect_inf": 0.008535028444947468,
+            "full_scaled_residual_inf": 8.93137195808208e-06,
+            "history_restarts": 1,
+            "iterations": 4,
+            "map_evaluations": 7,
+            "map_wall_s": 0.03964419977273792,
+            "predictor_wall_s": 0.00608769990503788,
+            "raw_thermal_residual_inf_W_per_cell": 1.473036944905493e-08,
+            "reduced_residual_inf": 8.93137195808208e-06,
+            "safeguarded_picard_steps": 2,
+            "solver_id": "exact_condensed_temperature_safeguarded_anderson_v1",
+            "status": "FAIL",
+            "total_wall_s": 0.04758030001539737,
+            "unscaled_temperature_defect_history_inf_K": [
+              0.006032723329553846,
+              0.0016314180112999566,
+              0.00023713162590865977,
+              0.00016038172697108166,
+              0.00011396329313129172
+            ]
+          }
+        },
+        {
+          "candidate": null,
+          "path": "first_half_step",
+          "root": null
+        },
+        {
+          "candidate": null,
+          "path": "second_half_step",
+          "root": null
+        }
+      ],
+      "previous_state_sha256": "fbacd222d15e1c8b889e587cbae95d0fe64bca5c77ecf6a7f0a9ed6630fbb118",
+      "rejection_index": 2,
+      "schema_version": "geophase_controller_relevance_r0_v1",
+      "second_half_endpoint_sha256": null,
+      "wall_time_s": 0.04773320001550019
+    },
+    {
+      "accepted": false,
+      "accepted_first_half_endpoint_sha256": null,
+      "aggregate_integrity": null,
+      "at_outer_floor": false,
+      "attempted_outer_interval_s": 1.249999999999988e-09,
+      "below_floor_remainder": false,
+      "case_id": "R0-A-QUIESCENT-9V-T1",
+      "committed_endpoint_is_second_half": false,
+      "committed_endpoint_sha256": null,
+      "embedded_error": null,
+      "error_class": "ExactCondensedRootFailure",
+      "error_message": "the frozen relaxed Picard safeguard failed the 1e-4 decrease gate",
+      "first_half_endpoint_preserved": false,
+      "first_half_endpoint_sha256": null,
+      "half_interval_s": 6.24999999999994e-10,
+      "paths": [
+        {
+          "candidate": null,
+          "path": "full_step",
+          "root": {
+            "accepted_step_kind_history": [
+              "safeguarded_picard",
+              "anderson",
+              "anderson",
+              "anderson",
+              "anderson",
+              "anderson"
+            ],
+            "anderson_accepted": 5,
+            "anderson_attempts": 6,
+            "anderson_rejected": 1,
+            "auxiliary_scaled_residual_inf": 1.709825938522961e-16,
+            "certification_wall_s": 0.0,
+            "coefficient_history": [
+              [
+                -0.7863070078619767,
+                1.7863070078619776
+              ],
+              [
+                1.0705822533061482,
+                -2.4735085893301987,
+                2.402926336024053
+              ],
+              [
+                -1.2942350631258541,
+                3.0071770671331097,
+                -3.117511107984,
+                2.4045691039767436
+              ],
+              [
+                -0.0055432119631557844,
+                0.06110235911733952,
+                -0.008526632457600623,
+                0.9529674853034169
+              ],
+              [
+                0.00012038252691156555,
+                0.0003538804138105315,
+                -4.4147282998534894e-05,
+                0.9995698843422771
+              ],
+              [
+                0.007074743020966024,
+                0.004928742980107006,
+                10.158758013274944,
+                -9.170761499276015
+              ]
+            ],
+            "coefficient_wall_s": 0.002516699954867363,
+            "failure_code": "SAFEGUARDED_PICARD_NO_SUFFICIENT_DECREASE",
+            "failure_message": "the frozen relaxed Picard safeguard failed the 1e-4 decrease gate",
+            "full_fixed_point_defect_inf": 3.71331987980561e-06,
+            "full_scaled_residual_inf": 4.889018364389663e-09,
+            "history_restarts": 0,
+            "iterations": 6,
+            "map_evaluations": 9,
+            "map_wall_s": 0.061067999922670424,
+            "predictor_wall_s": 0.0054416999919340014,
+            "raw_thermal_residual_inf_W_per_cell": 1.3694220719757109e-11,
+            "reduced_residual_inf": 4.889018364389663e-09,
+            "safeguarded_picard_steps": 1,
+            "solver_id": "exact_condensed_temperature_safeguarded_anderson_v1",
+            "status": "FAIL",
+            "total_wall_s": 0.07075690000783652,
+            "unscaled_temperature_defect_history_inf_K": [
+              0.0005898167338500571,
+              0.00025905020476102436,
+              1.0548592456416372e-05,
+              1.8533208390181244e-06,
+              1.2652446912397863e-06,
+              8.188482070181635e-08,
+              8.167631904143491e-08
+            ]
+          }
+        },
+        {
+          "candidate": null,
+          "path": "first_half_step",
+          "root": null
+        },
+        {
+          "candidate": null,
+          "path": "second_half_step",
+          "root": null
+        }
+      ],
+      "previous_state_sha256": "fbacd222d15e1c8b889e587cbae95d0fe64bca5c77ecf6a7f0a9ed6630fbb118",
+      "rejection_index": 3,
+      "schema_version": "geophase_controller_relevance_r0_v1",
+      "second_half_endpoint_sha256": null,
+      "wall_time_s": 0.07086800003889948
+    },
+    {
+      "accepted": true,
+      "accepted_first_half_endpoint_sha256": "8d930806caf31cb9d7769aed020e57ec47eedd55be9a6185e7b3ffa16b36f91d",
+      "aggregate_integrity": {
+        "error_class": null,
+        "error_message": null,
+        "finite": true,
+        "ledger_pass": true,
+        "ledger_relative_residuals": {
+          "circuit": 7.680072220287046e-15,
+          "combined": 4.2630539348533005e-10,
+          "device_power": 2.754234245258076e-16,
+          "thermal": 1.1303985514567485e-09
+        },
+        "overall_pass": true
+      },
+      "at_outer_floor": false,
+      "attempted_outer_interval_s": 6.24999999999994e-10,
+      "below_floor_remainder": false,
+      "case_id": "R0-A-QUIESCENT-9V-T1",
+      "committed_endpoint_is_second_half": true,
+      "committed_endpoint_sha256": "1e986d77f99b04439dc7c2bd766d254918090ef40b5fb010f5fde7f8c3e90f6b",
+      "embedded_error": {
+        "e_T": 6.523833980773842e-06,
+        "e_V": 1.1774546893050797e-08,
+        "e_b": 0.00152891665884769,
+        "e_max": 0.00152891665884769,
+        "e_s": 0.00013796156307865903,
+        "voltage_scale_V": 9.0
+      },
+      "error_class": null,
+      "error_message": null,
+      "first_half_endpoint_preserved": true,
+      "first_half_endpoint_sha256": "8d930806caf31cb9d7769aed020e57ec47eedd55be9a6185e7b3ffa16b36f91d",
+      "half_interval_s": 3.12499999999997e-10,
+      "paths": [
+        {
+          "candidate": {
+            "endpoint_state_sha256": "dbf1df5b3fbe50b1d6946b2817c3db4acb93759d0e6a86edf150a9e0245e333e",
+            "endpoint_time_s": 2.1100976562498094e-06,
+            "integrity": {
+              "error_class": null,
+              "error_message": null,
+              "finite": true,
+              "lateral_pass": true,
+              "lateral_relative_mismatch": 7.362517724585558e-13,
+              "lateral_roundoff_ratio": 0.0015187725371109354,
+              "ledger_pass": true,
+              "ledger_relative_residuals": {
+                "circuit": 3.5878583582663766e-15,
+                "combined": 5.300189916590764e-12,
+                "device_power": 7.348175497934897e-16,
+                "thermal": 1.4068197332031515e-11
+              },
+              "nonlinear_pass": true,
+              "overall_pass": true
+            },
+            "nonlinear": {
+              "armijo_backtracks": 0,
+              "converged": true,
+              "fallback_picard_iterations": 0,
+              "iterations": 5,
+              "krylov_matvecs": 0,
+              "method": "exact_condensed_temperature_safeguarded_anderson_v1",
+              "predictor_picard_iterations": 0,
+              "scaled_residual_inf": 5.523851635864517e-12,
+              "scaled_update_inf": 3.0827440600234013e-09
+            },
+            "relative_current_imbalance": 9.140737826430228e-16,
+            "relative_power_imbalance": 7.312590261144181e-16
+          },
+          "path": "full_step",
+          "root": {
+            "accepted_step_kind_history": [
+              "safeguarded_picard",
+              "anderson",
+              "anderson",
+              "anderson",
+              "anderson"
+            ],
+            "anderson_accepted": 4,
+            "anderson_attempts": 4,
+            "anderson_rejected": 0,
+            "auxiliary_scaled_residual_inf": 2.0388643287976299e-16,
+            "certification_wall_s": 0.002793199964798987,
+            "coefficient_history": [
+              [
+                -0.973209121605978,
+                1.9732091216059797
+              ],
+              [
+                1.128538794479314,
+                -2.2906476020386246,
+                2.16210880755931
+              ],
+              [
+                -1.0202963987586482,
+                2.071268116850052,
+                -1.9750299186093987,
+                1.9240582005179956
+              ],
+              [
+                -0.00010557048089549203,
+                0.00778675310599454,
+                -0.03329208926457703,
+                1.025610906639478
+              ]
+            ],
+            "coefficient_wall_s": 0.0016270000487565994,
+            "failure_code": null,
+            "failure_message": null,
+            "full_fixed_point_defect_inf": 3.0827440600234013e-09,
+            "full_scaled_residual_inf": 5.523851635864517e-12,
+            "history_restarts": 0,
+            "iterations": 5,
+            "map_evaluations": 6,
+            "map_wall_s": 0.04028169997036457,
+            "predictor_wall_s": 0.004203399992547929,
+            "raw_thermal_residual_inf_W_per_cell": 2.81943200475818e-14,
+            "reduced_residual_inf": 5.523851635864517e-12,
+            "safeguarded_picard_steps": 1,
+            "solver_id": "exact_condensed_temperature_safeguarded_anderson_v1",
+            "status": "PASS",
+            "total_wall_s": 0.04990879993420094,
+            "unscaled_temperature_defect_history_inf_K": [
+              5.967152225139216e-05,
+              2.9381904198544362e-05,
+              3.645327524282038e-07,
+              1.2891177902929485e-08,
+              2.969954948639497e-09,
+              8.58335624798201e-11
+            ]
+          }
+        },
+        {
+          "candidate": {
+            "endpoint_state_sha256": "8d930806caf31cb9d7769aed020e57ec47eedd55be9a6185e7b3ffa16b36f91d",
+            "endpoint_time_s": 2.109785156249809e-06,
+            "integrity": {
+              "error_class": null,
+              "error_message": null,
+              "finite": true,
+              "lateral_pass": true,
+              "lateral_relative_mismatch": 8.519706572643017e-13,
+              "lateral_roundoff_ratio": 0.0017560760443767161,
+              "ledger_pass": true,
+              "ledger_relative_residuals": {
+                "circuit": 3.965429774927325e-15,
+                "combined": 1.0045465503285062e-09,
+                "device_power": 2.751917813812691e-16,
+                "thermal": 2.6631551304985634e-09
+              },
+              "nonlinear_pass": true,
+              "overall_pass": true
+            },
+            "nonlinear": {
+              "armijo_backtracks": 0,
+              "converged": true,
+              "fallback_picard_iterations": 0,
+              "iterations": 3,
+              "krylov_matvecs": 0,
+              "method": "exact_condensed_temperature_safeguarded_anderson_v1",
+              "predictor_picard_iterations": 0,
+              "scaled_residual_inf": 1.641286717493038e-11,
+              "scaled_update_inf": 7.393137324562815e-09
+            },
+            "relative_current_imbalance": 4.879361725440851e-16,
+            "relative_power_imbalance": 3.0496010784005315e-16
+          },
+          "path": "first_half_step",
+          "root": {
+            "accepted_step_kind_history": [
+              "safeguarded_picard",
+              "anderson",
+              "anderson"
+            ],
+            "anderson_accepted": 2,
+            "anderson_attempts": 2,
+            "anderson_rejected": 0,
+            "auxiliary_scaled_residual_inf": 2.2802454470756904e-16,
+            "certification_wall_s": 0.002788200043141842,
+            "coefficient_history": [
+              [
+                -1.007288868956237,
+                2.007288868956238
+              ],
+              [
+                1.050439610592417,
+                -2.09324145919117,
+                2.042801848598754
+              ]
+            ],
+            "coefficient_wall_s": 0.00048150005750358105,
+            "failure_code": null,
+            "failure_message": null,
+            "full_fixed_point_defect_inf": 7.393137324562815e-09,
+            "full_scaled_residual_inf": 1.641286717493038e-11,
+            "history_restarts": 0,
+            "iterations": 3,
+            "map_evaluations": 4,
+            "map_wall_s": 0.02017660008277744,
+            "predictor_wall_s": 0.005543400067836046,
+            "raw_thermal_residual_inf_W_per_cell": 1.5944484163424137e-13,
+            "reduced_residual_inf": 1.641286717493038e-11,
+            "safeguarded_picard_steps": 1,
+            "solver_id": "exact_condensed_temperature_safeguarded_anderson_v1",
+            "status": "PASS",
+            "total_wall_s": 0.02983349992427975,
+            "unscaled_temperature_defect_history_inf_K": [
+              6.455620450651622e-06,
+              3.2371648899243155e-06,
+              1.0089763691212283e-08,
+              2.4562041289755143e-10
+            ]
+          }
+        },
+        {
+          "candidate": {
+            "endpoint_state_sha256": "1e986d77f99b04439dc7c2bd766d254918090ef40b5fb010f5fde7f8c3e90f6b",
+            "endpoint_time_s": 2.110097656249809e-06,
+            "integrity": {
+              "error_class": null,
+              "error_message": null,
+              "finite": true,
+              "lateral_pass": true,
+              "lateral_relative_mismatch": 7.92332439882288e-13,
+              "lateral_roundoff_ratio": 0.0016345684851581522,
+              "ledger_pass": true,
+              "ledger_relative_residuals": {
+                "circuit": 1.1584547190091915e-14,
+                "combined": 1.5179945419591867e-10,
+                "device_power": 8.269663739126843e-16,
+                "thermal": 4.0263448019730226e-10
+              },
+              "nonlinear_pass": true,
+              "overall_pass": true
+            },
+            "nonlinear": {
+              "armijo_backtracks": 0,
+              "converged": true,
+              "fallback_picard_iterations": 0,
+              "iterations": 3,
+              "krylov_matvecs": 0,
+              "method": "exact_condensed_temperature_safeguarded_anderson_v1",
+              "predictor_picard_iterations": 0,
+              "scaled_residual_inf": 9.83655623931933e-12,
+              "scaled_update_inf": 5.4828128703832135e-09
+            },
+            "relative_current_imbalance": 8.5344176850293e-16,
+            "relative_power_imbalance": 7.924816421812922e-16
+          },
+          "path": "second_half_step",
+          "root": {
+            "accepted_step_kind_history": [
+              "safeguarded_picard",
+              "anderson",
+              "anderson"
+            ],
+            "anderson_accepted": 2,
+            "anderson_attempts": 2,
+            "anderson_rejected": 0,
+            "auxiliary_scaled_residual_inf": 2.251555178778012e-16,
+            "certification_wall_s": 0.0026971999322995543,
+            "coefficient_history": [
+              [
+                -0.9949791498617264,
+                1.9949791498617278
+              ],
+              [
+                1.0552878831638002,
+                -2.1161210183956576,
+                2.0608331352318583
+              ]
+            ],
+            "coefficient_wall_s": 0.000580000109039247,
+            "failure_code": null,
+            "failure_message": null,
+            "full_fixed_point_defect_inf": 5.4828128703832135e-09,
+            "full_scaled_residual_inf": 9.83655623931933e-12,
+            "history_restarts": 0,
+            "iterations": 3,
+            "map_evaluations": 4,
+            "map_wall_s": 0.021851800032891333,
+            "predictor_wall_s": 0.004270700039342046,
+            "raw_thermal_residual_inf_W_per_cell": 9.574658672514575e-14,
+            "reduced_residual_inf": 9.83655623931933e-12,
+            "safeguarded_picard_steps": 1,
+            "solver_id": "exact_condensed_temperature_safeguarded_anderson_v1",
+            "status": "PASS",
+            "total_wall_s": 0.03026459994725883,
+            "unscaled_temperature_defect_history_inf_K": [
+              9.321454797373008e-06,
+              4.645624812837923e-06,
+              1.912798097691848e-08,
+              1.460875864722766e-10
+            ]
+          }
+        }
+      ],
+      "previous_state_sha256": "fbacd222d15e1c8b889e587cbae95d0fe64bca5c77ecf6a7f0a9ed6630fbb118",
+      "rejection_index": 4,
+      "schema_version": "geophase_controller_relevance_r0_v1",
+      "second_half_endpoint_sha256": "1e986d77f99b04439dc7c2bd766d254918090ef40b5fb010f5fde7f8c3e90f6b",
+      "wall_time_s": 0.11096550000365824
+    }
+  ],
+  "case": {
+    "case_id": "R0-A-QUIESCENT-9V-T1",
+    "protocol_id": "quiescent_9V",
+    "spatial_level": 1,
+    "state_kind": "accepted_on_trajectory_previous_state",
+    "state_source": "outputs/tables/geophase_controller_v3/qualification/CTRLV3-QUAL-20260801-V2/failures/CTRLV3-QUAL-QUIESCENT-9V-T1.json",
+    "time_divisor": 1
+  },
+  "claim_status": "qualified_supported",
+  "completed": false,
+  "embedded_acceptance_max": 0.02,
+  "error_class": null,
+  "error_message": null,
+  "final_time_s": 2.119472656249809e-06,
+  "forced_times_s": [],
+  "gates": {
+    "accepted": true,
+    "aggregate_ledger_pass": true,
+    "all_required": true,
+    "committed_endpoint_is_second_half": true,
+    "embedded_error_pass": true,
+    "first_half_endpoint_preserved": true,
+    "outer_interval_at_or_above_floor": true,
+    "second_half_source_semantics_frozen": true,
+    "three_path_integrity_pass": true,
+    "three_roots_pass": true
+  },
+  "initial_proposal_s": 1e-08,
+  "initial_state_sha256": "fbacd222d15e1c8b889e587cbae95d0fe64bca5c77ecf6a7f0a9ed6630fbb118",
+  "maximum_accepted_steps": 1,
+  "r1_eligible": false,
+  "r1_terminal_context": null,
+  "resolved_Hmax_s": 1e-08,
+  "resolved_Hmin_s": 9.765625e-12,
+  "route": "B3",
+  "schema_version": "geophase_controller_relevance_r0_v1",
+  "stage": "R2",
+  "state_role": "accepted_on_trajectory_previous_state",
+  "status": "PASS",
+  "stop_reason": "maximum_accepted_steps_reached",
+  "validity": "valid",
+  "wall_time_s": 0.3797857000026852
+}
