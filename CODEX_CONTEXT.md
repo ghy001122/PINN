@@ -4,47 +4,60 @@
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
 - Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Checkpoint: `Q2_NLS_V1_QUALIFICATION_REJECTED_NO_S0`.
-- Goal: `Q2_NLS_V1_S0_TO_C01_C06_R1_COMPLETE_METHOD_EVIDENCE`.
-- Base: `main@42e16ff7b9abd34b5ce7272eaa74ad60d49348d3`.
-- NLS-v1 anchor: `ee07846b89280fafdac18166f02ff688d8d92f58`.
-- Immutable NLS result commit: `f3b7db17126c5591569cb98839a2df3211b1fef9`.
+- Checkpoint: `Q2_EXACT_CONDENSED_B2_VALID_FAIL_NO_S0`.
+- Goal: `Q2_EXACT_CONDENSED_SOLVER_TO_FRESH_S0_C01_C06_R1_EVIDENCE`.
+- Base: `main@6e605ec660494d17bd8b192b59e0654b4c1d3b0a`.
+- B1 implementation anchor: `2d60a973f8d61e58525e1c2b83db78961da226d1`.
+- B2 execution identity: `57e3e29643daab9d9af76e7f946b46fc0e602269`.
 
-S2 equations, physical parameters, protocols, controller-v2, and the 63/60/3 scientific plan were unchanged. Historical E0/S0/equivalence evidence and Frozen GT v1.1 remain read-only.
+PR #23 Stage A assets, the production implicit solver, NLS-v1,
+controller-v2, historical run identities/equivalence evidence, and Frozen GT
+v1.1 remained byte-for-byte unchanged.
 
-The long-term ladder remains R1 `HysGeo-Hybrid-PINN`, preferred R2 `GeoPhase-HomoMoE-PINN`, and conditional R3; none is currently executed or supported.
+The long-term delivery ladder remains R1 `HysGeo-Hybrid-PINN`, preferred R2
+`GeoPhase-HomoMoE-PINN`, and conditional R3; none is executed or supported.
 
-A bounded, non-voting Stage A diagnostic subsequently proved exact within-step
-static condensation of `s`, `b`, and `Vd` given candidate `T` and the previous
-full state (751 to 250 L1 nonlinear unknowns; maximum auxiliary residual
-`1.514e-16`). Reduced-solver convergence, runtime, and 12.5 V behavior remain
-unassessed; no new solver identity or trajectory was created.
+## Exact-Condensed Result
 
-## NLS-v1 Qualification Result
+B1 implemented a new temperature-primary exact-condensed solver and independent
+controller orchestration. Focused residual-parity, exact auxiliary
+reconstruction, zero-drive, nested-grid pack/unpack, embedded-step, and hard
+budget tests passed. This is an `implemented` software fact only.
 
-The fallback now accepts only when both the full fixed-point defect and frozen scaled residual are at most `1e-8`. The two frozen controller-v3 failure states pass in 6 and 4 fallback iterations, respectively. The conditional Schur-reduced upgrade therefore was not activated.
+The preregistered B2 run `B2-EXACT-CONDENSED-20260803-V1` stopped fail-fast on
+its first of 24 roots: `B2-ORIGINAL-S1-DT10p0NS`, the first frozen 9 V replay
+state at L1 and `dt=10 ns`. After five accepted Newton corrections and six
+converged LGMRES calls, none of the permitted damping values from `1` through
+`1/128` passed Armijo. The last available reduced/full scaled residual was
+`9.519603587211078e-3`; the exact auxiliary residual remained
+`1.4392805451179502e-16`. No final full fixed-point defect was certified.
 
-The canonical `NLSV1-QUAL-20260802-V1` run produced one non-passing artifact. Standard 9 V T1 stopped at `1.7060156249987655e-5 s` after `27136.6188 s`, exceeding the frozen `21600 s` per-run limit; it published 3413/4001 output timestamps and did not reach 20 microseconds. In T4, a final residue of `1.73133534418779e-17 s` triggered a meaningless sub-floor ledger step. That endpoint defect was fixed under a new `v1p1` identity and covered by regression.
+Terminal disposition: `B2_REDUCED_ROOT_VALID_FAIL`. One root was executed,
+zero passed, and 23 remain unassessed. B3, B4, fresh S0, Phase 2, MLP, vanilla
+PINN, C01, C06, OOD, and manuscript-result execution did not start.
 
-The endpoint-only correction cannot change the T1 path before its wall-time stop. A full V2 rerun was therefore not launched: it could not satisfy the already-failed hard qualification gate and would only repeat a long run. Terminal state: `GOAL_UNSUCCESSFUL_NLS_V1`.
+## Claim Boundary And Stop
 
-## Claim Boundary
+- B1 solver/controller: `implemented`; software fact only.
+- B2 qualification: `executed`; `failed_but_informative` numerical-method
+  evidence for this frozen solver identity.
+- `scientific_vote=false`; `formal_execution_count=0`.
+- S0/Phase 1, runtime feasibility, Phase 2, C01/C06, and R1/R2/R3 remain
+  `forbidden` / unassessed.
 
-NLS-v1 qualification is `failed_but_informative` bounded numerical-performance evidence. It is not an S2 physics vote. Fresh S0 never started, `formal_execution_count=0`, and Phase 2, MLP, vanilla PINN, C01, C06, OOD, and R1/R2/R3 were not executed.
+This result is not an S2 physical-law failure, a campaign cost result, a PINN
+result, Qiu quantitative reproduction, or experimental validation. The goal's
+single solver strategy stopped at its first valid B2 failure; no second
+globalization/solver strategy is authorized.
 
-Allowed: dual-gate repair behavior, frozen replay metrics, exact T1/T4 performance and endpoint evidence, and the frozen-budget rejection of this NLS-v1 qualification.
+No experiment is authorized. Any future re-entry requires a new versioned goal
+and solver identity; it may not change frozen physics/controller/thresholds,
+resume this B2 matrix, return to equivalence, or bypass a valid S0 judge before
+Phase 2/C01.
 
-Forbidden: S0/Phase 1 scientific PASS or FAIL; general campaign infeasibility; positive or negative PINN conclusions; Qiu quantitative reproduction; experimental validation; or equivalence-v4/v5.
+Equivalence-v2 remains immutable and non-retryable. Equivalence-v3 remains
+immutable and non-retryable. Equivalence-v4/v5 is forbidden; no retry is
+authorized.
 
-## Current Stop
-
-No experiment is authorized. A future goal may implement a new exact
-temperature-primary block-condensed solver identity against the unchanged
-`1e-8` full residual/defect gates and full qualification trajectory. It must
-not call this a retry, use learned/tabulated closures, activate Schur under the
-consumed goal, add controller candidate 3/controller-v4, return to equivalence,
-or bypass S0 before Phase 2/C01.
-
-Equivalence-v2 remains immutable and non-retryable. Equivalence-v3 remains immutable and non-retryable. Equivalence-v4/v5 is forbidden; no retry is authorized.
-
-Read `docs/research_strategy/context_loading_policy.md` before loading long history.
+Read `docs/research_strategy/context_loading_policy.md` before loading long
+history.

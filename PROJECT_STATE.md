@@ -3,53 +3,52 @@
 ## Authoritative Current Snapshot
 
 - Delivery/phase: `Q2_SCI_DELIVERY_MODE` / `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Checkpoint: `Q2_NLS_V1_QUALIFICATION_REJECTED_NO_S0`.
-- Base: `main@42e16ff7b9abd34b5ce7272eaa74ad60d49348d3`.
-- NLS-v1 code anchor: `ee07846b89280fafdac18166f02ff688d8d92f58`.
-- NLS-v1 result evidence: `f3b7db17126c5591569cb98839a2df3211b1fef9`.
-- Frozen S2 physics, protocols, scientific thresholds, 63/60/3 plan, historical evidence, and Frozen GT v1.1 are unchanged.
+- Checkpoint: `Q2_EXACT_CONDENSED_B2_VALID_FAIL_NO_S0`.
+- Base: `main@6e605ec660494d17bd8b192b59e0654b4c1d3b0a`.
+- B1 implementation anchor: `2d60a973f8d61e58525e1c2b83db78961da226d1`.
+- B2 execution identity: `57e3e29643daab9d9af76e7f946b46fc0e602269`.
+- Frozen S2 physics, protocols, controller-v2, scientific thresholds,
+  historical evidence, 63/60/3 plan, and Frozen GT v1.1 are unchanged.
 
-The intended positive ladder remains R1 `HysGeo-Hybrid-PINN`, preferred R2 `GeoPhase-HomoMoE-PINN`, and conditional R3. No rung is executed or supported.
+The intended positive ladder remains R1 `HysGeo-Hybrid-PINN`, preferred R2
+`GeoPhase-HomoMoE-PINN`, and conditional R3. No rung is executed or supported.
 
-## NLS-v1 Result
+## B1/B2 Outcome
 
 | Evidence | Result | Boundary |
 | --- | --- | --- |
-| Frozen controller V2 state | PASS in 6 fallback iterations | residual `4.884209208104767e-9`; defect `5.008622738778001e-9` |
-| Frozen controller V4 state | PASS in 4 fallback iterations | residual `5.853515129323472e-9`; defect `4.958286003997614e-9` |
-| Standard 9 V T1 | rejected by frozen performance gate | stopped at `17.06015625 us`; `27136.6188 > 21600 s`; 3413/4001 outputs |
-| Strict 9 V T4 | invalid endpoint residue | full NLS passed, but a `1.73133534418779e-17 s` residue produced a cancellation-dominated ledger step |
-| Endpoint correction | implemented and regression-tested as `v1p1` | uses the same `1e-12` relative landing tolerance in solver and evaluator |
+| B1 exact reconstruction/parity | focused checks pass; auxiliary reconstruction remains at roundoff | implementation evidence only |
+| B2 first root | `B2-ORIGINAL-S1-DT10p0NS`; L1, 9 V, `dt=10 ns` | valid prescribed-solver attempt |
+| Nonlinear trajectory | 5 accepted Newton corrections, 6 converged LGMRES calls, 100 matvecs, 135 reduced evaluations | final Armijo search failed for every damping `1...1/128` |
+| Last available residuals | reduced/full scaled `9.519603587211078e-3`; auxiliary `1.4392805451179502e-16` | `1e-8` root gate not reached; full defect not certified |
+| B2 matrix | 0/1 executed roots passed; 23/24 unassessed | fail-fast terminal disposition |
 
-The full V2 qualification was not invoked because the endpoint-only change cannot affect T1 before its wall-time stop. Both frozen failure states already pass, so the goal's conditional Schur trigger was false. Terminal disposition: `GOAL_UNSUCCESSFUL_NLS_V1`.
-
-A later solver-free Stage A diagnostic established an exact algebraic identity:
-for prescribed `T_np1` and the previous full state, production `b_np1`,
-`s_np1`, and `Vd_np1` can be reconstructed with maximum auxiliary scaled
-residual `1.514e-16` across 2 frozen replays and 7 step sizes. This reduces the
-future L1 nonlinear root dimension from 751 to 250 without deleting history.
-It did not execute or validate a reduced solver.
+The machine disposition is `B2_REDUCED_ROOT_VALID_FAIL`. It is
+`failed_but_informative` evidence that this frozen exact-condensed Newton/LGMRES
+identity did not qualify even its first root. It does not refute the algebraic
+condensation identity or S2 physics.
 
 ## Evidence And Claims
 
 | Item | Lifecycle / status | Boundary |
 | --- | --- | --- |
-| NLS-v1/v1p1 code | `implemented`; software fact `supported` | Dual-gate fallback, structured telemetry, endpoint consistency, and focused regression. |
-| NLS-v1 qualification | `executed`; `failed_but_informative` | One required standard trajectory exceeded its frozen wall-time gate before completion. |
-| S0/Phase 1 | `forbidden` / unassessed | Fresh S0 never started; no scientific vote and `formal_execution_count=0`. |
-| Phase 2/C01/C06 | `forbidden`; not executed | No dataset, training, baselines, OOD, field, port, event, ledger, or cost result. |
-| R1/R2/R3 | `forbidden` | Sequential evidence ladder remains unmet. |
+| B1 exact-condensed code | `implemented`; software fact | No performance, trajectory, or physics claim. |
+| B2 root qualification | `executed`; `failed_but_informative` | One valid root attempt failed the frozen globalization/root gate. |
+| B3/B4/runtime | `forbidden` / unassessed | Not started after B2 fail-fast. |
+| S0/Phase 1 | `forbidden` / unassessed | `scientific_vote=false`; `formal_execution_count=0`. |
+| Phase 2/C01/C06/R1-R3 | `forbidden`; not executed | No data, training, baselines, seeds, OOD, field, port, event, or ledger result. |
 
-This is bounded numerical-method performance evidence, not experimental validation and not an S2 physical-law failure.
+This is literature-guided synthetic numerical digital-twin evidence about one
+numerical solver identity, not experimental validation or a physical-law vote.
 
 ## Preserved Boundaries And Next Route
 
-Strict-equivalence-v1 and equivalence-v2/v3 remain immutable and non-retryable; equivalence-v4/v5 is forbidden. Historical E0/S0/controller-v3 outcomes remain immutable. No current experiment is authorized.
+Strict-equivalence-v1 and equivalence-v2/v3 remain immutable and non-retryable;
+equivalence-v4/v5 is forbidden. Historical E0/S0/controller/NLS results remain
+immutable. S1 science is `forbidden`/unassessed; interruption facts are supported
+infrastructure provenance only and cast no scientific vote.
 
-S1 science is `forbidden`/unassessed; interruption facts are supported infrastructure provenance only and cast no scientific vote.
-
-The next high-value bottleneck is a new exact temperature-primary condensed
-solver identity that can reach complete standard/strict qualification under
-the unchanged `1e-8`, ledger, event, physical, and budget gates. Reopening
-requires a new bounded goal; Stage A is not permission to run the prototype or
-bypass S0 before C01.
+No experiment is authorized. Re-entry requires a fresh bounded goal that names
+a materially new reduced-root strategy and preserves the same physical,
+controller, and certification gates. This B2 matrix cannot be resumed, and S0
+cannot be bypassed before Phase 2/C01.

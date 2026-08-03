@@ -1,0 +1,212 @@
+task_id: Q2_EXACT_CONDENSED_SOLVER_TO_FRESH_S0_C01_C06_R1_EVIDENCE
+schema_version: geophase_exact_condensed_pipeline_v1
+evidence_type: literature-guided synthetic numerical digital-twin evidence
+
+identity:
+  base_main_commit: 6e605ec660494d17bd8b192b59e0654b4c1d3b0a
+  branch: codex/exact-condensed-s0-c01-c06-r1
+  solver_id: exact_condensed_temperature_root_v1
+  controller_semantics: embedded_time_consistency_v2_only
+  scientific_vote: false
+  fresh_s0_formal_execution_count: 0
+
+frozen_inputs:
+  - path: src/pinnpcm/evaluation/geophase_exact_block_condensation_stage_a.py
+    sha256: 94ca546c45f15ed3c7134d5deb7d52d3f820ca70364a1de8aa60400d3a559b26
+  - path: configs/geophase_exact_block_condensation_stage_a.yaml
+    sha256: edc15d27c2709c0c97d1f63e382a4896171151596eff02e799fcfe9a92f6187b
+  - path: outputs/tables/geophase_exact_block_condensation_stage_a/stage_a_summary.json
+    sha256: ff196d3eaabdbf15a0891bb45b69a130d9b6a0b99a010370fb1e4151b398b958
+  - path: outputs/tables/geophase_exact_block_condensation_stage_a/exact_condensation_residuals.csv
+    sha256: da6a11f994803bd4f8ea18d1d7aaa52514c97b18e8bfb04ee56813dfbd2aa1f4
+  - path: outputs/tables/geophase_exact_block_condensation_stage_a/nls_v1_trace_dt_distribution.csv
+    sha256: 13ed0658a29f2350d03ae6af877414337332b32b0aee6b98833a9d7ca89e282a
+  - path: src/pinnpcm/solvers/geophase_phase1_v2_implicit.py
+    sha256: 56e92761a7f8e9ffec0bfe2d73b7b67eca00993ff1852c219437711ee33d5a16
+  - path: src/pinnpcm/solvers/geophase_nls_v1.py
+    sha256: b3ed80bd95f0835b9c5342bd4fffdc68b224dbf773d58722d51f42a09a621196
+  - path: src/pinnpcm/solvers/geophase_phase1_v2_controller_v2.py
+    sha256: e4332c5b103072e3de277b8788dbbf2bda48c65636cb5c1d8dd361bc9953f7ed
+
+scope:
+  existing_solver_or_controller_modification: forbidden
+  existing_stage_a_modification: forbidden
+  fallback_or_solver_portfolio: forbidden
+  equivalence_v1_v2_v3_rerun: forbidden
+  equivalence_v4_v5: forbidden
+  s1_k_state_controller_v4: forbidden
+  c05_c11_r2_r3_nb_o2_fem_3d_gamma_sub: forbidden
+  frozen_gt_modification: forbidden
+
+stages:
+  - B1_IMPLEMENTATION_AND_RESIDUAL_PARITY
+  - B2_FROZEN_24_ROOT_QUALIFICATION
+  - B3_MATCHED_WINDOW_CORRECTNESS_PERFORMANCE
+  - B4A_FRESH_S0_COST_PROJECTION
+  - B4B_FULL_SOLVER_QUALIFICATION
+  - FRESH_S0_63_60_3
+  - PHASE2_MINIMAL_DATASET
+  - MLP_VANILLA_C01
+  - CONDITIONAL_C06
+  - MANUSCRIPT_EVIDENCE
+  - GIT_CLOSEOUT
+
+solver:
+  nonlinear_root: production_scaled_full_residual_temperature_block
+  auxiliary_reconstruction: exact_b_s_vd_and_electrical
+  maximum_newton_iterations: 30
+  damping_sequence: [1.0, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625, 0.0078125]
+  armijo_c1: 1.0e-4
+  lgmres:
+    scipy_version: 1.13.1
+    finite_difference_krylov_jacobian: true
+    inner_m: 30
+    outer_k: 10
+    rtol: 1.0e-4
+    atol: 0.0
+  budgets_per_root:
+    maximum_krylov_matvecs: 512
+    maximum_reduced_residual_evaluations: 640
+    maximum_line_search_backtracks: 7
+  predictor: one_frozen_joule_thermal_backward_euler
+  preconditioner: cached_thermal_operator_inverse
+  predictor_or_preconditioner_failure: fail_closed_no_fallback
+
+gates:
+  auxiliary_scaled_residual_inf_max: 1.0e-12
+  temperature_block_parity_factor_times_machine_epsilon: 64
+  reduced_scaled_residual_inf_max: 1.0e-8
+  full_scaled_residual_inf_max: 1.0e-8
+  full_fixed_point_defect_inf_max: 1.0e-8
+  zero_drive_full_residual_inf_max: 1.0e-12
+  zero_drive_full_fixed_point_defect_inf_max: 1.0e-12
+
+b2:
+  failure_replay_paths:
+    - outputs/tables/geophase_controller_v3/qualification/CTRLV3-QUAL-20260801-V2/failures/CTRLV3-QUAL-QUIESCENT-9V-T1.json
+    - outputs/tables/geophase_controller_v3/qualification/CTRLV3-QUAL-20260801-V4/failures/CTRLV3-QUAL-QUIESCENT-9V-T1.json
+  original_dt_ns: [10.0, 5.0, 2.5, 1.25, 0.625, 0.3125, 0.15625]
+  small_dt_ns: [0.0390625, 0.009765625, 0.0048828125]
+  hardest_state:
+    source: outputs/tables/geophase_nls_v1/qualification/NLSV1-QUAL-20260802-V1/runs/NLSV1-QUAL-QUIESCENT-9V-T1.json.gz
+    accepted_time_s: 1.706015625e-5
+    dt_ns: [0.00244140625, 0.001220703125]
+  nested_grid_roots:
+    source_level: 1
+    target_levels: [2, 4]
+    prolongation: conservative_piecewise_constant
+    dt_source: frozen_nls_last_accepted_interval
+    dt_ns: 0.15625
+  root_wall_time_s_by_level: {1: 60, 2: 180, 4: 300}
+  required_passes: 24
+  nls_comparator:
+    scope: original_14_only
+    wall_time_s_per_root: 120
+    voting: false
+
+b3:
+  quiescent_9V:
+    initial_state: frozen_nls_last_accepted_full_state
+    relative_window_s: 5.0e-7
+  transition_12p5V:
+    event_definition: active_vo2_area_weighted_s_bar_crossing_0p5
+    maximum_locator_window_s: 2.0e-6
+    required_event_pair: first_upcrossing_and_first_downcrossing
+  timing:
+    independent_process: true
+    fixed_affinity: true
+    blas_threads: 1
+    warmup_runs: 1
+    alternating_timed_repetitions: 3
+    statistic: median
+  consistency_gates:
+    terminal_current_nrmse_max: 0.01
+    device_voltage_nrmse_max: 0.005
+    event_topology: exact
+    event_absolute_error_s_max: 5.0e-8
+    event_relative_error_max: 0.01
+  performance_gates:
+    speedup_9V_min: 1.95
+    historical_F9_wall_s: 31812.8608
+    projected_9V_wall_s_max: 18000
+    projection_safety_factor: 1.10
+    speedup_12p5V_min: 1.80
+    quiescent_growth_events_min: 1
+
+b4a:
+  profiles: [9V_L1, 9V_L2, 9V_L4, 12p5V_L1, 12p5V_L2, 12p5V_L4]
+  physical_duration_s: 2.0e-8
+  time_controller: strict_div4
+  fixed_cost: maximum_full_profile_cpu_time
+  unit_cost_formula: 1.25_times_solve_rate_times_horizon_plus_fixed_cost
+  scheduling: deterministic_four_worker_lpt
+  aggregate_cpu_s_max: 345600
+  calendar_wall_s_max: 86400
+  worker_count: 4
+  ram_safety_factor: 1.25
+  system_ram_reserve_bytes: 2147483648
+
+b4b:
+  order: [9V_standard, 12p5V_standard, 9V_strict_div4, 12p5V_strict_div4]
+  physical_duration_s: 2.0e-5
+  output_points: 4001
+  wall_time_s_per_trajectory: 21600
+  success_disposition: GO_EXACT_CONDENSED_SOLVER_FOR_FRESH_S0
+
+fresh_s0:
+  manifest_items: 63
+  independent_execution_units: 60
+  legal_reuse: 3
+  worker_count: 4
+  blas_threads_per_worker: 1
+  calendar_wall_s_max: 86400
+  aggregate_cpu_s_max: 345600
+  historical_invalid_result_reuse: forbidden
+  invalid_repair_policy: one_minimum_pollution_scope_rerun
+
+phase2:
+  nominal_contact_overlap_nm: 20
+  held_out_geometry_ood_nm: [10, 30]
+  geometry_primary_aggregation: fixed_macro_average
+  held_out_protocol_ood: pulse_12p5V
+  split_unit: complete_case
+  maximum_anchor_fraction: 0.01
+  ood_use_for_normalization_early_stopping_or_selection: forbidden
+  seen_transition_protocol_fallback_order:
+    - transition_probe_12p5V
+    - high_bias_lock_15p8V
+    - nominal_12V
+  data_cpu_hours_max: 24
+  calendar_days_max: 2
+
+training:
+  hardware: existing_remote_cuda_host_same_gpu_model_for_all_formal_seeds
+  paid_cloud_gpu: forbidden
+  cpu_substitution: forbidden
+  paired_seeds: [20260801, 20260802, 20260803, 20260804, 20260805]
+  single_seed_profiling_gpu_hours_max: 2
+  mlp_vanilla_c01_gpu_hours_max: 45
+  c06_gpu_hours_max: 20
+  invalid_reserve_gpu_hours_max: 5
+  aggregate_gpu_hours_max: 72
+  parameter_count_relative_tolerance: 0.10
+  failed_seed_handling: preregistered_worst_case_penalty
+
+c06:
+  conditional_only: true
+  w_T_multipliers: [4, 2, 1]
+  joule_feedback_multipliers: [0.2, 0.5, 1.0]
+  equal_update_allocation_per_stage: true
+  pilot_seed: 20260801
+  transition_window_gain_min: 0.20
+  nontransition_or_port_degradation_max: 0.05
+  ledger_degradation: forbidden
+  second_algorithm_after_failure: forbidden
+
+stop_rules:
+  repeated_same_code_root_cause: 2
+  implementation_diagnosis_wall_hours_max: 8
+  physical_model_controller_or_threshold_change_required: stop
+  scientific_gate_failure: stop
+  budget_exhaustion: stop
+  authority_drift_or_frozen_conflict: stop

@@ -1,0 +1,78 @@
+{
+  "case": {
+    "case_id": "B2-ORIGINAL-S1-DT10p0NS",
+    "dt_s": 1e-08,
+    "input_voltage_V": 9.0,
+    "prolongation_source_level": null,
+    "source_index": 0,
+    "source_kind": "failure_replay_previous_state",
+    "source_path": "outputs/tables/geophase_controller_v3/qualification/CTRLV3-QUAL-20260801-V2/failures/CTRLV3-QUAL-QUIESCENT-9V-T1.json",
+    "spatial_level": 1,
+    "wall_time_s": 60.0
+  },
+  "claim_status": "failed_but_informative",
+  "failure_code": "ARMIJO_LINE_SEARCH_FAILURE",
+  "failure_message": "no damping in [1,1/128] passed Armijo",
+  "gates": {
+    "all_required": false
+  },
+  "performance_timings": {
+    "Joule_port_postprocess_wall_s": 0.054267401341348886,
+    "Newton_Krylov_wall_s": 0.0,
+    "Picard_predictor_wall_s": 0.0,
+    "electrical_assembly_wall_s": 0.11928689980413765,
+    "factorization_wall_s": 0.2862509994301945,
+    "fallback_wall_s": 0.0,
+    "linear_solves_wall_s": 0.022143500274978578
+  },
+  "schema_version": "geophase_exact_condensed_b2_v1",
+  "scientific_vote": false,
+  "status": "VALID_FAIL",
+  "telemetry": {
+    "accepted_damping_history": [
+      1.0,
+      0.125,
+      0.5,
+      0.03125,
+      0.0078125
+    ],
+    "auxiliary_scaled_residual_inf": 1.4392805451179502e-16,
+    "certification_wall_s": 0.0,
+    "failure_code": "ARMIJO_LINE_SEARCH_FAILURE",
+    "failure_message": "no damping in [1,1/128] passed Armijo",
+    "full_fixed_point_defect_inf": null,
+    "full_scaled_residual_inf": 0.009519603587211078,
+    "krylov_matvecs": 100,
+    "last_newton_update_inf": 4.480611073256253e-05,
+    "lgmres_calls": 6,
+    "lgmres_info_history": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "lgmres_wall_s": 0.7050087001407519,
+    "line_search_backtracks": 23,
+    "line_search_wall_s": 0.17747969995252788,
+    "newton_iterations": 5,
+    "predictor_wall_s": 0.022453400073572993,
+    "raw_thermal_residual_inf_W_per_cell": 4.388114704544496e-06,
+    "reduced_residual_evaluations": 135,
+    "reduced_residual_history_inf": [
+      0.015591760434291717,
+      0.01199795349808702,
+      0.008144417981414439,
+      0.009612937929451415,
+      0.009540546383408965,
+      0.009519603587211078
+    ],
+    "reduced_residual_inf": 0.009519603587211078,
+    "residual_wall_s": 0.8635194001253694,
+    "status": "FAIL",
+    "total_wall_s": 0.9526061000069603
+  },
+  "validity": "valid",
+  "wall_time_s": 0.9530737000750378
+}

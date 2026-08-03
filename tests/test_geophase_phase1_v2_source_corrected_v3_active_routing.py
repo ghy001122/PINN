@@ -86,8 +86,8 @@ def test_route_only_runner_validates_v3_and_cannot_execute_before_preregistratio
     assert "run_C1" not in runner_source
 
 
-def test_authority_chain_records_terminal_nls_and_preserves_old_route_tests() -> None:
-    checkpoint = "Q2_NLS_V1_QUALIFICATION_REJECTED_NO_S0"
+def test_authority_chain_records_terminal_b2_and_preserves_old_route_tests() -> None:
+    checkpoint = "Q2_EXACT_CONDENSED_B2_VALID_FAIL_NO_S0"
     for path in (
         ROOT / "CODEX_CONTEXT.md",
         ROOT / "PROJECT_STATE.md",
