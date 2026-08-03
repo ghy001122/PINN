@@ -18,6 +18,8 @@ evidence unless provenance explicitly says otherwise.
 | Exact block-condensation Stage A | `supported` algebraic identity; bounded non-voting diagnostic | Production residual verification on 2 frozen replay states x 7 step sizes gives auxiliary residual `<=1.514e-16`; exact within-step reduction from 751 to 250 nonlinear unknowns, while full state history remains; convergence/runtime/12.5 V unassessed |
 | Exact-condensed v1 B2 | `failed_but_informative` numerical-method evidence; no science vote | Frozen root 1/24 stopped after five accepted Newton corrections when every damping `1...1/128` failed Armijo; 23 roots and all downstream stages unassessed |
 | Exact-condensed v2 D0 mechanism audit | `failed_but_informative` bounded diagnostic; no science vote | One exact replay; both explicit L1 Jacobians full rank, but the fixed-point direct correction has no strict defect decrease through `1/128`; first decrease only at forbidden `1/256`, so no Jv freeze or v2 identity |
+| Controller-relevance R0/R1/R2 | `qualified_supported` bounded numerical-method evidence; no science vote | R0 production-controller audit routed the 9 V floor root to R1; R1 passed contraction; the sole safeguarded-Anderson identity formed certified bundles at the fixed 9 V and critical-transition states |
+| Final-rescue B3 matched windows | `failed_but_informative` numerical-method consistency evidence; no science vote | Port/event gates pass in both windows and 12.5 V reversal order is exact; 9 V reversal order fails with 417 NLS-v1 versus 364 Anderson records and first direction mismatch at index 11; performance timing, B4, S0, data, and training were not started |
 | Phase 1-v2 contract | `supported` preregistration fact | S2 YAML, v2 contract, 63-item manifest, stage YAML |
 | S2 implementation/smoke | `supported` software fact | solver/tests; 7/7 non-voting smoke; formal zero |
 | Source audit | `supported` bounded provenance | no eligible holdout found; no fitting/validation |
@@ -58,7 +60,7 @@ details through the claim matrix, experiment registry, and named reports.
 
 | Candidate | Status | Required predecessor |
 | --- | --- | --- |
-| Performance-efficient reduced nonlinear solver | not authorized | new bounded identity retaining S2 physics and all residual, ledger, event, standard/strict qualification gates; cannot resume NLS-v1 or bypass S0 |
+| Performance-efficient reduced nonlinear solver | stopped / not authorized | the final bounded identity failed B3 exact reversal consistency; do not tune, add another solver, run B4/S0, or bypass S0 |
 | Phase 1-v2 conservative reference | `forbidden` | all gates in an authorized formal campaign |
 | S1 production kernel | `forbidden` | eligible holdout, authorized ingestion, passed MVE/effect gate |
 | Nonzero dual-device coupling | `forbidden` | explicit/high-order-validated substrate coupling and independent gates |

@@ -1,0 +1,12 @@
+{
+  "case_id": "B3-12P5V-NLS-LOCATOR",
+  "final_time_s": 2e-06,
+  "maximum_wall_clock_s": 10580.375,
+  "protocol_id": "transition_probe_12p5V",
+  "role": "locator",
+  "sample_interval_s": 5e-09,
+  "solver": "nls_v1",
+  "spatial_level": 1,
+  "time_divisor": 1,
+  "window_padding_s": 5e-08
+}

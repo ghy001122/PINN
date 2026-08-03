@@ -1,0 +1,79 @@
+{
+  "schema_version": "geophase_controller_relevance_b3_terminal_addendum_v1",
+  "task_id": "Q2_CONTROLLER_RELEVANCE_FINAL_RESCUE_TO_S0_C01_R1",
+  "run_id": "B3-MATCHED-WINDOW-20260804-V2",
+  "execution_git_sha": "b4ab75df75fe254e1366db896336559fa8f52ea7",
+  "metric_repair_git_sha": "58cba765f8111f20d7455879c325039d08a1788f",
+  "validity": "valid",
+  "disposition": "B3_MATCHED_WINDOW_CORRECTNESS_VALID_FAIL",
+  "route": "STOP_FINAL_FORWARD_SOLVER_RESCUE",
+  "lifecycle_state": "numerically_validated",
+  "claim_status": "failed_but_informative",
+  "scientific_vote": false,
+  "formal_execution_count": 0,
+  "performance_timing_executed": false,
+  "b4_executed": false,
+  "fresh_s0_executed": false,
+  "phase2_or_training_executed": false,
+  "results": {
+    "quiescent_9V": {
+      "reference_local_pass": true,
+      "candidate_local_pass": true,
+      "terminal_current_nrmse": 0.00038932776393031324,
+      "device_voltage_nrmse": 0.0000814040150411815,
+      "event_sequence_equal": true,
+      "event_maximum_absolute_error_s": 4.5865687365369777e-10,
+      "event_maximum_relative_error": 0.00002677492524812322,
+      "reference_reversal_count": 417,
+      "candidate_reversal_count": 364,
+      "first_reversal_direction_mismatch_index_zero_based": 11,
+      "reference_direction_at_first_mismatch": "cooling_to_heating",
+      "candidate_direction_at_first_mismatch": "heating_to_cooling",
+      "reversal_sequence_equal": false,
+      "candidate_growth_events": 23,
+      "candidate_fallback_steps": 0,
+      "passed": false
+    },
+    "transition_12p5V": {
+      "locator_coverage_pass": true,
+      "locator_upcrossing_s": 1.1010421196050137e-6,
+      "locator_downcrossing_s": 1.978785008829223e-6,
+      "window_start_s": 1.0510421196050138e-6,
+      "window_stop_s": 2.0e-6,
+      "reference_local_pass": true,
+      "candidate_local_pass": true,
+      "terminal_current_nrmse": 1.1501689249825554e-6,
+      "device_voltage_nrmse": 1.457017507902997e-7,
+      "event_sequence_equal": true,
+      "event_maximum_absolute_error_s": 1.3388475271741262e-12,
+      "event_maximum_relative_error": 6.7661680198559575e-7,
+      "reference_reversal_count": 5,
+      "candidate_reversal_count": 5,
+      "reversal_sequence_equal": true,
+      "candidate_growth_events": 10,
+      "candidate_fallback_steps": 0,
+      "passed": true
+    }
+  },
+  "reporting_repair": {
+    "original_maximum_time_grid_difference_s": 2.3852447794681098e-18,
+    "solver_rerun": false,
+    "worker_rerun": false,
+    "disposition_changed": false
+  },
+  "budget": {
+    "aggregate_cpu_time_s": 312.703125,
+    "aggregate_cpu_time_s_max": 10800.0,
+    "wall_time_s": 822.7727706000442
+  },
+  "artifacts": {
+    "summary_sha256": "be69ad60166de3c32361ead99e8b640be4b9c37fb720680f58b470319df1a35c",
+    "comparison_csv_sha256": "5646129f128c2c07bfeb90146d9f2efcf7837cf61470d901867f3eaa3b297f12",
+    "quiescent_reference_sha256": "e58e85a9f2c2577fdc614e5b097ccef0dc9ca6b2f21b3b4c6e3dc13f4e89a8d7",
+    "quiescent_candidate_sha256": "fb5eedef418ce6a23b31590a7f4dc5fdcc8bfaa48740863439877a3b4b011363",
+    "transition_locator_sha256": "e3a0a8d9706ac33f0fb599787a45eccdf90d7d57d98c85d47d88bf48586139d3",
+    "transition_reference_sha256": "b19e94bbbcfa5b19b18ebfa07d06481dc3a429092fa93467efbb2a7eaf9af677",
+    "transition_candidate_sha256": "a705a6ea72bab00840d05e089555004b9a90429cd411a1fee07cae039f326de1"
+  },
+  "evidence_type": "literature-guided synthetic numerical digital-twin evidence"
+}

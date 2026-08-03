@@ -1,3 +1,6 @@
 # Preserve supplied governance documents byte-for-byte; their Markdown uses intentional two-space hard breaks.
 docs/research_strategy/pinn_phase_change_q2_sci_execution_guide.md whitespace=-trailing-space
 docs/archive/superseded_strategy/Q2_REPOSITORY_REALIGNMENT_AND_PHASE0_GOVERNANCE_2026-07-25.md whitespace=-trailing-space
+
+# Claim-bearing controller-relevance outputs are hashed as exact bytes.
+outputs/tables/geophase_controller_relevance_final_rescue/** -text whitespace=cr-at-eol

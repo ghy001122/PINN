@@ -1,0 +1,2181 @@
+{
+  "artifacts": {
+    "attempts_csv": "outputs/tables/geophase_controller_relevance_final_rescue/R2-ANDERSON-QUALIFICATION-20260804-V1/r2_attempt_paths.csv",
+    "attempts_csv_sha256": "bb41c83a1d3dc98856a011154b76b6386987d14435f9b2bf0bfc2570dcc3f8b5",
+    "config_snapshot": "outputs/tables/geophase_controller_relevance_final_rescue/R2-ANDERSON-QUALIFICATION-20260804-V1/config_snapshot.yaml",
+    "config_snapshot_sha256": "b9934c057208febc8078fb84c8d63aa81b744bb6816e0c360dbce74a86e2f047"
+  },
+  "branch": "codex/controller-relevance-final-forward-rescue",
+  "budget_wall_time_s": 7200.0,
+  "case_count": 2,
+  "case_statuses": {
+    "R0-A-QUIESCENT-9V-T1": "PASS",
+    "R0-B-CRITICAL-TRANSITION-T4": "PASS"
+  },
+  "cases": [
+    {
+      "accepted_outer_interval_s": 6.24999999999994e-10,
+      "attempt_count": 5,
+      "attempted_outer_intervals_s": [
+        9.999999999999904e-09,
+        4.999999999999952e-09,
+        2.499999999999976e-09,
+        1.249999999999988e-09,
+        6.24999999999994e-10
+      ],
+      "attempts": [
+        {
+          "accepted": false,
+          "accepted_first_half_endpoint_sha256": null,
+          "aggregate_integrity": null,
+          "at_outer_floor": false,
+          "attempted_outer_interval_s": 9.999999999999904e-09,
+          "below_floor_remainder": false,
+          "case_id": "R0-A-QUIESCENT-9V-T1",
+          "committed_endpoint_is_second_half": false,
+          "committed_endpoint_sha256": null,
+          "embedded_error": null,
+          "error_class": "ExactCondensedRootFailure",
+          "error_message": "the frozen relaxed Picard safeguard failed the 1e-4 decrease gate",
+          "first_half_endpoint_preserved": false,
+          "first_half_endpoint_sha256": null,
+          "half_interval_s": 4.999999999999952e-09,
+          "paths": [
+            {
+              "candidate": null,
+              "path": "full_step",
+              "root": {
+                "accepted_step_kind_history": [
+                  "safeguarded_picard"
+                ],
+                "anderson_accepted": 0,
+                "anderson_attempts": 1,
+                "anderson_rejected": 1,
+                "auxiliary_scaled_residual_inf": 1.7620325223069762e-16,
+                "certification_wall_s": 0.0,
+                "coefficient_history": [
+                  [
+                    -1.0548633700789265,
+                    2.0548633700789276
+                  ]
+                ],
+                "coefficient_wall_s": 0.0007912999717518687,
+                "failure_code": "SAFEGUARDED_PICARD_NO_SUFFICIENT_DECREASE",
+                "failure_message": "the frozen relaxed Picard safeguard failed the 1e-4 decrease gate",
+                "full_fixed_point_defect_inf": 0.5992308947359135,
+                "full_scaled_residual_inf": 0.010983655607742606,
+                "history_restarts": 0,
+                "iterations": 1,
+                "map_evaluations": 4,
+                "map_wall_s": 0.026476899860426784,
+                "predictor_wall_s": 0.007619299925863743,
+                "raw_thermal_residual_inf_W_per_cell": 4.313989201922065e-06,
+                "reduced_residual_inf": 0.010983655607742606,
+                "safeguarded_picard_steps": 1,
+                "solver_id": "exact_condensed_temperature_safeguarded_anderson_v1",
+                "status": "FAIL",
+                "total_wall_s": 0.035575599991716444,
+                "unscaled_temperature_defect_history_inf_K": [
+                  0.24440016896028283,
+                  0.12421983289436866
+                ]
+              }
+            },
+            {
+              "candidate": null,
+              "path": "first_half_step",
+              "root": null
+            },
+            {
+              "candidate": null,
+              "path": "second_half_step",
+              "root": null
+            }
+          ],
+          "previous_state_sha256": "fbacd222d15e1c8b889e587cbae95d0fe64bca5c77ecf6a7f0a9ed6630fbb118",
+          "rejection_index": 0,
+          "schema_version": "geophase_controller_relevance_r0_v1",
+          "second_half_endpoint_sha256": null,
+          "wall_time_s": 0.03579690004698932
+        },
+        {
+          "accepted": false,
+          "accepted_first_half_endpoint_sha256": null,
+          "aggregate_integrity": null,
+          "at_outer_floor": false,
+          "attempted_outer_interval_s": 4.999999999999952e-09,
+          "below_floor_remainder": false,
+          "case_id": "R0-A-QUIESCENT-9V-T1",
+          "committed_endpoint_is_second_half": false,
+          "committed_endpoint_sha256": null,
+          "embedded_error": null,
+          "error_class": "ExactCondensedRootFailure",
+          "error_message": "the frozen relaxed Picard safeguard failed the 1e-4 decrease gate",
+          "first_half_endpoint_preserved": false,
+          "first_half_endpoint_sha256": null,
+          "half_interval_s": 2.499999999999976e-09,
+          "paths": [
+            {
+              "candidate": null,
+              "path": "full_step",
+              "root": {
+                "accepted_step_kind_history": [
+                  "safeguarded_picard",
+                  "anderson"
+                ],
+                "anderson_accepted": 1,
+                "anderson_attempts": 2,
+                "anderson_rejected": 1,
+                "auxiliary_scaled_residual_inf": 1.6362560737158194e-16,
+                "certification_wall_s": 0.0,
+                "coefficient_history": [
+                  [
+                    -0.21037719936547095,
+                    1.2103771993654713
+                  ],
+                  [
+                    -0.20471316638910275,
+                    1.1773346351221219,
+                    0.02737853126698135
+                  ]
+                ],
+                "coefficient_wall_s": 0.0008368999697268009,
+                "failure_code": "SAFEGUARDED_PICARD_NO_SUFFICIENT_DECREASE",
+                "failure_message": "the frozen relaxed Picard safeguard failed the 1e-4 decrease gate",
+                "full_fixed_point_defect_inf": 0.15356577300369162,
+                "full_scaled_residual_inf": 0.00026147211992252314,
+                "history_restarts": 0,
+                "iterations": 2,
+                "map_evaluations": 5,
+                "map_wall_s": 0.03217140003107488,
+                "predictor_wall_s": 0.006120000034570694,
+                "raw_thermal_residual_inf_W_per_cell": 2.237029912809401e-07,
+                "reduced_residual_inf": 0.00026147211992252314,
+                "safeguarded_picard_steps": 1,
+                "solver_id": "exact_condensed_temperature_safeguarded_anderson_v1",
+                "status": "FAIL",
+                "total_wall_s": 0.04001479991711676,
+                "unscaled_temperature_defect_history_inf_K": [
+                  0.05277364546310537,
+                  0.008448004742490411,
+                  0.0025385578408645415
+                ]
+              }
+            },
+            {
+              "candidate": null,
+              "path": "first_half_step",
+              "root": null
+            },
+            {
+              "candidate": null,
+              "path": "second_half_step",
+              "root": null
+            }
+          ],
+          "previous_state_sha256": "fbacd222d15e1c8b889e587cbae95d0fe64bca5c77ecf6a7f0a9ed6630fbb118",
+          "rejection_index": 1,
+          "schema_version": "geophase_controller_relevance_r0_v1",
+          "second_half_endpoint_sha256": null,
+          "wall_time_s": 0.040252899983897805
+        },
+        {
+          "accepted": false,
+          "accepted_first_half_endpoint_sha256": null,
+          "aggregate_integrity": null,
+          "at_outer_floor": false,
+          "attempted_outer_interval_s": 2.499999999999976e-09,
+          "below_floor_remainder": false,
+          "case_id": "R0-A-QUIESCENT-9V-T1",
+          "committed_endpoint_is_second_half": false,
+          "committed_endpoint_sha256": null,
+          "embedded_error": null,
+          "error_class": "ExactCondensedRootFailure",
+          "error_message": "the frozen relaxed Picard safeguard failed the 1e-4 decrease gate",
+          "first_half_endpoint_preserved": false,
+          "first_half_endpoint_sha256": null,
+          "half_interval_s": 1.249999999999988e-09,
+          "paths": [
+            {
+              "candidate": null,
+              "path": "full_step",
+              "root": {
+                "accepted_step_kind_history": [
+                  "safeguarded_picard",
+                  "anderson",
+                  "anderson",
+                  "safeguarded_picard"
+                ],
+                "anderson_accepted": 2,
+                "anderson_attempts": 3,
+                "anderson_rejected": 1,
+                "auxiliary_scaled_residual_inf": 2.4405284976956793e-16,
+                "certification_wall_s": 0.0,
+                "coefficient_history": [
+                  [
+                    -0.3770075682959296,
+                    1.3770075682959297
+                  ],
+                  [
+                    1.4007895240069175,
+                    -5.69267804858169,
+                    5.29188852457477
+                  ],
+                  [
+                    -3.142857006011497,
+                    13.377556108685429,
+                    -13.868824605247003,
+                    4.634125502573073
+                  ]
+                ],
+                "coefficient_wall_s": 0.0008292000275105238,
+                "failure_code": "SAFEGUARDED_PICARD_NO_SUFFICIENT_DECREASE",
+                "failure_message": "the frozen relaxed Picard safeguard failed the 1e-4 decrease gate",
+                "full_fixed_point_defect_inf": 0.008535028444947468,
+                "full_scaled_residual_inf": 8.93137195808208e-06,
+                "history_restarts": 1,
+                "iterations": 4,
+                "map_evaluations": 7,
+                "map_wall_s": 0.03964419977273792,
+                "predictor_wall_s": 0.00608769990503788,
+                "raw_thermal_residual_inf_W_per_cell": 1.473036944905493e-08,
+                "reduced_residual_inf": 8.93137195808208e-06,
+                "safeguarded_picard_steps": 2,
+                "solver_id": "exact_condensed_temperature_safeguarded_anderson_v1",
+                "status": "FAIL",
+                "total_wall_s": 0.04758030001539737,
+                "unscaled_temperature_defect_history_inf_K": [
+                  0.006032723329553846,
+                  0.0016314180112999566,
+                  0.00023713162590865977,
+                  0.00016038172697108166,
+                  0.00011396329313129172
+                ]
+              }
+            },
+            {
+              "candidate": null,
+              "path": "first_half_step",
+              "root": null
+            },
+            {
+              "candidate": null,
+              "path": "second_half_step",
+              "root": null
+            }
+          ],
+          "previous_state_sha256": "fbacd222d15e1c8b889e587cbae95d0fe64bca5c77ecf6a7f0a9ed6630fbb118",
+          "rejection_index": 2,
+          "schema_version": "geophase_controller_relevance_r0_v1",
+          "second_half_endpoint_sha256": null,
+          "wall_time_s": 0.04773320001550019
+        },
+        {
+          "accepted": false,
+          "accepted_first_half_endpoint_sha256": null,
+          "aggregate_integrity": null,
+          "at_outer_floor": false,
+          "attempted_outer_interval_s": 1.249999999999988e-09,
+          "below_floor_remainder": false,
+          "case_id": "R0-A-QUIESCENT-9V-T1",
+          "committed_endpoint_is_second_half": false,
+          "committed_endpoint_sha256": null,
+          "embedded_error": null,
+          "error_class": "ExactCondensedRootFailure",
+          "error_message": "the frozen relaxed Picard safeguard failed the 1e-4 decrease gate",
+          "first_half_endpoint_preserved": false,
+          "first_half_endpoint_sha256": null,
+          "half_interval_s": 6.24999999999994e-10,
+          "paths": [
+            {
+              "candidate": null,
+              "path": "full_step",
+              "root": {
+                "accepted_step_kind_history": [
+                  "safeguarded_picard",
+                  "anderson",
+                  "anderson",
+                  "anderson",
+                  "anderson",
+                  "anderson"
+                ],
+                "anderson_accepted": 5,
+                "anderson_attempts": 6,
+                "anderson_rejected": 1,
+                "auxiliary_scaled_residual_inf": 1.709825938522961e-16,
+                "certification_wall_s": 0.0,
+                "coefficient_history": [
+                  [
+                    -0.7863070078619767,
+                    1.7863070078619776
+                  ],
+                  [
+                    1.0705822533061482,
+                    -2.4735085893301987,
+                    2.402926336024053
+                  ],
+                  [
+                    -1.2942350631258541,
+                    3.0071770671331097,
+                    -3.117511107984,
+                    2.4045691039767436
+                  ],
+                  [
+                    -0.0055432119631557844,
+                    0.06110235911733952,
+                    -0.008526632457600623,
+                    0.9529674853034169
+                  ],
+                  [
+                    0.00012038252691156555,
+                    0.0003538804138105315,
+                    -4.4147282998534894e-05,
+                    0.9995698843422771
+                  ],
+                  [
+                    0.007074743020966024,
+                    0.004928742980107006,
+                    10.158758013274944,
+                    -9.170761499276015
+                  ]
+                ],
+                "coefficient_wall_s": 0.002516699954867363,
+                "failure_code": "SAFEGUARDED_PICARD_NO_SUFFICIENT_DECREASE",
+                "failure_message": "the frozen relaxed Picard safeguard failed the 1e-4 decrease gate",
+                "full_fixed_point_defect_inf": 3.71331987980561e-06,
+                "full_scaled_residual_inf": 4.889018364389663e-09,
+                "history_restarts": 0,
+                "iterations": 6,
+                "map_evaluations": 9,
+                "map_wall_s": 0.061067999922670424,
+                "predictor_wall_s": 0.0054416999919340014,
+                "raw_thermal_residual_inf_W_per_cell": 1.3694220719757109e-11,
+                "reduced_residual_inf": 4.889018364389663e-09,
+                "safeguarded_picard_steps": 1,
+                "solver_id": "exact_condensed_temperature_safeguarded_anderson_v1",
+                "status": "FAIL",
+                "total_wall_s": 0.07075690000783652,
+                "unscaled_temperature_defect_history_inf_K": [
+                  0.0005898167338500571,
+                  0.00025905020476102436,
+                  1.0548592456416372e-05,
+                  1.8533208390181244e-06,
+                  1.2652446912397863e-06,
+                  8.188482070181635e-08,
+                  8.167631904143491e-08
+                ]
+              }
+            },
+            {
+              "candidate": null,
+              "path": "first_half_step",
+              "root": null
+            },
+            {
+              "candidate": null,
+              "path": "second_half_step",
+              "root": null
+            }
+          ],
+          "previous_state_sha256": "fbacd222d15e1c8b889e587cbae95d0fe64bca5c77ecf6a7f0a9ed6630fbb118",
+          "rejection_index": 3,
+          "schema_version": "geophase_controller_relevance_r0_v1",
+          "second_half_endpoint_sha256": null,
+          "wall_time_s": 0.07086800003889948
+        },
+        {
+          "accepted": true,
+          "accepted_first_half_endpoint_sha256": "8d930806caf31cb9d7769aed020e57ec47eedd55be9a6185e7b3ffa16b36f91d",
+          "aggregate_integrity": {
+            "error_class": null,
+            "error_message": null,
+            "finite": true,
+            "ledger_pass": true,
+            "ledger_relative_residuals": {
+              "circuit": 7.680072220287046e-15,
+              "combined": 4.2630539348533005e-10,
+              "device_power": 2.754234245258076e-16,
+              "thermal": 1.1303985514567485e-09
+            },
+            "overall_pass": true
+          },
+          "at_outer_floor": false,
+          "attempted_outer_interval_s": 6.24999999999994e-10,
+          "below_floor_remainder": false,
+          "case_id": "R0-A-QUIESCENT-9V-T1",
+          "committed_endpoint_is_second_half": true,
+          "committed_endpoint_sha256": "1e986d77f99b04439dc7c2bd766d254918090ef40b5fb010f5fde7f8c3e90f6b",
+          "embedded_error": {
+            "e_T": 6.523833980773842e-06,
+            "e_V": 1.1774546893050797e-08,
+            "e_b": 0.00152891665884769,
+            "e_max": 0.00152891665884769,
+            "e_s": 0.00013796156307865903,
+            "voltage_scale_V": 9.0
+          },
+          "error_class": null,
+          "error_message": null,
+          "first_half_endpoint_preserved": true,
+          "first_half_endpoint_sha256": "8d930806caf31cb9d7769aed020e57ec47eedd55be9a6185e7b3ffa16b36f91d",
+          "half_interval_s": 3.12499999999997e-10,
+          "paths": [
+            {
+              "candidate": {
+                "endpoint_state_sha256": "dbf1df5b3fbe50b1d6946b2817c3db4acb93759d0e6a86edf150a9e0245e333e",
+                "endpoint_time_s": 2.1100976562498094e-06,
+                "integrity": {
+                  "error_class": null,
+                  "error_message": null,
+                  "finite": true,
+                  "lateral_pass": true,
+                  "lateral_relative_mismatch": 7.362517724585558e-13,
+                  "lateral_roundoff_ratio": 0.0015187725371109354,
+                  "ledger_pass": true,
+                  "ledger_relative_residuals": {
+                    "circuit": 3.5878583582663766e-15,
+                    "combined": 5.300189916590764e-12,
+                    "device_power": 7.348175497934897e-16,
+                    "thermal": 1.4068197332031515e-11
+                  },
+                  "nonlinear_pass": true,
+                  "overall_pass": true
+                },
+                "nonlinear": {
+                  "armijo_backtracks": 0,
+                  "converged": true,
+                  "fallback_picard_iterations": 0,
+                  "iterations": 5,
+                  "krylov_matvecs": 0,
+                  "method": "exact_condensed_temperature_safeguarded_anderson_v1",
+                  "predictor_picard_iterations": 0,
+                  "scaled_residual_inf": 5.523851635864517e-12,
+                  "scaled_update_inf": 3.0827440600234013e-09
+                },
+                "relative_current_imbalance": 9.140737826430228e-16,
+                "relative_power_imbalance": 7.312590261144181e-16
+              },
+              "path": "full_step",
+              "root": {
+                "accepted_step_kind_history": [
+                  "safeguarded_picard",
+                  "anderson",
+                  "anderson",
+                  "anderson",
+                  "anderson"
+                ],
+                "anderson_accepted": 4,
+                "anderson_attempts": 4,
+                "anderson_rejected": 0,
+                "auxiliary_scaled_residual_inf": 2.0388643287976299e-16,
+                "certification_wall_s": 0.002793199964798987,
+                "coefficient_history": [
+                  [
+                    -0.973209121605978,
+                    1.9732091216059797
+                  ],
+                  [
+                    1.128538794479314,
+                    -2.2906476020386246,
+                    2.16210880755931
+                  ],
+                  [
+                    -1.0202963987586482,
+                    2.071268116850052,
+                    -1.9750299186093987,
+                    1.9240582005179956
+                  ],
+                  [
+                    -0.00010557048089549203,
+                    0.00778675310599454,
+                    -0.03329208926457703,
+                    1.025610906639478
+                  ]
+                ],
+                "coefficient_wall_s": 0.0016270000487565994,
+                "failure_code": null,
+                "failure_message": null,
+                "full_fixed_point_defect_inf": 3.0827440600234013e-09,
+                "full_scaled_residual_inf": 5.523851635864517e-12,
+                "history_restarts": 0,
+                "iterations": 5,
+                "map_evaluations": 6,
+                "map_wall_s": 0.04028169997036457,
+                "predictor_wall_s": 0.004203399992547929,
+                "raw_thermal_residual_inf_W_per_cell": 2.81943200475818e-14,
+                "reduced_residual_inf": 5.523851635864517e-12,
+                "safeguarded_picard_steps": 1,
+                "solver_id": "exact_condensed_temperature_safeguarded_anderson_v1",
+                "status": "PASS",
+                "total_wall_s": 0.04990879993420094,
+                "unscaled_temperature_defect_history_inf_K": [
+                  5.967152225139216e-05,
+                  2.9381904198544362e-05,
+                  3.645327524282038e-07,
+                  1.2891177902929485e-08,
+                  2.969954948639497e-09,
+                  8.58335624798201e-11
+                ]
+              }
+            },
+            {
+              "candidate": {
+                "endpoint_state_sha256": "8d930806caf31cb9d7769aed020e57ec47eedd55be9a6185e7b3ffa16b36f91d",
+                "endpoint_time_s": 2.109785156249809e-06,
+                "integrity": {
+                  "error_class": null,
+                  "error_message": null,
+                  "finite": true,
+                  "lateral_pass": true,
+                  "lateral_relative_mismatch": 8.519706572643017e-13,
+                  "lateral_roundoff_ratio": 0.0017560760443767161,
+                  "ledger_pass": true,
+                  "ledger_relative_residuals": {
+                    "circuit": 3.965429774927325e-15,
+                    "combined": 1.0045465503285062e-09,
+                    "device_power": 2.751917813812691e-16,
+                    "thermal": 2.6631551304985634e-09
+                  },
+                  "nonlinear_pass": true,
+                  "overall_pass": true
+                },
+                "nonlinear": {
+                  "armijo_backtracks": 0,
+                  "converged": true,
+                  "fallback_picard_iterations": 0,
+                  "iterations": 3,
+                  "krylov_matvecs": 0,
+                  "method": "exact_condensed_temperature_safeguarded_anderson_v1",
+                  "predictor_picard_iterations": 0,
+                  "scaled_residual_inf": 1.641286717493038e-11,
+                  "scaled_update_inf": 7.393137324562815e-09
+                },
+                "relative_current_imbalance": 4.879361725440851e-16,
+                "relative_power_imbalance": 3.0496010784005315e-16
+              },
+              "path": "first_half_step",
+              "root": {
+                "accepted_step_kind_history": [
+                  "safeguarded_picard",
+                  "anderson",
+                  "anderson"
+                ],
+                "anderson_accepted": 2,
+                "anderson_attempts": 2,
+                "anderson_rejected": 0,
+                "auxiliary_scaled_residual_inf": 2.2802454470756904e-16,
+                "certification_wall_s": 0.002788200043141842,
+                "coefficient_history": [
+                  [
+                    -1.007288868956237,
+                    2.007288868956238
+                  ],
+                  [
+                    1.050439610592417,
+                    -2.09324145919117,
+                    2.042801848598754
+                  ]
+                ],
+                "coefficient_wall_s": 0.00048150005750358105,
+                "failure_code": null,
+                "failure_message": null,
+                "full_fixed_point_defect_inf": 7.393137324562815e-09,
+                "full_scaled_residual_inf": 1.641286717493038e-11,
+                "history_restarts": 0,
+                "iterations": 3,
+                "map_evaluations": 4,
+                "map_wall_s": 0.02017660008277744,
+                "predictor_wall_s": 0.005543400067836046,
+                "raw_thermal_residual_inf_W_per_cell": 1.5944484163424137e-13,
+                "reduced_residual_inf": 1.641286717493038e-11,
+                "safeguarded_picard_steps": 1,
+                "solver_id": "exact_condensed_temperature_safeguarded_anderson_v1",
+                "status": "PASS",
+                "total_wall_s": 0.02983349992427975,
+                "unscaled_temperature_defect_history_inf_K": [
+                  6.455620450651622e-06,
+                  3.2371648899243155e-06,
+                  1.0089763691212283e-08,
+                  2.4562041289755143e-10
+                ]
+              }
+            },
+            {
+              "candidate": {
+                "endpoint_state_sha256": "1e986d77f99b04439dc7c2bd766d254918090ef40b5fb010f5fde7f8c3e90f6b",
+                "endpoint_time_s": 2.110097656249809e-06,
+                "integrity": {
+                  "error_class": null,
+                  "error_message": null,
+                  "finite": true,
+                  "lateral_pass": true,
+                  "lateral_relative_mismatch": 7.92332439882288e-13,
+                  "lateral_roundoff_ratio": 0.0016345684851581522,
+                  "ledger_pass": true,
+                  "ledger_relative_residuals": {
+                    "circuit": 1.1584547190091915e-14,
+                    "combined": 1.5179945419591867e-10,
+                    "device_power": 8.269663739126843e-16,
+                    "thermal": 4.0263448019730226e-10
+                  },
+                  "nonlinear_pass": true,
+                  "overall_pass": true
+                },
+                "nonlinear": {
+                  "armijo_backtracks": 0,
+                  "converged": true,
+                  "fallback_picard_iterations": 0,
+                  "iterations": 3,
+                  "krylov_matvecs": 0,
+                  "method": "exact_condensed_temperature_safeguarded_anderson_v1",
+                  "predictor_picard_iterations": 0,
+                  "scaled_residual_inf": 9.83655623931933e-12,
+                  "scaled_update_inf": 5.4828128703832135e-09
+                },
+                "relative_current_imbalance": 8.5344176850293e-16,
+                "relative_power_imbalance": 7.924816421812922e-16
+              },
+              "path": "second_half_step",
+              "root": {
+                "accepted_step_kind_history": [
+                  "safeguarded_picard",
+                  "anderson",
+                  "anderson"
+                ],
+                "anderson_accepted": 2,
+                "anderson_attempts": 2,
+                "anderson_rejected": 0,
+                "auxiliary_scaled_residual_inf": 2.251555178778012e-16,
+                "certification_wall_s": 0.0026971999322995543,
+                "coefficient_history": [
+                  [
+                    -0.9949791498617264,
+                    1.9949791498617278
+                  ],
+                  [
+                    1.0552878831638002,
+                    -2.1161210183956576,
+                    2.0608331352318583
+                  ]
+                ],
+                "coefficient_wall_s": 0.000580000109039247,
+                "failure_code": null,
+                "failure_message": null,
+                "full_fixed_point_defect_inf": 5.4828128703832135e-09,
+                "full_scaled_residual_inf": 9.83655623931933e-12,
+                "history_restarts": 0,
+                "iterations": 3,
+                "map_evaluations": 4,
+                "map_wall_s": 0.021851800032891333,
+                "predictor_wall_s": 0.004270700039342046,
+                "raw_thermal_residual_inf_W_per_cell": 9.574658672514575e-14,
+                "reduced_residual_inf": 9.83655623931933e-12,
+                "safeguarded_picard_steps": 1,
+                "solver_id": "exact_condensed_temperature_safeguarded_anderson_v1",
+                "status": "PASS",
+                "total_wall_s": 0.03026459994725883,
+                "unscaled_temperature_defect_history_inf_K": [
+                  9.321454797373008e-06,
+                  4.645624812837923e-06,
+                  1.912798097691848e-08,
+                  1.460875864722766e-10
+                ]
+              }
+            }
+          ],
+          "previous_state_sha256": "fbacd222d15e1c8b889e587cbae95d0fe64bca5c77ecf6a7f0a9ed6630fbb118",
+          "rejection_index": 4,
+          "schema_version": "geophase_controller_relevance_r0_v1",
+          "second_half_endpoint_sha256": "1e986d77f99b04439dc7c2bd766d254918090ef40b5fb010f5fde7f8c3e90f6b",
+          "wall_time_s": 0.11096550000365824
+        }
+      ],
+      "case": {
+        "case_id": "R0-A-QUIESCENT-9V-T1",
+        "protocol_id": "quiescent_9V",
+        "spatial_level": 1,
+        "state_kind": "accepted_on_trajectory_previous_state",
+        "state_source": "outputs/tables/geophase_controller_v3/qualification/CTRLV3-QUAL-20260801-V2/failures/CTRLV3-QUAL-QUIESCENT-9V-T1.json",
+        "time_divisor": 1
+      },
+      "claim_status": "qualified_supported",
+      "completed": false,
+      "embedded_acceptance_max": 0.02,
+      "error_class": null,
+      "error_message": null,
+      "final_time_s": 2.119472656249809e-06,
+      "forced_times_s": [],
+      "gates": {
+        "accepted": true,
+        "aggregate_ledger_pass": true,
+        "all_required": true,
+        "committed_endpoint_is_second_half": true,
+        "embedded_error_pass": true,
+        "first_half_endpoint_preserved": true,
+        "outer_interval_at_or_above_floor": true,
+        "second_half_source_semantics_frozen": true,
+        "three_path_integrity_pass": true,
+        "three_roots_pass": true
+      },
+      "initial_proposal_s": 1e-08,
+      "initial_state_sha256": "fbacd222d15e1c8b889e587cbae95d0fe64bca5c77ecf6a7f0a9ed6630fbb118",
+      "maximum_accepted_steps": 1,
+      "r1_eligible": false,
+      "r1_terminal_context": null,
+      "resolved_Hmax_s": 1e-08,
+      "resolved_Hmin_s": 9.765625e-12,
+      "route": "B3",
+      "schema_version": "geophase_controller_relevance_r0_v1",
+      "stage": "R2",
+      "state_role": "accepted_on_trajectory_previous_state",
+      "status": "PASS",
+      "stop_reason": "maximum_accepted_steps_reached",
+      "validity": "valid",
+      "wall_time_s": 0.3797857000026852
+    },
+    {
+      "accepted_outer_interval_s": 1.5625e-10,
+      "attempt_count": 5,
+      "attempted_outer_intervals_s": [
+        2.5e-09,
+        1.25e-09,
+        6.25e-10,
+        3.125e-10,
+        1.5625e-10
+      ],
+      "attempts": [
+        {
+          "accepted": false,
+          "accepted_first_half_endpoint_sha256": null,
+          "aggregate_integrity": {
+            "error_class": null,
+            "error_message": null,
+            "finite": true,
+            "ledger_pass": true,
+            "ledger_relative_residuals": {
+              "circuit": 0.0,
+              "combined": 9.840303356588381e-14,
+              "device_power": 4.1174915664679702e-16,
+              "thermal": 6.477903118332556e-13
+            },
+            "overall_pass": true
+          },
+          "at_outer_floor": false,
+          "attempted_outer_interval_s": 2.5e-09,
+          "below_floor_remainder": false,
+          "case_id": "R0-B-CRITICAL-TRANSITION-T4",
+          "committed_endpoint_is_second_half": false,
+          "committed_endpoint_sha256": null,
+          "embedded_error": {
+            "e_T": 4.2353823997721156e-05,
+            "e_V": 4.411034012333226e-06,
+            "e_b": 0.17635990677171987,
+            "e_max": 0.17635990677171987,
+            "e_s": 0.017059951221040426,
+            "voltage_scale_V": 12.5
+          },
+          "error_class": null,
+          "error_message": null,
+          "first_half_endpoint_preserved": false,
+          "first_half_endpoint_sha256": "4d9454e978d0646ec6f18fa20796a6ef70b9e2bc38c04fadf073ba3751039331",
+          "half_interval_s": 1.25e-09,
+          "paths": [
+            {
+              "candidate": {
+                "endpoint_state_sha256": "43c9dfd2913d03b2b9085e1da792d1283654f8dedf9bffeea88ab475c6d9f775",
+                "endpoint_time_s": 2.5e-09,
+                "integrity": {
+                  "error_class": null,
+                  "error_message": null,
+                  "finite": true,
+                  "lateral_pass": true,
+                  "lateral_relative_mismatch": 5.093124892741062e-08,
+                  "lateral_roundoff_ratio": 0.0017392276324533962,
+                  "ledger_pass": true,
+                  "ledger_relative_residuals": {
+                    "circuit": 0.0,
+                    "combined": 1.0814840833948361e-13,
+                    "device_power": 2.6667790291812326e-16,
+                    "thermal": 7.130209487242687e-13
+                  },
+                  "nonlinear_pass": true,
+                  "overall_pass": true
+                },
+                "nonlinear": {
+                  "armijo_backtracks": 0,
+                  "converged": true,
+                  "fallback_picard_iterations": 0,
+                  "iterations": 2,
+                  "krylov_matvecs": 0,
+                  "method": "exact_condensed_temperature_safeguarded_anderson_v1",
+                  "predictor_picard_iterations": 0,
+                  "scaled_residual_inf": 3.3526167866500147e-14,
+                  "scaled_update_inf": 5.10702591327572e-15
+                },
+                "relative_current_imbalance": 2.5785883589227497e-16,
+                "relative_power_imbalance": 2.5785883589227497e-16
+              },
+              "path": "full_step",
+              "root": {
+                "accepted_step_kind_history": [
+                  "safeguarded_picard",
+                  "anderson"
+                ],
+                "anderson_accepted": 1,
+                "anderson_attempts": 1,
+                "anderson_rejected": 0,
+                "auxiliary_scaled_residual_inf": 1.2691348199264745e-16,
+                "certification_wall_s": 0.0019822000758722425,
+                "coefficient_history": [
+                  [
+                    -1.0000022700481763,
+                    2.000002270048176
+                  ]
+                ],
+                "coefficient_wall_s": 0.0002474000211805105,
+                "failure_code": null,
+                "failure_message": null,
+                "full_fixed_point_defect_inf": 5.10702591327572e-15,
+                "full_scaled_residual_inf": 3.3526167866500147e-14,
+                "history_restarts": 0,
+                "iterations": 2,
+                "map_evaluations": 3,
+                "map_wall_s": 0.013177800108678639,
+                "predictor_wall_s": 0.005892300046980381,
+                "raw_thermal_residual_inf_W_per_cell": 3.582820068216191e-17,
+                "reduced_residual_inf": 3.3526167866500147e-14,
+                "safeguarded_picard_steps": 1,
+                "solver_id": "exact_condensed_temperature_safeguarded_anderson_v1",
+                "status": "PASS",
+                "total_wall_s": 0.021831999998539686,
+                "unscaled_temperature_defect_history_inf_K": [
+                  4.222278334964358e-06,
+                  2.111141554905771e-06,
+                  2.8421709430404007e-13
+                ]
+              }
+            },
+            {
+              "candidate": {
+                "endpoint_state_sha256": "4d9454e978d0646ec6f18fa20796a6ef70b9e2bc38c04fadf073ba3751039331",
+                "endpoint_time_s": 1.25e-09,
+                "integrity": {
+                  "error_class": null,
+                  "error_message": null,
+                  "finite": true,
+                  "lateral_pass": true,
+                  "lateral_relative_mismatch": 6.643356977801849e-08,
+                  "lateral_roundoff_ratio": 0.0012024436025005467,
+                  "ledger_pass": true,
+                  "ledger_relative_residuals": {
+                    "circuit": 6.666102700389566e-17,
+                    "combined": 1.1969645426452614e-13,
+                    "device_power": 5.704715663557914e-16,
+                    "thermal": 7.859810897964925e-13
+                  },
+                  "nonlinear_pass": true,
+                  "overall_pass": true
+                },
+                "nonlinear": {
+                  "armijo_backtracks": 0,
+                  "converged": true,
+                  "fallback_picard_iterations": 0,
+                  "iterations": 2,
+                  "krylov_matvecs": 0,
+                  "method": "exact_condensed_temperature_safeguarded_anderson_v1",
+                  "predictor_picard_iterations": 0,
+                  "scaled_residual_inf": 2.08334967613969e-14,
+                  "scaled_update_inf": 4.413136522884997e-15
+                },
+                "relative_current_imbalance": 7.460608085056039e-16,
+                "relative_power_imbalance": 5.329005775040028e-16
+              },
+              "path": "first_half_step",
+              "root": {
+                "accepted_step_kind_history": [
+                  "safeguarded_picard",
+                  "anderson"
+                ],
+                "anderson_accepted": 1,
+                "anderson_attempts": 1,
+                "anderson_rejected": 0,
+                "auxiliary_scaled_residual_inf": 9.87042823218647e-17,
+                "certification_wall_s": 0.0018762999679893255,
+                "coefficient_history": [
+                  [
+                    -1.0000000882937032,
+                    2.0000000882937035
+                  ]
+                ],
+                "coefficient_wall_s": 0.0002142000012099743,
+                "failure_code": null,
+                "failure_message": null,
+                "full_fixed_point_defect_inf": 4.413136522884997e-15,
+                "full_scaled_residual_inf": 2.08334967613969e-14,
+                "history_restarts": 0,
+                "iterations": 2,
+                "map_evaluations": 3,
+                "map_wall_s": 0.012280199909582734,
+                "predictor_wall_s": 0.0036678999895229936,
+                "raw_thermal_residual_inf_W_per_cell": 4.583404884194061e-17,
+                "reduced_residual_inf": 2.08334967613969e-14,
+                "safeguarded_picard_steps": 1,
+                "solver_id": "exact_condensed_temperature_safeguarded_anderson_v1",
+                "status": "PASS",
+                "total_wall_s": 0.018436100101098418,
+                "unscaled_temperature_defect_history_inf_K": [
+                  2.9870415119148674e-07,
+                  1.493521040174528e-07,
+                  1.7053025658242404e-13
+                ]
+              }
+            },
+            {
+              "candidate": {
+                "endpoint_state_sha256": "5470210e55073abafb11c36cf7d9b40eb684cac537df76215c433cdf3c3cd4e5",
+                "endpoint_time_s": 2.5e-09,
+                "integrity": {
+                  "error_class": null,
+                  "error_message": null,
+                  "finite": true,
+                  "lateral_pass": true,
+                  "lateral_relative_mismatch": 4.1347664942200467e-08,
+                  "lateral_roundoff_ratio": 0.0014465381511971705,
+                  "ledger_pass": true,
+                  "ledger_relative_residuals": {
+                    "circuit": 0.0,
+                    "combined": 7.71363733809e-14,
+                    "device_power": 6.111846457776221e-16,
+                    "thermal": 5.087888836990812e-13
+                  },
+                  "nonlinear_pass": true,
+                  "overall_pass": true
+                },
+                "nonlinear": {
+                  "armijo_backtracks": 0,
+                  "converged": true,
+                  "fallback_picard_iterations": 0,
+                  "iterations": 2,
+                  "krylov_matvecs": 0,
+                  "method": "exact_condensed_temperature_safeguarded_anderson_v1",
+                  "predictor_picard_iterations": 0,
+                  "scaled_residual_inf": 2.4783871186656878e-14,
+                  "scaled_update_inf": 3.774758283725532e-15
+                },
+                "relative_current_imbalance": 1.0307297003789531e-15,
+                "relative_power_imbalance": 6.342952002332017e-16
+              },
+              "path": "second_half_step",
+              "root": {
+                "accepted_step_kind_history": [
+                  "safeguarded_picard",
+                  "anderson"
+                ],
+                "anderson_accepted": 1,
+                "anderson_attempts": 1,
+                "anderson_rejected": 0,
+                "auxiliary_scaled_residual_inf": 1.4805773895611816e-16,
+                "certification_wall_s": 0.0018949999939650297,
+                "coefficient_history": [
+                  [
+                    -1.0000009865158244,
+                    2.0000009865158246
+                  ]
+                ],
+                "coefficient_wall_s": 0.0002645000349730253,
+                "failure_code": null,
+                "failure_message": null,
+                "full_fixed_point_defect_inf": 3.774758283725532e-15,
+                "full_scaled_residual_inf": 2.4783871186656878e-14,
+                "history_restarts": 0,
+                "iterations": 2,
+                "map_evaluations": 3,
+                "map_wall_s": 0.012893799925222993,
+                "predictor_wall_s": 0.0025458999443799257,
+                "raw_thermal_residual_inf_W_per_cell": 4.939845173381831e-17,
+                "reduced_residual_inf": 2.4783871186656878e-14,
+                "safeguarded_picard_steps": 1,
+                "solver_id": "exact_condensed_temperature_safeguarded_anderson_v1",
+                "status": "PASS",
+                "total_wall_s": 0.018011600011959672,
+                "unscaled_temperature_defect_history_inf_K": [
+                  7.007017188698228e-07,
+                  3.5035100154345855e-07,
+                  2.2737367544323206e-13
+                ]
+              }
+            }
+          ],
+          "previous_state_sha256": "7f4782aa27812eedbdaa9af0512e57f5a13595dfc8612f2de984eaf4e3632aea",
+          "rejection_index": 0,
+          "schema_version": "geophase_controller_relevance_r0_v1",
+          "second_half_endpoint_sha256": "5470210e55073abafb11c36cf7d9b40eb684cac537df76215c433cdf3c3cd4e5",
+          "wall_time_s": 0.05896809999831021
+        },
+        {
+          "accepted": false,
+          "accepted_first_half_endpoint_sha256": null,
+          "aggregate_integrity": {
+            "error_class": null,
+            "error_message": null,
+            "finite": true,
+            "ledger_pass": true,
+            "ledger_relative_residuals": {
+              "circuit": 1.3329835414723312e-16,
+              "combined": 8.546613548023701e-08,
+              "device_power": 0.0,
+              "thermal": 5.609270307956829e-07
+            },
+            "overall_pass": true
+          },
+          "at_outer_floor": false,
+          "attempted_outer_interval_s": 1.25e-09,
+          "below_floor_remainder": false,
+          "case_id": "R0-B-CRITICAL-TRANSITION-T4",
+          "committed_endpoint_is_second_half": false,
+          "committed_endpoint_sha256": null,
+          "embedded_error": {
+            "e_T": 1.0639795419859604e-05,
+            "e_V": 9.9634684989941e-07,
+            "e_b": 0.1314659459337167,
+            "e_max": 0.1314659459337167,
+            "e_s": 0.0052442312576524985,
+            "voltage_scale_V": 12.5
+          },
+          "error_class": null,
+          "error_message": null,
+          "first_half_endpoint_preserved": false,
+          "first_half_endpoint_sha256": "fb2e998bfa3276a44b5fb5d7771f449e726dffb712f86e33e677f75068004641",
+          "half_interval_s": 6.25e-10,
+          "paths": [
+            {
+              "candidate": {
+                "endpoint_state_sha256": "4d9454e978d0646ec6f18fa20796a6ef70b9e2bc38c04fadf073ba3751039331",
+                "endpoint_time_s": 1.25e-09,
+                "integrity": {
+                  "error_class": null,
+                  "error_message": null,
+                  "finite": true,
+                  "lateral_pass": true,
+                  "lateral_relative_mismatch": 6.643356977801849e-08,
+                  "lateral_roundoff_ratio": 0.0012024436025005467,
+                  "ledger_pass": true,
+                  "ledger_relative_residuals": {
+                    "circuit": 6.666102700389566e-17,
+                    "combined": 1.1969645426452614e-13,
+                    "device_power": 5.704715663557914e-16,
+                    "thermal": 7.859810897964925e-13
+                  },
+                  "nonlinear_pass": true,
+                  "overall_pass": true
+                },
+                "nonlinear": {
+                  "armijo_backtracks": 0,
+                  "converged": true,
+                  "fallback_picard_iterations": 0,
+                  "iterations": 2,
+                  "krylov_matvecs": 0,
+                  "method": "exact_condensed_temperature_safeguarded_anderson_v1",
+                  "predictor_picard_iterations": 0,
+                  "scaled_residual_inf": 2.08334967613969e-14,
+                  "scaled_update_inf": 4.413136522884997e-15
+                },
+                "relative_current_imbalance": 7.460608085056039e-16,
+                "relative_power_imbalance": 5.329005775040028e-16
+              },
+              "path": "full_step",
+              "root": {
+                "accepted_step_kind_history": [
+                  "safeguarded_picard",
+                  "anderson"
+                ],
+                "anderson_accepted": 1,
+                "anderson_attempts": 1,
+                "anderson_rejected": 0,
+                "auxiliary_scaled_residual_inf": 9.87042823218647e-17,
+                "certification_wall_s": 0.002171900006942451,
+                "coefficient_history": [
+                  [
+                    -1.0000000882937032,
+                    2.0000000882937035
+                  ]
+                ],
+                "coefficient_wall_s": 0.00022680009715259075,
+                "failure_code": null,
+                "failure_message": null,
+                "full_fixed_point_defect_inf": 4.413136522884997e-15,
+                "full_scaled_residual_inf": 2.08334967613969e-14,
+                "history_restarts": 0,
+                "iterations": 2,
+                "map_evaluations": 3,
+                "map_wall_s": 0.013896599994041026,
+                "predictor_wall_s": 0.0029334999853745103,
+                "raw_thermal_residual_inf_W_per_cell": 4.583404884194061e-17,
+                "reduced_residual_inf": 2.08334967613969e-14,
+                "safeguarded_picard_steps": 1,
+                "solver_id": "exact_condensed_temperature_safeguarded_anderson_v1",
+                "status": "PASS",
+                "total_wall_s": 0.01966819993685931,
+                "unscaled_temperature_defect_history_inf_K": [
+                  2.9870415119148674e-07,
+                  1.493521040174528e-07,
+                  1.7053025658242404e-13
+                ]
+              }
+            },
+            {
+              "candidate": {
+                "endpoint_state_sha256": "fb2e998bfa3276a44b5fb5d7771f449e726dffb712f86e33e677f75068004641",
+                "endpoint_time_s": 6.25e-10,
+                "integrity": {
+                  "error_class": null,
+                  "error_message": null,
+                  "finite": true,
+                  "lateral_pass": true,
+                  "lateral_relative_mismatch": 2.413156053205672e-07,
+                  "lateral_roundoff_ratio": 0.0022704140089107247,
+                  "ledger_pass": true,
+                  "ledger_relative_residuals": {
+                    "circuit": 6.663726493787056e-17,
+                    "combined": 4.339828363521447e-08,
+                    "device_power": 1.3573134852769558e-15,
+                    "thermal": 2.8456037011185665e-07
+                  },
+                  "nonlinear_pass": true,
+                  "overall_pass": true
+                },
+                "nonlinear": {
+                  "armijo_backtracks": 0,
+                  "converged": true,
+                  "fallback_picard_iterations": 0,
+                  "iterations": 0,
+                  "krylov_matvecs": 0,
+                  "method": "exact_condensed_temperature_safeguarded_anderson_v1",
+                  "predictor_picard_iterations": 0,
+                  "scaled_residual_inf": 1.4652762162760637e-09,
+                  "scaled_update_inf": 8.034788667732329e-10
+                },
+                "relative_current_imbalance": 1.912949550058554e-15,
+                "relative_power_imbalance": 1.4028296700429389e-15
+              },
+              "path": "first_half_step",
+              "root": {
+                "accepted_step_kind_history": [],
+                "anderson_accepted": 0,
+                "anderson_attempts": 0,
+                "anderson_rejected": 0,
+                "auxiliary_scaled_residual_inf": 1.3665947406513677e-16,
+                "certification_wall_s": 0.002123399986885488,
+                "coefficient_history": [],
+                "coefficient_wall_s": 0.0,
+                "failure_code": null,
+                "failure_message": null,
+                "full_fixed_point_defect_inf": 8.034788667732329e-10,
+                "full_scaled_residual_inf": 1.4652762162760637e-09,
+                "history_restarts": 0,
+                "iterations": 0,
+                "map_evaluations": 1,
+                "map_wall_s": 0.005491499905474484,
+                "predictor_wall_s": 0.0036253000143915415,
+                "raw_thermal_residual_inf_W_per_cell": 5.332301589228234e-12,
+                "reduced_residual_inf": 1.4652762162760637e-09,
+                "safeguarded_picard_steps": 0,
+                "solver_id": "exact_condensed_temperature_safeguarded_anderson_v1",
+                "status": "PASS",
+                "total_wall_s": 0.011530700023286045,
+                "unscaled_temperature_defect_history_inf_K": [
+                  1.675516614341177e-08
+                ]
+              }
+            },
+            {
+              "candidate": {
+                "endpoint_state_sha256": "31e948b1a221cc6aad59de354125b160e9438657b4d62b018eb669ab622b0c53",
+                "endpoint_time_s": 1.25e-09,
+                "integrity": {
+                  "error_class": null,
+                  "error_message": null,
+                  "finite": true,
+                  "lateral_pass": true,
+                  "lateral_relative_mismatch": 1.0065702539873374e-07,
+                  "lateral_roundoff_ratio": 0.0018535210953828881,
+                  "ledger_pass": true,
+                  "ledger_relative_residuals": {
+                    "circuit": 1.3332218693794323e-16,
+                    "combined": 1.2756344991747454e-07,
+                    "device_power": 3.1711354418254076e-16,
+                    "thermal": 8.380109096413059e-07
+                  },
+                  "nonlinear_pass": true,
+                  "overall_pass": true
+                },
+                "nonlinear": {
+                  "armijo_backtracks": 0,
+                  "converged": true,
+                  "fallback_picard_iterations": 0,
+                  "iterations": 0,
+                  "krylov_matvecs": 0,
+                  "method": "exact_condensed_temperature_safeguarded_anderson_v1",
+                  "predictor_picard_iterations": 0,
+                  "scaled_residual_inf": 4.315136789112763e-09,
+                  "scaled_update_inf": 1.4886663013413681e-09
+                },
+                "relative_current_imbalance": 5.198463408432766e-16,
+                "relative_power_imbalance": 3.11907804505966e-16
+              },
+              "path": "second_half_step",
+              "root": {
+                "accepted_step_kind_history": [],
+                "anderson_accepted": 0,
+                "anderson_attempts": 0,
+                "anderson_rejected": 0,
+                "auxiliary_scaled_residual_inf": 1.0249491593463132e-16,
+                "certification_wall_s": 0.0017143000150099397,
+                "coefficient_history": [],
+                "coefficient_wall_s": 0.0,
+                "failure_code": null,
+                "failure_message": null,
+                "full_fixed_point_defect_inf": 1.4886663013413681e-09,
+                "full_scaled_residual_inf": 4.315136789112763e-09,
+                "history_restarts": 0,
+                "iterations": 0,
+                "map_evaluations": 1,
+                "map_wall_s": 0.0036581000313162804,
+                "predictor_wall_s": 0.0025263000279664993,
+                "raw_thermal_residual_inf_W_per_cell": 1.5662544414624536e-11,
+                "reduced_residual_inf": 4.315136789112763e-09,
+                "safeguarded_picard_steps": 0,
+                "solver_id": "exact_condensed_temperature_safeguarded_anderson_v1",
+                "status": "PASS",
+                "total_wall_s": 0.008152200025506318,
+                "unscaled_temperature_defect_history_inf_K": [
+                  4.921508889310644e-08
+                ]
+              }
+            }
+          ],
+          "previous_state_sha256": "7f4782aa27812eedbdaa9af0512e57f5a13595dfc8612f2de984eaf4e3632aea",
+          "rejection_index": 1,
+          "schema_version": "geophase_controller_relevance_r0_v1",
+          "second_half_endpoint_sha256": "31e948b1a221cc6aad59de354125b160e9438657b4d62b018eb669ab622b0c53",
+          "wall_time_s": 0.039978799992240965
+        },
+        {
+          "accepted": false,
+          "accepted_first_half_endpoint_sha256": null,
+          "aggregate_integrity": {
+            "error_class": null,
+            "error_message": null,
+            "finite": true,
+            "ledger_pass": true,
+            "ledger_relative_residuals": {
+              "circuit": 6.663130667713451e-17,
+              "combined": 8.578119284318517e-09,
+              "device_power": 5.555494346307851e-16,
+              "thermal": 5.621974744537569e-08
+            },
+            "overall_pass": true
+          },
+          "at_outer_floor": false,
+          "attempted_outer_interval_s": 6.25e-10,
+          "below_floor_remainder": false,
+          "case_id": "R0-B-CRITICAL-TRANSITION-T4",
+          "committed_endpoint_is_second_half": false,
+          "committed_endpoint_sha256": null,
+          "embedded_error": {
+            "e_T": 2.661891376027773e-06,
+            "e_V": 2.139554293521112e-07,
+            "e_b": 0.06974742939952933,
+            "e_max": 0.06974742939952933,
+            "e_s": 0.001122838076438204,
+            "voltage_scale_V": 12.5
+          },
+          "error_class": null,
+          "error_message": null,
+          "first_half_endpoint_preserved": false,
+          "first_half_endpoint_sha256": "450ed39a11159f8471863994426d5cefdc482128bf39d35286dc4d864c372c97",
+          "half_interval_s": 3.125e-10,
+          "paths": [
+            {
+              "candidate": {
+                "endpoint_state_sha256": "fb2e998bfa3276a44b5fb5d7771f449e726dffb712f86e33e677f75068004641",
+                "endpoint_time_s": 6.25e-10,
+                "integrity": {
+                  "error_class": null,
+                  "error_message": null,
+                  "finite": true,
+                  "lateral_pass": true,
+                  "lateral_relative_mismatch": 2.413156053205672e-07,
+                  "lateral_roundoff_ratio": 0.0022704140089107247,
+                  "ledger_pass": true,
+                  "ledger_relative_residuals": {
+                    "circuit": 6.663726493787056e-17,
+                    "combined": 4.339828363521447e-08,
+                    "device_power": 1.3573134852769558e-15,
+                    "thermal": 2.8456037011185665e-07
+                  },
+                  "nonlinear_pass": true,
+                  "overall_pass": true
+                },
+                "nonlinear": {
+                  "armijo_backtracks": 0,
+                  "converged": true,
+                  "fallback_picard_iterations": 0,
+                  "iterations": 0,
+                  "krylov_matvecs": 0,
+                  "method": "exact_condensed_temperature_safeguarded_anderson_v1",
+                  "predictor_picard_iterations": 0,
+                  "scaled_residual_inf": 1.4652762162760637e-09,
+                  "scaled_update_inf": 8.034788667732329e-10
+                },
+                "relative_current_imbalance": 1.912949550058554e-15,
+                "relative_power_imbalance": 1.4028296700429389e-15
+              },
+              "path": "full_step",
+              "root": {
+                "accepted_step_kind_history": [],
+                "anderson_accepted": 0,
+                "anderson_attempts": 0,
+                "anderson_rejected": 0,
+                "auxiliary_scaled_residual_inf": 1.3665947406513677e-16,
+                "certification_wall_s": 0.0017575999954715371,
+                "coefficient_history": [],
+                "coefficient_wall_s": 0.0,
+                "failure_code": null,
+                "failure_message": null,
+                "full_fixed_point_defect_inf": 8.034788667732329e-10,
+                "full_scaled_residual_inf": 1.4652762162760637e-09,
+                "history_restarts": 0,
+                "iterations": 0,
+                "map_evaluations": 1,
+                "map_wall_s": 0.005469399970024824,
+                "predictor_wall_s": 0.002621399937197566,
+                "raw_thermal_residual_inf_W_per_cell": 5.332301589228234e-12,
+                "reduced_residual_inf": 1.4652762162760637e-09,
+                "safeguarded_picard_steps": 0,
+                "solver_id": "exact_condensed_temperature_safeguarded_anderson_v1",
+                "status": "PASS",
+                "total_wall_s": 0.010203099926002324,
+                "unscaled_temperature_defect_history_inf_K": [
+                  1.675516614341177e-08
+                ]
+              }
+            },
+            {
+              "candidate": {
+                "endpoint_state_sha256": "450ed39a11159f8471863994426d5cefdc482128bf39d35286dc4d864c372c97",
+                "endpoint_time_s": 3.125e-10,
+                "integrity": {
+                  "error_class": null,
+                  "error_message": null,
+                  "finite": true,
+                  "lateral_pass": true,
+                  "lateral_relative_mismatch": 3.9723345390250757e-07,
+                  "lateral_roundoff_ratio": 0.0019128969822721287,
+                  "ledger_pass": true,
+                  "ledger_relative_residuals": {
+                    "circuit": 0.0,
+                    "combined": 3.987743046653579e-09,
+                    "device_power": 2.1477550432848184e-16,
+                    "thermal": 2.612272497344758e-08
+                  },
+                  "nonlinear_pass": true,
+                  "overall_pass": true
+                },
+                "nonlinear": {
+                  "armijo_backtracks": 0,
+                  "converged": true,
+                  "fallback_picard_iterations": 0,
+                  "iterations": 0,
+                  "krylov_matvecs": 0,
+                  "method": "exact_condensed_temperature_safeguarded_anderson_v1",
+                  "predictor_picard_iterations": 0,
+                  "scaled_residual_inf": 6.754527778839504e-11,
+                  "scaled_update_inf": 5.5992543934735295e-11
+                },
+                "relative_current_imbalance": 3.5398430342675493e-16,
+                "relative_power_imbalance": 2.8318744274140395e-16
+              },
+              "path": "first_half_step",
+              "root": {
+                "accepted_step_kind_history": [],
+                "anderson_accepted": 0,
+                "anderson_attempts": 0,
+                "anderson_rejected": 0,
+                "auxiliary_scaled_residual_inf": 1.268920797577762e-16,
+                "certification_wall_s": 0.002394899958744645,
+                "coefficient_history": [],
+                "coefficient_wall_s": 0.0,
+                "failure_code": null,
+                "failure_message": null,
+                "full_fixed_point_defect_inf": 5.5992543934735295e-11,
+                "full_scaled_residual_inf": 6.754527778839504e-11,
+                "history_restarts": 0,
+                "iterations": 0,
+                "map_evaluations": 1,
+                "map_wall_s": 0.003818299970589578,
+                "predictor_wall_s": 0.0033659000182524323,
+                "raw_thermal_residual_inf_W_per_cell": 4.902257230403396e-13,
+                "reduced_residual_inf": 6.754527778839504e-11,
+                "safeguarded_picard_steps": 0,
+                "solver_id": "exact_condensed_temperature_safeguarded_anderson_v1",
+                "status": "PASS",
+                "total_wall_s": 0.009841200080700219,
+                "unscaled_temperature_defect_history_inf_K": [
+                  7.711946636845823e-10
+                ]
+              }
+            },
+            {
+              "candidate": {
+                "endpoint_state_sha256": "f77233a9f9b56c12b94b75694bad2de7211eabdf0d55808d426bee321cfefc0c",
+                "endpoint_time_s": 6.25e-10,
+                "integrity": {
+                  "error_class": null,
+                  "error_message": null,
+                  "finite": true,
+                  "lateral_pass": true,
+                  "lateral_relative_mismatch": 1.3914860837844953e-07,
+                  "lateral_roundoff_ratio": 0.0013235667874637255,
+                  "ledger_pass": true,
+                  "ledger_relative_residuals": {
+                    "circuit": 6.663727920039006e-17,
+                    "combined": 1.3170103363215615e-08,
+                    "device_power": 5.841049507041644e-16,
+                    "thermal": 8.635583029051451e-08
+                  },
+                  "nonlinear_pass": true,
+                  "overall_pass": true
+                },
+                "nonlinear": {
+                  "armijo_backtracks": 0,
+                  "converged": true,
+                  "fallback_picard_iterations": 0,
+                  "iterations": 0,
+                  "krylov_matvecs": 0,
+                  "method": "exact_condensed_temperature_safeguarded_anderson_v1",
+                  "predictor_picard_iterations": 0,
+                  "scaled_residual_inf": 2.232593782848509e-10,
+                  "scaled_update_inf": 1.4257739433531924e-10
+                },
+                "relative_current_imbalance": 3.846266537679865e-16,
+                "relative_power_imbalance": 6.410444229466443e-16
+              },
+              "path": "second_half_step",
+              "root": {
+                "accepted_step_kind_history": [],
+                "anderson_accepted": 0,
+                "anderson_attempts": 0,
+                "anderson_rejected": 0,
+                "auxiliary_scaled_residual_inf": 8.987519723156029e-17,
+                "certification_wall_s": 0.0016986000118777156,
+                "coefficient_history": [],
+                "coefficient_wall_s": 0.0,
+                "failure_code": null,
+                "failure_message": null,
+                "full_fixed_point_defect_inf": 1.4257739433531924e-10,
+                "full_scaled_residual_inf": 2.232593782848509e-10,
+                "history_restarts": 0,
+                "iterations": 0,
+                "map_evaluations": 1,
+                "map_wall_s": 0.00367719994392246,
+                "predictor_wall_s": 0.002774299937300384,
+                "raw_thermal_residual_inf_W_per_cell": 1.6182569080601208e-12,
+                "reduced_residual_inf": 2.232593782848509e-10,
+                "safeguarded_picard_steps": 0,
+                "solver_id": "exact_condensed_temperature_safeguarded_anderson_v1",
+                "status": "PASS",
+                "total_wall_s": 0.008459300035610795,
+                "unscaled_temperature_defect_history_inf_K": [
+                  2.545732513681287e-09
+                ]
+              }
+            }
+          ],
+          "previous_state_sha256": "7f4782aa27812eedbdaa9af0512e57f5a13595dfc8612f2de984eaf4e3632aea",
+          "rejection_index": 2,
+          "schema_version": "geophase_controller_relevance_r0_v1",
+          "second_half_endpoint_sha256": "f77233a9f9b56c12b94b75694bad2de7211eabdf0d55808d426bee321cfefc0c",
+          "wall_time_s": 0.02947970002423972
+        },
+        {
+          "accepted": false,
+          "accepted_first_half_endpoint_sha256": null,
+          "aggregate_integrity": {
+            "error_class": null,
+            "error_message": null,
+            "finite": true,
+            "ledger_pass": true,
+            "ledger_relative_residuals": {
+              "circuit": 1.3324469902608356e-16,
+              "combined": 7.176539331329292e-10,
+              "device_power": 0.0,
+              "thermal": 4.700062328410369e-09
+            },
+            "overall_pass": true
+          },
+          "at_outer_floor": false,
+          "attempted_outer_interval_s": 3.125e-10,
+          "below_floor_remainder": false,
+          "case_id": "R0-B-CRITICAL-TRANSITION-T4",
+          "committed_endpoint_is_second_half": false,
+          "committed_endpoint_sha256": null,
+          "embedded_error": {
+            "e_T": 6.667775487054182e-07,
+            "e_V": 4.7218301016983824e-08,
+            "e_b": 0.027814477361408407,
+            "e_max": 0.027814477361408407,
+            "e_s": 0.0016740791204741257,
+            "voltage_scale_V": 12.5
+          },
+          "error_class": null,
+          "error_message": null,
+          "first_half_endpoint_preserved": false,
+          "first_half_endpoint_sha256": "01dddc91450dcbb421be61fc1a4ec1f2f4388a56a74e5bf53945a7e07f674f59",
+          "half_interval_s": 1.5625e-10,
+          "paths": [
+            {
+              "candidate": {
+                "endpoint_state_sha256": "450ed39a11159f8471863994426d5cefdc482128bf39d35286dc4d864c372c97",
+                "endpoint_time_s": 3.125e-10,
+                "integrity": {
+                  "error_class": null,
+                  "error_message": null,
+                  "finite": true,
+                  "lateral_pass": true,
+                  "lateral_relative_mismatch": 3.9723345390250757e-07,
+                  "lateral_roundoff_ratio": 0.0019128969822721287,
+                  "ledger_pass": true,
+                  "ledger_relative_residuals": {
+                    "circuit": 0.0,
+                    "combined": 3.987743046653579e-09,
+                    "device_power": 2.1477550432848184e-16,
+                    "thermal": 2.612272497344758e-08
+                  },
+                  "nonlinear_pass": true,
+                  "overall_pass": true
+                },
+                "nonlinear": {
+                  "armijo_backtracks": 0,
+                  "converged": true,
+                  "fallback_picard_iterations": 0,
+                  "iterations": 0,
+                  "krylov_matvecs": 0,
+                  "method": "exact_condensed_temperature_safeguarded_anderson_v1",
+                  "predictor_picard_iterations": 0,
+                  "scaled_residual_inf": 6.754527778839504e-11,
+                  "scaled_update_inf": 5.5992543934735295e-11
+                },
+                "relative_current_imbalance": 3.5398430342675493e-16,
+                "relative_power_imbalance": 2.8318744274140395e-16
+              },
+              "path": "full_step",
+              "root": {
+                "accepted_step_kind_history": [],
+                "anderson_accepted": 0,
+                "anderson_attempts": 0,
+                "anderson_rejected": 0,
+                "auxiliary_scaled_residual_inf": 1.268920797577762e-16,
+                "certification_wall_s": 0.0017506000585854053,
+                "coefficient_history": [],
+                "coefficient_wall_s": 0.0,
+                "failure_code": null,
+                "failure_message": null,
+                "full_fixed_point_defect_inf": 5.5992543934735295e-11,
+                "full_scaled_residual_inf": 6.754527778839504e-11,
+                "history_restarts": 0,
+                "iterations": 0,
+                "map_evaluations": 1,
+                "map_wall_s": 0.004757600021548569,
+                "predictor_wall_s": 0.002724100020714104,
+                "raw_thermal_residual_inf_W_per_cell": 4.902257230403396e-13,
+                "reduced_residual_inf": 6.754527778839504e-11,
+                "safeguarded_picard_steps": 0,
+                "solver_id": "exact_condensed_temperature_safeguarded_anderson_v1",
+                "status": "PASS",
+                "total_wall_s": 0.00946009997278452,
+                "unscaled_temperature_defect_history_inf_K": [
+                  7.711946636845823e-10
+                ]
+              }
+            },
+            {
+              "candidate": {
+                "endpoint_state_sha256": "01dddc91450dcbb421be61fc1a4ec1f2f4388a56a74e5bf53945a7e07f674f59",
+                "endpoint_time_s": 1.5625e-10,
+                "integrity": {
+                  "error_class": null,
+                  "error_message": null,
+                  "finite": true,
+                  "lateral_pass": true,
+                  "lateral_relative_mismatch": 4.724685547816245e-07,
+                  "lateral_roundoff_ratio": 0.0011524822976162875,
+                  "ledger_pass": true,
+                  "ledger_relative_residuals": {
+                    "circuit": 1.3323872184670024e-16,
+                    "combined": 3.149962758867672e-10,
+                    "device_power": 5.608524218478493e-16,
+                    "thermal": 2.0624861726200194e-09
+                  },
+                  "nonlinear_pass": true,
+                  "overall_pass": true
+                },
+                "nonlinear": {
+                  "armijo_backtracks": 0,
+                  "converged": true,
+                  "fallback_picard_iterations": 0,
+                  "iterations": 0,
+                  "krylov_matvecs": 0,
+                  "method": "exact_condensed_temperature_safeguarded_anderson_v1",
+                  "predictor_picard_iterations": 0,
+                  "scaled_residual_inf": 2.680110175542273e-12,
+                  "scaled_update_inf": 2.8387292516640628e-12
+                },
+                "relative_current_imbalance": 8.883226458964715e-16,
+                "relative_power_imbalance": 5.181882101062748e-16
+              },
+              "path": "first_half_step",
+              "root": {
+                "accepted_step_kind_history": [],
+                "anderson_accepted": 0,
+                "anderson_attempts": 0,
+                "anderson_rejected": 0,
+                "auxiliary_scaled_residual_inf": 1.440349827424966e-16,
+                "certification_wall_s": 0.002124299993738532,
+                "coefficient_history": [],
+                "coefficient_wall_s": 0.0,
+                "failure_code": null,
+                "failure_message": null,
+                "full_fixed_point_defect_inf": 2.8387292516640628e-12,
+                "full_scaled_residual_inf": 2.680110175542273e-12,
+                "history_restarts": 0,
+                "iterations": 0,
+                "map_evaluations": 1,
+                "map_wall_s": 0.00379139999859035,
+                "predictor_wall_s": 0.003378499997779727,
+                "raw_thermal_residual_inf_W_per_cell": 3.885426315649991e-14,
+                "reduced_residual_inf": 2.680110175542273e-12,
+                "safeguarded_picard_steps": 0,
+                "solver_id": "exact_condensed_temperature_safeguarded_anderson_v1",
+                "status": "PASS",
+                "total_wall_s": 0.009561500046402216,
+                "unscaled_temperature_defect_history_inf_K": [
+                  3.0524915928253904e-11
+                ]
+              }
+            },
+            {
+              "candidate": {
+                "endpoint_state_sha256": "3fcdf6100cffd64e1cc8170ba2c5d17b71d5173cbe6da9b2b80ad07caf972126",
+                "endpoint_time_s": 3.125e-10,
+                "integrity": {
+                  "error_class": null,
+                  "error_message": null,
+                  "finite": true,
+                  "lateral_pass": true,
+                  "lateral_relative_mismatch": 3.8908296858819684e-07,
+                  "lateral_roundoff_ratio": 0.0018854458636999275,
+                  "ledger_pass": true,
+                  "ledger_relative_residuals": {
+                    "circuit": 0.0,
+                    "combined": 1.1203821301931862e-09,
+                    "device_power": 1.0818408837622266e-16,
+                    "thermal": 7.339350194078487e-09
+                  },
+                  "nonlinear_pass": true,
+                  "overall_pass": true
+                },
+                "nonlinear": {
+                  "armijo_backtracks": 0,
+                  "converged": true,
+                  "fallback_picard_iterations": 0,
+                  "iterations": 0,
+                  "krylov_matvecs": 0,
+                  "method": "exact_condensed_temperature_safeguarded_anderson_v1",
+                  "predictor_picard_iterations": 0,
+                  "scaled_residual_inf": 9.511877263964136e-12,
+                  "scaled_update_inf": 8.771983139865824e-12
+                },
+                "relative_current_imbalance": 2.1407820491307522e-16,
+                "relative_power_imbalance": 7.135940163769174e-17
+              },
+              "path": "second_half_step",
+              "root": {
+                "accepted_step_kind_history": [],
+                "anderson_accepted": 0,
+                "anderson_attempts": 0,
+                "anderson_rejected": 0,
+                "auxiliary_scaled_residual_inf": 9.602334148586271e-17,
+                "certification_wall_s": 0.0017148000188171864,
+                "coefficient_history": [],
+                "coefficient_wall_s": 0.0,
+                "failure_code": null,
+                "failure_message": null,
+                "full_fixed_point_defect_inf": 8.771983139865824e-12,
+                "full_scaled_residual_inf": 9.511877263964136e-12,
+                "history_restarts": 0,
+                "iterations": 0,
+                "map_evaluations": 1,
+                "map_wall_s": 0.003803999978117645,
+                "predictor_wall_s": 0.0033360000234097242,
+                "raw_thermal_residual_inf_W_per_cell": 1.3784365708768722e-13,
+                "reduced_residual_inf": 9.511877263964136e-12,
+                "safeguarded_picard_steps": 0,
+                "solver_id": "exact_condensed_temperature_safeguarded_anderson_v1",
+                "status": "PASS",
+                "total_wall_s": 0.009357100003398955,
+                "unscaled_temperature_defect_history_inf_K": [
+                  1.0845724318642169e-10
+                ]
+              }
+            }
+          ],
+          "previous_state_sha256": "7f4782aa27812eedbdaa9af0512e57f5a13595dfc8612f2de984eaf4e3632aea",
+          "rejection_index": 3,
+          "schema_version": "geophase_controller_relevance_r0_v1",
+          "second_half_endpoint_sha256": "3fcdf6100cffd64e1cc8170ba2c5d17b71d5173cbe6da9b2b80ad07caf972126",
+          "wall_time_s": 0.029053499922156334
+        },
+        {
+          "accepted": true,
+          "accepted_first_half_endpoint_sha256": "4734f70891ff489933d1b7f8830913c1f273c8cf04bdfcd238621c225a124c95",
+          "aggregate_integrity": {
+            "error_class": null,
+            "error_message": null,
+            "finite": true,
+            "ledger_pass": true,
+            "ledger_relative_residuals": {
+              "circuit": 6.661786669619613e-17,
+              "combined": 5.190755017017394e-11,
+              "device_power": 7.220560677605407e-16,
+              "thermal": 3.3983261581567305e-10
+            },
+            "overall_pass": true
+          },
+          "at_outer_floor": false,
+          "attempted_outer_interval_s": 1.5625e-10,
+          "below_floor_remainder": false,
+          "case_id": "R0-B-CRITICAL-TRANSITION-T4",
+          "committed_endpoint_is_second_half": true,
+          "committed_endpoint_sha256": "e4b8b03ea5c620dc4569454df8903abd220625d8055bb942d2f9b24e1e4693cc",
+          "embedded_error": {
+            "e_T": 1.6684408341074601e-07,
+            "e_V": 1.1063904319739276e-08,
+            "e_b": 0.009078076583440287,
+            "e_max": 0.009078076583440287,
+            "e_s": 0.0008086281430180753,
+            "voltage_scale_V": 12.5
+          },
+          "error_class": null,
+          "error_message": null,
+          "first_half_endpoint_preserved": true,
+          "first_half_endpoint_sha256": "4734f70891ff489933d1b7f8830913c1f273c8cf04bdfcd238621c225a124c95",
+          "half_interval_s": 7.8125e-11,
+          "paths": [
+            {
+              "candidate": {
+                "endpoint_state_sha256": "01dddc91450dcbb421be61fc1a4ec1f2f4388a56a74e5bf53945a7e07f674f59",
+                "endpoint_time_s": 1.5625e-10,
+                "integrity": {
+                  "error_class": null,
+                  "error_message": null,
+                  "finite": true,
+                  "lateral_pass": true,
+                  "lateral_relative_mismatch": 4.724685547816245e-07,
+                  "lateral_roundoff_ratio": 0.0011524822976162875,
+                  "ledger_pass": true,
+                  "ledger_relative_residuals": {
+                    "circuit": 1.3323872184670024e-16,
+                    "combined": 3.149962758867672e-10,
+                    "device_power": 5.608524218478493e-16,
+                    "thermal": 2.0624861726200194e-09
+                  },
+                  "nonlinear_pass": true,
+                  "overall_pass": true
+                },
+                "nonlinear": {
+                  "armijo_backtracks": 0,
+                  "converged": true,
+                  "fallback_picard_iterations": 0,
+                  "iterations": 0,
+                  "krylov_matvecs": 0,
+                  "method": "exact_condensed_temperature_safeguarded_anderson_v1",
+                  "predictor_picard_iterations": 0,
+                  "scaled_residual_inf": 2.680110175542273e-12,
+                  "scaled_update_inf": 2.8387292516640628e-12
+                },
+                "relative_current_imbalance": 8.883226458964715e-16,
+                "relative_power_imbalance": 5.181882101062748e-16
+              },
+              "path": "full_step",
+              "root": {
+                "accepted_step_kind_history": [],
+                "anderson_accepted": 0,
+                "anderson_attempts": 0,
+                "anderson_rejected": 0,
+                "auxiliary_scaled_residual_inf": 1.440349827424966e-16,
+                "certification_wall_s": 0.0019428000086918473,
+                "coefficient_history": [],
+                "coefficient_wall_s": 0.0,
+                "failure_code": null,
+                "failure_message": null,
+                "full_fixed_point_defect_inf": 2.8387292516640628e-12,
+                "full_scaled_residual_inf": 2.680110175542273e-12,
+                "history_restarts": 0,
+                "iterations": 0,
+                "map_evaluations": 1,
+                "map_wall_s": 0.004942100029438734,
+                "predictor_wall_s": 0.002633500029332936,
+                "raw_thermal_residual_inf_W_per_cell": 3.885426315649991e-14,
+                "reduced_residual_inf": 2.680110175542273e-12,
+                "safeguarded_picard_steps": 0,
+                "solver_id": "exact_condensed_temperature_safeguarded_anderson_v1",
+                "status": "PASS",
+                "total_wall_s": 0.009782799985259771,
+                "unscaled_temperature_defect_history_inf_K": [
+                  3.0524915928253904e-11
+                ]
+              }
+            },
+            {
+              "candidate": {
+                "endpoint_state_sha256": "4734f70891ff489933d1b7f8830913c1f273c8cf04bdfcd238621c225a124c95",
+                "endpoint_time_s": 7.8125e-11,
+                "integrity": {
+                  "error_class": null,
+                  "error_message": null,
+                  "finite": true,
+                  "lateral_pass": true,
+                  "lateral_relative_mismatch": 1.2267910444036008e-06,
+                  "lateral_roundoff_ratio": 0.0015065696289903474,
+                  "ledger_pass": true,
+                  "ledger_relative_residuals": {
+                    "circuit": 6.661637179899943e-17,
+                    "combined": 2.162415086848412e-11,
+                    "device_power": 7.967965188759315e-16,
+                    "thermal": 1.415542536070688e-10
+                  },
+                  "nonlinear_pass": true,
+                  "overall_pass": true
+                },
+                "nonlinear": {
+                  "armijo_backtracks": 0,
+                  "converged": true,
+                  "fallback_picard_iterations": 0,
+                  "iterations": 0,
+                  "krylov_matvecs": 0,
+                  "method": "exact_condensed_temperature_safeguarded_anderson_v1",
+                  "predictor_picard_iterations": 0,
+                  "scaled_residual_inf": 1.0277954571372739e-13,
+                  "scaled_update_inf": 1.213473765915296e-13
+                },
+                "relative_current_imbalance": 8.267340423340952e-16,
+                "relative_power_imbalance": 8.267340423340952e-16
+              },
+              "path": "first_half_step",
+              "root": {
+                "accepted_step_kind_history": [],
+                "anderson_accepted": 0,
+                "anderson_attempts": 0,
+                "anderson_rejected": 0,
+                "auxiliary_scaled_residual_inf": 1.0297952038507122e-16,
+                "certification_wall_s": 0.0017167000332847238,
+                "coefficient_history": [],
+                "coefficient_wall_s": 0.0,
+                "failure_code": null,
+                "failure_message": null,
+                "full_fixed_point_defect_inf": 1.213473765915296e-13,
+                "full_scaled_residual_inf": 1.0277954571372739e-13,
+                "history_restarts": 0,
+                "iterations": 0,
+                "map_evaluations": 1,
+                "map_wall_s": 0.003719099913723767,
+                "predictor_wall_s": 0.004171099979430437,
+                "raw_thermal_residual_inf_W_per_cell": 3.024701011496343e-15,
+                "reduced_residual_inf": 1.0277954571372739e-13,
+                "safeguarded_picard_steps": 0,
+                "solver_id": "exact_condensed_temperature_safeguarded_anderson_v1",
+                "status": "PASS",
+                "total_wall_s": 0.009848000016063452,
+                "unscaled_temperature_defect_history_inf_K": [
+                  1.1368683772161603e-12
+                ]
+              }
+            },
+            {
+              "candidate": {
+                "endpoint_state_sha256": "e4b8b03ea5c620dc4569454df8903abd220625d8055bb942d2f9b24e1e4693cc",
+                "endpoint_time_s": 1.5625e-10,
+                "integrity": {
+                  "error_class": null,
+                  "error_message": null,
+                  "finite": true,
+                  "lateral_pass": true,
+                  "lateral_relative_mismatch": 5.703162288223348e-07,
+                  "lateral_roundoff_ratio": 0.0013958708101534836,
+                  "ledger_pass": true,
+                  "ledger_relative_residuals": {
+                    "circuit": 0.0,
+                    "combined": 8.219348955441786e-11,
+                    "device_power": 1.069437172717458e-15,
+                    "thermal": 5.381750362795075e-10
+                  },
+                  "nonlinear_pass": true,
+                  "overall_pass": true
+                },
+                "nonlinear": {
+                  "armijo_backtracks": 0,
+                  "converged": true,
+                  "fallback_picard_iterations": 0,
+                  "iterations": 0,
+                  "krylov_matvecs": 0,
+                  "method": "exact_condensed_temperature_safeguarded_anderson_v1",
+                  "predictor_picard_iterations": 0,
+                  "scaled_residual_inf": 3.592696762651973e-13,
+                  "scaled_update_inf": 4.0545344859310717e-13
+                },
+                "relative_current_imbalance": 1.4118976839281084e-15,
+                "relative_power_imbalance": 1.0403456618417644e-15
+              },
+              "path": "second_half_step",
+              "root": {
+                "accepted_step_kind_history": [],
+                "anderson_accepted": 0,
+                "anderson_attempts": 0,
+                "anderson_rejected": 0,
+                "auxiliary_scaled_residual_inf": 1.0297952749532187e-16,
+                "certification_wall_s": 0.0018666000105440617,
+                "coefficient_history": [],
+                "coefficient_wall_s": 0.0,
+                "failure_code": null,
+                "failure_message": null,
+                "full_fixed_point_defect_inf": 4.0545344859310717e-13,
+                "full_scaled_residual_inf": 3.592696762651973e-13,
+                "history_restarts": 0,
+                "iterations": 0,
+                "map_evaluations": 1,
+                "map_wall_s": 0.003916500019840896,
+                "predictor_wall_s": 0.0026849000714719296,
+                "raw_thermal_residual_inf_W_per_cell": 1.0408379188154002e-14,
+                "reduced_residual_inf": 3.592696762651973e-13,
+                "safeguarded_picard_steps": 0,
+                "solver_id": "exact_condensed_temperature_safeguarded_anderson_v1",
+                "status": "PASS",
+                "total_wall_s": 0.008715500007383525,
+                "unscaled_temperature_defect_history_inf_K": [
+                  4.092726157978177e-12
+                ]
+              }
+            }
+          ],
+          "previous_state_sha256": "7f4782aa27812eedbdaa9af0512e57f5a13595dfc8612f2de984eaf4e3632aea",
+          "rejection_index": 4,
+          "schema_version": "geophase_controller_relevance_r0_v1",
+          "second_half_endpoint_sha256": "e4b8b03ea5c620dc4569454df8903abd220625d8055bb942d2f9b24e1e4693cc",
+          "wall_time_s": 0.02896250004414469
+        }
+      ],
+      "case": {
+        "case_id": "R0-B-CRITICAL-TRANSITION-T4",
+        "protocol_id": "transition_probe_12p5V",
+        "spatial_level": 1,
+        "state_kind": "critical_transition_fixture",
+        "state_source": "configs/geophase_phase1_v2_critical_transition_failure_audit.yaml",
+        "time_divisor": 4
+      },
+      "claim_status": "qualified_supported",
+      "completed": false,
+      "embedded_acceptance_max": 0.02,
+      "error_class": null,
+      "error_message": null,
+      "final_time_s": 2.5e-09,
+      "forced_times_s": [],
+      "gates": {
+        "accepted": true,
+        "aggregate_ledger_pass": true,
+        "all_required": true,
+        "committed_endpoint_is_second_half": true,
+        "embedded_error_pass": true,
+        "first_half_endpoint_preserved": true,
+        "outer_interval_at_or_above_floor": true,
+        "second_half_source_semantics_frozen": true,
+        "three_path_integrity_pass": true,
+        "three_roots_pass": true
+      },
+      "initial_proposal_s": 2.5e-09,
+      "initial_state_sha256": "7f4782aa27812eedbdaa9af0512e57f5a13595dfc8612f2de984eaf4e3632aea",
+      "maximum_accepted_steps": 1,
+      "r1_eligible": false,
+      "r1_terminal_context": null,
+      "resolved_Hmax_s": 2.5e-09,
+      "resolved_Hmin_s": 2.44140625e-12,
+      "route": "B3",
+      "schema_version": "geophase_controller_relevance_r0_v1",
+      "stage": "R2",
+      "state_role": "critical_transition_fixture",
+      "status": "PASS",
+      "stop_reason": "maximum_accepted_steps_reached",
+      "validity": "valid",
+      "wall_time_s": 0.28290250001009554
+    }
+  ],
+  "claim_status": "qualified_supported",
+  "config_path": "configs/geophase_controller_relevance_final_rescue.yaml",
+  "config_sha256": "b9934c057208febc8078fb84c8d63aa81b744bb6816e0c360dbce74a86e2f047",
+  "cumulative_timebox": {
+    "elapsed_before_r2_s": 2870.688764,
+    "external_ci_queue_excluded": true,
+    "limit_s": 86400.0,
+    "remaining_before_r2_s": 83529.311236,
+    "started_utc": "2026-08-03T17:14:35Z"
+  },
+  "disposition": "R2_CONTROLLER_ADMISSIBLE_QUALIFICATION_PASS",
+  "evidence_type": "literature-guided synthetic numerical digital-twin evidence",
+  "formal_execution_count": 0,
+  "git_sha": "a43512a194f4e1ad99574effea8a72389f0fc1ae",
+  "lifecycle_state": "numerically_validated",
+  "parent_r1_summary": "outputs/tables/geophase_controller_relevance_final_rescue/R1-CONTRACTION-20260804-V1/r1_summary.json",
+  "parent_r1_summary_sha256": "733f3e908a69a185abefad7ffa50647d5dcbbf96e2ceb37ea9c5f744c7083de4",
+  "resolved_controller_limits": {
+    "T1_standard": {
+      "Hmax_s": 1e-08,
+      "Hmin_s": 9.765625e-12,
+      "time_divisor": 1
+    },
+    "T4_strict_div4": {
+      "Hmax_s": 2.5e-09,
+      "Hmin_s": 2.44140625e-12,
+      "time_divisor": 4
+    }
+  },
+  "route": "B3",
+  "run_id": "R2-ANDERSON-QUALIFICATION-20260804-V1",
+  "runtime": {
+    "command": [
+      "scripts\\run_geophase_controller_relevance_final_rescue.py",
+      "--stage",
+      "r2",
+      "--config",
+      "configs\\geophase_controller_relevance_final_rescue.yaml",
+      "--output-root",
+      "outputs\\tables\\geophase_controller_relevance_final_rescue\\R2-ANDERSON-QUALIFICATION-20260804-V1"
+    ],
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.9 | packaged by Anaconda, Inc. | (main, Apr 19 2024, 16:40:41) [MSC v.1916 64 bit (AMD64)]",
+    "thread_environment": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "schema_version": "geophase_controller_relevance_r2_v1",
+  "scientific_vote": false,
+  "settings": {
+    "auxiliary_residual_tolerance": 1e-12,
+    "coefficient_regularization": 1e-10,
+    "depth": 3,
+    "full_fixed_point_defect_tolerance": 1e-08,
+    "full_residual_tolerance": 1e-08,
+    "maximum_map_evaluations": 80,
+    "reduced_residual_tolerance": 1e-08,
+    "relaxation": 0.5,
+    "residual_scale_floor_K": 1e-30,
+    "sufficient_decrease_c1": 0.0001,
+    "svd_rcond": 1e-12
+  },
+  "solver_id": "exact_condensed_temperature_safeguarded_anderson_v1",
+  "task_id": "Q2_CONTROLLER_RELEVANCE_FINAL_RESCUE_TO_S0_C01_R1",
+  "validity": "valid",
+  "verified_frozen_inputs": [
+    {
+      "path": "docs/codex_reports/geophase_exact_condensed_v2_d0_terminal.md",
+      "sha256": "af05e58a3ca0412e1f54c2fc6cb405717e34b15d9b88b135d8ad05a85ac6ca48"
+    },
+    {
+      "path": "configs/geophase_exact_condensed_v2_d0.yaml",
+      "sha256": "1a3c18f0d2ca362779d0e1d823460bd1043778c4dc1bdc47e1c12e3090793a6b"
+    },
+    {
+      "path": "outputs/tables/geophase_exact_condensed_v2/d0/D0-EXACT-CONDENSED-V2-20260803-V1/d0_summary.json",
+      "sha256": "e55729b774eeef5411248fab176d6f7cd4eadcab56e971d73f202ab4cd66bf59"
+    },
+    {
+      "path": "configs/geophase_phase1_v2_embedded_time_controller_v2_source_corrected_v3.yaml",
+      "sha256": "8da3f056a197502d01abd26ccec8f0fa7d73276da770162048607d225dc8400e"
+    },
+    {
+      "path": "src/pinnpcm/solvers/geophase_phase1_v2_controller_v2.py",
+      "sha256": "e4332c5b103072e3de277b8788dbbf2bda48c65636cb5c1d8dd361bc9953f7ed"
+    },
+    {
+      "path": "src/pinnpcm/solvers/geophase_exact_condensed.py",
+      "sha256": "acd9a95ab266de69986801282fc0981c65acfc37bb351f8bb0c7bb82e6d5c25f"
+    },
+    {
+      "path": "src/pinnpcm/solvers/geophase_exact_condensed_controller_v2.py",
+      "sha256": "9a8122949bcd4f7403fd93d627c00469e1fc8d622dc914750093b4989acd66fa"
+    },
+    {
+      "path": "outputs/tables/geophase_controller_v3/qualification/CTRLV3-QUAL-20260801-V2/failures/CTRLV3-QUAL-QUIESCENT-9V-T1.json",
+      "sha256": "ae9962dbeb097ddc9f96d132ce39173273745314c0bb5382deccab1b8cf65d72"
+    },
+    {
+      "path": "configs/geophase_phase1_v2_critical_transition_failure_audit.yaml",
+      "sha256": "6bba56e6acb321eae00e6c006d6bd1c6131acfc55e6a80f7590e21e7cace27c8"
+    },
+    {
+      "path": "outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V1/invalid_invocation.json",
+      "sha256": "e932f8c07b7c970ebc5497d111101eb2813b4791bf0c00ff70259f5f417d7971"
+    },
+    {
+      "path": "outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V1/config_snapshot.yaml",
+      "sha256": "0176e2d8f1a16c7ee52e9e2b369ff196693f1968aa58c8e124136279d1d978b2"
+    },
+    {
+      "path": "outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V1/cases/R0-A-QUIESCENT-9V-T1.json",
+      "sha256": "24a2b886e98d7c07113790149486440eab115a85d94dc722bc6266bf6458a229"
+    },
+    {
+      "path": "outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V1/cases/R0-B-CRITICAL-TRANSITION-T4.json",
+      "sha256": "90725861bdba8a578646a83193e6406c23b0b2aaf2a32942cceb990be3413565"
+    },
+    {
+      "path": "outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V1/r0_attempt_paths.unpublished.csv",
+      "sha256": "d6e2ed63fb60b8dc5c01880737b8d0f6fbcb343b6587cc3560e3bca12a492783"
+    },
+    {
+      "path": "outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V2/config_snapshot.yaml",
+      "sha256": "b3b7070bbaff1461c560a32faaf637ca71930c8fabc8b8eb55ceafb09806058a"
+    },
+    {
+      "path": "outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V2/r0_attempt_paths.csv",
+      "sha256": "03f0a9fcfa65cced1412a351ce0532a47694fc151472db6ead2a89e518b64e29"
+    },
+    {
+      "path": "outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V2/r0_summary.json",
+      "sha256": "e37eb472b6bd6ce4ddcb0d54b3ef17c1bcf7110cf1b39878062ab18d7c839b05"
+    },
+    {
+      "path": "outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V2/cases/R0-A-QUIESCENT-9V-T1.json",
+      "sha256": "11c5d55d989ed21df900ef7f8912495715c816b2ac822978a19a751aaf8ed8ba"
+    },
+    {
+      "path": "outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V2/cases/R0-B-CRITICAL-TRANSITION-T4.json",
+      "sha256": "37b8bf8a9b70ce583b966e43cec1c1254f3ec89978e78e45469b8ee87b1563b1"
+    },
+    {
+      "path": "outputs/tables/geophase_controller_relevance_final_rescue/R1-CONTRACTION-20260804-V1/config_snapshot.yaml",
+      "sha256": "ec3512724e4c21e23c7a8fe29676aa9d414661abedb266cac731675c8e1991dc"
+    },
+    {
+      "path": "outputs/tables/geophase_controller_relevance_final_rescue/R1-CONTRACTION-20260804-V1/r1_summary.json",
+      "sha256": "733f3e908a69a185abefad7ffa50647d5dcbbf96e2ceb37ea9c5f744c7083de4"
+    },
+    {
+      "path": "outputs/tables/geophase_controller_relevance_final_rescue/R1-CONTRACTION-20260804-V1/contexts/67be93df84f4ab7de356924cb05e1b0c62112a632e2ddad6954a2205e830ab43.json",
+      "sha256": "a3dbaf831900b2febccdb99db8e7919b9e8a51a8aec5d166ff371d2f0e69ebb6"
+    }
+  ],
+  "wall_time_s": 0.8019871000433341
+}

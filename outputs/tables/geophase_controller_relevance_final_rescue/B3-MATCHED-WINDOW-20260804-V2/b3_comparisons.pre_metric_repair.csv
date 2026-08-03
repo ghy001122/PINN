@@ -1,0 +1,3 @@
+candidate_fallback_steps,candidate_growth_events,candidate_local_pass,case_id,device_voltage_nrmse,event,growth_gate_pass,passed,reference_local_pass,regime,reversal_sequence_equal,terminal_current_nrmse,time_grid_equal
+0,23,True,B3-9V-AA-CORRECTNESS,1e+300,"{'sequence_equal': True, 'maximum_absolute_error_s': 4.586568736536978e-10, 'maximum_relative_error': 2.677492524812322e-05}",True,False,True,quiescent_9V,False,1e+300,False
+0,10,True,B3-12P5V-AA-CORRECTNESS,1.457017507902997e-07,"{'sequence_equal': True, 'maximum_absolute_error_s': 1.3388475271741262e-12, 'maximum_relative_error': 6.766168019855958e-07}",True,True,True,transition_12p5V,True,1.1501689249825554e-06,True

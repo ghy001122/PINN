@@ -1,0 +1,185 @@
+task_id: Q2_CONTROLLER_RELEVANCE_FINAL_RESCUE_TO_S0_C01_R1
+schema_version: geophase_controller_relevance_final_rescue_v1
+evidence_type: literature-guided synthetic numerical digital-twin evidence
+
+identity:
+  base_main_commit: 1c9758ef151299a4694b4edcc81dd48feec704ba
+  branch: codex/controller-relevance-final-forward-rescue
+  r0_run_id: R0-CONTROLLER-RELEVANCE-20260804-V2
+  r1_run_id: R1-CONTRACTION-20260804-V1
+  r2_run_id: R2-ANDERSON-QUALIFICATION-20260804-V1
+  r0_invocation_count: 2
+  r0_invalid_invocation_count: 1
+  runner_repair_count: 1
+  previous_invalid_invocation: outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V1/invalid_invocation.json
+  scientific_vote: false
+  formal_execution_count: 0
+
+frozen_inputs:
+  - path: docs/codex_reports/geophase_exact_condensed_v2_d0_terminal.md
+    sha256: af05e58a3ca0412e1f54c2fc6cb405717e34b15d9b88b135d8ad05a85ac6ca48
+  - path: configs/geophase_exact_condensed_v2_d0.yaml
+    sha256: 1a3c18f0d2ca362779d0e1d823460bd1043778c4dc1bdc47e1c12e3090793a6b
+  - path: outputs/tables/geophase_exact_condensed_v2/d0/D0-EXACT-CONDENSED-V2-20260803-V1/d0_summary.json
+    sha256: e55729b774eeef5411248fab176d6f7cd4eadcab56e971d73f202ab4cd66bf59
+  - path: configs/geophase_phase1_v2_embedded_time_controller_v2_source_corrected_v3.yaml
+    sha256: 8da3f056a197502d01abd26ccec8f0fa7d73276da770162048607d225dc8400e
+  - path: src/pinnpcm/solvers/geophase_phase1_v2_controller_v2.py
+    sha256: e4332c5b103072e3de277b8788dbbf2bda48c65636cb5c1d8dd361bc9953f7ed
+  - path: src/pinnpcm/solvers/geophase_exact_condensed.py
+    sha256: acd9a95ab266de69986801282fc0981c65acfc37bb351f8bb0c7bb82e6d5c25f
+  - path: src/pinnpcm/solvers/geophase_exact_condensed_controller_v2.py
+    sha256: 9a8122949bcd4f7403fd93d627c00469e1fc8d622dc914750093b4989acd66fa
+  - path: outputs/tables/geophase_controller_v3/qualification/CTRLV3-QUAL-20260801-V2/failures/CTRLV3-QUAL-QUIESCENT-9V-T1.json
+    sha256: ae9962dbeb097ddc9f96d132ce39173273745314c0bb5382deccab1b8cf65d72
+  - path: configs/geophase_phase1_v2_critical_transition_failure_audit.yaml
+    sha256: 6bba56e6acb321eae00e6c006d6bd1c6131acfc55e6a80f7590e21e7cace27c8
+  - path: outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V1/invalid_invocation.json
+    sha256: e932f8c07b7c970ebc5497d111101eb2813b4791bf0c00ff70259f5f417d7971
+  - path: outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V1/config_snapshot.yaml
+    sha256: 0176e2d8f1a16c7ee52e9e2b369ff196693f1968aa58c8e124136279d1d978b2
+  - path: outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V1/cases/R0-A-QUIESCENT-9V-T1.json
+    sha256: 24a2b886e98d7c07113790149486440eab115a85d94dc722bc6266bf6458a229
+  - path: outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V1/cases/R0-B-CRITICAL-TRANSITION-T4.json
+    sha256: 90725861bdba8a578646a83193e6406c23b0b2aaf2a32942cceb990be3413565
+  - path: outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V1/r0_attempt_paths.unpublished.csv
+    sha256: d6e2ed63fb60b8dc5c01880737b8d0f6fbcb343b6587cc3560e3bca12a492783
+  - path: outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V2/config_snapshot.yaml
+    sha256: b3b7070bbaff1461c560a32faaf637ca71930c8fabc8b8eb55ceafb09806058a
+  - path: outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V2/r0_attempt_paths.csv
+    sha256: 03f0a9fcfa65cced1412a351ce0532a47694fc151472db6ead2a89e518b64e29
+  - path: outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V2/r0_summary.json
+    sha256: e37eb472b6bd6ce4ddcb0d54b3ef17c1bcf7110cf1b39878062ab18d7c839b05
+  - path: outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V2/cases/R0-A-QUIESCENT-9V-T1.json
+    sha256: 11c5d55d989ed21df900ef7f8912495715c816b2ac822978a19a751aaf8ed8ba
+  - path: outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V2/cases/R0-B-CRITICAL-TRANSITION-T4.json
+    sha256: 37b8bf8a9b70ce583b966e43cec1c1254f3ec89978e78e45469b8ee87b1563b1
+  - path: outputs/tables/geophase_controller_relevance_final_rescue/R1-CONTRACTION-20260804-V1/config_snapshot.yaml
+    sha256: ec3512724e4c21e23c7a8fe29676aa9d414661abedb266cac731675c8e1991dc
+  - path: outputs/tables/geophase_controller_relevance_final_rescue/R1-CONTRACTION-20260804-V1/r1_summary.json
+    sha256: 733f3e908a69a185abefad7ffa50647d5dcbbf96e2ceb37ea9c5f744c7083de4
+  - path: outputs/tables/geophase_controller_relevance_final_rescue/R1-CONTRACTION-20260804-V1/contexts/67be93df84f4ab7de356924cb05e1b0c62112a632e2ddad6954a2205e830ab43.json
+    sha256: a3dbaf831900b2febccdb99db8e7919b9e8a51a8aec5d166ff371d2f0e69ebb6
+
+scope:
+  d0_rerun_or_completion: forbidden
+  exact_condensed_v1_modification: forbidden
+  controller_v2_modification: forbidden
+  s2_parameter_protocol_gate_or_floor_modification: forbidden
+  newton_v3_controller_v4_solver_portfolio: forbidden
+  equivalence_rerun_or_new_version: forbidden
+  bypass_fresh_s0: forbidden
+
+controller_contract:
+  controller_id: embedded_time_consistency_v2_only
+  initial_outer_interval: production_Hmax
+  rejection_action: production_halving_to_locked_outer_floor
+  final_time_rule: initial_time_plus_resolved_Hmax
+  maximum_accepted_steps: 1
+  forced_times_s: []
+  expected_limits:
+    T1_standard:
+      time_divisor: 1
+      Hmax_s: 1.0e-8
+      Hmin_s: 9.765625e-12
+    T4_strict_div4:
+      time_divisor: 4
+      Hmax_s: 2.5e-9
+      Hmin_s: 2.44140625e-12
+  half_steps_below_outer_floor: allowed
+  committed_state: second_half_endpoint_only
+
+r0:
+  wall_time_s_max: 7200
+  runner_repair_limit: 1
+  cases:
+    - case_id: R0-A-QUIESCENT-9V-T1
+      state_kind: accepted_on_trajectory_previous_state
+      state_source: outputs/tables/geophase_controller_v3/qualification/CTRLV3-QUAL-20260801-V2/failures/CTRLV3-QUAL-QUIESCENT-9V-T1.json
+      protocol_id: quiescent_9V
+      spatial_level: 1
+      time_divisor: 1
+    - case_id: R0-B-CRITICAL-TRANSITION-T4
+      state_kind: critical_transition_fixture
+      state_source: configs/geophase_phase1_v2_critical_transition_failure_audit.yaml
+      protocol_id: transition_probe_12p5V
+      spatial_level: 1
+      time_divisor: 4
+  pass_requires:
+    - certified_accepted_bundle_at_or_above_outer_floor
+    - full_first_half_second_half_roots_pass
+    - second_half_starts_from_first_half_endpoint
+    - committed_state_equals_second_half_endpoint
+    - all_path_integrity_embedded_and_aggregate_ledger_gates_pass
+  nonlinear_floor_failure_route: R1_CONDITIONAL_CONTRACTION_AUDIT
+  nonsolver_failure_route: STOP_FINAL_FORWARD_SOLVER_RESCUE
+
+r1:
+  conditional_on: r0_terminal_floor_nonlinear_root_or_certification_failure
+  parent_r0_summary: outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V2/r0_summary.json
+  parent_r0_summary_sha256: e37eb472b6bd6ce4ddcb0d54b3ef17c1bcf7110cf1b39878062ab18d7c839b05
+  wall_time_s_max: 3600
+  relaxed_picard_steps: 8
+  relaxation: 0.5
+  central_difference_step: eps_to_one_third_times_max_1_and_temperature_inf
+  deduplicate_contexts_by_complete_input_sha256: true
+  gates:
+    last_four_ratios_strictly_below_one: true
+    last_four_geometric_mean_max: 0.90
+    step_8_defect_relative_to_initial_max: 0.5
+    spectral_radius_max_exclusive: 1.0
+    maximum_power_norm_k_1_to_8: 2.0
+  nonnormality_definition: frobenius_commutator_over_squared_frobenius_norm
+
+r2:
+  conditional_on: r1_pass
+  parent_r1_summary: outputs/tables/geophase_controller_relevance_final_rescue/R1-CONTRACTION-20260804-V1/r1_summary.json
+  parent_r1_summary_sha256: 733f3e908a69a185abefad7ffa50647d5dcbbf96e2ceb37ea9c5f744c7083de4
+  solver_id: exact_condensed_temperature_safeguarded_anderson_v1
+  implementation_human_hours_max: 6
+  qualification_wall_time_s_max: 7200
+  map:
+    relaxation: 0.5
+    anderson_depth: 3
+    maximum_map_evaluations_per_root: 80
+    coefficient_regularization: 1.0e-10
+    svd_rcond: 1.0e-12
+    residual_scale_floor_K: 1.0e-30
+    sufficient_decrease_c1: 1.0e-4
+    all_actual_map_calls_count: true
+  forbidden:
+    - omega_search
+    - depth_change
+    - newton_fallback
+    - second_solver_identity
+
+timebox:
+  started_utc: "2026-08-03T17:14:35Z"
+  r0_r1_r2_cumulative_wall_s_max: 86400
+  external_ci_queue_excluded: true
+
+runtime:
+  required_thread_environment:
+    OMP_NUM_THREADS: "1"
+    OPENBLAS_NUM_THREADS: "1"
+    MKL_NUM_THREADS: "1"
+    NUMEXPR_NUM_THREADS: "1"
+    VECLIB_MAXIMUM_THREADS: "1"
+
+downstream:
+  b3_b4_after_r0_or_r2_pass_only: true
+  fresh_s0_after_b4_pass_only: true
+  phase2_c01_after_fresh_s0_pass_only: true
+  c06_after_c01_global_pass_and_local_transition_error_only: true
+
+outputs:
+  namespace: outputs/tables/geophase_controller_relevance_final_rescue
+  case_directory: cases
+  attempts_csv: r0_attempt_paths.csv
+  summary_json: r0_summary.json
+  config_snapshot: config_snapshot.yaml
+  r1_case_directory: contexts
+  r1_summary_json: r1_summary.json
+  r2_case_directory: cases
+  r2_attempts_csv: r2_attempt_paths.csv
+  r2_summary_json: r2_summary.json

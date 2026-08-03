@@ -2,52 +2,57 @@
 
 ## Authoritative Current Snapshot
 
-- Delivery/phase: `Q2_SCI_DELIVERY_MODE` / `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Checkpoint: `Q2_EXACT_CONDENSED_V2_D0_VALID_FAIL_NO_D1`.
-- Verified base: `main@c830b4844e58ba63c197429984ac1f5a00a9ccce`.
-- D0 identity: `D0-EXACT-CONDENSED-V2-20260803-V1`.
-- Frozen S2 physics, protocols, controller-v2, scientific thresholds, PR #23
-  Stage A, PR #24 v1/B2 evidence, history, and Frozen GT are unchanged.
+- Delivery/phase: `Q2_SCI_DELIVERY_MODE` /
+  `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
+- Checkpoint:
+  `Q2_CONTROLLER_RELEVANCE_B3_VALID_FAIL_FINAL_FORWARD_RESCUE_STOPPED`.
+- Execution base: `main@1c9758ef151299a4694b4edcc81dd48feec704ba`.
+- Result branch: `codex/controller-relevance-final-forward-rescue`.
+- Terminal disposition: `B3_MATCHED_WINDOW_CORRECTNESS_VALID_FAIL`.
+- Route: `STOP_FINAL_FORWARD_SOLVER_RESCUE`.
 
-The intended positive ladder remains C01/R1 `HysGeo-Hybrid-PINN`, conditional
-C06, preferred R2 `GeoPhase-HomoMoE-PINN`, and conditional R3. No rung is
-executed or supported.
+D0, exact-condensed v1, NLS-v1, controller-v2, frozen S2 physics and
+protocols, equivalence-v1/v2/v3, historical identities, and Frozen GT remain
+unchanged. The intended positive ladder remains C01/R1
+`HysGeo-Hybrid-PINN`, conditional C06, preferred R2
+`GeoPhase-HomoMoE-PINN`, and conditional R3; no positive rung was executed or
+supported.
 
-## D0 Outcome
+## Bounded Rescue Outcome
 
-| Evidence | Result | Boundary |
+| Stage | Result | Evidence boundary |
 | --- | --- | --- |
-| Frozen replay | PR #24 residual/damping history, 100 matvecs, 135 residual evaluations and failure match | exactly one non-voting replay |
-| Original Jacobian | rank `250/250`; `cond_2=139.2163` | explicit L1 central difference |
-| Fixed-point Jacobian | rank `250/250`; `cond_2=63.0577` | not rank-deficient |
-| Direct corrections | SVD/QR linear backward errors `3.50e-14` / `9.47e-15` | finite linear solves |
-| Admissible descent | baseline `||F_fp||inf=6.0661962635e-4`; at `1/128`, `6.1477053274e-4` | no strict decrease in allowed damping range |
-| First observed decrease | `1/256`: `6.0635464266e-4` | forbidden by the frozen hard stop |
+| R0 | 9 V reached the active floor with nonlinear certification failure; 12.5 V fixture accepted | Production controller semantics; non-voting |
+| R1 | contraction gate passed | GM ratio `0.4995588`; step-8 ratio `0.0038959`; spectral radius/max power norm `0.5000018` |
+| R2 | both fixed states accepted | 9 V at `0.625 ns`; critical fixture at `0.15625 ns`; all root/integrity/ledger gates pass |
+| B3 9 V | port and event gates pass; exact reversal sequence fails | 417 versus 364 reversal records; first direction mismatch at index 11 |
+| B3 12.5 V | all matched-window correctness gates pass | current NRMSE `1.1502e-6`; voltage NRMSE `1.4570e-7`; five reversals exact |
 
-The machine disposition is `D0_MECHANISM_VALID_FAIL`. The result localizes the
-failure to the admissible globalization range at this frozen state: neither
-rank deficiency nor a nonfinite/direct-linear-solve failure caused the stop.
+The B3 aggregate CPU time was `312.703125 s`; performance timing was not
+started because correctness failed. B4, fresh S0, Phase 2, training, and OOD
+all remain unexecuted.
 
 ## Evidence And Claims
 
 | Item | Lifecycle / status | Boundary |
 | --- | --- | --- |
-| Stage A exact condensation | `supported` bounded algebraic identity | Auxiliary reconstruction only; no root/runtime claim. |
-| PR #24 v1 B2 | `executed`; `failed_but_informative` | Immutable 1/24 fail-fast evidence. |
-| D0 mechanism audit | `executed`; `failed_but_informative` | One replay and explicit L1 Jacobians; no science vote. |
-| v2/D1 onward | `forbidden` / not executed | No Jv freeze or production v2 identity. |
-| S0/Phase 1 | `forbidden` / unassessed | `scientific_vote=false`; `formal_execution_count=0`. |
-| Phase 2/C01/C06/R1-R3 | `forbidden`; not executed | No data, training, baseline, seed, OOD, field, port, event, or ledger result. |
+| R1 contraction audit | `numerically_validated`; `qualified_supported` | Named floor-terminal context only |
+| Safeguarded Anderson R2 | `numerically_validated`; `qualified_supported` | Two fixed controller states only |
+| B3 matched windows | `numerically_validated`; `failed_but_informative` | Numerical-method consistency; no physical vote |
+| B4/S0 | `planned`; `forbidden` | No cost, full-trajectory, or campaign result |
+| Phase 2/C01/C06/R1-R3 | `planned`; `forbidden` | No data, training, baseline, seed, OOD, field, port, event, or ledger result |
 
-All project-generated evidence here is literature-guided synthetic numerical
-digital-twin evidence, not experimental validation.
-
-## Preserved Boundaries
+`scientific_vote=false` and `formal_execution_count=0`. All generated evidence
+is `literature-guided synthetic numerical digital-twin evidence`, not
+experimental validation.
 
 S1 science is `forbidden`/unassessed; interruption facts are supported as
 infrastructure provenance only.
 
-Equivalence-v1/v2/v3 remain immutable and non-retryable; equivalence-v4/v5 is
-forbidden. Do not lower the damping floor, tune a second mechanism, create v2,
-resume B2, change S2/controller/gates, or bypass S0. A future pivot requires a
-new explicit authorization and must not rewrite this result.
+## Preserved Boundary
+
+Do not change the matched window or reversal rule, relax topology, add another
+solver, rerun D0/B2/equivalence, run B4/S0, or bypass S0. The only next decision
+is whether to create a separately authorized C04/`gamma_sub`
+identifiability-boundary contingency manuscript; that route is not activated
+and cannot be described as 2.5D positive-PINN success.

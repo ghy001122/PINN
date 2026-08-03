@@ -2,45 +2,52 @@
 
 Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
 
-Status: `stopped_exact_condensed_v2_d0_valid_mechanism_failure`
+Status: `stopped_b3_matched_window_reversal_topology_failure`
 
-Current checkpoint: `Q2_EXACT_CONDENSED_V2_D0_VALID_FAIL_NO_D1`
+Current checkpoint:
+`Q2_CONTROLLER_RELEVANCE_B3_VALID_FAIL_FINAL_FORWARD_RESCUE_STOPPED`
 
 ## Objective And Frozen Authority
 
-The authorized plan allowed one replay of PR #24's first failed root to decide
-whether a fixed-point-defect Newton/Jv identity had an admissible descent
-mechanism. S2 equations, parameters, protocols, controller-v2, production
-implicit/NLS code, PR #23 Stage A, PR #24 v1 evidence, thresholds, historical
-outputs, and Frozen GT remained read-only.
+The completed task was the final bounded controller-relevance rescue after PR
+#25 D0. It permitted production-controller R0, a conditional contraction audit,
+one safeguarded-Anderson identity, and downstream work only after every gate
+passed. D0, exact-condensed v1, NLS-v1, controller-v2, S2, protocols,
+thresholds, equivalence history, and Frozen GT remained read-only.
 
-## Actual D0 Result
+## Actual Result
 
-The replay exactly reproduced the frozen v1 history and failure. Both L1
-explicit Jacobians are full rank, and the fixed-point direct correction is
-finite with near-machine-precision linear backward error. However, no damping
-in the allowed set `1...1/128` strictly lowers `||F_fp||inf`; the first decrease
-appears only at forbidden damping `1/256`.
+R0 reached the active 9 V floor with a nonlinear certification failure and
+routed correctly to R1. R1 passed its preregistered local contraction gate. R2
+then certified the sole safeguarded-Anderson identity on both fixed controller
+qualification states.
 
-Terminal state: `D0_MECHANISM_VALID_FAIL`.
+B3 formed a valid matched-window result. Both methods passed local integrity,
+terminal-current and device-voltage NRMSE, and event timing/topology gates in
+the 9 V and 12.5 V windows. The 12.5 V reversal sequence also matched. The 9 V
+reversal sequence did not: NLS-v1 produced 417 records and Anderson 364, with
+the first direction mismatch at zero-based index 11.
+
+Terminal state: `B3_MATCHED_WINDOW_CORRECTNESS_VALID_FAIL`.
 
 ## Lifecycle And Claims
 
-- D0 diagnostic: `executed`; `failed_but_informative` numerical-method
-  evidence only.
+- R1 contraction audit: `numerically_validated`; `qualified_supported` within
+  its frozen terminal-root context.
+- R2 controller qualification: `numerically_validated`;
+  `qualified_supported` at its two fixed states.
+- B3: `numerically_validated`; `failed_but_informative` numerical-method
+  consistency evidence.
 - `scientific_vote=false`; `formal_execution_count=0`.
-- No Jv rule was frozen and no v2 production solver identity was created.
-- D1/D2/B3/B4, fresh S0, Phase 2, C01/C06, OOD, and R1/R2/R3 remain
-  unexecuted and `forbidden`.
-
-This is not an S2/Phase 1 scientific vote, runtime/campaign feasibility result,
-or PINN result.
+- B4, fresh S0, Phase 2, C01/C06, OOD, and positive R1-R3 claims are unexecuted
+  and `forbidden`.
 
 ## Stop
 
-The plan's D0 hard stop binds. Do not reduce the damping minimum, perform a
-second mechanism-tuning replay, create v2, resume old B2, switch to another
-solver, return to equivalence, or bypass S0 before Phase 2/C01. The only
-plan-defined recommendation after this two-dimensional forward-route stop is a
-separately authorized C04 observable-subspace plus `gamma_sub` calibration and
-identifiability-boundary manuscript pivot; it is not authorized here.
+The final forward-solver rescue is consumed and stopped. Do not tune the
+reversal detector, change the 9 V window, relax exact topology, add a second
+solver, run B4/S0, or bypass S0 into data generation or training. A separate
+C04 observable-subspace plus constrained `gamma_sub` calibration and
+identifiability-boundary manuscript is only a recommendation for a future
+decision; it is not authorized here and cannot be represented as the intended
+2.5D positive-PINN R1 result.
