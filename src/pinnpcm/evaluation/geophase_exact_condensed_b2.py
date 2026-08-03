@@ -130,19 +130,27 @@ def build_b2_root_cases(config: Mapping[str, Any]) -> tuple[B2RootCase, ...]:
             )
         )
     nested = b2["nested_grid_roots"]
-    with gzip.open(ROOT / str(hardest["source"]), "rt", encoding="utf-8") as handle:
-        hardest_payload = json.load(handle)
-    endpoints = np.asarray(hardest_payload["accepted_endpoint_times_s"], dtype=float)
-    if endpoints.size < 2:
-        raise ValueError("hardest-state trace has no accepted interval for nested roots")
-    frozen_last_dt_ns = float((endpoints[-1] - endpoints[-2]) * 1.0e9)
-    if not np.isclose(
-        frozen_last_dt_ns,
-        float(nested["dt_ns"]),
-        rtol=0.0,
-        atol=1.0e-9,
-    ):
-        raise ValueError("nested-grid dt does not match the frozen last accepted interval")
+    hardest_path = ROOT / str(hardest["source"])
+    if hardest_path.exists():
+        with gzip.open(hardest_path, "rt", encoding="utf-8") as handle:
+            hardest_payload = json.load(handle)
+        endpoints = np.asarray(
+            hardest_payload["accepted_endpoint_times_s"], dtype=float
+        )
+        if endpoints.size < 2:
+            raise ValueError(
+                "hardest-state trace has no accepted interval for nested roots"
+            )
+        frozen_last_dt_ns = float((endpoints[-1] - endpoints[-2]) * 1.0e9)
+        if not np.isclose(
+            frozen_last_dt_ns,
+            float(nested["dt_ns"]),
+            rtol=0.0,
+            atol=1.0e-9,
+        ):
+            raise ValueError(
+                "nested-grid dt does not match the frozen last accepted interval"
+            )
     for level in nested["target_levels"]:
         level = int(level)
         cases.append(

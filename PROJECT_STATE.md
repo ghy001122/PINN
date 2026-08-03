@@ -45,7 +45,8 @@ numerical solver identity, not experimental validation or a physical-law vote.
 
 Strict-equivalence-v1 and equivalence-v2/v3 remain immutable and non-retryable;
 equivalence-v4/v5 is forbidden. Historical E0/S0/controller/NLS results remain
-immutable. S1 science is `forbidden`/unassessed.
+immutable. S1 science is `forbidden`/unassessed; interruption facts are supported
+infrastructure provenance only and cast no scientific vote.
 
 No experiment is authorized. Re-entry requires a fresh bounded goal that names
 a materially new reduced-root strategy and preserves the same physical,

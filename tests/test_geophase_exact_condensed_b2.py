@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 
 import numpy as np
+import pytest
 import yaml
 
 from pinnpcm.evaluation.geophase_exact_condensed_b2 import (
@@ -43,6 +44,9 @@ def test_b2_matrix_is_mechanically_frozen_at_24_unique_roots() -> None:
 
 def test_nested_states_use_conservative_piecewise_constant_prolongation() -> None:
     cases = build_b2_root_cases(_config())
+    hardest_path = ROOT / _config()["b2"]["hardest_state"]["source"]
+    if not hardest_path.exists():
+        pytest.skip("public checkout excludes the frozen local NLS trace")
     level1 = load_b2_case_state(
         next(case for case in cases if case.case_id.startswith("B2-HARDEST-L1"))
     )
