@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import inspect
 import json
+import os
 from pathlib import Path
 from time import perf_counter
 from types import SimpleNamespace
@@ -59,14 +60,28 @@ def test_contract_locks_authority_limits_routes_and_corrected_r1_step() -> None:
     }
 
 
-def test_frozen_inputs_are_byte_identical_and_production_controller_is_called() -> None:
+def test_frozen_inputs_are_byte_identical_when_available() -> None:
     contract = rescue.load_contract(CONFIG)
+    missing = [
+        str(item["path"])
+        for item in contract["frozen_inputs"]
+        if not (ROOT / str(item["path"])).exists()
+    ]
+    if missing:
+        assert os.environ.get("PINN_PUBLIC_CHECKOUT") == "1"
+        pytest.skip(
+            "public checkout excludes frozen local replay inputs: "
+            + ", ".join(missing)
+        )
+
     verified = rescue.verify_frozen_inputs(contract)
     assert len(verified) == len(contract["frozen_inputs"])
     paths = {item["path"] for item in verified}
     assert "src/pinnpcm/solvers/geophase_exact_condensed.py" in paths
     assert "src/pinnpcm/solvers/geophase_exact_condensed_controller_v2.py" in paths
 
+
+def test_production_controller_is_called() -> None:
     signature = inspect.signature(rescue.run_r0_case)
     assert signature.parameters["simulate_protocol"].default is (
         rescue.simulate_exact_condensed_protocol_v2
