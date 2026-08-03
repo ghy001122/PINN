@@ -8,13 +8,10 @@ identity:
   r0_run_id: R0-CONTROLLER-RELEVANCE-20260804-V2
   r1_run_id: R1-CONTRACTION-20260804-V1
   r2_run_id: R2-ANDERSON-QUALIFICATION-20260804-V1
-  b3_run_id: B3-MATCHED-WINDOW-20260804-V2
+  b3_run_id: B3-MATCHED-WINDOW-20260804-V1
   r0_invocation_count: 2
   r0_invalid_invocation_count: 1
   runner_repair_count: 1
-  b3_invocation_count: 2
-  b3_invalid_invocation_count: 1
-  b3_runner_repair_count: 1
   previous_invalid_invocation: outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V1/invalid_invocation.json
   scientific_vote: false
   formal_execution_count: 0
@@ -76,10 +73,6 @@ frozen_inputs:
     sha256: ef14350d171b348e48d162b3c637f5dafbd83db401b7c26d1a7d7b2abdbf66c7
   - path: outputs/tables/geophase_nls_v1/qualification/NLSV1-QUAL-20260802-V1/runs/NLSV1-QUAL-QUIESCENT-9V-T1.json.gz
     sha256: ca311b396567c5682b0fb310049e5539e75121bdf43678ad2660b4ffc9c5b053
-  - path: outputs/tables/geophase_controller_relevance_final_rescue/B3-MATCHED-WINDOW-20260804-INVALID-AFFINITY-V1/config_snapshot.yaml
-    sha256: a64edf07bcff7fe659343e127c709dcfcf837632d273cd625b28fdd6c2985ae5
-  - path: outputs/tables/geophase_controller_relevance_final_rescue/B3-MATCHED-WINDOW-20260804-INVALID-AFFINITY-V1/invalid_invocation.json
-    sha256: 639a778a43102c829ea31ca7be00994183ee39f0ac89cd556acade8129a7effa
 
 scope:
   d0_rerun_or_completion: forbidden

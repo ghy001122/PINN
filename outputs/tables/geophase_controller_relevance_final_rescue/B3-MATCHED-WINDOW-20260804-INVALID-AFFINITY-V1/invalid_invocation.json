@@ -1,0 +1,17 @@
+{
+  "schema_version": "geophase_controller_relevance_b3_invalid_invocation_v1",
+  "run_id": "B3-MATCHED-WINDOW-20260804-V1",
+  "git_sha": "023b957f3e37e7a0c76ce988a00019e4bec6d41f",
+  "validity": "invalid",
+  "scientific_vote": false,
+  "formal_execution_count": 0,
+  "completed_windows": 0,
+  "published_worker_results": 0,
+  "error_class": "OSError",
+  "error_message": "[Errno 6] GetProcessAffinityMask failed",
+  "root_cause": "ctypes used a truncated default GetCurrentProcess return type on 64-bit Windows",
+  "pollution_scope": "B3 worker dispatch and CPU-affinity binding only",
+  "scientific_interpretation": "none",
+  "repair": "declare the WinAPI argument and return types; rerun the unstarted B3 invocation",
+  "recorded_utc": "2026-08-03T18:24:34.3081305Z"
+}

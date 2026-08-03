@@ -115,6 +115,19 @@ def _pin_process_to_one_cpu() -> dict[str, Any]:
         import ctypes
 
         kernel32 = ctypes.WinDLL("kernel32", use_last_error=True)
+        kernel32.GetCurrentProcess.argtypes = []
+        kernel32.GetCurrentProcess.restype = ctypes.c_void_p
+        kernel32.GetProcessAffinityMask.argtypes = [
+            ctypes.c_void_p,
+            ctypes.POINTER(ctypes.c_size_t),
+            ctypes.POINTER(ctypes.c_size_t),
+        ]
+        kernel32.GetProcessAffinityMask.restype = ctypes.c_int
+        kernel32.SetProcessAffinityMask.argtypes = [
+            ctypes.c_void_p,
+            ctypes.c_size_t,
+        ]
+        kernel32.SetProcessAffinityMask.restype = ctypes.c_int
         process = kernel32.GetCurrentProcess()
         process_mask = ctypes.c_size_t()
         system_mask = ctypes.c_size_t()
