@@ -14,6 +14,12 @@ S2 equations, physical parameters, protocols, controller-v2, and the 63/60/3 sci
 
 The long-term ladder remains R1 `HysGeo-Hybrid-PINN`, preferred R2 `GeoPhase-HomoMoE-PINN`, and conditional R3; none is currently executed or supported.
 
+A bounded, non-voting Stage A diagnostic subsequently proved exact within-step
+static condensation of `s`, `b`, and `Vd` given candidate `T` and the previous
+full state (751 to 250 L1 nonlinear unknowns; maximum auxiliary residual
+`1.514e-16`). Reduced-solver convergence, runtime, and 12.5 V behavior remain
+unassessed; no new solver identity or trajectory was created.
+
 ## NLS-v1 Qualification Result
 
 The fallback now accepts only when both the full fixed-point defect and frozen scaled residual are at most `1e-8`. The two frozen controller-v3 failure states pass in 6 and 4 fallback iterations, respectively. The conditional Schur-reduced upgrade therefore was not activated.
@@ -32,7 +38,12 @@ Forbidden: S0/Phase 1 scientific PASS or FAIL; general campaign infeasibility; p
 
 ## Current Stop
 
-No experiment is authorized. A future goal may evaluate a versioned, mathematically equivalent performance-oriented reduced solver against the same physical gates and full qualification trajectory. It must not call this a retry, activate Schur under the consumed goal, add controller candidate 3/controller-v4, return to equivalence, or bypass S0 before Phase 2/C01.
+No experiment is authorized. A future goal may implement a new exact
+temperature-primary block-condensed solver identity against the unchanged
+`1e-8` full residual/defect gates and full qualification trajectory. It must
+not call this a retry, use learned/tabulated closures, activate Schur under the
+consumed goal, add controller candidate 3/controller-v4, return to equivalence,
+or bypass S0 before Phase 2/C01.
 
 Equivalence-v2 remains immutable and non-retryable. Equivalence-v3 remains immutable and non-retryable. Equivalence-v4/v5 is forbidden; no retry is authorized.
 

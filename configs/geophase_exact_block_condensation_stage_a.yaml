@@ -1,0 +1,59 @@
+task_id: Q2_EXACT_BLOCK_CONDENSATION_STAGE_A
+analysis_id: EXACT-CONDENSATION-STAGE-A-20260803-V1
+evidence_type: bounded_non_voting_numerical_method_diagnostic
+
+identity:
+  base_main_commit: f274a7157bab2ec4b68c970d7fe1461c7899f43b
+  parent_terminal_state: GOAL_UNSUCCESSFUL_NLS_V1
+  future_solver_identity: not_created
+  scientific_vote: false
+  formal_execution_count: 0
+
+scope:
+  purpose: evaluate_exact_temperature_primary_static_condensation
+  nonlinear_or_trajectory_execution: forbidden
+  solver_source_modification: forbidden
+  new_12p5V_trace_generation: forbidden
+  s0_phase2_or_pinn_execution: forbidden
+  equivalence_execution: forbidden
+
+frozen_inputs:
+  - path: src/pinnpcm/solvers/geophase_phase1_v2_implicit.py
+    sha256: 56e92761a7f8e9ffec0bfe2d73b7b67eca00993ff1852c219437711ee33d5a16
+  - path: src/pinnpcm/solvers/geophase_nls_v1.py
+    sha256: b3ed80bd95f0835b9c5342bd4fffdc68b224dbf773d58722d51f42a09a621196
+  - path: configs/geophase_phase1_v2_s2_reference_source_corrected_v3.yaml
+    sha256: ea668ac66c8f2f2267b059bd816a4116def086708f2f7eeded07d64a2857aff4
+  - path: configs/geophase_phase1_v2_embedded_time_controller_v2_source_corrected_v3.yaml
+    sha256: 8da3f056a197502d01abd26ccec8f0fa7d73276da770162048607d225dc8400e
+  - path: outputs/tables/geophase_controller_v3/qualification/CTRLV3-QUAL-20260801-V2/failures/CTRLV3-QUAL-QUIESCENT-9V-T1.json
+    sha256: ae9962dbeb097ddc9f96d132ce39173273745314c0bb5382deccab1b8cf65d72
+  - path: outputs/tables/geophase_controller_v3/qualification/CTRLV3-QUAL-20260801-V4/failures/CTRLV3-QUAL-QUIESCENT-9V-T1.json
+    sha256: 1583208d843df67f7f68d3a3717300b54945af82ee870152ce360ae2c70ca79c
+  - path: outputs/tables/geophase_nls_v1/qualification/NLSV1-QUAL-20260802-V1/runs/NLSV1-QUAL-QUIESCENT-9V-T1.json.gz
+    sha256: ca311b396567c5682b0fb310049e5539e75121bdf43678ad2660b4ffc9c5b053
+    local_large_artifact: true
+
+microbench:
+  failure_replay_paths:
+    - outputs/tables/geophase_controller_v3/qualification/CTRLV3-QUAL-20260801-V2/failures/CTRLV3-QUAL-QUIESCENT-9V-T1.json
+    - outputs/tables/geophase_controller_v3/qualification/CTRLV3-QUAL-20260801-V4/failures/CTRLV3-QUAL-QUIESCENT-9V-T1.json
+  nls_v1_trace_path: outputs/tables/geophase_nls_v1/qualification/NLSV1-QUAL-20260802-V1/runs/NLSV1-QUAL-QUIESCENT-9V-T1.json.gz
+  dt_grid_ns: [10.0, 5.0, 2.5, 1.25, 0.625, 0.3125, 0.15625]
+  candidate_temperature: frozen_previous_temperature
+  spatial_level: 1
+  transition_12p5V_frozen_trace: unavailable
+
+gates:
+  auxiliary_scaled_residual_inf_max: 1.0e-12
+  future_full_scaled_residual_inf_max: 1.0e-8
+  future_full_fixed_point_defect_inf_max: 1.0e-8
+  relaxed_1e_minus_6_gate: forbidden
+  future_performance_claim_requires_executed_reduced_solver: true
+  transition_performance_claim_requires_frozen_or_newly_authorized_12p5V_trace: true
+
+outputs:
+  root: outputs/tables/geophase_exact_block_condensation_stage_a
+  summary: stage_a_summary.json
+  residual_rows: exact_condensation_residuals.csv
+  trace_dt_distribution: nls_v1_trace_dt_distribution.csv
