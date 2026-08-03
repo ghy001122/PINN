@@ -1,0 +1,39 @@
+{
+  "schema_version": "geophase_controller_relevance_r0_invalid_invocation_v1",
+  "run_id": "R0-CONTROLLER-RELEVANCE-20260804-V1",
+  "invocation_index": 1,
+  "git_sha": "d4aa5752c92daba00ed55f132a1c047a61fe2b0d",
+  "validity": "invalid",
+  "status": "R0_INVALID_OUTPUT_WRITER_DEFECT",
+  "lifecycle_state": "executed",
+  "claim_status": "forbidden",
+  "scientific_vote": false,
+  "formal_execution_count": 0,
+  "case_json_count": 2,
+  "summary_published": false,
+  "repair_budget_consumed": 1,
+  "repair_budget_limit": 1,
+  "error_class": "TypeError",
+  "error_message": "replace: dst should be string, bytes or os.PathLike, not dict",
+  "root_cause": "The attempts CSV loop variable shadowed the destination Path before the final atomic replace.",
+  "pollution_boundary": "CSV publication and aggregate summary only; both atomic case JSON records completed before the writer failure.",
+  "artifacts": [
+    {
+      "path": "config_snapshot.yaml",
+      "sha256": "0176e2d8f1a16c7ee52e9e2b369ff196693f1968aa58c8e124136279d1d978b2"
+    },
+    {
+      "path": "cases/R0-A-QUIESCENT-9V-T1.json",
+      "sha256": "24a2b886e98d7c07113790149486440eab115a85d94dc722bc6266bf6458a229"
+    },
+    {
+      "path": "cases/R0-B-CRITICAL-TRANSITION-T4.json",
+      "sha256": "90725861bdba8a578646a83193e6406c23b0b2aaf2a32942cceb990be3413565"
+    },
+    {
+      "path": "r0_attempt_paths.unpublished.csv",
+      "sha256": "d6e2ed63fb60b8dc5c01880737b8d0f6fbcb343b6587cc3560e3bca12a492783"
+    }
+  ],
+  "recorded_utc": "2026-08-03T17:31:53.8827270+00:00"
+}

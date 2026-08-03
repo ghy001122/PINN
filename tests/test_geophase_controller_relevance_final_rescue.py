@@ -22,6 +22,10 @@ def test_contract_locks_authority_limits_routes_and_corrected_r1_step() -> None:
     )
     assert contract["identity"]["scientific_vote"] is False
     assert contract["identity"]["formal_execution_count"] == 0
+    assert contract["identity"]["r0_run_id"].endswith("-V2")
+    assert contract["identity"]["r0_invocation_count"] == 2
+    assert contract["identity"]["r0_invalid_invocation_count"] == 1
+    assert contract["identity"]["runner_repair_count"] == 1
     assert contract["scope"]["d0_rerun_or_completion"] == "forbidden"
     assert contract["scope"]["exact_condensed_v1_modification"] == "forbidden"
     assert contract["scope"]["controller_v2_modification"] == "forbidden"
@@ -141,3 +145,33 @@ def test_terminal_routing_distinguishes_root_from_nonsolver_failure() -> None:
         "R0_VALID_NONSOLVER_INTEGRITY_FAILURE",
         False,
     )
+
+
+def test_attempt_csv_atomic_publication_keeps_destination_path(tmp_path: Path) -> None:
+    destination = tmp_path / "attempts.csv"
+    cases = [
+        {
+            "case": {"case_id": "writer-regression"},
+            "attempts": [
+                {
+                    "rejection_index": 0,
+                    "attempted_outer_interval_s": 1.0e-9,
+                    "at_outer_floor": False,
+                    "accepted": False,
+                    "embedded_error": None,
+                    "wall_time_s": 0.1,
+                    "paths": [
+                        {
+                            "path": "full_step",
+                            "root": None,
+                            "candidate": None,
+                        }
+                    ],
+                }
+            ],
+        }
+    ]
+    rescue._write_attempts_csv(destination, cases)
+    assert destination.is_file()
+    assert not destination.with_suffix(".csv.tmp").exists()
+    assert "writer-regression" in destination.read_text(encoding="utf-8")

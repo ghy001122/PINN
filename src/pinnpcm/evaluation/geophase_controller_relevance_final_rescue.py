@@ -89,19 +89,18 @@ def _payload_sha256(payload: Any) -> str:
 
 
 def _atomic_json(path: Path, payload: Mapping[str, Any]) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    temporary = path.with_suffix(path.suffix + ".tmp")
-    temporary.write_text(
-        json.dumps(
-            _to_builtin(payload),
-            indent=2,
-            sort_keys=True,
-            allow_nan=False,
-        )
-        + "\n",
-        encoding="utf-8",
+    _atomic_bytes(
+        path,
+        (
+            json.dumps(
+                _to_builtin(payload),
+                indent=2,
+                sort_keys=True,
+                allow_nan=False,
+            )
+            + "\n"
+        ).encode("utf-8"),
     )
-    temporary.replace(path)
 
 
 def _atomic_bytes(path: Path, payload: bytes) -> None:
@@ -609,13 +608,13 @@ def _write_attempts_csv(path: Path, cases: list[Mapping[str, Any]]) -> None:
         "attempt_wall_time_s",
     ]
     with temporary.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fields)
+        writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n")
         writer.writeheader()
         for case in cases:
             for attempt in case["attempts"]:
-                for path in attempt["paths"]:
-                    root = path["root"] or {}
-                    candidate = path["candidate"] or {}
+                for path_payload in attempt["paths"]:
+                    root = path_payload["root"] or {}
+                    candidate = path_payload["candidate"] or {}
                     integrity = candidate.get("integrity") or {}
                     embedded = attempt["embedded_error"] or {}
                     writer.writerow(
@@ -627,7 +626,7 @@ def _write_attempts_csv(path: Path, cases: list[Mapping[str, Any]]) -> None:
                             ],
                             "at_outer_floor": attempt["at_outer_floor"],
                             "accepted_bundle": attempt["accepted"],
-                            "path": path["path"],
+                            "path": path_payload["path"],
                             "root_status": root.get("status"),
                             "root_failure_code": root.get("failure_code"),
                             "reduced_residual_inf": root.get("reduced_residual_inf"),
@@ -797,6 +796,14 @@ def run_r0_audit(config_path: Path, output_root: Path) -> dict[str, Any]:
         "schema_version": SCHEMA_VERSION,
         "task_id": contract["task_id"],
         "run_id": contract["identity"]["r0_run_id"],
+        "invocation_count": int(contract["identity"]["r0_invocation_count"]),
+        "invalid_invocation_count": int(
+            contract["identity"]["r0_invalid_invocation_count"]
+        ),
+        "runner_repair_count": int(contract["identity"]["runner_repair_count"]),
+        "previous_invalid_invocation": contract["identity"][
+            "previous_invalid_invocation"
+        ],
         "git_sha": git_sha,
         "branch": branch,
         "config_path": config_path.relative_to(ROOT).as_posix(),

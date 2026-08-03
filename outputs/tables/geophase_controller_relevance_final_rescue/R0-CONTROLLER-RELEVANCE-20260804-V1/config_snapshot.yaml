@@ -5,11 +5,7 @@ evidence_type: literature-guided synthetic numerical digital-twin evidence
 identity:
   base_main_commit: 1c9758ef151299a4694b4edcc81dd48feec704ba
   branch: codex/controller-relevance-final-forward-rescue
-  r0_run_id: R0-CONTROLLER-RELEVANCE-20260804-V2
-  r0_invocation_count: 2
-  r0_invalid_invocation_count: 1
-  runner_repair_count: 1
-  previous_invalid_invocation: outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V1/invalid_invocation.json
+  r0_run_id: R0-CONTROLLER-RELEVANCE-20260804-V1
   scientific_vote: false
   formal_execution_count: 0
 
@@ -32,16 +28,6 @@ frozen_inputs:
     sha256: ae9962dbeb097ddc9f96d132ce39173273745314c0bb5382deccab1b8cf65d72
   - path: configs/geophase_phase1_v2_critical_transition_failure_audit.yaml
     sha256: 6bba56e6acb321eae00e6c006d6bd1c6131acfc55e6a80f7590e21e7cace27c8
-  - path: outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V1/invalid_invocation.json
-    sha256: e932f8c07b7c970ebc5497d111101eb2813b4791bf0c00ff70259f5f417d7971
-  - path: outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V1/config_snapshot.yaml
-    sha256: 0176e2d8f1a16c7ee52e9e2b369ff196693f1968aa58c8e124136279d1d978b2
-  - path: outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V1/cases/R0-A-QUIESCENT-9V-T1.json
-    sha256: 24a2b886e98d7c07113790149486440eab115a85d94dc722bc6266bf6458a229
-  - path: outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V1/cases/R0-B-CRITICAL-TRANSITION-T4.json
-    sha256: 90725861bdba8a578646a83193e6406c23b0b2aaf2a32942cceb990be3413565
-  - path: outputs/tables/geophase_controller_relevance_final_rescue/R0-CONTROLLER-RELEVANCE-20260804-V1/r0_attempt_paths.unpublished.csv
-    sha256: d6e2ed63fb60b8dc5c01880737b8d0f6fbcb343b6587cc3560e3bca12a492783
 
 scope:
   d0_rerun_or_completion: forbidden
