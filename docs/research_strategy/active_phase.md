@@ -37,6 +37,14 @@ This boundary is not an S2 physical-law failure, Phase 1 scientific vote, or PIN
 
 ## Stop And Next Bottleneck
 
-No experiment is authorized. A future goal may assess a new performance-oriented, mathematically equivalent reduced nonlinear solver under the unchanged full qualification gates. It may not resume this qualification, add controller candidate 3/controller-v4, relax gates, return to equivalence, or bypass S0 before Phase 2/C01.
+An intervening bounded Stage A diagnostic proved that `s`, `b`, and `Vd` are
+exactly condensable within each frozen backward-Euler step when prior full state
+history is retained. No reduced nonlinear solver or trajectory was executed.
+
+No experiment is authorized. A future goal may assess a new exact
+temperature-primary condensed nonlinear solver under the unchanged full
+qualification gates. It may not resume this qualification, use learned or
+tabulated closures, add controller candidate 3/controller-v4, relax gates,
+return to equivalence, or bypass S0 before Phase 2/C01.
 
 Equivalence-v2 remains immutable and non-retryable. Equivalence-v3 remains immutable and non-retryable. Equivalence-v4/v5 is forbidden (`equivalence-v4/v5`). No retry is authorized.

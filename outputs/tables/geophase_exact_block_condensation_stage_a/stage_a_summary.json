@@ -1,0 +1,118 @@
+{
+  "analysis_id": "EXACT-CONDENSATION-STAGE-A-20260803-V1",
+  "claim_boundary": {
+    "failed_but_informative": "NLS-v1 frozen performance qualification remains rejected",
+    "forbidden": [
+      "reduced solver is faster or convergent",
+      "12.5 V transition performance",
+      "S0 or Phase 1 PASS or FAIL",
+      "C01 or PINN conclusions",
+      "experimental validation"
+    ],
+    "qualified_supported": "fallback suppresses controller growth on the frozen NLS-v1 path; rejection alone halves the interval",
+    "supported": "exact algebraic condensability of auxiliary residual blocks under the frozen backward-Euler equations"
+  },
+  "coverage": {
+    "frozen_failure_replays": 2,
+    "quiescent_9V_frozen_trace": "available",
+    "reduced_solver_convergence": "unassessed",
+    "reduced_solver_fallback_fraction": "unassessed",
+    "reduced_solver_runtime": "unassessed",
+    "reduced_solver_timestep_growth": "unassessed",
+    "transition_12p5V_frozen_trace": "unavailable"
+  },
+  "formal_execution_count": 0,
+  "formulae": {
+    "branch": "b_np1=(b_n+r_b*(h-c))/(1+r_b*(h+c))",
+    "circuit": "Vd_np1=((C/dt)*Vd_n+Vin/R)/((C/dt)+1/R+Gdev(T_np1,s_np1))",
+    "conductive_state": "s_np1=(s_n+r_s*s_eq(T_np1,b_np1))/(1+r_s)",
+    "remaining_equation": "thermal_backward_euler_residual_in_T_np1"
+  },
+  "frozen_nls_v1_trace": {
+    "accepted_steps": 61932,
+    "at_or_below_0p3125ns_fraction": 0.9330556093780276,
+    "controller_growth_requires_no_fallback": true,
+    "coupled_solves_per_accepted_step": 3.0022605438222567,
+    "embedded_error_rejections": 43,
+    "fallback_directly_halves_interval": false,
+    "fallback_free_steps": 549,
+    "fallback_picard_iterations": 2323142,
+    "fallback_picard_iterations_per_fallback_step": 37.846667644136,
+    "fallback_step_fraction": 0.9911354388684364,
+    "fallback_steps": 61383,
+    "growth_events": 45,
+    "integrity_rejections": 8,
+    "maximum_accepted_step_s": 1.0000000000000751e-08,
+    "median_accepted_step_s": 1.5624999999907206e-10,
+    "minimum_accepted_step_s": 1.56249999997378e-10,
+    "minimum_step_fraction": 0.6891267842149454,
+    "only_rejected_candidates_halve_interval": true,
+    "rejected_steps": 51,
+    "source_sha256": "ca311b396567c5682b0fb310049e5539e75121bdf43678ad2660b4ffc9c5b053",
+    "total_coupled_solves": 185936
+  },
+  "mathematical_disposition": {
+    "auxiliary_scaled_residual_inf_limit": 1e-12,
+    "full_unknown_count": 751,
+    "global_temperature_only_markov_state": false,
+    "history_retained_in_previous_s_b_Vd": true,
+    "identity_pass": true,
+    "learned_or_tabulated_closure_required": false,
+    "maximum_auxiliary_scaled_residual_inf": 1.5139404881252134e-16,
+    "nonlinear_unknown_reduction_fraction": 0.6671105193075899,
+    "reduced_nonlinear_unknown_count": 250,
+    "within_step_temperature_primary_static_condensation": true
+  },
+  "microbench": {
+    "dt_count": 7,
+    "dt_grid_ns": [
+      10.0,
+      5.0,
+      2.5,
+      1.25,
+      0.625,
+      0.3125,
+      0.15625
+    ],
+    "row_count": 14,
+    "source_state_count": 2
+  },
+  "next_step": "new identity exact-condensation prototype with unchanged 1e-8 full residual and defect gates",
+  "nonlinear_or_trajectory_execution_count": 0,
+  "schema_version": "geophase_exact_block_condensation_stage_a_v1",
+  "scientific_vote": false,
+  "solver_source_modified": false,
+  "task_id": "Q2_EXACT_BLOCK_CONDENSATION_STAGE_A",
+  "terminal_state": "GO_EXACT_BLOCK_CONDENSATION_PROTOTYPE_ONLY",
+  "validity": "valid_bounded_non_voting_stage_a",
+  "verified_frozen_inputs": [
+    {
+      "path": "src/pinnpcm/solvers/geophase_phase1_v2_implicit.py",
+      "sha256": "56e92761a7f8e9ffec0bfe2d73b7b67eca00993ff1852c219437711ee33d5a16"
+    },
+    {
+      "path": "src/pinnpcm/solvers/geophase_nls_v1.py",
+      "sha256": "b3ed80bd95f0835b9c5342bd4fffdc68b224dbf773d58722d51f42a09a621196"
+    },
+    {
+      "path": "configs/geophase_phase1_v2_s2_reference_source_corrected_v3.yaml",
+      "sha256": "ea668ac66c8f2f2267b059bd816a4116def086708f2f7eeded07d64a2857aff4"
+    },
+    {
+      "path": "configs/geophase_phase1_v2_embedded_time_controller_v2_source_corrected_v3.yaml",
+      "sha256": "8da3f056a197502d01abd26ccec8f0fa7d73276da770162048607d225dc8400e"
+    },
+    {
+      "path": "outputs/tables/geophase_controller_v3/qualification/CTRLV3-QUAL-20260801-V2/failures/CTRLV3-QUAL-QUIESCENT-9V-T1.json",
+      "sha256": "ae9962dbeb097ddc9f96d132ce39173273745314c0bb5382deccab1b8cf65d72"
+    },
+    {
+      "path": "outputs/tables/geophase_controller_v3/qualification/CTRLV3-QUAL-20260801-V4/failures/CTRLV3-QUAL-QUIESCENT-9V-T1.json",
+      "sha256": "1583208d843df67f7f68d3a3717300b54945af82ee870152ce360ae2c70ca79c"
+    },
+    {
+      "path": "outputs/tables/geophase_nls_v1/qualification/NLSV1-QUAL-20260802-V1/runs/NLSV1-QUAL-QUIESCENT-9V-T1.json.gz",
+      "sha256": "ca311b396567c5682b0fb310049e5539e75121bdf43678ad2660b4ffc9c5b053"
+    }
+  ]
+}

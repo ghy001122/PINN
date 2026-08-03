@@ -8,12 +8,17 @@
 - Both frozen nonlinear failure states pass the NLS dual residual/defect gate.
 - Required standard 9 V qualification: stopped at 3413/4001 outputs and `17.06015625 us` after `27136.6188 s`, beyond the frozen `21600 s` per-run cap.
 - Conditional Schur upgrade: not activated because its frozen-replay trigger was false.
+- Exact-condensation Stage A: algebraic identity passed on 2 frozen replays x 7 step sizes; L1 nonlinear dimension can be reduced from 751 to 250 while retaining prior full-state history. No reduced solver was executed.
 - Fresh S0 not started; `formal_execution_count=0`.
 - Phase 2/C01/C06/baselines/OOD: not executed and forbidden.
 
 ## Single Next Priority
 
-No experiment is authorized. If the route is reopened, create a new bounded goal for a performance-efficient, mathematically equivalent reduced nonlinear solver. It must retain S2 physics, protocols, `1e-8` residual/defect gates, ledger/event gates, and the full standard/strict qualification trajectories.
+No experiment is authorized. If the route is reopened, create a new bounded
+goal for an exact temperature-primary condensed solver identity. It must retain
+S2 physics, prior `s/b/Vd` history, protocols, `1e-8` full residual/defect
+gates, ledger/event gates, and the full standard/strict qualification
+trajectories. Learned/tabulated closures are not eligible.
 
 It must not:
 

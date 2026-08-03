@@ -23,6 +23,13 @@ The intended positive ladder remains R1 `HysGeo-Hybrid-PINN`, preferred R2 `GeoP
 
 The full V2 qualification was not invoked because the endpoint-only change cannot affect T1 before its wall-time stop. Both frozen failure states already pass, so the goal's conditional Schur trigger was false. Terminal disposition: `GOAL_UNSUCCESSFUL_NLS_V1`.
 
+A later solver-free Stage A diagnostic established an exact algebraic identity:
+for prescribed `T_np1` and the previous full state, production `b_np1`,
+`s_np1`, and `Vd_np1` can be reconstructed with maximum auxiliary scaled
+residual `1.514e-16` across 2 frozen replays and 7 step sizes. This reduces the
+future L1 nonlinear root dimension from 751 to 250 without deleting history.
+It did not execute or validate a reduced solver.
+
 ## Evidence And Claims
 
 | Item | Lifecycle / status | Boundary |
@@ -41,4 +48,8 @@ Strict-equivalence-v1 and equivalence-v2/v3 remain immutable and non-retryable; 
 
 S1 science is `forbidden`/unassessed; interruption facts are supported infrastructure provenance only and cast no scientific vote.
 
-The next high-value bottleneck is a performance-efficient, mathematically equivalent nonlinear solve that can reach the complete standard/strict qualification trajectories under fixed physical and scientific gates. Reopening requires a new bounded goal and identity; it cannot be framed as this NLS-v1 qualification's continuation or permission to bypass S0 before C01.
+The next high-value bottleneck is a new exact temperature-primary condensed
+solver identity that can reach complete standard/strict qualification under
+the unchanged `1e-8`, ledger, event, physical, and budget gates. Reopening
+requires a new bounded goal; Stage A is not permission to run the prototype or
+bypass S0 before C01.
