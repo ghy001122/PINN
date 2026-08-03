@@ -86,8 +86,8 @@ def test_route_only_runner_validates_v3_and_cannot_execute_before_preregistratio
     assert "run_C1" not in runner_source
 
 
-def test_authority_chain_records_terminal_b2_and_preserves_old_route_tests() -> None:
-    checkpoint = "Q2_EXACT_CONDENSED_B2_VALID_FAIL_NO_S0"
+def test_authority_chain_records_terminal_d0_and_preserves_old_route_tests() -> None:
+    checkpoint = "Q2_EXACT_CONDENSED_V2_D0_VALID_FAIL_NO_D1"
     for path in (
         ROOT / "CODEX_CONTEXT.md",
         ROOT / "PROJECT_STATE.md",
@@ -101,9 +101,9 @@ def test_authority_chain_records_terminal_b2_and_preserves_old_route_tests() -> 
     active = (ROOT / "docs" / "research_strategy" / "active_phase.md").read_text(
         encoding="utf-8"
     )
-    assert "Equivalence-v4/v5 is forbidden" in active
-    assert "Equivalence-v2 remains" in active
-    assert "Equivalence-v3 remains" in active
+    assert "D0_MECHANISM_VALID_FAIL" in active
+    assert "no v2 production solver identity was created" in active
+    assert "return to equivalence" in active
 
     workflow = WORKFLOW_PATH.read_text(encoding="utf-8")
     assert "tests/test_geophase_phase1_v2_source_corrected_v3_preregistration.py" in workflow

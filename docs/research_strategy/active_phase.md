@@ -2,54 +2,45 @@
 
 Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
 
-Status: `stopped_exact_condensed_b2_valid_root_failure`
+Status: `stopped_exact_condensed_v2_d0_valid_mechanism_failure`
 
-Current checkpoint: `Q2_EXACT_CONDENSED_B2_VALID_FAIL_NO_S0`
+Current checkpoint: `Q2_EXACT_CONDENSED_V2_D0_VALID_FAIL_NO_D1`
 
 ## Objective And Frozen Authority
 
-The goal introduced an independent exact temperature-primary condensed solver
-and controller orchestration, then required 24/24 frozen reduced roots before
-any matched-window, cost, full-trajectory, S0, data, or PINN work. S2 equations,
-parameters, protocols, controller-v2, production implicit/NLS code, thresholds,
-Stage A evidence, historical outputs, and Frozen GT remained read-only.
+The authorized plan allowed one replay of PR #24's first failed root to decide
+whether a fixed-point-defect Newton/Jv identity had an admissible descent
+mechanism. S2 equations, parameters, protocols, controller-v2, production
+implicit/NLS code, PR #23 Stage A, PR #24 v1 evidence, thresholds, historical
+outputs, and Frozen GT remained read-only.
 
-## Actual B1/B2 Result
+## Actual D0 Result
 
-B1 focused checks support only an `implemented` software lifecycle state. The
-preregistered B2 run `B2-EXACT-CONDENSED-20260803-V1` then executed the first
-frozen root (`B2-ORIGINAL-S1-DT10p0NS`). Five Newton corrections were accepted,
-six LGMRES calls converged, and the auxiliary algebraic residual remained
-`1.4392805451179502e-16`. At the next correction, every permitted damping from
-`1` through `1/128` failed Armijo. The last available reduced/full scaled
-residual was `9.519603587211078e-3`; no final full fixed-point defect was
-certified.
+The replay exactly reproduced the frozen v1 history and failure. Both L1
+explicit Jacobians are full rank, and the fixed-point direct correction is
+finite with near-machine-precision linear backward error. However, no damping
+in the allowed set `1...1/128` strictly lowers `||F_fp||inf`; the first decrease
+appears only at forbidden damping `1/256`.
 
-Terminal state: `B2_REDUCED_ROOT_VALID_FAIL`.
+Terminal state: `D0_MECHANISM_VALID_FAIL`.
 
 ## Lifecycle And Claims
 
-- Exact-condensed solver/controller: `implemented`; software fact only.
-- B2 qualification: `executed`; `failed_but_informative` numerical-method
-  evidence for this frozen solver identity.
-- Roots: 1/24 executed, 0 passed, 23 unassessed.
+- D0 diagnostic: `executed`; `failed_but_informative` numerical-method
+  evidence only.
 - `scientific_vote=false`; `formal_execution_count=0`.
-- B3, B4, fresh S0, Phase 2, MLP, vanilla PINN, C01, C06, OOD, and R1/R2/R3:
-  not executed and `forbidden`.
+- No Jv rule was frozen and no v2 production solver identity was created.
+- D1/D2/B3/B4, fresh S0, Phase 2, C01/C06, OOD, and R1/R2/R3 remain
+  unexecuted and `forbidden`.
 
-This boundary is not an S2 physical-law failure, runtime/campaign feasibility
-result, Phase 1 vote, PINN result, Qiu quantitative reproduction, or
-experimental validation.
+This is not an S2/Phase 1 scientific vote, runtime/campaign feasibility result,
+or PINN result.
 
-## Stop And Next Bottleneck
+## Stop
 
-The goal's only permitted solver strategy failed its first valid B2 root, so
-all downstream stages are closed. No experiment is authorized. A future goal
-may investigate one materially new reduced-root globalization/Jacobian identity
-under the same physics, controller, residual/defect, ledger, and budget gates.
-It may not resume this matrix, add another strategy under this goal, return to
-equivalence, or bypass S0 before Phase 2/C01.
-
-Equivalence-v2 remains immutable and non-retryable. Equivalence-v3 remains
-immutable and non-retryable. Equivalence-v4/v5 is forbidden (`equivalence-v4/v5`).
-No retry is authorized.
+The plan's D0 hard stop binds. Do not reduce the damping minimum, perform a
+second mechanism-tuning replay, create v2, resume old B2, switch to another
+solver, return to equivalence, or bypass S0 before Phase 2/C01. The only
+plan-defined recommendation after this two-dimensional forward-route stop is a
+separately authorized C04 observable-subspace plus `gamma_sub` calibration and
+identifiability-boundary manuscript pivot; it is not authorized here.

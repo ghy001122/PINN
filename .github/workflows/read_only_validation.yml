@@ -112,6 +112,7 @@ jobs:
           tests/test_geophase_exact_block_condensation_stage_a.py
           tests/test_geophase_exact_condensed_solver.py
           tests/test_geophase_exact_condensed_b2.py
+          tests/test_geophase_exact_condensed_v2_d0.py
           tests/test_geophase_phase1_v2_source_corrected_performance_repair_preregistration.py
           tests/test_geophase_phase1_v2_source_corrected_performance_electrical.py
           tests/test_geophase_phase1_v2_source_corrected_performance_coupled.py

@@ -165,8 +165,8 @@ def test_equivalence_v2_machine_preregistration_is_content_addressed_and_zero() 
     assert record["formal_artifact_count"] == 0
 
 
-def test_exact_condensed_b2_terminal_route_preserves_consumed_v2_gate() -> None:
-    checkpoint = "Q2_EXACT_CONDENSED_B2_VALID_FAIL_NO_S0"
+def test_exact_condensed_v2_d0_terminal_route_preserves_consumed_v2_gate() -> None:
+    checkpoint = "Q2_EXACT_CONDENSED_V2_D0_VALID_FAIL_NO_D1"
     authority_texts = []
     for path in (
         ROOT / "CODEX_CONTEXT.md",
@@ -179,8 +179,8 @@ def test_exact_condensed_b2_terminal_route_preserves_consumed_v2_gate() -> None:
         assert checkpoint in text
 
     preserved_history = "\n".join(authority_texts)
-    assert "Equivalence-v2 remains" in preserved_history
-    assert "no retry" in preserved_history
+    assert "Equivalence-v1/v2/v3 remain immutable" in preserved_history
+    assert "non-retryable" in preserved_history
     assert "equivalence-v4/v5" in preserved_history.lower()
 
     workflow = (ROOT / ".github" / "workflows" / "read_only_validation.yml").read_text(
