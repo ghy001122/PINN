@@ -165,8 +165,8 @@ def test_equivalence_v2_machine_preregistration_is_content_addressed_and_zero() 
     assert record["formal_artifact_count"] == 0
 
 
-def test_exact_condensed_v2_d0_terminal_route_preserves_consumed_v2_gate() -> None:
-    checkpoint = "Q2_EXACT_CONDENSED_V2_D0_VALID_FAIL_NO_D1"
+def test_final_rescue_terminal_route_preserves_consumed_v2_gate() -> None:
+    checkpoint = "Q2_CONTROLLER_RELEVANCE_B3_VALID_FAIL_FINAL_FORWARD_RESCUE_STOPPED"
     authority_texts = []
     for path in (
         ROOT / "CODEX_CONTEXT.md",
