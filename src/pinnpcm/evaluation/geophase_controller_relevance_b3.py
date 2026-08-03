@@ -8,6 +8,7 @@ not an oracle or truth claim.
 
 from __future__ import annotations
 
+from collections import deque
 from dataclasses import asdict
 import json
 import math
@@ -142,24 +143,6 @@ def _pin_process_to_one_cpu() -> dict[str, Any]:
     }
 
 
-def _state_at_time(
-    initial: S2State, steps: tuple[Any, ...], target_s: float
-) -> S2State:
-    target = float(target_s)
-    tolerance = max(1.0e-18, abs(target) * 1.0e-12)
-    if abs(target - initial.time_s) <= tolerance:
-        return initial
-    previous = initial
-    for step in steps:
-        first = step.accepted_first_half
-        if previous.time_s - tolerance <= target <= first.state.time_s + tolerance:
-            return _interpolate_state(previous, first.state, target)
-        if first.state.time_s - tolerance <= target <= step.state.time_s + tolerance:
-            return _interpolate_state(first.state, step.state, target)
-        previous = step.state
-    raise ValueError("requested B3 state is outside the retained accepted path")
-
-
 def _finite_records(records: list[dict[str, Any]]) -> bool:
     keys = (
         "time_s",
@@ -221,8 +204,16 @@ def _run_window(spec: Mapping[str, Any], scientific: dict) -> dict[str, Any]:
         closure=closure,
     )
     attempts = _ControllerV2AttemptAccumulator()
+    locator_segments: deque[tuple[S2State, S2State]] = deque()
+    locator_window_state: S2State | None = None
+    locator_padding = float(spec.get("window_padding_s", 0.0))
+    locator_retention = locator_padding + 2.0 * float(spec["sample_interval_s"])
 
     def accepted(previous: S2State, step: Any, H: float, voltage: float, wall: float) -> None:
+        nonlocal locator_window_state
+        if str(spec["role"]) == "locator":
+            locator_segments.append((previous, step.accepted_first_half.state))
+            locator_segments.append((step.accepted_first_half.state, step.state))
         recorder.record_accepted_interval(
             previous,
             step,
@@ -231,6 +222,33 @@ def _run_window(spec: Mapping[str, Any], scientific: dict) -> dict[str, Any]:
             wall,
             coupled_solve_count=attempts.consume(step),
         )
+        if str(spec["role"]) == "locator":
+            if locator_window_state is None:
+                upward = next(
+                    (
+                        item
+                        for item in recorder.event_records
+                        if item["direction"] == "upward"
+                    ),
+                    None,
+                )
+                if upward is not None:
+                    target = max(
+                        float(initial.time_s),
+                        float(upward["crossing_time_s"]) - locator_padding,
+                    )
+                    tolerance = max(1.0e-18, abs(target) * 1.0e-12)
+                    for left, right in locator_segments:
+                        if left.time_s - tolerance <= target <= right.time_s + tolerance:
+                            locator_window_state = _interpolate_state(left, right, target)
+                            break
+                    if locator_window_state is None:
+                        raise RuntimeError(
+                            "bounded locator history did not retain the event-window start"
+                        )
+            cutoff = float(step.state.time_s) - locator_retention
+            while locator_segments and locator_segments[0][1].time_s < cutoff:
+                locator_segments.popleft()
 
     common = {
         "protocol": protocol,
@@ -298,8 +316,7 @@ def _run_window(spec: Mapping[str, Any], scientific: dict) -> dict[str, Any]:
         "sample_count": len(records),
         "accepted_path_step_count": len(result.steps),
         "final_state": _state_payload(recorder.final_state),
-        "_retained_steps": result.steps,
-        "_initial_state_object": initial,
+        "_locator_window_initial_state": locator_window_state,
     }
 
 
@@ -310,10 +327,9 @@ def _locator_result(spec: Mapping[str, Any], scientific: dict) -> dict[str, Any]
     closure = effective_vo2_closure_from_v2_config(scientific)
     initial = initial_s2_state(grid, closure, fields, scientific)
     locator_spec["initial_state"] = _state_payload(initial)
-    locator_spec["retain_full_history"] = True
+    locator_spec["retain_full_history"] = False
     payload = _run_window(locator_spec, scientific)
-    steps = payload.pop("_retained_steps")
-    initial_object = payload.pop("_initial_state_object")
+    window_state = payload.pop("_locator_window_initial_state")
     events = list(payload["event_records"])
     up = next((item for item in events if item["direction"] == "upward"), None)
     down = None
@@ -339,9 +355,10 @@ def _locator_result(spec: Mapping[str, Any], scientific: dict) -> dict[str, Any]
         )
         return payload
     padding = float(spec["window_padding_s"])
-    window_start = max(float(initial_object.time_s), float(up["crossing_time_s"]) - padding)
+    window_start = max(float(initial.time_s), float(up["crossing_time_s"]) - padding)
     window_stop = min(float(spec["final_time_s"]), float(down["crossing_time_s"]) + padding)
-    window_state = _state_at_time(initial_object, steps, window_start)
+    if window_state is None:
+        raise RuntimeError("locator found an event pair without its bounded window state")
     payload.update(
         {
             "coverage_pass": True,
@@ -367,8 +384,7 @@ def run_b3_worker(spec_path: Path, output_path: Path) -> dict[str, Any]:
             payload = _locator_result(spec, scientific)
         else:
             payload = _run_window(spec, scientific)
-            payload.pop("_retained_steps", None)
-            payload.pop("_initial_state_object", None)
+            payload.pop("_locator_window_initial_state", None)
         payload["validity"] = "valid"
         payload["error_class"] = None
         payload["error_message"] = None
