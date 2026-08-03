@@ -120,11 +120,11 @@ class ExactCondensedRootTelemetry:
     reduced_residual_evaluations: int
     line_search_backtracks: int
     last_newton_update_inf: float
-    reduced_residual_inf: float
-    full_scaled_residual_inf: float
-    full_fixed_point_defect_inf: float
-    auxiliary_scaled_residual_inf: float
-    raw_thermal_residual_inf_W_per_cell: float
+    reduced_residual_inf: float | None
+    full_scaled_residual_inf: float | None
+    full_fixed_point_defect_inf: float | None
+    auxiliary_scaled_residual_inf: float | None
+    raw_thermal_residual_inf_W_per_cell: float | None
     reduced_residual_history_inf: tuple[float, ...]
     accepted_damping_history: tuple[float, ...]
     lgmres_info_history: tuple[int, ...]
@@ -399,8 +399,13 @@ def _failure_telemetry(
     certification_wall_s: float,
     total_wall_s: float,
     auxiliary: ExactAuxiliaryState | None = None,
-    full_defect: float = float("inf"),
+    full_defect: float | None = None,
 ) -> ExactCondensedRootTelemetry:
+    def finite_or_none(value: float | None) -> float | None:
+        if value is None or not np.isfinite(value):
+            return None
+        return float(value)
+
     return ExactCondensedRootTelemetry(
         status="FAIL",
         failure_code=str(code),
@@ -411,22 +416,26 @@ def _failure_telemetry(
         reduced_residual_evaluations=int(counters.residual_evaluations),
         line_search_backtracks=int(counters.backtracks),
         last_newton_update_inf=float(last_update),
-        reduced_residual_inf=float(reduced_residual),
+        reduced_residual_inf=finite_or_none(reduced_residual),
         full_scaled_residual_inf=(
-            float("inf")
+            None
             if auxiliary is None
-            else float(np.max(np.abs(auxiliary.full_scaled_residual)))
+            else finite_or_none(
+                float(np.max(np.abs(auxiliary.full_scaled_residual)))
+            )
         ),
-        full_fixed_point_defect_inf=float(full_defect),
+        full_fixed_point_defect_inf=finite_or_none(full_defect),
         auxiliary_scaled_residual_inf=(
-            float("inf")
+            None
             if auxiliary is None
-            else auxiliary.auxiliary_scaled_residual_inf
+            else finite_or_none(auxiliary.auxiliary_scaled_residual_inf)
         ),
         raw_thermal_residual_inf_W_per_cell=(
-            float("inf")
+            None
             if auxiliary is None
-            else float(np.max(np.abs(auxiliary.raw_thermal_residual_W_per_cell)))
+            else finite_or_none(
+                float(np.max(np.abs(auxiliary.raw_thermal_residual_W_per_cell)))
+            )
         ),
         reduced_residual_history_inf=tuple(counters.residual_history),
         accepted_damping_history=tuple(counters.damping_history),
@@ -566,7 +575,7 @@ def solve_exact_condensed_step(
     residual_inf = float("inf")
     latest_auxiliary: ExactAuxiliaryState | None = None
 
-    def fail(code: str, message: str, *, defect: float = float("inf")) -> None:
+    def fail(code: str, message: str, *, defect: float | None = None) -> None:
         telemetry = _failure_telemetry(
             code=code,
             message=message,
@@ -749,6 +758,7 @@ def solve_exact_condensed_step(
                     break
         counters.line_search_wall_s += perf_counter() - line_started
         if accepted_temperature is None or accepted_auxiliary is None:
+            counters.backtracks += settings.maximum_line_search_backtracks
             fail("ARMIJO_LINE_SEARCH_FAILURE", "no damping in [1,1/128] passed Armijo")
         last_update = float(
             np.max(

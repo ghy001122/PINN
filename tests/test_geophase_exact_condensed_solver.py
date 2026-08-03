@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+from dataclasses import asdict
 from pathlib import Path
 
 import numpy as np
@@ -237,3 +238,4 @@ def test_krylov_and_residual_budgets_fail_closed_before_overrun() -> None:
     }
     assert caught.value.telemetry.krylov_matvecs <= 1
     assert caught.value.telemetry.reduced_residual_evaluations <= 2
+    json.dumps(asdict(caught.value.telemetry), allow_nan=False)
