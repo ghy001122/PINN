@@ -146,15 +146,15 @@ def test_failure_taxonomy_separates_invalid_infrastructure_from_science() -> Non
     assert formal["claim_status"] == "failed_but_informative"
 
 
-def test_current_authority_records_b2_terminal_without_unlocking_downstream_work() -> None:
+def test_current_authority_records_d0_terminal_without_unlocking_downstream_work() -> None:
     active = (ROOT / "docs" / "research_strategy" / "active_phase.md").read_text(encoding="utf-8")
     context = (ROOT / "CODEX_CONTEXT.md").read_text(encoding="utf-8")
     next_actions = (ROOT / "NEXT_ACTIONS.md").read_text(encoding="utf-8")
 
-    checkpoint = "Q2_EXACT_CONDENSED_B2_VALID_FAIL_NO_S0"
+    checkpoint = "Q2_EXACT_CONDENSED_V2_D0_VALID_FAIL_NO_D1"
     assert checkpoint in active
     assert checkpoint in context
     assert checkpoint in next_actions
     assert "formal_execution_count=0" in active
-    assert "equivalence-v4/v5" in active
-    assert "No experiment is authorized" in next_actions
+    assert "no v2 production solver identity was created" in active
+    assert "not an execution authorization" in next_actions

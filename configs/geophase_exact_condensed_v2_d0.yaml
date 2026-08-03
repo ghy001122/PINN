@@ -1,0 +1,57 @@
+task_id: Q2_EXACT_CONDENSED_V2_CONTROLLER_ADMISSIBLE_RECOVERY
+schema_version: geophase_exact_condensed_v2_d0_v1
+evidence_type: literature-guided synthetic numerical digital-twin evidence
+
+identity:
+  base_main_commit: c830b4844e58ba63c197429984ac1f5a00a9ccce
+  branch: codex/exact-condensed-v2-qualification
+  diagnostic_id: D0-EXACT-CONDENSED-V2-20260803-V1
+  proposed_solver_id: exact_condensed_temperature_fixed_point_nk_v2
+  proposed_solver_identity_created_only_after_d0_pass: true
+  scientific_vote: false
+  formal_execution_count: 0
+  diagnostic_replay_count: 1
+
+frozen_inputs:
+  - path: src/pinnpcm/solvers/geophase_exact_condensed.py
+    sha256: acd9a95ab266de69986801282fc0981c65acfc37bb351f8bb0c7bb82e6d5c25f
+  - path: outputs/tables/geophase_exact_condensed/b2/B2-EXACT-CONDENSED-20260803-V1/cases/B2-ORIGINAL-S1-DT10p0NS.json
+    sha256: 091fd41c5ae0b2071024cde4f7a3d92303af94002c1be76e3384cb84ab0aa644
+  - path: outputs/tables/geophase_controller_v3/qualification/CTRLV3-QUAL-20260801-V2/failures/CTRLV3-QUAL-QUIESCENT-9V-T1.json
+    sha256: ae9962dbeb097ddc9f96d132ce39173273745314c0bb5382deccab1b8cf65d72
+  - path: src/pinnpcm/solvers/geophase_phase1_v2_implicit.py
+    sha256: 56e92761a7f8e9ffec0bfe2d73b7b67eca00993ff1852c219437711ee33d5a16
+  - path: src/pinnpcm/evaluation/geophase_exact_block_condensation_stage_a.py
+    sha256: 94ca546c45f15ed3c7134d5deb7d52d3f820ca70364a1de8aa60400d3a559b26
+
+diagnostic:
+  source_case_id: B2-ORIGINAL-S1-DT10p0NS
+  source_case_path: outputs/tables/geophase_exact_condensed/b2/B2-EXACT-CONDENSED-20260803-V1/cases/B2-ORIGINAL-S1-DT10p0NS.json
+  source_replay_path: outputs/tables/geophase_controller_v3/qualification/CTRLV3-QUAL-20260801-V2/failures/CTRLV3-QUAL-QUIESCENT-9V-T1.json
+  spatial_level: 1
+  input_voltage_V: 9.0
+  dt_s: 1.0e-8
+  wall_time_s_max: 1800
+  rademacher_seed: 20260803
+  rademacher_direction_count: 8
+  jv_multipliers: [0.125, 0.25, 0.5, 1.0, 2.0, 4.0, 8.0]
+  line_profile_exponents: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+  dyadic_root_dt_ns: [10.0, 5.0, 2.5, 1.25, 0.625, 0.3125, 0.15625, 0.0390625, 0.009765625, 0.0048828125]
+
+gates:
+  numerical_rank_tolerance: n_times_eps_times_sigma_max
+  fixed_point_jacobian_full_rank: true
+  direct_correction_finite: true
+  fixed_point_strict_decrease_damping_min: 0.0078125
+  jv_median_relative_error_max: 1.0e-3
+  jv_maximum_relative_error_max: 1.0e-2
+  correction_linear_backward_error_max: 1.0e-3
+  prefer_forward_jv: true
+
+scope:
+  old_b2_rerun_or_resume: forbidden
+  v1_solver_modification: forbidden
+  stage_a_modification: forbidden
+  production_physics_controller_gate_or_protocol_modification: forbidden
+  second_mechanism_tuning_round: forbidden
+  downstream_execution_before_d0_pass: forbidden
