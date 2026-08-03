@@ -44,6 +44,9 @@ digital-twin evidence, not experimental validation.
 
 ## Preserved Boundaries
 
+S1 science is `forbidden`/unassessed; interruption facts are supported as
+infrastructure provenance only.
+
 Equivalence-v1/v2/v3 remain immutable and non-retryable; equivalence-v4/v5 is
 forbidden. Do not lower the damping floor, tune a second mechanism, create v2,
 resume B2, change S2/controller/gates, or bypass S0. A future pivot requires a
