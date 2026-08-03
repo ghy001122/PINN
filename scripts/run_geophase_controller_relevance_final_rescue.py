@@ -10,6 +10,7 @@ from pinnpcm.evaluation.geophase_controller_relevance_final_rescue import (
     run_r2_qualification,
 )
 from pinnpcm.evaluation.geophase_controller_relevance_b3 import (
+    recompute_b3_metrics,
     run_b3_qualification,
     run_b3_worker,
 )
@@ -22,7 +23,9 @@ def _parse_args() -> argparse.Namespace:
     parser.add_argument("--config", type=Path, required=True)
     parser.add_argument("--output-root", type=Path, required=True)
     parser.add_argument(
-        "--stage", choices=("r0", "r1", "r2", "b3", "b3-worker"), default="r0"
+        "--stage",
+        choices=("r0", "r1", "r2", "b3", "b3-worker", "b3-recompute"),
+        default="r0",
     )
     parser.add_argument("--worker-spec", type=Path)
     parser.add_argument("--worker-output", type=Path)
@@ -54,6 +57,7 @@ def main() -> None:
         "r1": run_r1_audit,
         "r2": run_r2_qualification,
         "b3": run_b3_qualification,
+        "b3-recompute": recompute_b3_metrics,
     }
     runner = runners[args.stage]
     summary = runner(

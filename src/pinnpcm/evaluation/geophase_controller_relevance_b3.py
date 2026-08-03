@@ -476,9 +476,17 @@ def compare_window_payloads(
     candidate_records = list(candidate["scalar_records"])[1:]
     reference_times = np.asarray([row["time_s"] for row in reference_records], dtype=float)
     candidate_times = np.asarray([row["time_s"] for row in candidate_records], dtype=float)
+    time_tolerance = max(
+        1.0e-18,
+        max(
+            float(np.max(np.abs(reference_times), initial=0.0)),
+            float(np.max(np.abs(candidate_times), initial=0.0)),
+        )
+        * 1.0e-12,
+    )
     time_grid_equal = bool(
         reference_times.shape == candidate_times.shape
-        and np.array_equal(reference_times, candidate_times)
+        and np.allclose(reference_times, candidate_times, rtol=0.0, atol=time_tolerance)
     )
     if time_grid_equal:
         current_nrmse = _trajectory_nrmse(
@@ -516,6 +524,12 @@ def compare_window_payloads(
     return {
         "case_id": str(candidate["case_id"]),
         "time_grid_equal": time_grid_equal,
+        "time_grid_tolerance_s": time_tolerance,
+        "maximum_time_grid_difference_s": (
+            float(np.max(np.abs(reference_times - candidate_times)))
+            if reference_times.shape == candidate_times.shape
+            else FINITE_REJECTION_PENALTY
+        ),
         "terminal_current_nrmse": current_nrmse,
         "device_voltage_nrmse": voltage_nrmse,
         "event": event,
@@ -983,6 +997,102 @@ def run_b3_qualification(config_path: Path, output_root: Path) -> dict[str, Any]
     return summary
 
 
+def recompute_b3_metrics(config_path: Path, output_root: Path) -> dict[str, Any]:
+    """Repair reporting-only metrics from immutable B3 worker payloads.
+
+    No solver, controller, locator, or timing process is invoked.  The original
+    summary and comparison table are preserved before the repaired view is
+    published.
+    """
+
+    config_path = Path(config_path).resolve()
+    contract = load_contract(config_path)
+    b3 = contract["b3"]
+    expected_root = (
+        ROOT
+        / str(contract["outputs"]["namespace"])
+        / str(contract["identity"]["b3_run_id"])
+    ).resolve()
+    output_root = Path(output_root).resolve()
+    if output_root != expected_root:
+        raise ValueError(f"B3 metric repair root must be {expected_root}")
+    if _git_value("status", "--porcelain"):
+        raise ValueError("B3 metric repair requires a clean anchored worktree")
+    outputs = b3["outputs"]
+    summary_path = output_root / str(outputs["summary_json"])
+    comparison_path = output_root / str(outputs["comparison_csv"])
+    if not summary_path.exists() or not comparison_path.exists():
+        raise ValueError("B3 metric repair requires the completed raw summary and table")
+    original = json.loads(summary_path.read_text(encoding="utf-8"))
+    if original.get("disposition") != "B3_MATCHED_WINDOW_CORRECTNESS_VALID_FAIL":
+        raise ValueError("B3 metric repair is limited to the frozen correctness FAIL")
+    original_summary_path = output_root / "b3_summary.pre_metric_repair.json"
+    original_comparison_path = output_root / "b3_comparisons.pre_metric_repair.csv"
+    if original_summary_path.exists() or original_comparison_path.exists():
+        raise ValueError("B3 metric repair may run only once")
+    _atomic_bytes(original_summary_path, summary_path.read_bytes())
+    _atomic_bytes(original_comparison_path, comparison_path.read_bytes())
+
+    workers = output_root / str(outputs["worker_directory"])
+    q_reference = json.loads(
+        (workers / "01_9V_nls_correctness.json").read_text(encoding="utf-8")
+    )
+    q_candidate = json.loads(
+        (workers / "02_9V_aa_correctness.json").read_text(encoding="utf-8")
+    )
+    t_reference = json.loads(
+        (workers / "04_12p5V_nls_correctness.json").read_text(encoding="utf-8")
+    )
+    t_candidate = json.loads(
+        (workers / "05_12p5V_aa_correctness.json").read_text(encoding="utf-8")
+    )
+    q_comparison = _safe_compare_window_payloads(q_reference, q_candidate, b3)
+    q_comparison.update(
+        {
+            "regime": "quiescent_9V",
+            "growth_gate_pass": int(q_candidate["diagnostics"]["growth_events"])
+            >= int(b3["correctness"]["quiescent_growth_events_min"]),
+        }
+    )
+    q_comparison["passed"] = bool(
+        q_comparison["passed"] and q_comparison["growth_gate_pass"]
+    )
+    t_comparison = _safe_compare_window_payloads(t_reference, t_candidate, b3)
+    t_comparison.update(
+        {"regime": "transition_12p5V", "growth_gate_pass": True}
+    )
+    comparisons = [q_comparison, t_comparison]
+    _write_csv(comparison_path, comparisons)
+    repaired = {
+        **original,
+        "comparisons": comparisons,
+        "correctness_pass": False,
+        "disposition": "B3_MATCHED_WINDOW_CORRECTNESS_VALID_FAIL",
+        "route": "STOP_FINAL_FORWARD_SOLVER_RESCUE",
+        "metric_repair": {
+            "kind": "reporting_only_fixed_grid_roundoff_tolerance",
+            "repair_git_sha": _git_value("rev-parse", "HEAD"),
+            "solver_rerun": False,
+            "worker_rerun": False,
+            "scientific_disposition_changed": False,
+            "preserved_original_summary": original_summary_path.relative_to(ROOT).as_posix(),
+            "preserved_original_summary_sha256": _sha256(original_summary_path),
+            "preserved_original_comparison": original_comparison_path.relative_to(ROOT).as_posix(),
+            "preserved_original_comparison_sha256": _sha256(original_comparison_path),
+        },
+    }
+    repaired["artifacts"] = {
+        **dict(original["artifacts"]),
+        "comparison_csv_sha256": _sha256(comparison_path),
+        "pre_metric_repair_summary": original_summary_path.relative_to(ROOT).as_posix(),
+        "pre_metric_repair_summary_sha256": _sha256(original_summary_path),
+        "pre_metric_repair_comparison": original_comparison_path.relative_to(ROOT).as_posix(),
+        "pre_metric_repair_comparison_sha256": _sha256(original_comparison_path),
+    }
+    _atomic_json(summary_path, repaired)
+    return repaired
+
+
 __all__ = [
     "SCHEMA_VERSION",
     "WORKER_SCHEMA_VERSION",
@@ -990,6 +1100,7 @@ __all__ = [
     "_trajectory_nrmse",
     "_window_sample_times",
     "compare_window_payloads",
+    "recompute_b3_metrics",
     "run_b3_qualification",
     "run_b3_worker",
 ]

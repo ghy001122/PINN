@@ -79,8 +79,11 @@ def test_b3_comparison_requires_metrics_topology_and_zero_fallback() -> None:
     }
     reference = _payload(solver="nls", current=[1.0, 2.0])
     candidate = _payload(solver="aa", current=[1.0, 2.0])
+    candidate["scalar_records"][2]["time_s"] += 5.0e-19
     result = compare_window_payloads(reference, candidate, contract)
     assert result["passed"] is True
+    assert result["time_grid_equal"] is True
+    assert result["maximum_time_grid_difference_s"] > 0.0
     candidate["diagnostics"]["fallback_steps"] = 1
     assert compare_window_payloads(reference, candidate, contract)["passed"] is False
 
