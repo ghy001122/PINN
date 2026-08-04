@@ -1,0 +1,138 @@
+task_id: Q2_NLS_REFERENCE_TIME_CONVERGENCE_CLOSURE_V2
+schema_version: geophase_nls_time_convergence_v2
+evidence_type: literature-guided synthetic numerical digital-twin evidence
+
+identity:
+  base_main_commit: 4f98ed5e16ce7a0645a51f83d19ae97414c4c185
+  branch: codex/nls-reference-time-convergence-closure-v2
+  run_id: NLS-TIME-CONVERGENCE-20260804-V2
+  scientific_vote: false
+  formal_execution_count: 0
+
+frozen_inputs:
+  - {path: configs/geophase_b3v2_solution_level.yaml, sha256: b14ae2e3f24db1c42fd2788aaa362d8b0cdc525c926301798ff5f55bfc15701a}
+  - {path: outputs/tables/geophase_b3v2_solution_level/development/workers/quiescent_9V_nls_v1_T1.json, sha256: 4fd77903034d1f010d25b4441a1b9889e8df87a77ef53b5dff48e9dd0de6dc61}
+  - {path: outputs/tables/geophase_b3v2_solution_level/development/workers/quiescent_9V_nls_v1_T1.fields.npz, sha256: 3d276733c93140fc36cda04931a73c6379684db849996e0cb8b87ea7d45ddf74}
+  - {path: outputs/tables/geophase_b3v2_solution_level/development/workers/quiescent_9V_nls_v1_T2.json, sha256: b7ee27f507520bac59b519b0ad10645db5963aad65a30a3b207e29bb25868c1b}
+  - {path: outputs/tables/geophase_b3v2_solution_level/development/workers/quiescent_9V_nls_v1_T2.fields.npz, sha256: 3d276733c93140fc36cda04931a73c6379684db849996e0cb8b87ea7d45ddf74}
+  - {path: outputs/tables/geophase_b3v2_solution_level/development/workers/transition_12p5V_nls_v1_T1.json, sha256: 05a48f144055b3808b4b695fe65f5ff2d5ef2a31d7690e8c010513ec3b1d46e0}
+  - {path: outputs/tables/geophase_b3v2_solution_level/development/workers/transition_12p5V_nls_v1_T1.fields.npz, sha256: 714b7f7517f6bc9ad5ffedf5312d2f9d0279534504bc1908d27d7ff97bfa5fdd}
+  - {path: outputs/tables/geophase_b3v2_solution_level/development/workers/transition_12p5V_nls_v1_T2.json, sha256: ca39d8c49da58f259fd3c2cca5e506691a957b37065f1be224ad5c07e4aa84d6}
+  - {path: outputs/tables/geophase_b3v2_solution_level/development/workers/transition_12p5V_nls_v1_T2.fields.npz, sha256: 60d73c35b2e8a6b090ca5619d9cbdf649bd24cf6cf8bea90c2ea241f1bd7776f}
+  - {path: src/pinnpcm/evaluation/geophase_b3v2_solution_level.py, sha256: d185d5d07d164dc298c4fd7527f30b888587e139284c04d20dbcff59ad398f54}
+  - {path: src/pinnpcm/solvers/geophase_phase1_v2_controller_v2.py, sha256: e4332c5b103072e3de277b8788dbbf2bda48c65636cb5c1d8dd361bc9953f7ed}
+  - {path: src/pinnpcm/solvers/geophase_nls_v1.py, sha256: b3ed80bd95f0835b9c5342bd4fffdc68b224dbf773d58722d51f42a09a621196}
+  - {path: src/pinnpcm/physics/vo2_effective_conductivity.py, sha256: d5e7239d6be3ff02a0326619f2ef23550062627c2e61171c9a0afe35e8df7682}
+  - {path: configs/geophase_phase1_v2_s2_reference_source_corrected_v3.yaml, sha256: ea668ac66c8f2f2267b059bd816a4116def086708f2f7eeded07d64a2857aff4}
+
+scope:
+  rewrite_pr27_or_rerun_t1_t2: forbidden
+  modify_solver_controller_s2_parameters_protocols_or_gates: forbidden
+  t16_second_heldout_second_metric_or_new_solver: forbidden
+  sentinel_b4b_fresh_s0_phase2_or_pinn: forbidden
+  raw_s_b_aggregate_vote: forbidden
+
+paths:
+  output_root: outputs/tables/geophase_nls_time_convergence_v2
+  overlay: configs/geophase_nls_t8_qualification_overlay.yaml
+  prior_workers: outputs/tables/geophase_b3v2_solution_level/development/workers
+
+runtime:
+  implementation_wall_s_max: 3600
+  total_wall_s_max: 10800
+  aggregate_cpu_s_max: 43200
+  worker_wall_s_max: 3600
+  implementation_repair_count_max: 1
+  required_thread_environment:
+    OMP_NUM_THREADS: "1"
+    OPENBLAS_NUM_THREADS: "1"
+    MKL_NUM_THREADS: "1"
+    NUMEXPR_NUM_THREADS: "1"
+    VECLIB_MAXIMUM_THREADS: "1"
+
+recording:
+  sample_interval_s: 5.0e-9
+  format: compressed_npz_lossless
+  temperature_weight: full_domain_area
+  phase_weight: active_vo2_area
+  raw_s_b_role: supplemental_nonvoting
+  phi_joule_role: uncomputed_nonvoting
+
+development:
+  protocol_id: transition_probe_12p5V
+  initial_spec: outputs/tables/geophase_b3v2_solution_level/development/workers/transition_12p5V_nls_v1_T1.spec.json
+  frozen_window_start_s: 1.0510421196050138e-6
+  frozen_window_stop_s: 2.0e-6
+  spatial_level: 1
+  prior_divisors: [1, 2]
+  t4_divisor: 4
+  conditional_t8_divisor: 8
+
+quiescent_check:
+  protocol_id: quiescent_9V
+  initial_spec: outputs/tables/geophase_b3v2_solution_level/development/workers/quiescent_9V_nls_v1_T1.spec.json
+  reference_worker: outputs/tables/geophase_b3v2_solution_level/development/workers/quiescent_9V_nls_v1_T2.json
+  relative_window_s: 5.0e-7
+  spatial_level: 1
+  mean_s_threshold: 0.5
+  required_crossing_count: 0
+
+metrics:
+  temperature_rmse_K: {threshold: 0.05, source: temperature_K, statistic: rmse}
+  temperature_p95_K: {threshold: 0.10, source: temperature_K, statistic: p95}
+  temperature_terminal_p95_K: {threshold: 0.10, source: temperature_K, statistic: terminal_p95}
+  transition_temperature_rmse_K: {threshold: 0.025, source: transition_temperature_K, statistic: rmse}
+  log_conductivity_rmse: {threshold: 0.005, source: log_conductivity, statistic: rmse}
+  terminal_current_nrmse: {threshold: 0.01, source: terminal_current, statistic: nrmse}
+  device_voltage_nrmse: {threshold: 0.005, source: device_voltage, statistic: nrmse}
+
+richardson:
+  minimum_order: 0.7
+  maximum_effective_order: 1.0
+  floor_fraction: 0.10
+
+event_and_loop_gates:
+  event_count_direction_order_exact: true
+  event_absolute_error_s_max: 5.0e-8
+  event_relative_error_max: 0.01
+  ivd_loop_direction_exact: true
+  ivd_loop_relative_area_error_max: 0.05
+  all_root_finite_range_current_power_lateral_ledger_required: true
+
+heldout:
+  unlock_count: 1
+  initial_state: selected_development_endpoint
+  quiescent_9V: {protocol_id: quiescent_9V, relative_window_s: 5.0e-7, required_macro_events: 0}
+  transition_12p5V: {protocol_id: transition_probe_12p5V, relative_window_s: 2.0e-6, required_complete_event_pair: upward_then_downward}
+
+cost:
+  selected_divisor_only: true
+  physical_duration_s: 2.0e-8
+  spatial_levels: [1, 2, 4]
+  regimes: [quiescent_9V, transition_centered_12p5V]
+  repetitions: 3
+  statistic: median
+  projection_safety_factor: 1.10
+  single_trajectory_horizon_s: 2.0e-5
+  single_trajectory_wall_s_max: 21600
+  b4b_aggregate_cpu_s_max: 86400
+  fresh_s0_aggregate_cpu_s_max: 345600
+  fresh_s0_worker_count: 4
+  fresh_s0_calendar_s_max: 86400
+  phase2_aggregate_cpu_s_max: 86400
+  phase2_projection_trajectory_equivalents: 12
+
+routes:
+  t4_pass: PASS_T4
+  t8_unlock: RUN_SINGLE_T8
+  t4_stop: STOP_REFERENCE_NOT_ASYMPTOTIC_OR_INVALID_T4
+  t8_pass: PASS_T8
+  t8_stop: STOP_REFERENCE_TIME_CONVERGENCE_ROUTE
+  quiescent_stop: STOP_SELECTED_LEVEL_BREAKS_QUIESCENT_REGIME
+  heldout_noninformative: INVALID_HELDOUT_NONINFORMATIVE
+  heldout_stop: STOP_2P5D_FORWARD_REFERENCE_ROUTE
+  cost_stop: STOP_2P5D_FORWARD_REFERENCE_COST_ROUTE
+  t4_go: GO_NLS_T4_TO_SINGLE_L1_FULL_CYCLE_SENTINEL
+  t8_go: GO_NLS_T8_TO_SINGLE_L1_FULL_CYCLE_SENTINEL
+  invalid: INVALID_NLS_REFERENCE_CLOSURE_EXECUTION
+

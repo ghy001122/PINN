@@ -1,0 +1,15 @@
+{
+  "base_main_commit": "4f98ed5e16ce7a0645a51f83d19ae97414c4c185",
+  "branch": "codex/nls-reference-time-convergence-closure-v2",
+  "evidence_type": "literature-guided synthetic numerical digital-twin evidence",
+  "files": {
+    "configs/geophase_nls_t8_qualification_overlay.yaml": "689d5c2e951969ab9edc372e3b43c9fb123638fcc83b4c300dbe1c87f8b87c94",
+    "configs/geophase_nls_time_convergence_v2.yaml": "ce3ffe36f1f80749a08cf3a5f8eeb9b033a61e78c3d314687d1e3a9baa1f39fc",
+    "src/pinnpcm/evaluation/geophase_nls_time_convergence_v2.py": "ec30af610edac3436cbed84313c8e3d7c9156c3e421c2da0e8cb651ec21ce882",
+    "tests/test_geophase_nls_time_convergence_v2.py": "e81c7f5c56a1fc884c0201d6af1d41f443736a0247b3e6dcc89aa162f2a5012d"
+  },
+  "formal_execution_count": 0,
+  "prospective_reformulation_timing": "frozen_after_PR27_diagnosis_before_T4",
+  "scientific_vote": false,
+  "task_id": "Q2_NLS_REFERENCE_TIME_CONVERGENCE_CLOSURE_V2"
+}

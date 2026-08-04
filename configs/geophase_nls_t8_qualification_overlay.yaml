@@ -1,0 +1,12 @@
+task_id: Q2_NLS_REFERENCE_TIME_CONVERGENCE_CLOSURE_V2
+schema_version: geophase_nls_t8_qualification_overlay_v1
+identity: nls_reference_time_convergence_t8_qualification_overlay_v1
+base_config: configs/geophase_phase1_v2_s2_reference_source_corrected_v3.yaml
+base_config_sha256: ea668ac66c8f2f2267b059bd816a4116def086708f2f7eeded07d64a2857aff4
+allowed_changes:
+  - qualification_overlay_identity
+  - reference_solver.formal_time_step_divisors
+overrides:
+  qualification_overlay_identity: nls_reference_time_convergence_t8_qualification_overlay_v1
+  reference_solver:
+    formal_time_step_divisors: [1, 2, 4, 8]
