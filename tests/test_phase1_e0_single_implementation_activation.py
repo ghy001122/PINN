@@ -146,15 +146,16 @@ def test_failure_taxonomy_separates_invalid_infrastructure_from_science() -> Non
     assert formal["claim_status"] == "failed_but_informative"
 
 
-def test_current_authority_records_final_rescue_stop_without_unlocking_downstream_work() -> None:
+def test_current_authority_records_b3v2_stop_without_unlocking_downstream_work() -> None:
     active = (ROOT / "docs" / "research_strategy" / "active_phase.md").read_text(encoding="utf-8")
     context = (ROOT / "CODEX_CONTEXT.md").read_text(encoding="utf-8")
     next_actions = (ROOT / "NEXT_ACTIONS.md").read_text(encoding="utf-8")
 
-    checkpoint = "Q2_CONTROLLER_RELEVANCE_B3_VALID_FAIL_FINAL_FORWARD_RESCUE_STOPPED"
+    checkpoint = "Q2_B3V2_REFERENCE_NOT_TIME_REFINED_STOPPED"
     assert checkpoint in active
     assert checkpoint in context
     assert checkpoint in next_actions
     assert "formal_execution_count=0" in active
-    assert "B3_MATCHED_WINDOW_CORRECTNESS_VALID_FAIL" in active
+    assert "STOP_REFERENCE_NOT_TIME_REFINED" in active
+    assert "Q2_CONTROLLER_RELEVANCE_B3_VALID_FAIL_FINAL_FORWARD_RESCUE_STOPPED" in active
     assert "not authorized" in next_actions

@@ -86,8 +86,9 @@ def test_route_only_runner_validates_v3_and_cannot_execute_before_preregistratio
     assert "run_C1" not in runner_source
 
 
-def test_authority_chain_records_final_rescue_stop_and_preserves_old_route_tests() -> None:
-    checkpoint = "Q2_CONTROLLER_RELEVANCE_B3_VALID_FAIL_FINAL_FORWARD_RESCUE_STOPPED"
+def test_authority_chain_records_b3v2_stop_and_preserves_old_route_tests() -> None:
+    checkpoint = "Q2_B3V2_REFERENCE_NOT_TIME_REFINED_STOPPED"
+    authority_texts = []
     for path in (
         ROOT / "CODEX_CONTEXT.md",
         ROOT / "PROJECT_STATE.md",
@@ -95,12 +96,16 @@ def test_authority_chain_records_final_rescue_stop_and_preserves_old_route_tests
         ROOT / "docs" / "research_strategy" / "active_phase.md",
     ):
         text = path.read_text(encoding="utf-8")
+        authority_texts.append(text)
         assert checkpoint in text
         assert "formal_execution_count=0" in text
 
+    preserved_history = "\n".join(authority_texts)
+    assert "Q2_CONTROLLER_RELEVANCE_B3_VALID_FAIL_FINAL_FORWARD_RESCUE_STOPPED" in preserved_history
     active = (ROOT / "docs" / "research_strategy" / "active_phase.md").read_text(
         encoding="utf-8"
     )
+    assert "STOP_REFERENCE_NOT_TIME_REFINED" in active
     assert "B3_MATCHED_WINDOW_CORRECTNESS_VALID_FAIL" in active
     assert "D0" in active
     assert "equivalence" in active
