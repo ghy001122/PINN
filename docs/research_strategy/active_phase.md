@@ -2,9 +2,9 @@
 
 Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
 
-Status: `stopped_b3v2_reference_not_time_refined`
+Status: `stopped_nls_reference_not_asymptotic_t4`
 
-Current checkpoint: `Q2_B3V2_REFERENCE_NOT_TIME_REFINED_STOPPED`
+Current checkpoint: `Q2_NLS_REFERENCE_TIME_CONVERGENCE_V2_STOPPED`
 
 ## Objective And Frozen Authority
 
@@ -21,24 +21,25 @@ history. D0 and equivalence-v1/v2/v3 were not rerun or revised.
 
 ## Actual Result
 
-All four NLS development workers were valid. Quiescent 9 V T1/T2 refinement
-passed exactly. Transition 12.5 V retained matching event topology and timing,
-but failed temperature, conductive-state, branch-memory, current, and voltage
-self-refinement gates. The terminal state is
-`STOP_REFERENCE_NOT_TIME_REFINED`, with `selected_gt_solver=none`.
+PR #27 T1/T2 results remained immutable. The prospective physical-coordinate
+contract was frozen before one valid 12.5 V T4 worker ran. Local, event, and
+signed I-Vd loop gates passed, but `Tc(b)`, `log(sigma)`, and terminal T P95
+were nonmonotonic; only Vd passed its final Richardson estimate. The terminal
+state is `STOP_REFERENCE_NOT_ASYMPTOTIC_OR_INVALID_T4`, with no selected GT
+solver.
 
 ## Lifecycle And Claims
 
-- NLS reference refinement: `numerically_validated`;
+- NLS T1/T2/T4 reference time convergence: `numerically_validated`;
   `failed_but_informative` numerical-method evidence.
 - `scientific_vote=false`; `formal_execution_count=0`.
-- Anderson, held-out, B4, fresh S0, Phase 2, C01/C06, OOD, and positive R1-R3
-  claims were not executed and remain `forbidden`.
+- T8, selected-level 9 V, held-out, cost/sentinel, B4, fresh S0, Phase 2,
+  C01/C06, OOD, and positive R1-R3 claims were not executed and remain
+  `forbidden`.
 
 ## Stop
 
-Do not run Anderson development, unlock the held-out case, run B4/S0, or bypass
-S0 into data generation or training. The only next decision is whether to
-authorize a separate C04 observable-subspace plus constrained `gamma_sub`
-calibration and identifiability-boundary manuscript. It is not authorized here
-and is not a successful 2.5D positive-PINN result.
+Do not run T8, change time metrics, unlock held-out, run cost/sentinel/B4/S0,
+or bypass S0 into data generation or training. Any manuscript reroute requires
+a separate contract and cannot be described as a successful 2.5D positive-PINN
+result.

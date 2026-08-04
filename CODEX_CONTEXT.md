@@ -4,11 +4,11 @@
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
 - Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Checkpoint: `Q2_B3V2_REFERENCE_NOT_TIME_REFINED_STOPPED`.
-- Active disposition: `STOP_REFERENCE_NOT_TIME_REFINED`.
+- Checkpoint: `Q2_NLS_REFERENCE_TIME_CONVERGENCE_V2_STOPPED`.
+- Active disposition: `STOP_REFERENCE_NOT_ASYMPTOTIC_OR_INVALID_T4`.
 - Selected GT solver: `none`.
-- Execution base: `main@51898e4406916b3675cb74f4888bf3986e0c76a1`.
-- Result branch: `codex/b3v2-continuum-final-gt-route`.
+- Execution base: `main@4f98ed5e16ce7a0645a51f83d19ae97414c4c185`.
+- Result branch: `codex/nls-reference-time-convergence-closure-v2`.
 
 The B3v2 task treated historical adaptive-path reversal lists as supplemental
 telemetry and tested solution-level NLS self-refinement before any Anderson
@@ -22,22 +22,23 @@ The delivery ladder remains minimum R1 `HysGeo-Hybrid-PINN`, preferred R2
 `GeoPhase-HomoMoE-PINN`, and conditional R3. None is unlocked or supported by
 the current result.
 
-## B3v2 Result
+## NLS Time-Convergence v2 Result
 
-Four valid NLS-v1 development workers completed. The 9 V T1/T2 fields and port
-traces were identical. At 12.5 V, temperature RMSE was `0.1680477625 K`
-against `0.05 K`, conductive-state RMSE was `0.00255163054` against `0.0005`,
-branch-memory RMSE was `0.01416810089` against `0.0005`, current NRMSE was
-`0.01977322760` against `0.01`, and voltage NRMSE was `0.00902650893` against
-`0.005`. Event topology and timing passed.
+PR #27 T1/T2 atoms were reused without rerun. One valid 12.5 V T4 worker
+completed. Local integrity, event, and signed I-Vd loop gates passed, but
+`Tc(b)`, production white-box `log(sigma)`, and terminal-temperature P95 were
+nonmonotonic. Temperature RMSE and current NRMSE were monotonic, but their
+Richardson estimates remained above gate (`0.0984677 > 0.05 K` and
+`0.0107354 > 0.01`).
 
-The terminal disposition is `STOP_REFERENCE_NOT_TIME_REFINED`. Anderson,
-held-out evaluation, B4a/B4b, fresh S0, Phase 2, MLP, vanilla PINN, C01, C06,
-OOD, and manuscript-result execution were not started.
+The terminal disposition is `STOP_REFERENCE_NOT_ASYMPTOTIC_OR_INVALID_T4`.
+T8, selected-level 9 V, held-out, cost profiling, sentinel, B4b, fresh S0,
+Phase 2, MLP, vanilla PINN, C01, C06, OOD, and manuscript-result execution were
+not started.
 
 ## Claim Boundary
 
-- B3v2 NLS reference refinement: `numerically_validated`;
+- NLS T1/T2/T4 reference time convergence: `numerically_validated`;
   `failed_but_informative` numerical-method evidence.
 - `scientific_vote=false`; `formal_execution_count=0`.
 - Selected GT solver is `none`; all downstream positive claims remain
@@ -45,6 +46,6 @@ OOD, and manuscript-result execution were not started.
 
 This is not an S2 physical failure, Phase 1 scientific result, campaign-cost
 result, PINN result, Qiu quantitative reproduction, or experimental
-validation. Do not run Anderson, unlock held-out cases, run B4/S0, or generate
-training data under this task. Read
+validation. Do not run T8, unlock held-out cases, run cost/sentinel/B4/S0, or
+generate training data under this task. Read
 `docs/research_strategy/context_loading_policy.md` before loading long history.

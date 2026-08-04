@@ -1,0 +1,296 @@
+{
+  "aggregate_cpu_time_s": 66.296875,
+  "assessment": {
+    "convergence_pass": false,
+    "estimate_pass": false,
+    "event_pass": true,
+    "local_integrity_pass": true,
+    "loop_pass": true,
+    "metrics": {
+      "device_voltage_nrmse": {
+        "coarse_mid_error": 0.009026508927768849,
+        "effective_order": 0.9642097835670406,
+        "estimate_pass": true,
+        "fine_error_estimate": 0.0048650319746259985,
+        "floor_resolved": false,
+        "mid_fine_error": 0.004626619128363412,
+        "monotonic": true,
+        "observed_order": 0.9642097835670406,
+        "order_pass": true,
+        "passed": true,
+        "threshold": 0.005
+      },
+      "log_conductivity_rmse": {
+        "coarse_mid_error": 0.012423904173013797,
+        "effective_order": -0.2169871389656551,
+        "estimate_pass": false,
+        "fine_error_estimate": 1e+300,
+        "floor_resolved": false,
+        "mid_fine_error": 0.014440350360374837,
+        "monotonic": false,
+        "observed_order": -0.2169871389656551,
+        "order_pass": false,
+        "passed": false,
+        "threshold": 0.005
+      },
+      "temperature_p95_K": {
+        "coarse_mid_error": 0.38756098888109136,
+        "effective_order": 0.9159038718921231,
+        "estimate_pass": false,
+        "fine_error_estimate": 0.23164553674836263,
+        "floor_resolved": false,
+        "mid_fine_error": 0.20541186077707607,
+        "monotonic": true,
+        "observed_order": 0.9159038718921231,
+        "order_pass": true,
+        "passed": false,
+        "threshold": 0.1
+      },
+      "temperature_rmse_K": {
+        "coarse_mid_error": 0.16804776254426904,
+        "effective_order": 0.9250843382110886,
+        "estimate_pass": false,
+        "fine_error_estimate": 0.09846770966296567,
+        "floor_resolved": false,
+        "mid_fine_error": 0.08850230873236704,
+        "monotonic": true,
+        "observed_order": 0.9250843382110886,
+        "order_pass": true,
+        "passed": false,
+        "threshold": 0.05
+      },
+      "temperature_terminal_p95_K": {
+        "coarse_mid_error": 0.02874296428200296,
+        "effective_order": -0.4698633596841273,
+        "estimate_pass": false,
+        "fine_error_estimate": 1e+300,
+        "floor_resolved": false,
+        "mid_fine_error": 0.039808381464581544,
+        "monotonic": false,
+        "observed_order": -0.4698633596841273,
+        "order_pass": false,
+        "passed": false,
+        "threshold": 0.1
+      },
+      "terminal_current_nrmse": {
+        "coarse_mid_error": 0.019773227595668956,
+        "effective_order": 0.9607553043971522,
+        "estimate_pass": false,
+        "fine_error_estimate": 0.010735429716501549,
+        "floor_resolved": false,
+        "mid_fine_error": 0.01015924421045225,
+        "monotonic": true,
+        "observed_order": 0.9607553043971522,
+        "order_pass": true,
+        "passed": false,
+        "threshold": 0.01
+      },
+      "transition_temperature_rmse_K": {
+        "coarse_mid_error": 0.05100516319107095,
+        "effective_order": -0.7771034423932288,
+        "estimate_pass": false,
+        "fine_error_estimate": 1e+300,
+        "floor_resolved": false,
+        "mid_fine_error": 0.08740687376265259,
+        "monotonic": false,
+        "observed_order": -0.7771034423932288,
+        "order_pass": false,
+        "passed": false,
+        "threshold": 0.025
+      }
+    },
+    "passed": false
+  },
+  "claim_status": "failed_but_informative",
+  "comparisons": {
+    "T1_T2": {
+      "event_gate": {
+        "maximum_absolute_error_s": 6.687642996989263e-10,
+        "maximum_relative_error": 0.0006073848684864308,
+        "passed": true,
+        "sequence_equal": true
+      },
+      "local_integrity_pass": true,
+      "loop_gate": {
+        "candidate_area": 0.6476644991645948,
+        "direction_equal": true,
+        "informative": true,
+        "passed": true,
+        "reference_area": 0.6366251841943686,
+        "relative_area_error": 0.017340367997216586
+      },
+      "macro_events": {
+        "candidate": [
+          {
+            "crossing_time_s": 1.1017240167386503e-06,
+            "direction": "upward"
+          },
+          {
+            "crossing_time_s": 1.978226839664123e-06,
+            "direction": "downward"
+          }
+        ],
+        "comparison": {
+          "maximum_absolute_error_s": 6.687642996989263e-10,
+          "maximum_relative_error": 0.0006073848684864308,
+          "sequence_equal": true
+        },
+        "reference": [
+          {
+            "crossing_time_s": 1.1010552524389513e-06,
+            "direction": "upward"
+          },
+          {
+            "crossing_time_s": 1.9787382211691345e-06,
+            "direction": "downward"
+          }
+        ]
+      },
+      "passed": true,
+      "raw_reversal_voting": false,
+      "report_only": {
+        "log_conductivity": {
+          "maximum": 0.040981820131321456,
+          "p95": 0.025207681042988206,
+          "rmse": 0.012423904173013797,
+          "terminal_p95": 0.007985918275956294
+        },
+        "raw_fields": {
+          "branch_memory": {
+            "maximum": 0.1732535283523683,
+            "p95": 0.0014286434067595222,
+            "rmse": 0.014168100886408666,
+            "terminal_p95": 0.003786154124412189
+          },
+          "conductive_state": {
+            "maximum": 0.008520687739518973,
+            "p95": 0.004899490089025016,
+            "rmse": 0.0025516305371911427,
+            "terminal_p95": 0.0014596066793350904
+          }
+        },
+        "transition_temperature_K": {
+          "maximum": 0.6237127020685307,
+          "p95": 0.005143116264321179,
+          "rmse": 0.05100516319107095,
+          "terminal_p95": 0.01363015484787411
+        }
+      },
+      "time_grid_equal": true,
+      "voting_metrics": {
+        "device_voltage_nrmse": 0.009026508927768849,
+        "log_conductivity_rmse": 0.012423904173013797,
+        "temperature_p95_K": 0.38756098888109136,
+        "temperature_rmse_K": 0.16804776254426904,
+        "temperature_terminal_p95_K": 0.02874296428200296,
+        "terminal_current_nrmse": 0.019773227595668956,
+        "transition_temperature_rmse_K": 0.05100516319107095
+      }
+    },
+    "T2_T4": {
+      "event_gate": {
+        "maximum_absolute_error_s": 3.096755106953794e-09,
+        "maximum_relative_error": 0.0015654196196628197,
+        "passed": true,
+        "sequence_equal": true
+      },
+      "local_integrity_pass": true,
+      "loop_gate": {
+        "candidate_area": 0.6398994080910745,
+        "direction_equal": true,
+        "informative": true,
+        "passed": true,
+        "reference_area": 0.6344131521947949,
+        "relative_area_error": 0.008647765068078319
+      },
+      "macro_events": {
+        "candidate": [
+          {
+            "crossing_time_s": 1.1020587747340847e-06,
+            "direction": "upward"
+          },
+          {
+            "crossing_time_s": 1.981323594771077e-06,
+            "direction": "downward"
+          }
+        ],
+        "comparison": {
+          "maximum_absolute_error_s": 3.096755106953794e-09,
+          "maximum_relative_error": 0.0015654196196628197,
+          "sequence_equal": true
+        },
+        "reference": [
+          {
+            "crossing_time_s": 1.1017240167386503e-06,
+            "direction": "upward"
+          },
+          {
+            "crossing_time_s": 1.9782268396641234e-06,
+            "direction": "downward"
+          }
+        ]
+      },
+      "passed": true,
+      "raw_reversal_voting": false,
+      "report_only": {
+        "log_conductivity": {
+          "maximum": 0.30917735857334705,
+          "p95": 0.01576430898920833,
+          "rmse": 0.014440350360374837,
+          "terminal_p95": 0.01865697405897926
+        },
+        "raw_fields": {
+          "branch_memory": {
+            "maximum": 0.5846858355906688,
+            "p95": 0.004510027224517099,
+            "rmse": 0.02427968715629237,
+            "terminal_p95": 0.026988084237912546
+          },
+          "conductive_state": {
+            "maximum": 0.06172512649820111,
+            "p95": 0.003400112749289752,
+            "rmse": 0.002902626704156249,
+            "terminal_p95": 0.0036946389663388146
+          }
+        },
+        "transition_temperature_K": {
+          "maximum": 2.1048690081264567,
+          "p95": 0.01623609800833492,
+          "rmse": 0.08740687376265259,
+          "terminal_p95": 0.09715710325644977
+        }
+      },
+      "time_grid_equal": true,
+      "voting_metrics": {
+        "device_voltage_nrmse": 0.004626619128363412,
+        "log_conductivity_rmse": 0.014440350360374837,
+        "temperature_p95_K": 0.20541186077707607,
+        "temperature_rmse_K": 0.08850230873236704,
+        "temperature_terminal_p95_K": 0.039808381464581544,
+        "terminal_current_nrmse": 0.01015924421045225,
+        "transition_temperature_rmse_K": 0.08740687376265259
+      }
+    }
+  },
+  "development_refinement": null,
+  "disposition": "STOP_REFERENCE_NOT_ASYMPTOTIC_OR_INVALID_T4",
+  "evidence_type": "literature-guided synthetic numerical digital-twin evidence",
+  "formal_execution_count": 0,
+  "lifecycle_state": "numerically_validated",
+  "new_run_count": 1,
+  "prospective_reformulation_timing": "frozen_after_PR27_diagnosis_before_T4",
+  "qualification_time_divisor": null,
+  "route": "STOP",
+  "run_id": "NLS-TIME-CONVERGENCE-20260804-V2",
+  "schema_version": "geophase_nls_time_convergence_summary_v2",
+  "scientific_vote": false,
+  "stage": "development_t4",
+  "task_id": "Q2_NLS_REFERENCE_TIME_CONVERGENCE_CLOSURE_V2",
+  "validity": "valid",
+  "wall_time_s": 163.01752130000386,
+  "worker_paths": {
+    "T1": "outputs/tables/geophase_b3v2_solution_level/development/workers/transition_12p5V_nls_v1_T1.json",
+    "T2": "outputs/tables/geophase_b3v2_solution_level/development/workers/transition_12p5V_nls_v1_T2.json",
+    "T4": "outputs/tables/geophase_nls_time_convergence_v2/development/workers/transition_12p5V_nls_v1_T4.json"
+  }
+}

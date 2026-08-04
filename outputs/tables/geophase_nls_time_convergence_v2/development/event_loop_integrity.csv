@@ -1,0 +1,3 @@
+comparison,local_integrity_pass,event_pass,loop_pass,loop_relative_area_error
+T1_T2,true,true,true,0.017340367997216586
+T2_T4,true,true,true,0.008647765068078319

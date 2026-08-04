@@ -1,0 +1,40 @@
+{
+  "aggregate_cpu_time_s": 66.296875,
+  "anchor_commit": "38b4d692473bd1ecfe0c7277810e924622b1f7ee",
+  "claim_status": "failed_but_informative",
+  "contract_sha256": "ce3ffe36f1f80749a08cf3a5f8eeb9b033a61e78c3d314687d1e3a9baa1f39fc",
+  "development": {
+    "event_pass": true,
+    "estimate_pass": false,
+    "local_integrity_pass": true,
+    "loop_pass": true,
+    "nonmonotonic_metrics": [
+      "temperature_terminal_p95_K",
+      "transition_temperature_rmse_K",
+      "log_conductivity_rmse"
+    ],
+    "order_pass": false,
+    "passed_metrics": [
+      "device_voltage_nrmse"
+    ],
+    "qualification_time_divisor": null,
+    "summary": "outputs/tables/geophase_nls_time_convergence_v2/development/development_summary.json"
+  },
+  "disposition": "STOP_REFERENCE_NOT_ASYMPTOTIC_OR_INVALID_T4",
+  "downstream": {
+    "cost_preflight": "forbidden_not_unlocked",
+    "heldout": "forbidden_not_unlocked",
+    "quiescent_selected_level": "forbidden_not_unlocked",
+    "t8": "forbidden_not_unlocked"
+  },
+  "evidence_type": "literature-guided synthetic numerical digital-twin evidence",
+  "formal_execution_count": 0,
+  "lifecycle_state": "numerically_validated",
+  "new_run_count": 1,
+  "pr": "https://github.com/ghy001122/PINN/pull/28",
+  "route": "STOP",
+  "scientific_vote": false,
+  "task_id": "Q2_NLS_REFERENCE_TIME_CONVERGENCE_CLOSURE_V2",
+  "validity": "valid",
+  "wall_time_s": 163.01752130000386
+}
