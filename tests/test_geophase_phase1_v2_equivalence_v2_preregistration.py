@@ -165,8 +165,8 @@ def test_equivalence_v2_machine_preregistration_is_content_addressed_and_zero() 
     assert record["formal_artifact_count"] == 0
 
 
-def test_b3v2_terminal_route_preserves_consumed_v2_gate() -> None:
-    checkpoint = "Q2_B3V2_REFERENCE_NOT_TIME_REFINED_STOPPED"
+def test_nls_time_convergence_terminal_route_preserves_consumed_v2_gate() -> None:
+    checkpoint = "Q2_NLS_REFERENCE_TIME_CONVERGENCE_V2_STOPPED"
     authority_texts = []
     for path in (
         ROOT / "CODEX_CONTEXT.md",

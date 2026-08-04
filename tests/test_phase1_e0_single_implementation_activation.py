@@ -151,11 +151,11 @@ def test_current_authority_records_b3v2_stop_without_unlocking_downstream_work()
     context = (ROOT / "CODEX_CONTEXT.md").read_text(encoding="utf-8")
     next_actions = (ROOT / "NEXT_ACTIONS.md").read_text(encoding="utf-8")
 
-    checkpoint = "Q2_B3V2_REFERENCE_NOT_TIME_REFINED_STOPPED"
+    checkpoint = "Q2_NLS_REFERENCE_TIME_CONVERGENCE_V2_STOPPED"
     assert checkpoint in active
     assert checkpoint in context
     assert checkpoint in next_actions
     assert "formal_execution_count=0" in active
-    assert "STOP_REFERENCE_NOT_TIME_REFINED" in active
+    assert "STOP_REFERENCE_NOT_ASYMPTOTIC_OR_INVALID_T4" in active
     assert "Q2_CONTROLLER_RELEVANCE_B3_VALID_FAIL_FINAL_FORWARD_RESCUE_STOPPED" in active
     assert "not authorized" in next_actions

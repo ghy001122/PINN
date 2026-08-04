@@ -21,6 +21,7 @@ evidence unless provenance explicitly says otherwise.
 | Controller-relevance R0/R1/R2 | `qualified_supported` bounded numerical-method evidence; no science vote | R0 production-controller audit routed the 9 V floor root to R1; R1 passed contraction; the sole safeguarded-Anderson identity formed certified bundles at the fixed 9 V and critical-transition states |
 | Final-rescue B3 matched windows | `failed_but_informative` numerical-method consistency evidence; no science vote | Port/event gates pass in both windows and 12.5 V reversal order is exact; 9 V reversal order fails with 417 NLS-v1 versus 364 Anderson records and first direction mismatch at index 11; performance timing, B4, S0, data, and training were not started |
 | B3v2 solution-level reference refinement | `failed_but_informative` numerical-method evidence; no science vote | Four valid NLS T1/T2 workers: 9 V is identical, but 12.5 V field and port gates fail despite passing transition-event topology/timing; `STOP_REFERENCE_NOT_TIME_REFINED`, selected GT solver none, Anderson/held-out/B4/S0/data/training not executed |
+| NLS reference time-convergence closure v2 | `failed_but_informative` numerical-method evidence; no science vote | PR #27 T1/T2 atoms were reused unchanged; one valid 12.5 V T4 worker passed local/event/signed-loop gates, but `Tc(b)`, production `log(sigma)`, and terminal T P95 were nonmonotonic and only Vd passed its final Richardson estimate; `STOP_REFERENCE_NOT_ASYMPTOTIC_OR_INVALID_T4`; T8 and downstream were not executed |
 | Phase 1-v2 contract | `supported` preregistration fact | S2 YAML, v2 contract, 63-item manifest, stage YAML |
 | S2 implementation/smoke | `supported` software fact | solver/tests; 7/7 non-voting smoke; formal zero |
 | Source audit | `supported` bounded provenance | no eligible holdout found; no fitting/validation |
@@ -61,7 +62,7 @@ details through the claim matrix, experiment registry, and named reports.
 
 | Candidate | Status | Required predecessor |
 | --- | --- | --- |
-| Performance-efficient reduced nonlinear solver | stopped / not authorized | the final bounded identity failed B3 exact reversal consistency; do not tune, add another solver, run B4/S0, or bypass S0 |
+| 2.5D NLS reference route | stopped / not authorized | the prospective T1/T2/T4 physical-coordinate contract was not asymptotic; do not run T8/T16, change metrics, add another held-out/solver, run B4/S0, or bypass S0 |
 | Phase 1-v2 conservative reference | `forbidden` | all gates in an authorized formal campaign |
 | S1 production kernel | `forbidden` | eligible holdout, authorized ingestion, passed MVE/effect gate |
 | Nonzero dual-device coupling | `forbidden` | explicit/high-order-validated substrate coupling and independent gates |
@@ -85,6 +86,6 @@ VO2-to-NbO2 zero-shot transfer.
 - Strategy: canonical execution guide.
 - Claims: `docs/paper/final_claim_matrix.md`.
 - History: `docs/archive/README.md`, registries, and named reports.
-- Boundary: v1/v2/v3, prior E0, prior S0 V1/V2, controller-v3, and NLS-v1
-  evidence remain immutable. No retry, third controller policy, formal S0,
-  Phase 2, or PINN is authorized now.
+- Boundary: v1/v2/v3, prior E0, prior S0 V1/V2, controller-v3, NLS-v1, PR #27
+  T1/T2, and this T4 evidence remain immutable. No T8/T16, new time metric,
+  formal S0, Phase 2, or PINN is authorized now.

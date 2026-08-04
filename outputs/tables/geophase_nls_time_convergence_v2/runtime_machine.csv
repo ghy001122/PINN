@@ -1,0 +1,2 @@
+case_id,processor_identifier,logical_processors,os,python,numpy,scipy,thread_policy,wall_time_s,cpu_time_s,accepted_steps,fallback_steps,output_count,completed,local_pass
+NLS-TIME-DEV-TRANSITION-12P5V-T4,"Intel64 Family 6 Model 154 Stepping 4, GenuineIntel",12,"Microsoft Windows NT 10.0.26200.0",3.11.9,1.26.4,1.13.1,BLAS_OMP_NUMEXPR_1,157.20666759996675,66.296875,394,13,191,true,true
