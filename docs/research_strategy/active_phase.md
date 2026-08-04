@@ -2,52 +2,43 @@
 
 Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
 
-Status: `stopped_b3_matched_window_reversal_topology_failure`
+Status: `stopped_b3v2_reference_not_time_refined`
 
-Current checkpoint:
-`Q2_CONTROLLER_RELEVANCE_B3_VALID_FAIL_FINAL_FORWARD_RESCUE_STOPPED`
+Current checkpoint: `Q2_B3V2_REFERENCE_NOT_TIME_REFINED_STOPPED`
 
 ## Objective And Frozen Authority
 
-The completed task was the final bounded controller-relevance rescue after PR
-#25 D0. It permitted production-controller R0, a conditional contraction audit,
-one safeguarded-Anderson identity, and downstream work only after every gate
-passed. D0, exact-condensed v1, NLS-v1, controller-v2, S2, protocols,
-thresholds, equivalence history, and Frozen GT remained read-only.
+B3v2 was the final bounded solution-level validity and GT-selection route. It
+made adaptive-path reversal telemetry non-voting for this new task and required
+NLS-v1 to pass its own T1/T2 full-field, port, integrity, and transition-event
+gates before Anderson could run. Historical B3 and all solver/controller/S2
+identities remained read-only.
+
+The superseded checkpoint
+`Q2_CONTROLLER_RELEVANCE_B3_VALID_FAIL_FINAL_FORWARD_RESCUE_STOPPED` and its
+`B3_MATCHED_WINDOW_CORRECTNESS_VALID_FAIL` disposition remain immutable
+history. D0 and equivalence-v1/v2/v3 were not rerun or revised.
 
 ## Actual Result
 
-R0 reached the active 9 V floor with a nonlinear certification failure and
-routed correctly to R1. R1 passed its preregistered local contraction gate. R2
-then certified the sole safeguarded-Anderson identity on both fixed controller
-qualification states.
-
-B3 formed a valid matched-window result. Both methods passed local integrity,
-terminal-current and device-voltage NRMSE, and event timing/topology gates in
-the 9 V and 12.5 V windows. The 12.5 V reversal sequence also matched. The 9 V
-reversal sequence did not: NLS-v1 produced 417 records and Anderson 364, with
-the first direction mismatch at zero-based index 11.
-
-Terminal state: `B3_MATCHED_WINDOW_CORRECTNESS_VALID_FAIL`.
+All four NLS development workers were valid. Quiescent 9 V T1/T2 refinement
+passed exactly. Transition 12.5 V retained matching event topology and timing,
+but failed temperature, conductive-state, branch-memory, current, and voltage
+self-refinement gates. The terminal state is
+`STOP_REFERENCE_NOT_TIME_REFINED`, with `selected_gt_solver=none`.
 
 ## Lifecycle And Claims
 
-- R1 contraction audit: `numerically_validated`; `qualified_supported` within
-  its frozen terminal-root context.
-- R2 controller qualification: `numerically_validated`;
-  `qualified_supported` at its two fixed states.
-- B3: `numerically_validated`; `failed_but_informative` numerical-method
-  consistency evidence.
+- NLS reference refinement: `numerically_validated`;
+  `failed_but_informative` numerical-method evidence.
 - `scientific_vote=false`; `formal_execution_count=0`.
-- B4, fresh S0, Phase 2, C01/C06, OOD, and positive R1-R3 claims are unexecuted
-  and `forbidden`.
+- Anderson, held-out, B4, fresh S0, Phase 2, C01/C06, OOD, and positive R1-R3
+  claims were not executed and remain `forbidden`.
 
 ## Stop
 
-The final forward-solver rescue is consumed and stopped. Do not tune the
-reversal detector, change the 9 V window, relax exact topology, add a second
-solver, run B4/S0, or bypass S0 into data generation or training. A separate
-C04 observable-subspace plus constrained `gamma_sub` calibration and
-identifiability-boundary manuscript is only a recommendation for a future
-decision; it is not authorized here and cannot be represented as the intended
-2.5D positive-PINN R1 result.
+Do not run Anderson development, unlock the held-out case, run B4/S0, or bypass
+S0 into data generation or training. The only next decision is whether to
+authorize a separate C04 observable-subspace plus constrained `gamma_sub`
+calibration and identifiability-boundary manuscript. It is not authorized here
+and is not a successful 2.5D positive-PINN result.

@@ -165,8 +165,8 @@ def test_equivalence_v2_machine_preregistration_is_content_addressed_and_zero() 
     assert record["formal_artifact_count"] == 0
 
 
-def test_final_rescue_terminal_route_preserves_consumed_v2_gate() -> None:
-    checkpoint = "Q2_CONTROLLER_RELEVANCE_B3_VALID_FAIL_FINAL_FORWARD_RESCUE_STOPPED"
+def test_b3v2_terminal_route_preserves_consumed_v2_gate() -> None:
+    checkpoint = "Q2_B3V2_REFERENCE_NOT_TIME_REFINED_STOPPED"
     authority_texts = []
     for path in (
         ROOT / "CODEX_CONTEXT.md",
@@ -179,6 +179,7 @@ def test_final_rescue_terminal_route_preserves_consumed_v2_gate() -> None:
         assert checkpoint in text
 
     preserved_history = "\n".join(authority_texts)
+    assert "Q2_CONTROLLER_RELEVANCE_B3_VALID_FAIL_FINAL_FORWARD_RESCUE_STOPPED" in preserved_history
     assert "Equivalence-v1/v2/v3 remain immutable" in preserved_history
     assert "non-retryable" in preserved_history
     assert "equivalence-v4/v5" in preserved_history.lower()

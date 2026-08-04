@@ -4,56 +4,47 @@
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
 - Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Checkpoint: `Q2_CONTROLLER_RELEVANCE_B3_VALID_FAIL_FINAL_FORWARD_RESCUE_STOPPED`.
-- Active disposition: `B3_MATCHED_WINDOW_CORRECTNESS_VALID_FAIL`.
-- Route: `STOP_FINAL_FORWARD_SOLVER_RESCUE`.
-- Execution base: `main@1c9758ef151299a4694b4edcc81dd48feec704ba`.
-- Result branch: `codex/controller-relevance-final-forward-rescue`.
+- Checkpoint: `Q2_B3V2_REFERENCE_NOT_TIME_REFINED_STOPPED`.
+- Active disposition: `STOP_REFERENCE_NOT_TIME_REFINED`.
+- Selected GT solver: `none`.
+- Execution base: `main@51898e4406916b3675cb74f4888bf3986e0c76a1`.
+- Result branch: `codex/b3v2-continuum-final-gt-route`.
 
-The delivery ladder remains minimum R1 `HysGeo-Hybrid-PINN`, preferred R2
-`GeoPhase-HomoMoE-PINN`, and conditional R3; none has positive execution
-evidence.
-
-PR #25 D0, exact-condensed v1, NLS-v1, controller-v2, S2 equations and
-parameters, protocols, equivalence-v1/v2/v3, and Frozen GT v1.1 remain
-unchanged. The D0 conclusion remains historical bounded evidence and was not
-rerun.
+The B3v2 task treated historical adaptive-path reversal lists as supplemental
+telemetry and tested solution-level NLS self-refinement before any Anderson
+comparison. PR #26-era B3, its solvers/controllers, S2, parameters, protocols,
+equivalence history, and Frozen GT remained unchanged.
 
 Equivalence-v1/v2/v3 remain immutable and non-retryable; equivalence-v4/v5 is
 forbidden.
 
-## Final Rescue Result
+The delivery ladder remains minimum R1 `HysGeo-Hybrid-PINN`, preferred R2
+`GeoPhase-HomoMoE-PINN`, and conditional R3. None is unlocked or supported by
+the current result.
 
-- R0 routed the real 9 V floor-terminal nonlinear failure to R1; the fixed
-  12.5 V critical-transition fixture accepted.
-- R1 passed its frozen contraction gate: last-four geometric-mean defect ratio
-  `0.4995588`, step-8/initial defect `0.0038959`, spectral radius `0.5000018`,
-  and maximum power norm `0.5000018`.
-- R2's sole safeguarded-Anderson identity formed certified controller bundles
-  at the two fixed qualification states: 9 V at `0.625 ns` and the critical
-  fixture at `0.15625 ns`.
-- B3 passed port and event consistency in both matched windows and passed the
-  complete 12.5 V reversal sequence. The 9 V reversal sequence failed exact
-  consistency: NLS-v1 published 417 records, Anderson 364, with the first
-  direction mismatch at zero-based index 11.
+## B3v2 Result
 
-The terminal disposition is therefore
-`B3_MATCHED_WINDOW_CORRECTNESS_VALID_FAIL`. Performance timing, B4, fresh S0,
-Phase 2, MLP, vanilla PINN, C01, C06, OOD, and manuscript-result execution were
-not started.
+Four valid NLS-v1 development workers completed. The 9 V T1/T2 fields and port
+traces were identical. At 12.5 V, temperature RMSE was `0.1680477625 K`
+against `0.05 K`, conductive-state RMSE was `0.00255163054` against `0.0005`,
+branch-memory RMSE was `0.01416810089` against `0.0005`, current NRMSE was
+`0.01977322760` against `0.01`, and voltage NRMSE was `0.00902650893` against
+`0.005`. Event topology and timing passed.
+
+The terminal disposition is `STOP_REFERENCE_NOT_TIME_REFINED`. Anderson,
+held-out evaluation, B4a/B4b, fresh S0, Phase 2, MLP, vanilla PINN, C01, C06,
+OOD, and manuscript-result execution were not started.
 
 ## Claim Boundary
 
-- R1 and R2: `numerically_validated`; `qualified_supported` only at their
-  frozen audit/qualification states.
-- B3: `numerically_validated`; `failed_but_informative` numerical-method
-  consistency evidence.
+- B3v2 NLS reference refinement: `numerically_validated`;
+  `failed_but_informative` numerical-method evidence.
 - `scientific_vote=false`; `formal_execution_count=0`.
-- B4/S0/Phase 2/C01/C06/R1-R3 positive claims remain `forbidden`.
+- Selected GT solver is `none`; all downstream positive claims remain
+  `forbidden`.
 
-This is not an S2 physical failure, a Phase 1 scientific result, a runtime or
-campaign-cost result, a PINN result, Qiu quantitative reproduction, or
-experimental validation. Do not tune reversal detection, change the matched
-window, relax topology, add a solver, run B4/S0, or generate training data
-under this task. Read `docs/research_strategy/context_loading_policy.md` before
-loading long history.
+This is not an S2 physical failure, Phase 1 scientific result, campaign-cost
+result, PINN result, Qiu quantitative reproduction, or experimental
+validation. Do not run Anderson, unlock held-out cases, run B4/S0, or generate
+training data under this task. Read
+`docs/research_strategy/context_loading_policy.md` before loading long history.

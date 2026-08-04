@@ -3,21 +3,18 @@
 ## Authoritative Current Queue
 
 - Phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Checkpoint: `Q2_CONTROLLER_RELEVANCE_B3_VALID_FAIL_FINAL_FORWARD_RESCUE_STOPPED`.
-- Disposition: `B3_MATCHED_WINDOW_CORRECTNESS_VALID_FAIL`.
-- R1 contraction and R2 fixed-state controller qualification passed within
-  their bounded scopes.
-- B3 port/event consistency passed in both windows and 12.5 V reversal
-  consistency passed, but 9 V exact reversal direction/order failed: 417 NLS-v1
-  records versus 364 Anderson records, first mismatch at zero-based index 11.
-- Performance timing, B4, fresh S0, Phase 2, MLP, vanilla PINN, C01/C06, OOD,
+- Checkpoint: `Q2_B3V2_REFERENCE_NOT_TIME_REFINED_STOPPED`.
+- Disposition: `STOP_REFERENCE_NOT_TIME_REFINED`.
+- Selected GT solver: `none`.
+- 9 V NLS T1/T2 refinement passed; 12.5 V field and port refinement failed
+  while transition event topology/timing passed.
+- Anderson, held-out, B4, fresh S0, Phase 2, MLP, vanilla PINN, C01/C06, OOD,
   and manuscript-result execution were not started.
 - `scientific_vote=false`; `formal_execution_count=0`.
 
 ## Single Next Priority
 
-Do not retry or tune the final forward-solver rescue. The only next decision is
-whether a separately contracted C04 observable-subspace plus constrained
-`gamma_sub` calibration and identifiability-boundary contingency manuscript is
-worth activating. It is not authorized by the current task and would be a
-different paper identity, not a successful 2.5D positive-PINN R1 route.
+Do not retry or tune the 2.5D forward reference-solver route. Decide only
+whether to authorize a separately contracted C04 observable-subspace plus
+constrained `gamma_sub` calibration and identifiability-boundary contingency
+manuscript. It is a different paper identity and is not authorized here.

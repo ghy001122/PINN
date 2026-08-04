@@ -1,0 +1,7 @@
+comparison,field,maximum,p95,regime,rmse,terminal_p95
+nls_self_refinement,temperature_K,0.0,0.0,quiescent_9V,0.0,0.0
+nls_self_refinement,conductive_state,0.0,0.0,quiescent_9V,0.0,0.0
+nls_self_refinement,branch_memory,0.0,0.0,quiescent_9V,0.0,0.0
+nls_self_refinement,temperature_K,0.3990236590540803,0.38756098888109136,transition_12p5V,0.16804776254426904,0.02874296428200296
+nls_self_refinement,conductive_state,0.008520687739518973,0.004899490089025016,transition_12p5V,0.0025516305371911427,0.0014596066793350904
+nls_self_refinement,branch_memory,0.1732535283523683,0.0014286434067595222,transition_12p5V,0.014168100886408666,0.003786154124412189

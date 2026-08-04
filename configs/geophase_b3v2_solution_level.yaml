@@ -1,0 +1,147 @@
+task_id: Q2_B3V2_SOLUTION_LEVEL_VALIDITY_AND_FINAL_GT_ROUTE
+schema_version: geophase_b3v2_solution_level_v1
+evidence_type: literature-guided synthetic numerical digital-twin evidence
+
+identity:
+  base_main_commit: 51898e4406916b3675cb74f4888bf3986e0c76a1
+  branch: codex/b3v2-continuum-final-gt-route
+  run_id: B3V2-SOLUTION-LEVEL-20260804-V1
+  scientific_vote: false
+  formal_execution_count: 0
+
+frozen_inputs:
+  - path: configs/geophase_controller_relevance_final_rescue.yaml
+    sha256: 03679f8208f953f73ad0a94c5aeb707ccb3c4fb620502b3fddb1962a09cb3d9d
+  - path: docs/codex_reports/geophase_controller_relevance_final_forward_rescue_terminal.md
+    sha256: e0dbc536f449e1ef4421ed221770351373fa7b1b20a0db5044341ce7bf2f330a
+  - path: outputs/tables/geophase_controller_relevance_final_rescue/B3-MATCHED-WINDOW-20260804-V2/b3_summary.json
+    sha256: be69ad60166de3c32361ead99e8b640be4b9c37fb720680f58b470319df1a35c
+  - path: outputs/tables/geophase_controller_relevance_final_rescue/B3-MATCHED-WINDOW-20260804-V2/states/quiescent_9V_initial_state.json
+    sha256: aabfacfe24f10a84fdcaf8a3fdb2a5b7ec175967803070765a467117e4f116ca
+  - path: outputs/tables/geophase_controller_relevance_final_rescue/B3-MATCHED-WINDOW-20260804-V2/states/transition_12p5V_window_initial_state.json
+    sha256: 6d7ecebb67ebde49ce6ae6b78d132d3d6d69b7b76fc90de8b19a138df683abb8
+  - path: outputs/tables/geophase_controller_relevance_final_rescue/B3-MATCHED-WINDOW-20260804-V2/workers/01_9V_nls_correctness.json
+    sha256: e58e85a9f2c2577fdc614e5b097ccef0dc9ca6b2f21b3b4c6e3dc13f4e89a8d7
+  - path: outputs/tables/geophase_controller_relevance_final_rescue/B3-MATCHED-WINDOW-20260804-V2/workers/02_9V_aa_correctness.json
+    sha256: fb5eedef418ce6a23b31590a7f4dc5fdcc8bfaa48740863439877a3b4b011363
+  - path: outputs/tables/geophase_controller_relevance_final_rescue/B3-MATCHED-WINDOW-20260804-V2/workers/03_12p5V_locator.json
+    sha256: e3a0a8d9706ac33f0fb599787a45eccdf90d7d57d98c85d47d88bf48586139d3
+  - path: outputs/tables/geophase_controller_relevance_final_rescue/B3-MATCHED-WINDOW-20260804-V2/workers/04_12p5V_nls_correctness.json
+    sha256: b19e94bbbcfa5b19b18ebfa07d06481dc3a429092fa93467efbb2a7eaf9af677
+  - path: outputs/tables/geophase_controller_relevance_final_rescue/B3-MATCHED-WINDOW-20260804-V2/workers/05_12p5V_aa_correctness.json
+    sha256: a705a6ea72bab00840d05e089555004b9a90429cd411a1fee07cae039f326de1
+  - path: src/pinnpcm/evaluation/geophase_controller_relevance_b3.py
+    sha256: b54ee0a6283bac269232fdfe396f9417a378c63129c559c7c5f6ece0ee7bacb8
+  - path: src/pinnpcm/solvers/geophase_phase1_v2_streaming.py
+    sha256: 80ab0f1729a94074b8cfd850f4e8f8450be28c7d2d6e33382f5a7b5294dc5923
+  - path: src/pinnpcm/solvers/geophase_nls_v1.py
+    sha256: b3ed80bd95f0835b9c5342bd4fffdc68b224dbf773d58722d51f42a09a621196
+  - path: src/pinnpcm/solvers/geophase_exact_condensed_anderson.py
+    sha256: 7c4dab1c9a37dda00a303234a2a39dc18a2c8621f55b9818b7645aa61b98b3a4
+  - path: src/pinnpcm/solvers/geophase_exact_condensed_anderson_controller_v2.py
+    sha256: 1235ffbbc7f92df7eb2ba3bf646eef1828ce2b501c8ab916207fccdfebd54d42
+  - path: src/pinnpcm/solvers/geophase_phase1_v2_controller_v2.py
+    sha256: e4332c5b103072e3de277b8788dbbf2bda48c65636cb5c1d8dd361bc9953f7ed
+
+scope:
+  historical_b3_rewrite: forbidden
+  solver_controller_s2_parameter_protocol_or_gate_modification: forbidden
+  new_solver_or_portfolio: forbidden
+  equivalence_or_d0_r0_r1_r2_b2_rerun: forbidden
+  b4b_fresh_s0_phase2_or_training: forbidden
+  raw_local_reversal_aggregate_vote: forbidden
+  heldout_after_observation_tuning: forbidden
+
+outputs:
+  namespace: outputs/tables/geophase_b3v2_solution_level
+  development_directory: development
+  heldout_directory: heldout
+  b4a_directory: b4a
+
+runtime:
+  wall_time_s_max: 14400
+  aggregate_cpu_time_s_max: 43200
+  worker_wall_time_s_max: 3600
+  required_thread_environment:
+    OMP_NUM_THREADS: "1"
+    OPENBLAS_NUM_THREADS: "1"
+    MKL_NUM_THREADS: "1"
+    NUMEXPR_NUM_THREADS: "1"
+    VECLIB_MAXIMUM_THREADS: "1"
+
+recording:
+  sample_interval_s: 5.0e-9
+  format: compressed_npz_lossless
+  fields: [temperature_K, conductive_state, branch_memory]
+  temperature_mask: full_domain
+  conductive_and_branch_mask: active_vo2_full_footprint
+  raw_local_reversal_role: supplemental_nonvoting_adaptive_path_telemetry
+
+development:
+  execution_order: [NLS_9V_T1, NLS_9V_T2, NLS_12P5V_T1, NLS_12P5V_T2, FREEZE_REFERENCE_ENVELOPE, AA_9V_T1, AA_9V_T2, AA_12P5V_T1, AA_12P5V_T2]
+  regimes:
+    quiescent_9V:
+      protocol_id: quiescent_9V
+      initial_state: outputs/tables/geophase_controller_relevance_final_rescue/B3-MATCHED-WINDOW-20260804-V2/states/quiescent_9V_initial_state.json
+      relative_window_s: 5.0e-7
+      spatial_level: 1
+      time_divisors: [1, 2]
+    transition_12p5V:
+      protocol_id: transition_probe_12p5V
+      initial_state: outputs/tables/geophase_controller_relevance_final_rescue/B3-MATCHED-WINDOW-20260804-V2/states/transition_12p5V_window_initial_state.json
+      frozen_window_start_s: 1.0510421196050138e-6
+      frozen_window_stop_s: 2.0e-6
+      spatial_level: 1
+      time_divisors: [1, 2]
+
+field_gates:
+  temperature_K: {rmse: 0.05, p95: 0.10, terminal_p95: 0.10, tv_floor: 0.05}
+  conductive_state: {rmse: 5.0e-4, p95: 1.0e-3, terminal_p95: 1.0e-3, tv_floor: 5.0e-4}
+  branch_memory: {rmse: 5.0e-4, p95: 1.0e-3, terminal_p95: 1.0e-3, tv_floor: 5.0e-4}
+
+solution_gates:
+  terminal_current_nrmse_max: 0.01
+  device_voltage_nrmse_max: 0.005
+  event_count_direction_order_exact: true
+  event_absolute_error_s_max: 5.0e-8
+  event_relative_error_max: 0.01
+  quiescent_mean_s_threshold: 0.5
+  quiescent_crossing_count: 0
+  anderson_envelope_multiplier: 3.0
+  loop_relative_floor: 0.05
+  all_root_finite_range_current_power_lateral_ledger_required: true
+
+heldout:
+  unlock_count: 1
+  common_initial_state: development_nls_t2_endpoint
+  regimes:
+    quiescent_9V: {protocol_id: quiescent_9V, relative_window_s: 5.0e-7, spatial_level: 1, time_divisors: [1, 2]}
+    transition_12p5V: {protocol_id: transition_probe_12p5V, relative_window_s: 2.0e-6, spatial_level: 1, time_divisors: [1, 2], required_complete_event_pair: upward_then_downward}
+
+b4a:
+  physical_duration_s: 2.0e-8
+  time_divisor: 4
+  spatial_levels: [1, 2, 4]
+  protocols: [quiescent_9V, transition_probe_12p5V]
+  independent_process: true
+  fixed_cpu_affinity: true
+  alternating_repetitions: 3
+  statistic: median_cpu_time
+  projection_safety_factor: 1.10
+  single_trajectory_horizon_s: 2.0e-5
+  single_trajectory_wall_s_max: 21600
+  b4b_aggregate_cpu_s_max: 86400
+  fresh_s0_aggregate_cpu_s_max: 345600
+  fresh_s0_worker_count: 4
+  fresh_s0_calendar_s_max: 86400
+  phase2_aggregate_cpu_s_max: 86400
+  phase2_projection_trajectory_equivalents: 12
+  anderson_minimum_cost_reduction_fraction: 0.10
+
+routes:
+  anderson_selected: GO_AA_GT_FOR_SINGLE_SOLVER_B4B
+  nls_selected: GO_NLS_GT_FOR_SINGLE_SOLVER_B4B_NO_ACCELERATION_CLAIM
+  stop: STOP_2P5D_FORWARD_REFERENCE_ROUTE
+  reference_not_refined: STOP_REFERENCE_NOT_TIME_REFINED
+  heldout_noninformative: INVALID_HELDOUT_NONINFORMATIVE
+  timebox_exhausted: INVALID_TIMEBOX_EXHAUSTED
