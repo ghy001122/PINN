@@ -30,6 +30,9 @@ The intended positive ladder remains R1 `HysGeo-Hybrid-PINN`, preferred R2
 `GeoPhase-HomoMoE-PINN`, and conditional R3; all remain `forbidden` and
 unassessed.
 
+Historical S1 science is `forbidden`/unassessed; interruption facts are supported
+as infrastructure provenance only and do not vote on the active S2 route.
+
 ## Boundary
 
 Do not run the L2 sentinel or approve Batch 2 under this identity.  A different
