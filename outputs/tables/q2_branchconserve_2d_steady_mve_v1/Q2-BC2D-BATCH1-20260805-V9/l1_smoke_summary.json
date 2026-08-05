@@ -1,0 +1,122 @@
+{
+  "artifact": {
+    "identity": "nominal_l1_smoke_up_vd0p28125",
+    "manifest_path": "E:/Python demo/PINN/data/processed/q2_branchconserve_2d_steady_mve_v1/Q2-BC2D-BATCH1-20260805-V9/equilibria/nominal_l1_smoke_up_vd0p28125.json",
+    "manifest_sha256": "a76e45aef800a99eaf6f5da9de245ddd036f64e9ed0eb5527a55247ca5bab26d",
+    "npz_path": "E:/Python demo/PINN/data/processed/q2_branchconserve_2d_steady_mve_v1/Q2-BC2D-BATCH1-20260805-V9/equilibria/nominal_l1_smoke_up_vd0p28125.npz",
+    "npz_sha256": "72a7178a4bc9fa7a8efa990722ef00c7b37c074d0435171f8e97b6ac905615ae"
+  },
+  "branch": "up",
+  "claim_status": "forbidden",
+  "cpu_time_s": 7.59375,
+  "device_voltage_V": 0.28125,
+  "environment": {
+    "blas_thread_environment": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "command": [
+      "E:\\Python demo\\PINN\\.venv\\Scripts\\python.exe",
+      "scripts/run_q2_branchconserve_2d_steady_mve_v1.py",
+      "smoke",
+      "--run-id",
+      "Q2-BC2D-BATCH1-20260805-V9"
+    ],
+    "cpu_count": 12,
+    "git_sha": "5ef0fd5230aa910bcb5196e03eabece5a2e51bd6",
+    "machine": "AMD64",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 154 Stepping 4, GenuineIntel",
+    "python": "3.11.9 | packaged by Anaconda, Inc. | (main, Apr 19 2024, 16:40:41) [MSC v.1916 64 bit (AMD64)]",
+    "rss_bytes_at_record": 61763584,
+    "run_id": "Q2-BC2D-BATCH1-20260805-V9",
+    "system_memory_available_bytes": 549060608,
+    "system_memory_total_bytes": 8300781568,
+    "workspace_disk_free_bytes": 67408846848,
+    "workspace_disk_total_bytes": 157286395904
+  },
+  "equilibrium": {
+    "active_area_mean_conductive_state": 0.17037672817084387,
+    "device_voltage_V": 0.28125,
+    "ledger_pass": true,
+    "load_line_residual": 1.286632324943241e-18,
+    "scaled_electrical_residual_inf": 9.006426274602687e-18,
+    "scaled_thermal_residual_inf": 1.0290386598079964e-16,
+    "source_current_A": 1.3564824319871945e-05,
+    "source_voltage_V": 0.44402789183846336
+  },
+  "evidence_type": "literature-guided synthetic numerical digital-twin evidence",
+  "execution_class": "nonvoting_batch1_pilot",
+  "failure_code": null,
+  "failure_detail": null,
+  "formal_execution_count": 0,
+  "lifecycle_state": "executed",
+  "outer_device_voltages_V": [
+    0.28125
+  ],
+  "outer_equilibrium_count": 1,
+  "parent_config_path": "E:/Python demo/PINN/configs/geophase_phase1_v2_s2_reference_source_corrected_v3.yaml",
+  "parent_config_sha256": "ea668ac66c8f2f2267b059bd816a4116def086708f2f7eeded07d64a2857aff4",
+  "peak_rss_bytes": 63713280,
+  "run_id": "Q2-BC2D-BATCH1-20260805-V9",
+  "schema_version": "q2_branchconserve_batch1_stage_v1",
+  "scientific_vote": false,
+  "solver": {
+    "cpu_time_s": 0.078125,
+    "damping_history": [
+      1.0,
+      1.0
+    ],
+    "electrical_subsolves": 16,
+    "failure_detail": null,
+    "full_residual_evaluations": 16,
+    "jv_evaluations": 6,
+    "lgmres_iterations": 4,
+    "line_search_backtracks": 0,
+    "nonlinear_iterations": 2,
+    "residual_inf_history": [
+      4.879694345558787e-07,
+      6.276937015195894e-15,
+      1.0290386598079964e-16
+    ],
+    "update_inf_history": [
+      8.983755057945338e-07,
+      1.1555314156553657e-14
+    ],
+    "wall_time_s": 0.08573900000192225
+  },
+  "source_voltage_role": "derived_from_equilibrium_load_mapping_nonvoting",
+  "stability": {
+    "code": "PASS",
+    "relative_residuals": [
+      1.792522169029959e-10,
+      3.68374159113156e-10,
+      1.3936274159194377e-12,
+      2.364633303467006e-12,
+      3.0579578826490345e-10,
+      7.562729615996744e-10
+    ],
+    "rightmost_spectral_abscissa_per_s": -909621.206668572,
+    "stable": true,
+    "tau_lambda_per_s": 4153.225806451613,
+    "telemetry": {
+      "cpu_time_s": 7.46875,
+      "dynamic_rhs_evaluations": 2690,
+      "failure_detail": null,
+      "matrix_vector_products": 1351,
+      "repeat_wall_time_s": [
+        2.745862500043586,
+        2.0745931001147255,
+        2.7074582000495866
+      ],
+      "wall_time_s": 7.528294400079176
+    }
+  },
+  "stage": "nominal_l1_smoke",
+  "status": "PASS",
+  "task_id": "Q2_BRANCHCONSERVE_2D_STEADY_MVE_V1",
+  "validity": "valid",
+  "wall_time_s": 7.662812600028701
+}

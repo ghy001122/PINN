@@ -1,0 +1,206 @@
+task_id: Q2_BRANCHCONSERVE_2D_STEADY_MVE_V1
+schema_version: q2_branchconserve_2d_steady_mve_v1
+status: batch1_authorized
+evidence_type: literature-guided synthetic numerical digital-twin evidence
+manuscript_use: >-
+  qualify a branch-resolved steady 2.5D forward judge and estimate whether a
+  later rank-2 minimum-viable-experiment is computationally admissible
+
+authority:
+  base_main_commit: 5ef0fd5230aa910bcb5196e03eabece5a2e51bd6
+  parent_physics_config:
+    path: configs/geophase_phase1_v2_s2_reference_source_corrected_v3.yaml
+    sha256: ea668ac66c8f2f2267b059bd816a4116def086708f2f7eeded07d64a2857aff4
+  source_contract:
+    path: configs/qiu_vo2_phase1_source_contract_v3.yaml
+    sha256: 17a0accc906d68fffc35ee40be9d41c36bd1a7d0514e9a539cfcfd4fc4bcc621
+  historical_dynamic_disposition: STOP_REFERENCE_NOT_ASYMPTOTIC_OR_INVALID_T4
+  historical_selected_solver: none
+  historical_scientific_vote: false
+  historical_formal_execution_count: 0
+  frozen_import_boundaries:
+    - src.pinnpcm.solvers.geophase_2p5d_fvm
+    - src.pinnpcm.solvers.geophase_phase1_v2_fvm
+    - src.pinnpcm.physics.geophase_geometry
+    - src.pinnpcm.physics.geophase_s2_thermal
+    - src.pinnpcm.physics.vo2_effective_conductivity
+  forbidden_import_prefixes:
+    - src.pinnpcm.pinn
+    - pinnpcm.pinn
+    - src.pinnpcm.solvers.geophase_phase1_v2_controller
+    - pinnpcm.solvers.geophase_phase1_v2_controller
+    - src.pinnpcm.solvers.geophase_nls
+    - pinnpcm.solvers.geophase_nls
+
+branch_contract:
+  heating:
+    name: up
+    branch_memory: 1.0
+    source_direction: nondecreasing
+    endpoint_source_voltage_V: 0.0
+  cooling:
+    name: down
+    branch_memory: -1.0
+    source_direction: nonincreasing
+    endpoint_source_voltage_V: 15.8
+    endpoint_conductive_state_mean_min: 0.90
+  reachable_definition: >-
+    same continuous equilibrium component from the branch endpoint under the
+    prescribed monotone source-voltage direction, with every intervening point
+    certified stable; stable points beyond any marginal, unstable, invalid, or
+    discontinuous gap remain atlas-only
+
+reference_scales:
+  voltage_V: 15.8
+  temperature_rule: max_validity_excursion_from_ambient_or_1K
+  electrical_integrated_residual_max: 1.0e-10
+  thermal_integrated_residual_max: 1.0e-8
+  load_line_integrated_residual_max: 1.0e-10
+  ledger_symmetric_relative_max: 5.0e-3
+  current_floor_fraction: 1.0e-12
+  power_floor_fraction: 1.0e-12
+
+steady_solver:
+  identity: temperature_primary_damped_newton_krylov_v1
+  nonlinear_iterations_max: 30
+  jv_evaluations_max: 512
+  full_residual_evaluations_max: 640
+  line_search_backtracks_max: 7
+  residual_inf_max: 1.0e-8
+  last_scaled_update_inf_max: 1.0e-8
+  lgmres:
+    inner_m: 30
+    outer_k: 10
+    rtol: 1.0e-8
+    atol: 0.0
+    initial_guess: frozen_joule_preconditioner_applied_to_newton_rhs
+  armijo:
+    c1: 1.0e-4
+    damping_values: [1.0, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625, 0.0078125]
+    merit: one_half_scaled_residual_l2_squared
+  jv:
+    method: central_difference
+    epsilon_power: 0.3333333333333333
+    direction_normalization: infinity_norm_unit_direction_with_homogeneous_rescaling
+    subtraction: conservative_termwise_linear_thermal_plus_central_joule
+    posterior_step_search: forbidden
+  preconditioner:
+    operator: frozen_joule_sheet_thermal_plus_vertical_sink
+    factorization: sparse_superlu
+    empirical_diagonal: forbidden
+  initialization:
+    low_endpoint_temperature_K: 325.0
+    high_endpoint_temperature_K: 370.0
+    continuation_predictor: nearest_two_point_scaled_secant
+    frozen_joule_linear_correction_count: 1
+    alternate_solver_after_failure: forbidden
+  pseudo_arclength:
+    scaled_state: [temperature_scaled, device_voltage_over_reference_voltage]
+    augmented_preconditioner: blockdiag_thermal_and_one
+    step_halvings_max: 6
+    trigger_fixed_device_voltage_at_minimum_step_required: true
+    trigger_abs_tangent_device_voltage_max: 0.1
+    trigger_device_voltage_tangent_sign_reversal: true
+    source_voltage_slope_reversal_trigger: forbidden
+
+load_line:
+  series_resistance_ohm: 12000.0
+  source_voltage_max_V: 15.8
+  bracket_points: 33
+  brent_xtol_V: 1.0e-10
+  brent_rtol: 1.0e-10
+  brent_maxiter: 50
+  fixed_source_requires_same_stable_reachable_segment: true
+
+stability:
+  identity: branch_conditioned_electrothermal_local_stability_v1
+  eigenpairs: 6
+  repeats: 3
+  method: scipy_sparse_matrix_free_eigs
+  which: LR
+  tolerance: 1.0e-8
+  maxiter: 2000
+  ncv: 32
+  eigenpair_relative_residual_max: 1.0e-6
+  spectral_abscissa_span_tau_fraction_max: 0.25
+  matched_eigenvalue_span_tau_fraction_max: 0.5
+  zero_band_timescale_fraction: 1.0e-3
+  backward_error_multiplier: 10.0
+  dense_l4_spectrum: forbidden
+
+patches:
+  alpha_range: [-0.5, 0.5]
+  vertical_conductance_floor_fraction: 0.5
+  nominal: {alpha_lu: 0.0, alpha_rd: 0.0}
+  lu:
+    rectangles_m:
+      - {x: [1.0e-8, 4.0e-8], y: [3.4e-7, 4.4e-7]}
+  rd:
+    rectangles_m:
+      - {x: [6.0e-8, 9.0e-8], y: [6.0e-8, 1.4e-7]}
+      - {x: [7.0e-8, 9.0e-8], y: [1.4e-7, 2.0e-7]}
+  compensated_probe: {alpha_lu: -0.25, alpha_rd: 0.25, voting: false}
+
+bias_selection:
+  candidate_source_voltages_V:
+    start: 0.5
+    stop: 15.5
+    step: 0.5
+    append: [15.8]
+    excluded: [12.5]
+  primary_order_statistics: [0.10, 0.30, 0.50, 0.70, 0.90]
+  reserves_per_slot_max: 2
+  required_primary_count: 5
+
+batch1:
+  authorized: true
+  allowed_stages: [contract, focused_tests, nominal_l1_smoke, nominal_l1_atlas, nominal_l2_cost_sentinel]
+  forbidden_stages: [lu_rd_smoke, b1b, finite_difference_jacobian, observations_o1_o4, b2, phase2, pinn]
+  spatial_levels: {l1: 1, l2: 2, l4: 4}
+  nominal_l1_smoke:
+    device_voltage_V: 0.28125
+    source_voltage_role: derived_from_equilibrium_load_mapping_nonvoting
+    branch: up
+  atlas:
+    initial_device_voltage_step_V: 1.0
+    minimum_device_voltage_step_V: 0.03125
+    maximum_points_per_branch: 96
+    maximum_step_halvings: 5
+  l2_cost_sentinel:
+    timeout_s: 1800.0
+    source_voltage_rule: median_candidate_in_nominal_common_reachable_interval
+    branch: up
+    scientific_vote: false
+  aggregate_cpu_s_max: 14400.0
+  calendar_wall_s_max: 14400.0
+  individual_batch_wall_s_max: 1800.0
+  terminal_dispositions:
+    - PILOT_CONTINUE_TO_B1_B2
+    - STOP_BRANCHCONSERVE_PILOT
+    - BLOCKED_L2_COST_SENTINEL
+    - BLOCKED_BRANCHCONSERVE_COST
+    - INVALID_BRANCHCONSERVE_PILOT
+
+batch2:
+  authorized: false
+  perturbation_targets_max: 384
+  anchor_equilibria_max: 68
+
+outputs:
+  processed_root: data/processed/q2_branchconserve_2d_steady_mve_v1
+  compact_root: outputs/tables/q2_branchconserve_2d_steady_mve_v1
+  report: docs/codex_reports/q2_branchconserve_2d_steady_mve_v1_batch1.md
+
+claim_boundary:
+  lifecycle_state_after_implementation: implemented
+  claim_status_during_batch1: forbidden
+  batch1_scientific_vote: false
+  allowed_wording: >-
+    a non-voting branch-resolved steady-solver and cost pilot was executed on
+    the literature-guided synthetic 2.5D device contract
+  forbidden_wording:
+    - S2 physics validated
+    - stable branch physics established
+    - rank-2 sensitivity established
+    - PINN trained or successful
+    - experimental validation
