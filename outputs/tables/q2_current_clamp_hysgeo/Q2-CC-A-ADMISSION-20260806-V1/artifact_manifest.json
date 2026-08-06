@@ -1,0 +1,34 @@
+{
+  "artifacts": [
+    {
+      "path": "outputs/tables/q2_current_clamp_hysgeo/Q2-CC-A-ADMISSION-20260806-V1/all_roots.csv",
+      "sha256": "a9828df12768560c56c2249f4a9d15186490f47e11fed7cddcf35293f4783a1a"
+    },
+    {
+      "path": "outputs/tables/q2_current_clamp_hysgeo/Q2-CC-A-ADMISSION-20260806-V1/continuation.csv",
+      "sha256": "9099c058f1841707df8f5117db7cb6d2fdc0e4234fbc82d1b7d626b77e4c9011"
+    },
+    {
+      "path": "outputs/tables/q2_current_clamp_hysgeo/Q2-CC-A-ADMISSION-20260806-V1/gate_summary.json",
+      "sha256": "d7e5a6c76a779fe463081e0a48a5f43f6b2378dd06da5f48c5f69a44234541c1"
+    },
+    {
+      "path": "outputs/tables/q2_current_clamp_hysgeo/Q2-CC-A-ADMISSION-20260806-V1/source_mapping_contract.json",
+      "sha256": "64df633555621ba235436bf64645ecf6710e03e0a008b0fbf72bec0bcfe7e50c"
+    },
+    {
+      "path": "outputs/tables/q2_current_clamp_hysgeo/Q2-CC-A-ADMISSION-20260806-V1/stationary_points.csv",
+      "sha256": "1497ba9dbdf6d8c8f0e12c6a6f77242a54b2b71f7f3ea22d2dd6753fc55b0195"
+    },
+    {
+      "path": "outputs/tables/q2_current_clamp_hysgeo/Q2-CC-A-ADMISSION-20260806-V1/summary.json",
+      "sha256": "df4ae5e32bb789d214c4dca99857f8028c67b1d14b19bd6c97c643fc7fce0714"
+    },
+    {
+      "path": "outputs/tables/q2_current_clamp_hysgeo/Q2-CC-A-ADMISSION-20260806-V1/terminal.json",
+      "sha256": "fae07d2c9580416effcfdc29758c5745009e2a8eac1335a8ae1c77e2e76cf444"
+    }
+  ],
+  "run_id": "Q2-CC-A-ADMISSION-20260806-V1",
+  "schema_version": "q2_current_clamp_cc_a_artifact_manifest_v1"
+}

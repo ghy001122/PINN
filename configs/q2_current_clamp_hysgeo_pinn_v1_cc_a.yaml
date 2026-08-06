@@ -1,0 +1,128 @@
+schema_version: q2_current_clamp_hysgeo_pinn_v1_cc_a_v1
+task_id: Q2_CURRENT_CLAMP_HYSGEO_PINN_V1
+run_id: Q2-CC-A-ADMISSION-20260806-V1
+execution_class: bounded_nonvoting_current_clamp_branch_admission
+evidence_type: literature-guided synthetic numerical digital-twin evidence
+lifecycle_state: planned
+claim_status: forbidden
+scientific_vote: false
+formal_execution_count: 0
+
+authority:
+  parent_main_merge_sha: 0230b036c271e02f52bc8d4b25f0021eb0d1870b
+  immutable_pr30_url: https://github.com/ghy001122/PINN/pull/30
+  immutable_pr30_head_sha: e7b2bc1b3c7507c6038a4065318bb2ed705c034c
+  immutable_pr30_disposition: A_STOP_STEADY_ROUTE
+  route_identity: new_current_clamp_contract_not_pr30_stage_b_or_old_c01_retry
+
+source_parameters:
+  resistance_prefactor_ohm: 5.359e-3
+  metallic_resistance_ohm: 262.5
+  activation_temperature_K: 5220.0
+  beta_per_K: 0.253
+  loop_width_K: 7.193
+  critical_temperature_K: 332.8
+  dynamic_metallic_factor: 4.90
+  parallel_capacitance_F: 1.45e-10
+  thermal_conductance_W_K: 2.06e-4
+  thermal_capacitance_J_K: 4.96e-11
+  ambient_temperature_K: 325.0
+
+production_source:
+  resistance_variant: S1_QS
+  metallic_multiplier: 1.0
+  formula: R0_exp_Ea_over_T_times_F_branch_plus_Rm
+  branch_role: externally_conditioned_major_branch_metadata
+  S7_dynamic_comparator_used: false
+
+branches:
+  heating:
+    delta: 1
+    continuation_direction: increasing_current
+  cooling:
+    delta: -1
+    continuation_direction: decreasing_current
+    endpoint_role: externally_preconditioned_high_state
+
+current_clamp:
+  official_currents_A: [1.0e-4, 2.0e-4, 3.0e-4, 4.0e-4, 5.0e-4, 6.0e-4, 7.0e-4]
+  heating_anchor_current_A: 0.0
+  cooling_endpoint_current_A: 7.0e-4
+  post_result_range_expansion: forbidden
+
+admissibility:
+  temperature_K:
+    minimum: 300.0
+    maximum: 380.0
+  device_voltage_operating_envelope_max_V: 17.0
+  voltage_gate_semantics: conservative_operating_envelope_not_source_domain_proof
+  source_resistance_must_be_finite_positive: true
+  conductive_state_bounds: [0.0, 1.0]
+
+root_discovery:
+  nested_partition_counts: [4097, 8193]
+  scaled_residual_max: 1.0e-12
+  tangent_scaled_residual_max: 1.0e-12
+  root_set_hausdorff_max_K: 1.0e-8
+  resistance_derivative_relative_error_max: 1.0e-6
+  root_match_is_numerical_resolution_not_analytic_completeness_proof: true
+
+stability:
+  equation: lambda_equals_I2_Rprime_minus_Sth_over_Cth
+  stable_alpha_tau_max: -1.0e-3
+  convergence_is_not_stability: true
+
+branch_admission:
+  root_match_temperature_tolerance_K: 1.0e-7
+  heating_anchor_state_max: 0.10
+  cooling_endpoint_state_min: 0.90
+  minimum_connected_points_per_branch: 5
+  conductive_state_span_min: 0.50
+  transition_state_min: 0.10
+  transition_state_max: 0.90
+  minimum_intermediate_points_per_branch: 2
+  minimum_common_current_points: 5
+  minimum_separated_common_points: 5
+  common_current_state_separation_min: 0.10
+  independently_initialized_roots_can_vote: false
+  claim_semantics: branch_conditioned_continuation_connectivity_not_dynamic_reachability
+
+source_mapping:
+  length_m: 1.0e-7
+  width_m: 5.0e-7
+  thickness_m: 1.0e-7
+  expected_geometry_factor_m: 5.0e-7
+  rule: sigma_eff_equals_one_over_g_geom_times_R_S1
+  mapping_semantics: device_effective_distributed_proxy
+  additional_series_resistance_forbidden: true
+  contact_overlap_role: thermal_only
+  per_grid_or_overlap_refit_allowed: false
+  two_dimensional_execution_in_batch1: false
+
+budget:
+  aggregate_cpu_cap_s: 1800.0
+  calendar_wall_cap_s: 1800.0
+  implementation_diagnostic_cap_s: 7200.0
+  maximum_implementation_repair_cycles: 2
+
+terminal_dispositions:
+  - PASS_CC_A_CURRENT_CLAMP_ADMISSION
+  - STOP_CC_CURRENT_CLAMP_ADMISSION
+  - INVALID_CC_A_EXECUTION
+
+claim_boundary:
+  allowed:
+    - bounded_S1_current_clamp_fixed_point_evidence
+    - branch_conditioned_continuation_connectivity
+    - zero_dimensional_local_thermal_stability
+    - conditional_CC_B_request_eligibility
+    - algebraic_uniform_port_equivalent_source_scale_mapping
+  forbidden:
+    - Qiu_voltage_driven_neuristor_quantitative_reproduction
+    - experimental_validation
+    - dynamic_branch_switching_reachability
+    - minor_loop_or_dynamic_filament_resolution
+    - intrinsic_local_VO2_conductivity
+    - two_dimensional_forward_physics_pass
+    - CurrentClamp_HysGeo_PINN_or_CC01_success
+    - CC_B_CC_C_CC_D_CC06_or_CC_I2_execution

@@ -1,0 +1,71 @@
+{
+  "branches": {
+    "cooling": {
+      "conductive_state_span": 0.675494076745625,
+      "connected_point_count": 7,
+      "intermediate_transition_point_count": 6,
+      "pass": true,
+      "terminated_reason": null
+    },
+    "heating": {
+      "conductive_state_span": 0.7760256850624342,
+      "connected_point_count": 7,
+      "intermediate_transition_point_count": 5,
+      "pass": true,
+      "terminated_reason": null
+    }
+  },
+  "common_branch_separation": [
+    {
+      "absolute_branch_state_difference": 0.2156262051694232,
+      "cooling_state": 0.22505947601374765,
+      "current_A": 0.0001,
+      "heating_state": 0.009433270844324437
+    },
+    {
+      "absolute_branch_state_difference": 0.41008406888588567,
+      "cooling_state": 0.4915627477639041,
+      "current_A": 0.0002,
+      "heating_state": 0.0814786788780184
+    },
+    {
+      "absolute_branch_state_difference": 0.3687150982987577,
+      "cooling_state": 0.6725948038850516,
+      "current_A": 0.0003,
+      "heating_state": 0.30387970558629385
+    },
+    {
+      "absolute_branch_state_difference": 0.267966220086405,
+      "cooling_state": 0.7743142996442083,
+      "current_A": 0.0004,
+      "heating_state": 0.5063480795578033
+    },
+    {
+      "absolute_branch_state_difference": 0.19560702276094988,
+      "cooling_state": 0.8350029992822192,
+      "current_A": 0.0005,
+      "heating_state": 0.6393959765212693
+    },
+    {
+      "absolute_branch_state_difference": 0.14765648588821711,
+      "cooling_state": 0.8739745685089324,
+      "current_A": 0.0006,
+      "heating_state": 0.7263180826207153
+    },
+    {
+      "absolute_branch_state_difference": 0.11509459685261403,
+      "cooling_state": 0.9005535527593727,
+      "current_A": 0.0007,
+      "heating_state": 0.7854589559067586
+    }
+  ],
+  "common_current_count": 7,
+  "cooling_endpoint_valid": true,
+  "disposition": "PASS_CC_A_CURRENT_CLAMP_ADMISSION",
+  "failure_reasons": [],
+  "formal_root_uniqueness_pass": true,
+  "heating_anchor_valid": true,
+  "pass": true,
+  "semantic_boundary": "branch-conditioned continuation connectivity; not dynamic branch-switching reachability",
+  "separated_common_current_count": 7
+}

@@ -1,0 +1,163 @@
+{
+  "aggregate_cpu_s": 0.21875,
+  "calendar_wall_s": 0.2515203000002657,
+  "cc_b_authorized": false,
+  "cc_b_eligible_to_request": true,
+  "cc_b_executed": false,
+  "claim_boundary": {
+    "allowed": [
+      "bounded_S1_current_clamp_fixed_point_evidence",
+      "branch_conditioned_continuation_connectivity",
+      "zero_dimensional_local_thermal_stability",
+      "conditional_CC_B_request_eligibility",
+      "algebraic_uniform_port_equivalent_source_scale_mapping"
+    ],
+    "forbidden": [
+      "Qiu_voltage_driven_neuristor_quantitative_reproduction",
+      "experimental_validation",
+      "dynamic_branch_switching_reachability",
+      "minor_loop_or_dynamic_filament_resolution",
+      "intrinsic_local_VO2_conductivity",
+      "two_dimensional_forward_physics_pass",
+      "CurrentClamp_HysGeo_PINN_or_CC01_success",
+      "CC_B_CC_C_CC_D_CC06_or_CC_I2_execution"
+    ]
+  },
+  "claim_status": "qualified_supported",
+  "config_path": "configs/q2_current_clamp_hysgeo_pinn_v1_cc_a.yaml",
+  "config_sha256": "7278aac6a4d79247837566936f40ff7970922485671e902a70898e409e6cbe16",
+  "disposition": "PASS_CC_A_CURRENT_CLAMP_ADMISSION",
+  "environment": {
+    "blas_thread_environment": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "command": [
+      "E:\\Python demo\\PINN\\.venv\\Scripts\\python.exe",
+      "scripts\\run_q2_current_clamp_cc_a.py"
+    ],
+    "cpu_count": 12,
+    "git_sha": "230f1e37fbefd88d554d54009db626d175a00444",
+    "machine": "AMD64",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 154 Stepping 4, GenuineIntel",
+    "python": "3.11.9 | packaged by Anaconda, Inc. | (main, Apr 19 2024, 16:40:41) [MSC v.1916 64 bit (AMD64)]",
+    "run_id": "Q2-CC-A-ADMISSION-20260806-V1"
+  },
+  "evidence_type": "literature-guided synthetic numerical digital-twin evidence",
+  "experiment_started": true,
+  "formal_execution_count": 0,
+  "gate": {
+    "branches": {
+      "cooling": {
+        "conductive_state_span": 0.675494076745625,
+        "connected_point_count": 7,
+        "intermediate_transition_point_count": 6,
+        "pass": true,
+        "terminated_reason": null
+      },
+      "heating": {
+        "conductive_state_span": 0.7760256850624342,
+        "connected_point_count": 7,
+        "intermediate_transition_point_count": 5,
+        "pass": true,
+        "terminated_reason": null
+      }
+    },
+    "common_branch_separation": [
+      {
+        "absolute_branch_state_difference": 0.2156262051694232,
+        "cooling_state": 0.22505947601374765,
+        "current_A": 0.0001,
+        "heating_state": 0.009433270844324437
+      },
+      {
+        "absolute_branch_state_difference": 0.41008406888588567,
+        "cooling_state": 0.4915627477639041,
+        "current_A": 0.0002,
+        "heating_state": 0.0814786788780184
+      },
+      {
+        "absolute_branch_state_difference": 0.3687150982987577,
+        "cooling_state": 0.6725948038850516,
+        "current_A": 0.0003,
+        "heating_state": 0.30387970558629385
+      },
+      {
+        "absolute_branch_state_difference": 0.267966220086405,
+        "cooling_state": 0.7743142996442083,
+        "current_A": 0.0004,
+        "heating_state": 0.5063480795578033
+      },
+      {
+        "absolute_branch_state_difference": 0.19560702276094988,
+        "cooling_state": 0.8350029992822192,
+        "current_A": 0.0005,
+        "heating_state": 0.6393959765212693
+      },
+      {
+        "absolute_branch_state_difference": 0.14765648588821711,
+        "cooling_state": 0.8739745685089324,
+        "current_A": 0.0006,
+        "heating_state": 0.7263180826207153
+      },
+      {
+        "absolute_branch_state_difference": 0.11509459685261403,
+        "cooling_state": 0.9005535527593727,
+        "current_A": 0.0007,
+        "heating_state": 0.7854589559067586
+      }
+    ],
+    "common_current_count": 7,
+    "cooling_endpoint_valid": true,
+    "disposition": "PASS_CC_A_CURRENT_CLAMP_ADMISSION",
+    "failure_reasons": [],
+    "formal_root_uniqueness_pass": true,
+    "heating_anchor_valid": true,
+    "pass": true,
+    "semantic_boundary": "branch-conditioned continuation connectivity; not dynamic branch-switching reachability",
+    "separated_common_current_count": 7
+  },
+  "implementation_started": true,
+  "lifecycle_state": "executed",
+  "run_id": "Q2-CC-A-ADMISSION-20260806-V1",
+  "schema_version": "q2_current_clamp_cc_a_summary_v1",
+  "scientific_vote": false,
+  "source_mapping": {
+    "additional_series_resistance": "forbidden",
+    "allowed_claim": "uniform-limit port-equivalent source-scale mapping",
+    "electrical_contact_overlap_role": "thermal_only",
+    "forbidden_claims": [
+      "intrinsic local VO2 conductivity",
+      "real contact-current-crowding reconstruction",
+      "two-dimensional validation"
+    ],
+    "geometry_factor_m": 5e-07,
+    "local_semantics": "device-effective distributed proxy",
+    "mapping_rule": "sigma_eff_equals_one_over_g_geom_times_R_S1",
+    "maximum_roundtrip_relative_error": 1.5986875514822344e-16,
+    "samples": [
+      {
+        "branch": "heating",
+        "mapped_device_effective_conductivity_S_m": 39.41066613904745,
+        "recovered_uniform_port_resistance_ohm": 50747.68320189423,
+        "relative_error": 0.0,
+        "source_device_effective_resistance_ohm": 50747.68320189423,
+        "temperature_K": 325.0
+      },
+      {
+        "branch": "cooling",
+        "mapped_device_effective_conductivity_S_m": 43.94438880088649,
+        "recovered_uniform_port_resistance_ohm": 45512.06774230192,
+        "relative_error": 1.5986875514822344e-16,
+        "source_device_effective_resistance_ohm": 45512.06774230193,
+        "temperature_K": 325.0
+      }
+    ],
+    "status": "ALGEBRAIC_CONTRACT_ONLY_NOT_2D_EXECUTED"
+  },
+  "task_id": "Q2_CURRENT_CLAMP_HYSGEO_PINN_V1",
+  "validity": "valid"
+}
