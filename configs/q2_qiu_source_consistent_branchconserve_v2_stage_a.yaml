@@ -1,0 +1,166 @@
+schema_version: q2_qiu_source_consistent_branchconserve_v2_stage_a_v1
+task_id: Q2_QIU_SOURCE_CONSISTENT_BRANCHCONSERVE_V2
+run_id: Q2-QIU-SOURCE-STAGEA-20260806-V1
+execution_class: bounded_nonvoting_source_audit_and_0d_oracle
+evidence_type: literature-guided synthetic numerical digital-twin evidence
+lifecycle_state: planned
+claim_status: forbidden
+scientific_vote: false
+formal_execution_count: 0
+
+authority:
+  parent_merge_sha: 0877714dbed92d4d43f031fab5032f5cbd56eae8
+  immutable_v1_pr: https://github.com/ghy001122/PINN/pull/29
+  immutable_v1_head_sha: 14abd90f328082c32e0b10612276d65c31474f86
+  immutable_v1_disposition: STOP_BRANCHCONSERVE_PILOT
+
+sources:
+  source_contract:
+    path: configs/qiu_vo2_phase1_source_contract_v3.yaml
+  main_article:
+    path: data/external/qiu_2024_thermal_neuristor/raw/qiu_2024_main.pdf
+    sha256: d842e8bf1b5ac609ab504d8bf6104cfd3efea59697a5c7ac21664a99eb7d3c67
+    locator: Figure_2A_to_2C_printed_page_2306818_3_of_8
+  supporting_information:
+    path: data/external/qiu_2024_thermal_neuristor/raw/qiu_2024_supporting_information.pdf
+    sha256: d47ed95cd5782c3e632bbc440c1fcc681870e0ff303f0b05f8cd8f30cec70bfd
+    locators:
+      equations_s1_s4: printed_page_3_pdf_page_4
+      equations_s5_s7: printed_page_4_pdf_page_5
+      lumped_thermal_semantics: printed_page_5_pdf_page_6
+
+source_parameters:
+  resistance_prefactor_ohm: 5.359e-3
+  metallic_resistance_ohm: 262.5
+  activation_temperature_K: 5220.0
+  beta_per_K: 0.253
+  loop_width_K: 7.193
+  critical_temperature_K: 332.8
+  dynamic_metallic_factor: 4.90
+  parallel_capacitance_F: 1.45e-10
+  thermal_conductance_W_K: 2.06e-4
+  thermal_capacitance_J_K: 4.96e-11
+  ambient_temperature_K: 325.0
+  nominal_load_resistance_ohm: 12000.0
+
+branch_contract:
+  heating:
+    name: heating
+    delta: 1
+    threshold_temperature_K: 336.3965
+  cooling:
+    name: cooling
+    delta: -1
+    threshold_temperature_K: 329.2035
+  conductive_state_definition: s_equals_one_minus_insulating_fraction
+  equivalent_logistic_scale_K: 1.976284584980237
+  direct_beta_plus_k_patch: rejected
+
+resistance_variants:
+  S1_QS:
+    metallic_multiplier: 1.0
+    role: voting_quasistatic_major_loop_source_oracle
+    production_eligibility: only_candidate_for_later_v2_uniform_limit
+  S7_DYNAMIC_COMPARATOR:
+    metallic_multiplier: 4.90
+    role: diagnostic_filament_aware_dynamic_comparator
+    production_eligibility: forbidden
+
+base_matrix:
+  source_voltages_V: [9.0, 12.5, 15.8, 17.0]
+  branches: [heating, cooling]
+  resistance_variants: [S1_QS, S7_DYNAMIC_COMPARATOR]
+  diagnostic_only_source_voltages_V: [12.5]
+
+root_discovery:
+  nested_partition_counts: [4097, 8193]
+  equilibrium_residual_max: 1.0e-12
+  root_set_temperature_hausdorff_max_K: 1.0e-8
+  tangent_candidate_scaled_residual_max: 1.0e-12
+  current_floor_A: 1.0e-12
+  power_floor_W: 1.0e-12
+
+stability:
+  finite_difference_rule: central_eps_to_one_third
+  analytic_fd_relative_frobenius_max: 1.0e-6
+  eigenpair_relative_residual_max: 1.0e-10
+  stable_alpha_tau_max: -1.0e-3
+  marginal_alpha_tau_abs_max: 1.0e-3
+  robust_margin_min: 1.0e-2
+
+reachability:
+  semantic_name: continuous_quasistatic_reachable
+  source_voltage_grid_start_V: 0.0
+  source_voltage_grid_stop_V: 17.0
+  source_voltage_grid_step_V: 0.5
+  extra_source_voltages_V: [15.8]
+  diagnostic_only_source_voltages_V: [12.5]
+  minimum_source_step_V: 0.015625
+  cooling_endpoint_source_voltage_V: 17.0
+  cooling_endpoint_conductive_state_min: 0.90
+  root_match_temperature_tolerance_K: 1.0e-7
+
+nondegenerate_forward_gate:
+  minimum_voting_biases: 5
+  conductive_state_span_min: 0.50
+  transition_coordinate_min: 0.10
+  transition_coordinate_max: 0.90
+  minimum_transition_cases: 2
+  minimum_high_conductive_cases: 1
+  high_conductive_state_min: 0.75
+  robust_stability_margin_min: 1.0e-2
+
+dual_branch_gate:
+  minimum_common_voting_biases: 5
+  minimum_branch_separated_biases: 2
+  conductive_state_branch_separation_min: 0.10
+  robust_stability_margin_min: 1.0e-2
+
+load_design_sentinel:
+  enabled_only_if_12k_dual_branch_fails: true
+  load_resistances_ohm: [3000.0, 6000.0, 9000.0, 12000.0, 18000.0, 24000.0, 36000.0]
+  selection_rule: minimum_absolute_log_ratio_to_12k_then_lower_resistance
+  per_load_wall_cap_s: 600.0
+  total_wall_cap_s: 4200.0
+  continuous_optimization: forbidden
+
+planned_stage_b_uniform_limit:
+  status: planned_not_executed
+  production_resistance_variant: S1_QS
+  conductivity_name: source-model-scale-anchored_device-effective_conductivity
+  vo2_only_uniform_subproblem: true
+  ideal_equipotential_contacts: true
+  test_conductivity_S_m: 1.0
+  geometry_factor_rule: g_geom_equals_G_port_over_sigma_test
+  geometry_factor_grid: L1
+  geometry_factor_per_grid_renormalization: forbidden
+  algebraic_relative_tolerance: 1.0e-12
+  numerical_2d_relative_tolerance: 1.0e-6
+  lumped_thermal_integral_relative_tolerance: 1.0e-10
+
+budget:
+  source_audit_wall_cap_s: 1800.0
+  stage_a_aggregate_cpu_cap_s: 7200.0
+  stage_a_calendar_wall_cap_s: 7200.0
+
+terminal_dispositions:
+  - A_GO_12K_DUAL_BRANCH_L1
+  - A_GO_DESIGNED_LOAD_L1
+  - A_PIVOT_FORWARD_ONLY
+  - A_STOP_STEADY_ROUTE
+  - A_INVALID_SOURCE_AUDIT
+
+claim_boundary:
+  allowed:
+    - source_equation_consistency_or_discrepancy
+    - bounded_0d_fixed_point_and_local_stability_evidence
+    - conditional_stage_b_entry_recommendation
+  forbidden:
+    - Qiu_quantitative_reproduction
+    - experimental_validation
+    - two_dimensional_forward_physics_pass
+    - stable_cooling_endpoint_in_two_dimensions
+    - Phase_1_success
+    - PINN_or_C01_success
+    - intrinsic_local_VO2_material_parameter_identification
+    - S7_as_two_dimensional_production_closure

@@ -1,0 +1,8 @@
+load_resistance_ohm,wall_time_s,dual_branch_pass,common_voting_bias_count,branch_separated_bias_count,heating_forward_pass,cooling_forward_pass,heating_voting_bias_count,cooling_voting_bias_count,heating_conductive_state_span,cooling_conductive_state_span
+12000.0,0.9162799000000632,False,0,0,False,False,20,0,0.10526067022017915,0.0
+3000.0,0.9457692000000861,False,1,1,False,False,16,20,0.09263067399643621,0.012688284533879601
+6000.0,1.4140942000003633,False,0,0,False,False,17,8,0.07758632265778931,0.005872804539125642
+9000.0,1.4018535999998676,False,0,0,False,False,19,0,0.12854193329021446,0.0
+18000.0,1.1092290000001412,False,0,0,False,False,23,0,0.12408356555911593,0.0
+24000.0,1.1126655999996728,False,0,0,False,False,25,0,0.09982557797827185,0.0
+36000.0,1.2497118000001137,False,0,0,False,False,31,0,0.15000729740949492,0.0
