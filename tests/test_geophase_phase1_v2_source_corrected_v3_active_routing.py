@@ -86,8 +86,8 @@ def test_route_only_runner_validates_v3_and_cannot_execute_before_preregistratio
     assert "run_C1" not in runner_source
 
 
-def test_authority_chain_records_time_convergence_stop_and_preserves_old_route_tests() -> None:
-    checkpoint = "Q2_NLS_REFERENCE_TIME_CONVERGENCE_V2_STOPPED"
+def test_authority_chain_records_branchconserve_stop_and_preserves_old_route_tests() -> None:
+    checkpoint = "Q2_BRANCHCONSERVE_BATCH1_STOPPED"
     authority_texts = []
     for path in (
         ROOT / "CODEX_CONTEXT.md",
@@ -105,6 +105,7 @@ def test_authority_chain_records_time_convergence_stop_and_preserves_old_route_t
     active = (ROOT / "docs" / "research_strategy" / "active_phase.md").read_text(
         encoding="utf-8"
     )
+    assert "STOP_BRANCHCONSERVE_PILOT" in active
     assert "STOP_REFERENCE_NOT_ASYMPTOTIC_OR_INVALID_T4" in active
     assert "B3_MATCHED_WINDOW_CORRECTNESS_VALID_FAIL" in active
     assert "D0" in active

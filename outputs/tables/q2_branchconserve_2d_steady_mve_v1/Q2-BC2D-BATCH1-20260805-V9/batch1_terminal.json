@@ -1,0 +1,361 @@
+{
+  "aggregate_cpu_s": 4050.25,
+  "aggregate_wall_s": 4058.6592953000218,
+  "batch2_authorized": false,
+  "budget_accounting": {
+    "attempts": [
+      {
+        "run_id": "Q2-BC2D-BATCH1-20260805-V1",
+        "stages": {
+          "l1_smoke_summary.json": {
+            "cpu_time_s": 0.296875,
+            "status": "FAIL",
+            "wall_time_s": 0.32048949995078146
+          }
+        }
+      },
+      {
+        "run_id": "Q2-BC2D-BATCH1-20260805-V2",
+        "stages": {
+          "l1_smoke_summary.json": {
+            "cpu_time_s": 2.78125,
+            "status": "FAIL",
+            "wall_time_s": 2.841474700020626
+          }
+        }
+      },
+      {
+        "run_id": "Q2-BC2D-BATCH1-20260805-V3",
+        "stages": {
+          "l1_smoke_summary.json": {
+            "cpu_time_s": 1.484375,
+            "status": "FAIL",
+            "wall_time_s": 1.5501065000426024
+          }
+        }
+      },
+      {
+        "run_id": "Q2-BC2D-BATCH1-20260805-V4",
+        "stages": {
+          "l1_smoke_summary.json": {
+            "cpu_time_s": 11.03125,
+            "status": "PASS",
+            "wall_time_s": 11.222932099946775
+          }
+        }
+      },
+      {
+        "run_id": "Q2-BC2D-BATCH1-20260805-V5",
+        "stages": {
+          "l1_atlas_summary.json": {
+            "cpu_time_s": 56.0625,
+            "status": "FAIL",
+            "wall_time_s": 57.6512632999802
+          },
+          "l1_smoke_summary.json": {
+            "cpu_time_s": 10.46875,
+            "status": "PASS",
+            "wall_time_s": 10.790991999907419
+          }
+        }
+      },
+      {
+        "run_id": "Q2-BC2D-BATCH1-20260805-V6",
+        "stages": {
+          "l1_smoke_summary.json": {
+            "cpu_time_s": 9.421875,
+            "status": "PASS",
+            "wall_time_s": 9.619997700094245
+          }
+        }
+      },
+      {
+        "run_id": "Q2-BC2D-BATCH1-20260805-V7",
+        "stages": {
+          "l1_atlas_summary.json": {
+            "cpu_time_s": 133.03125,
+            "status": "FAIL",
+            "wall_time_s": 136.1549701000331
+          },
+          "l1_smoke_summary.json": {
+            "cpu_time_s": 8.1875,
+            "status": "PASS",
+            "wall_time_s": 8.260326499934308
+          }
+        }
+      },
+      {
+        "run_id": "Q2-BC2D-BATCH1-20260805-V8",
+        "stages": {
+          "l1_atlas_summary.json": {
+            "cpu_time_s": 99.03125,
+            "status": "FAIL",
+            "wall_time_s": 100.38027930003591
+          },
+          "l1_smoke_summary.json": {
+            "cpu_time_s": 7.078125,
+            "status": "PASS",
+            "wall_time_s": 7.13222070003394
+          }
+        }
+      },
+      {
+        "run_id": "Q2-BC2D-BATCH1-20260805-V9",
+        "stages": {
+          "l1_atlas_summary.json": {
+            "cpu_time_s": 103.78125,
+            "status": "FAIL",
+            "wall_time_s": 105.07143030001316
+          },
+          "l1_smoke_summary.json": {
+            "cpu_time_s": 7.59375,
+            "status": "PASS",
+            "wall_time_s": 7.662812600028701
+          }
+        }
+      }
+    ],
+    "completed_stage_cpu_s": 450.25,
+    "completed_stage_wall_s": 458.65929530002177,
+    "method": "sum_completed_stage_telemetry_plus_full_30min_reserve_per_interrupted_atlas",
+    "orphaned_atlas_attempts": [
+      "Q2-BC2D-BATCH1-20260805-V4",
+      "Q2-BC2D-BATCH1-20260805-V6"
+    ],
+    "orphaned_attempt_reserve_s": 3600.0
+  },
+  "budget_ok": true,
+  "claim_boundary": {
+    "allowed_wording": "a non-voting branch-resolved steady-solver and cost pilot was executed on the literature-guided synthetic 2.5D device contract",
+    "batch1_scientific_vote": false,
+    "claim_status_during_batch1": "forbidden",
+    "forbidden_wording": [
+      "S2 physics validated",
+      "stable branch physics established",
+      "rank-2 sensitivity established",
+      "PINN trained or successful",
+      "experimental validation"
+    ],
+    "lifecycle_state_after_implementation": "implemented"
+  },
+  "claim_status": "failed_but_informative",
+  "computational_source_sha256": {
+    "configs/q2_branchconserve_2d_steady_mve_v1.yaml": "ad1cbc00d0d105a1484d17e59650b3c1b378e330d6b958b459a95a89b37f93cc",
+    "src/pinnpcm/branchconserve/continuation.py": "6d84f83da909b7b3a61049c797fe0743d9bbf4707724dfac85ca6c4b4aa44674",
+    "src/pinnpcm/branchconserve/contract.py": "6872ba4eda07fff497f9f9b200dc18ffd50372899f945a40dc53f7dc0b08ee27",
+    "src/pinnpcm/branchconserve/solver.py": "c7af11a407ba2bcb0c5993bf6aced906a610179e249f866143e162670345afcc",
+    "src/pinnpcm/branchconserve/stability.py": "61f9bb573eb546dc1c8ab6666a684ea8df8275c2148c9e41b33d20f6113cedff",
+    "src/pinnpcm/branchconserve/steady_model.py": "d1bceb59926e0d507d60d99fca07e2c352c0a1a3636783faca81f480e3b50c71"
+  },
+  "disposition": "STOP_BRANCHCONSERVE_PILOT",
+  "formal_execution_count": 0,
+  "lifecycle_state": "executed",
+  "run_id": "Q2-BC2D-BATCH1-20260805-V9",
+  "schema_version": "q2_branchconserve_batch1_terminal_v1",
+  "scientific_vote": false,
+  "source_identity_note": "The run preceded the result commit; these exact worktree-byte hashes identify the V9 computational core. Runner-only evidence-normalization and artifact-hashing changes after V9 did not alter these files.",
+  "stages": {
+    "l1_atlas_summary.json": {
+      "branch_atlas_csv": "E:/Python demo/PINN/outputs/tables/q2_branchconserve_2d_steady_mve_v1/Q2-BC2D-BATCH1-20260805-V9/branch_atlas.csv",
+      "branch_atlas_csv_sha256": "eedb13a9bdde2d239dff164f780e49c5f52aad4be0770fa958ba468e0a57dc73",
+      "candidate_count": 0,
+      "claim_status": "failed_but_informative",
+      "common_reachable_domain": {
+        "candidate_source_voltages_V": [],
+        "exists": false,
+        "lower_source_voltage_V": null,
+        "upper_source_voltage_V": null
+      },
+      "cooling": {
+        "branch": "down",
+        "code": "STEADY_LOAD_LINE_FAIL",
+        "cpu_time_s": 0.421875,
+        "failure_detail": "33-point fixed bracket contained no contiguous load-line sign change; invalid inner points=Vd=15.8:STEADY_NONFINITE_OR_RANGE,Vd=15.30625:STEADY_NONFINITE_OR_RANGE,Vd=14.8125:STEADY_NONFINITE_OR_RANGE,Vd=14.31875:STEADY_NONFINITE_OR_RANGE,Vd=13.825:STEADY_NONFINITE_OR_RANGE,Vd=13.33125:STEADY_NONFINITE_OR_RANGE,Vd=12.8375:STEADY_NONFINITE_OR_RANGE,Vd=12.34375:STEADY_NONFINITE_OR_RANGE,Vd=11.85:STEADY_NONFINITE_OR_RANGE,Vd=11.35625:STEADY_NONFINITE_OR_RANGE,Vd=10.8625:STEADY_NONFINITE_OR_RANGE,Vd=10.36875:STEADY_NONFINITE_OR_RANGE,Vd=9.875:STEADY_NONFINITE_OR_RANGE,Vd=9.38125:STEADY_NONFINITE_OR_RANGE,Vd=8.8875:STEADY_NONFINITE_OR_RANGE,Vd=8.39375:STEADY_NONFINITE_OR_RANGE,Vd=7.9:STEADY_NONFINITE_OR_RANGE,Vd=7.40625:STEADY_NONFINITE_OR_RANGE,Vd=6.9125:STEADY_NONFINITE_OR_RANGE,Vd=6.41875:STEADY_NONFINITE_OR_RANGE,Vd=5.925:STEADY_NONFINITE_OR_RANGE,Vd=5.43125:STEADY_NONFINITE_OR_RANGE,Vd=4.9375:STEADY_NONFINITE_OR_RANGE,Vd=4.44375:STEADY_NONFINITE_OR_RANGE,Vd=3.95:STEADY_NONFINITE_OR_RANGE,Vd=3.45625:STEADY_NONFINITE_OR_RANGE,Vd=2.9625:STEADY_NONFINITE_OR_RANGE,Vd=2.46875:STEADY_NONFINITE_OR_RANGE,Vd=1.975:STEADY_NONFINITE_OR_RANGE,Vd=0.9875:outside_conductive_endpoint_component,Vd=0.49375:outside_conductive_endpoint_component,Vd=0:outside_conductive_endpoint_component",
+        "point_count": 0,
+        "reachable_point_count": 0,
+        "success": false,
+        "wall_time_s": 0.4707752999383956
+      },
+      "cpu_time_s": 103.78125,
+      "environment": {
+        "blas_thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "command": [
+          "E:\\Python demo\\PINN\\.venv\\Scripts\\python.exe",
+          "scripts/run_q2_branchconserve_2d_steady_mve_v1.py",
+          "atlas",
+          "--run-id",
+          "Q2-BC2D-BATCH1-20260805-V9"
+        ],
+        "cpu_count": 12,
+        "git_sha": "5ef0fd5230aa910bcb5196e03eabece5a2e51bd6",
+        "machine": "AMD64",
+        "platform": "Windows-10-10.0.26200-SP0",
+        "processor": "Intel64 Family 6 Model 154 Stepping 4, GenuineIntel",
+        "python": "3.11.9 | packaged by Anaconda, Inc. | (main, Apr 19 2024, 16:40:41) [MSC v.1916 64 bit (AMD64)]",
+        "rss_bytes_at_record": 62066688,
+        "run_id": "Q2-BC2D-BATCH1-20260805-V9",
+        "system_memory_available_bytes": 557182976,
+        "system_memory_total_bytes": 8300781568,
+        "workspace_disk_free_bytes": 67408818176,
+        "workspace_disk_total_bytes": 157286395904
+      },
+      "evidence_type": "literature-guided synthetic numerical digital-twin evidence",
+      "execution_class": "nonvoting_batch1_pilot",
+      "failure_code": "STOP_BRANCHCONSERVE_PILOT",
+      "failure_detail": "33-point fixed bracket contained no contiguous load-line sign change; invalid inner points=Vd=15.8:STEADY_NONFINITE_OR_RANGE,Vd=15.30625:STEADY_NONFINITE_OR_RANGE,Vd=14.8125:STEADY_NONFINITE_OR_RANGE,Vd=14.31875:STEADY_NONFINITE_OR_RANGE,Vd=13.825:STEADY_NONFINITE_OR_RANGE,Vd=13.33125:STEADY_NONFINITE_OR_RANGE,Vd=12.8375:STEADY_NONFINITE_OR_RANGE,Vd=12.34375:STEADY_NONFINITE_OR_RANGE,Vd=11.85:STEADY_NONFINITE_OR_RANGE,Vd=11.35625:STEADY_NONFINITE_OR_RANGE,Vd=10.8625:STEADY_NONFINITE_OR_RANGE,Vd=10.36875:STEADY_NONFINITE_OR_RANGE,Vd=9.875:STEADY_NONFINITE_OR_RANGE,Vd=9.38125:STEADY_NONFINITE_OR_RANGE,Vd=8.8875:STEADY_NONFINITE_OR_RANGE,Vd=8.39375:STEADY_NONFINITE_OR_RANGE,Vd=7.9:STEADY_NONFINITE_OR_RANGE,Vd=7.40625:STEADY_NONFINITE_OR_RANGE,Vd=6.9125:STEADY_NONFINITE_OR_RANGE,Vd=6.41875:STEADY_NONFINITE_OR_RANGE,Vd=5.925:STEADY_NONFINITE_OR_RANGE,Vd=5.43125:STEADY_NONFINITE_OR_RANGE,Vd=4.9375:STEADY_NONFINITE_OR_RANGE,Vd=4.44375:STEADY_NONFINITE_OR_RANGE,Vd=3.95:STEADY_NONFINITE_OR_RANGE,Vd=3.45625:STEADY_NONFINITE_OR_RANGE,Vd=2.9625:STEADY_NONFINITE_OR_RANGE,Vd=2.46875:STEADY_NONFINITE_OR_RANGE,Vd=1.975:STEADY_NONFINITE_OR_RANGE,Vd=0.9875:outside_conductive_endpoint_component,Vd=0.49375:outside_conductive_endpoint_component,Vd=0:outside_conductive_endpoint_component",
+      "formal_execution_count": 0,
+      "heating": {
+        "branch": "up",
+        "code": "PASS",
+        "cpu_time_s": 103.359375,
+        "failure_detail": null,
+        "point_count": 15,
+        "reachable_point_count": 4,
+        "success": true,
+        "wall_time_s": 104.59581349999644
+      },
+      "lifecycle_state": "executed",
+      "parent_config_path": "E:/Python demo/PINN/configs/geophase_phase1_v2_s2_reference_source_corrected_v3.yaml",
+      "parent_config_sha256": "ea668ac66c8f2f2267b059bd816a4116def086708f2f7eeded07d64a2857aff4",
+      "peak_rss_bytes": 65241088,
+      "run_id": "Q2-BC2D-BATCH1-20260805-V9",
+      "schema_version": "q2_branchconserve_batch1_stage_v1",
+      "scientific_vote": false,
+      "stage": "nominal_l1_atlas",
+      "status": "FAIL",
+      "task_id": "Q2_BRANCHCONSERVE_2D_STEADY_MVE_V1",
+      "validity": "valid",
+      "wall_time_s": 105.07143030001316
+    },
+    "l1_smoke_summary.json": {
+      "artifact": {
+        "identity": "nominal_l1_smoke_up_vd0p28125",
+        "manifest_path": "E:/Python demo/PINN/data/processed/q2_branchconserve_2d_steady_mve_v1/Q2-BC2D-BATCH1-20260805-V9/equilibria/nominal_l1_smoke_up_vd0p28125.json",
+        "manifest_sha256": "a76e45aef800a99eaf6f5da9de245ddd036f64e9ed0eb5527a55247ca5bab26d",
+        "npz_path": "E:/Python demo/PINN/data/processed/q2_branchconserve_2d_steady_mve_v1/Q2-BC2D-BATCH1-20260805-V9/equilibria/nominal_l1_smoke_up_vd0p28125.npz",
+        "npz_sha256": "72a7178a4bc9fa7a8efa990722ef00c7b37c074d0435171f8e97b6ac905615ae"
+      },
+      "branch": "up",
+      "claim_status": "forbidden",
+      "cpu_time_s": 7.59375,
+      "device_voltage_V": 0.28125,
+      "environment": {
+        "blas_thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "command": [
+          "E:\\Python demo\\PINN\\.venv\\Scripts\\python.exe",
+          "scripts/run_q2_branchconserve_2d_steady_mve_v1.py",
+          "smoke",
+          "--run-id",
+          "Q2-BC2D-BATCH1-20260805-V9"
+        ],
+        "cpu_count": 12,
+        "git_sha": "5ef0fd5230aa910bcb5196e03eabece5a2e51bd6",
+        "machine": "AMD64",
+        "platform": "Windows-10-10.0.26200-SP0",
+        "processor": "Intel64 Family 6 Model 154 Stepping 4, GenuineIntel",
+        "python": "3.11.9 | packaged by Anaconda, Inc. | (main, Apr 19 2024, 16:40:41) [MSC v.1916 64 bit (AMD64)]",
+        "rss_bytes_at_record": 61763584,
+        "run_id": "Q2-BC2D-BATCH1-20260805-V9",
+        "system_memory_available_bytes": 549060608,
+        "system_memory_total_bytes": 8300781568,
+        "workspace_disk_free_bytes": 67408846848,
+        "workspace_disk_total_bytes": 157286395904
+      },
+      "equilibrium": {
+        "active_area_mean_conductive_state": 0.17037672817084387,
+        "device_voltage_V": 0.28125,
+        "ledger_pass": true,
+        "load_line_residual": 1.286632324943241e-18,
+        "scaled_electrical_residual_inf": 9.006426274602687e-18,
+        "scaled_thermal_residual_inf": 1.0290386598079964e-16,
+        "source_current_A": 1.3564824319871945e-05,
+        "source_voltage_V": 0.44402789183846336
+      },
+      "evidence_type": "literature-guided synthetic numerical digital-twin evidence",
+      "execution_class": "nonvoting_batch1_pilot",
+      "failure_code": null,
+      "failure_detail": null,
+      "formal_execution_count": 0,
+      "lifecycle_state": "executed",
+      "outer_device_voltages_V": [
+        0.28125
+      ],
+      "outer_equilibrium_count": 1,
+      "parent_config_path": "E:/Python demo/PINN/configs/geophase_phase1_v2_s2_reference_source_corrected_v3.yaml",
+      "parent_config_sha256": "ea668ac66c8f2f2267b059bd816a4116def086708f2f7eeded07d64a2857aff4",
+      "peak_rss_bytes": 63713280,
+      "run_id": "Q2-BC2D-BATCH1-20260805-V9",
+      "schema_version": "q2_branchconserve_batch1_stage_v1",
+      "scientific_vote": false,
+      "solver": {
+        "cpu_time_s": 0.078125,
+        "damping_history": [
+          1.0,
+          1.0
+        ],
+        "electrical_subsolves": 16,
+        "failure_detail": null,
+        "full_residual_evaluations": 16,
+        "jv_evaluations": 6,
+        "lgmres_iterations": 4,
+        "line_search_backtracks": 0,
+        "nonlinear_iterations": 2,
+        "residual_inf_history": [
+          4.879694345558787e-07,
+          6.276937015195894e-15,
+          1.0290386598079964e-16
+        ],
+        "update_inf_history": [
+          8.983755057945338e-07,
+          1.1555314156553657e-14
+        ],
+        "wall_time_s": 0.08573900000192225
+      },
+      "source_voltage_role": "derived_from_equilibrium_load_mapping_nonvoting",
+      "stability": {
+        "code": "PASS",
+        "relative_residuals": [
+          1.792522169029959e-10,
+          3.68374159113156e-10,
+          1.3936274159194377e-12,
+          2.364633303467006e-12,
+          3.0579578826490345e-10,
+          7.562729615996744e-10
+        ],
+        "rightmost_spectral_abscissa_per_s": -909621.206668572,
+        "stable": true,
+        "tau_lambda_per_s": 4153.225806451613,
+        "telemetry": {
+          "cpu_time_s": 7.46875,
+          "dynamic_rhs_evaluations": 2690,
+          "failure_detail": null,
+          "matrix_vector_products": 1351,
+          "repeat_wall_time_s": [
+            2.745862500043586,
+            2.0745931001147255,
+            2.7074582000495866
+          ],
+          "wall_time_s": 7.528294400079176
+        }
+      },
+      "stage": "nominal_l1_smoke",
+      "status": "PASS",
+      "task_id": "Q2_BRANCHCONSERVE_2D_STEADY_MVE_V1",
+      "validity": "valid",
+      "wall_time_s": 7.662812600028701
+    },
+    "l2_cost_sentinel_summary.json": null
+  },
+  "task_id": "Q2_BRANCHCONSERVE_2D_STEADY_MVE_V1",
+  "validity": "valid"
+}

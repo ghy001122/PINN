@@ -2,44 +2,43 @@
 
 Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
 
-Status: `stopped_nls_reference_not_asymptotic_t4`
+Status: `stopped_branchconserve_pilot`
 
-Current checkpoint: `Q2_NLS_REFERENCE_TIME_CONVERGENCE_V2_STOPPED`
+Current checkpoint: `Q2_BRANCHCONSERVE_BATCH1_STOPPED`
 
-## Objective And Frozen Authority
+## Objective And Result
 
-B3v2 was the final bounded solution-level validity and GT-selection route. It
-made adaptive-path reversal telemetry non-voting for this new task and required
-NLS-v1 to pass its own T1/T2 full-field, port, integrity, and transition-event
-gates before Anderson could run. Historical B3 and all solver/controller/S2
-identities remained read-only.
+Batch 1 tested whether a unique temperature-primary steady solver could form a
+nominal stable+reachable major-branch judge before any defect, Jacobian, SVD,
+or PINN work.  The nominal L1 smoke passed, and the heating atlas produced 15
+in-domain points with four points in its initial stable+reachable component.
 
-The superseded checkpoint
-`Q2_CONTROLLER_RELEVANCE_B3_VALID_FAIL_FINAL_FORWARD_RESCUE_STOPPED` and its
-`B3_MATCHED_WINDOW_CORRECTNESS_VALID_FAIL` disposition remain immutable
-history. D0 and equivalence-v1/v2/v3 were not rerun or revised.
-
-## Actual Result
-
-PR #27 T1/T2 results remained immutable. The prospective physical-coordinate
-contract was frozen before one valid 12.5 V T4 worker ran. Local, event, and
-signed I-Vd loop gates passed, but `Tc(b)`, `log(sigma)`, and terminal T P95
-were nonmonotonic; only Vd passed its final Richardson estimate. The terminal
-state is `STOP_REFERENCE_NOT_ASYMPTOTIC_OR_INVALID_T4`, with no selected GT
-solver.
+The required cooling endpoint at source voltage `15.8 V` had no certified
+contiguous high-conductive load-line bracket under the frozen 33-point scan and
+solver budgets.  Therefore the common branch domain is empty and the terminal
+disposition is `STOP_BRANCHCONSERVE_PILOT`.
 
 ## Lifecycle And Claims
 
-- NLS T1/T2/T4 reference time convergence: `numerically_validated`;
-  `failed_but_informative` numerical-method evidence.
+- B0 steady implementation: `implemented`; claim status `forbidden`.
+- Batch 1 pilot: `executed`; `failed_but_informative` numerical-method
+  evidence.
 - `scientific_vote=false`; `formal_execution_count=0`.
-- T8, selected-level 9 V, held-out, cost/sentinel, B4, fresh S0, Phase 2,
-  C01/C06, OOD, and positive R1-R3 claims were not executed and remain
-  `forbidden`.
+- L2 sentinel, B1 physics/2D gates, B2 rank, Phase 2, C01, inverse, refusal,
+  and all positive R1-R3 claims remain `forbidden` / unassessed.
 
 ## Stop
 
-Do not run T8, change time metrics, unlock held-out, run cost/sentinel/B4/S0,
-or bypass S0 into data generation or training. Any manuscript reroute requires
-a separate contract and cannot be described as a successful 2.5D positive-PINN
-result.
+Batch 2 is not authorized.  Do not reinterpret the endpoint failure as S2 or
+Phase 1 physics, and do not bypass it into data generation or training.  Any
+new endpoint construction or continuation parameterization requires a separate
+versioned contract and fresh authorization.
+
+## Preserved History
+
+The superseded dynamic checkpoints
+`Q2_NLS_REFERENCE_TIME_CONVERGENCE_V2_STOPPED` /
+`STOP_REFERENCE_NOT_ASYMPTOTIC_OR_INVALID_T4` and
+`Q2_CONTROLLER_RELEVANCE_B3_VALID_FAIL_FINAL_FORWARD_RESCUE_STOPPED` /
+`B3_MATCHED_WINDOW_CORRECTNESS_VALID_FAIL` remain immutable.  D0 and all
+equivalence evidence were neither modified nor rerun.

@@ -1,0 +1,11 @@
+{
+  "domain": {
+    "candidate_source_voltages_V": [],
+    "exists": false,
+    "lower_source_voltage_V": null,
+    "upper_source_voltage_V": null
+  },
+  "run_id": "Q2-BC2D-BATCH1-20260805-V9",
+  "schema_version": "q2_branchconserve_common_reachable_domain_v1",
+  "scientific_vote": false
+}

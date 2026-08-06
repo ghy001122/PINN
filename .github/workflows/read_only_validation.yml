@@ -117,6 +117,11 @@ jobs:
           tests/test_geophase_exact_condensed_anderson.py
           tests/test_geophase_b3v2_solution_level.py
           tests/test_geophase_nls_time_convergence_v2.py
+          tests/test_branchconserve_contract.py
+          tests/test_branchconserve_steady_model.py
+          tests/test_branchconserve_solver.py
+          tests/test_branchconserve_continuation_stability.py
+          tests/test_branchconserve_mve.py
           tests/test_geophase_phase1_v2_source_corrected_performance_repair_preregistration.py
           tests/test_geophase_phase1_v2_source_corrected_performance_electrical.py
           tests/test_geophase_phase1_v2_source_corrected_performance_coupled.py
