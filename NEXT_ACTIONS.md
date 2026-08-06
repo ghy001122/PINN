@@ -3,19 +3,20 @@
 ## Authoritative Current Queue
 
 - Phase/checkpoint: `Q2_PHASE1_2P5D_REFERENCE_SOLVER` /
-  `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED`.
-- Disposition: `A_STOP_STEADY_ROUTE`.
-- The S1/S7 source audit is complete, but the 12 kOhm and fixed seven-load
-  oracle produced no eligible nondegenerate stable transition domain.
-- Stage B L1, B1/B2, Phase 2, PINN, inverse, and refusal are not passed or
-  unlocked.
-- Stage B is not authorized.
+  `Q2_CURRENT_CLAMP_CC_A_PASSED`.
+- Disposition: `PASS_CC_A_CURRENT_CLAMP_ADMISSION`.
+- The independent S1 ideal-current-clamp CC-A gate passed 14/14 formal roots,
+  both seven-point branch traces, state-span/intermediate-state gates, and all
+  seven common-current separation gates.
+- CC-B/CC-C, a 2.5-D judge, data generation, PINN, inverse, and refusal remain
+  unexecuted and unauthorized.
 - `scientific_vote=false`; `formal_execution_count=0`.
 
 ## Single Next Priority
 
-Preserve the v1 and v2 steady-route limitations in the evidence package. The
-next project-level decision must explicitly choose a different, source-legal
-route or a manuscript downgrade; it may not auto-promote diagnostic S7,
-post-fit material parameters, or an untested two-dimensional closure. No
-additional experiment is authorized by this result.
+Decide whether to authorize one bounded CC-B pilot: certify the S1
+device-effective uniform limit, nominal L1/L2 current-clamped equilibria,
+constrained two-dimensional thermal stability, ledgers, and one preregistered
+LU/RD two-dimensional-response gate within 4 CPU wall-hours. CC-A PASS does
+not itself authorize that work and cannot be bypassed into data generation or
+PINN training.

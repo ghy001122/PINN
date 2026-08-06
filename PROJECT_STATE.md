@@ -4,13 +4,30 @@
 
 - Delivery/phase: `Q2_SCI_DELIVERY_MODE` /
   `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Checkpoint: `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED`.
-- Execution base: `main@0877714dbed92d4d43f031fab5032f5cbd56eae8`.
-- Result branch: `codex/q2-qiu-source-consistent-branchconserve-v2`.
-- Terminal disposition: `A_STOP_STEADY_ROUTE`.
+- Checkpoint: `Q2_CURRENT_CLAMP_CC_A_PASSED`.
+- PR #30 merge base: `0230b036c271e02f52bc8d4b25f0021eb0d1870b`.
+- CC-A code anchor: `230f1e37fbefd88d554d54009db626d175a00444`.
+- Result branch: `codex/q2-current-clamp-source-consistent-2p5d-v1`.
+- Terminal disposition: `PASS_CC_A_CURRENT_CLAMP_ADMISSION`.
 - `scientific_vote=false`; `formal_execution_count=0`.
 
-## Batch 1 Outcome
+## Current-Clamp CC-A Outcome
+
+| Item | Result | Evidence boundary |
+| --- | --- | --- |
+| implementation and focused regression | implemented; `29 passed` | Software and formula-contract fact |
+| formal branch/current roots | 14/14 unique, certified, stable, and continuation-connected | Bounded 0-D admission evidence |
+| heating branch | 7 points; state span `0.7760256851`; 5 intermediate points | Fixed S1 up-branch metadata only |
+| cooling branch | 7 points; state span `0.6754940767`; 6 intermediate points | Externally preconditioned S1 down-branch metadata only |
+| common branch separation | 7/7 currents exceed `0.1` | Branch-conditioned; not dynamic switching |
+| source-scale mapping | exact algebraic port round trip, max error `1.60e-16` | Device-effective proxy; no 2-D execution |
+| CC-B/CC-C/PINN | not executed and unauthorized | `forbidden` / unassessed |
+
+CC-A is valid `qualified_supported` evidence and only makes a separately
+authorized CC-B pilot eligible. `scientific_vote=false` and
+`formal_execution_count=0` remain unchanged.
+
+## Historical BranchConserve Batch 1 Outcome
 
 | Item | Result | Evidence boundary |
 | --- | --- | --- |
@@ -51,7 +68,8 @@ as infrastructure provenance only and do not vote on the active S2 route.
 
 ## Boundary
 
-Do not start Stage B, B1/B2, data generation, or training. A future route must
-be separately authorized and cannot relabel S7 as an intrinsic/local
-production law or tune source/material parameters to manufacture a stable
-transition domain.
+Do not start CC-B/CC-C, data generation, or training without a new explicit
+authorization. A future CC-B must validate the source mapping in the 2-D
+uniform limit and certify constrained field stability before any ground-truth
+dataset. It cannot relabel S7 as an intrinsic/local law or tune source/material
+parameters after seeing results.

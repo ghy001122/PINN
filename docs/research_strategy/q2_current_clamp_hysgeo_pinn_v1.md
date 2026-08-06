@@ -7,6 +7,12 @@ This is a new research contract after the valid negative Stage A result in PR
 voltage-driven dynamic solver. Batch 1 contains only CC-0 and the bounded CC-A
 zero-dimensional admission gate.
 
+Batch 1 executed on code anchor `230f1e37fbefd88d554d54009db626d175a00444`
+and terminated with `PASS_CC_A_CURRENT_CLAMP_ADMISSION`. The lifecycle state is
+`executed` and the claim status is `qualified_supported`; the global science
+vote remains false and the formal execution count remains zero. CC-B remains
+unauthorized and unexecuted.
+
 The unresolved reviewer question is whether ideal current control, under the
 audited Qiu S1 major-branch source law, admits a non-degenerate set of locally
 stable, continuation-connected heating and cooling equilibria. A positive

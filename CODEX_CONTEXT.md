@@ -4,28 +4,32 @@
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
 - Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Checkpoint: `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED`.
-- Active disposition: `A_STOP_STEADY_ROUTE`.
-- Execution base: `main@0877714dbed92d4d43f031fab5032f5cbd56eae8`.
-- Result branch: `codex/q2-qiu-source-consistent-branchconserve-v2`.
+- Checkpoint: `Q2_CURRENT_CLAMP_CC_A_PASSED`.
+- Active disposition: `PASS_CC_A_CURRENT_CLAMP_ADMISSION`.
+- PR #30 merge base: `0230b036c271e02f52bc8d4b25f0021eb0d1870b`.
+- CC-A code anchor: `230f1e37fbefd88d554d54009db626d175a00444`.
+- Result branch: `codex/q2-current-clamp-source-consistent-2p5d-v1`.
 - `scientific_vote=false`; `formal_execution_count=0`.
 
-PR #29 and its valid `STOP_BRANCHCONSERVE_PILOT` result were merged unchanged.
-The separate v2 Stage A source audit then verified the Qiu S1--S7 formulas and
-ran an independent 0-D fixed-point, local-stability, and continuous
-quasistatic-reachability oracle. The direct `beta+k` patch was rejected. Under
-S1, the 12 kOhm high-conductive roots at 15.8/17 V are algebraically present
-but locally unstable. The preregistered 3/6/9/12/18/24/36 kOhm sentinel found
-no dual-branch or forward domain meeting the nondegenerate-transition gate.
-The terminal result is valid `failed_but_informative` source-oracle evidence.
+PR #30 and its valid `A_STOP_STEADY_ROUTE` result were merged unchanged. That
+negative result remains binding for voltage-source-plus-series-load steady
+operation. A new, independent ideal-current-clamp Batch 1 then executed CC-A
+on the audited S1 major branches. Heating and cooling each produced 7/7 unique,
+locally stable, continuation-connected roots over the frozen 0.1--0.7 mA
+range. Their conductive-state spans were `0.7760256851` and `0.6754940767`,
+and all seven common currents had branch-state separation above `0.1`.
+
+The valid terminal result is `PASS_CC_A_CURRENT_CLAMP_ADMISSION` with
+`claim_status=qualified_supported`. It establishes only a bounded lumped
+branch-admission fact and eligibility to request CC-B.
 
 The delivery ladder remains minimum R1 `HysGeo-Hybrid-PINN`, preferred R2
 `GeoPhase-HomoMoE-PINN`, and conditional R3.  None is unlocked by this result.
 
-Stage B L1, B1/B2, Phase 2, rank-2 sensitivity, and all PINN work were not
-executed and remain unauthorized. The result does not establish S2/Phase 1
-physics or failure, a two-dimensional steady judge, Qiu reproduction, or a
-PINN result.
+CC-B/CC-C, two-dimensional fields, data generation, rank-2 sensitivity, and
+all PINN work were not executed and remain unauthorized. The result does not
+establish a 2.5-D judge, S2/Phase 1 success, Qiu reproduction, dynamic branch
+switching, or a PINN result.
 
 Historical dynamic solver/controller, S0/equivalence results, and Frozen GT
 remain unchanged.  Read `docs/research_strategy/context_loading_policy.md`

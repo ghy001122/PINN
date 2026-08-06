@@ -1,0 +1,16 @@
+{
+  "aggregate_cpu_s": 0.21875,
+  "calendar_wall_s": 0.2515203000002657,
+  "cc_b_authorized": false,
+  "cc_b_eligible_to_request": true,
+  "cc_b_executed": false,
+  "claim_status": "qualified_supported",
+  "disposition": "PASS_CC_A_CURRENT_CLAMP_ADMISSION",
+  "formal_execution_count": 0,
+  "lifecycle_state": "executed",
+  "run_id": "Q2-CC-A-ADMISSION-20260806-V1",
+  "schema_version": "q2_current_clamp_cc_a_summary_v1",
+  "scientific_vote": false,
+  "task_id": "Q2_CURRENT_CLAMP_HYSGEO_PINN_V1",
+  "validity": "valid"
+}

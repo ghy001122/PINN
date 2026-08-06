@@ -4,3 +4,6 @@ docs/archive/superseded_strategy/Q2_REPOSITORY_REALIGNMENT_AND_PHASE0_GOVERNANCE
 
 # Claim-bearing controller-relevance outputs are hashed as exact bytes.
 outputs/tables/geophase_controller_relevance_final_rescue/** -text whitespace=cr-at-eol
+
+# CC-A CSV evidence is hashed as exact runtime bytes.
+outputs/tables/q2_current_clamp_hysgeo/** -text whitespace=cr-at-eol

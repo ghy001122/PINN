@@ -1,0 +1,33 @@
+{
+  "additional_series_resistance": "forbidden",
+  "allowed_claim": "uniform-limit port-equivalent source-scale mapping",
+  "electrical_contact_overlap_role": "thermal_only",
+  "forbidden_claims": [
+    "intrinsic local VO2 conductivity",
+    "real contact-current-crowding reconstruction",
+    "two-dimensional validation"
+  ],
+  "geometry_factor_m": 5e-07,
+  "local_semantics": "device-effective distributed proxy",
+  "mapping_rule": "sigma_eff_equals_one_over_g_geom_times_R_S1",
+  "maximum_roundtrip_relative_error": 1.5986875514822344e-16,
+  "samples": [
+    {
+      "branch": "heating",
+      "mapped_device_effective_conductivity_S_m": 39.41066613904745,
+      "recovered_uniform_port_resistance_ohm": 50747.68320189423,
+      "relative_error": 0.0,
+      "source_device_effective_resistance_ohm": 50747.68320189423,
+      "temperature_K": 325.0
+    },
+    {
+      "branch": "cooling",
+      "mapped_device_effective_conductivity_S_m": 43.94438880088649,
+      "recovered_uniform_port_resistance_ohm": 45512.06774230192,
+      "relative_error": 1.5986875514822344e-16,
+      "source_device_effective_resistance_ohm": 45512.06774230193,
+      "temperature_K": 325.0
+    }
+  ],
+  "status": "ALGEBRAIC_CONTRACT_ONLY_NOT_2D_EXECUTED"
+}
