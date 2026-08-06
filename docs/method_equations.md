@@ -1071,3 +1071,43 @@ for branch-conditioned local stability. This oracle is independent of the
 2-D BranchConserve production code. A passed Stage A result permits only a
 separately authorized L1 uniform-limit pilot; it is not a 2-D physics or PINN
 result.
+
+## Ideal-current-clamp major-branch admission (CC-A)
+
+The active Batch-1 source law uses the audited Qiu S1 quasistatic major
+branches as externally conditioned protocol metadata:
+
+\[
+F_b(T)=\frac12\left[1+\tanh\left(\beta
+\left[T_c+\delta_b\frac{w}{2}-T\right]\right)\right],
+\qquad s_b(T)=1-F_b(T),
+\]
+
+\[
+R_b^{QS}(T)=R_0\exp(E_a/T)F_b(T)+R_m,
+\qquad \delta_{up}=+1,\quad\delta_{down}=-1.
+\]
+
+For an ideal current clamp, the zero-dimensional admission equilibrium and
+its branch-conditioned lumped thermal stability are
+
+\[
+S_{th}(T-T_0)-I_{set}^2R_b^{QS}(T)=0,
+\qquad V_d=I_{set}R_b^{QS}(T),
+\]
+
+\[
+\lambda_{0D}=\frac{I_{set}^2(dR_b^{QS}/dT)-S_{th}}{C_{th}}.
+\]
+
+This gate proves neither dynamic branch switching nor two-dimensional field
+stability. The later, not-yet-executed uniform-port mapping is
+
+\[
+g_{geom}=\frac{Wt_v}{L},
+\qquad
+\sigma_b^{eff}(T)=\frac{1}{g_{geom}R_b^{QS}(T)}.
+\]
+
+Here \(\sigma_b^{eff}\) is a device-effective distributed proxy, not an
+intrinsic local VO2 conductivity.

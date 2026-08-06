@@ -31,6 +31,10 @@ outputs/tables/q2_branchconserve_2d_steady_mve_v1/*
 !outputs/tables/q2_branchconserve_2d_steady_mve_v1/Q2-BC2D-BATCH1-20260805-V9/
 !outputs/tables/q2_branchconserve_2d_steady_mve_v1/Q2-BC2D-BATCH1-20260805-V9/*
 !outputs/tables/.gitkeep
+!outputs/tables/q2_current_clamp_hysgeo/
+outputs/tables/q2_current_clamp_hysgeo/*
+!outputs/tables/q2_current_clamp_hysgeo/Q2-CC-A-ADMISSION-20260806-V1/
+!outputs/tables/q2_current_clamp_hysgeo/Q2-CC-A-ADMISSION-20260806-V1/*
 !outputs/tables/pinn_inverse_v0_ablation_summary.json
 !outputs/tables/pinn_identifiability_summary.json
 !outputs/tables/pinn_identifiability_correlation.csv
