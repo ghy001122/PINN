@@ -1023,3 +1023,51 @@ global-ledger violations in independently updated augmented-Lagrangian blocks.
 Mixed formulations and augmented Lagrangians are established components and
 carry no standalone novelty claim. Any trained claim remains conditional on
 the unchanged v3r port, field, PDE, interface, and conservation gates.
+
+## Q2 Qiu Source-Consistent Stage A Oracle
+
+The non-voting Stage A source oracle uses the no-reversal major-loop limit of
+Qiu Supporting Information equations S1--S7. For fixed branch metadata
+\(\delta_\uparrow=+1\), \(\delta_\downarrow=-1\),
+
+$$
+F_b(T)=\frac12\left[1+\tanh\left(\beta\left[T_c+\delta_b\frac{w}{2}-T\right]\right)\right],
+\qquad s_b(T)=1-F_b(T).
+$$
+
+The two source resistance roles remain distinct:
+
+$$
+R_b^{QS}(T)=R_0e^{E_a/T}F_b(T)+R_m,
+$$
+
+$$
+R_b^{fil}(T)=R_0e^{E_a/T}F_b(T)+kR_m.
+$$
+
+S1 \(R_b^{QS}\) is the only candidate for a later 2-D production uniform
+limit. S7 \(R_b^{fil}\) is a diagnostic comparator for the source's dynamic
+thin-filament approximation. The device-lumped unknowns are
+\(u=[V_d,T]\):
+
+$$
+\dot V_d=\frac{(V_s-V_d)/R_L-V_d/R_b(T)}{C},
+\qquad
+\dot T=\frac{V_d^2/R_b(T)-S_{th}(T-T_0)}{C_{th}}.
+$$
+
+At equilibrium,
+
+$$
+V_d=\frac{V_sR_b}{R_L+R_b},
+\qquad
+h(T)=\frac{V_s^2R_b}{(R_L+R_b)^2}-S_{th}(T-T_0)=0.
+$$
+
+All roots are enumerated on the analytic bound
+\(T_0\le T\le T_0+V_s^2/(4R_LS_{th})\). The analytic dynamic Jacobian is
+checked against central differences before its rightmost eigenvalue is used
+for branch-conditioned local stability. This oracle is independent of the
+2-D BranchConserve production code. A passed Stage A result permits only a
+separately authorized L1 uniform-limit pilot; it is not a 2-D physics or PINN
+result.

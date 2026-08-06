@@ -2,37 +2,39 @@
 
 Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
 
-Status: `stopped_branchconserve_pilot`
+Status: `stopped_qiu_source_consistent_stage_a`
 
-Current checkpoint: `Q2_BRANCHCONSERVE_BATCH1_STOPPED`
+Current checkpoint: `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED`
 
 ## Objective And Result
 
-Batch 1 tested whether a unique temperature-primary steady solver could form a
-nominal stable+reachable major-branch judge before any defect, Jacobian, SVD,
-or PINN work.  The nominal L1 smoke passed, and the heating atlas produced 15
-in-domain points with four points in its initial stable+reachable component.
+PR #29 preserves the v1 `STOP_BRANCHCONSERVE_PILOT` result. The independent v2
+Stage A task audited Qiu S1--S7 and executed 16 source-oracle fixed-point cases
+plus the conditional seven-load sentinel. Formula, nested-root, residual,
+analytic/finite-difference Jacobian, and eigenpair gates passed.
 
-The required cooling endpoint at source voltage `15.8 V` had no certified
-contiguous high-conductive load-line bracket under the frozen 33-point scan and
-solver budgets.  Therefore the common branch domain is empty and the terminal
-disposition is `STOP_BRANCHCONSERVE_PILOT`.
+The S1 high-conductive roots at 12 kOhm are locally unstable, and none of the
+seven fixed load values provides a continuous robustly stable domain with the
+required nondegenerate transition coverage. The terminal disposition is
+`A_STOP_STEADY_ROUTE`.
 
 ## Lifecycle And Claims
 
-- B0 steady implementation: `implemented`; claim status `forbidden`.
-- Batch 1 pilot: `executed`; `failed_but_informative` numerical-method
-  evidence.
+- v1 B0 steady implementation: `implemented`; claim status `forbidden`.
+- v1 Batch 1 pilot: `executed`; `failed_but_informative` numerical-method
+  evidence, preserved unchanged.
+- v2 Stage A source oracle: `executed`; `failed_but_informative` bounded
+  source-model evidence.
 - `scientific_vote=false`; `formal_execution_count=0`.
-- L2 sentinel, B1 physics/2D gates, B2 rank, Phase 2, C01, inverse, refusal,
-  and all positive R1-R3 claims remain `forbidden` / unassessed.
+- Stage B L1, B1 physics/2D gates, B2 rank, Phase 2, C01, inverse, refusal, and
+  all positive R1-R3 claims remain `forbidden` / unassessed.
 
 ## Stop
 
-Batch 2 is not authorized.  Do not reinterpret the endpoint failure as S2 or
-Phase 1 physics, and do not bypass it into data generation or training.  Any
-new endpoint construction or continuation parameterization requires a separate
-versioned contract and fresh authorization.
+Stage B is not authorized. Do not reinterpret algebraic fixed-point existence
+as local stability, use diagnostic S7 as a two-dimensional material law, or
+bypass the failed nondegenerate-transition gate into data generation or
+training. No automatic solver, circuit, or manuscript-core pivot is authorized.
 
 ## Preserved History
 

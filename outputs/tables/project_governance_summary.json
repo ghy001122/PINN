@@ -1,6 +1,6 @@
 {
   "audit": "project_governance",
-  "audit_scope": "fast_checkout",
+  "audit_scope": "full",
   "overall_status": "pass_with_manual_review",
   "failed_checks": [],
   "manual_review_required": [
@@ -114,13 +114,13 @@
     "low_token_context_budget": {
       "status": "pass",
       "limit_bytes": 24576,
-      "total_bytes": 22613,
+      "total_bytes": 18977,
       "files": {
-        "CODEX_CONTEXT.md": 3148,
-        "docs/research_strategy/active_phase.md": 5599,
-        "PROJECT_STATE.md": 5193,
-        "NEXT_ACTIONS.md": 2857,
-        "docs/project_state/current_evidence_index.md": 5816
+        "CODEX_CONTEXT.md": 1986,
+        "docs/research_strategy/active_phase.md": 1926,
+        "PROJECT_STATE.md": 3091,
+        "NEXT_ACTIONS.md": 881,
+        "docs/project_state/current_evidence_index.md": 11093
       }
     },
     "retired_generator_guard": {

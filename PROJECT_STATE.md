@@ -4,10 +4,10 @@
 
 - Delivery/phase: `Q2_SCI_DELIVERY_MODE` /
   `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Checkpoint: `Q2_BRANCHCONSERVE_BATCH1_STOPPED`.
-- Execution base: `main@5ef0fd5230aa910bcb5196e03eabece5a2e51bd6`.
-- Result branch: `codex/q2-branchconserve-2d-steady-mve-v1`.
-- Terminal disposition: `STOP_BRANCHCONSERVE_PILOT`.
+- Checkpoint: `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED`.
+- Execution base: `main@0877714dbed92d4d43f031fab5032f5cbd56eae8`.
+- Result branch: `codex/q2-qiu-source-consistent-branchconserve-v2`.
+- Terminal disposition: `A_STOP_STEADY_ROUTE`.
 - `scientific_vote=false`; `formal_execution_count=0`.
 
 ## Batch 1 Outcome
@@ -30,11 +30,28 @@ The intended positive ladder remains R1 `HysGeo-Hybrid-PINN`, preferred R2
 `GeoPhase-HomoMoE-PINN`, and conditional R3; all remain `forbidden` and
 unassessed.
 
+## Qiu Source-Consistent Stage A Outcome
+
+| Item | Result | Evidence boundary |
+| --- | --- | --- |
+| source audit | PASS; Qiu S1--S7 parameters, equations, PDF hashes, and source-module parity close | External-source and implementation consistency only |
+| direct `beta+k` patch | `REJECT_DIRECT_BETA_K_PATCH` | `beta` and `k` have distinct source roles; v1 mixing semantics remain different |
+| 16-case 0-D matrix | valid; all roots/residuals/Jacobians/eigenpairs certified | Bounded lumped source-oracle evidence only |
+| 12 kOhm S1 | high-conductive 15.8/17 V algebraic roots are locally unstable; no dual domain | Not a 2-D or dynamic physics vote |
+| seven-load sentinel | no load passes dual or nondegenerate forward gate | `failed_but_informative`; no continuous optimization or fitting |
+| Stage B/B1/B2/PINN | not executed | `forbidden` / unassessed |
+
+The v2 Stage A result is valid `failed_but_informative` source-oracle
+evidence. It does not establish S2/Phase 1 failure, a two-dimensional forward
+judge, Qiu quantitative reproduction, or any PINN result. PR #29 remains the
+immutable v1 negative result.
+
 Historical S1 science is `forbidden`/unassessed; interruption facts are supported
 as infrastructure provenance only and do not vote on the active S2 route.
 
 ## Boundary
 
-Do not run the L2 sentinel or approve Batch 2 under this identity.  A different
-cooling-endpoint construction or equilibrium parameterization would be a new
-method contract requiring fresh authorization.
+Do not start Stage B, B1/B2, data generation, or training. A future route must
+be separately authorized and cannot relabel S7 as an intrinsic/local
+production law or tune source/material parameters to manufacture a stable
+transition domain.

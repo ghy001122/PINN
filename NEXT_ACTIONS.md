@@ -3,17 +3,19 @@
 ## Authoritative Current Queue
 
 - Phase/checkpoint: `Q2_PHASE1_2P5D_REFERENCE_SOLVER` /
-  `Q2_BRANCHCONSERVE_BATCH1_STOPPED`.
-- Disposition: `STOP_BRANCHCONSERVE_PILOT`.
-- Cooling endpoint, common source domain, L2 sentinel, B1/B2, Phase 2, PINN,
-  inverse, and refusal are not passed or unlocked.
-- Batch 2 is not authorized.
+  `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED`.
+- Disposition: `A_STOP_STEADY_ROUTE`.
+- The S1/S7 source audit is complete, but the 12 kOhm and fixed seven-load
+  oracle produced no eligible nondegenerate stable transition domain.
+- Stage B L1, B1/B2, Phase 2, PINN, inverse, and refusal are not passed or
+  unlocked.
+- Stage B is not authorized.
 - `scientific_vote=false`; `formal_execution_count=0`.
 
 ## Single Next Priority
 
-Do not authorize Batch 2.  Decide whether the manuscript should retain this
-steady-route limitation, or whether a new versioned task should test a revised
-branch-preserving cooling-endpoint/equilibrium parameterization.  Such a task
-must preserve the present negative evidence and may not be called a Batch 1
-resume or retry.
+Preserve the v1 and v2 steady-route limitations in the evidence package. The
+next project-level decision must explicitly choose a different, source-legal
+route or a manuscript downgrade; it may not auto-promote diagnostic S7,
+post-fit material parameters, or an untested two-dimensional closure. No
+additional experiment is authorized by this result.

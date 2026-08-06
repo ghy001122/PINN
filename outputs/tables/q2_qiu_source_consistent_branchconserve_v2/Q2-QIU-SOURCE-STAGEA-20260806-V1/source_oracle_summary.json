@@ -1,0 +1,693 @@
+{
+  "aggregate_cpu_s": 8.078125,
+  "audit": {
+    "cooling_threshold_temperature_K": 329.2035,
+    "direct_beta_plus_k_patch_verdict": "REJECT_DIRECT_BETA_K_PATCH",
+    "heating_threshold_temperature_K": 336.3965,
+    "independent_repository_formula_parity_max": 0.0,
+    "major_loop_Tpr_semantics": "Tpr_inactive_before_reversal",
+    "source_beta_equivalent_logistic_scale_K": 1.976284584980237,
+    "source_contract_sha256": "17a0accc906d68fffc35ee40be9d41c36bd1a7d0514e9a539cfcfd4fc4bcc621",
+    "source_sha256": {
+      "main_article": "d842e8bf1b5ac609ab504d8bf6104cfd3efea59697a5c7ac21664a99eb7d3c67",
+      "supporting_information": "d47ed95cd5782c3e632bbc440c1fcc681870e0ff303f0b05f8cd8f30cec70bfd"
+    },
+    "status": "PASS",
+    "v1_incorrect_sigmoid_scale_K": 7.193,
+    "wall_time_s": 0.03494540000019697
+  },
+  "base_matrix": [
+    {
+      "branch": "heating",
+      "case_id": "Vs9_heating_S1_QS",
+      "diagnostic_only": false,
+      "resistance_variant": "S1_QS",
+      "root_count": 1,
+      "root_set_hausdorff_K": 5.684341886080802e-14,
+      "source_voltage_V": 9.0,
+      "stationary_point_count": 0
+    },
+    {
+      "branch": "heating",
+      "case_id": "Vs9_heating_S7_DYNAMIC_COMPARATOR",
+      "diagnostic_only": false,
+      "resistance_variant": "S7_DYNAMIC_COMPARATOR",
+      "root_count": 1,
+      "root_set_hausdorff_K": 0.0,
+      "source_voltage_V": 9.0,
+      "stationary_point_count": 0
+    },
+    {
+      "branch": "cooling",
+      "case_id": "Vs9_cooling_S1_QS",
+      "diagnostic_only": false,
+      "resistance_variant": "S1_QS",
+      "root_count": 1,
+      "root_set_hausdorff_K": 0.0,
+      "source_voltage_V": 9.0,
+      "stationary_point_count": 0
+    },
+    {
+      "branch": "cooling",
+      "case_id": "Vs9_cooling_S7_DYNAMIC_COMPARATOR",
+      "diagnostic_only": false,
+      "resistance_variant": "S7_DYNAMIC_COMPARATOR",
+      "root_count": 1,
+      "root_set_hausdorff_K": 0.0,
+      "source_voltage_V": 9.0,
+      "stationary_point_count": 0
+    },
+    {
+      "branch": "heating",
+      "case_id": "Vs12.5_heating_S1_QS",
+      "diagnostic_only": true,
+      "resistance_variant": "S1_QS",
+      "root_count": 1,
+      "root_set_hausdorff_K": 1.1368683772161603e-13,
+      "source_voltage_V": 12.5,
+      "stationary_point_count": 0
+    },
+    {
+      "branch": "heating",
+      "case_id": "Vs12.5_heating_S7_DYNAMIC_COMPARATOR",
+      "diagnostic_only": true,
+      "resistance_variant": "S7_DYNAMIC_COMPARATOR",
+      "root_count": 1,
+      "root_set_hausdorff_K": 5.684341886080802e-14,
+      "source_voltage_V": 12.5,
+      "stationary_point_count": 0
+    },
+    {
+      "branch": "cooling",
+      "case_id": "Vs12.5_cooling_S1_QS",
+      "diagnostic_only": true,
+      "resistance_variant": "S1_QS",
+      "root_count": 1,
+      "root_set_hausdorff_K": 0.0,
+      "source_voltage_V": 12.5,
+      "stationary_point_count": 2
+    },
+    {
+      "branch": "cooling",
+      "case_id": "Vs12.5_cooling_S7_DYNAMIC_COMPARATOR",
+      "diagnostic_only": true,
+      "resistance_variant": "S7_DYNAMIC_COMPARATOR",
+      "root_count": 1,
+      "root_set_hausdorff_K": 0.0,
+      "source_voltage_V": 12.5,
+      "stationary_point_count": 2
+    },
+    {
+      "branch": "heating",
+      "case_id": "Vs15.8_heating_S1_QS",
+      "diagnostic_only": false,
+      "resistance_variant": "S1_QS",
+      "root_count": 1,
+      "root_set_hausdorff_K": 0.0,
+      "source_voltage_V": 15.8,
+      "stationary_point_count": 2
+    },
+    {
+      "branch": "heating",
+      "case_id": "Vs15.8_heating_S7_DYNAMIC_COMPARATOR",
+      "diagnostic_only": false,
+      "resistance_variant": "S7_DYNAMIC_COMPARATOR",
+      "root_count": 1,
+      "root_set_hausdorff_K": 0.0,
+      "source_voltage_V": 15.8,
+      "stationary_point_count": 2
+    },
+    {
+      "branch": "cooling",
+      "case_id": "Vs15.8_cooling_S1_QS",
+      "diagnostic_only": false,
+      "resistance_variant": "S1_QS",
+      "root_count": 1,
+      "root_set_hausdorff_K": 0.0,
+      "source_voltage_V": 15.8,
+      "stationary_point_count": 2
+    },
+    {
+      "branch": "cooling",
+      "case_id": "Vs15.8_cooling_S7_DYNAMIC_COMPARATOR",
+      "diagnostic_only": false,
+      "resistance_variant": "S7_DYNAMIC_COMPARATOR",
+      "root_count": 1,
+      "root_set_hausdorff_K": 0.0,
+      "source_voltage_V": 15.8,
+      "stationary_point_count": 2
+    },
+    {
+      "branch": "heating",
+      "case_id": "Vs17_heating_S1_QS",
+      "diagnostic_only": false,
+      "resistance_variant": "S1_QS",
+      "root_count": 1,
+      "root_set_hausdorff_K": 0.0,
+      "source_voltage_V": 17.0,
+      "stationary_point_count": 2
+    },
+    {
+      "branch": "heating",
+      "case_id": "Vs17_heating_S7_DYNAMIC_COMPARATOR",
+      "diagnostic_only": false,
+      "resistance_variant": "S7_DYNAMIC_COMPARATOR",
+      "root_count": 1,
+      "root_set_hausdorff_K": 0.0,
+      "source_voltage_V": 17.0,
+      "stationary_point_count": 2
+    },
+    {
+      "branch": "cooling",
+      "case_id": "Vs17_cooling_S1_QS",
+      "diagnostic_only": false,
+      "resistance_variant": "S1_QS",
+      "root_count": 1,
+      "root_set_hausdorff_K": 0.0,
+      "source_voltage_V": 17.0,
+      "stationary_point_count": 1
+    },
+    {
+      "branch": "cooling",
+      "case_id": "Vs17_cooling_S7_DYNAMIC_COMPARATOR",
+      "diagnostic_only": false,
+      "resistance_variant": "S7_DYNAMIC_COMPARATOR",
+      "root_count": 1,
+      "root_set_hausdorff_K": 0.0,
+      "source_voltage_V": 17.0,
+      "stationary_point_count": 1
+    }
+  ],
+  "base_matrix_case_count": 16,
+  "calendar_wall_s": 8.407801199999994,
+  "claim_boundary": {
+    "allowed": [
+      "source_equation_consistency_or_discrepancy",
+      "bounded_0d_fixed_point_and_local_stability_evidence",
+      "conditional_stage_b_entry_recommendation"
+    ],
+    "forbidden": [
+      "Qiu_quantitative_reproduction",
+      "experimental_validation",
+      "two_dimensional_forward_physics_pass",
+      "stable_cooling_endpoint_in_two_dimensions",
+      "Phase_1_success",
+      "PINN_or_C01_success",
+      "intrinsic_local_VO2_material_parameter_identification",
+      "S7_as_two_dimensional_production_closure"
+    ]
+  },
+  "claim_status": "failed_but_informative",
+  "config_path": "configs/q2_qiu_source_consistent_branchconserve_v2_stage_a.yaml",
+  "config_sha256": "7c50a41a0322af596752804214f5c2a395df8ea7109a8e1cf23ac7b4fc5b276d",
+  "direct_beta_plus_k_patch_verdict": "REJECT_DIRECT_BETA_K_PATCH",
+  "disposition": "A_STOP_STEADY_ROUTE",
+  "environment": {
+    "blas_thread_environment": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "command": [
+      "E:\\Python demo\\PINN\\.venv\\Scripts\\python.exe",
+      "scripts/run_q2_qiu_source_consistency_stage_a.py",
+      "--config",
+      "configs/q2_qiu_source_consistent_branchconserve_v2_stage_a.yaml",
+      "--run-id",
+      "Q2-QIU-SOURCE-STAGEA-20260806-V1"
+    ],
+    "cpu_count": 12,
+    "git_sha": "0877714dbed92d4d43f031fab5032f5cbd56eae8",
+    "machine": "AMD64",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 154 Stepping 4, GenuineIntel",
+    "python": "3.11.9 | packaged by Anaconda, Inc. | (main, Apr 19 2024, 16:40:41) [MSC v.1916 64 bit (AMD64)]",
+    "run_id": "Q2-QIU-SOURCE-STAGEA-20260806-V1"
+  },
+  "formal_execution_count": 0,
+  "lifecycle_state": "executed",
+  "load_domains": [
+    {
+      "any_forward_pass": false,
+      "dual_branch": {
+        "branch_separated_bias_count": 0,
+        "branch_separated_biases_V": [],
+        "common_voting_bias_count": 0,
+        "common_voting_biases_V": [],
+        "pass": false
+      },
+      "forward": {
+        "cooling": {
+          "conductive_state_span": 0.0,
+          "high_conductive_case_count": 0,
+          "pass": false,
+          "transition_case_count": 0,
+          "voting_bias_count": 0,
+          "voting_biases_V": []
+        },
+        "heating": {
+          "conductive_state_span": 0.10526067022017915,
+          "high_conductive_case_count": 0,
+          "pass": false,
+          "transition_case_count": 1,
+          "voting_bias_count": 20,
+          "voting_biases_V": [
+            0.0,
+            0.5,
+            1.0,
+            1.5,
+            2.0,
+            2.5,
+            3.0,
+            3.5,
+            4.0,
+            4.5,
+            5.0,
+            5.5,
+            6.0,
+            6.5,
+            7.0,
+            7.5,
+            8.0,
+            8.5,
+            9.0,
+            9.5
+          ]
+        }
+      },
+      "load_resistance_ohm": 12000.0,
+      "wall_time_s": 0.9162799000000632
+    },
+    {
+      "any_forward_pass": false,
+      "dual_branch": {
+        "branch_separated_bias_count": 1,
+        "branch_separated_biases_V": [
+          7.5
+        ],
+        "common_voting_bias_count": 1,
+        "common_voting_biases_V": [
+          7.5
+        ],
+        "pass": false
+      },
+      "forward": {
+        "cooling": {
+          "conductive_state_span": 0.012688284533879601,
+          "high_conductive_case_count": 20,
+          "pass": false,
+          "transition_case_count": 0,
+          "voting_bias_count": 20,
+          "voting_biases_V": [
+            17.0,
+            16.5,
+            16.0,
+            15.8,
+            15.5,
+            15.0,
+            14.5,
+            14.0,
+            13.5,
+            13.0,
+            12.0,
+            11.5,
+            11.0,
+            10.5,
+            10.0,
+            9.5,
+            9.0,
+            8.5,
+            8.0,
+            7.5
+          ]
+        },
+        "heating": {
+          "conductive_state_span": 0.09263067399643621,
+          "high_conductive_case_count": 0,
+          "pass": false,
+          "transition_case_count": 0,
+          "voting_bias_count": 16,
+          "voting_biases_V": [
+            0.0,
+            0.5,
+            1.0,
+            1.5,
+            2.0,
+            2.5,
+            3.0,
+            3.5,
+            4.0,
+            4.5,
+            5.0,
+            5.5,
+            6.0,
+            6.5,
+            7.0,
+            7.5
+          ]
+        }
+      },
+      "load_resistance_ohm": 3000.0,
+      "wall_time_s": 0.9457692000000861
+    },
+    {
+      "any_forward_pass": false,
+      "dual_branch": {
+        "branch_separated_bias_count": 0,
+        "branch_separated_biases_V": [],
+        "common_voting_bias_count": 0,
+        "common_voting_biases_V": [],
+        "pass": false
+      },
+      "forward": {
+        "cooling": {
+          "conductive_state_span": 0.005872804539125642,
+          "high_conductive_case_count": 8,
+          "pass": false,
+          "transition_case_count": 0,
+          "voting_bias_count": 8,
+          "voting_biases_V": [
+            17.0,
+            16.5,
+            16.0,
+            15.8,
+            15.5,
+            15.0,
+            14.5,
+            14.0
+          ]
+        },
+        "heating": {
+          "conductive_state_span": 0.07758632265778931,
+          "high_conductive_case_count": 0,
+          "pass": false,
+          "transition_case_count": 0,
+          "voting_bias_count": 17,
+          "voting_biases_V": [
+            0.0,
+            0.5,
+            1.0,
+            1.5,
+            2.0,
+            2.5,
+            3.0,
+            3.5,
+            4.0,
+            4.5,
+            5.0,
+            5.5,
+            6.0,
+            6.5,
+            7.0,
+            7.5,
+            8.0
+          ]
+        }
+      },
+      "load_resistance_ohm": 6000.0,
+      "wall_time_s": 1.4140942000003633
+    },
+    {
+      "any_forward_pass": false,
+      "dual_branch": {
+        "branch_separated_bias_count": 0,
+        "branch_separated_biases_V": [],
+        "common_voting_bias_count": 0,
+        "common_voting_biases_V": [],
+        "pass": false
+      },
+      "forward": {
+        "cooling": {
+          "conductive_state_span": 0.0,
+          "high_conductive_case_count": 0,
+          "pass": false,
+          "transition_case_count": 0,
+          "voting_bias_count": 0,
+          "voting_biases_V": []
+        },
+        "heating": {
+          "conductive_state_span": 0.12854193329021446,
+          "high_conductive_case_count": 0,
+          "pass": false,
+          "transition_case_count": 1,
+          "voting_bias_count": 19,
+          "voting_biases_V": [
+            0.0,
+            0.5,
+            1.0,
+            1.5,
+            2.0,
+            2.5,
+            3.0,
+            3.5,
+            4.0,
+            4.5,
+            5.0,
+            5.5,
+            6.0,
+            6.5,
+            7.0,
+            7.5,
+            8.0,
+            8.5,
+            9.0
+          ]
+        }
+      },
+      "load_resistance_ohm": 9000.0,
+      "wall_time_s": 1.4018535999998676
+    },
+    {
+      "any_forward_pass": false,
+      "dual_branch": {
+        "branch_separated_bias_count": 0,
+        "branch_separated_biases_V": [],
+        "common_voting_bias_count": 0,
+        "common_voting_biases_V": [],
+        "pass": false
+      },
+      "forward": {
+        "cooling": {
+          "conductive_state_span": 0.0,
+          "high_conductive_case_count": 0,
+          "pass": false,
+          "transition_case_count": 0,
+          "voting_bias_count": 0,
+          "voting_biases_V": []
+        },
+        "heating": {
+          "conductive_state_span": 0.12408356555911593,
+          "high_conductive_case_count": 0,
+          "pass": false,
+          "transition_case_count": 1,
+          "voting_bias_count": 23,
+          "voting_biases_V": [
+            0.0,
+            0.5,
+            1.0,
+            1.5,
+            2.0,
+            2.5,
+            3.0,
+            3.5,
+            4.0,
+            4.5,
+            5.0,
+            5.5,
+            6.0,
+            6.5,
+            7.0,
+            7.5,
+            8.0,
+            8.5,
+            9.0,
+            9.5,
+            10.0,
+            10.5,
+            11.0
+          ]
+        }
+      },
+      "load_resistance_ohm": 18000.0,
+      "wall_time_s": 1.1092290000001412
+    },
+    {
+      "any_forward_pass": false,
+      "dual_branch": {
+        "branch_separated_bias_count": 0,
+        "branch_separated_biases_V": [],
+        "common_voting_bias_count": 0,
+        "common_voting_biases_V": [],
+        "pass": false
+      },
+      "forward": {
+        "cooling": {
+          "conductive_state_span": 0.0,
+          "high_conductive_case_count": 0,
+          "pass": false,
+          "transition_case_count": 0,
+          "voting_bias_count": 0,
+          "voting_biases_V": []
+        },
+        "heating": {
+          "conductive_state_span": 0.09982557797827185,
+          "high_conductive_case_count": 0,
+          "pass": false,
+          "transition_case_count": 1,
+          "voting_bias_count": 25,
+          "voting_biases_V": [
+            0.0,
+            0.5,
+            1.0,
+            1.5,
+            2.0,
+            2.5,
+            3.0,
+            3.5,
+            4.0,
+            4.5,
+            5.0,
+            5.5,
+            6.0,
+            6.5,
+            7.0,
+            7.5,
+            8.0,
+            8.5,
+            9.0,
+            9.5,
+            10.0,
+            10.5,
+            11.0,
+            11.5,
+            12.0
+          ]
+        }
+      },
+      "load_resistance_ohm": 24000.0,
+      "wall_time_s": 1.1126655999996728
+    },
+    {
+      "any_forward_pass": false,
+      "dual_branch": {
+        "branch_separated_bias_count": 0,
+        "branch_separated_biases_V": [],
+        "common_voting_bias_count": 0,
+        "common_voting_biases_V": [],
+        "pass": false
+      },
+      "forward": {
+        "cooling": {
+          "conductive_state_span": 0.0,
+          "high_conductive_case_count": 0,
+          "pass": false,
+          "transition_case_count": 0,
+          "voting_bias_count": 0,
+          "voting_biases_V": []
+        },
+        "heating": {
+          "conductive_state_span": 0.15000729740949492,
+          "high_conductive_case_count": 0,
+          "pass": false,
+          "transition_case_count": 3,
+          "voting_bias_count": 31,
+          "voting_biases_V": [
+            0.0,
+            0.5,
+            1.0,
+            1.5,
+            2.0,
+            2.5,
+            3.0,
+            3.5,
+            4.0,
+            4.5,
+            5.0,
+            5.5,
+            6.0,
+            6.5,
+            7.0,
+            7.5,
+            8.0,
+            8.5,
+            9.0,
+            9.5,
+            10.0,
+            10.5,
+            11.0,
+            11.5,
+            12.0,
+            13.0,
+            13.5,
+            14.0,
+            14.5,
+            15.0,
+            15.5
+          ]
+        }
+      },
+      "load_resistance_ohm": 36000.0,
+      "wall_time_s": 1.2497118000001137
+    }
+  ],
+  "load_sentinel_executed": true,
+  "nominal_12k_domain": {
+    "any_forward_pass": false,
+    "dual_branch": {
+      "branch_separated_bias_count": 0,
+      "branch_separated_biases_V": [],
+      "common_voting_bias_count": 0,
+      "common_voting_biases_V": [],
+      "pass": false
+    },
+    "forward": {
+      "cooling": {
+        "conductive_state_span": 0.0,
+        "high_conductive_case_count": 0,
+        "pass": false,
+        "transition_case_count": 0,
+        "voting_bias_count": 0,
+        "voting_biases_V": []
+      },
+      "heating": {
+        "conductive_state_span": 0.10526067022017915,
+        "high_conductive_case_count": 0,
+        "pass": false,
+        "transition_case_count": 1,
+        "voting_bias_count": 20,
+        "voting_biases_V": [
+          0.0,
+          0.5,
+          1.0,
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          3.5,
+          4.0,
+          4.5,
+          5.0,
+          5.5,
+          6.0,
+          6.5,
+          7.0,
+          7.5,
+          8.0,
+          8.5,
+          9.0,
+          9.5
+        ]
+      }
+    },
+    "load_resistance_ohm": 12000.0,
+    "wall_time_s": 0.9162799000000632
+  },
+  "run_id": "Q2-QIU-SOURCE-STAGEA-20260806-V1",
+  "schema_version": "q2_qiu_source_oracle_summary_v1",
+  "scientific_vote": false,
+  "selected_load_resistance_ohm_for_conditional_stage_b": null,
+  "stage_b_executed": false,
+  "task_id": "Q2_QIU_SOURCE_CONSISTENT_BRANCHCONSERVE_V2",
+  "validity": "valid"
+}
