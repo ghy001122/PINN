@@ -27,6 +27,10 @@ CC-A is valid `qualified_supported` evidence and only makes a separately
 authorized CC-B pilot eligible. `scientific_vote=false` and
 `formal_execution_count=0` remain unchanged.
 
+The preceding `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED` /
+`A_STOP_STEADY_ROUTE` checkpoint remains the immutable terminal state of the
+voltage-source-plus-series-load route.
+
 ## Historical BranchConserve Batch 1 Outcome
 
 | Item | Result | Evidence boundary |

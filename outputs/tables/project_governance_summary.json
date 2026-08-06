@@ -114,12 +114,12 @@
     "low_token_context_budget": {
       "status": "pass",
       "limit_bytes": 24576,
-      "total_bytes": 21157,
+      "total_bytes": 21913,
       "files": {
-        "CODEX_CONTEXT.md": 2187,
-        "docs/research_strategy/active_phase.md": 2150,
-        "PROJECT_STATE.md": 4337,
-        "NEXT_ACTIONS.md": 967,
+        "CODEX_CONTEXT.md": 2392,
+        "docs/research_strategy/active_phase.md": 2350,
+        "PROJECT_STATE.md": 4513,
+        "NEXT_ACTIONS.md": 1142,
         "docs/project_state/current_evidence_index.md": 11516
       }
     },

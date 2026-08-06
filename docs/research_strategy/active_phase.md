@@ -20,6 +20,10 @@ The terminal disposition is `PASS_CC_A_CURRENT_CLAMP_ADMISSION`. This is a
 zero-dimensional branch-admission result, not dynamic reachability or a 2-D
 physics result.
 
+The prior `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED` /
+`A_STOP_STEADY_ROUTE` checkpoint and PR #29 `STOP_BRANCHCONSERVE_PILOT`
+remain immutable for their named voltage-driven steady implementations.
+
 ## Lifecycle And Claims
 
 - v1 B0 steady implementation: `implemented`; claim status `forbidden`.

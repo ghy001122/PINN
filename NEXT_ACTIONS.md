@@ -10,7 +10,11 @@
   seven common-current separation gates.
 - CC-B/CC-C, a 2.5-D judge, data generation, PINN, inverse, and refusal remain
   unexecuted and unauthorized.
+- CC-B is not authorized.
 - `scientific_vote=false`; `formal_execution_count=0`.
+
+Historical checkpoint `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED` with
+`A_STOP_STEADY_ROUTE` remains preserved for the retired voltage-source route.
 
 ## Single Next Priority
 

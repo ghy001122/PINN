@@ -23,6 +23,10 @@ The valid terminal result is `PASS_CC_A_CURRENT_CLAMP_ADMISSION` with
 `claim_status=qualified_supported`. It establishes only a bounded lumped
 branch-admission fact and eligibility to request CC-B.
 
+The superseded checkpoint `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED` and its
+`A_STOP_STEADY_ROUTE` disposition remain immutable historical evidence; the
+new control topology does not rewrite that result.
+
 The delivery ladder remains minimum R1 `HysGeo-Hybrid-PINN`, preferred R2
 `GeoPhase-HomoMoE-PINN`, and conditional R3.  None is unlocked by this result.
 
