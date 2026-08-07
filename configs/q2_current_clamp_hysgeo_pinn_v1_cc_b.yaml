@@ -1,0 +1,226 @@
+schema_version: q2_current_clamp_hysgeo_pinn_v1_cc_b_v1
+task_id: Q2_CC_A_CLAMP_TOPOLOGY_CLOSURE_AND_BOUNDED_CC_B_2D_GATE_V1
+run_id: Q2-CC-B-2D-GATE-20260807-V1
+execution_class: bounded_voting_current_clamped_2p5d_gate
+evidence_type: literature-guided synthetic numerical digital-twin evidence
+lifecycle_state: planned
+claim_status: forbidden
+cc_b_matrix_launch_count: 0
+
+authority:
+  parent_main_sha: 618103321441abac36c9a9836ff6b0cc30e2c76e
+  cc_a_config:
+    path: configs/q2_current_clamp_hysgeo_pinn_v1_cc_a.yaml
+    sha256: 7278aac6a4d79247837566936f40ff7970922485671e902a70898e409e6cbe16
+  cc_a_terminal:
+    path: outputs/tables/q2_current_clamp_hysgeo/Q2-CC-A-ADMISSION-20260806-V1/terminal.json
+    sha256: fae07d2c9580416effcfdc29758c5745009e2a8eac1335a8ae1c77e2e76cf444
+    required_disposition: PASS_CC_A_CURRENT_CLAMP_ADMISSION
+  parent_physics_config:
+    path: configs/geophase_phase1_v2_s2_reference_source_corrected_v3.yaml
+    sha256: ea668ac66c8f2f2267b059bd816a4116def086708f2f7eeded07d64a2857aff4
+
+clamp_topology:
+  clamp_target: conductive_sheet_current
+  electrical_response: algebraic
+  dynamic_state: temperature_cells_only
+  constraint: I_cond_equals_I_set
+  voltage_projection: Vd_equals_I_set_over_G_hat
+  parallel_capacitance_role: inactive_external_source_metadata
+  terminal_total_current_clamp: forbidden
+  external_RC_state: forbidden
+  allowed_wording: ideal algebraic conductive-channel current clamp
+
+source_mapping:
+  resistance_variant: S1_QS
+  geometry_factor_m: 5.0e-7
+  rule: sigma_eff_equals_one_over_g_geom_times_R_S1
+  mapping_semantics: source-model-scale-anchored_device-effective_distributed_proxy
+  additional_series_or_contact_resistance: forbidden
+  electrical_contact_overlap_role: none
+  thermal_contact_overlap_role: thermal_mask_only
+  per_grid_refit: forbidden
+
+geometry_and_thermal:
+  contact_overlap_m: 2.0e-8
+  spatial_levels: {L1: 1, L2: 2}
+  nominal_vertical_sink_normalization: integral_equals_Sth_once
+  defects_are_not_renormalized: true
+  defect_multiplier: 0.5
+  LU:
+    rectangles_m:
+      - {x: [1.0e-8, 4.0e-8], y: [3.4e-7, 4.4e-7]}
+  RD:
+    rectangles_m:
+      - {x: [6.0e-8, 9.0e-8], y: [6.0e-8, 1.4e-7]}
+      - {x: [7.0e-8, 9.0e-8], y: [1.4e-7, 2.0e-7]}
+  defect_semantics: preregistered_strong_engineering_stress_prior_not_measured
+
+reference_scales:
+  temperature_K: 55.0
+  current_A: 7.0e-4
+  voltage_V: 17.0
+  power_W: 1.19e-2
+  current_floor_A: 7.0e-16
+  power_floor_W: 1.19e-14
+
+steady_solver:
+  identity: current_clamp_temperature_primary_damped_newton_krylov_v1
+  nonlinear_iterations_max: 30
+  jv_evaluations_max: 512
+  full_residual_evaluations_max: 640
+  line_search_backtracks_max: 7
+  residual_inf_max: 1.0e-8
+  last_scaled_update_inf_max: 1.0e-8
+  lgmres: {inner_m: 30, outer_k: 10, rtol: 1.0e-8, atol: 0.0}
+  armijo:
+    c1: 1.0e-4
+    damping_values: [1.0, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625, 0.0078125]
+  jv: {method: central_difference, epsilon_power: 0.3333333333333333}
+  preconditioner: frozen_joule_sheet_thermal_plus_vertical_sink
+  fallback: forbidden
+
+uniform_gate:
+  source_states: [0.05, 0.50, 0.95]
+  source_branch: heating
+  electrical_geometry_relative_error_max: 5.0e-3
+  l2_must_improve_l1: true
+  roundoff_tie_multiple_epsilon: 64.0
+  topology_operator_all_cc_a_roots: true
+  topology_operator_dimensionless_error_max: 1.0e-6
+  topology_operator_mass_residual_max: 1.0e-8
+  sign_guard_dimensionless_floor: 1.0e-8
+
+matrix:
+  official_currents_A: [2.0e-4, 4.0e-4, 6.0e-4]
+  branches: [heating, cooling]
+  defects: [NOM, LU, RD]
+  grids: [L1, L2]
+  physical_case_count: 18
+  grid_case_count: 36
+  sequence:
+    - [NOM, heating, 2.0e-4, L1]
+    - [NOM, heating, 2.0e-4, L2]
+    - [NOM, heating, 4.0e-4, L1]
+    - [NOM, heating, 4.0e-4, L2]
+    - [NOM, cooling, 6.0e-4, L1]
+    - [NOM, cooling, 6.0e-4, L2]
+    - [NOM, cooling, 4.0e-4, L1]
+    - [NOM, cooling, 4.0e-4, L2]
+    - [LU, heating, 2.0e-4, L1]
+    - [LU, heating, 2.0e-4, L2]
+    - [LU, heating, 4.0e-4, L1]
+    - [LU, heating, 4.0e-4, L2]
+    - [RD, cooling, 6.0e-4, L1]
+    - [RD, cooling, 6.0e-4, L2]
+    - [RD, cooling, 4.0e-4, L1]
+    - [RD, cooling, 4.0e-4, L2]
+    - [NOM, heating, 6.0e-4, L1]
+    - [NOM, heating, 6.0e-4, L2]
+    - [NOM, cooling, 2.0e-4, L1]
+    - [NOM, cooling, 2.0e-4, L2]
+    - [LU, heating, 6.0e-4, L1]
+    - [LU, heating, 6.0e-4, L2]
+    - [LU, cooling, 6.0e-4, L1]
+    - [LU, cooling, 6.0e-4, L2]
+    - [LU, cooling, 4.0e-4, L1]
+    - [LU, cooling, 4.0e-4, L2]
+    - [LU, cooling, 2.0e-4, L1]
+    - [LU, cooling, 2.0e-4, L2]
+    - [RD, heating, 2.0e-4, L1]
+    - [RD, heating, 2.0e-4, L2]
+    - [RD, heating, 4.0e-4, L1]
+    - [RD, heating, 4.0e-4, L2]
+    - [RD, heating, 6.0e-4, L1]
+    - [RD, heating, 6.0e-4, L2]
+    - [RD, cooling, 2.0e-4, L1]
+    - [RD, cooling, 2.0e-4, L2]
+
+equilibrium_gates:
+  thermal_scaled_cv_residual_max: 1.0e-8
+  last_scaled_update_inf_max: 1.0e-8
+  electrical_scaled_cv_residual_max: 1.0e-10
+  ledger_symmetric_relative_max: 5.0e-3
+  temperature_K: [300.0, 380.0]
+  voltage_operating_envelope_max_V: 17.0
+
+stability:
+  dynamic_state: temperature_cells_only
+  eigenpairs: 6
+  comparison_eigenpairs: 10
+  which: LR
+  tolerance: 1.0e-8
+  maxiter: 2000
+  ncv: 32
+  relative_ritz_residual_max: 1.0e-6
+  h_half_operator_relative_difference_max: 1.0e-4
+  stable_alpha_tau_max: -1.0e-3
+  backward_error_multiplier: 10.0
+  comparison_alpha_tau_difference_max: 1.0e-4
+  comparison_cases:
+    - [NOM, heating, 4.0e-4]
+    - [NOM, cooling, 4.0e-4]
+    - [LU, heating, 4.0e-4]
+    - [RD, cooling, 4.0e-4]
+
+transition_gate:
+  conductive_state_interval: [0.1, 0.9]
+  nominal_l2_area_fraction_min: 0.10
+  required_heating_fields: 1
+  required_cooling_fields: 1
+
+two_dimensional_gate:
+  response_rms_K_min: 0.25
+  r2d_min: 0.15
+  grid_uncertainty_multiplier_min: 5.0
+  same_case_must_pass_all: true
+
+smoke:
+  wall_cap_s: 1800.0
+  prerequisite_equilibrium_only:
+    - [NOM, heating, 2.0e-4, L1]
+    - [NOM, heating, 2.0e-4, L2]
+  voting_cost_probe:
+    - [NOM, heating, 4.0e-4, L1]
+    - [NOM, heating, 4.0e-4, L2]
+
+budget:
+  aggregate_cpu_cap_s: 14400.0
+  calendar_wall_cap_s: 14400.0
+  safety_multiplier: 1.5
+  artifact_bytes_max: 1073741824
+  free_space_additional_floor_bytes: 1073741824
+  memory_multiplier: 1.5
+  system_memory_reserve_bytes: 2147483648
+  implementation_repair_cycles_max: 2
+  formal_matrix_launches_max: 1
+
+outputs:
+  compact_root: outputs/tables/q2_current_clamp_hysgeo_cc_b
+  processed_root: data/processed/q2_current_clamp_hysgeo_cc_b
+  report: docs/codex_reports/q2_current_clamp_hysgeo_pinn_v1_cc_b.md
+
+terminal_dispositions:
+  - PASS_CC_B_2D_GATE
+  - STOP_CC_B_PHYSICS_DEGENERATE
+  - STOP_CC_B_UNSTABLE
+  - STOP_CC_B_BUDGET_NOT_ADMISSIBLE
+  - INVALID_CC_B_EXECUTION
+
+claim_boundary:
+  pass_lifecycle_state: numerically_validated
+  pass_claim_status: qualified_supported
+  allowed:
+    - bounded_current_clamped_2p5d_forward_gate
+    - branch_conditioned_stable_steady_fields
+    - source_scale_anchored_device_effective_distributed_proxy
+    - CC_C_request_eligibility
+  forbidden:
+    - Qiu_voltage_driven_neuristor_quantitative_reproduction
+    - experimental_validation
+    - terminal_total_current_clamp
+    - external_RC_dynamics
+    - intrinsic_local_VO2_conductivity
+    - real_contact_current_crowding
+    - CurrentClamp_HysGeo_PINN_CC01_or_CC06_success
+    - automatic_CC_C_or_PINN_execution

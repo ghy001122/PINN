@@ -1,0 +1,31 @@
+{
+  "artifacts": [
+    {
+      "bytes": 1481,
+      "path": "outputs/tables/q2_current_clamp_hysgeo_cc_b/Q2-CC-B-2D-GATE-20260807-V1/identity.json",
+      "sha256": "f589726b13aa1d6c388be9f3b315926fa7e8b68d78b690537fb0395426b52440"
+    },
+    {
+      "bytes": 1992,
+      "path": "outputs/tables/q2_current_clamp_hysgeo_cc_b/Q2-CC-B-2D-GATE-20260807-V1/smoke/equilibria/smoke_NOM_heating_0p2mA_L1.json",
+      "sha256": "f56b087a19c34d96fd0c84de1aa600a5a58e9ebe7e50ccca23b9a7ca1cfb0f88"
+    },
+    {
+      "bytes": 1999,
+      "path": "outputs/tables/q2_current_clamp_hysgeo_cc_b/Q2-CC-B-2D-GATE-20260807-V1/smoke/equilibria/smoke_NOM_heating_0p2mA_L2.json",
+      "sha256": "b604b9933353101a40ee725373f910bef30689d8f5ecb2f287477f949b98db3a"
+    },
+    {
+      "bytes": 304,
+      "path": "outputs/tables/q2_current_clamp_hysgeo_cc_b/Q2-CC-B-2D-GATE-20260807-V1/stages/smoke/summary.json",
+      "sha256": "817f301f3f03ea03e7ef57b095c89ce12829b90d531aae3b55c5da54a0d3c183"
+    },
+    {
+      "bytes": 765,
+      "path": "outputs/tables/q2_current_clamp_hysgeo_cc_b/Q2-CC-B-2D-GATE-20260807-V1/terminal.json",
+      "sha256": "4fd2e2c0ca090788e38b8e96b19a0543285149cfe899c3febd84fae57a95f6d3"
+    }
+  ],
+  "run_id": "Q2-CC-B-2D-GATE-20260807-V1",
+  "schema_version": "q2_current_clamp_cc_b_artifact_manifest_v1"
+}

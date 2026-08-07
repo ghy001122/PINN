@@ -1111,3 +1111,54 @@ g_{geom}=\frac{Wt_v}{L},
 
 Here \(\sigma_b^{eff}\) is a device-effective distributed proxy, not an
 intrinsic local VO2 conductivity.
+
+## Algebraic conductive-channel current clamp (CC-B)
+
+The separately versioned CC-B implementation removes the topology ambiguity
+left by CC-A. It clamps the conductive sheet current, not terminal total
+current. Temperature is the only dynamic state; the source-author parallel
+capacitance is inactive metadata and does not enter equilibrium or stability.
+For unit port bias,
+
+\[
+\nabla\!\cdot\widehat{\mathbf J}=0,
+\qquad
+\widehat{\mathbf J}=-t_v\sigma_b^{eff}(T)\nabla\widehat\phi,
+\qquad
+\widehat\phi|_{\Gamma_L}=1,
+\quad \widehat\phi|_{\Gamma_R}=0,
+\]
+
+\[
+\widehat G(T)=\left|\int_{\Gamma_R}\widehat{\mathbf J}\cdot\mathbf n\,ds\right|,
+\qquad
+V_d=\frac{I_{set}}{\widehat G(T)},
+\qquad
+\phi=V_d\widehat\phi,
+\qquad
+\mathbf J=V_d\widehat{\mathbf J}.
+\]
+
+The steady thermal residual is control-volume integrated:
+
+\[
+R_T=-\nabla\!\cdot(K_A\nabla T)
+-V_d^2t_v\sigma_b^{eff}(T)|\nabla\widehat\phi|^2
++g_z(T-T_0)=0.
+\]
+
+The nominal sink is normalized once so that
+\(\int_\Omega g_z^{nom}\,dA=S_{th}\). A registered defect uses
+\(g_z^d=g_z^{nom}(1-0.5\chi_d)\) and is not renormalized. For local stability,
+each temperature perturbation re-solves the algebraic electrical constraint
+at \(\delta I_{cond}=0\), giving the reduced thermal operator
+
+\[
+A_T=\frac{\partial}{\partial T}
+\left[-M_C^{-1}R_T\bigl(T,V_d(T)\bigr)\right].
+\]
+
+This implementation reached only an invalid non-voting smoke result: the
+first 0.4 mA constrained-spectrum call returned `INVALID_STABILITY`. These
+equations therefore support an implementation description only, not a CC-B
+physics, 2.5-D judge, or PINN claim.

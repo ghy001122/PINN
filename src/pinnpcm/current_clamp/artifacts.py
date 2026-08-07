@@ -30,6 +30,8 @@ def to_builtin(value: Any) -> Any:
     if isinstance(value, Path):
         return value.as_posix()
     if isinstance(value, np.ndarray):
+        if np.iscomplexobj(value):
+            return {"real": to_builtin(value.real), "imag": to_builtin(value.imag)}
         return to_builtin(value.tolist())
     if isinstance(value, np.bool_):
         return bool(value)
@@ -37,6 +39,10 @@ def to_builtin(value: Any) -> Any:
         return int(value)
     if isinstance(value, np.floating):
         value = float(value)
+    if isinstance(value, complex):
+        if not math.isfinite(value.real) or not math.isfinite(value.imag):
+            raise ValueError("NaN and infinity are forbidden in CC-A artifacts")
+        return {"real": float(value.real), "imag": float(value.imag)}
     if isinstance(value, float):
         if not math.isfinite(value):
             raise ValueError("NaN and infinity are forbidden in CC-A artifacts")

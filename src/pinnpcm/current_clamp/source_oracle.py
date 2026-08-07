@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import math
 import time
+import uuid
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any, Callable, Mapping, Sequence
@@ -852,12 +853,71 @@ def run_cc_a(
 ) -> dict[str, Any]:
     """Execute one bounded, non-Phase-1-voting CC-A admission invocation."""
 
-    config = load_current_clamp_contract(config_path)
-    run_id = str(config["run_id"])
-    output_dir = output_root / run_id
-    output_dir.mkdir(parents=True, exist_ok=True)
     wall_started = time.perf_counter()
     cpu_started = time.process_time()
+    try:
+        config = load_current_clamp_contract(config_path)
+    except Exception as exc:
+        execution_id = (
+            "INVALID-CC-A-CONTRACT-"
+            + time.strftime("%Y%m%dT%H%M%SZ", time.gmtime())
+            + "-"
+            + uuid.uuid4().hex[:8]
+        )
+        output_dir = output_root / execution_id
+        output_dir.mkdir(parents=True, exist_ok=False)
+        summary = {
+            "schema_version": "q2_current_clamp_cc_a_summary_v1",
+            "task_id": "Q2_CURRENT_CLAMP_HYSGEO_PINN_V1",
+            "run_id": execution_id,
+            "execution_id": execution_id,
+            "validity": "invalid",
+            "lifecycle_state": "executed",
+            "claim_status": "forbidden",
+            "scientific_vote": False,
+            "formal_execution_count": 0,
+            "disposition": "INVALID_CC_A_EXECUTION",
+            "failure_type": type(exc).__name__,
+            "failure_detail": str(exc),
+            "cc_b_eligible_to_request": False,
+            "cc_b_authorized": False,
+            "cc_b_executed": False,
+            "aggregate_cpu_s": time.process_time() - cpu_started,
+            "calendar_wall_s": time.perf_counter() - wall_started,
+        }
+        atomic_write_json(output_dir / "summary.json", summary)
+        atomic_write_json(output_dir / "terminal.json", summary)
+        atomic_write_json(
+            output_dir / "artifact_manifest.json",
+            {
+                "schema_version": "q2_current_clamp_cc_a_artifact_manifest_v1",
+                "run_id": execution_id,
+                "artifacts": [
+                    {
+                        "path": (
+                            path.relative_to(repository_root).as_posix()
+                            if path.is_relative_to(repository_root)
+                            else path.as_posix()
+                        ),
+                        "sha256": file_sha256(path),
+                    }
+                    for path in sorted(output_dir.iterdir())
+                    if path.is_file() and path.name != "artifact_manifest.json"
+                ],
+            },
+        )
+        return summary
+
+    run_id = str(config["run_id"])
+    execution_id = (
+        run_id
+        + "-"
+        + time.strftime("%Y%m%dT%H%M%SZ", time.gmtime())
+        + "-"
+        + uuid.uuid4().hex[:8]
+    )
+    output_dir = output_root / execution_id
+    output_dir.mkdir(parents=True, exist_ok=False)
     try:
         params = OracleParameters.from_config(config)
         source_mapping = _source_mapping_contract(config, params)
@@ -889,6 +949,7 @@ def run_cc_a(
             "schema_version": "q2_current_clamp_cc_a_summary_v1",
             "task_id": config["task_id"],
             "run_id": run_id,
+            "execution_id": execution_id,
             "validity": "valid",
             "lifecycle_state": "executed",
             "claim_status": (
@@ -919,6 +980,7 @@ def run_cc_a(
             "schema_version": "q2_current_clamp_cc_a_summary_v1",
             "task_id": config["task_id"],
             "run_id": run_id,
+            "execution_id": execution_id,
             "validity": "invalid",
             "lifecycle_state": "executed",
             "claim_status": "forbidden",

@@ -3,46 +3,38 @@
 ## Current Route
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
+- Delivery ladder: minimum R1 `HysGeo-Hybrid-PINN`, preferred R2
+  `GeoPhase-HomoMoE-PINN`, and conditional `R3`; the current CC-B result
+  unlocks none of them.
 - Active phase: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Checkpoint: `Q2_CURRENT_CLAMP_CC_A_PASSED`.
-- Active disposition: `PASS_CC_A_CURRENT_CLAMP_ADMISSION`.
-- PR #30 merge base: `0230b036c271e02f52bc8d4b25f0021eb0d1870b`.
-- CC-A code anchor: `230f1e37fbefd88d554d54009db626d175a00444`.
-- Result branch: `codex/q2-current-clamp-source-consistent-2p5d-v1`.
-- `scientific_vote=false`; `formal_execution_count=0`.
+- Checkpoint: `Q2_CURRENT_CLAMP_CC_B_INVALID`.
+- Preserved prior checkpoint: `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED`.
+- Active disposition: `INVALID_CC_B_EXECUTION`.
+- Baseline before this task: `main@618103321441abac36c9a9836ff6b0cc30e2c76e`.
+- Execution branch: `codex/q2-cc-a-topology-closure-cc-b-2d-gate-v1`.
+- `cc_b_matrix_launch_count=0`; `scientific_vote=false`;
+  `formal_execution_count=0`.
 
-PR #30 and its valid `A_STOP_STEADY_ROUTE` result were merged unchanged. That
-negative result remains binding for voltage-source-plus-series-load steady
-operation. A new, independent ideal-current-clamp Batch 1 then executed CC-A
-on the audited S1 major branches. Heating and cooling each produced 7/7 unique,
-locally stable, continuation-connected roots over the frozen 0.1--0.7 mA
-range. Their conductive-state spans were `0.7760256851` and `0.6754940767`,
-and all seven common currents had branch-state separation above `0.1`.
+CC-A remains valid `qualified_supported` lumped source-model evidence: all 14
+fixed S1 major-branch roots were unique, locally stable, range-legal, and
+continuation-connected. It did not itself validate a 2-D model.
 
-The valid terminal result is `PASS_CC_A_CURRENT_CLAMP_ADMISSION` with
-`claim_status=qualified_supported`. It establishes only a bounded lumped
-branch-admission fact and eligibility to request CC-B.
+The separately authorized CC-B implementation freezes an ideal algebraic
+conductive-channel current clamp. Temperature cells are the only dynamic
+state; every field residual resolves the unit-bias conservative electrical
+problem and sets `Vd=I_set/G_hat(T)`. The Qiu parallel capacitance, external RC,
+load line, and terminal-total-current clamp are absent. S1 is used only as a
+source-scale-anchored device-effective distributed proxy, not an intrinsic
+local VO2 conductivity.
 
-The superseded checkpoint `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED` and its
-`A_STOP_STEADY_ROUTE` disposition remain immutable historical evidence; the
-new control topology does not rewrite that result.
+Focused CC-A/CC-B tests ended `22 passed`. The paired non-voting smoke then
+published valid nominal-heating 0.2 mA L1/L2 equilibrium records, but the first
+0.4 mA stability certification returned `INVALID_STABILITY`. Because the two
+allowed implementation-repair cycles had already been consumed, the task
+stopped without repair or rerun. Uniform mapping/operator gates, the budget
+gate, the one-shot 36-case matrix, CC-C, GT, and all PINN work were not run.
 
-The delivery ladder remains minimum R1 `HysGeo-Hybrid-PINN`, preferred R2
-`GeoPhase-HomoMoE-PINN`, and conditional R3.  None is unlocked by this result.
-
-CC-B/CC-C, two-dimensional fields, data generation, rank-2 sensitivity, and
-all PINN work were not executed and remain unauthorized. The result does not
-establish a 2.5-D judge, S2/Phase 1 success, Qiu reproduction, dynamic branch
-switching, or a PINN result.
-
-Historical dynamic solver/controller, S0/equivalence results, and Frozen GT
-remain unchanged.  Read `docs/research_strategy/context_loading_policy.md`
-before loading long history.
-
-Preserved historical checkpoints include
-`Q2_NLS_REFERENCE_TIME_CONVERGENCE_V2_STOPPED` /
-`STOP_REFERENCE_NOT_ASYMPTOTIC_OR_INVALID_T4` and
-`Q2_CONTROLLER_RELEVANCE_B3_VALID_FAIL_FINAL_FORWARD_RESCUE_STOPPED` /
-`B3_MATCHED_WINDOW_CORRECTNESS_VALID_FAIL`; D0 remains immutable.
-Equivalence-v1/v2/v3 remain immutable and non-retryable, and
-equivalence-v4/v5 remains forbidden.
+Do not interpret this as physical instability, CC-B failure, S2 failure, or a
+PINN result. A new explicit authorization is required even for a stability
+telemetry closure. Historical PR #29/#30/#31 results, dynamic stops, D0,
+equivalence-v1/v2/v3, and Frozen GT remain immutable.
