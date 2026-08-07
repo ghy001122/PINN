@@ -5,6 +5,7 @@
 - Delivery/phase: `Q2_SCI_DELIVERY_MODE` /
   `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
 - Checkpoint: `Q2_CURRENT_CLAMP_CC_B_INVALID`.
+- Preserved prior checkpoint: `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED`.
 - CC-B baseline: `618103321441abac36c9a9836ff6b0cc30e2c76e`.
 - Result branch: `codex/q2-cc-a-topology-closure-cc-b-2d-gate-v1`.
 - Terminal disposition: `INVALID_CC_B_EXECUTION`.

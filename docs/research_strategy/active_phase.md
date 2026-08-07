@@ -6,6 +6,17 @@ Status: `stopped_after_invalid_cc_b_smoke`
 
 Current checkpoint: `Q2_CURRENT_CLAMP_CC_B_INVALID`
 
+Preserved prior checkpoint: `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED`
+
+Preserved historical stop identities:
+
+- `STOP_REFERENCE_NOT_ASYMPTOTIC_OR_INVALID_T4`
+- `B3_MATCHED_WINDOW_CORRECTNESS_VALID_FAIL`
+- `Q2_CONTROLLER_RELEVANCE_B3_VALID_FAIL_FINAL_FORWARD_RESCUE_STOPPED`
+
+Equivalence-v1/v2/v3 remain immutable and non-retryable; equivalence-v4/v5
+remain forbidden.
+
 ## Objective And Result
 
 The independently authorized CC-B task closed the intended control topology as
