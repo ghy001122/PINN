@@ -2,53 +2,60 @@
 
 Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
 
-Status: `stopped_after_current_clamp_cc_a_pass_awaiting_cc_b_authorization`
+Status: `stopped_after_invalid_cc_b_smoke`
 
-Current checkpoint: `Q2_CURRENT_CLAMP_CC_A_PASSED`
+Current checkpoint: `Q2_CURRENT_CLAMP_CC_B_INVALID`
 
 ## Objective And Result
 
-PR #30 preserves `A_STOP_STEADY_ROUTE` for the voltage-source-plus-series-load
-topology. The new ideal-current-clamp CC-A task used the audited S1 major
-branches and executed the fixed 0.1--0.7 mA admission matrix. All 14 formal
-roots were unique, locally stable, inside the source/operating envelope, and
-connected by their fixed-branch predictor/corrector traces. Both branches
-passed the state-span and intermediate-state gates; all seven common currents
-passed the branch-separation gate.
+The independently authorized CC-B task closed the intended control topology as
+an **ideal algebraic conductive-channel current clamp**: temperature cells are
+the only dynamic state, the conductive sheet current is constrained to
+`I_set`, and `Vd=I_set/G_hat(T)` is algebraic. The Qiu parallel capacitance is
+inactive external-source metadata and is absent from CC-B equilibrium and
+stability.
 
-The terminal disposition is `PASS_CC_A_CURRENT_CLAMP_ADMISSION`. This is a
-zero-dimensional branch-admission result, not dynamic reachability or a 2-D
-physics result.
+The CC-B implementation, focused tests, and non-voting paired smoke were run.
+The 0.2 mA nominal-heating L1/L2 equilibria produced valid atomic records with
+current, power, thermal-ledger, and residual checks passing. The next 0.4 mA
+stability call returned `INVALID_STABILITY` before a publishable smoke case was
+formed. The terminal disposition is therefore:
 
-The prior `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED` /
-`A_STOP_STEADY_ROUTE` checkpoint and PR #29 `STOP_BRANCHCONSERVE_PILOT`
-remain immutable for their named voltage-driven steady implementations.
+```text
+INVALID_CC_B_EXECUTION
+validity = invalid
+cc_b_scientific_vote = false
+cc_b_matrix_launch_count = 0
+scientific_vote = false
+formal_execution_count = 0
+```
+
+This is not a valid CC-B PASS or scientific FAIL. Uniform gates, the resource
+projection, all 36 formal grid-case solutions, CC-C, data generation, and PINN
+work were not executed.
 
 ## Lifecycle And Claims
 
-- v1 B0 steady implementation: `implemented`; claim status `forbidden`.
-- v1 Batch 1 pilot: `executed`; `failed_but_informative` numerical-method
-  evidence, preserved unchanged.
-- v2 Stage A source oracle: `executed`; `failed_but_informative` bounded
-  source-model evidence.
-- current-clamp CC-A: `executed`; `qualified_supported` bounded lumped
-  branch-admission evidence.
-- `scientific_vote=false`; `formal_execution_count=0`.
-- CC-B/CC-C, a 2.5-D judge, data generation, CC01, inverse, refusal, and all
+- CC-A: `executed`; `qualified_supported` bounded lumped branch-admission
+  evidence remains unchanged.
+- CC-B implementation: `implemented`; claim status `forbidden`.
+- CC-B smoke: `executed` with `validity=invalid`; claim status `forbidden`.
+- CC-B scientific result, 2.5-D judge, CC-C, CC01, CC06, inverse, and all
   positive R1-R3 claims remain `forbidden` / unassessed.
+- Historical global counters remain `scientific_vote=false` and
+  `formal_execution_count=0`; the CC-B matrix launch count is also zero.
 
 ## Stop
 
-CC-B is not authorized. Do not reinterpret branch-conditioned continuation as
-dynamic branch switching, use S1's device-effective resistance as an intrinsic
-local conductivity, or bypass the required 2-D uniform-limit/stability gate
-into data generation or training. No automatic PINN execution is authorized.
+The two preregistered implementation-repair cycles were consumed before the
+smoke. Do not repair, rerun, resume, execute the uniform/budget/formal stages,
+or start CC-C/PINN under this task identity. Reopening requires a new bounded
+authorization that treats this invalid run as immutable and first closes the
+stability failure telemetry without changing topology, source physics, cases,
+or thresholds.
 
 ## Preserved History
 
-The superseded dynamic checkpoints
-`Q2_NLS_REFERENCE_TIME_CONVERGENCE_V2_STOPPED` /
-`STOP_REFERENCE_NOT_ASYMPTOTIC_OR_INVALID_T4` and
-`Q2_CONTROLLER_RELEVANCE_B3_VALID_FAIL_FINAL_FORWARD_RESCUE_STOPPED` /
-`B3_MATCHED_WINDOW_CORRECTNESS_VALID_FAIL` remain immutable.  D0 and all
-equivalence evidence were neither modified nor rerun.
+PR #31 `PASS_CC_A_CURRENT_CLAMP_ADMISSION`, PR #30 `A_STOP_STEADY_ROUTE`,
+PR #29 `STOP_BRANCHCONSERVE_PILOT`, dynamic solver/controller stops, D0, and
+equivalence-v1/v2/v3 remain immutable and were not rerun.

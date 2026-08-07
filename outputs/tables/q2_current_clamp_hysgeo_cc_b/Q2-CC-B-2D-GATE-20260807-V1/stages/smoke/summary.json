@@ -1,0 +1,10 @@
+{
+  "aggregate_cpu_s": 4.046875,
+  "calendar_wall_s": 4.347954099999697,
+  "failure_detail": "smoke stability invalid: INVALID_STABILITY",
+  "failure_type": "CCBCampaignError",
+  "passed": false,
+  "schema_version": "q2_current_clamp_cc_b_smoke_v1",
+  "scientific_vote": false,
+  "validity": "invalid"
+}

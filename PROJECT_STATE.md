@@ -4,12 +4,28 @@
 
 - Delivery/phase: `Q2_SCI_DELIVERY_MODE` /
   `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Checkpoint: `Q2_CURRENT_CLAMP_CC_A_PASSED`.
-- PR #30 merge base: `0230b036c271e02f52bc8d4b25f0021eb0d1870b`.
-- CC-A code anchor: `230f1e37fbefd88d554d54009db626d175a00444`.
-- Result branch: `codex/q2-current-clamp-source-consistent-2p5d-v1`.
-- Terminal disposition: `PASS_CC_A_CURRENT_CLAMP_ADMISSION`.
-- `scientific_vote=false`; `formal_execution_count=0`.
+- Checkpoint: `Q2_CURRENT_CLAMP_CC_B_INVALID`.
+- CC-B baseline: `618103321441abac36c9a9836ff6b0cc30e2c76e`.
+- Result branch: `codex/q2-cc-a-topology-closure-cc-b-2d-gate-v1`.
+- Terminal disposition: `INVALID_CC_B_EXECUTION`.
+- `cc_b_matrix_launch_count=0`; `scientific_vote=false`;
+  `formal_execution_count=0`.
+
+## Current-Clamp CC-B Outcome
+
+| Item | Result | Evidence boundary |
+| --- | --- | --- |
+| topology | algebraic conductive-sheet-current clamp; temperature-only dynamics; `Cp` inactive | Implemented contract fact |
+| focused tests | `22 passed` after both allowed implementation-repair cycles | Software fact only |
+| 0.2 mA L1/L2 smoke | equilibrium, current, power, thermal ledger, and residual records pass | Valid non-voting local records |
+| 0.4 mA stability | `INVALID_STABILITY` before a publishable case record | Invalid execution; neither stable nor unstable vote |
+| uniform/budget/formal | not executed; matrix launch count zero | Unassessed |
+| CC-C/GT/PINN | not executed and unauthorized | `forbidden` / unassessed |
+
+The terminal result is invalid and has no scientific vote. It does not negate
+the earlier CC-A admission, prove two-dimensional physical instability, or
+support any 2.5-D/PINN claim. Reopening requires a new identity and explicit
+repair policy.
 
 ## Current-Clamp CC-A Outcome
 
@@ -72,8 +88,7 @@ as infrastructure provenance only and do not vote on the active S2 route.
 
 ## Boundary
 
-Do not start CC-B/CC-C, data generation, or training without a new explicit
-authorization. A future CC-B must validate the source mapping in the 2-D
-uniform limit and certify constrained field stability before any ground-truth
-dataset. It cannot relabel S7 as an intrinsic/local law or tune source/material
-parameters after seeing results.
+Do not rerun or repair this CC-B identity, or start CC-C, data generation, or
+training, without a new explicit authorization. The first admissible follow-up
+is a bounded telemetry closure for the invalid stability call; it cannot tune
+topology, source/material parameters, cases, or gates.

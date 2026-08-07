@@ -1,0 +1,17 @@
+{
+  "cc_b_matrix_launch_count": 0,
+  "cc_b_scientific_vote": false,
+  "claim_status": "forbidden",
+  "completed_grid_cases": 0,
+  "disposition": "INVALID_CC_B_EXECUTION",
+  "failure_detail": "CCBContractError: power reference is inconsistent",
+  "failure_type": "CCBContractError",
+  "formal_execution_count": 0,
+  "lifecycle_state": "executed",
+  "matrix_complete": false,
+  "run_id": "INVALID-CC-B-CONTRACT-20260807T133742Z-dca52d01",
+  "schema_version": "q2_current_clamp_cc_b_terminal_v1",
+  "scientific_vote": false,
+  "task_id": "Q2_CC_A_CLAMP_TOPOLOGY_CLOSURE_AND_BOUNDED_CC_B_2D_GATE_V1",
+  "validity": "invalid"
+}

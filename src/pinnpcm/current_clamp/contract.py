@@ -16,6 +16,26 @@ TERMINAL_DISPOSITIONS = {
     "INVALID_CC_A_EXECUTION",
 }
 OFFICIAL_CURRENTS_A = tuple(index * 1.0e-4 for index in range(1, 8))
+FROZEN_BRANCH_ADMISSION = {
+    "root_match_temperature_tolerance_K": 1.0e-7,
+    "heating_anchor_state_max": 0.10,
+    "cooling_endpoint_state_min": 0.90,
+    "minimum_connected_points_per_branch": 5,
+    "conductive_state_span_min": 0.50,
+    "transition_state_min": 0.10,
+    "transition_state_max": 0.90,
+    "minimum_intermediate_points_per_branch": 2,
+    "minimum_common_current_points": 5,
+    "minimum_separated_common_points": 5,
+    "common_current_state_separation_min": 0.10,
+}
+FROZEN_ROOT_DISCOVERY = {
+    "nested_partition_counts": [4097, 8193],
+    "scaled_residual_max": 1.0e-12,
+    "tangent_scaled_residual_max": 1.0e-12,
+    "root_set_hausdorff_max_K": 1.0e-8,
+    "resistance_derivative_relative_error_max": 1.0e-6,
+}
 
 
 class CurrentClampContractError(RuntimeError):
@@ -47,6 +67,28 @@ def load_current_clamp_contract(path: Path) -> dict[str, Any]:
         )
     if int(payload.get("formal_execution_count", -1)) != 0:
         raise CurrentClampContractError("CC-A cannot consume a formal execution")
+
+    for key, expected in FROZEN_ROOT_DISCOVERY.items():
+        observed = payload.get("root_discovery", {}).get(key)
+        if isinstance(expected, list):
+            if list(observed or ()) != expected:
+                raise CurrentClampContractError(f"CC-A root-discovery gate drifted: {key}")
+        elif not math.isclose(float(observed), expected, rel_tol=0.0, abs_tol=0.0):
+            raise CurrentClampContractError(f"CC-A root-discovery gate drifted: {key}")
+    for key, expected in FROZEN_BRANCH_ADMISSION.items():
+        observed = payload.get("branch_admission", {}).get(key)
+        if isinstance(expected, int):
+            if int(observed) != expected:
+                raise CurrentClampContractError(f"CC-A admission gate drifted: {key}")
+        elif not math.isclose(float(observed), expected, rel_tol=0.0, abs_tol=0.0):
+            raise CurrentClampContractError(f"CC-A admission gate drifted: {key}")
+    if not math.isclose(
+        float(payload.get("stability", {}).get("stable_alpha_tau_max")),
+        -1.0e-3,
+        rel_tol=0.0,
+        abs_tol=0.0,
+    ):
+        raise CurrentClampContractError("CC-A stability gate drifted")
 
     parameters = payload["source_parameters"]
     _require_positive_finite(

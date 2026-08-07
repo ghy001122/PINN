@@ -1,0 +1,38 @@
+{
+  "clamp_topology": {
+    "allowed_wording": "ideal algebraic conductive-channel current clamp",
+    "clamp_target": "conductive_sheet_current",
+    "constraint": "I_cond_equals_I_set",
+    "dynamic_state": "temperature_cells_only",
+    "electrical_response": "algebraic",
+    "external_RC_state": "forbidden",
+    "parallel_capacitance_role": "inactive_external_source_metadata",
+    "terminal_total_current_clamp": "forbidden",
+    "voltage_projection": "Vd_equals_I_set_over_G_hat"
+  },
+  "config_path": "configs/q2_current_clamp_hysgeo_pinn_v1_cc_b.yaml",
+  "config_sha256": "56384a56893c1f9752e00e1dcece242a788805df2148b5022903adc6c314de8d",
+  "environment": {
+    "blas_thread_environment": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "command": [
+      "E:\\Python demo\\PINN\\.venv\\Scripts\\python.exe",
+      "scripts\\run_q2_current_clamp_cc_b.py",
+      "--stage",
+      "smoke"
+    ],
+    "cpu_count": 12,
+    "git_sha": "618103321441abac36c9a9836ff6b0cc30e2c76e",
+    "machine": "AMD64",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 154 Stepping 4, GenuineIntel",
+    "python": "3.11.9 | packaged by Anaconda, Inc. | (main, Apr 19 2024, 16:40:41) [MSC v.1916 64 bit (AMD64)]",
+    "run_id": "Q2-CC-B-2D-GATE-20260807-V1"
+  },
+  "run_id": "Q2-CC-B-2D-GATE-20260807-V1",
+  "schema_version": "q2_current_clamp_cc_b_identity_v1"
+}
