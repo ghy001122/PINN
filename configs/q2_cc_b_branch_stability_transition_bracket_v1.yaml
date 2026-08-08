@@ -1,0 +1,178 @@
+schema_version: q2_cc_b_branch_stability_transition_bracket_v1
+task_id: Q2_CC_B_BRANCH_STABILITY_TRANSITION_BRACKET_V1
+run_id: Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1
+execution_class: bounded_nonvoting_branch_stability_transition_bracket
+evidence_type: literature-guided synthetic numerical digital-twin evidence
+lifecycle_state: planned
+claim_status: forbidden
+scientific_vote: false
+formal_execution_count: 0
+cc_b_matrix_launch_count: 0
+ground_truth_generated: false
+pinn_executed: false
+
+authority:
+  pr_34_merge_sha: 22ed32018d5463e171be960beb00710a055a1f13
+  pr_34_code_anchor_sha: 616fd9b2673f9591ff58900354c38dd3f9a6c1f9
+  pr_34_result_commit_sha: d544de2fc239a46ab401b2f32349f6f8b9cd769e
+  cc_a_config:
+    path: configs/q2_current_clamp_hysgeo_pinn_v1_cc_a.yaml
+    sha256: 7278aac6a4d79247837566936f40ff7970922485671e902a70898e409e6cbe16
+  cc_a_all_roots:
+    path: outputs/tables/q2_current_clamp_hysgeo/Q2-CC-A-ADMISSION-20260806-V1/all_roots.csv
+    sha256: a9828df12768560c56c2249f4a9d15186490f47e11fed7cddcf35293f4783a1a
+  parent_cc_b_config:
+    path: configs/q2_current_clamp_hysgeo_pinn_v1_cc_b.yaml
+    sha256: 56384a56893c1f9752e00e1dcece242a788805df2148b5022903adc6c314de8d
+  requalification_config:
+    path: configs/q2_cc_b_stability_requalification_v1.yaml
+    sha256: 923c719f802f861f85b13ef4095e9995971f730068c4f097f1795434b3df9eb3
+  frozen_core_files:
+    - path: src/pinnpcm/current_clamp/cc_b_model.py
+      sha256: 83db01b13b5dd57b35e95f512029a2f6867a2c55ee50ac2ed5cb6ba80b630135
+    - path: src/pinnpcm/current_clamp/cc_b_stability.py
+      sha256: fd789bba78ed7e37a770a621a93e2291d92119e84a59f05757f57ba5925c6e1b
+    - path: src/pinnpcm/current_clamp/cc_b_solver.py
+      sha256: 37a25b874a8e30bd0b0367db09649e801b08f79ec1aa70d0a6e03bd3474860dc
+    - path: src/pinnpcm/current_clamp/cc_b_stability_requalification.py
+      sha256: f0a07d39a43d1d9f6e5feb3725e6147cd69130ee23f0d8b7c70dc30785c2f050
+  pr_34_terminal:
+    path: outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/terminal.json
+    sha256: 70c7d380bab2ddeccd30bafe320436c928927cf487c007c8266031d471ec8240
+    required_disposition: PASS_CC_B_STABILITY_REQUALIFICATION
+    required_classification: POSITIVE_UNSTABLE
+  pr_34_summary:
+    path: outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/summary.json
+    sha256: 54e8639e27362e63289d794e94e80fbd256d2008a77432911bb23941d2c37563
+  pr_34_manifest:
+    path: outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/artifact_manifest.json
+    sha256: 2510a109da999b9424e94adfc9beacefd8e06eb6641921e427b974e259c906d9
+  pr_34_l1_input_manifest:
+    path: outputs/tables/q2_current_clamp_cc_b_stability_telemetry/Q2-CC-B-STABILITY-TELEMETRY-CLOSURE-20260808-V1/attempts/T1/diagnostic_input/equilibria/diagnostic_NOM_heating_0p4mA_L1.json
+    sha256: ebc5362cc61f9a3e4b0043224840f4a7c4fe75bbb91919ff28c769dbc2deb65a
+  pr_34_l1_input_npz:
+    path: data/processed/q2_current_clamp_cc_b_stability_telemetry/Q2-CC-B-STABILITY-TELEMETRY-CLOSURE-20260808-V1/attempts/T1/diagnostic_input/equilibria/diagnostic_NOM_heating_0p4mA_L1.npz
+    sha256: 55b12deb98e3b1d9d11afc9d3e7ff0f5bfb2b74ef86115a25a6d19f158190e4d
+  pr_34_l1_step_summary:
+    path: outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R1/step_diagnostics/summary.json
+    sha256: 3595e1470289ae94465c379a8c2976dcd0f55615270a0a6e4f3611ef95cc4b1d
+  pr_34_l1_k6_summary:
+    path: outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R1/L1_k6/summary.json
+    sha256: c1997089137660d1ba347845bd6ff11ac50561b607b93d231191a3c4a404c374
+  pr_34_l1_k6_ritz:
+    path: outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R1/L1_k6/telemetry/ritz_pairs.npz
+    sha256: 5da7294b7b0248191a3234f8e656196c6425a7abecf149c8c40902c3f9dc232d
+
+scope:
+  defect: NOM
+  spatial_level: 1
+  eigenpairs: 6
+  current_min_A: 1.0e-4
+  current_max_A: 7.0e-4
+  fixed_currents_A:
+    - 1.0e-4
+    - 1.5e-4
+    - 2.0e-4
+    - 2.5e-4
+    - 3.0e-4
+    - 3.5e-4
+    - 4.0e-4
+    - 4.5e-4
+    - 5.0e-4
+    - 5.5e-4
+    - 6.0e-4
+    - 6.5e-4
+    - 7.0e-4
+  heating_order: increasing
+  cooling_order: decreasing
+  pr_34_reuse_case: [NOM, heating, 4.0e-4, L1, 6]
+
+equilibrium_gates:
+  thermal_scaled_cv_residual_max: 1.0e-8
+  last_scaled_update_inf_max: 1.0e-8
+  electrical_scaled_cv_residual_max: 1.0e-10
+  ledger_symmetric_relative_max: 5.0e-3
+  temperature_K: [300.0, 380.0]
+  voltage_operating_envelope_max_V: 17.0
+
+frozen_stability:
+  which: LR
+  tolerance: 1.0e-8
+  maxiter: 2000
+  ncv: 32
+  relative_ritz_residual_max: 1.0e-6
+  h_half_operator_relative_difference_max: 1.0e-4
+  two_h_operator_relative_difference_max: 4.0e-4
+  stable_alpha_tau_max: -1.0e-3
+  backward_error_multiplier: 10.0
+  k6_k10_alpha_tau_difference_max: 1.0e-4
+
+transition_gate:
+  conductive_state_interval: [0.1, 0.9]
+  area_fraction_min: 0.10
+  l1_role: provisional_screening
+  l2_role: final_anchor_qualification
+
+mode_diagnostics:
+  uniform_mass_overlap_min: 0.90
+  localized_uniform_overlap_max: 0.10
+  dominant_gradient_fraction_min: 0.80
+  patterned_route_minimum_points_per_branch: 2
+  patterned_route_fraction_strictly_greater_than: 0.50
+  x_semantics: 100_nm_current_path
+  y_semantics: 500_nm_transverse_width
+  vote_role: nonvoting_diagnostic
+
+boundary_refinement:
+  maximum_brackets_per_branch: 2
+  maximum_bisections_per_bracket: 3
+  maximum_new_points_total: 12
+  processing_order: increasing_current
+  boundary_wording: candidate_linear_stability_boundary
+  nonlinear_patterned_branch_execution: forbidden
+
+l2_anchor_qualification:
+  minimum_sampled_span_A: 5.0e-5
+  anchors: [low, exact_midpoint, high]
+  required_distinct_anchor_count: 3
+  l1_comparison_eigenpairs: 10
+  l2_eigenpairs: [6, 10]
+  post_l2_anchor_replacement: forbidden
+
+budget:
+  implementation_and_tests_wall_cap_s: 1800.0
+  r0_wall_cap_s: 120.0
+  r1_wall_cap_s: 2400.0
+  r2_wall_cap_s: 900.0
+  r3_wall_cap_s: 1500.0
+  artifact_and_report_wall_cap_s: 300.0
+  total_calendar_wall_cap_s: 7200.0
+  aggregate_cpu_cap_s: 14400.0
+  workers: 1
+  blas_threads: 1
+  gpu: forbidden
+
+outputs:
+  compact_root: outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket
+  processed_root: data/processed/q2_current_clamp_cc_b_branch_stability_transition_bracket
+  report: docs/codex_reports/q2_cc_b_branch_stability_transition_bracket_v1.md
+
+terminal_dispositions:
+  - PASS_CC_B_BRANCH_STABILITY_TRANSITION_BRACKET
+  - STOP_CC_B_BRANCH_COVERAGE_INCOMPLETE
+  - STOP_CC_B_PATTERNED_BRANCH_REQUIRED
+  - NO_GO_CC_B_NOMINAL_TRANSITION_DOMAIN
+  - STOP_NUMERICAL_SEMANTICS_NOT_CLOSED
+  - INVALID_CC_B_BRANCH_STABILITY_TRANSITION_BRACKET_EXECUTION
+
+forbidden_execution:
+  - PR34_requalification_replay
+  - dense_matrix_per_current
+  - uniform_or_36_case_gate
+  - LU_RD_defects
+  - CC_C_or_ground_truth
+  - PINN_CC01_CC06
+  - inverse_SVD_refusal
+  - eigenmode_seeded_patterned_branch
+  - dynamic_S0_NLS_exact_condensed
+  - external_RC_or_voltage_trajectory
