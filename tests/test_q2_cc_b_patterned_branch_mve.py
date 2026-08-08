@@ -22,6 +22,7 @@ from pinnpcm.current_clamp.cc_b_patterned_branch_mve import (
     mass_rms,
     orient_transverse_mode,
     patterned_amplitude_K,
+    patterned_seed_temperature,
     reflect_y,
     EquilibriumTrace,
     solve_equilibrium_with_trace,
@@ -176,6 +177,20 @@ def test_reflection_orientation_and_pattern_metrics_are_phase_invariant():
     )
     assert y_fraction > 0.999
     assert x_fraction < 1.0e-12
+
+
+def test_patterned_seed_canonicalizes_flat_equilibrium_to_grid_shape():
+    shape = (25, 10)
+    base = np.full(shape[0] * shape[1], 330.0)
+    mode = np.linspace(-1.0, 1.0, base.size)
+    seeded = patterned_seed_temperature(
+        base,
+        mode,
+        grid_shape=shape,
+        signed_amplitude_K=0.25,
+    )
+    assert seeded.shape == shape
+    assert np.array_equal(seeded, base.reshape(shape) + 0.25 * mode.reshape(shape))
 
 
 def test_nested_grid_prolongation_is_only_an_initial_field():

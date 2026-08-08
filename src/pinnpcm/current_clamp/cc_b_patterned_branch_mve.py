@@ -960,6 +960,24 @@ def augmented_operator_jv_from_state(
     return np.concatenate([top, [bottom]])
 
 
+def patterned_seed_temperature(
+    base_temperature_K: np.ndarray,
+    oriented_mode: np.ndarray,
+    *,
+    grid_shape: tuple[int, int],
+    signed_amplitude_K: float,
+) -> np.ndarray:
+    """Construct a grid-shaped augmented-corrector seed deterministically."""
+
+    base = np.asarray(base_temperature_K, dtype=float)
+    mode = np.asarray(oriented_mode, dtype=float)
+    if base.size != grid_shape[0] * grid_shape[1] or mode.size != base.size:
+        raise ValueError("patterned seed inputs do not match the grid")
+    return base.reshape(grid_shape) + float(signed_amplitude_K) * mode.reshape(
+        grid_shape
+    )
+
+
 def _thermal_preconditioner(model: CurrentClamp2DModel) -> Callable[[np.ndarray], np.ndarray]:
     factor = splu(
         (model.thermal_matrix.tocsc() + diags(model.sink_cell_W_K, format="csc")),
@@ -996,7 +1014,12 @@ def solve_augmented_amplitude(
     signed_amplitude = float(orientation) * float(target_amplitude_K)
     mode = critical.mode
     if initial_temperature_K is None:
-        temperature0 = critical.equilibrium.temperature_K + signed_amplitude * mode.reshape(base_model.grid.shape)
+        temperature0 = patterned_seed_temperature(
+            critical.equilibrium.temperature_K,
+            mode,
+            grid_shape=base_model.grid.shape,
+            signed_amplitude_K=signed_amplitude,
+        )
     else:
         temperature0 = np.asarray(initial_temperature_K, dtype=float).copy()
         present = float(
