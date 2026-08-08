@@ -1,9 +1,9 @@
 schema_version: q2_cc_b_patterned_branch_decision_mve_v1
 task_id: Q2_CC_B_PATTERNED_BRANCH_DECISION_MVE_V1
-run_id: Q2-CC-B-PATTERNED-BRANCH-DECISION-MVE-20260808-V1-R1
-repair_revision: R1
-supersedes_invalid_run_id: Q2-CC-B-PATTERNED-BRANCH-DECISION-MVE-20260808-V1
-repair_scope: augmented_seed_shape_canonicalization_only
+run_id: Q2-CC-B-PATTERNED-BRANCH-DECISION-MVE-20260808-V1-R2
+repair_revision: R2
+supersedes_invalid_run_id: Q2-CC-B-PATTERNED-BRANCH-DECISION-MVE-20260808-V1-R1
+repair_scope: field_shape_canonicalization_for_seed_and_mirror_metrics_only
 execution_class: bounded_patterned_branch_minimum_viable_evidence
 evidence_type: literature-guided synthetic numerical digital-twin evidence
 lifecycle_state: planned

@@ -20,6 +20,7 @@ from pinnpcm.current_clamp.cc_b_patterned_branch_mve import (
     field_gradient_fractions,
     load_patterned_contract,
     mass_rms,
+    mirror_pair_error_K,
     orient_transverse_mode,
     patterned_amplitude_K,
     patterned_seed_temperature,
@@ -191,6 +192,16 @@ def test_patterned_seed_canonicalizes_flat_equilibrium_to_grid_shape():
     )
     assert seeded.shape == shape
     assert np.array_equal(seeded, base.reshape(shape) + 0.25 * mode.reshape(shape))
+
+
+def test_mirror_pair_metric_accepts_mixed_flat_and_grid_layouts():
+    contract = _contract()
+    model = build_model(contract, branch="heating", current_A=2.5e-4, spatial_level=1)
+    plus = np.arange(model.grid.nx * model.grid.ny, dtype=float).reshape(
+        model.grid.shape
+    )
+    minus = reflect_y(plus, model.grid.shape).reshape(-1)
+    assert mirror_pair_error_K(model, plus, minus) == pytest.approx(0.0)
 
 
 def test_nested_grid_prolongation_is_only_an_initial_field():

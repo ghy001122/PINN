@@ -429,6 +429,18 @@ def patterned_amplitude_K(model: CurrentClamp2DModel, temperature_K: np.ndarray)
     return 0.5 * mass_rms(difference, model.cell_capacity_J_K)
 
 
+def mirror_pair_error_K(
+    model: CurrentClamp2DModel,
+    plus_temperature_K: np.ndarray,
+    minus_temperature_K: np.ndarray,
+) -> float:
+    """Return the mass-weighted mirror mismatch independent of array layout."""
+
+    plus_reflected = reflect_y(plus_temperature_K, model.grid.shape).reshape(-1)
+    minus = np.asarray(minus_temperature_K, dtype=float).reshape(-1)
+    return mass_rms(minus - plus_reflected, model.cell_capacity_J_K)
+
+
 def _transition_metrics(
     contract: PatternedContract, evaluation: CCBEvaluation
 ) -> tuple[float, float, bool]:
@@ -1919,10 +1931,10 @@ def run_stage_s(
                     contract, branch=branch, current_A=plus.current_A, spatial_level=1
                 )
                 current_match = abs(plus.current_A - minus.current_A)
-                mirror_error = mass_rms(
-                    minus.temperature_K.reshape(-1)
-                    - reflect_y(plus.temperature_K, plus_model.grid.shape),
-                    plus_model.cell_capacity_J_K,
+                mirror_error = mirror_pair_error_K(
+                    plus_model,
+                    plus.temperature_K,
+                    minus.temperature_K,
                 )
                 tolerance = max(1.0e-6, 0.05 * amplitude)
                 pair_pass = bool(current_match <= 1.0e-10 and mirror_error <= tolerance)
@@ -2386,15 +2398,15 @@ def run_stage_q(
                 x_fraction, y_fraction = field_gradient_fractions(
                     l2_model, antisymmetric_l2
                 )
-                mirror_l1 = mass_rms(
-                    l1_minus.temperature_K.reshape(-1)
-                    - reflect_y(l1_record.temperature_K, l1_model.grid.shape),
-                    l1_model.cell_capacity_J_K,
+                mirror_l1 = mirror_pair_error_K(
+                    l1_model,
+                    l1_record.temperature_K,
+                    l1_minus.temperature_K,
                 )
-                mirror_l2 = mass_rms(
-                    l2_minus.temperature_K.reshape(-1)
-                    - reflect_y(l2_record.temperature_K, l2_model.grid.shape),
-                    l2_model.cell_capacity_J_K,
+                mirror_l2 = mirror_pair_error_K(
+                    l2_model,
+                    l2_record.temperature_K,
+                    l2_minus.temperature_K,
                 )
                 mirror_tolerance = max(
                     field_discrepancy,
