@@ -4,11 +4,12 @@
 
 - Delivery/phase: `Q2_SCI_DELIVERY_MODE` /
   `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Checkpoint: `Q2_CURRENT_CLAMP_CC_B_INVALID`.
+- Checkpoint: `Q2_CC_B_STABILITY_TELEMETRY_CLOSED`.
 - Preserved prior checkpoint: `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED`.
-- CC-B baseline: `618103321441abac36c9a9836ff6b0cc30e2c76e`.
-- Result branch: `codex/q2-cc-a-topology-closure-cc-b-2d-gate-v1`.
-- Terminal disposition: `INVALID_CC_B_EXECUTION`.
+- CC-B parent merge: `1d2b3d66eaec3faa908c0e377a7da92467c76b00`.
+- Result branch: `codex/q2-cc-b-stability-telemetry-closure-v1`.
+- Parent disposition: `INVALID_CC_B_EXECUTION`.
+- Diagnostic disposition: `PASS_CC_B_STABILITY_TELEMETRY_CLOSURE`.
 - `cc_b_matrix_launch_count=0`; `scientific_vote=false`;
   `formal_execution_count=0`.
 
@@ -23,9 +24,24 @@
 | uniform/budget/formal | not executed; matrix launch count zero | Unassessed |
 | CC-C/GT/PINN | not executed and unauthorized | `forbidden` / unassessed |
 
-The terminal result is invalid and has no scientific vote. It does not negate
-the earlier CC-A admission, prove two-dimensional physical instability, or
-support any 2.5-D/PINN claim. Reopening requires a new identity and explicit
+## CC-B Stability Telemetry Closure
+
+| Item | Result | Evidence boundary |
+| --- | --- | --- |
+| diagnostic input | nominal/heating/0.4 mA/L1 saved and read back; residual, ledger, range, and hashes pass | Valid non-voting local input only |
+| operator/Jv | mass, fixed-current, electrical, finite, repeatability, h/h2, unit/sign gates pass | Execution-validity diagnostic |
+| eigensolver | 6/6 finite pairs returned normally | Not yet a certified spectrum |
+| Ritz certification | 0/6; `eta=1.689e-5...3.230e-5 > 1e-6` | Localizes invalidity; no stability sign vote |
+| terminal | `PASS_CC_B_STABILITY_TELEMETRY_CLOSURE`; `implementation_invalidity_localized` | Diagnostic-path closure only |
+| counters | attempts 1, repairs 0, formal 0, matrix 0 | No scientific execution expansion |
+
+The positive raw Ritz values are forbidden as an instability claim because
+their residual certification fails. L2, k10, uniform, budget, formal matrix,
+CC-C, GT, and PINN remain unexecuted.
+
+The parent CC-B terminal result remains invalid and has no scientific vote. It
+does not negate the earlier CC-A admission, prove two-dimensional physical
+instability, or support any 2.5-D/PINN claim. Reopening requires a new identity and explicit
 repair policy.
 
 ## Current-Clamp CC-A Outcome
@@ -89,7 +105,7 @@ as infrastructure provenance only and do not vote on the active S2 route.
 
 ## Boundary
 
-Do not rerun or repair this CC-B identity, or start CC-C, data generation, or
-training, without a new explicit authorization. The first admissible follow-up
-is a bounded telemetry closure for the invalid stability call; it cannot tune
-topology, source/material parameters, cases, or gates.
+Do not run T2, requalify stability, resume CC-B, or start CC-C, data generation,
+or training without a new explicit authorization. The first admissible
+follow-up is a bounded `Q2_CC_B_STABILITY_REQUALIFICATION_V1`; it cannot weaken
+the frozen Ritz gate or use the uncertified signs as a physical verdict.

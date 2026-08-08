@@ -1,0 +1,62 @@
+{
+  "authority": {
+    "expected_origin_main_sha": "1d2b3d66eaec3faa908c0e377a7da92467c76b00",
+    "parent_config": {
+      "path": "configs/q2_current_clamp_hysgeo_pinn_v1_cc_b.yaml",
+      "sha256": "56384a56893c1f9752e00e1dcece242a788805df2148b5022903adc6c314de8d"
+    },
+    "parent_l1_compact": {
+      "path": "outputs/tables/q2_current_clamp_hysgeo_cc_b/Q2-CC-B-2D-GATE-20260807-V1/smoke/equilibria/smoke_NOM_heating_0p2mA_L1.json",
+      "sha256": "f56b087a19c34d96fd0c84de1aa600a5a58e9ebe7e50ccca23b9a7ca1cfb0f88"
+    },
+    "parent_l1_npz": {
+      "optional_local_cache": true,
+      "path": "data/processed/q2_current_clamp_hysgeo_cc_b/Q2-CC-B-2D-GATE-20260807-V1/smoke/equilibria/smoke_NOM_heating_0p2mA_L1.npz",
+      "sha256": "8595e6fd44996bb55c365b247c279b5a4388934f8e2516b4a24870438b5c39d5"
+    },
+    "parent_smoke_summary": {
+      "path": "outputs/tables/q2_current_clamp_hysgeo_cc_b/Q2-CC-B-2D-GATE-20260807-V1/stages/smoke/summary.json",
+      "sha256": "817f301f3f03ea03e7ef57b095c89ce12829b90d531aae3b55c5da54a0d3c183"
+    },
+    "parent_terminal": {
+      "disposition": "INVALID_CC_B_EXECUTION",
+      "path": "outputs/tables/q2_current_clamp_hysgeo_cc_b/Q2-CC-B-2D-GATE-20260807-V1/terminal.json",
+      "sha256": "4fd2e2c0ca090788e38b8e96b19a0543285149cfe899c3febd84fae57a95f6d3"
+    },
+    "pr_32_head_sha": "003aaad5c0c58c7ecb93c2fd24d87d3166b2d023"
+  },
+  "campaign": "Q2-CC-B-STABILITY-TELEMETRY-CLOSURE-20260808-V1",
+  "config_path": "configs/q2_cc_b_stability_telemetry_closure_v1.yaml",
+  "config_sha256": "f590ffbf69ae233d3f4ef12a2f9eacbdfcd5ec0320a05df8bd57b8fab00643f3",
+  "environment": {
+    "blas_thread_environment": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "command": [
+      "E:\\Python demo\\PINN\\.venv\\Scripts\\python.exe",
+      "scripts\\run_q2_cc_b_stability_telemetry.py",
+      "--attempt",
+      "T1",
+      "--repair-count",
+      "0",
+      "--preexecution-cpu-s",
+      "20",
+      "--preexecution-wall-s",
+      "20"
+    ],
+    "cpu_count": 12,
+    "git_sha": "1d2b3d66eaec3faa908c0e377a7da92467c76b00",
+    "machine": "AMD64",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 154 Stepping 4, GenuineIntel",
+    "python": "3.11.9 | packaged by Anaconda, Inc. | (main, Apr 19 2024, 16:40:41) [MSC v.1916 64 bit (AMD64)]",
+    "run_id": "Q2-CC-B-STABILITY-TELEMETRY-CLOSURE-20260808-V1"
+  },
+  "reproduction_semantics": "merged-PR32_numerical-contract_reproduction",
+  "review_revision": "20260808-R1",
+  "schema_version": "q2_cc_b_stability_telemetry_identity_v1",
+  "task_id": "Q2_CC_B_STABILITY_TELEMETRY_CLOSURE_V1"
+}

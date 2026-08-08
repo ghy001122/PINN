@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from time import perf_counter, process_time
+from typing import Callable
 from typing import Any
 
 import numpy as np
@@ -205,10 +207,17 @@ class CurrentClamp2DModel:
     def evaluate_scaled_temperature(self, scaled_temperature: np.ndarray) -> CCBEvaluation:
         return self.evaluate_temperature(self.temperature_from_scaled(scaled_temperature))
 
-    def evaluate_temperature(self, temperature_K: np.ndarray) -> CCBEvaluation:
+    def evaluate_temperature(
+        self,
+        temperature_K: np.ndarray,
+        *,
+        telemetry_callback: Callable[[dict[str, Any]], None] | None = None,
+    ) -> CCBEvaluation:
         temperature = np.asarray(temperature_K, dtype=float)
         self.validate_temperature(temperature)
         state, _resistance, conductivity = self.source_fields(temperature)
+        electrical_wall_started = perf_counter() if telemetry_callback is not None else 0.0
+        electrical_cpu_started = process_time() if telemetry_callback is not None else 0.0
         try:
             factor = factor_sheet_electrical(
                 self.grid, conductivity, topology=self.electrical_topology
@@ -218,6 +227,18 @@ class CurrentClamp2DModel:
                 factor, unit_solution.potential_V, 1.0
             )
         except Exception as exc:
+            if telemetry_callback is not None:
+                telemetry_callback(
+                    {
+                        "success": False,
+                        "solver_type": "sparse_direct",
+                        "iterations": "not_applicable",
+                        "wall_time_s": perf_counter() - electrical_wall_started,
+                        "cpu_time_s": process_time() - electrical_cpu_started,
+                        "exception_type": type(exc).__name__,
+                        "exception_message": str(exc),
+                    }
+                )
             raise CCBModelError("CCB_ELECTRICAL_SUBSOLVE_FAIL", str(exc)) from exc
         conductance = float(unit_audit.source_current_A)
         if not math_is_positive_finite(conductance):
@@ -295,7 +316,7 @@ class CurrentClamp2DModel:
             and np.isfinite(conductivity).all()
             and np.isfinite(thermal_residual).all()
         )
-        return CCBEvaluation(
+        evaluation = CCBEvaluation(
             temperature_K=temperature,
             unit_potential=np.asarray(unit_solution.potential_V, dtype=float),
             potential_V=potential,
@@ -328,6 +349,29 @@ class CurrentClamp2DModel:
             finite_and_range_legal=finite,
         )
 
+        if telemetry_callback is not None:
+            telemetry_callback(
+                {
+                    "success": True,
+                    "solver_type": "sparse_direct",
+                    "iterations": "not_applicable",
+                    "wall_time_s": perf_counter() - electrical_wall_started,
+                    "cpu_time_s": process_time() - electrical_cpu_started,
+                    "unit_conductance_S": conductance,
+                    "device_voltage_V": device_voltage,
+                    "source_current_A": evaluation.source_current_A,
+                    "ground_current_A": evaluation.ground_current_A,
+                    "normalized_current_error": abs(
+                        evaluation.source_current_A - self.current_set_A
+                    )
+                    / self.contract.scales.current_A,
+                    "scaled_electrical_residual_inf": evaluation.scaled_electrical_residual_inf,
+                    "temperature_min_K": float(np.min(temperature)),
+                    "temperature_max_K": float(np.max(temperature)),
+                }
+            )
+        return evaluation
+
     def conservative_thermal_jv_from_pair(
         self,
         direction_scaled_temperature: np.ndarray,
@@ -345,8 +389,15 @@ class CurrentClamp2DModel:
         scale = self.contract.scales.power_W / direction.size
         return np.asarray(physical, dtype=float) / (2.0 * step * scale)
 
-    def dynamic_rhs(self, temperature_K: np.ndarray) -> np.ndarray:
-        evaluation = self.evaluate_temperature(temperature_K)
+    def dynamic_rhs(
+        self,
+        temperature_K: np.ndarray,
+        *,
+        telemetry_callback: Callable[[dict[str, Any]], None] | None = None,
+    ) -> np.ndarray:
+        evaluation = self.evaluate_temperature(
+            temperature_K, telemetry_callback=telemetry_callback
+        )
         return -evaluation.thermal_residual_W.reshape(-1) / self.cell_capacity_J_K
 
 

@@ -1,0 +1,49 @@
+{
+  "base_git_sha": "1d2b3d66eaec3faa908c0e377a7da92467c76b00",
+  "execution_identity_semantics": "base commit plus exact worktree file hashes; the later code-anchor commit must contain these exact bytes",
+  "reproduction_semantics": "merged-PR32 numerical-contract reproduction",
+  "schema_version": "q2_cc_b_stability_telemetry_execution_source_manifest_v1",
+  "sources": [
+    {
+      "path": "configs/q2_cc_b_stability_telemetry_closure_v1.yaml",
+      "sha256": "f590ffbf69ae233d3f4ef12a2f9eacbdfcd5ec0320a05df8bd57b8fab00643f3"
+    },
+    {
+      "path": "src/pinnpcm/current_clamp/cc_b_model.py",
+      "sha256": "83db01b13b5dd57b35e95f512029a2f6867a2c55ee50ac2ed5cb6ba80b630135"
+    },
+    {
+      "path": "src/pinnpcm/current_clamp/cc_b_stability.py",
+      "sha256": "d3521c31d31580027c26310b5041a0ea6389ef5ad46ea5e29a946fedd8b49721"
+    },
+    {
+      "path": "src/pinnpcm/current_clamp/cc_b_stability_telemetry.py",
+      "sha256": "2377a3b630f3c03572b7fd9fed2a732710e935729d76ecb8bc0dee80d32fa654"
+    },
+    {
+      "path": "src/pinnpcm/current_clamp/cc_b_contract.py",
+      "sha256": "a77b6e6a2ed5ef00df4603cb1b576a425f1b4d55b5c3b5c51f7ae07c416a9ef9"
+    },
+    {
+      "path": "src/pinnpcm/current_clamp/cc_b_solver.py",
+      "sha256": "37a25b874a8e30bd0b0367db09649e801b08f79ec1aa70d0a6e03bd3474860dc"
+    },
+    {
+      "path": "src/pinnpcm/current_clamp/cc_b_artifacts.py",
+      "sha256": "88ebe490108755dbf46fdc1002b273a037114ab050fd5fd8b415b96630dd18bc"
+    },
+    {
+      "path": "src/pinnpcm/current_clamp/artifacts.py",
+      "sha256": "63ccc93f045ee182d16f599b21d8084216c50428d21a114c738a183907e0ee01"
+    },
+    {
+      "path": "scripts/run_q2_cc_b_stability_telemetry.py",
+      "sha256": "777435a2d2b2c3c3b37e169b55920b4c9104f05ed20b5a9b051801ba7e21c879"
+    },
+    {
+      "path": "tests/test_q2_cc_b_stability_telemetry.py",
+      "sha256": "5b1440aa094c29fd53feaf5ee591057cc77bdf5e1cd789733b4012868b24d98c"
+    }
+  ],
+  "worktree_dirty_at_execution": true
+}

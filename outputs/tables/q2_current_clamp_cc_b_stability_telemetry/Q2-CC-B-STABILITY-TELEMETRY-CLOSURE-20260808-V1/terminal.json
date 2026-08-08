@@ -1,0 +1,274 @@
+{
+  "attempt": "T1",
+  "budget": {
+    "aggregate_cpu_cap_s": 7200.0,
+    "aggregate_cpu_s": 21.59375,
+    "calendar_wall_cap_s": 7200.0,
+    "calendar_wall_s": 21.812349700005143,
+    "l1_k6_wall_cap_s": 1800.0
+  },
+  "campaign": "Q2-CC-B-STABILITY-TELEMETRY-CLOSURE-20260808-V1",
+  "cc_b_matrix_launch_count": 0,
+  "cc_b_scientific_pass": false,
+  "cc_c_authorized": false,
+  "claim_status": "forbidden",
+  "closure_class": "implementation_invalidity_localized",
+  "counters": {
+    "attempts": [
+      "T1"
+    ],
+    "campaign_attempt_count": 1,
+    "cc_b_matrix_launch_count": 0,
+    "formal_execution_count": 0,
+    "implementation_repair_count": 0,
+    "schema_version": "q2_cc_b_stability_telemetry_counters_v1"
+  },
+  "detail": "stability invalidity localized at RITZ_CERTIFICATION: Ritz residual certification failed",
+  "disposition": "PASS_CC_B_STABILITY_TELEMETRY_CLOSURE",
+  "formal_execution_count": 0,
+  "formal_matrix_executed": false,
+  "gates": [
+    {
+      "detail": "PR #32 merge ancestry and all parent hashes were authenticated",
+      "gate_origin": "telemetry_v1_preregistered",
+      "metrics": {
+        "config_sha256": "f590ffbf69ae233d3f4ef12a2f9eacbdfcd5ec0320a05df8bd57b8fab00643f3",
+        "execution_git_sha": "1d2b3d66eaec3faa908c0e377a7da92467c76b00",
+        "expected_origin_main_sha": "1d2b3d66eaec3faa908c0e377a7da92467c76b00"
+      },
+      "name": "INPUT_IDENTITY",
+      "status": "PASS",
+      "vote_role": "execution_validity"
+    },
+    {
+      "detail": "the regenerated L1 equilibrium was saved before stability and re-certified",
+      "gate_origin": "parent_cc_b_contract",
+      "metrics": {
+        "code_identity": "1d2b3d66eaec3faa908c0e377a7da92467c76b00",
+        "config_sha256": "f590ffbf69ae233d3f4ef12a2f9eacbdfcd5ec0320a05df8bd57b8fab00643f3",
+        "device_voltage_V": 5.895042849006573,
+        "electrical_scaled_cv_residual_inf": 5.421010862427522e-16,
+        "last_scaled_update_inf": 5.76723202249527e-09,
+        "ledger_max": 9.563715551066287e-15,
+        "manifest_sha256": "ebc5362cc61f9a3e4b0043224840f4a7c4fe75bbb91919ff28c769dbc2deb65a",
+        "npz_sha256": "55b12deb98e3b1d9d11afc9d3e7ff0f5bfb2b74ef86115a25a6d19f158190e4d",
+        "temperature_max_K": 336.4466851437021,
+        "temperature_min_K": 336.4466851437019,
+        "thermal_scaled_cv_residual_inf": 5.2708226675782296e-14
+      },
+      "name": "EQUILIBRIUM_INPUT_INTEGRITY",
+      "status": "PASS",
+      "vote_role": "execution_validity"
+    },
+    {
+      "detail": "temperature mass matrix is finite, positive, and closes to Cth",
+      "gate_origin": "parent_cc_b_contract",
+      "metrics": {
+        "condition_proxy": 1.0001359448920035,
+        "dtype": "float64",
+        "expected_Cth_J_K": 4.96e-11,
+        "relative_sum_error": 0.0,
+        "shape": [
+          250
+        ],
+        "sum_J_K": 4.96e-11
+      },
+      "name": "MASS_MATRIX_VALIDITY",
+      "status": "PASS",
+      "vote_role": "execution_validity"
+    },
+    {
+      "detail": "all plus/minus unit-bias solves pass the parent residual gate",
+      "gate_origin": "parent_cc_b_contract",
+      "metrics": {
+        "maximum_scaled_electrical_residual": 4.64658073922359e-16
+      },
+      "name": "ELECTRICAL_SUBSOLVE",
+      "status": "PASS",
+      "vote_role": "execution_validity"
+    },
+    {
+      "detail": "all plus/minus projections preserve conductive-sheet current",
+      "gate_origin": "parent_cc_b_contract",
+      "metrics": {
+        "maximum_normalized_current_error": 3.097720492815727e-16
+      },
+      "name": "FIXED_CURRENT_CONSTRAINT",
+      "status": "PASS",
+      "vote_role": "execution_validity"
+    },
+    {
+      "detail": "all preregistered operator probes are finite",
+      "gate_origin": "parent_cc_b_contract",
+      "metrics": {},
+      "name": "JV_FINITE",
+      "status": "PASS",
+      "vote_role": "execution_validity"
+    },
+    {
+      "detail": "deterministic repeated Jv agrees",
+      "gate_origin": "telemetry_v1_preregistered",
+      "metrics": {
+        "relative_difference": 0.0
+      },
+      "name": "JV_REPEATABILITY",
+      "status": "PASS",
+      "vote_role": "execution_validity"
+    },
+    {
+      "detail": "nonvoting homogeneity diagnostic",
+      "gate_origin": "telemetry_v1_preregistered",
+      "metrics": {
+        "relative_difference": 0.0,
+        "scale": -0.5
+      },
+      "name": "JV_HOMOGENEITY",
+      "status": "PASS",
+      "vote_role": "nonvoting_diagnostic"
+    },
+    {
+      "detail": "nonvoting additivity diagnostic",
+      "gate_origin": "telemetry_v1_preregistered",
+      "metrics": {
+        "relative_difference": 1.924054590105198e-06
+      },
+      "name": "JV_ADDITIVITY",
+      "status": "PASS",
+      "vote_role": "nonvoting_diagnostic"
+    },
+    {
+      "detail": "parent h/h2 operator gate",
+      "gate_origin": "parent_cc_b_contract",
+      "metrics": {
+        "h_vs_h_half_relative_difference": 2.9912998913734553e-06,
+        "two_h_nonvoting_pass": true,
+        "two_h_vs_h_relative_difference_nonvoting": 1.1964864998055863e-05
+      },
+      "name": "JV_STEP_SIZE_CONSISTENCY",
+      "status": "PASS",
+      "vote_role": "execution_validity"
+    },
+    {
+      "detail": "F(T)=-M_C^-1 R_T has the frozen temperature-rate shape and sign",
+      "gate_origin": "telemetry_v1_preregistered",
+      "metrics": {
+        "output_unit": "K_per_s",
+        "relative_identity_error": 0.0
+      },
+      "name": "OPERATOR_UNIT_AND_SIGN",
+      "status": "PASS",
+      "vote_role": "execution_validity"
+    },
+    {
+      "detail": "ARPACK returned normally",
+      "gate_origin": "parent_cc_b_contract",
+      "metrics": {
+        "partial_pairs_eligible_for_certification": true,
+        "requested_pair_count": 6,
+        "returned_pair_count": 6
+      },
+      "name": "EIGENSOLVER_RETURN",
+      "status": "PASS",
+      "vote_role": "execution_validity"
+    },
+    {
+      "detail": "requested and returned pair counts agree",
+      "gate_origin": "parent_cc_b_contract",
+      "metrics": {
+        "certified_pair_count": 0,
+        "finite_pair_count": 6,
+        "requested_pair_count": 6,
+        "returned_pair_count": 6
+      },
+      "name": "RITZ_COUNT",
+      "status": "PASS",
+      "vote_role": "execution_validity"
+    },
+    {
+      "detail": "all returned pairs are finite",
+      "gate_origin": "parent_cc_b_contract",
+      "metrics": {},
+      "name": "RITZ_FINITE",
+      "status": "PASS",
+      "vote_role": "execution_validity"
+    },
+    {
+      "detail": "Ritz certification did not produce six eligible pairs",
+      "gate_origin": "parent_cc_b_contract",
+      "metrics": {
+        "maximum_relative_ritz_residual": null
+      },
+      "name": "RITZ_RELATIVE_RESIDUAL",
+      "status": "INVALID",
+      "vote_role": "physical_stability"
+    },
+    {
+      "detail": "rightmost ordering was not certifiable",
+      "gate_origin": "parent_cc_b_contract",
+      "metrics": {},
+      "name": "RIGHTMOST_ORDERING",
+      "status": "INVALID",
+      "vote_role": "execution_validity"
+    },
+    {
+      "detail": "review_revision=20260808-R1 prohibits k=10 and all L2 execution",
+      "gate_origin": "telemetry_v1_preregistered",
+      "metrics": {},
+      "name": "K6_K10_CONSISTENCY",
+      "status": "SKIPPED_NOT_ELIGIBLE",
+      "vote_role": "nonvoting_diagnostic"
+    },
+    {
+      "detail": "all diagnostic artifacts round-trip and hash",
+      "gate_origin": "telemetry_v1_preregistered",
+      "metrics": {
+        "csv_count": 1,
+        "hashes": {
+          "diagnostic_input/equilibria/diagnostic_NOM_heating_0p4mA_L1.json": "ebc5362cc61f9a3e4b0043224840f4a7c4fe75bbb91919ff28c769dbc2deb65a",
+          "diagnostic_input/readback_certification.json": "50af34e114dba0172670a189e49b8f8130662624c1ac2c6fe127371648aede07",
+          "telemetry/eigensolver_pairs.npz": "a158d230d79f711cb01bb4ad9ad14c603e5689d3043d2489e31d5de9e8ca3123",
+          "telemetry/jv_calls.csv": "b6206e8923fb461a12c23c5ea65d1ca0b55492fbf8712019fb9d142d7047f685",
+          "telemetry/jv_calls.npz": "243f39369890f0019a209a775cd00491137193e936faf2892cb5fff4585bf1bf",
+          "telemetry/jv_details.npz": "d1ab11427af8813e2171b813f7de4c60e8f69078afb4404a15546a4fb63bc772",
+          "telemetry/ritz_pairs.npz": "bdd821859942112d20197e9bf145b16fad1560acf85d1b17a93ea60f3c7f39ef",
+          "telemetry/telemetry_summary.json": "94547ea7af86a5b47fcf8f25772d3c2b2d1fbb009efc6d3edc33e6565807fada"
+        },
+        "json_count": 3,
+        "npz_count": 4
+      },
+      "name": "ARTIFACT_CANONICALIZATION",
+      "status": "PASS",
+      "vote_role": "execution_validity"
+    },
+    {
+      "detail": "terminal was written atomically and read back with mutually exclusive state",
+      "gate_origin": "telemetry_v1_preregistered",
+      "metrics": {},
+      "name": "TERMINAL_AGGREGATION",
+      "status": "PASS",
+      "vote_role": "execution_validity"
+    }
+  ],
+  "lifecycle_state": "executed",
+  "physical_spectrum_classification": "NOT_APPLICABLE",
+  "pinn_executed": false,
+  "reproduction_semantics": "merged-PR32_numerical-contract_reproduction",
+  "requested_case": {
+    "branch": "heating",
+    "current_A": 0.0004,
+    "defect": "NOM",
+    "eigenpairs": 6,
+    "grid": "L1",
+    "only_case": true,
+    "spatial_level": 1
+  },
+  "review_revision": "20260808-R1",
+  "schema_version": "q2_cc_b_stability_telemetry_terminal_v1",
+  "scientific_vote": false,
+  "stability_certification_status": "INVALID",
+  "stable": null,
+  "task_id": "Q2_CC_B_STABILITY_TELEMETRY_CLOSURE_V1",
+  "telemetry_closure_status": "PASS",
+  "uniform_gate_executed": false,
+  "validity": "valid"
+}
