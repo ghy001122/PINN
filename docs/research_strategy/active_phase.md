@@ -2,9 +2,9 @@
 
 Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
 
-Status: `stopped_after_valid_stability_telemetry_closure`
+Status: `stopped_after_valid_single_point_positive_instability`
 
-Current checkpoint: `Q2_CC_B_STABILITY_TELEMETRY_CLOSED`
+Current checkpoint: `Q2_CC_B_STABILITY_REQUALIFIED_POSITIVE_UNSTABLE`
 
 Preserved prior checkpoint: `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED`
 
@@ -26,23 +26,25 @@ the only dynamic state, the conductive sheet current is constrained to
 inactive external-source metadata and is absent from CC-B equilibrium and
 stability.
 
-The parent smoke remains `INVALID_CC_B_EXECUTION`. Telemetry T1 persisted the
-0.4 mA L1 input and reproduced the frozen L1/k6 path:
+The parent smoke remains immutable `INVALID_CC_B_EXECUTION`. A separately
+authorized componentwise-step repair and requalification produced:
 
 ```text
-PASS_CC_B_STABILITY_TELEMETRY_CLOSURE
+PASS_CC_B_STABILITY_REQUALIFICATION
 validity = valid
-closure_class = implementation_invalidity_localized
-stability_certification_status = INVALID
-physical_spectrum_classification = NOT_APPLICABLE
+stability_certification_status = VALID
+physical_spectrum_classification = POSITIVE_UNSTABLE
+stable = false
 scientific_vote = false
 formal_execution_count = 0
 cc_b_matrix_launch_count = 0
 ```
 
-Input/operator/ARPACK paths close, but 0/6 finite pairs meet the frozen Ritz
-gate (`eta=1.689e-5...3.230e-5 > 1e-6`). No stability sign is certified.
-Uniform, L2, k10, the formal matrix, CC-C, data, and PINN were not executed.
+The corrected L1 step is `2.0373376e-3 K`. L1/L2 k6/k10 certify all requested
+pairs (`max eta=3.375e-7`), and the L1 dense full-spectrum reference agrees.
+All four spectra classify the single 0.4 mA point as positive unstable with
+`alpha_tau=2.34577...2.34587`. Uniform, the formal matrix, CC-C, data, and PINN
+were not executed.
 
 ## Lifecycle And Claims
 
@@ -50,8 +52,8 @@ Uniform, L2, k10, the formal matrix, CC-C, data, and PINN were not executed.
   evidence remains unchanged.
 - CC-B implementation: `implemented`; claim status `forbidden`.
 - Parent CC-B smoke: `executed`, invalid, immutable, and `forbidden`.
-- Telemetry closure: `executed`, valid non-voting localization; physical
-  stability and CC-B science remain `forbidden`.
+- Stability requalification: `executed`, valid non-voting single-point
+  positive-instability evidence; complete CC-B science remains `forbidden`.
 - CC-B scientific result, 2.5-D judge, CC-C, CC01, CC06, inverse, and all
   positive R1-R3 claims remain `forbidden` / unassessed.
 - Historical global counters remain `scientific_vote=false` and
@@ -59,11 +61,10 @@ Uniform, L2, k10, the formal matrix, CC-C, data, and PINN were not executed.
 
 ## Stop
 
-Telemetry T1 consumed one campaign attempt and zero repair cycles. Do not run
-T2, L2/k6, k10, uniform/budget/formal stages, or CC-C/PINN under this task
-identity. Reopening requires a new bounded stability-requalification
-authorization. It may not weaken the Ritz gate or reinterpret the uncertified
-positive values as physical instability.
+Do not rerun this identity or start uniform/formal stages or CC-C/PINN. A new
+authorization may preregister one finite current bracket to test for stable
+transition-bearing coverage. It may not tune currents after inspection or
+convert this single-point result into a complete CC-B vote.
 
 ## Preserved History
 

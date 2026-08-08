@@ -4,12 +4,12 @@
 
 - Delivery/phase: `Q2_SCI_DELIVERY_MODE` /
   `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Checkpoint: `Q2_CC_B_STABILITY_TELEMETRY_CLOSED`.
+- Checkpoint: `Q2_CC_B_STABILITY_REQUALIFIED_POSITIVE_UNSTABLE`.
 - Preserved prior checkpoint: `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED`.
-- CC-B parent merge: `1d2b3d66eaec3faa908c0e377a7da92467c76b00`.
-- Result branch: `codex/q2-cc-b-stability-telemetry-closure-v1`.
+- Stability-requalification baseline: `b3d8e5a67be09f9bc8fcc908c3fe4ca0a8aba4ee`.
+- Result branch: `codex/q2-cc-b-stability-requalification-v1`.
 - Parent disposition: `INVALID_CC_B_EXECUTION`.
-- Diagnostic disposition: `PASS_CC_B_STABILITY_TELEMETRY_CLOSURE`.
+- Requalification disposition: `PASS_CC_B_STABILITY_REQUALIFICATION`.
 - `cc_b_matrix_launch_count=0`; `scientific_vote=false`;
   `formal_execution_count=0`.
 
@@ -24,13 +24,16 @@
 | uniform/budget/formal | not executed; matrix launch count zero | Unassessed |
 | CC-C/GT/PINN | not executed and unauthorized | `forbidden` / unassessed |
 
-## CC-B Stability Telemetry Closure
+## CC-B Stability Requalification
 
-The 0.4 mA L1 input and operator/ARPACK execution pass, but 0/6 finite pairs
-meet `eta<=1e-6`. `PASS_CC_B_STABILITY_TELEMETRY_CLOSURE` therefore localizes
-implementation invalidity; it is not a stability verdict. Counters remain
-attempts 1, repairs 0, formal 0, matrix 0. L2, k10, uniform, CC-C, GT, and PINN
-were not executed. Parent CC-B remains invalid/nonvoting; CC-A is unchanged.
+The componentwise Jv step correction reduces the authenticated L1 step from
+about `2.0373e-2 K` to `2.0373376e-3 K`. L1/L2 k6/k10 certify every requested
+Ritz pair with maximum `eta=3.375e-7`; the L1 dense full-spectrum reference has
+maximum relative residual `7.484e-14` and agrees with ARPACK in `alpha_tau` to
+`4.235e-8`. All four spectra classify `NOM/heating/0.4 mA` as
+`POSITIVE_UNSTABLE` (`alpha_tau=2.34577...2.34587`). This is valid non-voting
+single-point evidence, not a complete CC-B vote. Uniform, the formal matrix,
+CC-C, GT, and PINN were not executed; formal and matrix counters remain zero.
 
 ## Current-Clamp CC-A Outcome
 
@@ -93,6 +96,8 @@ as infrastructure provenance only and do not vote on the active S2 route.
 
 ## Boundary
 
-Do not run T2 or any downstream stage without new authorization. The only
-admissible follow-up is bounded `Q2_CC_B_STABILITY_REQUALIFICATION_V1`; it may
-not weaken the Ritz gate or interpret uncertified signs.
+Do not launch the formal matrix or any downstream stage without new
+authorization. The only admissible follow-up is a separately preregistered,
+finite current bracket for stable branch/transition coverage; it may not tune
+the current range after inspection or reinterpret this positive spectrum as a
+complete CC-B failure.

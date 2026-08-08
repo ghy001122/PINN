@@ -1,0 +1,15 @@
+{
+  "alpha_tau_dimensionless": 2.345871982739824,
+  "arpack_alpha_tau_absolute_difference": 4.235044981371061e-08,
+  "arpack_classification": "POSITIVE_UNSTABLE",
+  "dynamic_rhs_evaluations": 500,
+  "matrix_vector_products": 250,
+  "maximum_relative_eigenpair_residual": 7.483559036157789e-14,
+  "passed": true,
+  "physical_spectrum_classification": "POSITIVE_UNSTABLE",
+  "representation": "independent_eigensolver_same_centered_jv_operator",
+  "rightmost_spectral_abscissa_per_s": 9742936.057346849,
+  "schema_version": "q2_cc_b_stability_dense_reference_v1",
+  "stable": false,
+  "state_dimension": 250
+}

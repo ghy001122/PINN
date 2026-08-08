@@ -1,0 +1,206 @@
+{
+  "artifacts": [
+    {
+      "bytes": 2423,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/equilibria/NOM_heating_0p4mA_L2.json",
+      "sha256": "133bfdf5348d2fa9213750d756566535f7bf9544dc3fca592cb635b842e35fe3"
+    },
+    {
+      "bytes": 594,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/identity.json",
+      "sha256": "9535ac705ff8ed3a52482c7c413d1b2530e0a03868d699cf7c0c107d815b38a7"
+    },
+    {
+      "bytes": 1157,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/inputs/l1_parent_reference.json",
+      "sha256": "81745d7ee735d646f5ad02f37abb4f798983ab330f484ceff153e728c133d450"
+    },
+    {
+      "bytes": 1020,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/inputs/l2_parent_0p2mA_reference.json",
+      "sha256": "a4fb7d51788a706a2fdd7f45c6ad652fafebf280ccd1fe1905aa35722da3d275"
+    },
+    {
+      "bytes": 755,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R1/L1_k6/summary.json",
+      "sha256": "c1997089137660d1ba347845bd6ff11ac50561b607b93d231191a3c4a404c374"
+    },
+    {
+      "bytes": 10988,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R1/L1_k6/telemetry/eigensolver_pairs.npz",
+      "sha256": "832279b9b95f13e722a87f67c6ea1695aa0f326fb877e23bc60509c4ea9079c2"
+    },
+    {
+      "bytes": 133949,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R1/L1_k6/telemetry/jv_calls.csv",
+      "sha256": "383621865ada94a8b823d98f49852361d5c37744e4828d9340dd3c33a59ddde6"
+    },
+    {
+      "bytes": 8139,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R1/L1_k6/telemetry/jv_calls.npz",
+      "sha256": "08936aa4c65bc114c07156f50047e4c922328dfad9f7fa4a5e971cd945272876"
+    },
+    {
+      "bytes": 3718,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R1/L1_k6/telemetry/jv_details.npz",
+      "sha256": "ebfa83709a811d481a6e7cabe1bd5d2e94895b955db6bfa31bfd89edf16c5d69"
+    },
+    {
+      "bytes": 11734,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R1/L1_k6/telemetry/ritz_pairs.npz",
+      "sha256": "5da7294b7b0248191a3234f8e656196c6425a7abecf149c8c40902c3f9dc232d"
+    },
+    {
+      "bytes": 1208,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R1/L1_k6/telemetry/telemetry_summary.json",
+      "sha256": "0a77feadaede33ff3d05b1ea47c1b4418e134f4aa0e873e689970c0640fd4bf9"
+    },
+    {
+      "bytes": 10132,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R1/step_diagnostics/jv_step_outputs.npz",
+      "sha256": "e78e1a24d2b0d22bd915fe11c2d0418090fd2b718fc2c7a928da7e8c55c3e850"
+    },
+    {
+      "bytes": 5863,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R1/step_diagnostics/summary.json",
+      "sha256": "3595e1470289ae94465c379a8c2976dcd0f55615270a0a6e4f3611ef95cc4b1d"
+    },
+    {
+      "bytes": 6138,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R1/step_diagnostics/telemetry/jv_calls.csv",
+      "sha256": "aa2a2a318dd47fe45004748dceb79142cc7ddc08a10ee295dfbf6a6c90510e12"
+    },
+    {
+      "bytes": 2098,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R1/step_diagnostics/telemetry/jv_calls.npz",
+      "sha256": "170ddd2ddf029d842f928720bb9c682498325c2635d9a5f4cf9f61f32fe26aed"
+    },
+    {
+      "bytes": 32158,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R1/step_diagnostics/telemetry/jv_details.npz",
+      "sha256": "1959ede0531ae23ca0be09cfe84fa49d92e010b3faf50c4c9234bcb81f1f23da"
+    },
+    {
+      "bytes": 524,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R1/step_diagnostics/telemetry/telemetry_summary.json",
+      "sha256": "76c8f86ea6297269c23c2acab5e154d4e62150c99316ba5bcaae2d7c0010734b"
+    },
+    {
+      "bytes": 756,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R2/L1_k10/summary.json",
+      "sha256": "4a78699060f0e17b8eab69d2ca3568d603eb58907e1f0beabf8dd6858e0ef879"
+    },
+    {
+      "bytes": 17704,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R2/L1_k10/telemetry/eigensolver_pairs.npz",
+      "sha256": "03caf3a8a5b1362208494a38659b151741feef9cdf7331087d966589051ca11f"
+    },
+    {
+      "bytes": 201588,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R2/L1_k10/telemetry/jv_calls.csv",
+      "sha256": "e7f83ffe9df568f93598c7acff5d81296f34d93343010fc57f43060e91964230"
+    },
+    {
+      "bytes": 11177,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R2/L1_k10/telemetry/jv_calls.npz",
+      "sha256": "57c424664a90e14614cb131db2610e2cea5577ea24b83561b5be096069b9574b"
+    },
+    {
+      "bytes": 3490,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R2/L1_k10/telemetry/jv_details.npz",
+      "sha256": "dc587b216b93f86ec302aca93f8193678cbe3ed9011112cb28b5d267af9b3139"
+    },
+    {
+      "bytes": 18530,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R2/L1_k10/telemetry/ritz_pairs.npz",
+      "sha256": "b7d4ec1e3cd2799c6a6373f598ef300617debb2982361a4f83c562059329c3cc"
+    },
+    {
+      "bytes": 1208,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R2/L1_k10/telemetry/telemetry_summary.json",
+      "sha256": "bf628025da51e9f4250ecf65cc81f7b0e57e8b0dcd03b9f5b36fb0df5f9638d1"
+    },
+    {
+      "bytes": 760,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R2/L2_k10/summary.json",
+      "sha256": "2678de04b0efad711a4b67b98dd3b46bc76b96d677d815113867056a5cfeca1d"
+    },
+    {
+      "bytes": 66599,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R2/L2_k10/telemetry/eigensolver_pairs.npz",
+      "sha256": "1d968758caba95b452c15ac5a90af825fc03dcc01cc8b462e77e93fd74767ed8"
+    },
+    {
+      "bytes": 764388,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R2/L2_k10/telemetry/jv_calls.csv",
+      "sha256": "cbd69f720c801ddf72da8c6fbb898ba0ec79577aa3585d042361c628a434e994"
+    },
+    {
+      "bytes": 35994,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R2/L2_k10/telemetry/jv_calls.npz",
+      "sha256": "bb4c320f0013aa6506f6db02dd6952b4c6dcfb57573c618ffeed04d91fbba666"
+    },
+    {
+      "bytes": 12978,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R2/L2_k10/telemetry/jv_details.npz",
+      "sha256": "4c80a5d7b67325bf6671908d60d440944c1f8adf1da2afc921b0dc65eb41ec88"
+    },
+    {
+      "bytes": 67427,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R2/L2_k10/telemetry/ritz_pairs.npz",
+      "sha256": "b3ad3263065ef720c76655b94ee841d5014d88010099797269dc47a7977762b0"
+    },
+    {
+      "bytes": 1216,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R2/L2_k10/telemetry/telemetry_summary.json",
+      "sha256": "8cdc3828d156147acaab1e8aeeb1946cfa8d377d736951f331bdf9ba731e6ea1"
+    },
+    {
+      "bytes": 754,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R2/L2_k6/summary.json",
+      "sha256": "3e5643e4f6ee6b05f2ffd04b33512eec33b68667a3a98cab75772771d05759a6"
+    },
+    {
+      "bytes": 39922,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R2/L2_k6/telemetry/eigensolver_pairs.npz",
+      "sha256": "2fe5d8d00f8ce1211600f3ad0efaedf99aca65714d6cdd95e03113f96c381da2"
+    },
+    {
+      "bytes": 436337,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R2/L2_k6/telemetry/jv_calls.csv",
+      "sha256": "03f14e006918cd65091b253b37b6cc4fe4015c7d2db613fb5bba82d65e86ba03"
+    },
+    {
+      "bytes": 21580,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R2/L2_k6/telemetry/jv_calls.npz",
+      "sha256": "72c32354a03a7baaaa96d382bd9de97d83cdb9bf0ecc6f70c8f7d5cb54f6dce2"
+    },
+    {
+      "bytes": 13256,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R2/L2_k6/telemetry/jv_details.npz",
+      "sha256": "830529a40503943358018f1be9cdd7229418520a0f8982d78ee5781fda0ebd40"
+    },
+    {
+      "bytes": 40668,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R2/L2_k6/telemetry/ritz_pairs.npz",
+      "sha256": "ee069dbdfe42532d070ce5f6ee6d89dab399cfb1393bb6affc5b28e4e9d33063"
+    },
+    {
+      "bytes": 1209,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R2/L2_k6/telemetry/telemetry_summary.json",
+      "sha256": "d094bcf04eaf3202edca330a068728265d6ee0223d394b8a7d42c136315d0918"
+    },
+    {
+      "bytes": 12625,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/summary.json",
+      "sha256": "54e8639e27362e63289d794e94e80fbd256d2008a77432911bb23941d2c37563"
+    },
+    {
+      "bytes": 14140,
+      "path": "outputs/tables/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/terminal.json",
+      "sha256": "70c7d380bab2ddeccd30bafe320436c928927cf487c007c8266031d471ec8240"
+    }
+  ],
+  "run_id": "Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1",
+  "schema_version": "q2_cc_b_stability_requalification_manifest_v1"
+}

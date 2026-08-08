@@ -380,6 +380,8 @@ class StabilityTelemetryRecorder:
         self.returned_pair_count = 0
         self.finite_pair_count = 0
         self.certified_pair_count = 0
+        self.maximum_relative_ritz_residual: float | None = None
+        self.maximum_absolute_ritz_residual_rate_per_s: float | None = None
         self.eigensolver_converged = False
         self.partial_pairs_eligible_for_certification = False
         self.failure_stage: str | None = None
@@ -555,6 +557,12 @@ class StabilityTelemetryRecorder:
             & (relative <= threshold)
         )
         self.certified_pair_count = int(np.sum(certified))
+        self.maximum_relative_ritz_residual = (
+            float(np.max(relative)) if relative.size else None
+        )
+        self.maximum_absolute_ritz_residual_rate_per_s = (
+            float(np.max(absolute)) if absolute.size else None
+        )
         order = np.argsort(values.real)[::-1]
         self._write_npz(
             self.root / "ritz_pairs.npz",
@@ -636,6 +644,12 @@ class StabilityTelemetryRecorder:
                 "returned_pair_count": int(self.returned_pair_count),
                 "finite_pair_count": int(self.finite_pair_count),
                 "certified_pair_count": int(self.certified_pair_count),
+                "maximum_relative_ritz_residual": _finite_or_none(
+                    self.maximum_relative_ritz_residual
+                ),
+                "maximum_absolute_ritz_residual_rate_per_s": _finite_or_none(
+                    self.maximum_absolute_ritz_residual_rate_per_s
+                ),
                 "eigensolver_converged": bool(self.eigensolver_converged),
                 "partial_pairs_eligible_for_certification": bool(
                     self.partial_pairs_eligible_for_certification
@@ -1158,9 +1172,13 @@ def _apply_stability_gates(
         if residual_pass
         else "Ritz certification did not produce six eligible pairs",
         metrics={
-            "maximum_relative_ritz_residual": None
-            if outcome.relative_ritz_residuals.size == 0
-            else float(np.max(outcome.relative_ritz_residuals)),
+            "maximum_relative_ritz_residual": recorder.maximum_relative_ritz_residual,
+            "maximum_absolute_ritz_residual_rate_per_s": (
+                recorder.maximum_absolute_ritz_residual_rate_per_s
+            ),
+            "returned_pair_count": recorder.returned_pair_count,
+            "finite_pair_count": recorder.finite_pair_count,
+            "certified_pair_count": recorder.certified_pair_count,
         },
     )
     ordering_pass = bool(

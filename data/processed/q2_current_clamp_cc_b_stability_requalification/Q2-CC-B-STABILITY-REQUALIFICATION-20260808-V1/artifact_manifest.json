@@ -1,0 +1,41 @@
+{
+  "artifacts": [
+    {
+      "bytes": 22000,
+      "path": "data/processed/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/equilibria/NOM_heating_0p4mA_L2.npz",
+      "sha256": "dd4ce00ba5c3c63e6dac153d00fab30df3bd31c1bd0a4807fc59f40d02829127"
+    },
+    {
+      "bytes": 837952,
+      "path": "data/processed/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R1/L1_dense_reference/dense_operator_and_spectrum.npz",
+      "sha256": "c60f6fbf9c41cd4961a20baafa22d08cd45604792d66c8351d0639fb61f3e61a"
+    },
+    {
+      "bytes": 608,
+      "path": "data/processed/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R1/L1_dense_reference/summary.json",
+      "sha256": "dd3e3c04fea4c6ac731a6a454d11658e4f9b70f42799779823f992f9826a0325"
+    },
+    {
+      "bytes": 120143,
+      "path": "data/processed/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R1/L1_dense_reference/telemetry/jv_calls.csv",
+      "sha256": "c55917084464de816a47a65a67eae0b96d92d1d95dfc44c2c64795d750aafcdd"
+    },
+    {
+      "bytes": 5113,
+      "path": "data/processed/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R1/L1_dense_reference/telemetry/jv_calls.npz",
+      "sha256": "1eb35b64b888d415536488e718cf43d727addc8b2c0795939e5ccaafec615b88"
+    },
+    {
+      "bytes": 2324,
+      "path": "data/processed/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R1/L1_dense_reference/telemetry/jv_details.npz",
+      "sha256": "0b4d75d38c996ef4c0a6014060c894b30f1b38fd00da94f0905c7b28fd5c004c"
+    },
+    {
+      "bytes": 525,
+      "path": "data/processed/q2_current_clamp_cc_b_stability_requalification/Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1/R1/L1_dense_reference/telemetry/telemetry_summary.json",
+      "sha256": "afecf57be4d71afaeb287a62f5b9a27fbb6ac1d7ed140294b006dbc3ab85f38a"
+    }
+  ],
+  "run_id": "Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1",
+  "schema_version": "q2_cc_b_stability_requalification_manifest_v1"
+}
