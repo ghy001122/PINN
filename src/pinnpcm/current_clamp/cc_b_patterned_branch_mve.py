@@ -2602,6 +2602,60 @@ def _plot_critical_modes(contract: PatternedContract) -> list[str]:
     return outputs
 
 
+def _plot_patterned_examples(contract: PatternedContract) -> str | None:
+    """Render the critical uniform state and the largest certified mirror seed."""
+
+    import matplotlib.pyplot as plt
+
+    inputs: list[tuple[str, np.ndarray, np.ndarray, np.ndarray]] = []
+    for branch in BRANCHES:
+        critical_path = contract.processed_root / "critical_modes" / f"{branch}.npz"
+        plus_candidates = sorted(
+            (contract.processed_root / "equilibria").glob(f"{branch}_a*_pplus_L1.npz")
+        )
+        minus_candidates = sorted(
+            (contract.processed_root / "equilibria").glob(f"{branch}_a*_pminus_L1.npz")
+        )
+        if not critical_path.is_file() or not plus_candidates or not minus_candidates:
+            return None
+        with np.load(critical_path, allow_pickle=False) as payload:
+            uniform = np.asarray(payload["temperature_K"], dtype=float)
+        with np.load(plus_candidates[-1], allow_pickle=False) as payload:
+            plus = np.asarray(payload["temperature_K"], dtype=float)
+        with np.load(minus_candidates[-1], allow_pickle=False) as payload:
+            minus = np.asarray(payload["temperature_K"], dtype=float)
+        inputs.append((branch, uniform, plus, minus))
+    all_values = np.concatenate(
+        [field.reshape(-1) for _branch, *fields in inputs for field in fields]
+    )
+    vmin = float(np.min(all_values))
+    vmax = float(np.max(all_values))
+    figure, axes = plt.subplots(2, 3, figsize=(9.0, 7.0), constrained_layout=True)
+    image = None
+    for row, (branch, uniform, plus, minus) in enumerate(inputs):
+        for column, (title, field) in enumerate(
+            (("uniform critical", uniform), ("p=+1", plus), ("p=-1", minus))
+        ):
+            image = axes[row, column].imshow(
+                field,
+                origin="lower",
+                aspect="auto",
+                vmin=vmin,
+                vmax=vmax,
+                cmap="inferno",
+                extent=(0.0, 100.0, 0.0, 500.0),
+            )
+            axes[row, column].set_title(f"{branch}: {title}")
+            axes[row, column].set_xlabel("x (nm)")
+            axes[row, column].set_ylabel("y (nm)")
+    if image is not None:
+        figure.colorbar(image, ax=axes, label="temperature (K)", shrink=0.85)
+    path = contract.compact_root / "patterned_examples.png"
+    figure.savefig(path, dpi=180)
+    plt.close(figure)
+    return _relative_path(contract, path)
+
+
 def _write_combined_manifest(contract: PatternedContract) -> None:
     artifacts: list[dict[str, Any]] = []
     for root in (contract.compact_root, contract.processed_root):
@@ -2714,15 +2768,16 @@ def run_all(
             any(_candidate_pattern_row(contract, row) for _record, _spectrum, row in branch_points)
             for branch_points in points.values()
         )
-        if any_candidate:
-            stage_q, branch_pass, numerical_invalid = run_stage_q(contract, points)
-            stage_payloads["Q"] = stage_q
-            _budget_check(contract, "Q", stage_q)
-            if numerical_invalid:
-                raise PatternedNumericalStop("one or more L2 qualification paths were numerically invalid")
-        else:
-            branch_pass = {branch: False for branch in BRANCHES}
-            stage_payloads["Q"] = {"stage": "Q", "status": "SKIPPED_NO_L1_CANDIDATE"}
+        stage_q, branch_pass, numerical_invalid = run_stage_q(contract, points)
+        if not any_candidate:
+            stage_q["status"] = "SKIPPED_NO_L1_CANDIDATE"
+            atomic_write_json(contract.compact_root / "stage_Q.json", stage_q)
+        stage_payloads["Q"] = stage_q
+        _budget_check(contract, "Q", stage_q)
+        if numerical_invalid:
+            raise PatternedNumericalStop(
+                "one or more L2 qualification paths were numerically invalid"
+            )
         if all(branch_pass.values()):
             disposition = DUAL_PASS
             detail = "both frozen major branches have three L2-qualified stable patterned transition anchors"
@@ -2734,6 +2789,7 @@ def run_all(
             detail = "the bounded valid nonlinear search did not produce a qualifying stable patterned transition span"
         figure = _plot_bifurcation(contract)
         modes = _plot_critical_modes(contract)
+        patterned_examples = _plot_patterned_examples(contract)
         total_wall = perf_counter() - total_wall_started
         total_cpu = process_time() - total_cpu_started
         summary = {
@@ -2741,6 +2797,7 @@ def run_all(
             "branch_pass": branch_pass,
             "bifurcation_figure": figure,
             "critical_mode_figures": modes,
+            "patterned_examples_figure": patterned_examples,
         }
         return _write_terminal(
             contract,

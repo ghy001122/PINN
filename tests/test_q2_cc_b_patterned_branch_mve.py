@@ -25,6 +25,7 @@ from pinnpcm.current_clamp.cc_b_patterned_branch_mve import (
     patterned_amplitude_K,
     patterned_seed_temperature,
     reflect_y,
+    run_stage_q,
     EquilibriumTrace,
     solve_equilibrium_with_trace,
     solve_fold_toy_arclength,
@@ -227,6 +228,35 @@ def test_task_csv_bytes_are_lf_only_and_hash_stable(tmp_path: Path):
     assert path.read_bytes() == first_bytes
     assert b"\r\n" not in first_bytes
     assert first_bytes.endswith(b"\n")
+
+
+def test_skipped_l2_stage_writes_explicit_empty_artifacts(tmp_path: Path):
+    base = _contract()
+    raw = dict(base.raw)
+    raw["outputs"] = {
+        "compact_root": str(tmp_path / "compact"),
+        "processed_root": str(tmp_path / "processed"),
+        "report": str(tmp_path / "report.md"),
+    }
+    contract = PatternedContract(
+        CONFIG,
+        ROOT,
+        raw,
+        base.parent,
+        base.requalification,
+        base.parent_bracket_raw,
+    )
+    contract.compact_root.mkdir(parents=True)
+    contract.processed_root.mkdir(parents=True)
+    payload, branch_pass, invalid = run_stage_q(
+        contract, {"heating": [], "cooling": []}
+    )
+    assert not invalid
+    assert branch_pass == {"heating": False, "cooling": False}
+    assert payload["branch_pass"] == branch_pass
+    assert (contract.compact_root / "l2_anchor_qualification.csv").is_file()
+    assert (contract.compact_root / "reflection_pair_metrics.csv").is_file()
+    assert (contract.compact_root / "stage_Q.json").is_file()
 
 
 def test_stage_budget_failure_cannot_pass():
