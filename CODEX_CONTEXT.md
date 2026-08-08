@@ -20,18 +20,12 @@ CC-A remains `qualified_supported` bounded lumped evidence. CC-B uses an ideal
 algebraic conductive-channel clamp with temperature-only dynamics and
 `Vd=I_set/G_hat(T)`; S1 is only a device-effective proxy.
 
-The versioned patterned-branch MVE validly closed the 0.35 mA telemetry as a
-genuine frozen-budget stagnation, recomputed both candidate transverse
-stability boundaries, constructed 8 reflection-paired augmented roots, and
-followed 34 L1 patterned records. All 34 spectra were certified and positive
-unstable; heating had 17 transition-bearing records and cooling 16, but neither
-branch had a stable point. L2 was correctly skipped. The terminal is valid
-`failed_but_informative`, not a complete CC-B PASS or a global branch
-nonexistence proof.
+The patterned MVE validly closed the 0.35 mA frozen-budget stop, both candidate
+boundaries, 8 mirror-paired roots, and 34 L1 continuation records. All 34 are
+certified positive unstable; L2 was ineligible. This is bounded
+`failed_but_informative` evidence, not complete CC-B or global nonexistence.
 
-Do not launch M1d, the 36-case matrix, GT, C01/C06, inverse, or another
-current/solver search. The only admissible next request is a route
-closeout/manuscript decision or a separately justified physical premise that
-does not retune this frozen current-clamp proxy.
+Do not launch M1d, matrix/GT/PINN/inverse, or another search. Next: route
+closeout, or a separately justified physical premise without proxy retuning.
 Historical PR #29/#30/#31/#32 results, dynamic stops, D0,
 equivalence-v1/v2/v3, and Frozen GT remain immutable.

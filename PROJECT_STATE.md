@@ -21,16 +21,9 @@
   remains immutable `INVALID_CC_B_EXECUTION` with only local 0.2 mA evidence.
 - PR #34 validly requalified 0.4 mA as `POSITIVE_UNSTABLE` on L1/L2 k6/k10
   (`max eta=3.375e-7`); this remains a non-voting single-point result.
-- The patterned MVE closes the 0.35 mA failure as genuine frozen-budget
-  stagnation, certifies candidate transverse boundaries at
-  `[0.23750,0.24375] mA` heating and `[0.18125,0.18750] mA` cooling, and
-  constructs reflection-paired nonlinear roots.
-- Bounded pseudo-arclength produced 18 heating and 16 cooling L1 records. All
-  34 have certified positive-unstable spectra; no stable point or qualifying
-  stable-transition component exists. The valid terminal is
-  `failed_but_informative`, and L2 was ineligible.
-- M1d, uniform/formal matrix, CC-C, GT, and PINN remain unexecuted/forbidden;
-  formal and matrix counters remain zero.
+- Patterned MVE validly closes both candidate boundaries, mirror-paired roots,
+  and 34 L1 records; all 34 are certified positive unstable. L2 was ineligible,
+  and M1d/matrix/GT/PINN remain forbidden with formal/matrix counters zero.
 
 ## Current-Clamp CC-A Outcome
 
@@ -93,8 +86,6 @@ as infrastructure provenance only and do not vote on the active S2 route.
 
 ## Boundary
 
-Do not launch M1d, the formal matrix, GT, C01/C06, inverse, or another bounded
-current/solver search. The frozen current-clamp steady GT/PINN route is stopped
-by a valid negative patterned-span result. The only immediate follow-up is a
-route closeout/manuscript decision; any new experiment requires a genuinely
-different, separately justified physical premise.
+Do not launch M1d, matrix/GT/PINN/inverse, or another search. This route stops
+at a valid bounded NO-GO; next is manuscript closeout or a separately justified
+physical premise.

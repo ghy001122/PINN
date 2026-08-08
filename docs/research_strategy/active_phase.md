@@ -39,33 +39,23 @@ formal_execution_count = 0
 cc_b_matrix_launch_count = 0
 ```
 
-The exact 0.35 mA replay confirmed genuine frozen-budget stagnation without
-changing the solver. Independent recomputation and bisection certified
-candidate transverse boundaries for both branches. Eight bordered correctors
-formed reflection-paired nonlinear roots, and bounded pseudo-arclength produced
-18 heating plus 16 cooling L1 records. All 34 spectra were certified and
-positive unstable. Seventeen heating and all 16 cooling records were
-transition-bearing, but neither branch contained a stable point. L2 was
-therefore ineligible. Uniform/formal matrix, M1d, CC-C, data, and PINN were not
-executed.
+The 0.35 mA replay confirmed genuine frozen-budget stagnation. Both candidate
+boundaries, 8 mirror-paired roots, and 34 L1 continuation records are valid;
+all 34 are positive unstable. L2 was ineligible, and M1d/matrix/GT/PINN were
+not executed.
 
 ## Lifecycle And Claims
 
-CC-A remains `executed/qualified_supported` bounded lumped evidence. PR #34 is
-valid single-point instability evidence. The patterned MVE is
-`executed/valid/failed_but_informative`: it supports only the bounded negative
-statement that this frozen search did not yield a stable patterned transition
-span. Complete CC-B, CC-C, GT, PINN, inverse, and all positive R1-R3 claims
-remain forbidden. Counters remain `scientific_vote=false`,
+CC-A remains bounded `qualified_supported`; PR #34 remains valid single-point
+instability evidence. Patterned MVE is `executed/valid/failed_but_informative`
+only for the bounded search. Complete CC-B/GT/PINN/inverse claims remain
+forbidden. Counters remain `scientific_vote=false`,
 `formal_execution_count=0`, and `cc_b_matrix_launch_count=0`.
 
 ## Stop
 
-Do not rerun this identity or start M1d, the uniform/formal matrix, GT,
-CC-C/C01/C06, inverse, or another current/solver search. The next action is a
-route-closeout/manuscript decision. Reopening scientific execution requires a
-separately justified physical premise; retuning the frozen current-clamp proxy
-is not an eligible continuation.
+Do not rerun or start M1d, matrix/GT/PINN/inverse, or another search. Next is
+route closeout; new execution requires a separately justified physical premise.
 
 ## Preserved History
 
