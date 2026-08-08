@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from time import perf_counter, process_time
+from typing import Any
 
 import numpy as np
 from scipy.sparse.linalg import ArpackNoConvergence, LinearOperator, eigs
@@ -76,12 +77,29 @@ def _apply_operator(
     telemetry: CCBStabilityTelemetry,
     *,
     step_multiplier: float = 1.0,
+    recorder: Any | None = None,
+    call_role: str = "operator",
 ) -> np.ndarray:
+    wall_started = perf_counter()
+    cpu_started = process_time()
     telemetry.matrix_vector_products += 1
     direction = np.asarray(vector, dtype=float)
     magnitude = float(np.linalg.norm(direction, ord=np.inf))
     if magnitude == 0.0:
-        return np.zeros_like(direction)
+        result = np.zeros_like(direction)
+        if recorder is not None:
+            recorder.record_jv(
+                call_role=call_role,
+                step_multiplier=float(step_multiplier),
+                step_size_K=0.0,
+                direction=direction,
+                result=result,
+                electrical_evaluations=[],
+                wall_time_s=perf_counter() - wall_started,
+                cpu_time_s=process_time() - cpu_started,
+                exception=None,
+            )
+        return result
     unit = direction / magnitude
     epsilon = np.finfo(float).eps
     h = (
@@ -91,9 +109,45 @@ def _apply_operator(
         / max(1.0, float(np.linalg.norm(unit, ord=np.inf)))
     )
     telemetry.dynamic_rhs_evaluations += 2
-    plus = model.dynamic_rhs(base_temperature_K + h * unit.reshape(model.grid.shape))
-    minus = model.dynamic_rhs(base_temperature_K - h * unit.reshape(model.grid.shape))
-    return magnitude * (plus - minus) / (2.0 * h)
+    electrical_evaluations: list[dict[str, Any]] = []
+    callback = electrical_evaluations.append if recorder is not None else None
+    try:
+        plus = model.dynamic_rhs(
+            base_temperature_K + h * unit.reshape(model.grid.shape),
+            telemetry_callback=callback,
+        )
+        minus = model.dynamic_rhs(
+            base_temperature_K - h * unit.reshape(model.grid.shape),
+            telemetry_callback=callback,
+        )
+        result = magnitude * (plus - minus) / (2.0 * h)
+        if recorder is not None:
+            recorder.record_jv(
+                call_role=call_role,
+                step_multiplier=float(step_multiplier),
+                step_size_K=float(h),
+                direction=direction,
+                result=result,
+                electrical_evaluations=electrical_evaluations,
+                wall_time_s=perf_counter() - wall_started,
+                cpu_time_s=process_time() - cpu_started,
+                exception=None,
+            )
+        return result
+    except Exception as exc:
+        if recorder is not None:
+            recorder.record_jv(
+                call_role=call_role,
+                step_multiplier=float(step_multiplier),
+                step_size_K=float(h),
+                direction=direction,
+                result=None,
+                electrical_evaluations=electrical_evaluations,
+                wall_time_s=perf_counter() - wall_started,
+                cpu_time_s=process_time() - cpu_started,
+                exception=exc,
+            )
+        raise
 
 
 def certify_current_clamp_stability(
@@ -101,6 +155,7 @@ def certify_current_clamp_stability(
     *,
     temperature_K: np.ndarray,
     eigenpairs: int | None = None,
+    recorder: Any | None = None,
 ) -> CCBStabilityOutcome:
     """Certify the rightmost spectrum of the constrained thermal DAE reduction."""
 
@@ -111,34 +166,68 @@ def certify_current_clamp_stability(
     k = int(config["eigenpairs"] if eigenpairs is None else eigenpairs)
     temperature = np.asarray(temperature_K, dtype=float)
     n = temperature.size
+    stage = "PRE_OPERATOR"
+    if recorder is not None:
+        recorder.start_stability(
+            requested_pair_count=k,
+            state_dimension=n,
+            temperature_K=temperature,
+        )
+
+    def fail(code: str, detail: str) -> CCBStabilityOutcome:
+        if recorder is not None:
+            recorder.record_failure(stage=stage, code=code, detail=detail)
+        return _failure(telemetry, code, detail, k)
+
     if n <= k + 1:
-        return _failure(telemetry, "INVALID_STABILITY", "state dimension is too small", k)
+        return fail("INVALID_STABILITY", "state dimension is too small")
     try:
         model.validate_temperature(temperature)
         probe = _deterministic_vector(model)
-        jv_h = _apply_operator(model, temperature, probe, telemetry)
+        stage = "JV_EVALUATION"
+        jv_h = _apply_operator(
+            model,
+            temperature,
+            probe,
+            telemetry,
+            recorder=recorder,
+            call_role="parent_h_probe",
+        )
         jv_h2 = _apply_operator(
-            model, temperature, probe, telemetry, step_multiplier=0.5
+            model,
+            temperature,
+            probe,
+            telemetry,
+            step_multiplier=0.5,
+            recorder=recorder,
+            call_role="parent_h_half_probe",
         )
         h_half_difference = float(
             np.linalg.norm(jv_h - jv_h2)
             / max(np.linalg.norm(jv_h), np.linalg.norm(jv_h2), 1.0 / model.tau0_s)
         )
+        if recorder is not None:
+            recorder.record_h_half_consistency(h_half_difference)
         if h_half_difference > float(config["h_half_operator_relative_difference_max"]):
-            return _failure(
-                telemetry,
+            return fail(
                 "INVALID_STABILITY",
                 "central-difference h/h2 operator consistency failed",
-                k,
             )
 
+        stage = "OPERATOR_BUILD"
         operator = LinearOperator(
             (n, n),
             matvec=lambda vector: _apply_operator(
-                model, temperature, np.asarray(vector, dtype=float), telemetry
+                model,
+                temperature,
+                np.asarray(vector, dtype=float),
+                telemetry,
+                recorder=recorder,
+                call_role="arpack_matvec",
             ),
             dtype=float,
         )
+        stage = "EIGENSOLVER"
         try:
             values, vectors = eigs(
                 operator,
@@ -150,19 +239,48 @@ def certify_current_clamp_stability(
                 v0=probe,
             )
         except ArpackNoConvergence as exc:
-            return _failure(telemetry, "INVALID_STABILITY", f"ARPACK did not converge: {exc}", k)
+            if recorder is not None:
+                recorder.record_eigensolver_return(
+                    eigenvalues=getattr(exc, "eigenvalues", None),
+                    eigenvectors=getattr(exc, "eigenvectors", None),
+                    converged=False,
+                    exception=exc,
+                    eligible_for_certification=False,
+                )
+            return fail("INVALID_STABILITY", f"ARPACK did not converge: {exc}")
+        if recorder is not None:
+            recorder.record_eigensolver_return(
+                eigenvalues=values,
+                eigenvectors=vectors,
+                converged=True,
+                exception=None,
+                eligible_for_certification=True,
+            )
         if values.size != k or vectors.shape != (n, k):
-            return _failure(telemetry, "INVALID_STABILITY", "incomplete eigenspectrum", k)
+            return fail("INVALID_STABILITY", "incomplete eigenspectrum")
 
+        stage = "RITZ_CERTIFICATION"
         mass = model.cell_capacity_J_K
         relative: list[float] = []
         absolute: list[float] = []
         for index in range(k):
             vector = vectors[:, index]
-            applied = _apply_operator(model, temperature, vector.real, telemetry)
+            applied = _apply_operator(
+                model,
+                temperature,
+                vector.real,
+                telemetry,
+                recorder=recorder,
+                call_role=f"ritz_{index}_real",
+            )
             if np.any(vector.imag):
                 applied = applied + 1j * _apply_operator(
-                    model, temperature, vector.imag, telemetry
+                    model,
+                    temperature,
+                    vector.imag,
+                    telemetry,
+                    recorder=recorder,
+                    call_role=f"ritz_{index}_imag",
                 )
             residual = applied - values[index] * vector
             rho = _mass_norm(residual, mass) / max(_mass_norm(vector, mass), 1.0e-300)
@@ -171,19 +289,26 @@ def certify_current_clamp_stability(
             relative.append(eta)
         relative_values = np.asarray(relative, dtype=float)
         backward = np.asarray(absolute, dtype=float)
+        if recorder is not None:
+            recorder.record_ritz_certification(
+                eigenvalues=values,
+                eigenvectors=vectors,
+                absolute_residual_rates_per_s=backward,
+                relative_residuals=relative_values,
+            )
         if (
             not np.isfinite(relative_values).all()
             or not np.isfinite(backward).all()
             or float(np.max(relative_values)) > float(config["relative_ritz_residual_max"])
         ):
-            return _failure(telemetry, "INVALID_STABILITY", "Ritz residual certification failed", k)
+            return fail("INVALID_STABILITY", "Ritz residual certification failed")
         alpha = float(np.max(values.real))
         alpha_tau = alpha * model.tau0_s
         stable = bool(
             alpha_tau <= float(config["stable_alpha_tau_max"])
             and alpha <= -float(config["backward_error_multiplier"]) * float(np.max(backward))
         )
-        return CCBStabilityOutcome(
+        outcome = CCBStabilityOutcome(
             success=True,
             code="PASS" if stable else "CCB_PHYSICALLY_UNSTABLE",
             stable=stable,
@@ -197,18 +322,21 @@ def certify_current_clamp_stability(
             h_half_operator_relative_difference=h_half_difference,
             telemetry=telemetry,
         )
+        if recorder is not None:
+            recorder.record_outcome(outcome)
+        return outcome
     except CCBModelError as exc:
-        return _failure(telemetry, "INVALID_STABILITY", f"{exc.code}: {exc}", k)
+        return fail("INVALID_STABILITY", f"{exc.code}: {exc}")
     except Exception as exc:
-        return _failure(
-            telemetry,
+        return fail(
             "INVALID_STABILITY",
             f"stability evaluation failed: {type(exc).__name__}: {exc}",
-            k,
         )
     finally:
         telemetry.wall_time_s = perf_counter() - wall_started
         telemetry.cpu_time_s = process_time() - cpu_started
+        if recorder is not None:
+            recorder.finish_stability(telemetry)
 
 
 def uniform_mode_operator_regression(

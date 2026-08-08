@@ -4,11 +4,12 @@
 
 - Delivery/phase: `Q2_SCI_DELIVERY_MODE` /
   `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Checkpoint: `Q2_CURRENT_CLAMP_CC_B_INVALID`.
+- Checkpoint: `Q2_CC_B_STABILITY_TELEMETRY_CLOSED`.
 - Preserved prior checkpoint: `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED`.
-- CC-B baseline: `618103321441abac36c9a9836ff6b0cc30e2c76e`.
-- Result branch: `codex/q2-cc-a-topology-closure-cc-b-2d-gate-v1`.
-- Terminal disposition: `INVALID_CC_B_EXECUTION`.
+- CC-B parent merge: `1d2b3d66eaec3faa908c0e377a7da92467c76b00`.
+- Result branch: `codex/q2-cc-b-stability-telemetry-closure-v1`.
+- Parent disposition: `INVALID_CC_B_EXECUTION`.
+- Diagnostic disposition: `PASS_CC_B_STABILITY_TELEMETRY_CLOSURE`.
 - `cc_b_matrix_launch_count=0`; `scientific_vote=false`;
   `formal_execution_count=0`.
 
@@ -23,10 +24,13 @@
 | uniform/budget/formal | not executed; matrix launch count zero | Unassessed |
 | CC-C/GT/PINN | not executed and unauthorized | `forbidden` / unassessed |
 
-The terminal result is invalid and has no scientific vote. It does not negate
-the earlier CC-A admission, prove two-dimensional physical instability, or
-support any 2.5-D/PINN claim. Reopening requires a new identity and explicit
-repair policy.
+## CC-B Stability Telemetry Closure
+
+The 0.4 mA L1 input and operator/ARPACK execution pass, but 0/6 finite pairs
+meet `eta<=1e-6`. `PASS_CC_B_STABILITY_TELEMETRY_CLOSURE` therefore localizes
+implementation invalidity; it is not a stability verdict. Counters remain
+attempts 1, repairs 0, formal 0, matrix 0. L2, k10, uniform, CC-C, GT, and PINN
+were not executed. Parent CC-B remains invalid/nonvoting; CC-A is unchanged.
 
 ## Current-Clamp CC-A Outcome
 
@@ -89,7 +93,6 @@ as infrastructure provenance only and do not vote on the active S2 route.
 
 ## Boundary
 
-Do not rerun or repair this CC-B identity, or start CC-C, data generation, or
-training, without a new explicit authorization. The first admissible follow-up
-is a bounded telemetry closure for the invalid stability call; it cannot tune
-topology, source/material parameters, cases, or gates.
+Do not run T2 or any downstream stage without new authorization. The only
+admissible follow-up is bounded `Q2_CC_B_STABILITY_REQUALIFICATION_V1`; it may
+not weaken the Ritz gate or interpret uncertified signs.

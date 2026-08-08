@@ -1,0 +1,31 @@
+{
+  "artifact": {
+    "identity": "diagnostic_NOM_heating_0p4mA_L1",
+    "manifest_path": "E:/Python demo/PINN/outputs/tables/q2_current_clamp_cc_b_stability_telemetry/Q2-CC-B-STABILITY-TELEMETRY-CLOSURE-20260808-V1/attempts/T1/diagnostic_input/equilibria/diagnostic_NOM_heating_0p4mA_L1.json",
+    "manifest_sha256": "ebc5362cc61f9a3e4b0043224840f4a7c4fe75bbb91919ff28c769dbc2deb65a",
+    "npz_bytes": 8193,
+    "npz_path": "E:/Python demo/PINN/data/processed/q2_current_clamp_cc_b_stability_telemetry/Q2-CC-B-STABILITY-TELEMETRY-CLOSURE-20260808-V1/attempts/T1/diagnostic_input/equilibria/diagnostic_NOM_heating_0p4mA_L1.npz",
+    "npz_sha256": "55b12deb98e3b1d9d11afc9d3e7ff0f5bfb2b74ef86115a25a6d19f158190e4d"
+  },
+  "input_identity": "non_voting_diagnostic_equilibrium_regeneration",
+  "metrics": {
+    "code_identity": "1d2b3d66eaec3faa908c0e377a7da92467c76b00",
+    "config_sha256": "f590ffbf69ae233d3f4ef12a2f9eacbdfcd5ec0320a05df8bd57b8fab00643f3",
+    "device_voltage_V": 5.895042849006573,
+    "electrical_scaled_cv_residual_inf": 5.421010862427522e-16,
+    "last_scaled_update_inf": 5.76723202249527e-09,
+    "ledger_max": 9.563715551066287e-15,
+    "manifest_sha256": "ebc5362cc61f9a3e4b0043224840f4a7c4fe75bbb91919ff28c769dbc2deb65a",
+    "npz_sha256": "55b12deb98e3b1d9d11afc9d3e7ff0f5bfb2b74ef86115a25a6d19f158190e4d",
+    "temperature_max_K": 336.4466851437021,
+    "temperature_min_K": 336.4466851437019,
+    "thermal_scaled_cv_residual_inf": 5.2708226675782296e-14
+  },
+  "parent_initialization": {
+    "parent_compact_sha256": "f56b087a19c34d96fd0c84de1aa600a5a58e9ebe7e50ccca23b9a7ca1cfb0f88",
+    "parent_npz_sha256": "8595e6fd44996bb55c365b247c279b5a4388934f8e2516b4a24870438b5c39d5",
+    "source": "verified_parent_0p2mA_L1_npz"
+  },
+  "passed": true,
+  "schema_version": "q2_cc_b_stability_diagnostic_input_certification_v1"
+}

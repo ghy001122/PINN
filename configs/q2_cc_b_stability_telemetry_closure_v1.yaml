@@ -1,0 +1,116 @@
+schema_version: q2_cc_b_stability_telemetry_closure_v1
+task_id: Q2_CC_B_STABILITY_TELEMETRY_CLOSURE_V1
+review_revision: 20260808-R1
+campaign: Q2-CC-B-STABILITY-TELEMETRY-CLOSURE-20260808-V1
+execution_class: nonvoting_diagnostic_telemetry_closure
+reproduction_semantics: merged-PR32_numerical-contract_reproduction
+evidence_type: literature-guided synthetic numerical digital-twin evidence
+lifecycle_state: planned
+claim_status: forbidden
+scientific_vote: false
+formal_execution_count: 0
+cc_b_matrix_launch_count: 0
+
+authority:
+  expected_origin_main_sha: 1d2b3d66eaec3faa908c0e377a7da92467c76b00
+  pr_32_head_sha: 003aaad5c0c58c7ecb93c2fd24d87d3166b2d023
+  parent_config:
+    path: configs/q2_current_clamp_hysgeo_pinn_v1_cc_b.yaml
+    sha256: 56384a56893c1f9752e00e1dcece242a788805df2148b5022903adc6c314de8d
+  parent_terminal:
+    path: outputs/tables/q2_current_clamp_hysgeo_cc_b/Q2-CC-B-2D-GATE-20260807-V1/terminal.json
+    sha256: 4fd2e2c0ca090788e38b8e96b19a0543285149cfe899c3febd84fae57a95f6d3
+    disposition: INVALID_CC_B_EXECUTION
+  parent_smoke_summary:
+    path: outputs/tables/q2_current_clamp_hysgeo_cc_b/Q2-CC-B-2D-GATE-20260807-V1/stages/smoke/summary.json
+    sha256: 817f301f3f03ea03e7ef57b095c89ce12829b90d531aae3b55c5da54a0d3c183
+  parent_l1_compact:
+    path: outputs/tables/q2_current_clamp_hysgeo_cc_b/Q2-CC-B-2D-GATE-20260807-V1/smoke/equilibria/smoke_NOM_heating_0p2mA_L1.json
+    sha256: f56b087a19c34d96fd0c84de1aa600a5a58e9ebe7e50ccca23b9a7ca1cfb0f88
+  parent_l1_npz:
+    path: data/processed/q2_current_clamp_hysgeo_cc_b/Q2-CC-B-2D-GATE-20260807-V1/smoke/equilibria/smoke_NOM_heating_0p2mA_L1.npz
+    sha256: 8595e6fd44996bb55c365b247c279b5a4388934f8e2516b4a24870438b5c39d5
+    optional_local_cache: true
+
+target:
+  defect: NOM
+  branch: heating
+  current_A: 4.0e-4
+  grid: L1
+  spatial_level: 1
+  eigenpairs: 6
+  only_case: true
+
+frozen_stability:
+  dynamic_rhs: F_equals_minus_M_inverse_R_thermal
+  perturbation_method: central_difference
+  epsilon_power: 0.3333333333333333
+  which: LR
+  eigenpairs: 6
+  tolerance: 1.0e-8
+  maxiter: 2000
+  ncv: 32
+  v0: deterministic
+  relative_ritz_residual_max: 1.0e-6
+  h_half_operator_relative_difference_max: 1.0e-4
+  stable_alpha_tau_max: -1.0e-3
+  backward_error_multiplier: 10.0
+
+diagnostic_gates:
+  mass_sum_relative_max: 1.4210854715202004e-14
+  fixed_current_relative_max: 1.0e-10
+  electrical_scaled_residual_max: 1.0e-10
+  jv_repeatability_relative_max: 1.0e-12
+  jv_homogeneity_relative_max: 1.0e-8
+  jv_additivity_relative_max: 1.0e-4
+  jv_h_half_relative_max: 1.0e-4
+  jv_two_h_relative_max: 4.0e-4
+  checkpoint_matvec_interval: 64
+  fixed_probe_count: 2
+
+equilibrium_input_gates:
+  thermal_scaled_cv_residual_max: 1.0e-8
+  last_scaled_update_inf_max: 1.0e-8
+  electrical_scaled_cv_residual_max: 1.0e-10
+  ledger_symmetric_relative_max: 5.0e-3
+  temperature_K: [300.0, 380.0]
+  voltage_operating_envelope_max_V: 17.0
+
+budget:
+  aggregate_cpu_cap_s: 7200.0
+  calendar_wall_cap_s: 7200.0
+  identity_input_verification_cap_s: 120.0
+  implementation_and_focused_tests_cap_s: 900.0
+  equilibrium_input_cap_s: 600.0
+  operator_prechecks_cap_s: 600.0
+  l1_k6_replay_cap_s: 1800.0
+  artifact_terminal_cap_s: 300.0
+  optional_repair_t2_cap_s: 1800.0
+  reserve_s: 1080.0
+  campaign_attempt_count_max: 2
+  implementation_repair_count_max: 1
+  workers: 1
+  blas_threads: 1
+
+outputs:
+  compact_root: outputs/tables/q2_current_clamp_cc_b_stability_telemetry
+  processed_root: data/processed/q2_current_clamp_cc_b_stability_telemetry
+  report: docs/codex_reports/q2_cc_b_stability_telemetry_closure_v1.md
+
+terminal_dispositions:
+  - PASS_CC_B_STABILITY_TELEMETRY_CLOSURE
+  - STOP_CC_B_STABILITY_BUDGET_NOT_ADMISSIBLE
+  - STOP_CC_B_STABILITY_SEMANTICS_NOT_CLOSED
+  - INVALID_CC_B_STABILITY_TELEMETRY_EXECUTION
+
+forbidden_execution:
+  - L2_k6
+  - L2_k10
+  - k6_k10_consistency
+  - uniform_gate
+  - 36_case_matrix
+  - CC_C
+  - ground_truth_expansion
+  - PINN
+  - inverse
+  - dynamic_S0_C01_C06

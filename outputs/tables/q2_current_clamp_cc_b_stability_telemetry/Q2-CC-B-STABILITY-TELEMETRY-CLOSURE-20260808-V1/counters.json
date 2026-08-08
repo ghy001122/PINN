@@ -1,0 +1,10 @@
+{
+  "attempts": [
+    "T1"
+  ],
+  "campaign_attempt_count": 1,
+  "cc_b_matrix_launch_count": 0,
+  "formal_execution_count": 0,
+  "implementation_repair_count": 0,
+  "schema_version": "q2_cc_b_stability_telemetry_counters_v1"
+}

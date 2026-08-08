@@ -1,0 +1,27 @@
+{
+  "certified_pair_count": 0,
+  "eigensolver_converged": true,
+  "failure_code": "INVALID_STABILITY",
+  "failure_detail": "Ritz residual certification failed",
+  "failure_stage": "RITZ_CERTIFICATION",
+  "finite_pair_count": 6,
+  "h_half_operator_relative_difference": 2.9912998913734553e-06,
+  "jv_call_count": 256,
+  "partial_pairs_eligible_for_certification": true,
+  "requested_pair_count": 6,
+  "returned_pair_count": 6,
+  "schema_version": "q2_cc_b_stability_telemetry_recorder_v1",
+  "stability": {
+    "cpu_time_s": 1.1875,
+    "dynamic_rhs_evaluations": 498,
+    "eigensolver_exception_message": null,
+    "eigensolver_exception_type": null,
+    "failure_detail": "Ritz residual certification failed",
+    "matrix_vector_products": 249,
+    "partial_pairs_eligible_for_certification": true,
+    "state_dimension": 250,
+    "temperature_max_K": 336.4466851437021,
+    "temperature_min_K": 336.4466851437019,
+    "wall_time_s": 1.275823500007391
+  }
+}

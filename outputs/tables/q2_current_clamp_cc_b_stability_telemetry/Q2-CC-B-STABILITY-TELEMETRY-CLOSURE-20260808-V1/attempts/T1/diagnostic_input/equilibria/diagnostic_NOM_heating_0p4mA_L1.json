@@ -1,0 +1,79 @@
+{
+  "active_area_mean_conductive_state": 0.5063480795578005,
+  "current_set_A": 0.0004,
+  "device_voltage_V": 5.895042849006573,
+  "effective_total_vertical_conductance_W_K": 0.00020600000000000005,
+  "ground_current_A": -0.0004000000000000025,
+  "identity": "diagnostic_NOM_heating_0p4mA_L1",
+  "last_scaled_update_inf": 5.76723202249527e-09,
+  "ledger": {
+    "current_error": 5.827586677109567e-15,
+    "field_thermal_error": 9.563715551066287e-15,
+    "pass_all": true,
+    "raw": {
+      "current_set_A": 0.0004,
+      "field_joule_power_W": 0.002358017139602639,
+      "ground_current_A": -0.0004000000000000025,
+      "lateral_boundary_outflow_W": 0.0,
+      "source_current_A": 0.0004000000000000002,
+      "terminal_power_W": 0.0023580171396026294,
+      "vertical_sink_power_W": 0.0023580171396026164
+    },
+    "terminal_field_power_error": 4.046187348528033e-15
+  },
+  "metadata": {
+    "cc_b_matrix_launch_count": 0,
+    "code_identity": "1d2b3d66eaec3faa908c0e377a7da92467c76b00",
+    "config_sha256": "f590ffbf69ae233d3f4ef12a2f9eacbdfcd5ec0320a05df8bd57b8fab00643f3",
+    "formal_execution_count": 0,
+    "input_identity": "non_voting_diagnostic_equilibrium_regeneration",
+    "parent_initialization": {
+      "parent_compact_sha256": "f56b087a19c34d96fd0c84de1aa600a5a58e9ebe7e50ccca23b9a7ca1cfb0f88",
+      "parent_npz_sha256": "8595e6fd44996bb55c365b247c279b5a4388934f8e2516b4a24870438b5c39d5",
+      "source": "verified_parent_0p2mA_L1_npz"
+    },
+    "reproduction_semantics": "merged-PR32_numerical-contract_reproduction",
+    "scientific_vote": false
+  },
+  "npz_path": "E:/Python demo/PINN/data/processed/q2_current_clamp_cc_b_stability_telemetry/Q2-CC-B-STABILITY-TELEMETRY-CLOSURE-20260808-V1/attempts/T1/diagnostic_input/equilibria/diagnostic_NOM_heating_0p4mA_L1.npz",
+  "npz_sha256": "55b12deb98e3b1d9d11afc9d3e7ff0f5bfb2b74ef86115a25a6d19f158190e4d",
+  "scaled_electrical_residual_inf": 5.421010862427522e-16,
+  "scaled_thermal_residual_inf": 5.2708226675782296e-14,
+  "schema_version": "q2_current_clamp_cc_b_equilibrium_v1",
+  "solver": {
+    "cpu_time_s": 0.25,
+    "damping_history": [
+      0.5,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "electrical_subsolves": 138,
+    "failure_detail": null,
+    "full_residual_evaluations": 138,
+    "jv_evaluations": 65,
+    "lgmres_iterations": 12,
+    "line_search_backtracks": 1,
+    "nonlinear_iterations": 5,
+    "residual_inf_history": [
+      0.45400848423933576,
+      0.13043306667586954,
+      0.02623738905123465,
+      0.00022833439867383834,
+      2.4151827817388446e-08,
+      5.2708226675782296e-14
+    ],
+    "update_inf_history": [
+      0.2376668125443399,
+      0.04107279092797714,
+      0.006144726975853578,
+      5.450578524932053e-05,
+      5.76723202249527e-09
+    ],
+    "wall_time_s": 0.2556981999950949
+  },
+  "source_current_A": 0.0004000000000000002,
+  "stability": null,
+  "unit_conductance_S": 6.785362044779838e-05
+}
