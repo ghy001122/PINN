@@ -1,0 +1,195 @@
+{
+  "h_half_vs_h_quarter_nonvoting_relative_difference": 6.5020595298168915e-09,
+  "h_quarter_vote_role": "nonvoting_roundoff_observation",
+  "h_vs_h_half_relative_difference": 2.5647521019425958e-08,
+  "parent_prechecks": [
+    {
+      "detail": "not reached",
+      "gate_origin": "telemetry_v1_preregistered",
+      "metrics": {},
+      "name": "INPUT_IDENTITY",
+      "status": "SKIPPED_NOT_ELIGIBLE",
+      "vote_role": "execution_validity"
+    },
+    {
+      "detail": "not reached",
+      "gate_origin": "parent_cc_b_contract",
+      "metrics": {},
+      "name": "EQUILIBRIUM_INPUT_INTEGRITY",
+      "status": "SKIPPED_NOT_ELIGIBLE",
+      "vote_role": "execution_validity"
+    },
+    {
+      "detail": "temperature mass matrix is finite, positive, and closes to Cth",
+      "gate_origin": "parent_cc_b_contract",
+      "metrics": {
+        "condition_proxy": 1.0001359448920035,
+        "dtype": "float64",
+        "expected_Cth_J_K": 4.96e-11,
+        "relative_sum_error": 0.0,
+        "shape": [
+          250
+        ],
+        "sum_J_K": 4.96e-11
+      },
+      "name": "MASS_MATRIX_VALIDITY",
+      "status": "PASS",
+      "vote_role": "execution_validity"
+    },
+    {
+      "detail": "all plus/minus unit-bias solves pass the parent residual gate",
+      "gate_origin": "parent_cc_b_contract",
+      "metrics": {
+        "maximum_scaled_electrical_residual": 2.323290369611795e-16
+      },
+      "name": "ELECTRICAL_SUBSOLVE",
+      "status": "PASS",
+      "vote_role": "execution_validity"
+    },
+    {
+      "detail": "all plus/minus projections preserve conductive-sheet current",
+      "gate_origin": "parent_cc_b_contract",
+      "metrics": {
+        "maximum_normalized_current_error": 1.1616451848058975e-16
+      },
+      "name": "FIXED_CURRENT_CONSTRAINT",
+      "status": "PASS",
+      "vote_role": "execution_validity"
+    },
+    {
+      "detail": "all preregistered operator probes are finite",
+      "gate_origin": "parent_cc_b_contract",
+      "metrics": {},
+      "name": "JV_FINITE",
+      "status": "PASS",
+      "vote_role": "execution_validity"
+    },
+    {
+      "detail": "deterministic repeated Jv agrees",
+      "gate_origin": "telemetry_v1_preregistered",
+      "metrics": {
+        "relative_difference": 0.0
+      },
+      "name": "JV_REPEATABILITY",
+      "status": "PASS",
+      "vote_role": "execution_validity"
+    },
+    {
+      "detail": "nonvoting homogeneity diagnostic",
+      "gate_origin": "telemetry_v1_preregistered",
+      "metrics": {
+        "relative_difference": 0.0,
+        "scale": -0.5
+      },
+      "name": "JV_HOMOGENEITY",
+      "status": "PASS",
+      "vote_role": "nonvoting_diagnostic"
+    },
+    {
+      "detail": "nonvoting additivity diagnostic",
+      "gate_origin": "telemetry_v1_preregistered",
+      "metrics": {
+        "relative_difference": 9.081690357547437e-09
+      },
+      "name": "JV_ADDITIVITY",
+      "status": "PASS",
+      "vote_role": "nonvoting_diagnostic"
+    },
+    {
+      "detail": "parent h/h2 operator gate",
+      "gate_origin": "parent_cc_b_contract",
+      "metrics": {
+        "h_vs_h_half_relative_difference": 2.5647521019425958e-08,
+        "two_h_nonvoting_pass": true,
+        "two_h_vs_h_relative_difference_nonvoting": 1.0248965433211925e-07
+      },
+      "name": "JV_STEP_SIZE_CONSISTENCY",
+      "status": "PASS",
+      "vote_role": "execution_validity"
+    },
+    {
+      "detail": "F(T)=-M_C^-1 R_T has the frozen temperature-rate shape and sign",
+      "gate_origin": "telemetry_v1_preregistered",
+      "metrics": {
+        "output_unit": "K_per_s",
+        "relative_identity_error": 0.0
+      },
+      "name": "OPERATOR_UNIT_AND_SIGN",
+      "status": "PASS",
+      "vote_role": "execution_validity"
+    },
+    {
+      "detail": "not reached",
+      "gate_origin": "parent_cc_b_contract",
+      "metrics": {},
+      "name": "EIGENSOLVER_RETURN",
+      "status": "SKIPPED_NOT_ELIGIBLE",
+      "vote_role": "execution_validity"
+    },
+    {
+      "detail": "not reached",
+      "gate_origin": "parent_cc_b_contract",
+      "metrics": {},
+      "name": "RITZ_COUNT",
+      "status": "SKIPPED_NOT_ELIGIBLE",
+      "vote_role": "execution_validity"
+    },
+    {
+      "detail": "not reached",
+      "gate_origin": "parent_cc_b_contract",
+      "metrics": {},
+      "name": "RITZ_FINITE",
+      "status": "SKIPPED_NOT_ELIGIBLE",
+      "vote_role": "execution_validity"
+    },
+    {
+      "detail": "not reached",
+      "gate_origin": "parent_cc_b_contract",
+      "metrics": {},
+      "name": "RITZ_RELATIVE_RESIDUAL",
+      "status": "SKIPPED_NOT_ELIGIBLE",
+      "vote_role": "physical_stability"
+    },
+    {
+      "detail": "not reached",
+      "gate_origin": "parent_cc_b_contract",
+      "metrics": {},
+      "name": "RIGHTMOST_ORDERING",
+      "status": "SKIPPED_NOT_ELIGIBLE",
+      "vote_role": "execution_validity"
+    },
+    {
+      "detail": "not reached",
+      "gate_origin": "telemetry_v1_preregistered",
+      "metrics": {},
+      "name": "K6_K10_CONSISTENCY",
+      "status": "SKIPPED_NOT_ELIGIBLE",
+      "vote_role": "nonvoting_diagnostic"
+    },
+    {
+      "detail": "not reached",
+      "gate_origin": "telemetry_v1_preregistered",
+      "metrics": {},
+      "name": "ARTIFACT_CANONICALIZATION",
+      "status": "SKIPPED_NOT_ELIGIBLE",
+      "vote_role": "execution_validity"
+    },
+    {
+      "detail": "not reached",
+      "gate_origin": "telemetry_v1_preregistered",
+      "metrics": {},
+      "name": "TERMINAL_AGGREGATION",
+      "status": "SKIPPED_NOT_ELIGIBLE",
+      "vote_role": "execution_validity"
+    }
+  ],
+  "passed": true,
+  "schema_version": "q2_cc_b_stability_requalification_steps_v1",
+  "step_size_K_by_multiplier": {
+    "0.25": 0.0005136063164035469,
+    "0.5": 0.0010272126328070938,
+    "1": 0.0020544252656141877,
+    "2": 0.004108850531228375
+  },
+  "two_h_vs_h_relative_difference": 1.0248965433211925e-07
+}

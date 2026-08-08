@@ -1,0 +1,11 @@
+{
+  "cpu_time_s": 30.171875,
+  "critical_currents_A": {
+    "cooling": 0.0001875,
+    "heating": 0.00024375
+  },
+  "passed": true,
+  "schema_version": "q2_cc_b_patterned_mve_stage_b_v1",
+  "stage": "B",
+  "wall_time_s": 33.00037510000402
+}

@@ -1,0 +1,33 @@
+{
+  "branch": "cooling",
+  "cc_b_matrix_launch_count": 0,
+  "current_A": 0.0001840283513747268,
+  "formal_execution_count": 0,
+  "grid": "L1",
+  "identity": "cooling_a1_pminus_L1",
+  "metrics": {
+    "device_voltage_V": 4.280964301307618,
+    "dtype": "float64",
+    "finite": true,
+    "finite_and_range_legal": true,
+    "last_scaled_update_inf": 8.538250652483373e-10,
+    "maximum_ledger_error": 6.6057961682744126e-15,
+    "scaled_electrical_residual_inf": 1.3068508329066348e-16,
+    "scaled_thermal_residual_inf": 6.771814875580335e-14,
+    "shape": [
+      25,
+      10
+    ],
+    "temperature_max_K": 328.9885767310107,
+    "temperature_min_K": 328.69879415775046,
+    "temperature_sha256": "5cd816be9aed0071606c9581a8f8b7e50b1e5399beee1c33c291e958f053de5e"
+  },
+  "npz_path": "data/processed/q2_cc_b_patterned_branch_decision_mve/Q2-CC-B-PATTERNED-BRANCH-DECISION-MVE-20260808-V1-R4/equilibria/cooling_a1_pminus_L1.npz",
+  "npz_sha256": "afba4c4d280a568e104a246a17a8b2b1e95f92ea08243686828d164bc06b70a8",
+  "run_id": "Q2-CC-B-PATTERNED-BRANCH-DECISION-MVE-20260808-V1-R4",
+  "schema_version": "q2_cc_b_patterned_equilibrium_v1",
+  "scientific_vote": false,
+  "source": "augmented_amplitude_corrector",
+  "stage": "S",
+  "task_id": "Q2_CC_B_PATTERNED_BRANCH_DECISION_MVE_V1"
+}

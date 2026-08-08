@@ -1,0 +1,33 @@
+{
+  "branch": "heating",
+  "cc_b_matrix_launch_count": 0,
+  "current_A": 0.00024375,
+  "formal_execution_count": 0,
+  "grid": "L1",
+  "identity": "NOM_heating_0p24375mA_L1_B_bisect_3",
+  "metrics": {
+    "device_voltage_V": 6.964401708872182,
+    "dtype": "float64",
+    "finite": true,
+    "finite_and_range_legal": true,
+    "last_scaled_update_inf": 2.170784679508381e-15,
+    "maximum_ledger_error": 3.0024060161137092e-15,
+    "scaled_electrical_residual_inf": 1.9360753080098294e-16,
+    "scaled_thermal_residual_inf": 5.028813254077001e-14,
+    "shape": [
+      25,
+      10
+    ],
+    "temperature_max_K": 333.24064522591067,
+    "temperature_min_K": 333.24064522591055,
+    "temperature_sha256": "57568520cb9234de96c692c4834990f1285d48d00c367b652dc88475c348f369"
+  },
+  "npz_path": "data/processed/q2_cc_b_patterned_branch_decision_mve/Q2-CC-B-PATTERNED-BRANCH-DECISION-MVE-20260808-V1-R4/equilibria/NOM_heating_0p24375mA_L1_B_bisect_3.npz",
+  "npz_sha256": "6f006b05f5c45a41fb86c8a195d3bc30959244638f8985a9ed16ec399874773e",
+  "run_id": "Q2-CC-B-PATTERNED-BRANCH-DECISION-MVE-20260808-V1-R4",
+  "schema_version": "q2_cc_b_patterned_equilibrium_v1",
+  "scientific_vote": false,
+  "source": "independent_recompute_pr35_initial_guess_only",
+  "stage": "B",
+  "task_id": "Q2_CC_B_PATTERNED_BRANCH_DECISION_MVE_V1"
+}

@@ -1,0 +1,110 @@
+{
+  "allowed_claim": "the preregistered frozen search did not yield a qualifying stable patterned span",
+  "cc_b_matrix_launch_count": 0,
+  "claim_status": "failed_but_informative",
+  "detail": "the bounded valid nonlinear search did not produce a qualifying stable patterned transition span",
+  "disposition": "NO_GO_CC_B_STABLE_PATTERNED_TRANSITION_SPAN",
+  "evidence_type": "literature-guided synthetic numerical digital-twin evidence",
+  "finished_at_utc": "2026-08-08T15:02:58.874288+00:00",
+  "forbidden_claims": [
+    "conductive filament formation",
+    "nonlinear dynamic attractor or real ramp accessibility",
+    "equivalence to the source-voltage external-RC experiment",
+    "PINN, defect diagnosis, or ground-truth success"
+  ],
+  "formal_execution_count": 0,
+  "ground_truth_generated": false,
+  "lifecycle_state": "executed",
+  "patterned_mve_execution_count": 1,
+  "pinn_executed": false,
+  "run_id": "Q2-CC-B-PATTERNED-BRANCH-DECISION-MVE-20260808-V1-R4",
+  "runtime": {
+    "cpu_time_s": 187.578125,
+    "wall_time_s": 205.89740869999514
+  },
+  "schema_version": "q2_cc_b_patterned_branch_decision_mve_terminal_v1",
+  "scientific_vote": false,
+  "summary": {
+    "bifurcation_figure": "outputs/tables/q2_cc_b_patterned_branch_decision_mve/Q2-CC-B-PATTERNED-BRANCH-DECISION-MVE-20260808-V1-R4/bifurcation_atlas.png",
+    "branch_pass": {
+      "cooling": false,
+      "heating": false
+    },
+    "critical_mode_figures": [
+      "outputs/tables/q2_cc_b_patterned_branch_decision_mve/Q2-CC-B-PATTERNED-BRANCH-DECISION-MVE-20260808-V1-R4/critical_mode_heating.png",
+      "outputs/tables/q2_cc_b_patterned_branch_decision_mve/Q2-CC-B-PATTERNED-BRANCH-DECISION-MVE-20260808-V1-R4/critical_mode_cooling.png"
+    ],
+    "patterned_examples_figure": "outputs/tables/q2_cc_b_patterned_branch_decision_mve/Q2-CC-B-PATTERNED-BRANCH-DECISION-MVE-20260808-V1-R4/patterned_examples.png",
+    "stage_payloads": {
+      "B": {
+        "cpu_time_s": 30.171875,
+        "critical_currents_A": {
+          "cooling": 0.0001875,
+          "heating": 0.00024375
+        },
+        "passed": true,
+        "schema_version": "q2_cc_b_patterned_mve_stage_b_v1",
+        "stage": "B",
+        "wall_time_s": 33.00037510000402
+      },
+      "C": {
+        "accepted_point_count_by_branch": {
+          "cooling": 16,
+          "heating": 18
+        },
+        "cpu_time_s": 113.71875,
+        "passed": true,
+        "schema_version": "q2_cc_b_patterned_mve_stage_c_v1",
+        "stage": "C",
+        "wall_time_s": 125.07533550000517
+      },
+      "Q": {
+        "branch_pass": {
+          "cooling": false,
+          "heating": false
+        },
+        "cpu_time_s": 0.015625,
+        "numerical_invalid": false,
+        "schema_version": "q2_cc_b_patterned_mve_stage_q_v1",
+        "stage": "Q",
+        "status": "SKIPPED_NO_L1_CANDIDATE",
+        "wall_time_s": 0.02355830000306014
+      },
+      "S": {
+        "cpu_time_s": 38.390625,
+        "passed": true,
+        "schema_version": "q2_cc_b_patterned_mve_stage_s_v1",
+        "seed_currents_A": {
+          "cooling": [
+            0.00018402835137529494,
+            0.00018281406042558438
+          ],
+          "heating": [
+            0.00024153615009681766,
+            0.00024088924610052244
+          ]
+        },
+        "stage": "S",
+        "wall_time_s": 42.069314300009864
+      },
+      "T": {
+        "best_scaled_residual_inf": 4.730758019370851e-10,
+        "closure": "CLOSED_TRUE_LOCAL_STAGNATION",
+        "cpu_time_s": 1.546875,
+        "failure_detail": "full thermal residual evaluation budget exhausted",
+        "full_residual_evaluations": 640,
+        "initial_temperature_K": 335.60253074930637,
+        "jv_evaluations": 319,
+        "lgmres_iterations": 15,
+        "nonlinear_iterations": 3,
+        "schema_version": "q2_cc_b_patterned_mve_stage_t_v1",
+        "solver_code": "CCB_KRYLOV_BUDGET",
+        "solver_success": false,
+        "stage": "T",
+        "wall_time_s": 1.6877734000008786
+      }
+    }
+  },
+  "task_id": "Q2_CC_B_PATTERNED_BRANCH_DECISION_MVE_V1",
+  "validity": "valid"
+}

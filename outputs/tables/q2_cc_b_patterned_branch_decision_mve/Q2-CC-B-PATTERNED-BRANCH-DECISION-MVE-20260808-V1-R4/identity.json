@@ -1,0 +1,30 @@
+{
+  "base_merge_sha": "4c30021c45782e3803f1f285328e09b4411789df",
+  "blas_thread_environment": {
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": null,
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1"
+  },
+  "cc_b_matrix_launch_count": 0,
+  "command": [
+    "E:\\Python demo\\PINN\\.venv\\Scripts\\python.exe",
+    "scripts/run_q2_cc_b_patterned_branch_decision_mve.py",
+    "--config",
+    "configs/q2_cc_b_patterned_branch_decision_mve_v1.yaml",
+    "--stage",
+    "all"
+  ],
+  "cpu_count": 12,
+  "formal_execution_count": 0,
+  "git_sha": "6c655955c7c8718c3e21248da55ef7887dbd3fdc",
+  "ground_truth_generated": false,
+  "machine": "AMD64",
+  "pinn_executed": false,
+  "platform": "Windows-10-10.0.26200-SP0",
+  "processor": "Intel64 Family 6 Model 154 Stepping 4, GenuineIntel",
+  "python": "3.11.9 | packaged by Anaconda, Inc. | (main, Apr 19 2024, 16:40:41) [MSC v.1916 64 bit (AMD64)]",
+  "run_id": "Q2-CC-B-PATTERNED-BRANCH-DECISION-MVE-20260808-V1-R4",
+  "scientific_vote": false,
+  "task_id": "Q2_CC_B_PATTERNED_BRANCH_DECISION_MVE_V1"
+}

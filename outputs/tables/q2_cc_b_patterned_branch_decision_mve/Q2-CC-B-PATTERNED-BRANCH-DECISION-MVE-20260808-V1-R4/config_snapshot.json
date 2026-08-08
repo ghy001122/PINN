@@ -1,0 +1,227 @@
+{
+  "authority": {
+    "frozen_model": {
+      "path": "src/pinnpcm/current_clamp/cc_b_model.py",
+      "sha256": "83db01b13b5dd57b35e95f512029a2f6867a2c55ee50ac2ed5cb6ba80b630135"
+    },
+    "frozen_stability": {
+      "path": "src/pinnpcm/current_clamp/cc_b_stability.py",
+      "sha256": "fd789bba78ed7e37a770a621a93e2291d92119e84a59f05757f57ba5925c6e1b"
+    },
+    "parent_bracket_config": {
+      "path": "configs/q2_cc_b_branch_stability_transition_bracket_v1.yaml",
+      "sha256": "2c7d6ed2d7d0a2fe87d00b14ed4e87b9d631a4b333c43f0d2946b18e8928e189"
+    },
+    "parent_cc_b_config": {
+      "path": "configs/q2_current_clamp_hysgeo_pinn_v1_cc_b.yaml",
+      "sha256": "56384a56893c1f9752e00e1dcece242a788805df2148b5022903adc6c314de8d"
+    },
+    "pr_35_fixed_lattice": {
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/fixed_lattice.csv",
+      "sha256": "bf011a269ea649559faa99fe37638c149349bd2d98eb03eb6041d282e58a2568"
+    },
+    "pr_35_merge_sha": "4c30021c45782e3803f1f285328e09b4411789df",
+    "pr_35_mode_metrics": {
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/mode_metrics.csv",
+      "sha256": "71d84eae6981676a9d9e9ddd2dea0b2d61c55b5ae61490a07c730925923d2aa3"
+    },
+    "pr_35_terminal": {
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/terminal.json",
+      "required_disposition": "STOP_NUMERICAL_SEMANTICS_NOT_CLOSED",
+      "sha256": "2810891a2ccea1e605ecd665ea253fbd339bef32657d365be8e2e2e5eda6097c"
+    },
+    "requalification_config": {
+      "path": "configs/q2_cc_b_stability_requalification_v1.yaml",
+      "sha256": "923c719f802f861f85b13ef4095e9995971f730068c4f097f1795434b3df9eb3"
+    }
+  },
+  "branch_switch": {
+    "amplitude_fractions": [
+      0.05,
+      0.1,
+      0.2,
+      0.4
+    ],
+    "armijo_c1": 0.0001,
+    "augmented_residual_inf_max": 1e-08,
+    "augmented_update_inf_max": 1e-08,
+    "beta_per_K": 0.253,
+    "current_scale_A": 5e-05,
+    "damping_values": [
+      1.0,
+      0.5,
+      0.25,
+      0.125,
+      0.0625,
+      0.03125,
+      0.015625,
+      0.0078125
+    ],
+    "fi_analytic_fd_relative_error_max": 1e-06,
+    "full_residual_evaluations_max": 800,
+    "initial_current_offset_fraction_of_bracket": 1.0,
+    "jv_evaluations_max": 600,
+    "lgmres": {
+      "atol": 0.0,
+      "inner_m": 40,
+      "outer_k": 10,
+      "rtol": 1e-08
+    },
+    "nonlinear_iterations_max": 20,
+    "required_adjacent_valid_mirror_pairs": 2,
+    "transition_scale_K": 1.976284584980237,
+    "transition_scale_definition": "one_over_two_beta"
+  },
+  "budget": {
+    "artifact_report_git_wall_cap_s": 1800.0,
+    "blas_threads": 1,
+    "gpu": "forbidden",
+    "implementation_tests_wall_cap_s": 9000.0,
+    "stage_B_wall_cap_s": 2700.0,
+    "stage_Q_wall_cap_s": 3600.0,
+    "stage_SC_wall_cap_s": 5400.0,
+    "stage_T_wall_cap_s": 1200.0,
+    "workers": 1
+  },
+  "cc_b_matrix_launch_count": 0,
+  "claim_status": "forbidden",
+  "equilibrium_gates": {
+    "electrical_scaled_cv_residual_max": 1e-10,
+    "last_scaled_update_inf_max": 1e-08,
+    "ledger_symmetric_relative_max": 0.005,
+    "temperature_K": [
+      300.0,
+      380.0
+    ],
+    "thermal_scaled_cv_residual_max": 1e-08,
+    "voltage_operating_envelope_max_V": 17.0
+  },
+  "evidence_type": "literature-guided synthetic numerical digital-twin evidence",
+  "execution_class": "bounded_patterned_branch_minimum_viable_evidence",
+  "forbidden_execution": [
+    "full_pr35_lattice_or_r2_r3",
+    "uniform_or_36_case_matrix",
+    "LU_RD_or_other_defects",
+    "ground_truth_or_CC_C",
+    "PINN_CC01_CC06",
+    "inverse_SVD_refusal",
+    "dynamic_S0_or_external_RC",
+    "dense_L2_jacobian",
+    "random_initialization_portfolio",
+    "threshold_or_solver_budget_relaxation"
+  ],
+  "formal_execution_count": 0,
+  "ground_truth_generated": false,
+  "lifecycle_state": "planned",
+  "outputs": {
+    "compact_root": "outputs/tables/q2_cc_b_patterned_branch_decision_mve",
+    "processed_root": "data/processed/q2_cc_b_patterned_branch_decision_mve",
+    "report": "docs/codex_reports/q2_cc_b_patterned_branch_decision_mve_v1.md"
+  },
+  "pattern_gates": {
+    "amplitude_min_fraction_of_transition_scale": 0.1,
+    "amplitude_over_grid_discrepancy_min": 5.0,
+    "mirror_relative_amplitude_tolerance": 0.05,
+    "required_l2_anchor_count": 3,
+    "sampled_span_A_min": 5e-05,
+    "y_gradient_energy_fraction_min": 0.8
+  },
+  "patterned_mve_execution_count": 0,
+  "pinn_executed": false,
+  "pseudo_arclength": {
+    "direction_order": [
+      "lower_current",
+      "higher_current"
+    ],
+    "discovery_anchor_span_A": 5e-05,
+    "failure_reduction_factor": 0.5,
+    "growth_factor": 1.25,
+    "growth_newton_iteration_max": 5,
+    "initial_step": 0.1,
+    "maximum_accepted_points_per_branch": 20,
+    "maximum_consecutive_failures": 1,
+    "maximum_current_span_A": 0.0001,
+    "maximum_reductions_per_point": 3,
+    "maximum_step": 0.2,
+    "minimum_step": 0.0125,
+    "required_distinct_anchor_count": 3
+  },
+  "repair_revision": "R4",
+  "repair_scope": "git_stable_lf_canonicalization_before_manifest_hashing_only",
+  "run_id": "Q2-CC-B-PATTERNED-BRANCH-DECISION-MVE-20260808-V1-R4",
+  "schema_version": "q2_cc_b_patterned_branch_decision_mve_v1",
+  "scientific_vote": false,
+  "scope": {
+    "bisections_per_branch": 3,
+    "critical_brackets_A": {
+      "cooling": [
+        0.00015,
+        0.0002
+      ],
+      "heating": [
+        0.0002,
+        0.00025
+      ]
+    },
+    "current_domain_A": [
+      0.0001,
+      0.0007
+    ],
+    "defect": "NOM",
+    "discovery_grid": "L1",
+    "endpoint_execution_order": [
+      [
+        "heating",
+        0.0002
+      ],
+      [
+        "heating",
+        0.00025
+      ],
+      [
+        "cooling",
+        0.00015
+      ],
+      [
+        "cooling",
+        0.0002
+      ]
+    ],
+    "maximum_boundary_new_points": 6,
+    "qualification_grid": "L2",
+    "telemetry_case": [
+      "heating",
+      0.00035,
+      "L1"
+    ]
+  },
+  "stability_gates": {
+    "backward_error_multiplier": 10.0,
+    "critical_abs_alpha_tau_max": 0.1,
+    "eigenmode_reflection_parity_residual_max": 1e-06,
+    "eigenpairs_comparator": 10,
+    "eigenpairs_primary": 6,
+    "k6_k10_alpha_tau_difference_max": 0.0001,
+    "operator_reflection_equivariance_max": 1e-06,
+    "relative_ritz_residual_max": 1e-06,
+    "simple_leading_gap_tau_min": 0.05,
+    "stable_alpha_tau_max": -0.001,
+    "static_dynamic_action_relative_error_max": 1e-06,
+    "transversality_delta_alpha_tau_min": 0.05
+  },
+  "supersedes_invalid_run_id": "Q2-CC-B-PATTERNED-BRANCH-DECISION-MVE-20260808-V1-R3",
+  "task_id": "Q2_CC_B_PATTERNED_BRANCH_DECISION_MVE_V1",
+  "terminal_dispositions": [
+    "PASS_CC_B_DUAL_BRANCH_PATTERNED_MVE",
+    "PASS_CC_B_SINGLE_BRANCH_PATTERNED_MVE",
+    "NO_GO_CC_B_STABLE_PATTERNED_TRANSITION_SPAN",
+    "STOP_CC_B_PATTERNED_MVE_NUMERICALLY_INCONCLUSIVE"
+  ],
+  "transition_gate": {
+    "area_fraction_min": 0.1,
+    "conductive_state_interval": [
+      0.1,
+      0.9
+    ]
+  }
+}
