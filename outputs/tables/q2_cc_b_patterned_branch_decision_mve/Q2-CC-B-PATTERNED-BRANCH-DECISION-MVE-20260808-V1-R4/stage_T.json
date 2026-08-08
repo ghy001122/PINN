@@ -1,0 +1,16 @@
+{
+  "best_scaled_residual_inf": 4.730758019370851e-10,
+  "closure": "CLOSED_TRUE_LOCAL_STAGNATION",
+  "cpu_time_s": 1.546875,
+  "failure_detail": "full thermal residual evaluation budget exhausted",
+  "full_residual_evaluations": 640,
+  "initial_temperature_K": 335.60253074930637,
+  "jv_evaluations": 319,
+  "lgmres_iterations": 15,
+  "nonlinear_iterations": 3,
+  "schema_version": "q2_cc_b_patterned_mve_stage_t_v1",
+  "solver_code": "CCB_KRYLOV_BUDGET",
+  "solver_success": false,
+  "stage": "T",
+  "wall_time_s": 1.6877734000008786
+}

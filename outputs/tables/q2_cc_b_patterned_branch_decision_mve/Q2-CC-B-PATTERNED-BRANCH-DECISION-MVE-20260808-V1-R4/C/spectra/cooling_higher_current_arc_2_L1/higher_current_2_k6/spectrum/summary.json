@@ -1,0 +1,21 @@
+{
+  "alpha_tau_dimensionless": 0.2592677917471845,
+  "certified_pair_count": 6,
+  "cpu_time_s": 2.546875,
+  "eigenpairs_requested": 6,
+  "failure_detail": null,
+  "finite_pair_count": 6,
+  "grid": "L1",
+  "h_half_operator_relative_difference": 1.648027878692507e-08,
+  "maximum_absolute_ritz_residual_rate_per_s": 0.5215899916637172,
+  "maximum_relative_ritz_residual": 1.255867164394193e-07,
+  "outcome_code": "CCB_PHYSICALLY_UNSTABLE",
+  "physical_spectrum_classification": "POSITIVE_UNSTABLE",
+  "requested_pair_count": 6,
+  "returned_pair_count": 6,
+  "rightmost_spectral_abscissa_per_s": 1076797.683466129,
+  "schema_version": "q2_cc_b_stability_requalification_spectrum_v1",
+  "stable": false,
+  "valid": true,
+  "wall_time_s": 2.7650981999904616
+}

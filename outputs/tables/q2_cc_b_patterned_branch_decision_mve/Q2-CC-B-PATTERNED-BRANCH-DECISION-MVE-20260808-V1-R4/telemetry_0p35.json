@@ -1,0 +1,32 @@
+[
+  {
+    "branch": "heating",
+    "current_set_A": 0.00035,
+    "event": "start",
+    "event_index": 0,
+    "spatial_level": 1
+  },
+  {
+    "event": "lgmres_return",
+    "event_index": 11,
+    "info": 0,
+    "update_inf": 0.005542850375016121
+  },
+  {
+    "event": "lgmres_return",
+    "event_index": 21,
+    "info": 0,
+    "update_inf": 2.148714586384686e-05
+  },
+  {
+    "code": "CCB_KRYLOV_BUDGET",
+    "event": "finish",
+    "event_index": 662,
+    "failure_detail": "full thermal residual evaluation budget exhausted",
+    "full_residual_evaluations": 640,
+    "jv_evaluations": 319,
+    "lgmres_iterations": 15,
+    "nonlinear_iterations": 3,
+    "success": false
+  }
+]

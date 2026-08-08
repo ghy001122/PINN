@@ -1,0 +1,12 @@
+{
+  "branch_pass": {
+    "cooling": false,
+    "heating": false
+  },
+  "cpu_time_s": 0.015625,
+  "numerical_invalid": false,
+  "schema_version": "q2_cc_b_patterned_mve_stage_q_v1",
+  "stage": "Q",
+  "status": "SKIPPED_NO_L1_CANDIDATE",
+  "wall_time_s": 0.02355830000306014
+}

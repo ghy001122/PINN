@@ -1,0 +1,17 @@
+{
+  "certified_pair_count": 0,
+  "eigensolver_converged": false,
+  "failure_code": null,
+  "failure_detail": null,
+  "failure_stage": null,
+  "finite_pair_count": 0,
+  "h_half_operator_relative_difference": null,
+  "jv_call_count": 11,
+  "maximum_absolute_ritz_residual_rate_per_s": null,
+  "maximum_relative_ritz_residual": null,
+  "partial_pairs_eligible_for_certification": false,
+  "requested_pair_count": 0,
+  "returned_pair_count": 0,
+  "schema_version": "q2_cc_b_stability_telemetry_recorder_v1",
+  "stability": {}
+}

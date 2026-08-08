@@ -2,9 +2,9 @@
 
 Active phase ID: `Q2_PHASE1_2P5D_REFERENCE_SOLVER`
 
-Status: `stopped_after_invalid_fixed_lattice_equilibrium`
+Status: `stopped_after_valid_patterned_span_no_go`
 
-Current checkpoint: `Q2_CC_B_BRANCH_STABILITY_BRACKET_NUMERICAL_STOP`
+Current checkpoint: `Q2_CC_B_PATTERNED_BRANCH_VALID_NO_GO`
 
 Preserved prior checkpoint: `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED`
 
@@ -26,41 +26,36 @@ the only dynamic state, the conductive sheet current is constrained to
 inactive external-source metadata and is absent from CC-B equilibrium and
 stability.
 
-The parent smoke and the valid PR #34 single-point requalification remain
-immutable. A separately authorized branch stability/transition bracket then
+The parent smoke, PR #34 single-point requalification, and PR #35 invalid
+bracket remain immutable. A separately authorized nonlinear patterned MVE then
 produced:
 
 ```text
-STOP_NUMERICAL_SEMANTICS_NOT_CLOSED
-validity = invalid
-local_evidence_status = FORBIDDEN
+NO_GO_CC_B_STABLE_PATTERNED_TRANSITION_SPAN
+validity = valid
+claim_status = failed_but_informative
 scientific_vote = false
 formal_execution_count = 0
 cc_b_matrix_launch_count = 0
 ```
 
-Of 26 fixed L1/k6 points, 25 produced valid equilibria and fully certified
-spectra (`max eta=6.621e-7`). Heating 0.35 mA exhausted the frozen full thermal
-residual evaluation budget (`CCB_KRYLOV_BUDGET`) before spectrum execution.
-R2 boundary refinement and R3 L2 qualification were therefore ineligible.
-Nineteen transverse-dominated positive-unstable transition modes are retained
-only as invalid-task diagnostic context. Uniform, the formal matrix, CC-C,
-data, and PINN were not executed.
+The 0.35 mA replay confirmed genuine frozen-budget stagnation. Both candidate
+boundaries, 8 mirror-paired roots, and 34 L1 continuation records are valid;
+all 34 are positive unstable. L2 was ineligible, and M1d/matrix/GT/PINN were
+not executed.
 
 ## Lifecycle And Claims
 
-CC-A remains `executed/qualified_supported` bounded lumped evidence. PR #34 is
-valid non-voting single-point instability evidence. The branch bracket is
-`executed/invalid/forbidden`; CC-B, CC-C, GT, PINN, inverse, and all positive
-R1-R3 claims remain forbidden. Counters remain `scientific_vote=false`,
+CC-A remains bounded `qualified_supported`; PR #34 remains valid single-point
+instability evidence. Patterned MVE is `executed/valid/failed_but_informative`
+only for the bounded search. Complete CC-B/GT/PINN/inverse claims remain
+forbidden. Counters remain `scientific_vote=false`,
 `formal_execution_count=0`, and `cc_b_matrix_launch_count=0`.
 
 ## Stop
 
-Do not rerun this identity or start R2/R3, uniform/formal stages, patterned
-branches, or CC-C/PINN. A new authorization may preregister one non-voting
-telemetry closure for the heating 0.35 mA equilibrium failure, using the frozen
-solver/config and reusing all other point artifacts unchanged.
+Do not rerun or start M1d, matrix/GT/PINN/inverse, or another search. Next is
+route closeout; new execution requires a separately justified physical premise.
 
 ## Preserved History
 

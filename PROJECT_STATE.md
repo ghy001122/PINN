@@ -4,13 +4,14 @@
 
 - Delivery/phase: `Q2_SCI_DELIVERY_MODE` /
   `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Checkpoint: `Q2_CC_B_BRANCH_STABILITY_BRACKET_NUMERICAL_STOP`.
+- Checkpoint: `Q2_CC_B_PATTERNED_BRANCH_VALID_NO_GO`.
 - Preserved prior checkpoint: `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED`.
-- Branch-bracket baseline: `22ed32018d5463e171be960beb00710a055a1f13`.
-- Result branch: `codex/q2-cc-b-branch-stability-transition-bracket-v1`.
+- Patterned-MVE baseline: `4c30021c45782e3803f1f285328e09b4411789df`.
+- Result branch: `codex/q2-cc-b-patterned-branch-decision-mve-v1`.
 - Parent disposition: `INVALID_CC_B_EXECUTION`.
 - Requalification disposition: `PASS_CC_B_STABILITY_REQUALIFICATION`.
 - Branch-bracket disposition: `STOP_NUMERICAL_SEMANTICS_NOT_CLOSED`.
+- Patterned-MVE disposition: `NO_GO_CC_B_STABLE_PATTERNED_TRANSITION_SPAN`.
 - `cc_b_matrix_launch_count=0`; `scientific_vote=false`;
   `formal_execution_count=0`.
 
@@ -20,11 +21,9 @@
   remains immutable `INVALID_CC_B_EXECUTION` with only local 0.2 mA evidence.
 - PR #34 validly requalified 0.4 mA as `POSITIVE_UNSTABLE` on L1/L2 k6/k10
   (`max eta=3.375e-7`); this remains a non-voting single-point result.
-- The new 26-point L1/k6 bracket has 25 valid equilibrium/spectrum records, but
-  heating 0.35 mA hit `CCB_KRYLOV_BUDGET`. Its terminal is invalid; R2/R3 were
-  skipped and 19 transverse-mode records remain diagnostic only.
-- Uniform, formal matrix, CC-C, GT, and PINN are unexecuted/forbidden; formal
-  and matrix counters remain zero.
+- Patterned MVE validly closes both candidate boundaries, mirror-paired roots,
+  and 34 L1 records; all 34 are certified positive unstable. L2 was ineligible,
+  and M1d/matrix/GT/PINN remain forbidden with formal/matrix counters zero.
 
 ## Current-Clamp CC-A Outcome
 
@@ -87,7 +86,6 @@ as infrastructure provenance only and do not vote on the active S2 route.
 
 ## Boundary
 
-Do not launch R2/R3, the formal matrix, patterned branches, or any downstream
-stage. The only admissible follow-up is a separately preregistered non-voting
-telemetry closure for `NOM/heating/0.35 mA/L1`, without changing the solver,
-budgets, physics, thresholds, or the 25 preserved valid artifacts.
+Do not launch M1d, matrix/GT/PINN/inverse, or another search. This route stops
+at a valid bounded NO-GO; next is manuscript closeout or a separately justified
+physical premise.
