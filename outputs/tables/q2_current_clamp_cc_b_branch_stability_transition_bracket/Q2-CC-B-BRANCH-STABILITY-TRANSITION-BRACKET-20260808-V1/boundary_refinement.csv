@@ -1,0 +1,2 @@
+branch,bracket_low_mA,bracket_high_mA,iteration,current_mA,status,reason
+NA,NA,NA,NA,NA,SKIPPED_NUMERICAL_SEMANTICS_NOT_CLOSED,R1 contained one equilibrium-invalid fixed-lattice point

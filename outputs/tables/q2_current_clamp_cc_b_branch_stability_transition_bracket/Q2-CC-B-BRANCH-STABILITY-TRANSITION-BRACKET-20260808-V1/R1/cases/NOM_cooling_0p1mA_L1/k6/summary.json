@@ -1,0 +1,21 @@
+{
+  "alpha_tau_dimensionless": -0.7666751849068316,
+  "certified_pair_count": 6,
+  "cpu_time_s": 7.1875,
+  "eigenpairs_requested": 6,
+  "failure_detail": null,
+  "finite_pair_count": 6,
+  "grid": "L1",
+  "h_half_operator_relative_difference": 2.229142535464173e-09,
+  "maximum_absolute_ritz_residual_rate_per_s": 0.06062444941912956,
+  "maximum_relative_ritz_residual": 1.4596954811596245e-08,
+  "outcome_code": "PASS",
+  "physical_spectrum_classification": "STABLE_MARGIN_PASS",
+  "requested_pair_count": 6,
+  "returned_pair_count": 6,
+  "rightmost_spectral_abscissa_per_s": -3184175.163121115,
+  "schema_version": "q2_cc_b_stability_requalification_spectrum_v1",
+  "stable": true,
+  "valid": true,
+  "wall_time_s": 8.287016300004325
+}

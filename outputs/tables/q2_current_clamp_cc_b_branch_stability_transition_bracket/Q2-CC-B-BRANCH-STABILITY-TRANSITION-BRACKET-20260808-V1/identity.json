@@ -1,0 +1,41 @@
+{
+  "blas_threads": 1,
+  "cc_b_matrix_launch_count": 0,
+  "config_path": "configs/q2_cc_b_branch_stability_transition_bracket_v1.yaml",
+  "config_sha256": "2c7d6ed2d7d0a2fe87d00b14ed4e87b9d631a4b333c43f0d2946b18e8928e189",
+  "environment": {
+    "blas_thread_environment": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "command": [
+      "E:\\Python demo\\PINN\\.venv\\Scripts\\python.exe",
+      "scripts/run_q2_cc_b_branch_stability_transition_bracket.py",
+      "--config",
+      "configs/q2_cc_b_branch_stability_transition_bracket_v1.yaml",
+      "--stage",
+      "R0"
+    ],
+    "cpu_count": 12,
+    "git_sha": "3e46d9ff60c4764be1c64a730c54111daa5bd84c",
+    "machine": "AMD64",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 154 Stepping 4, GenuineIntel",
+    "python": "3.11.9 | packaged by Anaconda, Inc. | (main, Apr 19 2024, 16:40:41) [MSC v.1916 64 bit (AMD64)]",
+    "run_id": "Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1"
+  },
+  "formal_execution_count": 0,
+  "git_sha": "3e46d9ff60c4764be1c64a730c54111daa5bd84c",
+  "pr_34_code_anchor_sha": "616fd9b2673f9591ff58900354c38dd3f9a6c1f9",
+  "pr_34_merge_sha": "22ed32018d5463e171be960beb00710a055a1f13",
+  "pr_34_result_commit_sha": "d544de2fc239a46ab401b2f32349f6f8b9cd769e",
+  "run_id": "Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1",
+  "schema_version": "q2_cc_b_branch_stability_transition_bracket_identity_v1",
+  "scientific_vote": false,
+  "started_at_utc": "2026-08-08T12:59:52.527920+00:00",
+  "started_epoch_s": 1786193992.5292618,
+  "task_id": "Q2_CC_B_BRANCH_STABILITY_TRANSITION_BRACKET_V1",
+  "workers": 1
+}

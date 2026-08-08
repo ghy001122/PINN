@@ -1,0 +1,1741 @@
+{
+  "artifacts": [
+    {
+      "bytes": 184,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/boundary_refinement.csv",
+      "sha256": "adb8a875dc2b67e832e9ca0fe2cb95c3ee706d8bf84dc72a045c8cd0a104bef5"
+    },
+    {
+      "bytes": 4063,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/cc_a_vs_cc_b_stability.csv",
+      "sha256": "b2e455b1e0f34cf5932ed754216d1196bd53fda97270158aef37d0b827a5d8e7"
+    },
+    {
+      "bytes": 2423,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_cooling_0p15mA_L1_R1.json",
+      "sha256": "fbc283fb13c4a88343f9d09f1a273935078d2c1616cccfa366255c947b4d4b5e"
+    },
+    {
+      "bytes": 2155,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_cooling_0p1mA_L1_R1.json",
+      "sha256": "09207624a423a0e35a268e36267d67460c87acb76c17a911a45bf7bcbe8092a5"
+    },
+    {
+      "bytes": 2421,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_cooling_0p25mA_L1_R1.json",
+      "sha256": "009a9016032dfb99c590d4fc92afe509d73c156ba1f917994556a08c3bead9c7"
+    },
+    {
+      "bytes": 2188,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_cooling_0p2mA_L1_R1.json",
+      "sha256": "f1cc2f20f6f6df088c69ebc3ed9ca7299080a9400909b6cc2eca45d3455fec58"
+    },
+    {
+      "bytes": 2431,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_cooling_0p35mA_L1_R1.json",
+      "sha256": "82dfc9e449560680bd116333b28ca1fd3d5729a3e0c634f4a448e33a30489ce2"
+    },
+    {
+      "bytes": 2188,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_cooling_0p3mA_L1_R1.json",
+      "sha256": "bbecf8e51a657d468f996f27144ee0b44ca16e8fa61a38788c513ba8bd66e439"
+    },
+    {
+      "bytes": 2400,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_cooling_0p45mA_L1_R1.json",
+      "sha256": "0e2b4637a0a89a5626fe3265ee41ff16a27e9a138cb798a8e30d57ef4fe3325f"
+    },
+    {
+      "bytes": 2184,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_cooling_0p4mA_L1_R1.json",
+      "sha256": "2bcc76351b0fa1251822f136bc5c77081f5b3a9a28819dda23a17c4cd76ff64b"
+    },
+    {
+      "bytes": 2419,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_cooling_0p55mA_L1_R1.json",
+      "sha256": "7407174b4bdcf2ce0a7be8846ae14fb548b2c3e6e754cdf2e0229f7169496da4"
+    },
+    {
+      "bytes": 2188,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_cooling_0p5mA_L1_R1.json",
+      "sha256": "4ff7d7f194e22a622e4c88e8af7acd369a06d1dc2fffb9927e507bac6ab0cf1e"
+    },
+    {
+      "bytes": 2424,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_cooling_0p65mA_L1_R1.json",
+      "sha256": "b91bed7f4f6c757372208a86da0f62b28081b27f02f9135e359c2e6ad1e18df1"
+    },
+    {
+      "bytes": 2153,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_cooling_0p6mA_L1_R1.json",
+      "sha256": "352ad3088135725140c2c38dd68ae2a268ececc77f17daf1f7d2a1109eaa85ef"
+    },
+    {
+      "bytes": 2182,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_cooling_0p7mA_L1_R1.json",
+      "sha256": "a03efa4290b6c6947d2049a180f7c7a55876c2b7f452002667c0ee18f44164f7"
+    },
+    {
+      "bytes": 2428,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_heating_0p15mA_L1_R1.json",
+      "sha256": "11584b47cff5b00ded5bd3585900f4b945ef1a9154c859901dbf4dcaa4cfb3c7"
+    },
+    {
+      "bytes": 2188,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_heating_0p1mA_L1_R1.json",
+      "sha256": "be0b6959ddc5182e86876a600ba3c3da7de60ed65057c5adad818a8f358e16d4"
+    },
+    {
+      "bytes": 2494,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_heating_0p25mA_L1_R1.json",
+      "sha256": "c98f06d4ecd17079d9b760828851927fe1c8a1846877a8a3aa3816b665a5a3a1"
+    },
+    {
+      "bytes": 2492,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_heating_0p2mA_L1_R1.json",
+      "sha256": "0dd86d82389b3313a1627814ccb4b4f2926c43811177092048a224ada2782573"
+    },
+    {
+      "bytes": 2155,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_heating_0p3mA_L1_R1.json",
+      "sha256": "6890c5a47617406fcc3b1db9b7971682c921e0d5217f7da10514185d8e942f20"
+    },
+    {
+      "bytes": 2416,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_heating_0p45mA_L1_R1.json",
+      "sha256": "684c147c1c8cf9ce005b75e8b602b8dbd18158e647573671e0215a65a663c429"
+    },
+    {
+      "bytes": 2421,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_heating_0p55mA_L1_R1.json",
+      "sha256": "ff04cbdf1478c9f39f7b4f7753a134e300566f86368f01c2c400271d6c323169"
+    },
+    {
+      "bytes": 2151,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_heating_0p5mA_L1_R1.json",
+      "sha256": "c9dcba7ab8aeaf67f36a63249b728aff1d1b3ca74b53b5c533c27f100cfd2022"
+    },
+    {
+      "bytes": 2418,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_heating_0p65mA_L1_R1.json",
+      "sha256": "221313cfa100f148218fc7b7f5b725706652aa138218cca324738be7323935ef"
+    },
+    {
+      "bytes": 2181,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_heating_0p6mA_L1_R1.json",
+      "sha256": "18e7c946606596149efd13538ee6f58795c9429e40f806646e34e14581d5757b"
+    },
+    {
+      "bytes": 2180,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_heating_0p7mA_L1_R1.json",
+      "sha256": "2d4307cb6147604bd5d9988fb74747a241952310f36590ffc34fa2abae1c1fc1"
+    },
+    {
+      "bytes": 36814,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/fixed_lattice.csv",
+      "sha256": "bf011a269ea649559faa99fe37638c149349bd2d98eb03eb6041d282e58a2568"
+    },
+    {
+      "bytes": 1739,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/identity.json",
+      "sha256": "b324b404b2ef7fed725aef7a62cdbb72ce2fc68740e06e41c542daff04c7eb02"
+    },
+    {
+      "bytes": 4194,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/mode_metrics.csv",
+      "sha256": "71d84eae6981676a9d9e9ddd2dea0b2d61c55b5ae61490a07c730925923d2aa3"
+    },
+    {
+      "bytes": 1001,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R0/authority.json",
+      "sha256": "37df0dac3612e390f81d3c8df9b7f778b54e5d74ee847bd60d3fe9cf93471825"
+    },
+    {
+      "bytes": 741,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p15mA_L1/k6/summary.json",
+      "sha256": "a65b3c8e949f3dfe563248c348869b8d3ce60d97f5a7110ec7aacd16e20c9284"
+    },
+    {
+      "bytes": 10834,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p15mA_L1/k6/telemetry/eigensolver_pairs.npz",
+      "sha256": "95e1c7e41832f1803ea08f803ab10c443c34446035d19632be0e741530053790"
+    },
+    {
+      "bytes": 257882,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p15mA_L1/k6/telemetry/jv_calls.csv",
+      "sha256": "bbb2f62311b3b546d5dceab6e00689a2753a664aebb879c35791fb9da2771e24"
+    },
+    {
+      "bytes": 13813,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p15mA_L1/k6/telemetry/jv_calls.npz",
+      "sha256": "f73458c4eec9d23ce24977126c70d44adc1308d417ddb1a77aedabe13995869b"
+    },
+    {
+      "bytes": 3692,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p15mA_L1/k6/telemetry/jv_details.npz",
+      "sha256": "df300895adfb0d0ce1d0591cca25587c0a62b0760c53bd0a6edbe7510136b621"
+    },
+    {
+      "bytes": 11580,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p15mA_L1/k6/telemetry/ritz_pairs.npz",
+      "sha256": "a22deda4100ad862adf883d8fafbcf0f3ddd598e4e038b359b61ba37b3f61a11"
+    },
+    {
+      "bytes": 1195,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p15mA_L1/k6/telemetry/telemetry_summary.json",
+      "sha256": "a55c434511a31e88675061c58f821315556bd86af737b9dc965d7644c290897b"
+    },
+    {
+      "bytes": 10139,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p15mA_L1/operator_diagnostics/jv_step_outputs.npz",
+      "sha256": "ffeab759fb31dca892d2dbf2db7b1a54fbea4e49feeb2ecf292d6d1e3468f02c"
+    },
+    {
+      "bytes": 5869,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p15mA_L1/operator_diagnostics/summary.json",
+      "sha256": "aa1cdf531c5d4c9636c0081e2e61d24a0004bc9520c70d34ad456a1bd81de9c7"
+    },
+    {
+      "bytes": 6259,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p15mA_L1/operator_diagnostics/telemetry/jv_calls.csv",
+      "sha256": "c5d3b13b50b0137583b520d4ae7fa59b638e941d233d5657f6bd41a393c7aaa2"
+    },
+    {
+      "bytes": 2107,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p15mA_L1/operator_diagnostics/telemetry/jv_calls.npz",
+      "sha256": "1c6c7ea975fbc1dc2618b9d7cd12ff3d454027f3144ab88e3b58c46e493be15e"
+    },
+    {
+      "bytes": 32198,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p15mA_L1/operator_diagnostics/telemetry/jv_details.npz",
+      "sha256": "81a35fa77dc336c8e9f034fd1950fb2aa87d5de9a837b4a7a238c30f24f9c920"
+    },
+    {
+      "bytes": 524,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p15mA_L1/operator_diagnostics/telemetry/telemetry_summary.json",
+      "sha256": "76c8f86ea6297269c23c2acab5e154d4e62150c99316ba5bcaae2d7c0010734b"
+    },
+    {
+      "bytes": 737,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p1mA_L1/k6/summary.json",
+      "sha256": "70192a1074c33d81762c69906f847362ebf5d25253cd8620ee5242653d0391db"
+    },
+    {
+      "bytes": 10804,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p1mA_L1/k6/telemetry/eigensolver_pairs.npz",
+      "sha256": "a6ef39f9956e64fe235e70edd3a9d2369898c3793a63bf1f8029b8ebec70be5b"
+    },
+    {
+      "bytes": 271601,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p1mA_L1/k6/telemetry/jv_calls.csv",
+      "sha256": "d490fbfae91675609477d61c68f382462f4b4506d57f50648345bc40d12f1c3a"
+    },
+    {
+      "bytes": 14381,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p1mA_L1/k6/telemetry/jv_calls.npz",
+      "sha256": "43f599e274c402ff32750b6aed44857e536a46ddf90865ef0be51ce3718e4ddb"
+    },
+    {
+      "bytes": 3665,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p1mA_L1/k6/telemetry/jv_details.npz",
+      "sha256": "f2bc79e8baaf4442bcec537ca7f042f4bb8b44b6ebad32cc8d76a785fdf5ead4"
+    },
+    {
+      "bytes": 11548,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p1mA_L1/k6/telemetry/ritz_pairs.npz",
+      "sha256": "4f21d61f276a142620d812399907ac8165d72afe3899342f64139ed6ac968b06"
+    },
+    {
+      "bytes": 1190,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p1mA_L1/k6/telemetry/telemetry_summary.json",
+      "sha256": "aceefdc16b415c0e5ff2f842ba8d9d783b3b3c32b85b587f9684bd0ec16b82e7"
+    },
+    {
+      "bytes": 10236,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p1mA_L1/operator_diagnostics/jv_step_outputs.npz",
+      "sha256": "499becd1249ac8a899b7fcb2a14278d0db874f19a9aeb42e144f81b5bbc4009f"
+    },
+    {
+      "bytes": 5864,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p1mA_L1/operator_diagnostics/summary.json",
+      "sha256": "261f1db1ff13309661ca601023b8051712ec2fc3327a79eec32bd574c42e88b9"
+    },
+    {
+      "bytes": 6225,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p1mA_L1/operator_diagnostics/telemetry/jv_calls.csv",
+      "sha256": "1fd03f209f336b5dec018fc6dac0fcbd578c432a6c0c6984d5a11886a0cea52c"
+    },
+    {
+      "bytes": 2109,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p1mA_L1/operator_diagnostics/telemetry/jv_calls.npz",
+      "sha256": "9d8504ce22ac024f75f61db37378d9b9c23207da7b3bf26586e0cebd1b32e454"
+    },
+    {
+      "bytes": 32347,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p1mA_L1/operator_diagnostics/telemetry/jv_details.npz",
+      "sha256": "496dbd4592204ab02d910cb93326a5ceec1f2c37dc2aed1d7ce8b8cfe6658abd"
+    },
+    {
+      "bytes": 524,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p1mA_L1/operator_diagnostics/telemetry/telemetry_summary.json",
+      "sha256": "76c8f86ea6297269c23c2acab5e154d4e62150c99316ba5bcaae2d7c0010734b"
+    },
+    {
+      "bytes": 755,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p25mA_L1/k6/summary.json",
+      "sha256": "c15e4131636d7de54866992fd182a2dfd274affb57fcfac665e09e416ca7be42"
+    },
+    {
+      "bytes": 11047,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p25mA_L1/k6/telemetry/eigensolver_pairs.npz",
+      "sha256": "bd4728756caa380bbadfc800d60fadd2ca27d5cefba8b28afa2483488c455d02"
+    },
+    {
+      "bytes": 186449,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p25mA_L1/k6/telemetry/jv_calls.csv",
+      "sha256": "fc39e7780cc70a40be09572301e2ea112049fdf0bcd8dd4f1805cd4c13dd1f3e"
+    },
+    {
+      "bytes": 10760,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p25mA_L1/k6/telemetry/jv_calls.npz",
+      "sha256": "d1c94d98b621ce2d0c0657af9080a30b8fa5dd173d124159da3a39c2982b2a8d"
+    },
+    {
+      "bytes": 3764,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p25mA_L1/k6/telemetry/jv_details.npz",
+      "sha256": "a8dadbe62392b0bd2bcf2c93eb711261ae7b6c100ac0daf66f315894bf109590"
+    },
+    {
+      "bytes": 11794,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p25mA_L1/k6/telemetry/ritz_pairs.npz",
+      "sha256": "2d316ca8c9832efd76815f7174ef89f087079794d6578bc56d2d56dd8bc9303c"
+    },
+    {
+      "bytes": 1208,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p25mA_L1/k6/telemetry/telemetry_summary.json",
+      "sha256": "720adf1355c951ab239666030ff3f9874270755846aa391367d111799373d441"
+    },
+    {
+      "bytes": 10141,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p25mA_L1/operator_diagnostics/jv_step_outputs.npz",
+      "sha256": "d539e38983c321d3d0989b79a69faefc30f6b15a5a72365c327a3ed45634cb7e"
+    },
+    {
+      "bytes": 5865,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p25mA_L1/operator_diagnostics/summary.json",
+      "sha256": "3e6442326aeac85fa120cd14f23699913214aae2c341186579068c3f69c04af3"
+    },
+    {
+      "bytes": 5858,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p25mA_L1/operator_diagnostics/telemetry/jv_calls.csv",
+      "sha256": "016f8dcc3d74f3b310c70ea7c3fa41c403d8e3c5566410c5a711a77d5e6a987a"
+    },
+    {
+      "bytes": 2101,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p25mA_L1/operator_diagnostics/telemetry/jv_calls.npz",
+      "sha256": "2233751af3fb1157943342e10f451c61e47f5abc8426e57fee41f3b06558e757"
+    },
+    {
+      "bytes": 32205,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p25mA_L1/operator_diagnostics/telemetry/jv_details.npz",
+      "sha256": "55112caa1b9f8f03fb1a47bf80f291969f634426b36231c1e1543c4168f49189"
+    },
+    {
+      "bytes": 524,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p25mA_L1/operator_diagnostics/telemetry/telemetry_summary.json",
+      "sha256": "76c8f86ea6297269c23c2acab5e154d4e62150c99316ba5bcaae2d7c0010734b"
+    },
+    {
+      "bytes": 755,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p2mA_L1/k6/summary.json",
+      "sha256": "90861b53e73fac82f1ad5a113792e17f4c2800b89a273e988df317970e5df207"
+    },
+    {
+      "bytes": 10984,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p2mA_L1/k6/telemetry/eigensolver_pairs.npz",
+      "sha256": "1a7171abf105bf3d20ae3e10e233f452e261e62a3bd6b8adbcf5907c842dec27"
+    },
+    {
+      "bytes": 216032,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p2mA_L1/k6/telemetry/jv_calls.csv",
+      "sha256": "59a3f62268058fef69dae167d732dde3f1d5a23d4be45e8f8d9921f33f733796"
+    },
+    {
+      "bytes": 12020,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p2mA_L1/k6/telemetry/jv_calls.npz",
+      "sha256": "6c867df330937a0595b486b04698722242d582f5b5cf354b3bc50a646ba133dc"
+    },
+    {
+      "bytes": 3710,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p2mA_L1/k6/telemetry/jv_details.npz",
+      "sha256": "4f13e26c1ba189c1f006b2e5733a1e1e8ba1795a92c33be95641005e39ce9c77"
+    },
+    {
+      "bytes": 11729,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p2mA_L1/k6/telemetry/ritz_pairs.npz",
+      "sha256": "7f4f73a4d70153cde4c333a302e83734b9f0e60e4b225262b2325f2a7a212084"
+    },
+    {
+      "bytes": 1209,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p2mA_L1/k6/telemetry/telemetry_summary.json",
+      "sha256": "f3a21444d10e38c73a7c91fde3cd4f51f6b8952c8e7d5e07d6ca8a66e9f134b9"
+    },
+    {
+      "bytes": 10126,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p2mA_L1/operator_diagnostics/jv_step_outputs.npz",
+      "sha256": "7802735639df1e2dfc1cf5e8362336fe50c39027580b3529f148de6d4d118346"
+    },
+    {
+      "bytes": 5868,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p2mA_L1/operator_diagnostics/summary.json",
+      "sha256": "e2962d6812be8b0bcc4291271c64a2d0c002c20b5412cd83aa3bfdfd79bcc33e"
+    },
+    {
+      "bytes": 6266,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p2mA_L1/operator_diagnostics/telemetry/jv_calls.csv",
+      "sha256": "4ef809c39793eecd4f6916bd12432a80526ea4cf162a7eb8c95db37c8e2ec4bc"
+    },
+    {
+      "bytes": 2107,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p2mA_L1/operator_diagnostics/telemetry/jv_calls.npz",
+      "sha256": "ffeef4e31ddc220e44d93e9e50e790ea74af3ac7ada67c16dcb3ab0c285a43a8"
+    },
+    {
+      "bytes": 32149,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p2mA_L1/operator_diagnostics/telemetry/jv_details.npz",
+      "sha256": "89ce8fc336da2eccb7a3774a3211985f8ef7586188bb4a0e73a16ca228279154"
+    },
+    {
+      "bytes": 524,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p2mA_L1/operator_diagnostics/telemetry/telemetry_summary.json",
+      "sha256": "76c8f86ea6297269c23c2acab5e154d4e62150c99316ba5bcaae2d7c0010734b"
+    },
+    {
+      "bytes": 748,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p35mA_L1/k6/summary.json",
+      "sha256": "ef5bdf6e80d95075da5915779f21f4d41373170b0d636c528929674b871b72ae"
+    },
+    {
+      "bytes": 11071,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p35mA_L1/k6/telemetry/eigensolver_pairs.npz",
+      "sha256": "77b5efc45700a5475c15d74b406fcc627462d83e0d73e7f1382ecbb326245fad"
+    },
+    {
+      "bytes": 155760,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p35mA_L1/k6/telemetry/jv_calls.csv",
+      "sha256": "8283ae6f900ae4710bf5c11a378adb2b6e978d89867bc9def332250f3e733358"
+    },
+    {
+      "bytes": 9296,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p35mA_L1/k6/telemetry/jv_calls.npz",
+      "sha256": "41b4b4680b83037d1a9bf859fc6f0886b87ce6600e651c228e5b45aa831ebbe1"
+    },
+    {
+      "bytes": 3774,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p35mA_L1/k6/telemetry/jv_details.npz",
+      "sha256": "46be033954952d9ccd932ce340c825c1f26bb51b97e12f9ed4fba7aeb19b57f3"
+    },
+    {
+      "bytes": 11817,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p35mA_L1/k6/telemetry/ritz_pairs.npz",
+      "sha256": "e7eeae32edb1bfb3922738c3499e98cf8c765e59c432b99aa3219ecaf77dd088"
+    },
+    {
+      "bytes": 1203,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p35mA_L1/k6/telemetry/telemetry_summary.json",
+      "sha256": "16d398b6b636eface2c2c0de5a070ec2be2517e12ecf1d3d534b092167eb7679"
+    },
+    {
+      "bytes": 10160,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p35mA_L1/operator_diagnostics/jv_step_outputs.npz",
+      "sha256": "264d99e9866d3042c0d3960d6f75e709e4e106c6a440961656879913fba15512"
+    },
+    {
+      "bytes": 5867,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p35mA_L1/operator_diagnostics/summary.json",
+      "sha256": "934fe5924c7eb1c9ff0906d804e41905cd715966d59138923a968fb8897020e8"
+    },
+    {
+      "bytes": 6136,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p35mA_L1/operator_diagnostics/telemetry/jv_calls.csv",
+      "sha256": "7e72af61f64fb1514dc4a2276a01fe069d1ab37c92a7f6ebb7ab325a28671f21"
+    },
+    {
+      "bytes": 2097,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p35mA_L1/operator_diagnostics/telemetry/jv_calls.npz",
+      "sha256": "ed883af10f0179b1d46dfe1fcdb391962d6c1240eef2a763db3f813b16962f3e"
+    },
+    {
+      "bytes": 32225,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p35mA_L1/operator_diagnostics/telemetry/jv_details.npz",
+      "sha256": "e291d39d2f61fdf364fd501efc252a8cfe8da89de8d7c734808ec33b96692731"
+    },
+    {
+      "bytes": 524,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p35mA_L1/operator_diagnostics/telemetry/telemetry_summary.json",
+      "sha256": "76c8f86ea6297269c23c2acab5e154d4e62150c99316ba5bcaae2d7c0010734b"
+    },
+    {
+      "bytes": 754,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p3mA_L1/k6/summary.json",
+      "sha256": "65115116ab7135285abb5a713e9f21910bf56f46a5dee4d651fb5cecc5030372"
+    },
+    {
+      "bytes": 11033,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p3mA_L1/k6/telemetry/eigensolver_pairs.npz",
+      "sha256": "d50d8adc9b8950ffb9364f3120a06e8b67c46817919e52721903fb974c886a87"
+    },
+    {
+      "bytes": 176758,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p3mA_L1/k6/telemetry/jv_calls.csv",
+      "sha256": "ac4d0771a30d947619b1f2c0f8268db0d66e29c10b87c87d78e0386db0537d62"
+    },
+    {
+      "bytes": 10307,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p3mA_L1/k6/telemetry/jv_calls.npz",
+      "sha256": "f5296751b60a33b6fecc8c64b5a84144317cf80637a1db1e4cd2697b011dfdd3"
+    },
+    {
+      "bytes": 3808,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p3mA_L1/k6/telemetry/jv_details.npz",
+      "sha256": "65069e027b2572078788530d330747f4f1f5a1ba46ac9d0877f29f9f4eba3a17"
+    },
+    {
+      "bytes": 11778,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p3mA_L1/k6/telemetry/ritz_pairs.npz",
+      "sha256": "f5f5fbebdda439b0ed525c16257491702b750df243bd72c7e95a8da15422b660"
+    },
+    {
+      "bytes": 1207,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p3mA_L1/k6/telemetry/telemetry_summary.json",
+      "sha256": "f198917f4783a9e26bdf2020189fa21659ffa5d663a44f1056d86c0f8870b48c"
+    },
+    {
+      "bytes": 10134,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p3mA_L1/operator_diagnostics/jv_step_outputs.npz",
+      "sha256": "4e8bc4084ab08f444d18c18411f230158f5e285b4712c23f9de4515c6d20f7a9"
+    },
+    {
+      "bytes": 5868,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p3mA_L1/operator_diagnostics/summary.json",
+      "sha256": "a517ef8de039d9833bd8f26195f43742adf71fac5f43c2a4bf4b45e0758af487"
+    },
+    {
+      "bytes": 6299,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p3mA_L1/operator_diagnostics/telemetry/jv_calls.csv",
+      "sha256": "f4a4f37ddee71770d59349b11039abaa0a9611961dab0ca204e86798174ba578"
+    },
+    {
+      "bytes": 2110,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p3mA_L1/operator_diagnostics/telemetry/jv_calls.npz",
+      "sha256": "9a7e3565571daf253563803c3ab9cda8650346ba44ff8dda40b0396df2dfd7bc"
+    },
+    {
+      "bytes": 32180,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p3mA_L1/operator_diagnostics/telemetry/jv_details.npz",
+      "sha256": "e178c6cdbd8e5d0a29a22e6da5e1a30ed01bf3115b1cfb171a900af73fb399f7"
+    },
+    {
+      "bytes": 524,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p3mA_L1/operator_diagnostics/telemetry/telemetry_summary.json",
+      "sha256": "76c8f86ea6297269c23c2acab5e154d4e62150c99316ba5bcaae2d7c0010734b"
+    },
+    {
+      "bytes": 751,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p45mA_L1/k6/summary.json",
+      "sha256": "7dbff0dd88e193ff6b7f7ab616fd442d9a5558f60af7fa0c383876548f8a6767"
+    },
+    {
+      "bytes": 11054,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p45mA_L1/k6/telemetry/eigensolver_pairs.npz",
+      "sha256": "7692d5de1a3fc387fe4a3adad3b2a5719f6c79818404ad33e3471cffa6966ab2"
+    },
+    {
+      "bytes": 135188,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p45mA_L1/k6/telemetry/jv_calls.csv",
+      "sha256": "d207853a018396b8c5d566af71f005f070753c41085cad3765e3ac863d452ffe"
+    },
+    {
+      "bytes": 8308,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p45mA_L1/k6/telemetry/jv_calls.npz",
+      "sha256": "8d1b9703b2ea1d8910037078b0b96d8974e46e61f3aae8b18c0e6f84f2de192c"
+    },
+    {
+      "bytes": 3767,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p45mA_L1/k6/telemetry/jv_details.npz",
+      "sha256": "3df45ea1c34f95ee9de82bd685e4c8ff5edf395ac4b156984b003fac9bd217cd"
+    },
+    {
+      "bytes": 11799,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p45mA_L1/k6/telemetry/ritz_pairs.npz",
+      "sha256": "8f2fda96fd47239cdececf90e623936fcca3bab2d4479caa98f802d87e0dca3d"
+    },
+    {
+      "bytes": 1205,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p45mA_L1/k6/telemetry/telemetry_summary.json",
+      "sha256": "1ab2738553ad7d65e3d99affc75f41a6711a904f743e0e2d764d4ba2e9f2d4cc"
+    },
+    {
+      "bytes": 10152,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p45mA_L1/operator_diagnostics/jv_step_outputs.npz",
+      "sha256": "30a298a2a33a72179ae984c73cd98be7988e0880443af8aedb29534e12d00e9c"
+    },
+    {
+      "bytes": 5864,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p45mA_L1/operator_diagnostics/summary.json",
+      "sha256": "eef50b3841e118bf0e906f0de15088dd094c158251687418d7b554c05cfec7ed"
+    },
+    {
+      "bytes": 6296,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p45mA_L1/operator_diagnostics/telemetry/jv_calls.csv",
+      "sha256": "5937f222e3a97c36a8feed9c7c6fe0b97ca6eec4af0e4c6c8e1efe6cfbe982d7"
+    },
+    {
+      "bytes": 2089,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p45mA_L1/operator_diagnostics/telemetry/jv_calls.npz",
+      "sha256": "0b40a7ee33b7c64989853fce7f38012247f988372ff57a1a325943f1c4ea5fb9"
+    },
+    {
+      "bytes": 32193,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p45mA_L1/operator_diagnostics/telemetry/jv_details.npz",
+      "sha256": "273a91ce046e35726fd600fadff139606304877107ba901fb0cb2fa29df86492"
+    },
+    {
+      "bytes": 524,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p45mA_L1/operator_diagnostics/telemetry/telemetry_summary.json",
+      "sha256": "76c8f86ea6297269c23c2acab5e154d4e62150c99316ba5bcaae2d7c0010734b"
+    },
+    {
+      "bytes": 752,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p4mA_L1/k6/summary.json",
+      "sha256": "b7a306fd9899aa0f865ff94f48b340e6abe3c77703d13e932cde93396301f931"
+    },
+    {
+      "bytes": 11055,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p4mA_L1/k6/telemetry/eigensolver_pairs.npz",
+      "sha256": "076b39304c9c3d03d8ac59568f3b7c0e31a182c3050e6270e0081b10c336246a"
+    },
+    {
+      "bytes": 134645,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p4mA_L1/k6/telemetry/jv_calls.csv",
+      "sha256": "10088584d565513d302f230a2a97350d8fcfb7b4d100e5e332e707f806c50333"
+    },
+    {
+      "bytes": 8348,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p4mA_L1/k6/telemetry/jv_calls.npz",
+      "sha256": "94932fa556ef92041b190658a403924aa4e257c472ca8009784d0c240039b9ae"
+    },
+    {
+      "bytes": 3745,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p4mA_L1/k6/telemetry/jv_details.npz",
+      "sha256": "ffd093ccc1ad89997e345a8617f5ca222c065afbe3e13b49650c34475ef5894c"
+    },
+    {
+      "bytes": 11801,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p4mA_L1/k6/telemetry/ritz_pairs.npz",
+      "sha256": "5ff6ad5cc3cc611d314f7e5d6f19852ec7e1288dfd3b032652cef1b128e77064"
+    },
+    {
+      "bytes": 1207,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p4mA_L1/k6/telemetry/telemetry_summary.json",
+      "sha256": "bbe1702c2dc1fd60a4206837a5024e1382e6e0c1ab3bca97388b7db0fb269c3c"
+    },
+    {
+      "bytes": 10134,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p4mA_L1/operator_diagnostics/jv_step_outputs.npz",
+      "sha256": "55e0102283ef3724a3025c57b947db5bc76bbd4e6b1c83981b7f1c008d72d082"
+    },
+    {
+      "bytes": 5863,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p4mA_L1/operator_diagnostics/summary.json",
+      "sha256": "60588fb61c248508a6d9cd8ab9e780a29d693f40628356a013b740c4aec1e745"
+    },
+    {
+      "bytes": 6146,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p4mA_L1/operator_diagnostics/telemetry/jv_calls.csv",
+      "sha256": "b54368124333e653f993fcf4da3974f45100f855f5f906c694cd8ab8d4dc1477"
+    },
+    {
+      "bytes": 2090,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p4mA_L1/operator_diagnostics/telemetry/jv_calls.npz",
+      "sha256": "d111ecda77d71581ac181d8c1c88b0f55cd93ea2f05f53979f0995a8ff235f21"
+    },
+    {
+      "bytes": 32173,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p4mA_L1/operator_diagnostics/telemetry/jv_details.npz",
+      "sha256": "d26f432ed6a45351bdab006a014e1b46bfd9a554338b6d1fa21e0c89630b5a71"
+    },
+    {
+      "bytes": 524,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p4mA_L1/operator_diagnostics/telemetry/telemetry_summary.json",
+      "sha256": "76c8f86ea6297269c23c2acab5e154d4e62150c99316ba5bcaae2d7c0010734b"
+    },
+    {
+      "bytes": 753,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p55mA_L1/k6/summary.json",
+      "sha256": "500f62a39a17785f0c2a09a41498cf11918edf51fe5e2450182c54e58ffa6b22"
+    },
+    {
+      "bytes": 11038,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p55mA_L1/k6/telemetry/eigensolver_pairs.npz",
+      "sha256": "81b392c2d41753fa34e241fe3d6aa9ed40d3ae7eb1b84c80e86f2cff88e71259"
+    },
+    {
+      "bytes": 123343,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p55mA_L1/k6/telemetry/jv_calls.csv",
+      "sha256": "bd86ca60c5d961dacaab35b1a7380a8b0db3db83abcb365957a68068a4a1edb6"
+    },
+    {
+      "bytes": 7812,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p55mA_L1/k6/telemetry/jv_calls.npz",
+      "sha256": "457494eafe8ed06fd95c887ea02bb453d79522e3a3bbf5e2f44aff176a02f238"
+    },
+    {
+      "bytes": 3716,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p55mA_L1/k6/telemetry/jv_details.npz",
+      "sha256": "1785a52c685d96fcf1f801f9100ad6cfd5f8fd86179d793c267573419a4a7e1e"
+    },
+    {
+      "bytes": 11783,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p55mA_L1/k6/telemetry/ritz_pairs.npz",
+      "sha256": "9a3bdb96de2f6b07c2fd3d6ac878d05437e6c70340762230c19b94dd90375d76"
+    },
+    {
+      "bytes": 1205,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p55mA_L1/k6/telemetry/telemetry_summary.json",
+      "sha256": "d171c8d8b03b1856f102f9f3cf6d1127ed4c8420d4982c655a66b6f39d08eade"
+    },
+    {
+      "bytes": 10138,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p55mA_L1/operator_diagnostics/jv_step_outputs.npz",
+      "sha256": "d28c13318bda829cf43cf335a000119f6ff51c992726bff36806a53014d26501"
+    },
+    {
+      "bytes": 5863,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p55mA_L1/operator_diagnostics/summary.json",
+      "sha256": "7de883f3224453590203c0756f967f043ca5744c533737fb12ada7945a1e7ca3"
+    },
+    {
+      "bytes": 6145,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p55mA_L1/operator_diagnostics/telemetry/jv_calls.csv",
+      "sha256": "c7c8f3bcbe856c26f59bf572ec67cc4e5d5adc64fde170eb9af26f47a232fcb0"
+    },
+    {
+      "bytes": 2095,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p55mA_L1/operator_diagnostics/telemetry/jv_calls.npz",
+      "sha256": "7b9b89352fa189ef91ffb55831f8a74868218237e424dd23df59a31715c28b3e"
+    },
+    {
+      "bytes": 32182,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p55mA_L1/operator_diagnostics/telemetry/jv_details.npz",
+      "sha256": "9e05e8f955f8d2e2f565aab6eec76e09ac8fd49271a6890c5183e7d0c027ea24"
+    },
+    {
+      "bytes": 524,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p55mA_L1/operator_diagnostics/telemetry/telemetry_summary.json",
+      "sha256": "76c8f86ea6297269c23c2acab5e154d4e62150c99316ba5bcaae2d7c0010734b"
+    },
+    {
+      "bytes": 754,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p5mA_L1/k6/summary.json",
+      "sha256": "defdb9db4f4372a7650ccd0cbdc81ea8926593f8909442d358b350562e398247"
+    },
+    {
+      "bytes": 11055,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p5mA_L1/k6/telemetry/eigensolver_pairs.npz",
+      "sha256": "7c09c06baaa61fb7ad78f1d7037640cf0b079ff6794e68b57d6ad0994daa4645"
+    },
+    {
+      "bytes": 123210,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p5mA_L1/k6/telemetry/jv_calls.csv",
+      "sha256": "812a31ff7701084d7e3fa1e666a363d5ab2c1b66c8512fc78cfb9b036233d8b2"
+    },
+    {
+      "bytes": 7808,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p5mA_L1/k6/telemetry/jv_calls.npz",
+      "sha256": "20054c248c0ab5e15862de8f7d50fa4e3ff59fe22898a87f925b639aa43d75cc"
+    },
+    {
+      "bytes": 3718,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p5mA_L1/k6/telemetry/jv_details.npz",
+      "sha256": "5182810e03bc377f8132b4d11590a550fd3cbda83c81468838add07c33ade453"
+    },
+    {
+      "bytes": 11799,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p5mA_L1/k6/telemetry/ritz_pairs.npz",
+      "sha256": "02e5e68485dff1ffe461e7a1770e8ecfd68de19287f616eaa7cc6cd0c83a59c6"
+    },
+    {
+      "bytes": 1207,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p5mA_L1/k6/telemetry/telemetry_summary.json",
+      "sha256": "4fcc2b629abfa6bc3d49b700bdb8afdafb6241db46f1ee5746fe7650add5ec92"
+    },
+    {
+      "bytes": 10141,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p5mA_L1/operator_diagnostics/jv_step_outputs.npz",
+      "sha256": "6a0feb9896155cbb083a0c02dfb5141b184ae24c859630360fac72c75e4914b0"
+    },
+    {
+      "bytes": 5868,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p5mA_L1/operator_diagnostics/summary.json",
+      "sha256": "2116bf266868f5120d687d293281851a7bef86c0591fe2368fdc98d7f69781a6"
+    },
+    {
+      "bytes": 6141,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p5mA_L1/operator_diagnostics/telemetry/jv_calls.csv",
+      "sha256": "23335102c815a0cbf8ef3e2bc8871e09ed653c35e99b5971f43d2e14b4b20a3e"
+    },
+    {
+      "bytes": 2105,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p5mA_L1/operator_diagnostics/telemetry/jv_calls.npz",
+      "sha256": "80ef3daeca077f5e2819a09a04cfcebcd0156c5e7b2ed0693be2f50dc87a60d6"
+    },
+    {
+      "bytes": 32182,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p5mA_L1/operator_diagnostics/telemetry/jv_details.npz",
+      "sha256": "5339ce3fa56db687f38487d3d79c0e4ebafa8ce40487dc176a4002495a77d2e0"
+    },
+    {
+      "bytes": 524,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p5mA_L1/operator_diagnostics/telemetry/telemetry_summary.json",
+      "sha256": "76c8f86ea6297269c23c2acab5e154d4e62150c99316ba5bcaae2d7c0010734b"
+    },
+    {
+      "bytes": 754,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p65mA_L1/k6/summary.json",
+      "sha256": "ca39e7e53426a602fd27dd70347b598b4cf4e033cea6f3a3d72d724bc77ab2c6"
+    },
+    {
+      "bytes": 11042,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p65mA_L1/k6/telemetry/eigensolver_pairs.npz",
+      "sha256": "5b3063c4cd733583da16f3c4a8692e7fc747e6e7d59a68628e729b9c669b449c"
+    },
+    {
+      "bytes": 122156,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p65mA_L1/k6/telemetry/jv_calls.csv",
+      "sha256": "2bbe903e22575ad0c0ea68d8b1b4ef103f423ac26d09b01ecb696a7996196701"
+    },
+    {
+      "bytes": 7800,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p65mA_L1/k6/telemetry/jv_calls.npz",
+      "sha256": "9e1cf69c0a0fd474d535a557244e58a1824b4d97aa54bf5f61ed76d41b32aa46"
+    },
+    {
+      "bytes": 3717,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p65mA_L1/k6/telemetry/jv_details.npz",
+      "sha256": "31c7f412b1287e482eb65c45d36a4be54d6a7853fd240e19692124d6153cb67f"
+    },
+    {
+      "bytes": 11787,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p65mA_L1/k6/telemetry/ritz_pairs.npz",
+      "sha256": "cb91755349af22abc603f5caa8cfdb7c6f8c58283f2c992ef1e74bfb1a003723"
+    },
+    {
+      "bytes": 1208,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p65mA_L1/k6/telemetry/telemetry_summary.json",
+      "sha256": "fe7f579d35f70270cbcca96864989a3c39d98e2e0d8de65902ebe2189c115462"
+    },
+    {
+      "bytes": 10145,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p65mA_L1/operator_diagnostics/jv_step_outputs.npz",
+      "sha256": "83a5c66f6143c4b9460d48186852e68add3231208eef7e81f9fd3237219e8d05"
+    },
+    {
+      "bytes": 5866,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p65mA_L1/operator_diagnostics/summary.json",
+      "sha256": "d6b4bd394bb711eaf4b1e32625f1aeb97447aa719381318a7fa67cc82a6b2fb0"
+    },
+    {
+      "bytes": 5887,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p65mA_L1/operator_diagnostics/telemetry/jv_calls.csv",
+      "sha256": "ecc8797c5bbed658ad9afc8168f0c8359f3ef291a6c2b86ca245098d6c300cfa"
+    },
+    {
+      "bytes": 2104,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p65mA_L1/operator_diagnostics/telemetry/jv_calls.npz",
+      "sha256": "f6e3c7b7f0fc7c8cf840c17833fd9ff5be3461b8b394d267d92c007845674927"
+    },
+    {
+      "bytes": 32184,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p65mA_L1/operator_diagnostics/telemetry/jv_details.npz",
+      "sha256": "877db821f180cb4e94f78612ee6c03f91bb158df529a8889d3fa6656fc864750"
+    },
+    {
+      "bytes": 524,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p65mA_L1/operator_diagnostics/telemetry/telemetry_summary.json",
+      "sha256": "76c8f86ea6297269c23c2acab5e154d4e62150c99316ba5bcaae2d7c0010734b"
+    },
+    {
+      "bytes": 751,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p6mA_L1/k6/summary.json",
+      "sha256": "f15eb429b0234fc2e11160000a40c9373e7c15db45c14a7156a93b189608edd6"
+    },
+    {
+      "bytes": 11067,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p6mA_L1/k6/telemetry/eigensolver_pairs.npz",
+      "sha256": "89fc277094c88ac7e533f333b34fc3aab3c90ca8f92c3817f998a82e00d463a9"
+    },
+    {
+      "bytes": 122565,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p6mA_L1/k6/telemetry/jv_calls.csv",
+      "sha256": "1b4aca7ae05a14a77cbab68e4bea9c1ec96d0494e31048337d8758d4e9b1635d"
+    },
+    {
+      "bytes": 7764,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p6mA_L1/k6/telemetry/jv_calls.npz",
+      "sha256": "dfa9aea2d4c9b4d83aea2d00b8e05e86860c28303ebc4348d08452c4c93dc37d"
+    },
+    {
+      "bytes": 3741,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p6mA_L1/k6/telemetry/jv_details.npz",
+      "sha256": "fff197a8640d05fac625ed65b87cbafbcb94462ba925cdb4691de3f15e57fcc6"
+    },
+    {
+      "bytes": 11811,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p6mA_L1/k6/telemetry/ritz_pairs.npz",
+      "sha256": "c06d618a5d9b56c24fe0c91ab2eace905f8d80615d4a6a670f9735de8ed73154"
+    },
+    {
+      "bytes": 1204,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p6mA_L1/k6/telemetry/telemetry_summary.json",
+      "sha256": "a6529e5f3a23f46d4b2a0c441dd602b1f51dd200c9fb3545c40e11f08d59a7a2"
+    },
+    {
+      "bytes": 10114,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p6mA_L1/operator_diagnostics/jv_step_outputs.npz",
+      "sha256": "90fbe647780c94d31958053a4f59f52463c57571048c06f5be7b2e948aef676e"
+    },
+    {
+      "bytes": 5866,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p6mA_L1/operator_diagnostics/summary.json",
+      "sha256": "3c38b0ede30bba3c21a8455df55d7cbdb2b65698db7a789484d95b865fd9c826"
+    },
+    {
+      "bytes": 6192,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p6mA_L1/operator_diagnostics/telemetry/jv_calls.csv",
+      "sha256": "3f0b46820edbd38b412a78e289d7c980c30431b39aed38587807752a0344baaa"
+    },
+    {
+      "bytes": 2094,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p6mA_L1/operator_diagnostics/telemetry/jv_calls.npz",
+      "sha256": "38949745c07b2a842375ea19c6164155524d905b7f2537ebd4167364bb91956d"
+    },
+    {
+      "bytes": 32147,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p6mA_L1/operator_diagnostics/telemetry/jv_details.npz",
+      "sha256": "5e5747a85b2ff2283cf4b88f3b6c16d16c37d386bea90a6b0b72302047d269bb"
+    },
+    {
+      "bytes": 524,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p6mA_L1/operator_diagnostics/telemetry/telemetry_summary.json",
+      "sha256": "76c8f86ea6297269c23c2acab5e154d4e62150c99316ba5bcaae2d7c0010734b"
+    },
+    {
+      "bytes": 754,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p7mA_L1/k6/summary.json",
+      "sha256": "8c335828c7974366e649c4a975d9aceb75dab4e8eb1755881eea317a3f8b57ea"
+    },
+    {
+      "bytes": 11058,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p7mA_L1/k6/telemetry/eigensolver_pairs.npz",
+      "sha256": "208b239ce1e111abcdf9fe2bec88047f5f23967347616281b8875b31b9d5682d"
+    },
+    {
+      "bytes": 112723,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p7mA_L1/k6/telemetry/jv_calls.csv",
+      "sha256": "821df584996c26014e0d981b2737bd6cca725fe5a0746148c072efbbf548b608"
+    },
+    {
+      "bytes": 7249,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p7mA_L1/k6/telemetry/jv_calls.npz",
+      "sha256": "f39a0c4b435a0e465e98a16524997d6c4e8655eb364c35deb96021ac656955bd"
+    },
+    {
+      "bytes": 3736,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p7mA_L1/k6/telemetry/jv_details.npz",
+      "sha256": "dfef6af19baf635024a99acdd88f894f53e9ecb5d022ff0e7e3b9bef18f045e5"
+    },
+    {
+      "bytes": 11803,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p7mA_L1/k6/telemetry/ritz_pairs.npz",
+      "sha256": "f75b886767e6ad278e41ac8db7e2e78426fe0d05eacfce6ea9ead88ba6a115b4"
+    },
+    {
+      "bytes": 1208,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p7mA_L1/k6/telemetry/telemetry_summary.json",
+      "sha256": "7da26b131eb4b3635d31dc2d1b4a14dea4a8e9958363373e93273ed7e8ad34c7"
+    },
+    {
+      "bytes": 10119,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p7mA_L1/operator_diagnostics/jv_step_outputs.npz",
+      "sha256": "0f9015f00c0607d41998e35be7be36aa35b8c3354137d9fe96177e3cb88a4d80"
+    },
+    {
+      "bytes": 5866,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p7mA_L1/operator_diagnostics/summary.json",
+      "sha256": "aad660b9f3b0932197eb7b72b42995b63632e2938bdd467cd141f6fc2eedc462"
+    },
+    {
+      "bytes": 6177,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p7mA_L1/operator_diagnostics/telemetry/jv_calls.csv",
+      "sha256": "ad096bbc32692abe43e1880dc9ffaf99b03429d42472dfaf8504948bba1c3203"
+    },
+    {
+      "bytes": 2102,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p7mA_L1/operator_diagnostics/telemetry/jv_calls.npz",
+      "sha256": "cee615e01f482ec1462ea1b1c11a98409be7aa47ec49225f3cee0508cf77794c"
+    },
+    {
+      "bytes": 32146,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p7mA_L1/operator_diagnostics/telemetry/jv_details.npz",
+      "sha256": "2d83988ed9f2aeb635f1212e300e479f6ea1e972cc2d04a2653e1263739e4c16"
+    },
+    {
+      "bytes": 524,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_cooling_0p7mA_L1/operator_diagnostics/telemetry/telemetry_summary.json",
+      "sha256": "76c8f86ea6297269c23c2acab5e154d4e62150c99316ba5bcaae2d7c0010734b"
+    },
+    {
+      "bytes": 739,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p15mA_L1/k6/summary.json",
+      "sha256": "77d41b6ab812cae679fac856fb63308628fcb8b0e3edffa5725b83db32944b2d"
+    },
+    {
+      "bytes": 10692,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p15mA_L1/k6/telemetry/eigensolver_pairs.npz",
+      "sha256": "dd9fe221868ad608c2327a79ec26557f2c5adc7a1e709e0578f273b0b07a5576"
+    },
+    {
+      "bytes": 281115,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p15mA_L1/k6/telemetry/jv_calls.csv",
+      "sha256": "7e8679a8625e15cc120f30845b790641c14866cf651a45f727d280f8c94453b4"
+    },
+    {
+      "bytes": 14799,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p15mA_L1/k6/telemetry/jv_calls.npz",
+      "sha256": "9be23d9a279a076a9b24e9c0d1423b48f31973fbcbd4c449c6a2919531c55d94"
+    },
+    {
+      "bytes": 3664,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p15mA_L1/k6/telemetry/jv_details.npz",
+      "sha256": "f3d796ae76354f0cb27f05602589a3da8f07ad171f2f85120f1421a5e67dcd96"
+    },
+    {
+      "bytes": 11437,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p15mA_L1/k6/telemetry/ritz_pairs.npz",
+      "sha256": "80d579cbb6f0d9e53c23c223a3a7266dd7a03e641ed2b38b06b63ad8ac8b6a60"
+    },
+    {
+      "bytes": 1192,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p15mA_L1/k6/telemetry/telemetry_summary.json",
+      "sha256": "73c146c5054b167a2221a1538a0f47dbfcdf9f8100c7517020821269deb50399"
+    },
+    {
+      "bytes": 10232,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p15mA_L1/operator_diagnostics/jv_step_outputs.npz",
+      "sha256": "466213c214bd509b7472a2e42e9781cb220ed39d72f374c53b49f4478027db09"
+    },
+    {
+      "bytes": 5864,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p15mA_L1/operator_diagnostics/summary.json",
+      "sha256": "0a59c329c7f24cd9d4d5eda3e8f7c4d706d20c7ed68791c64051467674d01afa"
+    },
+    {
+      "bytes": 6102,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p15mA_L1/operator_diagnostics/telemetry/jv_calls.csv",
+      "sha256": "4b7e7eca57ca588b41bf31360938b020a6bb06bfbf2706fca16bc29e7681bd04"
+    },
+    {
+      "bytes": 2089,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p15mA_L1/operator_diagnostics/telemetry/jv_calls.npz",
+      "sha256": "60432dd8c83b17a6c7856228470907c5d4870515387f62dc65d6dbd3d73c85bd"
+    },
+    {
+      "bytes": 32345,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p15mA_L1/operator_diagnostics/telemetry/jv_details.npz",
+      "sha256": "30b059bee6927fc0067e19504da1d9e47d5bbf605abaef1136dfc25008dcd588"
+    },
+    {
+      "bytes": 524,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p15mA_L1/operator_diagnostics/telemetry/telemetry_summary.json",
+      "sha256": "76c8f86ea6297269c23c2acab5e154d4e62150c99316ba5bcaae2d7c0010734b"
+    },
+    {
+      "bytes": 739,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p1mA_L1/k6/summary.json",
+      "sha256": "276c8dffe48e612de2a86216246bdb51001e7e0f329a7d67555d17a3fdb720bf"
+    },
+    {
+      "bytes": 10108,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p1mA_L1/k6/telemetry/eigensolver_pairs.npz",
+      "sha256": "c2ba012158fd42f3b4e0011679beac3d9713d00049feb4d4c9c6dabd0498b9ba"
+    },
+    {
+      "bytes": 272376,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p1mA_L1/k6/telemetry/jv_calls.csv",
+      "sha256": "eda7b61b96b68dd3dee88e64beafa07b753bd5e464878538f4696c17bf62146a"
+    },
+    {
+      "bytes": 14264,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p1mA_L1/k6/telemetry/jv_calls.npz",
+      "sha256": "cbc97c95babeac8ce3dd3caf1162747206ae68ee2a7678940802b1063918ab10"
+    },
+    {
+      "bytes": 3744,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p1mA_L1/k6/telemetry/jv_details.npz",
+      "sha256": "f2c4df1fae8a5f4691a27c983e474a83b345a13c61499c80a5bf63fcbe5ecf7e"
+    },
+    {
+      "bytes": 10852,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p1mA_L1/k6/telemetry/ritz_pairs.npz",
+      "sha256": "7e4565455f4fbc55aa0389e92e42708797b2db045170751e165725a492837f5a"
+    },
+    {
+      "bytes": 1192,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p1mA_L1/k6/telemetry/telemetry_summary.json",
+      "sha256": "f9524d63a2d9c739a02414c18eda23381b8f18b3ff204899e49eba5f078fdc16"
+    },
+    {
+      "bytes": 10266,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p1mA_L1/operator_diagnostics/jv_step_outputs.npz",
+      "sha256": "62fcc27d702da31b7a80c56d13eb753a1b3bcceba6708a49c876e5fbe35c7291"
+    },
+    {
+      "bytes": 5871,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p1mA_L1/operator_diagnostics/summary.json",
+      "sha256": "c96ce92acf651a409352844fa545e28e434672a29bf614364f418e2d7aa9b32d"
+    },
+    {
+      "bytes": 6183,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p1mA_L1/operator_diagnostics/telemetry/jv_calls.csv",
+      "sha256": "df62c3f7e5558a822fe7587b181c67140b0660fe695381409b24ed2f7e32f4ab"
+    },
+    {
+      "bytes": 2093,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p1mA_L1/operator_diagnostics/telemetry/jv_calls.npz",
+      "sha256": "03c046c8170cafa1dd600a426526c487c733bd2c1190e0aa958d04995768a700"
+    },
+    {
+      "bytes": 32399,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p1mA_L1/operator_diagnostics/telemetry/jv_details.npz",
+      "sha256": "c27bf58bc75895bf71349f03e9e21183bda62aa9aec44ba1b4f64bcdb091c74e"
+    },
+    {
+      "bytes": 524,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p1mA_L1/operator_diagnostics/telemetry/telemetry_summary.json",
+      "sha256": "76c8f86ea6297269c23c2acab5e154d4e62150c99316ba5bcaae2d7c0010734b"
+    },
+    {
+      "bytes": 757,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p25mA_L1/k6/summary.json",
+      "sha256": "f6446fc8ecfc4d406f12be23a1d37f2451f9c2ddd7743b103e6379d166db8155"
+    },
+    {
+      "bytes": 10913,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p25mA_L1/k6/telemetry/eigensolver_pairs.npz",
+      "sha256": "49942e0528d128caf147629ffb135a938c07c85e4c2121856884c894b605b6c2"
+    },
+    {
+      "bytes": 209795,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p25mA_L1/k6/telemetry/jv_calls.csv",
+      "sha256": "e85c0646d1121855e39439d483369ce5b1072f36a71a5228a8aa4a6ff14eaa9c"
+    },
+    {
+      "bytes": 11852,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p25mA_L1/k6/telemetry/jv_calls.npz",
+      "sha256": "0ad494dcc5c97b17e1d26531c6f5a77cd762b95c09879250866b7876333bda5b"
+    },
+    {
+      "bytes": 3672,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p25mA_L1/k6/telemetry/jv_details.npz",
+      "sha256": "8df1a51859d3d56630ef8dae915023cc4d2241912f83424549c5c276e3abbbb8"
+    },
+    {
+      "bytes": 11657,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p25mA_L1/k6/telemetry/ritz_pairs.npz",
+      "sha256": "7d3dfe04254e0b4192f1991c0d7064e8917818a5f147dd5fd3d5fe0f3cf696f3"
+    },
+    {
+      "bytes": 1211,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p25mA_L1/k6/telemetry/telemetry_summary.json",
+      "sha256": "fb6e353a164910020d14692b39fce5ccf90c69e92c0f5889ab01271436c799dd"
+    },
+    {
+      "bytes": 10131,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p25mA_L1/operator_diagnostics/jv_step_outputs.npz",
+      "sha256": "73612e1e9dcdf5f53bf861683723b43d83bef383fca32fa417de6d135d9afba8"
+    },
+    {
+      "bytes": 5871,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p25mA_L1/operator_diagnostics/summary.json",
+      "sha256": "f08bd6241a3b566dd69cdf8c837d24e6b9011f531c7a96628eaf82489d16a430"
+    },
+    {
+      "bytes": 6164,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p25mA_L1/operator_diagnostics/telemetry/jv_calls.csv",
+      "sha256": "7e59f4ab4ed2569e7ecd5ff29dedc4741c3a4e6d3d94c9c32f3075bcd7e891bd"
+    },
+    {
+      "bytes": 2105,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p25mA_L1/operator_diagnostics/telemetry/jv_calls.npz",
+      "sha256": "19d8f7b1107643cb7cd7065e9a6e1712ce7feec8869e8373278cf52116e4ad2a"
+    },
+    {
+      "bytes": 32170,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p25mA_L1/operator_diagnostics/telemetry/jv_details.npz",
+      "sha256": "5e617d4bccc5cd19e95709c8c4917879dab87c98f55a11698e7150b5dd23838a"
+    },
+    {
+      "bytes": 524,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p25mA_L1/operator_diagnostics/telemetry/telemetry_summary.json",
+      "sha256": "76c8f86ea6297269c23c2acab5e154d4e62150c99316ba5bcaae2d7c0010734b"
+    },
+    {
+      "bytes": 739,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p2mA_L1/k6/summary.json",
+      "sha256": "117d0439878d8cf4f3a5e8389d3bab38257967b4c98be7bc4696c0dbce1fb7de"
+    },
+    {
+      "bytes": 10833,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p2mA_L1/k6/telemetry/eigensolver_pairs.npz",
+      "sha256": "c4c0d7143c6423ed6093227ffc4d0f69233ad550e602725a0722f2554721e09e"
+    },
+    {
+      "bytes": 237838,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p2mA_L1/k6/telemetry/jv_calls.csv",
+      "sha256": "fdbfcc585351d741cc09df62ae6e024f07ba70f2d75c0eda2c31c1130fa3fb48"
+    },
+    {
+      "bytes": 12931,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p2mA_L1/k6/telemetry/jv_calls.npz",
+      "sha256": "e561dd95cc6325787a96b9d5e6f8cd6c094a0e7d4c60459087004abec0c7ba80"
+    },
+    {
+      "bytes": 3656,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p2mA_L1/k6/telemetry/jv_details.npz",
+      "sha256": "79d1d70d7cbcfb023ae5199e1222a11152d51bb62dd2893cc4afbec219e37640"
+    },
+    {
+      "bytes": 11579,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p2mA_L1/k6/telemetry/ritz_pairs.npz",
+      "sha256": "2e10e82981d5906be56a71e448a7f8943643de78d3d633d980e25a4936cb405c"
+    },
+    {
+      "bytes": 1192,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p2mA_L1/k6/telemetry/telemetry_summary.json",
+      "sha256": "766ae3b710422ab4a6fe2fb808504b087ec7e2a569365dfde645bbfa11571730"
+    },
+    {
+      "bytes": 10196,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p2mA_L1/operator_diagnostics/jv_step_outputs.npz",
+      "sha256": "c1f36ae8df3ffda3826504d9446d05cea41a11300a674eb24204bb9bd3e56aac"
+    },
+    {
+      "bytes": 5868,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p2mA_L1/operator_diagnostics/summary.json",
+      "sha256": "57658550341f7b284239d1f00c8824c96c2eeb297fefb5568a3f584184779704"
+    },
+    {
+      "bytes": 6225,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p2mA_L1/operator_diagnostics/telemetry/jv_calls.csv",
+      "sha256": "235ecfdc1360e02bad9669b2cef7244097f1d64a1d5269619b4f912b75d1f5a0"
+    },
+    {
+      "bytes": 2109,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p2mA_L1/operator_diagnostics/telemetry/jv_calls.npz",
+      "sha256": "90f55961858bbb734fea090b8a300837299c00a641119622b72e37f9da5228bd"
+    },
+    {
+      "bytes": 32294,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p2mA_L1/operator_diagnostics/telemetry/jv_details.npz",
+      "sha256": "87c1878c286c4e798d9f59424ec0956ea65c626a29300bcdd7738c33cc46b9b4"
+    },
+    {
+      "bytes": 524,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p2mA_L1/operator_diagnostics/telemetry/telemetry_summary.json",
+      "sha256": "76c8f86ea6297269c23c2acab5e154d4e62150c99316ba5bcaae2d7c0010734b"
+    },
+    {
+      "bytes": 752,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p3mA_L1/k6/summary.json",
+      "sha256": "4b0ec89c4d9e1a963255f26905642ab07a1f0596fdbf7398c922d4267b676a56"
+    },
+    {
+      "bytes": 10875,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p3mA_L1/k6/telemetry/eigensolver_pairs.npz",
+      "sha256": "6c37ba02e61dc101dac07467ac5f01b0ba2a8669db1b50a96a312658ede89cf1"
+    },
+    {
+      "bytes": 177804,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p3mA_L1/k6/telemetry/jv_calls.csv",
+      "sha256": "c30dcc183fedfb19d1f9fb962b866cb3da3cd03bd22f43d734cf9cb1f8486d8f"
+    },
+    {
+      "bytes": 10314,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p3mA_L1/k6/telemetry/jv_calls.npz",
+      "sha256": "b5d577a0e18363e23b912bda3363124fcb1fbb5aa4fbd33f53eb443cc943f01c"
+    },
+    {
+      "bytes": 3727,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p3mA_L1/k6/telemetry/jv_details.npz",
+      "sha256": "baceb12291c34acc27e931b9d817ab893889030451d09dd186e86271fe29a4c1"
+    },
+    {
+      "bytes": 11621,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p3mA_L1/k6/telemetry/ritz_pairs.npz",
+      "sha256": "f6bca0a286b1062aa8c1698b7929559e72622cc8b1e8947545c68eb36db980aa"
+    },
+    {
+      "bytes": 1205,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p3mA_L1/k6/telemetry/telemetry_summary.json",
+      "sha256": "862cdeba231223d518c4d02381c7a841c46370ea83b2acb1c7463dad646016c5"
+    },
+    {
+      "bytes": 10157,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p3mA_L1/operator_diagnostics/jv_step_outputs.npz",
+      "sha256": "be78b84d8fd58f7101da775e2dc909ec3519d0f98c97c8c315e38c575504a636"
+    },
+    {
+      "bytes": 5866,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p3mA_L1/operator_diagnostics/summary.json",
+      "sha256": "be7f71bee00d54750b8b3db810cdb4f06f6e8e50b08b4829da071a10637e24cf"
+    },
+    {
+      "bytes": 5960,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p3mA_L1/operator_diagnostics/telemetry/jv_calls.csv",
+      "sha256": "f03a53f267552b221dd457785884294999a5a4896607fb17594c8acc133c4997"
+    },
+    {
+      "bytes": 2098,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p3mA_L1/operator_diagnostics/telemetry/jv_calls.npz",
+      "sha256": "a16cddc5ddbfcb75aa37bb31260fec40bc79a964e187bf7573d8dddb9fd68a91"
+    },
+    {
+      "bytes": 32204,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p3mA_L1/operator_diagnostics/telemetry/jv_details.npz",
+      "sha256": "1830888738b64cd2012dba4635dfeb8da862a6ddb70cbd34ef9845b3dab39824"
+    },
+    {
+      "bytes": 524,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p3mA_L1/operator_diagnostics/telemetry/telemetry_summary.json",
+      "sha256": "76c8f86ea6297269c23c2acab5e154d4e62150c99316ba5bcaae2d7c0010734b"
+    },
+    {
+      "bytes": 755,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p45mA_L1/k6/summary.json",
+      "sha256": "c5f8027a52021a99ddf83697caa1a5582f8d7f4983185ff0aeb123b40fa6bc16"
+    },
+    {
+      "bytes": 10980,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p45mA_L1/k6/telemetry/eigensolver_pairs.npz",
+      "sha256": "c7fd68210e8d53e8d7f16dab660949056994a25310393a8d21dc9afd4dc159e6"
+    },
+    {
+      "bytes": 123339,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p45mA_L1/k6/telemetry/jv_calls.csv",
+      "sha256": "b9a61a5e1c2e5bfb1e0529022839dfb0241ef067ecb38f096c646b7b0e0d3cba"
+    },
+    {
+      "bytes": 7769,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p45mA_L1/k6/telemetry/jv_calls.npz",
+      "sha256": "96807ce8f4c53cd0ee04e2ecc28957731e8e3afdb1633f99bcd8d48f86123472"
+    },
+    {
+      "bytes": 3706,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p45mA_L1/k6/telemetry/jv_details.npz",
+      "sha256": "b72dc0d9a3beb6954f1cc9d73ac9bd13b68b24201fffa038d117de9f1267f4b0"
+    },
+    {
+      "bytes": 11724,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p45mA_L1/k6/telemetry/ritz_pairs.npz",
+      "sha256": "0da1cc94cddb7e130c874ccef05db7c35ab72b040afa77ecf91d29062ddcbafa"
+    },
+    {
+      "bytes": 1210,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p45mA_L1/k6/telemetry/telemetry_summary.json",
+      "sha256": "bfecf60e916668b98bbb19670402143d9b2072d7807a1933bafbbe1c481b659a"
+    },
+    {
+      "bytes": 10132,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p45mA_L1/operator_diagnostics/jv_step_outputs.npz",
+      "sha256": "66e8760b5b591a578736424e0ddd057940e9cf15a20b37cd0ff12d63686710ca"
+    },
+    {
+      "bytes": 5866,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p45mA_L1/operator_diagnostics/summary.json",
+      "sha256": "c31b42643f7527462d31a6e9889f5f79da6b08cf2873db3cee05fda58133de6b"
+    },
+    {
+      "bytes": 6199,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p45mA_L1/operator_diagnostics/telemetry/jv_calls.csv",
+      "sha256": "6a1236298332b95bf89c987e113d8d5e53196ab4a0d1410bc985c5996ef1118d"
+    },
+    {
+      "bytes": 2109,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p45mA_L1/operator_diagnostics/telemetry/jv_calls.npz",
+      "sha256": "c12cdb5cda0e7476ffcb24af97aea7f075e18bafe4470186c8060b012d2ede3a"
+    },
+    {
+      "bytes": 32172,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p45mA_L1/operator_diagnostics/telemetry/jv_details.npz",
+      "sha256": "739b32270587bb14d27703e80eda6d3d0ef998efd6754e5d7ce1f9f093f62ddf"
+    },
+    {
+      "bytes": 524,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p45mA_L1/operator_diagnostics/telemetry/telemetry_summary.json",
+      "sha256": "76c8f86ea6297269c23c2acab5e154d4e62150c99316ba5bcaae2d7c0010734b"
+    },
+    {
+      "bytes": 753,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p55mA_L1/k6/summary.json",
+      "sha256": "63e15d078ddd4040a32d9229311a5aaba85a108f32d4c1fc7734ccdf18b9c47b"
+    },
+    {
+      "bytes": 10974,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p55mA_L1/k6/telemetry/eigensolver_pairs.npz",
+      "sha256": "be03fe47e97c781cc1145d6a2fa41448bcc9624b196dd8592e6922f54128e932"
+    },
+    {
+      "bytes": 111453,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p55mA_L1/k6/telemetry/jv_calls.csv",
+      "sha256": "c688266f45dea8cbfa368e242bdc4af614ddbca38f63ac577239385e1f7d7dff"
+    },
+    {
+      "bytes": 7255,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p55mA_L1/k6/telemetry/jv_calls.npz",
+      "sha256": "6d5a2ab7c9b4037ba7f73bc35093029dfa0dcdc27a1a6b1a3c6474cf0e2badbd"
+    },
+    {
+      "bytes": 3726,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p55mA_L1/k6/telemetry/jv_details.npz",
+      "sha256": "45d5292978699f63cc764ee1609d6e4e7c5d78d1801c682c71994225f5268c37"
+    },
+    {
+      "bytes": 11719,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p55mA_L1/k6/telemetry/ritz_pairs.npz",
+      "sha256": "b4ff85e2ae135573ed1d555f58c2875213ec20a18f785bee4c40cc6e8c47d673"
+    },
+    {
+      "bytes": 1208,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p55mA_L1/k6/telemetry/telemetry_summary.json",
+      "sha256": "dd313a5938ad3d5b046ca8785bb4cbe033bbf2efe51863155a44b5362859f522"
+    },
+    {
+      "bytes": 10111,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p55mA_L1/operator_diagnostics/jv_step_outputs.npz",
+      "sha256": "68382d73698f95b0a7b301764fbab510172f95987c882a2853ccf1c6881e40c7"
+    },
+    {
+      "bytes": 5867,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p55mA_L1/operator_diagnostics/summary.json",
+      "sha256": "b6ace1a20145715faed0ea88b300ad236946afea45f7cc05ec2895c54cdad003"
+    },
+    {
+      "bytes": 6188,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p55mA_L1/operator_diagnostics/telemetry/jv_calls.csv",
+      "sha256": "7ece8eaa17004592b225396eb73b2399f51a85d4fc7a5f4acf374f63a52576cb"
+    },
+    {
+      "bytes": 2103,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p55mA_L1/operator_diagnostics/telemetry/jv_calls.npz",
+      "sha256": "b33ad4f330eb13fcc8adf8305d82e67e9a6c0e4815121f2252d4fd8a2ab20929"
+    },
+    {
+      "bytes": 32137,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p55mA_L1/operator_diagnostics/telemetry/jv_details.npz",
+      "sha256": "2ca748465c4da354eb23e1f85b601471c95a2bf5192e7a940c6bb50b30728c26"
+    },
+    {
+      "bytes": 524,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p55mA_L1/operator_diagnostics/telemetry/telemetry_summary.json",
+      "sha256": "76c8f86ea6297269c23c2acab5e154d4e62150c99316ba5bcaae2d7c0010734b"
+    },
+    {
+      "bytes": 756,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p5mA_L1/k6/summary.json",
+      "sha256": "86b5f281d83f143d800208465fa36411e2cf1ad6393f956d327b7817c157be4f"
+    },
+    {
+      "bytes": 11011,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p5mA_L1/k6/telemetry/eigensolver_pairs.npz",
+      "sha256": "c1b0df4455f76813796e1a11632713667953ae3d25192b564c968d03c992eb61"
+    },
+    {
+      "bytes": 110131,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p5mA_L1/k6/telemetry/jv_calls.csv",
+      "sha256": "0f494160b06f5f9e2f60ae38c8626142af4a6fb57fc018bb2a7168175566d828"
+    },
+    {
+      "bytes": 7219,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p5mA_L1/k6/telemetry/jv_calls.npz",
+      "sha256": "d3e73ea51bff7df47f10f65bdd2d103912ff9f109f5d9cb1c5237a972a9d495c"
+    },
+    {
+      "bytes": 3731,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p5mA_L1/k6/telemetry/jv_details.npz",
+      "sha256": "4453c33036ef062dc1b48cc069c96cb3227273f993f20dff34bb382b77a33131"
+    },
+    {
+      "bytes": 11756,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p5mA_L1/k6/telemetry/ritz_pairs.npz",
+      "sha256": "a5ddc87fd4f06e6bd957723c4252758c77e9e8340735bdbf398b0de26a04f6cc"
+    },
+    {
+      "bytes": 1210,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p5mA_L1/k6/telemetry/telemetry_summary.json",
+      "sha256": "d4246b4bf102fe4fbd1dbc3ecfc7ebb3fa2b5a53bde78b105f97387200adc641"
+    },
+    {
+      "bytes": 10127,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p5mA_L1/operator_diagnostics/jv_step_outputs.npz",
+      "sha256": "51dfaf2b55d8c79f5360b1df56e0035733c8a25284c32421ef4dbc46b8b0db4a"
+    },
+    {
+      "bytes": 5867,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p5mA_L1/operator_diagnostics/summary.json",
+      "sha256": "e065bed3eebcfa30d8ccba3df607cbd75bfd9266b6eaf9a6fa7523436dc0c6fa"
+    },
+    {
+      "bytes": 6211,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p5mA_L1/operator_diagnostics/telemetry/jv_calls.csv",
+      "sha256": "29442ca0918ec3820cd754df8c57dce6adaa028a9d7652566a184473e4aa10f8"
+    },
+    {
+      "bytes": 2111,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p5mA_L1/operator_diagnostics/telemetry/jv_calls.npz",
+      "sha256": "a63995735fd8d0f29e184369a36060ef2fe4ec9752dc16f75894319080f5628b"
+    },
+    {
+      "bytes": 32166,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p5mA_L1/operator_diagnostics/telemetry/jv_details.npz",
+      "sha256": "31ca99d0c2bb3a5f21e7c0b2179ab4fe69d1c80888f12fe77b1e5a0e0c95ec9f"
+    },
+    {
+      "bytes": 524,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p5mA_L1/operator_diagnostics/telemetry/telemetry_summary.json",
+      "sha256": "76c8f86ea6297269c23c2acab5e154d4e62150c99316ba5bcaae2d7c0010734b"
+    },
+    {
+      "bytes": 753,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p65mA_L1/k6/summary.json",
+      "sha256": "318665b1b7a35e001329af63a2b70bcb72f16430906c29b490343b9acd5f4b75"
+    },
+    {
+      "bytes": 11018,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p65mA_L1/k6/telemetry/eigensolver_pairs.npz",
+      "sha256": "af1a5a7d02af279cbee316e2fca20479e83f60d94e533e09c876e59dbb3f5af1"
+    },
+    {
+      "bytes": 100920,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p65mA_L1/k6/telemetry/jv_calls.csv",
+      "sha256": "0d3aba1fd78e72a02041e62c09c3c4dbdbc07124ef3bf619ce69fbb4723e7f52"
+    },
+    {
+      "bytes": 6744,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p65mA_L1/k6/telemetry/jv_calls.npz",
+      "sha256": "573c6f6ed9094499fe69fb501eef21cbff06175c71787bb405a917073d79cbc6"
+    },
+    {
+      "bytes": 3743,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p65mA_L1/k6/telemetry/jv_details.npz",
+      "sha256": "8746258af03bb3469e5e91920c5788b4aeaf6c5ca8ffa0f8a0993243faf3cd05"
+    },
+    {
+      "bytes": 11764,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p65mA_L1/k6/telemetry/ritz_pairs.npz",
+      "sha256": "30ccfa60459bddfd84ee78ec0beb74d0c5bf8e2a1bc329161d0a39534a53cb16"
+    },
+    {
+      "bytes": 1207,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p65mA_L1/k6/telemetry/telemetry_summary.json",
+      "sha256": "edf6446c85f4470f67323999c150f2a938327485dfcbaef252ff88cb24255ac9"
+    },
+    {
+      "bytes": 10147,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p65mA_L1/operator_diagnostics/jv_step_outputs.npz",
+      "sha256": "84ca028e4e4dc8dd0715f08ab809bbae77d02d1f17d0b7501eed64c861509ea0"
+    },
+    {
+      "bytes": 5862,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p65mA_L1/operator_diagnostics/summary.json",
+      "sha256": "624ec89b85c4d34f71990649a9a405ada6b0e1f65816d4c8a6ed25e3d80672b8"
+    },
+    {
+      "bytes": 6113,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p65mA_L1/operator_diagnostics/telemetry/jv_calls.csv",
+      "sha256": "9f53f3e41b8a6f20ec8ad95bf609cf39a3f2d7ab0dda04c00d928b0c727ac624"
+    },
+    {
+      "bytes": 2101,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p65mA_L1/operator_diagnostics/telemetry/jv_calls.npz",
+      "sha256": "4f53ecd8052c5fb030929468040c18db1ca8f5e314a3394d9b20ca7c30abdc18"
+    },
+    {
+      "bytes": 32172,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p65mA_L1/operator_diagnostics/telemetry/jv_details.npz",
+      "sha256": "ba199539aade9d725bf1535e32829d8622ed281aa3091287fa14d8642214a494"
+    },
+    {
+      "bytes": 524,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p65mA_L1/operator_diagnostics/telemetry/telemetry_summary.json",
+      "sha256": "76c8f86ea6297269c23c2acab5e154d4e62150c99316ba5bcaae2d7c0010734b"
+    },
+    {
+      "bytes": 752,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p6mA_L1/k6/summary.json",
+      "sha256": "4dee717960de7f79a6c3ba07bf95f2d30b66cbbf2b56c6165a8bc8b86a305333"
+    },
+    {
+      "bytes": 11036,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p6mA_L1/k6/telemetry/eigensolver_pairs.npz",
+      "sha256": "16cd6f9fe48475ace3e84a8d38c98488e648bf0c0f221958591f5454f6e47d49"
+    },
+    {
+      "bytes": 101319,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p6mA_L1/k6/telemetry/jv_calls.csv",
+      "sha256": "47af5ce8fd990da6a538b199bc147b0d39a8cd2182bce5d361817f622df603bc"
+    },
+    {
+      "bytes": 6766,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p6mA_L1/k6/telemetry/jv_calls.npz",
+      "sha256": "c3c7d374c7b689a6d6a519c13d782491de628d4fd73003abf8c1bd1547bf1678"
+    },
+    {
+      "bytes": 3765,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p6mA_L1/k6/telemetry/jv_details.npz",
+      "sha256": "4fb7e7ee8a4a3808b4726f8fbfd6f5d0bc3563e832e49a140336e735aae00eae"
+    },
+    {
+      "bytes": 11780,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p6mA_L1/k6/telemetry/ritz_pairs.npz",
+      "sha256": "92e10c2895f8489210c3fd005ce8f7e023f701bb6505cde2d7843e20d35ecc1f"
+    },
+    {
+      "bytes": 1206,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p6mA_L1/k6/telemetry/telemetry_summary.json",
+      "sha256": "aa0ac09d5856192626d7bd80b7c494dc781c30e29abec5313ca21aec6ccdf636"
+    },
+    {
+      "bytes": 10142,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p6mA_L1/operator_diagnostics/jv_step_outputs.npz",
+      "sha256": "82b21bd37240ed145ca5e44da3705db8f8f591d286aac558c3d75823a02acd85"
+    },
+    {
+      "bytes": 5868,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p6mA_L1/operator_diagnostics/summary.json",
+      "sha256": "918de9e193bb6a76167c687bb5baca88de9b94d7a4e8d20ddd1750443f6e1144"
+    },
+    {
+      "bytes": 6044,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p6mA_L1/operator_diagnostics/telemetry/jv_calls.csv",
+      "sha256": "beede1aba6917c44ea95dc7d27e4ecb9f44da79fc44e988f9bb961f02b4153c3"
+    },
+    {
+      "bytes": 2098,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p6mA_L1/operator_diagnostics/telemetry/jv_calls.npz",
+      "sha256": "d6bcd1e7dcddb0f60dae0086e174ca11adaf4fc6a367d831ed7ae5ac3ce1ad23"
+    },
+    {
+      "bytes": 32176,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p6mA_L1/operator_diagnostics/telemetry/jv_details.npz",
+      "sha256": "fd6f7eabda71e2aae74104da5f1b484f00f20e9791337dc298a2ca57519e80bf"
+    },
+    {
+      "bytes": 524,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p6mA_L1/operator_diagnostics/telemetry/telemetry_summary.json",
+      "sha256": "76c8f86ea6297269c23c2acab5e154d4e62150c99316ba5bcaae2d7c0010734b"
+    },
+    {
+      "bytes": 754,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p7mA_L1/k6/summary.json",
+      "sha256": "e649583bdce68272f393d655894969748d27b32a319cb400fd181110a0aa466b"
+    },
+    {
+      "bytes": 11001,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p7mA_L1/k6/telemetry/eigensolver_pairs.npz",
+      "sha256": "d87ecc07263672c20f9997824d1779d5f298cd5f1229f20a0bc1b13a30ee9ade"
+    },
+    {
+      "bytes": 100418,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p7mA_L1/k6/telemetry/jv_calls.csv",
+      "sha256": "84067663d49b727bc8c85cae0ef1a99945db85b1628e502b89d1cca30435687f"
+    },
+    {
+      "bytes": 6715,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p7mA_L1/k6/telemetry/jv_calls.npz",
+      "sha256": "8bbd9852c4d74402f766e9a292c049527a999d5d433e91581d50b7714913a916"
+    },
+    {
+      "bytes": 3697,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p7mA_L1/k6/telemetry/jv_details.npz",
+      "sha256": "063704f41d8d0105cdf7379e08a13a22d828c7b34c7d606a9ea523fed0356d7f"
+    },
+    {
+      "bytes": 11746,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p7mA_L1/k6/telemetry/ritz_pairs.npz",
+      "sha256": "9974a7382a5982b3b006cc3ff3c2580d650412cd2b69153f0a8cea1e330112aa"
+    },
+    {
+      "bytes": 1206,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p7mA_L1/k6/telemetry/telemetry_summary.json",
+      "sha256": "622359333d1ed8e13aaeb966c2acce67e2f5486b981c264b48e58ccdd99fb9ee"
+    },
+    {
+      "bytes": 10157,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p7mA_L1/operator_diagnostics/jv_step_outputs.npz",
+      "sha256": "6b06cfc8ce77776b6da8db5872348f177dadea7d7c23a72f1f398c157d0f70e8"
+    },
+    {
+      "bytes": 5867,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p7mA_L1/operator_diagnostics/summary.json",
+      "sha256": "7abe9ef284afc0447217da6d4a0d8512421f1a6470946ca3f12e87f14ad305c4"
+    },
+    {
+      "bytes": 6208,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p7mA_L1/operator_diagnostics/telemetry/jv_calls.csv",
+      "sha256": "064e931383db3167d6605f191ce401cc7357d03c076aa1658078b1008c37b8a4"
+    },
+    {
+      "bytes": 2102,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p7mA_L1/operator_diagnostics/telemetry/jv_calls.npz",
+      "sha256": "271db2766fafdac615661013aa20f89242d149c53c35ef988b2e3590729d4575"
+    },
+    {
+      "bytes": 32201,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p7mA_L1/operator_diagnostics/telemetry/jv_details.npz",
+      "sha256": "511db5d3157b073263262af6ee4b52cc51eaa952fc8bc5d5d0c0991eb63fc8b7"
+    },
+    {
+      "bytes": 524,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/R1/cases/NOM_heating_0p7mA_L1/operator_diagnostics/telemetry/telemetry_summary.json",
+      "sha256": "76c8f86ea6297269c23c2acab5e154d4e62150c99316ba5bcaae2d7c0010734b"
+    },
+    {
+      "bytes": 1001,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/stages/R0.json",
+      "sha256": "37df0dac3612e390f81d3c8df9b7f778b54e5d74ee847bd60d3fe9cf93471825"
+    },
+    {
+      "bytes": 316,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/stages/R1.json",
+      "sha256": "3123ad189aed7008c0bd3270448ecaad9cca0d5b6126b0fa4313b002a547b40a"
+    },
+    {
+      "bytes": 307,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/l2_anchor_qualification.csv",
+      "sha256": "9e1470ce4f76d40f59b2cfad8ee70c368b3c21b3a2e6a92aecf7226a95cf9ddd"
+    },
+    {
+      "bytes": 2431,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/machine_readable_summary.json",
+      "sha256": "72d56d532bc5c65e8f483bca9a8026eaca2eaed5ad0375e7c7574b40e33d9abb"
+    },
+    {
+      "bytes": 1315,
+      "path": "outputs/tables/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/terminal.json",
+      "sha256": "2810891a2ccea1e605ecd665ea253fbd339bef32657d365be8e2e2e5eda6097c"
+    }
+  ],
+  "run_id": "Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1",
+  "schema_version": "q2_cc_b_branch_stability_transition_bracket_manifest_v1"
+}

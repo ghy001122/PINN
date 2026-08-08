@@ -1,0 +1,2 @@
+branch,anchor_role,current_mA,L1_k10_status,L2_equilibrium_status,L2_k6_status,L2_k10_status,qualification_status,reason
+NA,NA,NA,SKIPPED_NOT_ELIGIBLE,SKIPPED_NOT_ELIGIBLE,SKIPPED_NOT_ELIGIBLE,SKIPPED_NOT_ELIGIBLE,SKIPPED_NUMERICAL_SEMANTICS_NOT_CLOSED,R2 and R3 were ineligible after the R1 numerical stop
