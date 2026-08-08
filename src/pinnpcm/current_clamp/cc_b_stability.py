@@ -70,6 +70,37 @@ def _mass_norm(vector: np.ndarray, mass: np.ndarray) -> float:
     return float(np.sqrt(np.sum(mass * np.abs(values) ** 2)))
 
 
+def temperature_componentwise_inf_norm(temperature_K: np.ndarray) -> float:
+    """Return the maximum absolute temperature component for any array layout."""
+
+    values = np.asarray(temperature_K, dtype=float)
+    if values.size == 0:
+        raise ValueError("temperature state must not be empty")
+    return float(np.max(np.abs(values)))
+
+
+def centered_jv_step_size_K(
+    base_temperature_K: np.ndarray,
+    direction: np.ndarray,
+    *,
+    step_multiplier: float = 1.0,
+) -> float:
+    """Return the frozen central-difference step using componentwise norms."""
+
+    values = np.asarray(direction, dtype=float)
+    magnitude = float(np.max(np.abs(values))) if values.size else 0.0
+    if magnitude == 0.0:
+        return 0.0
+    unit = values / magnitude
+    epsilon = np.finfo(float).eps
+    return float(
+        step_multiplier
+        * epsilon ** (1.0 / 3.0)
+        * max(1.0, temperature_componentwise_inf_norm(base_temperature_K))
+        / max(1.0, float(np.max(np.abs(unit))))
+    )
+
+
 def _apply_operator(
     model: CurrentClamp2DModel,
     base_temperature_K: np.ndarray,
@@ -101,12 +132,10 @@ def _apply_operator(
             )
         return result
     unit = direction / magnitude
-    epsilon = np.finfo(float).eps
-    h = (
-        step_multiplier
-        * epsilon ** (1.0 / 3.0)
-        * max(1.0, float(np.linalg.norm(base_temperature_K, ord=np.inf)))
-        / max(1.0, float(np.linalg.norm(unit, ord=np.inf)))
+    h = centered_jv_step_size_K(
+        base_temperature_K,
+        direction,
+        step_multiplier=step_multiplier,
     )
     telemetry.dynamic_rhs_evaluations += 2
     electrical_evaluations: list[dict[str, Any]] = []
