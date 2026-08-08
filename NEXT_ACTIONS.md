@@ -18,7 +18,7 @@
   invalidity at Ritz certification: six finite pairs return, but 0/6 meet the
   frozen relative-residual gate. No physical stability sign is certified.
 - Uniform, L2, k10, budget, formal matrix, CC-C, data, PINN, CC01, CC06,
-  inverse, and refusal were not executed and remain unauthorized.
+  inverse, and refusal were not executed and are not authorized.
 
 ## Single Next Priority
 

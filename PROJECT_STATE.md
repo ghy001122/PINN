@@ -26,23 +26,11 @@
 
 ## CC-B Stability Telemetry Closure
 
-| Item | Result | Evidence boundary |
-| --- | --- | --- |
-| diagnostic input | nominal/heating/0.4 mA/L1 saved and read back; residual, ledger, range, and hashes pass | Valid non-voting local input only |
-| operator/Jv | mass, fixed-current, electrical, finite, repeatability, h/h2, unit/sign gates pass | Execution-validity diagnostic |
-| eigensolver | 6/6 finite pairs returned normally | Not yet a certified spectrum |
-| Ritz certification | 0/6; `eta=1.689e-5...3.230e-5 > 1e-6` | Localizes invalidity; no stability sign vote |
-| terminal | `PASS_CC_B_STABILITY_TELEMETRY_CLOSURE`; `implementation_invalidity_localized` | Diagnostic-path closure only |
-| counters | attempts 1, repairs 0, formal 0, matrix 0 | No scientific execution expansion |
-
-The positive raw Ritz values are forbidden as an instability claim because
-their residual certification fails. L2, k10, uniform, budget, formal matrix,
-CC-C, GT, and PINN remain unexecuted.
-
-The parent CC-B terminal result remains invalid and has no scientific vote. It
-does not negate the earlier CC-A admission, prove two-dimensional physical
-instability, or support any 2.5-D/PINN claim. Reopening requires a new identity and explicit
-repair policy.
+The 0.4 mA L1 input and operator/ARPACK execution pass, but 0/6 finite pairs
+meet `eta<=1e-6`. `PASS_CC_B_STABILITY_TELEMETRY_CLOSURE` therefore localizes
+implementation invalidity; it is not a stability verdict. Counters remain
+attempts 1, repairs 0, formal 0, matrix 0. L2, k10, uniform, CC-C, GT, and PINN
+were not executed. Parent CC-B remains invalid/nonvoting; CC-A is unchanged.
 
 ## Current-Clamp CC-A Outcome
 
@@ -105,7 +93,6 @@ as infrastructure provenance only and do not vote on the active S2 route.
 
 ## Boundary
 
-Do not run T2, requalify stability, resume CC-B, or start CC-C, data generation,
-or training without a new explicit authorization. The first admissible
-follow-up is a bounded `Q2_CC_B_STABILITY_REQUALIFICATION_V1`; it cannot weaken
-the frozen Ritz gate or use the uncertified signs as a physical verdict.
+Do not run T2 or any downstream stage without new authorization. The only
+admissible follow-up is bounded `Q2_CC_B_STABILITY_REQUALIFICATION_V1`; it may
+not weaken the Ritz gate or interpret uncertified signs.

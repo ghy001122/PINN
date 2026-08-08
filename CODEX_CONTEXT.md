@@ -28,19 +28,13 @@ load line, and terminal-total-current clamp are absent. S1 is used only as a
 source-scale-anchored device-effective distributed proxy, not an intrinsic
 local VO2 conductivity.
 
-The separately authorized telemetry closure regenerated and persisted the
-nominal-heating 0.4 mA L1 equilibrium before stability, then reproduced the
-merged-PR32 L1/k6 numerical contract with 256 recorded Jv calls. Input,
-mass, electrical, fixed-current, finite/repeatable Jv, h/h2, ARPACK return,
-artifact, and terminal gates passed. ARPACK returned six finite pairs, but all
-six failed the frozen relative Ritz-residual gate (`eta=1.689e-5...3.230e-5`
-versus `1e-6`). The valid non-voting terminal is therefore telemetry closure
-with `closure_class=implementation_invalidity_localized`, not a certified
-stability result. T2 was not run; attempt count is one and repair count zero.
+Telemetry T1 persisted the 0.4 mA L1 input and reproduced the merged-PR32
+L1/k6 contract. Input/operator/ARPACK paths passed, but 0/6 finite pairs met
+the frozen Ritz gate (`eta=1.689e-5...3.230e-5 > 1e-6`). Thus
+`PASS_CC_B_STABILITY_TELEMETRY_CLOSURE` localizes implementation invalidity;
+it certifies no stability sign. T2 was not run (attempts 1, repairs 0).
 
-Do not interpret the positive raw Ritz values as physical instability: the
-pairs are uncertified. CC-B remains scientifically `forbidden`; uniform,
-L2/k6, k10, the 36-case matrix, CC-C, GT, and all PINN work remain unexecuted.
-A new explicit authorization is required for any stability requalification.
+CC-B science remains `forbidden`; L2, k10, uniform, the formal matrix, CC-C,
+GT, and PINN remain unexecuted and require new authorization.
 Historical PR #29/#30/#31/#32 results, dynamic stops, D0,
 equivalence-v1/v2/v3, and Frozen GT remain immutable.

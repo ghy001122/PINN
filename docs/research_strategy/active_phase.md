@@ -26,10 +26,8 @@ the only dynamic state, the conductive sheet current is constrained to
 inactive external-source metadata and is absent from CC-B equilibrium and
 stability.
 
-The immutable parent CC-B smoke remains `INVALID_CC_B_EXECUTION`. A new,
-versioned, non-voting telemetry task then regenerated and persisted the sole
-nominal-heating 0.4 mA L1 equilibrium before reproducing the frozen L1/k6
-stability path. The terminal disposition is:
+The parent smoke remains `INVALID_CC_B_EXECUTION`. Telemetry T1 persisted the
+0.4 mA L1 input and reproduced the frozen L1/k6 path:
 
 ```text
 PASS_CC_B_STABILITY_TELEMETRY_CLOSURE
@@ -42,22 +40,18 @@ formal_execution_count = 0
 cc_b_matrix_launch_count = 0
 ```
 
-The input, mass, electrical, fixed-current, Jv, ARPACK return, artifact, and
-terminal paths close. Six finite Ritz values were returned, but all six have
-relative residuals `1.689e-5...3.230e-5 > 1e-6`; none is certified. The raw
-positive signs cannot be used as an instability claim. Uniform gates, L2,
-k10, the resource projection, all 36 formal grid-case solutions, CC-C, data
-generation, and PINN work were not executed.
+Input/operator/ARPACK paths close, but 0/6 finite pairs meet the frozen Ritz
+gate (`eta=1.689e-5...3.230e-5 > 1e-6`). No stability sign is certified.
+Uniform, L2, k10, the formal matrix, CC-C, data, and PINN were not executed.
 
 ## Lifecycle And Claims
 
 - CC-A: `executed`; `qualified_supported` bounded lumped branch-admission
   evidence remains unchanged.
 - CC-B implementation: `implemented`; claim status `forbidden`.
-- Parent CC-B smoke: `executed` with `validity=invalid`; claim status
-  `forbidden` and immutable.
-- Stability telemetry closure: `executed`, valid non-voting diagnostic;
-  claim status `forbidden` for physical stability and CC-B science.
+- Parent CC-B smoke: `executed`, invalid, immutable, and `forbidden`.
+- Telemetry closure: `executed`, valid non-voting localization; physical
+  stability and CC-B science remain `forbidden`.
 - CC-B scientific result, 2.5-D judge, CC-C, CC01, CC06, inverse, and all
   positive R1-R3 claims remain `forbidden` / unassessed.
 - Historical global counters remain `scientific_vote=false` and
