@@ -1,0 +1,21 @@
+{
+  "device_voltage_V": 6.807374343066526,
+  "dtype": "float64",
+  "finite": true,
+  "finite_and_range_legal": true,
+  "last_scaled_update_inf": 0.0,
+  "manifest_path": "E:/Python demo/PINN/outputs/tables/q2_current_clamp_hysgeo_cc_b/Q2-CC-B-2D-GATE-20260807-V1/smoke/equilibria/smoke_NOM_heating_0p2mA_L2.json",
+  "manifest_sha256": "b604b9933353101a40ee725373f910bef30689d8f5ecb2f287477f949b98db3a",
+  "maximum_ledger_error": 6.092030643183601e-13,
+  "npz_path": "E:/Python demo/PINN/data/processed/q2_current_clamp_hysgeo_cc_b/Q2-CC-B-2D-GATE-20260807-V1/smoke/equilibria/smoke_NOM_heating_0p2mA_L2.npz",
+  "npz_sha256": "76d010d85ec99542950e5a27e87f57a7987ae971c38b60aec4a04da84af4281e",
+  "scaled_electrical_residual_inf": 1.9360753080098294e-16,
+  "scaled_thermal_residual_inf": 1.0001572857232761e-12,
+  "shape": [
+    50,
+    20
+  ],
+  "temperature_max_K": 331.60910130394643,
+  "temperature_min_K": 331.6091013039412,
+  "temperature_sha256": "a5176c64ff296c95d55c7639c8333020eaad06e0a7b02c05da9cb8dce67e831f"
+}

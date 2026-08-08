@@ -1,0 +1,21 @@
+{
+  "device_voltage_V": 5.895042849006573,
+  "dtype": "float64",
+  "finite": true,
+  "finite_and_range_legal": true,
+  "last_scaled_update_inf": 5.76723202249527e-09,
+  "manifest_path": "E:/Python demo/PINN/outputs/tables/q2_current_clamp_cc_b_stability_telemetry/Q2-CC-B-STABILITY-TELEMETRY-CLOSURE-20260808-V1/attempts/T1/diagnostic_input/equilibria/diagnostic_NOM_heating_0p4mA_L1.json",
+  "manifest_sha256": "ebc5362cc61f9a3e4b0043224840f4a7c4fe75bbb91919ff28c769dbc2deb65a",
+  "maximum_ledger_error": 9.563715551066287e-15,
+  "npz_path": "E:/Python demo/PINN/data/processed/q2_current_clamp_cc_b_stability_telemetry/Q2-CC-B-STABILITY-TELEMETRY-CLOSURE-20260808-V1/attempts/T1/diagnostic_input/equilibria/diagnostic_NOM_heating_0p4mA_L1.npz",
+  "npz_sha256": "55b12deb98e3b1d9d11afc9d3e7ff0f5bfb2b74ef86115a25a6d19f158190e4d",
+  "scaled_electrical_residual_inf": 5.421010862427522e-16,
+  "scaled_thermal_residual_inf": 5.2708226675782296e-14,
+  "shape": [
+    25,
+    10
+  ],
+  "temperature_max_K": 336.4466851437021,
+  "temperature_min_K": 336.4466851437019,
+  "temperature_sha256": "27186052d44b6cfc10e64190e2b4ef93c00d884b5777ba29ab80f60227295e21"
+}

@@ -1,0 +1,14 @@
+{
+  "blas_threads": 1,
+  "cc_b_matrix_launch_count": 0,
+  "config_path": "configs/q2_cc_b_stability_requalification_v1.yaml",
+  "config_sha256": "923c719f802f861f85b13ef4095e9995971f730068c4f097f1795434b3df9eb3",
+  "formal_execution_count": 0,
+  "git_sha": "616fd9b2673f9591ff58900354c38dd3f9a6c1f9",
+  "pr_33_merge_sha": "b3d8e5a67be09f9bc8fcc908c3fe4ca0a8aba4ee",
+  "run_id": "Q2-CC-B-STABILITY-REQUALIFICATION-20260808-V1",
+  "schema_version": "q2_cc_b_stability_requalification_identity_v1",
+  "scientific_vote": false,
+  "task_id": "Q2_CC_B_STABILITY_REQUALIFICATION_V1",
+  "workers": 1
+}
