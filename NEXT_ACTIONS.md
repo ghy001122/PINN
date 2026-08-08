@@ -22,7 +22,7 @@
 
 The current-clamp steady GT/PINN route is terminal under the frozen proxy and
 bounded search. The single next priority is a concise route-closeout and
-manuscript decision that preserves the valid negative Figure 1 atlas. Do not
-launch M1d, GT, C01/C06, another current bracket, or a solver/network portfolio.
-Any future scientific execution must start from a separately justified physical
-premise rather than retuning this model.
+manuscript decision that preserves the valid negative Figure 1 atlas. M1d, GT,
+C01/C06, another current bracket, and any solver/network portfolio are not authorized.
+Any future scientific execution must start from a separately
+justified physical premise rather than retuning this model.
