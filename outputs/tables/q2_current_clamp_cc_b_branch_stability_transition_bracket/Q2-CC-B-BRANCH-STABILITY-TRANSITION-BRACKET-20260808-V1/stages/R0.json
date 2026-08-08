@@ -1,0 +1,29 @@
+{
+  "authority_file_count": 19,
+  "cc_a_root_count": 14,
+  "cpu_time_s": 0.046875,
+  "fixed_lattice_point_count": 26,
+  "frozen_core_files": [
+    {
+      "path": "src/pinnpcm/current_clamp/cc_b_model.py",
+      "sha256": "83db01b13b5dd57b35e95f512029a2f6867a2c55ee50ac2ed5cb6ba80b630135"
+    },
+    {
+      "path": "src/pinnpcm/current_clamp/cc_b_stability.py",
+      "sha256": "fd789bba78ed7e37a770a621a93e2291d92119e84a59f05757f57ba5925c6e1b"
+    },
+    {
+      "path": "src/pinnpcm/current_clamp/cc_b_solver.py",
+      "sha256": "37a25b874a8e30bd0b0367db09649e801b08f79ec1aa70d0a6e03bd3474860dc"
+    },
+    {
+      "path": "src/pinnpcm/current_clamp/cc_b_stability_requalification.py",
+      "sha256": "f0a07d39a43d1d9f6e5feb3725e6147cd69130ee23f0d8b7c70dc30785c2f050"
+    }
+  ],
+  "passed": true,
+  "pr_34_replay_forbidden": true,
+  "pr_34_reuse_identity": "NOM/heating/0.4mA/L1/k6",
+  "schema_version": "q2_cc_b_branch_stability_transition_bracket_r0_v1",
+  "wall_time_s": 0.18842429999494925
+}

@@ -4,36 +4,27 @@
 
 - Delivery/phase: `Q2_SCI_DELIVERY_MODE` /
   `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Checkpoint: `Q2_CC_B_STABILITY_REQUALIFIED_POSITIVE_UNSTABLE`.
+- Checkpoint: `Q2_CC_B_BRANCH_STABILITY_BRACKET_NUMERICAL_STOP`.
 - Preserved prior checkpoint: `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED`.
-- Stability-requalification baseline: `b3d8e5a67be09f9bc8fcc908c3fe4ca0a8aba4ee`.
-- Result branch: `codex/q2-cc-b-stability-requalification-v1`.
+- Branch-bracket baseline: `22ed32018d5463e171be960beb00710a055a1f13`.
+- Result branch: `codex/q2-cc-b-branch-stability-transition-bracket-v1`.
 - Parent disposition: `INVALID_CC_B_EXECUTION`.
 - Requalification disposition: `PASS_CC_B_STABILITY_REQUALIFICATION`.
+- Branch-bracket disposition: `STOP_NUMERICAL_SEMANTICS_NOT_CLOSED`.
 - `cc_b_matrix_launch_count=0`; `scientific_vote=false`;
   `formal_execution_count=0`.
 
 ## Current-Clamp CC-B Outcome
 
-| Item | Result | Evidence boundary |
-| --- | --- | --- |
-| topology | algebraic conductive-sheet-current clamp; temperature-only dynamics; `Cp` inactive | Implemented contract fact |
-| focused tests | `22 passed` after both allowed implementation-repair cycles | Software fact only |
-| 0.2 mA L1/L2 smoke | equilibrium, current, power, thermal ledger, and residual records pass | Valid non-voting local records |
-| 0.4 mA stability | `INVALID_STABILITY` before a publishable case record | Invalid execution; neither stable nor unstable vote |
-| uniform/budget/formal | not executed; matrix launch count zero | Unassessed |
-| CC-C/GT/PINN | not executed and unauthorized | `forbidden` / unassessed |
-
-## CC-B Stability Requalification
-
-The componentwise Jv step correction reduces the authenticated L1 step from
-about `2.0373e-2 K` to `2.0373376e-3 K`. L1/L2 k6/k10 certify every requested
-Ritz pair with maximum `eta=3.375e-7`; the L1 dense full-spectrum reference has
-maximum relative residual `7.484e-14` and agrees with ARPACK in `alpha_tau` to
-`4.235e-8`. All four spectra classify `NOM/heating/0.4 mA` as
-`POSITIVE_UNSTABLE` (`alpha_tau=2.34577...2.34587`). This is valid non-voting
-single-point evidence, not a complete CC-B vote. Uniform, the formal matrix,
-CC-C, GT, and PINN were not executed; formal and matrix counters remain zero.
+- The algebraic conductive-channel clamp is implemented; the parent CC-B smoke
+  remains immutable `INVALID_CC_B_EXECUTION` with only local 0.2 mA evidence.
+- PR #34 validly requalified 0.4 mA as `POSITIVE_UNSTABLE` on L1/L2 k6/k10
+  (`max eta=3.375e-7`); this remains a non-voting single-point result.
+- The new 26-point L1/k6 bracket has 25 valid equilibrium/spectrum records, but
+  heating 0.35 mA hit `CCB_KRYLOV_BUDGET`. Its terminal is invalid; R2/R3 were
+  skipped and 19 transverse-mode records remain diagnostic only.
+- Uniform, formal matrix, CC-C, GT, and PINN are unexecuted/forbidden; formal
+  and matrix counters remain zero.
 
 ## Current-Clamp CC-A Outcome
 
@@ -96,8 +87,7 @@ as infrastructure provenance only and do not vote on the active S2 route.
 
 ## Boundary
 
-Do not launch the formal matrix or any downstream stage without new
-authorization. The only admissible follow-up is a separately preregistered,
-finite current bracket for stable branch/transition coverage; it may not tune
-the current range after inspection or reinterpret this positive spectrum as a
-complete CC-B failure.
+Do not launch R2/R3, the formal matrix, patterned branches, or any downstream
+stage. The only admissible follow-up is a separately preregistered non-voting
+telemetry closure for `NOM/heating/0.35 mA/L1`, without changing the solver,
+budgets, physics, thresholds, or the 25 preserved valid artifacts.

@@ -1,0 +1,31 @@
+{
+  "candidate_boundary_wording": "candidate linear-stability boundary",
+  "cc_b_matrix_launch_count": 0,
+  "claim_status": "forbidden",
+  "detail": "one or more fixed-lattice equilibrium or spectrum gates were invalid",
+  "disposition": "STOP_NUMERICAL_SEMANTICS_NOT_CLOSED",
+  "finished_at_utc": "2026-08-08T13:02:58.198230+00:00",
+  "formal_execution_count": 0,
+  "git_sha": "3e46d9ff60c4764be1c64a730c54111daa5bd84c",
+  "ground_truth_generated": false,
+  "lifecycle_state": "executed",
+  "local_evidence_status": "FORBIDDEN",
+  "pinn_executed": false,
+  "run_id": "Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1",
+  "schema_version": "q2_cc_b_branch_stability_transition_bracket_terminal_v1",
+  "scientific_vote": false,
+  "stable_continuation_wording": "discrete continuation connectivity under frozen major-branch metadata; not dynamic switching reachability",
+  "summary": {
+    "cpu_time_s": 125.359375,
+    "fixed_point_count": 26,
+    "mode_diagnostic_count": 19,
+    "new_scientific_point_count": 25,
+    "numeric_invalid_point_count": 1,
+    "passed": false,
+    "pr_34_reuse_count": 1,
+    "schema_version": "q2_cc_b_branch_stability_transition_bracket_r1_v1",
+    "wall_time_s": 164.96850509999786
+  },
+  "task_id": "Q2_CC_B_BRANCH_STABILITY_TRANSITION_BRACKET_V1",
+  "validity": "invalid"
+}

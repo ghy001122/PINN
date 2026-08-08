@@ -1,0 +1,57 @@
+{
+  "active_area_mean_conductive_state": 0.8350029992822405,
+  "current_set_A": 0.0005,
+  "device_voltage_V": 3.052121257823893,
+  "effective_total_vertical_conductance_W_K": 0.00020600000000000005,
+  "ground_current_A": -0.0004999999999999994,
+  "identity": "NOM_cooling_0p5mA_L1_R1",
+  "last_scaled_update_inf": 0.0,
+  "ledger": {
+    "current_error": 1.5178830414797068e-15,
+    "field_thermal_error": 1.7718825628222334e-13,
+    "pass_all": true,
+    "raw": {
+      "current_set_A": 0.0005,
+      "field_joule_power_W": 0.0015260606289119463,
+      "ground_current_A": -0.0004999999999999994,
+      "lateral_boundary_outflow_W": 0.0,
+      "source_current_A": 0.0005000000000000001,
+      "terminal_power_W": 0.0015260606289119465,
+      "vertical_sink_power_W": 0.0015260606289122167
+    },
+    "terminal_field_power_error": 1.4209162492561267e-16
+  },
+  "metadata": {
+    "cc_b_matrix_launch_count": 0,
+    "execution_role": "new_preregistered_execution",
+    "formal_execution_count": 0,
+    "run_id": "Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1",
+    "scientific_vote": false,
+    "stage": "R1",
+    "task_id": "Q2_CC_B_BRANCH_STABILITY_TRANSITION_BRACKET_V1"
+  },
+  "npz_path": "E:/Python demo/PINN/data/processed/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_cooling_0p5mA_L1_R1.npz",
+  "npz_sha256": "d78e19d24e9ecae17a1f89b68c5a675dad4731c7ba063b3d68ee62013ae7cb96",
+  "scaled_electrical_residual_inf": 3.872150616019659e-16,
+  "scaled_thermal_residual_inf": 1.2402982441937967e-13,
+  "schema_version": "q2_current_clamp_cc_b_equilibrium_v1",
+  "solver": {
+    "cpu_time_s": 0.015625,
+    "damping_history": [],
+    "electrical_subsolves": 2,
+    "failure_detail": null,
+    "full_residual_evaluations": 2,
+    "jv_evaluations": 0,
+    "lgmres_iterations": 0,
+    "line_search_backtracks": 0,
+    "nonlinear_iterations": 0,
+    "residual_inf_history": [
+      1.2402982441937967e-13
+    ],
+    "update_inf_history": [],
+    "wall_time_s": 0.022267899999860674
+  },
+  "source_current_A": 0.0005000000000000001,
+  "stability": null,
+  "unit_conductance_S": 0.00016382049000126912
+}

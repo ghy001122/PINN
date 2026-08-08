@@ -1,0 +1,126 @@
+{
+  "artifacts": [
+    {
+      "bytes": 7373,
+      "path": "data/processed/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_cooling_0p15mA_L1_R1.npz",
+      "sha256": "10fb06c47675f42c23040399eafc8720bc6ba20a29b9894b1a7b184e35882608"
+    },
+    {
+      "bytes": 9804,
+      "path": "data/processed/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_cooling_0p1mA_L1_R1.npz",
+      "sha256": "64a489404b0388dd3beeada1405832a13e38848bb861554932ff517579e5e070"
+    },
+    {
+      "bytes": 8051,
+      "path": "data/processed/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_cooling_0p25mA_L1_R1.npz",
+      "sha256": "82ea00b92ceacdeb1ad1ea670cf6bcad6a1b5f3e5ee1e62a8d8c9e3238ad8af4"
+    },
+    {
+      "bytes": 10157,
+      "path": "data/processed/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_cooling_0p2mA_L1_R1.npz",
+      "sha256": "a39183dc38380972a991aeca2fb167157a0d9a92493382117b45d5ce3f37f8d2"
+    },
+    {
+      "bytes": 9529,
+      "path": "data/processed/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_cooling_0p35mA_L1_R1.npz",
+      "sha256": "75c1c9e24cd563b307dabf96cd8ab53bd2d8dbd4afd87b8264243e15c6ad0142"
+    },
+    {
+      "bytes": 10123,
+      "path": "data/processed/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_cooling_0p3mA_L1_R1.npz",
+      "sha256": "85f9657ff37bf21a1bb080e9f73e27cd75ec01f226bbd3bb848b1c775b83a482"
+    },
+    {
+      "bytes": 8281,
+      "path": "data/processed/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_cooling_0p45mA_L1_R1.npz",
+      "sha256": "14b5dc3ced63451383dac3b0f20fe96b7ad258b2ac68be16b0d3043f14694b90"
+    },
+    {
+      "bytes": 10188,
+      "path": "data/processed/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_cooling_0p4mA_L1_R1.npz",
+      "sha256": "a7ec4eef9a54e60b1662fb3a824dddfcc526e559e254581267b468b0d4a8b582"
+    },
+    {
+      "bytes": 7469,
+      "path": "data/processed/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_cooling_0p55mA_L1_R1.npz",
+      "sha256": "f3f9b494cff363a91cf7f44d84a4479d6dc83d04924ab0d0fb11e3bbac03b485"
+    },
+    {
+      "bytes": 10287,
+      "path": "data/processed/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_cooling_0p5mA_L1_R1.npz",
+      "sha256": "d78e19d24e9ecae17a1f89b68c5a675dad4731c7ba063b3d68ee62013ae7cb96"
+    },
+    {
+      "bytes": 8388,
+      "path": "data/processed/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_cooling_0p65mA_L1_R1.npz",
+      "sha256": "a8624ded67c6de3f5f31d9b895d1ba4c42225694e6f10d975ae82ea3eec16d70"
+    },
+    {
+      "bytes": 10405,
+      "path": "data/processed/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_cooling_0p6mA_L1_R1.npz",
+      "sha256": "56efb82e9fed9913cadf4a24a643b3915de0085d267d4b2f61b165f2207c2d5c"
+    },
+    {
+      "bytes": 10304,
+      "path": "data/processed/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_cooling_0p7mA_L1_R1.npz",
+      "sha256": "094782487dc3f25db553ce3eb92166681e9c79136b37005a6a2d8622b3b00b2b"
+    },
+    {
+      "bytes": 7361,
+      "path": "data/processed/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_heating_0p15mA_L1_R1.npz",
+      "sha256": "5d8d4811c6bc9c3d38accb45d97f307396e773607a4cf8880cc8d6807defbd9d"
+    },
+    {
+      "bytes": 9378,
+      "path": "data/processed/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_heating_0p1mA_L1_R1.npz",
+      "sha256": "c778bd49404e1c27fc13b566065b6a010ab0cfc845104c84502f22f6353286b6"
+    },
+    {
+      "bytes": 7564,
+      "path": "data/processed/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_heating_0p25mA_L1_R1.npz",
+      "sha256": "cce4fee96befde8095a40e0ab430c51e3b926eb26ad24f449fa0e04d1d37278f"
+    },
+    {
+      "bytes": 7477,
+      "path": "data/processed/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_heating_0p2mA_L1_R1.npz",
+      "sha256": "12477de862bb43a4315351d9fc07265029bc2ec49ce883be668d8c7d472718a0"
+    },
+    {
+      "bytes": 9871,
+      "path": "data/processed/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_heating_0p3mA_L1_R1.npz",
+      "sha256": "6b87a164b58391b329e315a8fed81d9ffdf525d78932bdf9e0f7582342394b42"
+    },
+    {
+      "bytes": 8070,
+      "path": "data/processed/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_heating_0p45mA_L1_R1.npz",
+      "sha256": "044b32e2eb061b44129329db2355f76e808bab51dae10a5274c86924267ab52c"
+    },
+    {
+      "bytes": 7993,
+      "path": "data/processed/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_heating_0p55mA_L1_R1.npz",
+      "sha256": "a41f3ad3d763281fc0f7e28b9f9b87194d6b92fecaa4b8c1ae22f7a3e1304abe"
+    },
+    {
+      "bytes": 10314,
+      "path": "data/processed/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_heating_0p5mA_L1_R1.npz",
+      "sha256": "954306520f64ca29dfb2cc1defef53c1600f6d11a43af9be071cc18f7e3b0240"
+    },
+    {
+      "bytes": 7679,
+      "path": "data/processed/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_heating_0p65mA_L1_R1.npz",
+      "sha256": "d6c4ecd119edf23a8fa06e55aa42775e8c9358f88b4d71516ad0539ec01941ac"
+    },
+    {
+      "bytes": 10347,
+      "path": "data/processed/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_heating_0p6mA_L1_R1.npz",
+      "sha256": "07188abeb3051e681954f479f01f25e9a14142698f8872b3ed62f03b8e6f5980"
+    },
+    {
+      "bytes": 10289,
+      "path": "data/processed/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_heating_0p7mA_L1_R1.npz",
+      "sha256": "08660c42c33ca37732c7e9b4027c541bc09fee5d613cc5510252374860ae0410"
+    }
+  ],
+  "run_id": "Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1",
+  "schema_version": "q2_cc_b_branch_stability_transition_bracket_manifest_v1"
+}

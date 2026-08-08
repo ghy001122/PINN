@@ -3,27 +3,24 @@
 ## Authoritative Current Queue
 
 - Phase/checkpoint: `Q2_PHASE1_2P5D_REFERENCE_SOLVER` /
-  `Q2_CC_B_STABILITY_REQUALIFIED_POSITIVE_UNSTABLE`.
+  `Q2_CC_B_BRANCH_STABILITY_BRACKET_NUMERICAL_STOP`.
 - Preserved prior checkpoint: `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED`.
 - Parent disposition: `INVALID_CC_B_EXECUTION`.
 - Requalification disposition: `PASS_CC_B_STABILITY_REQUALIFICATION`.
-- The algebraic conductive-channel clamp implementation exists and focused
-  tests pass, but the paired smoke became invalid at the first 0.4 mA
-  constrained-stability certification.
-- Two non-voting 0.2 mA nominal-heating equilibrium records are valid locally;
-  they do not vote for CC-B physics.
+- Branch-bracket disposition: `STOP_NUMERICAL_SEMANTICS_NOT_CLOSED`.
 - `cc_b_matrix_launch_count=0`, `scientific_vote=false`, and
   `formal_execution_count=0`.
-- The componentwise Jv repair closes L1/L2 k6/k10 and the L1 dense reference.
-  Every requested pair is Ritz-certified; all representations classify the
-  single nominal/heating/0.4 mA equilibrium as `POSITIVE_UNSTABLE`.
-- Uniform, the formal matrix, CC-C, data, PINN, CC01, CC06, inverse, and
-  refusal were not executed and are not authorized.
+- PR #34 validly classifies nominal/heating/0.4 mA as `POSITIVE_UNSTABLE`.
+- The 26-point fixed lattice produced 25 valid equilibria/certified spectra;
+  heating 0.35 mA exhausted the frozen full-residual evaluation budget before
+  spectrum execution. R2/R3, uniform, the formal matrix, CC-C, data, PINN,
+  inverse, and refusal were not executed.
 
 ## Single Next Priority
 
-The requalification task is complete and must not be replayed. If the route is
-reopened, authorize one versioned, finite current bracket whose sole purpose is
-to determine whether a preregistered stable transition-bearing interval exists.
-It must preserve the current artifacts, prohibit post-hoc current selection,
-and stop before the 36-case matrix or any PINN work.
+The bracket identity is terminal and must not be replayed. The single next
+priority is `Q2_CC_B_HEATING_0P35_EQUILIBRIUM_TELEMETRY_CLOSURE_V1`: a bounded,
+non-voting replay of only the failed equilibrium input with frozen solver and
+budgets, persisting predictor/Newton/Krylov/residual-evaluation telemetry. It
+must reuse the other 25 artifacts unchanged and stop before stability-boundary
+refinement, patterned solves, the 36-case matrix, or PINN work.

@@ -1,0 +1,62 @@
+{
+  "schema_version": "q2_cc_b_branch_stability_transition_bracket_summary_v1",
+  "task_id": "Q2_CC_B_BRANCH_STABILITY_TRANSITION_BRACKET_V1",
+  "run_id": "Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1",
+  "disposition": "STOP_NUMERICAL_SEMANTICS_NOT_CLOSED",
+  "validity": "invalid",
+  "lifecycle_state": "executed",
+  "claim_status": "forbidden",
+  "scientific_vote": false,
+  "formal_execution_count": 0,
+  "cc_b_matrix_launch_count": 0,
+  "ground_truth_generated": false,
+  "pinn_executed": false,
+  "code_anchor_sha": "3e46d9ff60c4764be1c64a730c54111daa5bd84c",
+  "pr_34_merge_sha": "22ed32018d5463e171be960beb00710a055a1f13",
+  "fixed_lattice": {
+    "requested_point_count": 26,
+    "new_execution_count": 25,
+    "pr_34_reuse_count": 1,
+    "equilibrium_valid_count": 25,
+    "spectrum_certified_count": 25,
+    "numeric_invalid_count": 1,
+    "maximum_relative_ritz_residual": 6.620597628688294e-7
+  },
+  "blocking_case": {
+    "identity": "NOM/heating/0.35mA/L1",
+    "equilibrium_code": "CCB_KRYLOV_BUDGET",
+    "failure_detail": "full thermal residual evaluation budget exhausted",
+    "spectrum_executed": false
+  },
+  "preregistered_routing": {
+    "R2": "SKIPPED_NUMERICAL_SEMANTICS_NOT_CLOSED",
+    "R3": "SKIPPED_NUMERICAL_SEMANTICS_NOT_CLOSED"
+  },
+  "nonvoting_diagnostics": {
+    "heating_stable_count": 3,
+    "heating_stable_continuation_connected_count": 3,
+    "heating_stable_transition_bearing_count": 0,
+    "cooling_stable_count": 2,
+    "cooling_stable_continuation_connected_count": 0,
+    "transition_positive_unstable_mode_count": 19,
+    "heating_transition_positive_unstable_mode_count": 9,
+    "cooling_transition_positive_unstable_mode_count": 10,
+    "transverse_dominated_mode_count": 19,
+    "minimum_y_gradient_energy_fraction": 0.9544425275721549,
+    "maximum_y_gradient_energy_fraction": 0.9948919412781238,
+    "allowed_interpretation": "diagnostic only; no stable-span, boundary, patterned-branch, CC-B, GT, or PINN claim"
+  },
+  "runtime": {
+    "R0_wall_s": 0.18842429999494925,
+    "R0_cpu_s": 0.046875,
+    "R1_wall_s": 164.96850509999786,
+    "R1_cpu_s": 125.359375,
+    "numerical_wall_s": 165.1569293999928,
+    "numerical_cpu_s": 125.40625,
+    "workers": 1,
+    "blas_threads": 1,
+    "gpu_used": false
+  },
+  "evidence_type": "literature-guided synthetic numerical digital-twin evidence",
+  "next_priority": "Q2_CC_B_HEATING_0P35_EQUILIBRIUM_TELEMETRY_CLOSURE_V1"
+}

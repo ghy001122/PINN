@@ -1,0 +1,68 @@
+{
+  "active_area_mean_conductive_state": 0.7585602444492412,
+  "current_set_A": 0.00065,
+  "device_voltage_V": 4.328838051698608,
+  "effective_total_vertical_conductance_W_K": 0.00020600000000000005,
+  "ground_current_A": -0.0006499999999999975,
+  "identity": "NOM_heating_0p65mA_L1_R1",
+  "last_scaled_update_inf": 2.9060000662988583e-09,
+  "ledger": {
+    "current_error": 4.003208021484947e-15,
+    "field_thermal_error": 2.4660708631586773e-15,
+    "pass_all": true,
+    "raw": {
+      "current_set_A": 0.00065,
+      "field_joule_power_W": 0.0028137447336040898,
+      "ground_current_A": -0.0006499999999999975,
+      "lateral_boundary_outflow_W": 0.0,
+      "source_current_A": 0.0006500000000000001,
+      "terminal_power_W": 0.0028137447336040954,
+      "vertical_sink_power_W": 0.0028137447336040967
+    },
+    "terminal_field_power_error": 2.003682576316426e-15
+  },
+  "metadata": {
+    "cc_b_matrix_launch_count": 0,
+    "execution_role": "new_preregistered_execution",
+    "formal_execution_count": 0,
+    "run_id": "Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1",
+    "scientific_vote": false,
+    "stage": "R1",
+    "task_id": "Q2_CC_B_BRANCH_STABILITY_TRANSITION_BRACKET_V1"
+  },
+  "npz_path": "E:/Python demo/PINN/data/processed/q2_current_clamp_cc_b_branch_stability_transition_bracket/Q2-CC-B-BRANCH-STABILITY-TRANSITION-BRACKET-20260808-V1/equilibria/NOM_heating_0p65mA_L1_R1.npz",
+  "npz_sha256": "d6c4ecd119edf23a8fa06e55aa42775e8c9358f88b4d71516ad0539ec01941ac",
+  "scaled_electrical_residual_inf": 6.58265604723342e-16,
+  "scaled_thermal_residual_inf": 5.26014578168847e-14,
+  "schema_version": "q2_current_clamp_cc_b_equilibrium_v1",
+  "solver": {
+    "cpu_time_s": 0.625,
+    "damping_history": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "electrical_subsolves": 93,
+    "failure_detail": null,
+    "full_residual_evaluations": 93,
+    "jv_evaluations": 44,
+    "lgmres_iterations": 7,
+    "line_search_backtracks": 0,
+    "nonlinear_iterations": 3,
+    "residual_inf_history": [
+      0.0100129609084843,
+      0.00012441999956356748,
+      1.8352005883780508e-08,
+      5.26014578168847e-14
+    ],
+    "update_inf_history": [
+      0.0016244066786613946,
+      1.9694822243082477e-05,
+      2.9060000662988583e-09
+    ],
+    "wall_time_s": 0.7178352000046289
+  },
+  "source_current_A": 0.0006500000000000001,
+  "stability": null,
+  "unit_conductance_S": 0.00015015576749168155
+}
