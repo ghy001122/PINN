@@ -13,6 +13,7 @@ from pinnpcm.current_clamp.cc_b_patterned_branch_mve import (
     PatternedContract,
     _analytic_fi_scaled_per_A,
     _budget_check,
+    _canonicalize_text_lf,
     _write_rows,
     _write_terminal,
     augmented_operator_jv_from_state,
@@ -228,6 +229,11 @@ def test_task_csv_bytes_are_lf_only_and_hash_stable(tmp_path: Path):
     assert path.read_bytes() == first_bytes
     assert b"\r\n" not in first_bytes
     assert first_bytes.endswith(b"\n")
+
+    inherited = tmp_path / "inherited.csv"
+    inherited.write_bytes(b"a,b\r\n1,2\r\n")
+    _canonicalize_text_lf(inherited)
+    assert inherited.read_bytes() == b"a,b\n1,2\n"
 
 
 def test_skipped_l2_stage_writes_explicit_empty_artifacts(tmp_path: Path):

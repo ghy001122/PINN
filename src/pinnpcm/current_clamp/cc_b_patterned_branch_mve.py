@@ -1528,6 +1528,20 @@ def _atomic_write_csv_lf(
     return file_sha256(path)
 
 
+def _canonicalize_text_lf(path: Path) -> None:
+    """Atomically normalize an existing text artifact to Git-stable LF bytes."""
+
+    raw = path.read_bytes()
+    canonical = raw.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    if canonical == raw:
+        return
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with NamedTemporaryFile("wb", dir=path.parent, delete=False) as handle:
+        handle.write(canonical)
+        temporary = Path(handle.name)
+    os.replace(temporary, path)
+
+
 def _write_rows(path: Path, rows: list[dict[str, Any]]) -> str:
     if not rows:
         return _atomic_write_csv_lf(path, [], fieldnames=("status",))
@@ -2657,6 +2671,14 @@ def _plot_patterned_examples(contract: PatternedContract) -> str | None:
 
 
 def _write_combined_manifest(contract: PatternedContract) -> None:
+    # Nested stability telemetry is written by the inherited Windows CSV path.
+    # Canonicalize those bytes before hashing so the manifest remains valid
+    # after Git's text normalization on any checkout.
+    for root in (contract.compact_root, contract.processed_root):
+        for path in sorted(root.rglob("*.csv")):
+            if path.is_file():
+                _canonicalize_text_lf(path)
+
     artifacts: list[dict[str, Any]] = []
     for root in (contract.compact_root, contract.processed_root):
         for path in sorted(root.rglob("*")):
