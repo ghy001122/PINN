@@ -52,7 +52,8 @@ data, and PINN were not executed.
 CC-A remains `executed/qualified_supported` bounded lumped evidence. PR #34 is
 valid non-voting single-point instability evidence. The branch bracket is
 `executed/invalid/forbidden`; CC-B, CC-C, GT, PINN, inverse, and all positive
-R1-R3 claims remain forbidden. Scientific/formal/matrix counters are zero.
+R1-R3 claims remain forbidden. Counters remain `scientific_vote=false`,
+`formal_execution_count=0`, and `cc_b_matrix_launch_count=0`.
 
 ## Stop
 

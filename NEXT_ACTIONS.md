@@ -14,7 +14,7 @@
 - The 26-point fixed lattice produced 25 valid equilibria/certified spectra;
   heating 0.35 mA exhausted the frozen full-residual evaluation budget before
   spectrum execution. R2/R3, uniform, the formal matrix, CC-C, data, PINN,
-  inverse, and refusal were not executed.
+  inverse, and refusal were not executed and are not authorized.
 
 ## Single Next Priority
 
