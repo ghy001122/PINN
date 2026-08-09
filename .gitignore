@@ -560,6 +560,23 @@ outputs/figures/manuscript_ready_gamma_sub/*
 outputs/figures/submission_ready_gamma_sub/*
 !outputs/figures/submission_ready_gamma_sub/figure_5_calibrated_protocol_validation.png
 
+# Q2 GeoState fast-track compact numerical evidence and manuscript figures.
+!data/processed/q2_mf_geostate_mc_pinn_fasttrack_v1/
+data/processed/q2_mf_geostate_mc_pinn_fasttrack_v1/*
+!data/processed/q2_mf_geostate_mc_pinn_fasttrack_v1/Q2-MF-GEOSTATE-MC-PINN-FASTTRACK-20260809-V1-R1/
+!data/processed/q2_mf_geostate_mc_pinn_fasttrack_v1/Q2-MF-GEOSTATE-MC-PINN-FASTTRACK-20260809-V1-R1/**
+!outputs/tables/q2_mf_geostate_mc_pinn_fasttrack_v1/
+outputs/tables/q2_mf_geostate_mc_pinn_fasttrack_v1/*
+!outputs/tables/q2_mf_geostate_mc_pinn_fasttrack_v1/Q2-MF-GEOSTATE-MC-PINN-FASTTRACK-20260809-V1-R1/
+!outputs/tables/q2_mf_geostate_mc_pinn_fasttrack_v1/Q2-MF-GEOSTATE-MC-PINN-FASTTRACK-20260809-V1-R1/**
+!outputs/tables/q2_mf_geostate_mc_pinn_fasttrack_v1/Q2-MF-GEOSTATE-MC-PINN-FASTTRACK-20260809-V1/
+outputs/tables/q2_mf_geostate_mc_pinn_fasttrack_v1/Q2-MF-GEOSTATE-MC-PINN-FASTTRACK-20260809-V1/*
+!outputs/tables/q2_mf_geostate_mc_pinn_fasttrack_v1/Q2-MF-GEOSTATE-MC-PINN-FASTTRACK-20260809-V1/attempt1_invalid_disposition.json
+!outputs/figures/q2_mf_geostate_mc_pinn_fasttrack_v1/
+outputs/figures/q2_mf_geostate_mc_pinn_fasttrack_v1/*
+!outputs/figures/q2_mf_geostate_mc_pinn_fasttrack_v1/Q2-MF-GEOSTATE-MC-PINN-FASTTRACK-20260809-V1-R1/
+!outputs/figures/q2_mf_geostate_mc_pinn_fasttrack_v1/Q2-MF-GEOSTATE-MC-PINN-FASTTRACK-20260809-V1-R1/**
+
 # Local-only third-party PDF provenance renders; never redistribute.
 tmp/pdfs/qiu_si_pdf_page4.png
 tmp/pdfs/qiu_si_equations_crop.png

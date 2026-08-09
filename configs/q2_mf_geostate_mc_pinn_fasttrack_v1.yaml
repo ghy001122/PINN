@@ -1,0 +1,193 @@
+task_id: Q2_MF_GEOSTATE_MC_PINN_FASTTRACK_V1
+run_id: Q2-MF-GEOSTATE-MC-PINN-FASTTRACK-20260809-V1-R1
+schema_version: q2_mf_geostate_mc_pinn_fasttrack_v1
+phase_id: Q2_PHASE1B_MF_GEOSTATE_2P5D_PINN_FASTTRACK
+status: authorized_engineering_screen_single_implementation_repair
+evidence_type: literature-guided synthetic numerical digital-twin evidence
+manuscript_use: >-
+  non-voting model-form selection and single-seed idea screen for a
+  state-conditioned quasi-static 2.5D mixed-conservative hybrid PINN
+
+parent_physics:
+  config: configs/geophase_phase1_v2_s2_reference_source_corrected_v3.yaml
+  source_contract: configs/qiu_vo2_phase1_source_contract_v3.yaml
+  resolved_plane: [x, y]
+  reuse:
+    - src.pinnpcm.physics.geophase_geometry
+    - src.pinnpcm.physics.geophase_s2_thermal
+    - src.pinnpcm.physics.vo2_constitutive
+    - src.pinnpcm.solvers.geophase_2p5d_fvm
+    - src.pinnpcm.solvers.geophase_phase1_v2_fvm
+
+physical_model:
+  state_semantics: prescribed_effective_conductive_state_coordinate_not_measured_phase_fraction
+  branch_semantics: protocol_conditioning_metadata_not_dynamic_stability
+  material:
+    T_ref_K: 325.0
+    c_v: 0.08
+    sigma_ins0_S_m: 39.2883183844845
+    sigma_met0_S_m: 7619.04761904762
+    activation_temperature_K: 5220.0
+    E_ins_eV: 0.449865793687969
+    beta_c: 0.0
+    metal_temp_coeff_per_K: 0.001
+    mixing_mode: smooth_power
+    smooth_power: 0.0
+    transition_width_K: 7.19
+    transition_width_min_K: 0.25
+  model_forms:
+    M0:
+      electrical_contact_resistance_ohm: {left: 0.0, right: 0.0}
+      thermal_contact_resistance_m2K_W: {left: 0.0, right: 0.0}
+      substrate_field: false
+    M1:
+      electrical_contact_resistance_ohm: {left: 5.0, right: 5.0}
+      thermal_contact_resistance_m2K_W: {left: 5.0e-12, right: 5.0e-12}
+      substrate_field: false
+    M2:
+      electrical_contact_resistance_ohm: {left: 5.0, right: 5.0}
+      thermal_contact_resistance_m2K_W: {left: 5.0e-12, right: 5.0e-12}
+      substrate_field: true
+      device_substrate_conductance_multiplier: 8.0
+      substrate_ambient_conductance_multiplier: 1.1428571428571428
+      substrate_thermal_conductivity_W_mK: 35.0
+      substrate_effective_depth_m: 4.0e-7
+      lateral_spreading_scale: 0.02
+  localized_sink:
+    rectangle_m: {x: [3.0e-8, 7.0e-8], y: [3.0e-7, 5.0e-7]}
+    amplitude: 1.5
+
+reference_solver:
+  grid: {nx: 10, ny: 25}
+  sentinel_refinement_factor: 2
+  fixed_point:
+    relaxation: 0.35
+    maximum_iterations: 800
+    temperature_scale_K: 50.0
+    scaled_residual_max: 1.0e-7
+    scaled_update_max: 1.0e-8
+  sanity_gates:
+    scaled_nonlinear_residual_max: 1.0e-7
+    terminal_current_imbalance_max: 0.01
+    terminal_field_joule_error_max: 0.01
+    joule_sink_ledger_error_max: 0.01
+    chi_2d_min: 0.10
+    hotspot_lateral_shift_width_fraction_min: 0.05
+  model_selection:
+    terminal_current_relative_difference_max: 0.05
+    Tmax_absolute_difference_K_max: 1.0
+    hotspot_distance_width_fraction_max: 0.05
+
+model_form_cases:
+  C0:
+    branch_label: heating-conditioned
+    branch_value: 1.0
+    device_voltage_V: 1.15
+    state_coordinate: 0.50
+    thermal_condition: nominal
+    sink_amplitude: 0.0
+  C1:
+    branch_label: heating-conditioned
+    branch_value: 1.0
+    device_voltage_V: 1.15
+    state_coordinate: 0.50
+    thermal_condition: localized-sink
+    sink_amplitude: 1.5
+    contact_override:
+      electrical_contact_resistance_ohm: {left: 3.0, right: 9.0}
+      thermal_contact_resistance_m2K_W: {left: 2.5e-12, right: 1.0e-11}
+
+pilot_dataset:
+  voltage_levels_V: {low: 0.75, near-transition: 1.15, high: 1.50}
+  state_coordinates:
+    heating-conditioned: {low: 0.08, near-transition: 0.48, high: 0.88}
+    cooling-conditioned: {low: 0.16, near-transition: 0.62, high: 0.94}
+  branches: {heating-conditioned: 1.0, cooling-conditioned: -1.0}
+  thermal_conditions:
+    nominal: 0.0
+    localized-sink: 1.5
+  sentinel_cases:
+    - heating_near-transition_localized-sink
+    - cooling_high_nominal
+  split:
+    validation:
+      - heating_high_localized-sink
+      - cooling_near-transition_nominal
+    test:
+      - heating_near-transition_localized-sink
+      - cooling_high_nominal
+  anchor_fraction: 0.01
+  minimum_anchor_points_per_train_case: 3
+  collocation_anchor_overlap_forbidden: true
+
+pinn:
+  seed: 20260809
+  dtype: float32
+  hidden_width: 48
+  hidden_layers: 3
+  adam_steps: 1000
+  learning_rate: 0.001
+  collocation_points_per_step: 96
+  interface_points_per_step: 16
+  port_points_per_step: 24
+  maximum_wall_time_s_per_model: 1800
+  history_stride: 5
+  scales:
+    voltage_V: 1.5
+    temperature_rise_K: 40.0
+    sheet_current_A_m: 12000.0
+    sheet_heat_flux_W_m: 200.0
+    power_W: 0.01
+  fixed_loss_weights:
+    anchor: 10.0
+    constitutive: 1.0
+    conservation: 1.0
+    interface: 0.5
+    port: 1.0
+    ledger: 1.0
+  rescue:
+    allowed_once: true
+    identity: phase-width_x_joule-feedback_homotopy
+    eligibility: finite_M0_with_near_transition_error_concentration
+    near_transition_concentration_ratio_min: 1.5
+    transition_width_multipliers: [4.0, 2.0, 1.0]
+    joule_feedback_multipliers: [0.25, 0.5, 1.0]
+    steps_per_stage: [500, 500, 500]
+
+engineering_screen:
+  temperature_field_relative_l2_max: 0.15
+  potential_field_relative_l2_max: 0.15
+  terminal_current_relative_error_max: 0.15
+  energy_ledger_relative_error_max: 0.05
+  interface_flux_mismatch_max: 0.10
+  required_passing_complete_test_cases: 1
+  field_improvement_over_B0_min: 0.15
+  conservation_improvement_factor_over_B0_min: 5.0
+  catastrophic_field_regression_factor: 2.0
+
+outputs:
+  processed_root: data/processed/q2_mf_geostate_mc_pinn_fasttrack_v1/Q2-MF-GEOSTATE-MC-PINN-FASTTRACK-20260809-V1-R1
+  table_root: outputs/tables/q2_mf_geostate_mc_pinn_fasttrack_v1/Q2-MF-GEOSTATE-MC-PINN-FASTTRACK-20260809-V1-R1
+  figure_root: outputs/figures/q2_mf_geostate_mc_pinn_fasttrack_v1/Q2-MF-GEOSTATE-MC-PINN-FASTTRACK-20260809-V1-R1
+  report: docs/codex_reports/q2_mf_geostate_mc_pinn_fasttrack_v1.md
+
+claim_boundary:
+  implementation: supported_if_focused_test_and_execution_complete
+  selected_reference: qualified_supported_at_most
+  single_seed_screen: diagnostic_non_voting
+  formal_pinn_superiority: forbidden
+  experimental_validation: forbidden
+  stable_branch_claim: forbidden
+  inverse_claim: forbidden
+
+implementation_repair:
+  count: 1
+  classification: model_selection_hotspot_metric_defect
+  attempt1_run_id: Q2-MF-GEOSTATE-MC-PINN-FASTTRACK-20260809-V1
+  attempt1_validity: invalid
+  attempt1_disposition: INVALID_MODEL_SELECTION_HOTSPOT_METRIC
+  defect: hotspot_distance_was_normalized_by_device_length_and_uniform_C0_argmax_was_allowed_to_vote
+  correction: normalize_resolved_hotspot_distance_by_device_width_W_and_exclude_unresolved_uniform_C0_argmax
+  reuse_model_form_table_root: outputs/tables/q2_mf_geostate_mc_pinn_fasttrack_v1/Q2-MF-GEOSTATE-MC-PINN-FASTTRACK-20260809-V1
+  reuse_model_form_figure_root: outputs/figures/q2_mf_geostate_mc_pinn_fasttrack_v1/Q2-MF-GEOSTATE-MC-PINN-FASTTRACK-20260809-V1
+  stage_b_numerical_rerun: false
