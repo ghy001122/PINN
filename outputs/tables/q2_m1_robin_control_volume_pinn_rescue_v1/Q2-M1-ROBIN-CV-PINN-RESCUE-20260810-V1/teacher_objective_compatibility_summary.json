@@ -1,0 +1,17 @@
+{
+  "case_count": 12,
+  "disposition_if_stopped": null,
+  "finite_case_count": 12,
+  "implementation_repairs_used": 0,
+  "max_electrical_heat_sink_ledger_error": 8.025598307532253e-08,
+  "max_external_robin_residual_p95": 3.8937665212725417e-13,
+  "max_interface_flux_mismatch": 1.3915228374128839e-09,
+  "max_local_current_balance_p95": 7.286819787853328e-15,
+  "max_local_energy_balance_p95": 9.331641043745359e-08,
+  "max_terminal_electrical_heat_ledger_error": 3.2442914312897614e-15,
+  "max_thermal_contact_closure_p95": 1.8396228164220758e-16,
+  "passed": true,
+  "reference_nonlinear_solves_rerun": 0,
+  "run_id": "Q2-M1-ROBIN-CV-PINN-RESCUE-20260810-V1",
+  "task_id": "Q2_M1_ROBIN_CONTROL_VOLUME_PINN_RESCUE_V1"
+}
