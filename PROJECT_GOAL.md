@@ -15,6 +15,7 @@ None of those scientific claims is currently established. All generated evidence
 ## Stable Delivery Lanes
 
 - R1 `HysGeo-Hybrid-PINN`: minimum must-complete route. It includes real x-y device geometry, the Phase 1-v2 source-scale-preserving locally distributed S2 thermal closure, a white-box hysteretic conductivity kernel, differentiable port and RC coupling, a full energy ledger, and sparse independently generated field anchors declared as hybrid supervision. Qiu source-author fits may constrain only nominal device-effective electrical and uniform-mode low-frequency thermal scales; they never become intrinsic local-property, identified thermal-spectrum, or experimental-validation claims. S1 diffusive memory is non-blocking model-form sensitivity unless independently eligible same-device evidence passes its separate gate.
+- Versioned fallback R1-Lite `GeoState-MC-Hybrid-PINN`: the fast-track selected M1 as a qualified reduced reference but ended `NO_GO_GEOSTATE_PINN_IDEA_SCREEN` because no test case passed the frozen field/ledger/interface gate. The result is diagnostic and non-voting; it does not erase or reinterpret the historical dynamic/stable-branch R1 route.
 - R2 `GeoPhase-HomoMoE-PINN`: preferred Q2 method route. It adds transition-localized spectral mixture-of-experts capacity and dual-axis stiffness homotopy to a passed R1 foundation.
 - R3 conditional observable-subspace/OQ: high-upside extension. It requires stable solver Jacobians, event alignment, local observable-subspace stability, PINN trajectory and sensitivity fidelity, fresh nonlinear/noisy inverse tests, and refusal outside the identifiable region.
 - Historical lane: frozen 1D GT, constrained `gamma_sub`, public-data source-reproduction/identifiability bridge, failed complete phase-transition PINN work, M40/M40R/M44, OASIS, and SID/OQ remain baselines, negative evidence, provenance, and reviewer defense.
@@ -31,6 +32,7 @@ A claim marked `forbidden` may still receive a bounded preregistered exploration
 
 - Phase 0: governance, archive, reproducibility baseline, and claim separation.
 - Phase 1: independent conservative 2.5D FVM/implicit reference solver.
+- Phase 1B: active R1-Lite model-form sufficiency, locked quasi-static dataset, and single-seed mixed-conservative PINN idea screen.
 - Phase 2: locked dataset generation, splits, and inverse-crime safeguards.
 - Phase 3: solver and neural baselines with a fairness contract.
 - Phase 4: R1 HysGeo-Hybrid-PINN.

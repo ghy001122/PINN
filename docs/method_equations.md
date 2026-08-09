@@ -1162,3 +1162,97 @@ This implementation reached only an invalid non-voting smoke result: the
 first 0.4 mA constrained-spectrum call returned `INVALID_STABILITY`. These
 equations therefore support an implementation description only, not a CC-B
 physics, 2.5-D judge, or PINN claim.
+
+## R1-Lite GeoState mixed-conservative quasi-static fields
+
+The fast-track object is a family of state-conditioned quasi-static fields,
+not a dynamically selected stable branch. Each complete case supplies the
+effective conductive-state coordinate (s_{case}\in[0,1]) and branch/protocol
+metadata (b\in\{-1,+1\}). The state is not a learned head or a measured phase
+fraction. The shared white-box closure is
+
+\[
+\sigma_i(T)=\sigma_{i0}\exp\left[-\frac{E_i}{k_B}
+\left(\frac1T-\frac1{T_{ref}}\right)\right],\qquad
+\sigma_m(T)=\sigma_{m0}\exp[-\alpha_m(T-T_{ref})],
+\]
+
+\[
+\log\sigma(T,s_{case},b)
+=(1-s_{case})\log\sigma_i(T)+s_{case}\log\sigma_m(T),
+\]
+
+where (b) selects the preregistered case-level (s_{case}(V_d,b)) schedule.
+All parameters are device-effective literature-guided priors in
+`configs/q2_mf_geostate_mc_pinn_fasttrack_v1.yaml`.
+
+M0 solves the conservative 2.5-D sheet equations
+
+\[
+\nabla\cdot\mathbf J=0,\qquad
+\mathbf J=-t_v\sigma\nabla\phi,\qquad
+\phi|_{\Gamma_L}=V_d,\quad\phi|_{\Gamma_R}=0,
+\]
+
+\[
+\nabla\cdot\mathbf q-t_v\sigma|\nabla\phi|^2
++g_z(x,y)(T-T_0)=0,\qquad
+\mathbf q=-K_A(x,y)\nabla T.
+\]
+
+The localized-sink case uses
+(g_z=g_{z0}[1+a_{sink}\chi_{sink}(x,y)]). M1 adds finite electrical
+terminal resistance through facewise Robin conductance and a contact thermal
+Robin resistance, (g_z^{-1}\mapsto g_z^{-1}+R''_{th,c}), on the known contact
+masks. M2 retains M1 and introduces one passive effective substrate field:
+
+\[
+-\nabla\cdot(K_A\nabla T)+g_{ds}(T-T_s)=q_J,
+\]
+
+\[
+-\nabla\cdot(K_{s,A}\nabla T_s)+g_{ds}(T_s-T)
++g_{sa}(T_s-T_0)=0.
+\]
+
+The model-form selector admits the simplest ledger-closed model whose port
+current, (T_{max}), and resolved C1 hotspot coordinate remain within the
+frozen M2 tolerances. A hotspot coordinate does not vote in the uniform C0
+limit when (chi_{2d}<0.10); any voting distance is normalized by the physical
+device width (W=500\,\mathrm{nm}).
+
+The neural input is
+
+\[
+(\bar x,\bar y,\bar V_d,b,s_{case},d_L,d_R,d_{sink},a_{sink},r_{contact}),
+\]
+
+and the output is
+((\phi,T,J_x,J_y,q_x,q_y)). Electrode values use the hard lift
+
+\[
+\phi=V_d(1-\bar x)+\frac14V_d\bar x(1-\bar x)
+\tanh f_\phi,
+\]
+
+so both terminal Dirichlet conditions and the zero-bias limit are exact. The
+mixed-conservative model uses the independently scaled groups
+
+\[
+R_J=\mathbf J+t_v\sigma\nabla\phi,\qquad
+R_I=\nabla\cdot\mathbf J,
+\]
+
+\[
+R_q=\mathbf q+K_A\nabla T,\qquad
+R_E=\nabla\cdot\mathbf q-t_v\sigma|\nabla\phi|^2+Q_z,
+\quad Q_z=g_z(T-T_0).
+\]
+
+Separate fixed-weight losses cover sparse field anchors, constitutive
+residuals, conservation residuals, state/interface continuity, normal current
+and heat flux, port-current integration, and the terminal--field--sink energy
+ledger. B0 uses only matched sparse anchors; B1 derives fluxes from a
+second-order strong form; M0 learns the four flux components explicitly. The
+single-seed fast-track comparison is diagnostic/non-voting and cannot support
+formal PINN superiority or experimental validation.
