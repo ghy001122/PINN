@@ -1,0 +1,113 @@
+task_id: Q2_M1_ROBIN_CONTROL_VOLUME_PINN_RESCUE_V1
+run_id: Q2-M1-ROBIN-CV-PINN-RESCUE-20260810-V1
+schema_version: q2_m1_robin_control_volume_pinn_rescue_v1
+phase_id: Q2_PHASE1C_M1_ROBIN_CONTROL_VOLUME_PINN_RESCUE
+status: authorized_single_seed_structural_rescue
+evidence_type: literature-guided synthetic numerical digital-twin evidence
+
+frozen_baseline:
+  pr: 37
+  head_sha: c4ccd7a995fbd4027d92a10fcbf42b1e14906092
+  merge_sha: 183f129545a2a047137745d36a0c432d02a28219
+  disposition: NO_GO_GEOSTATE_PINN_IDEA_SCREEN
+  interpretation: immutable_bounded_negative_result
+
+reference:
+  config: configs/q2_mf_geostate_mc_pinn_fasttrack_v1.yaml
+  model_form: M1
+  data_root: data/processed/q2_mf_geostate_mc_pinn_fasttrack_v1/Q2-MF-GEOSTATE-MC-PINN-FASTTRACK-20260809-V1-R1/cases
+  expected_cases: 12
+  nonlinear_rerun_forbidden: true
+
+compatibility:
+  local_current_p95_max: 1.0e-3
+  local_energy_p95_max: 1.0e-3
+  external_robin_p95_max: 1.0e-3
+  thermal_contact_closure_p95_max: 1.0e-3
+  interface_flux_mismatch_max: 0.02
+  terminal_electrical_heat_ledger_max: 0.01
+  electrical_heat_sink_ledger_max: 0.01
+  implementation_repairs_allowed: 1
+
+dataset:
+  validation_cases:
+    - heating_high_localized-sink
+    - cooling_near-transition_nominal
+  test_cases:
+    - heating_near-transition_localized-sink
+    - cooling_high_nominal
+  anchor_fraction: 0.05
+  minimum_anchor_points_per_train_case: 16
+  anchor_allocation: {interior: 0.40, contact_interface: 0.30, sink_patch: 0.30}
+  flux_anchors: false
+
+model:
+  seed: 20260809
+  dtype: float64
+  trunk_width: 48
+  trunk_layers: 3
+  head_width: 24
+  head_layers: 1
+  voltage_scale_V: 1.5
+  temperature_rise_scale_K: 40.0
+  sheet_current_scale_A_m: 12000.0
+  sheet_heat_flux_scale_W_m: 200.0
+  current_floor_fraction: 1.0e-3
+  heat_flux_floor_fraction: 1.0e-3
+
+sampling:
+  collocation_points_per_case: 48
+  control_volumes_per_case: 32
+  interface_points_per_case: 32
+  boundary_points_per_case: 32
+  fixed_before_training: true
+
+training:
+  stage1_steps: 300
+  stage1_learning_rate: 1.0e-3
+  stage2_steps: 1200
+  stage2_learning_rate: 3.0e-4
+  maximum_wall_time_s_per_model: 1800
+  history_stride: 5
+  gradient_scale_ratio_max: 1.0e4
+  clip_grad_norm: 100.0
+  fixed_loss_weights:
+    anchor: 5.0
+    constitutive: 1.0
+    local_current_cv: 1.0
+    local_energy_cv: 1.0
+    external_robin: 1.0
+    interface_state: 1.0
+    interface_flux: 1.0
+    port: 1.0
+    ledger: 1.0
+
+engineering_screen:
+  temperature_rise_relative_l2_max: 0.15
+  potential_relative_l2_max: 0.05
+  terminal_current_relative_error_max: 0.05
+  energy_ledger_relative_error_max: 0.05
+  interface_flux_mismatch_max: 0.10
+  local_current_cv_p95_max: 0.10
+  local_energy_cv_p95_max: 0.10
+  required_p0_test_passes: 1
+  field_improvement_over_b0_min: 0.15
+  conservation_improvement_over_b1_min: 2.0
+  catastrophic_regression_factor: 2.0
+
+outputs:
+  processed_root: data/processed/q2_m1_robin_control_volume_pinn_rescue_v1/Q2-M1-ROBIN-CV-PINN-RESCUE-20260810-V1
+  table_root: outputs/tables/q2_m1_robin_control_volume_pinn_rescue_v1/Q2-M1-ROBIN-CV-PINN-RESCUE-20260810-V1
+  figure_root: outputs/figures/q2_m1_robin_control_volume_pinn_rescue_v1/Q2-M1-ROBIN-CV-PINN-RESCUE-20260810-V1
+  checkpoint_root: outputs/checkpoints/q2_m1_robin_control_volume_pinn_rescue_v1/Q2-M1-ROBIN-CV-PINN-RESCUE-20260810-V1
+  report: docs/codex_reports/q2_m1_robin_control_volume_pinn_rescue_v1.md
+
+claim_boundary:
+  m1_reference_sufficiency: qualified_supported
+  teacher_objective_compatibility: supported_if_all_gates_pass
+  single_seed_rescue: diagnostic_non_voting
+  formal_pinn_superiority: forbidden_without_formal_ood_and_multiple_seeds
+  experimental_validation: forbidden
+  dynamic_stability: forbidden
+  full_hysteresis: forbidden
+  inverse: forbidden
