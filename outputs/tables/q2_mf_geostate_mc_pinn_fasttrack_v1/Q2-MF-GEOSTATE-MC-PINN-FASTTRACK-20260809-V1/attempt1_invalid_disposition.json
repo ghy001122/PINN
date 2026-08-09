@@ -1,0 +1,9 @@
+{
+  "claim_status": "forbidden",
+  "defect": "hotspot_distance_was_normalized_by_device_length_and_uniform_C0_argmax_was_allowed_to_vote",
+  "disposition": "INVALID_MODEL_SELECTION_HOTSPOT_METRIC",
+  "failure_class": "model_selection_hotspot_metric_defect",
+  "historical_result_impact": "six physical solves retained; M2 selection and all downstream attempt1 data/training are non-voting",
+  "run_id": "Q2-MF-GEOSTATE-MC-PINN-FASTTRACK-20260809-V1",
+  "validity": "invalid"
+}

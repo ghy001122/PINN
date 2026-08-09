@@ -2,27 +2,20 @@
 
 ## Authoritative Current Queue
 
-- Phase/checkpoint: `Q2_PHASE1_2P5D_REFERENCE_SOLVER` /
-  `Q2_CC_B_PATTERNED_BRANCH_VALID_NO_GO`.
-- Preserved prior checkpoint: `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED`.
-- Parent disposition: `INVALID_CC_B_EXECUTION`.
-- Requalification disposition: `PASS_CC_B_STABILITY_REQUALIFICATION`.
-- Branch-bracket disposition: `STOP_NUMERICAL_SEMANTICS_NOT_CLOSED`.
-- Patterned-MVE disposition: `NO_GO_CC_B_STABLE_PATTERNED_TRANSITION_SPAN`.
-- `cc_b_matrix_launch_count=0`, `scientific_vote=false`, and
-  `formal_execution_count=0`.
-- PR #34 validly classifies nominal/heating/0.4 mA as `POSITIVE_UNSTABLE`.
-- The versioned patterned MVE closed the 0.35 mA telemetry, certified both
-  candidate transverse boundaries, constructed mirror-paired nonlinear roots,
-  and followed 34 L1 patterned records. Every record is positive unstable;
-  neither branch has a stable transition-bearing component. L2, the formal
-  matrix, CC-C, data, PINN, inverse, and refusal were not executed.
+- Phase/checkpoint: `Q2_PHASE1B_MF_GEOSTATE_2P5D_PINN_FASTTRACK` /
+  `Q2_MF_GEOSTATE_MC_PINN_FASTTRACK_V1_VALID_NO_GO`.
+- Active fallback: R1-Lite `GeoState-MC-Hybrid-PINN` on
+  `state-conditioned quasi-static electrothermal fields`.
+- Completed: six valid M0/M1/M2 model-form runs selected M1, twelve valid
+  complete-case references plus two refinements were generated, and B0/B1/M0
+  each completed 1000 Adam steps. No full test case passed; disposition is
+  `NO_GO_GEOSTATE_PINN_IDEA_SCREEN` and the M1 homotopy rescue was ineligible.
+- Preserve `NO_GO_CC_B_STABLE_PATTERNED_TRANSITION_SPAN` and its 34/34
+  positive-unstable records as immutable historical/reviewer-defense evidence.
 
 ## Single Next Priority
 
-The current-clamp steady GT/PINN route is terminal under the frozen proxy and
-bounded search. The single next priority is a concise route-closeout and
-manuscript decision that preserves the valid negative Figure 1 atlas. M1d, GT,
-C01/C06, another current bracket, and any solver/network portfolio are not authorized.
-Any future scientific execution must start from a separately
-justified physical premise rather than retuning this model.
+Preserve the bounded R1-Lite result as a physics-optimization/interface-ledger
+limitation and close its manuscript wording. `Q2_GEOSTATE_PINN_FORMAL_OOD_V1`,
+inverse, MoE, NbO2, dynamic RC, and any current-clamp or stable-branch rescue
+remain unauthorized.

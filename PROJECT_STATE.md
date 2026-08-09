@@ -3,8 +3,16 @@
 ## Authoritative Current Snapshot
 
 - Delivery/phase: `Q2_SCI_DELIVERY_MODE` /
-  `Q2_PHASE1_2P5D_REFERENCE_SOLVER`.
-- Checkpoint: `Q2_CC_B_PATTERNED_BRANCH_VALID_NO_GO`.
+  `Q2_PHASE1B_MF_GEOSTATE_2P5D_PINN_FASTTRACK`.
+- Checkpoint: `Q2_MF_GEOSTATE_MC_PINN_FASTTRACK_V1_VALID_NO_GO`.
+- Active fallback: R1-Lite `GeoState-MC-Hybrid-PINN` for
+  `state-conditioned quasi-static electrothermal fields`.
+- Current result: M1 is the simplest qualified reference; the valid single-seed
+  screen ended `NO_GO_GEOSTATE_PINN_IDEA_SCREEN` with zero passing test cases.
+- Evidence boundary: implementation is `supported`, the reduced M1 reference
+  is `qualified_supported`, the screen is diagnostic `failed_but_informative`,
+  and positive PINN superiority remains `forbidden`.
+- Preserved terminal checkpoint: `Q2_CC_B_PATTERNED_BRANCH_VALID_NO_GO`.
 - Preserved prior checkpoint: `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED`.
 - Patterned-MVE baseline: `4c30021c45782e3803f1f285328e09b4411789df`.
 - Result branch: `codex/q2-cc-b-patterned-branch-decision-mve-v1`.
@@ -86,6 +94,7 @@ as infrastructure provenance only and do not vote on the active S2 route.
 
 ## Boundary
 
-Do not launch M1d, matrix/GT/PINN/inverse, or another search. This route stops
-at a valid bounded NO-GO; next is manuscript closeout or a separately justified
-physical premise.
+The current-clamp route stops at its valid bounded NO-GO and is immutable. The
+new Phase 1B execution is a distinct fixed-voltage, state-conditioned 2.5D
+physical premise; it does not authorize current-clamp rescue, inverse, MoE,
+dynamic RC, NbO2, or formal OOD work.
