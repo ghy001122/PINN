@@ -116,7 +116,7 @@ Every formal run records a unique `run_id`, Git SHA, seed, environment, and pare
 
 ## Context And File Hygiene
 
-- Keep low-token current context below 24 KiB in total for `CODEX_CONTEXT.md`, `active_phase.md`, `PROJECT_STATE.md`, `NEXT_ACTIONS.md`, and `current_evidence_index.md`.
+- Keep current context task-relevant, current, role-separated, and non-duplicative. Judge hygiene by semantic ownership, staleness, duplication, and necessity; do not use arbitrary byte, token, line, or file-count pass/fail quotas. Cite and handle a genuine external-system hard limit once rather than repeatedly tuning governance thresholds.
 - Do not create another dashboard, current-state file, handoff, goal file, or evidence matrix when an authority already exists.
 - Task reports are append-only evidence; current status prose is not repeated inside every report.
 - Cumulative root registries are historical indexes. Daily routing uses `current_evidence_index.md`.

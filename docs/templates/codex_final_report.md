@@ -31,6 +31,9 @@ supported_claims: []
 forbidden_claims: []
 actual_implementation: []
 core_results: []
+verified_facts: []
+interpretations: []
+unresolved_unknowns: []
 anomalies_and_root_causes: []
 artifact_paths: []
 goal_distance_change:
@@ -52,6 +55,8 @@ disposition:
 ## Validation, Environment, And Reproduction
 
 ## Core Results, Anomalies, And Root Causes
+
+## Evidence Separation: Verified Facts, Interpretations, Assumptions, And Unknowns
 
 ## Evidence Boundary: What Can And Cannot Be Claimed
 
