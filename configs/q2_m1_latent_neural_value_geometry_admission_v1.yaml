@@ -1,0 +1,163 @@
+task_id: Q2_M1_LATENT_NEURAL_VALUE_GEOMETRY_ADMISSION_V1
+run_id: Q2-M1-LATENT-NEURAL-VALUE-GEOMETRY-ADMISSION-20260810-V1
+schema_version: q2_m1_latent_neural_value_geometry_admission_v1
+phase_id: Q2_PHASE1E_M1_LATENT_NEURAL_VALUE_GEOMETRY_ADMISSION
+status: authorized_diagnostic_geometry_admission
+evidence_type: literature-guided synthetic numerical digital-twin evidence
+
+frozen_baseline:
+  pr: 39
+  head_sha: e85e641a46deb8b9ac6c780ba32213acc510e7e0
+  merge_sha: 56999bbe33065a7e80587c009ab78011d61b265c
+  disposition: GO_M1_LATENT_PROJECTION_PINN_MVE
+  neural_specific_advantage_over_a2: false
+  interpretation: immutable_single_seed_diagnostic_mve
+
+reference:
+  config: configs/q2_mf_geostate_mc_pinn_fasttrack_v1.yaml
+  model_form: M1
+  production_grid: {nx: 10, ny: 25}
+  ambient_temperature_K: 325.0
+  geometry_contact_overlap_nm: [10.0, 20.0, 30.0]
+  maximum_unique_m1_reference_solves: 36
+  maximum_unique_m2_sentinel_solves: 4
+  gates:
+    scaled_nonlinear_residual_max: 1.0e-7
+    current_imbalance_max: 1.0e-6
+    terminal_electrical_heat_ledger_max: 1.0e-6
+    electrical_heat_sink_ledger_max: 1.0e-6
+    localized_near_transition_chi_2d_min: 0.10
+    localized_near_transition_hotspot_shift_width_fraction_min: 0.05
+  m2_sentinel_gates:
+    terminal_current_relative_difference_max: 0.05
+    tmax_difference_K_max: 1.0
+    resolved_hotspot_distance_width_fraction_max: 0.05
+  m2_sentinels:
+    - g010nm_heating_near-transition_localized-sink
+    - g020nm_cooling_near-transition_nominal
+    - g030nm_heating_near-transition_localized-sink
+    - g030nm_cooling_high_nominal
+
+conditions:
+  voltage_levels_V: {low: 0.75, near-transition: 1.15, high: 1.50}
+  state_coordinates:
+    heating: {low: 0.08, near-transition: 0.48, high: 0.88}
+    cooling: {low: 0.16, near-transition: 0.62, high: 0.94}
+  branch_values: {heating: 1.0, cooling: -1.0}
+  thermal_conditions:
+    nominal: 0.0
+    localized-sink: 1.5
+
+dataset:
+  validation_cases:
+    - g020nm_heating_high_localized-sink
+    - g020nm_heating_near-transition_nominal
+    - g020nm_cooling_high_nominal
+    - g020nm_cooling_near-transition_localized-sink
+  test_geometry_nm: 30.0
+  expected_train_cases: 20
+  expected_validation_cases: 4
+  expected_test_cases: 12
+
+current_domain_diagnostic:
+  historical_config: configs/q2_m1_latent_solver_projected_pinn_mve_v1.yaml
+  historical_checkpoint: outputs/checkpoints/q2_m1_latent_solver_projected_pinn_mve_v1/Q2-M1-LATENT-PROJ-PINN-MVE-20260810-V1/m1_latent_projection_pinn.pt
+  historical_case_root: data/processed/q2_mf_geostate_mc_pinn_fasttrack_v1/Q2-MF-GEOSTATE-MC-PINN-FASTTRACK-20260809-V1-R1/cases
+  contact_overlap_nm: 20.0
+
+pod:
+  transform: log1p_temperature_rise_per_1K
+  cumulative_energy_target: 0.999
+  rank_cap: 8
+  smooth_nonnegative_beta_K: 1.0e-4
+
+ridge:
+  regularization_lambda: 1.0e-8
+  intercept_unpenalized: true
+
+model:
+  input_order: [device_voltage_V, branch_value, state_coordinate, sink_amplitude, contact_overlap_m]
+  hidden_layers: 2
+  hidden_width: 32
+  activation: SiLU
+  dtype: float64
+  initial_seed: 20260809
+  conditional_seeds: [20260810, 20260811]
+  path_priority_if_both_pass: H
+
+training:
+  stage1_steps: 500
+  stage1_learning_rate: 1.0e-3
+  stage2_steps: 1000
+  stage2_learning_rate: 3.0e-4
+  maximum_wall_time_s_per_seed: 1800
+  gradient_clip_norm: 100.0
+  fixed_loss_weights:
+    coefficient: 1.0
+    n1_temperature: 1.0
+    n1_potential: 1.0
+    n1_current: 1.0
+    n1_true_lookahead_defect: 1.0
+    n2_temperature: 1.0
+    n2_potential: 1.0
+    n2_current: 1.0
+    n2_true_lookahead_defect: 1.0
+
+evaluation:
+  fast_timing_repeats: 20
+  cold_timing_repeats: 10
+  timing_warmup_repeats: 1
+  torch_threads: 1
+  timing_vote_definition: ratio_of_test_case_median_mode_wall_times
+  paired_case_timing_ratio_role: diagnostic_non_voting
+  cold_maximum_iterations: 800
+  relaxation: 0.35
+  temperature_scale_K: 50.0
+  scaled_residual_max: 1.0e-7
+  scaled_update_max: 1.0e-8
+  practical_case_gate:
+    temperature_rise_relative_l2_max: 0.05
+    potential_relative_l2_max: 0.01
+    terminal_current_relative_error_max: 0.02
+    true_fixed_point_defect_max: 0.02
+    sigma_defect_max: 0.02
+    terminal_electrical_heat_ledger_max: 1.0e-8
+    electrical_heat_sink_ledger_max: 1.0e-8
+  catastrophic_relative_error_max: 2.0
+  path_h:
+    required_test_case_passes: 9
+    mean_joint_field_score_max: 0.01
+    improvement_over_a1_min: 0.30
+    improvement_over_r1_min: 0.15
+    median_speedup_vs_a2_min: 1.5
+    terminal_current_error_p95_max: 0.05
+  path_s:
+    required_test_case_passes: 9
+    improvement_over_a2_min: 0.20
+    additional_complete_case_passes_over_a2_min: 3
+    improvement_over_r2_min: 0.15
+    maximum_median_wall_time_ratio_vs_a2: 1.10
+  multi_seed:
+    required_seed_passes: 2
+    total_seed_count: 3
+
+break_even:
+  deployment_offline_cost: median_executed_seed_training_wall_time
+  research_offline_cost: 36_case_m1_plus_4_sentinel_m2_plus_all_executed_seed_training
+
+outputs:
+  processed_root: data/processed/q2_m1_latent_neural_value_geometry_admission_v1/Q2-M1-LATENT-NEURAL-VALUE-GEOMETRY-ADMISSION-20260810-V1
+  table_root: outputs/tables/q2_m1_latent_neural_value_geometry_admission_v1/Q2-M1-LATENT-NEURAL-VALUE-GEOMETRY-ADMISSION-20260810-V1
+  figure_root: outputs/figures/q2_m1_latent_neural_value_geometry_admission_v1/Q2-M1-LATENT-NEURAL-VALUE-GEOMETRY-ADMISSION-20260810-V1
+  checkpoint_root: outputs/checkpoints/q2_m1_latent_neural_value_geometry_admission_v1/Q2-M1-LATENT-NEURAL-VALUE-GEOMETRY-ADMISSION-20260810-V1
+  report: docs/codex_reports/q2_m1_latent_neural_value_geometry_admission_v1.md
+
+claim_boundary:
+  m1_operator: supported
+  m1_reference_in_admitted_geometry_range: qualified_supported_if_sentinels_pass
+  direct_coordinate_pinn: failed_but_informative
+  neural_specific_geometry_admission: diagnostic_only
+  formal_superiority: forbidden
+  experimental_validation: forbidden
+  dynamic_hysteresis: forbidden
+  inverse: forbidden

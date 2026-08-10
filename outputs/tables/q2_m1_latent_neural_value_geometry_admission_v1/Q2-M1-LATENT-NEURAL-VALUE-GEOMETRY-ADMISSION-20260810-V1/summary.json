@@ -1,0 +1,381 @@
+{
+  "break_even": {
+    "a2_per_query_median_wall_s": 0.010755274997791275,
+    "all_executed_neural_training_wall_s": 462.69531390001066,
+    "deployment_break_even_queries": null,
+    "m1_reference_generation_wall_s": 7.305144399928395,
+    "m2_sentinel_generation_wall_s": 0.9567083000438288,
+    "per_query_time_advantage_s": null,
+    "research_break_even_queries": null,
+    "selected_linear_solve_count": 0,
+    "selected_mode": "",
+    "selected_model_training_wall_s": 462.69531390001066,
+    "selected_neural_per_query_median_wall_s": null,
+    "selected_projection_count": 0,
+    "status": "not_applicable_no_admitted_neural_route",
+    "total_reference_generation_wall_s": 8.261852699972223
+  },
+  "claim_boundary": {
+    "direct_coordinate_pinn": "failed_but_informative",
+    "dynamic_hysteresis": "forbidden",
+    "experimental_validation": "forbidden",
+    "formal_superiority": "forbidden",
+    "inverse": "forbidden",
+    "m1_operator": "supported",
+    "m1_reference_in_admitted_geometry_range": "qualified_supported_if_sentinels_pass",
+    "neural_specific_geometry_admission": "diagnostic_only"
+  },
+  "claim_status": "failed_but_informative",
+  "conditional_seeds_executed": false,
+  "current_domain_matched_budget_row_count": 96,
+  "decision": {
+    "conditional_seeds_executed": false,
+    "disposition": "NO_GO_M1_NEURAL_SPECIFIC_VALUE_A2_OR_RIDGE_DOMINATES",
+    "median_seed_gate_pass": false,
+    "same_path_seed_pass_count": 0,
+    "selected_path": null
+  },
+  "disposition": "NO_GO_M1_NEURAL_SPECIFIC_VALUE_A2_OR_RIDGE_DOMINATES",
+  "evidence_type": "literature-guided synthetic numerical digital-twin evidence",
+  "frozen_pr39": {
+    "disposition": "GO_M1_LATENT_PROJECTION_PINN_MVE",
+    "head_sha": "e85e641a46deb8b9ac6c780ba32213acc510e7e0",
+    "interpretation": "immutable_single_seed_diagnostic_mve",
+    "merge_sha": "56999bbe33065a7e80587c009ab78011d61b265c",
+    "neural_specific_advantage_over_a2": false,
+    "pr": 39
+  },
+  "implementation_repair": {
+    "additional_nonlinear_m1_reference_solves": 0,
+    "additional_nonlinear_m2_reference_solves": 0,
+    "classification": "symmetry_degenerate_argmax_metric",
+    "count": 1,
+    "description": "Replaced single-cell argmax distance by a float64 machine-precision maximum-set distance for symmetry-degenerate resolved hotspots.",
+    "diagnostic_reconstruction_solves_excluded_from_reference_generation": true,
+    "physical_model_changed": false,
+    "thresholds_changed": false
+  },
+  "input_normalization": {
+    "fit_case_ids": [
+      "g010nm_cooling_high_localized-sink",
+      "g010nm_cooling_high_nominal",
+      "g010nm_cooling_low_localized-sink",
+      "g010nm_cooling_low_nominal",
+      "g010nm_cooling_near-transition_localized-sink",
+      "g010nm_cooling_near-transition_nominal",
+      "g010nm_heating_high_localized-sink",
+      "g010nm_heating_high_nominal",
+      "g010nm_heating_low_localized-sink",
+      "g010nm_heating_low_nominal",
+      "g010nm_heating_near-transition_localized-sink",
+      "g010nm_heating_near-transition_nominal",
+      "g020nm_cooling_high_localized-sink",
+      "g020nm_cooling_low_localized-sink",
+      "g020nm_cooling_low_nominal",
+      "g020nm_cooling_near-transition_nominal",
+      "g020nm_heating_high_nominal",
+      "g020nm_heating_low_localized-sink",
+      "g020nm_heating_low_nominal",
+      "g020nm_heating_near-transition_localized-sink"
+    ]
+  },
+  "lifecycle_state": "numerically_validated",
+  "m2_sentinels": {
+    "additional_nonlinear_reference_solves_after_repair": 0,
+    "case_count": 4,
+    "diagnostic_electrical_reconstruction_solves_this_pass": 4,
+    "diagnostic_thermal_factorizations_this_pass": 4,
+    "generation_wall_time_s": 0.9567083000438288,
+    "hotspot_metric": "tie_aware_machine_precision_maximum_set_minimum_distance",
+    "max_current_difference": 0.0006290192042974216,
+    "max_hotspot_distance_width_fraction": 0.0,
+    "max_tmax_difference_K": 0.016631822987505984,
+    "pass_count": 4,
+    "physical_solutions_reused_after_metric_repair": 4,
+    "unique_m2_sentinel_solve_count": 4
+  },
+  "mode_aggregates": {
+    "A1": {
+      "case_count": 12,
+      "complete_case_passes": 12,
+      "mean_joint_field_score": 0.002695460412412738,
+      "mean_potential_relative_l2": 0.0006759515117389938,
+      "mean_sigma_defect": 0.00030778580286155,
+      "mean_temperature_rise_relative_l2": 0.004714969313086482,
+      "mean_terminal_current_relative_error": 0.002862294476803785,
+      "mean_true_fixed_point_defect": 0.004480900902261925,
+      "median_wall_time_s": 0.005677774999639951,
+      "seed_count": 0
+    },
+    "A2": {
+      "case_count": 12,
+      "complete_case_passes": 12,
+      "mean_joint_field_score": 0.00013833918104617652,
+      "mean_potential_relative_l2": 2.2528071764765465e-05,
+      "mean_sigma_defect": 1.9221041051342916e-05,
+      "mean_temperature_rise_relative_l2": 0.00025415029032758746,
+      "mean_terminal_current_relative_error": 0.00017739757844058767,
+      "mean_true_fixed_point_defect": 0.0002352604854840229,
+      "median_wall_time_s": 0.010755274997791275,
+      "seed_count": 0
+    },
+    "N1": {
+      "case_count": 12,
+      "complete_case_passes": 11,
+      "mean_joint_field_score": 0.0038279410503128408,
+      "mean_potential_relative_l2": 0.00025945292677265316,
+      "mean_sigma_defect": 0.00034520020140185536,
+      "mean_temperature_rise_relative_l2": 0.007396429173853029,
+      "mean_terminal_current_relative_error": 0.007404914263937352,
+      "mean_true_fixed_point_defect": 0.0070327091422486025,
+      "median_wall_time_s": 0.0038849749907967634,
+      "per_seed": [
+        {
+          "current": 0.007404914263937352,
+          "fixed": 0.0070327091422486025,
+          "joint": 0.0038279410503128408,
+          "passes": 11,
+          "potential": 0.00025945292677265316,
+          "seed": 20260809,
+          "sigma": 0.00034520020140185536,
+          "temperature": 0.007396429173853029,
+          "time": 0.0038849749907967634
+        }
+      ],
+      "seed_count": 1
+    },
+    "N2": {
+      "case_count": 12,
+      "complete_case_passes": 12,
+      "mean_joint_field_score": 0.00018334817571088872,
+      "mean_potential_relative_l2": 4.961922074123504e-06,
+      "mean_sigma_defect": 2.105460105284254e-05,
+      "mean_temperature_rise_relative_l2": 0.0003617344293476539,
+      "mean_terminal_current_relative_error": 0.00035233822360225764,
+      "mean_true_fixed_point_defect": 0.0003395318019698331,
+      "median_wall_time_s": 0.007936400004837196,
+      "per_seed": [
+        {
+          "current": 0.00035233822360225764,
+          "fixed": 0.0003395318019698331,
+          "joint": 0.00018334817571088872,
+          "passes": 12,
+          "potential": 4.961922074123504e-06,
+          "seed": 20260809,
+          "sigma": 2.105460105284254e-05,
+          "temperature": 0.0003617344293476539,
+          "time": 0.007936400004837196
+        }
+      ],
+      "seed_count": 1
+    },
+    "R1": {
+      "case_count": 12,
+      "complete_case_passes": 8,
+      "mean_joint_field_score": 0.009981458078828073,
+      "mean_potential_relative_l2": 0.0005187612775388101,
+      "mean_sigma_defect": 0.0009411667134321733,
+      "mean_temperature_rise_relative_l2": 0.019444154880117335,
+      "mean_terminal_current_relative_error": 0.019029666390978164,
+      "mean_true_fixed_point_defect": 0.018413065415076674,
+      "median_wall_time_s": 0.005286575003992766,
+      "seed_count": 0
+    },
+    "R2": {
+      "case_count": 12,
+      "complete_case_passes": 12,
+      "mean_joint_field_score": 0.0005102494143000216,
+      "mean_potential_relative_l2": 1.1911026029155294e-05,
+      "mean_sigma_defect": 5.70770864429837e-05,
+      "mean_temperature_rise_relative_l2": 0.001008587802570888,
+      "mean_terminal_current_relative_error": 0.0009651826069395241,
+      "mean_true_fixed_point_defect": 0.0009465120986553356,
+      "median_wall_time_s": 0.010517375005292706,
+      "seed_count": 0
+    }
+  },
+  "next_single_priority": "Stop neural forward-architecture expansion; retain the conservative projection operator and analytic A2 as numerical assets for the limitation manuscript.",
+  "paths": {
+    "checkpoint_root": "outputs/checkpoints/q2_m1_latent_neural_value_geometry_admission_v1/Q2-M1-LATENT-NEURAL-VALUE-GEOMETRY-ADMISSION-20260810-V1",
+    "figure_root": "outputs/figures/q2_m1_latent_neural_value_geometry_admission_v1/Q2-M1-LATENT-NEURAL-VALUE-GEOMETRY-ADMISSION-20260810-V1",
+    "figures": [
+      "outputs/figures/q2_m1_latent_neural_value_geometry_admission_v1/Q2-M1-LATENT-NEURAL-VALUE-GEOMETRY-ADMISSION-20260810-V1/geometry_masks_and_reference_fields.png",
+      "outputs/figures/q2_m1_latent_neural_value_geometry_admission_v1/Q2-M1-LATENT-NEURAL-VALUE-GEOMETRY-ADMISSION-20260810-V1/geometry_pod_spectrum_and_modes.png",
+      "outputs/figures/q2_m1_latent_neural_value_geometry_admission_v1/Q2-M1-LATENT-NEURAL-VALUE-GEOMETRY-ADMISSION-20260810-V1/matched_budget_accuracy.png",
+      "outputs/figures/q2_m1_latent_neural_value_geometry_admission_v1/Q2-M1-LATENT-NEURAL-VALUE-GEOMETRY-ADMISSION-20260810-V1/geometry_ood_field_comparison.png",
+      "outputs/figures/q2_m1_latent_neural_value_geometry_admission_v1/Q2-M1-LATENT-NEURAL-VALUE-GEOMETRY-ADMISSION-20260810-V1/a1_a2_r1_r2_n1_n2_pass_rates.png",
+      "outputs/figures/q2_m1_latent_neural_value_geometry_admission_v1/Q2-M1-LATENT-NEURAL-VALUE-GEOMETRY-ADMISSION-20260810-V1/true_fixed_point_defect.png",
+      "outputs/figures/q2_m1_latent_neural_value_geometry_admission_v1/Q2-M1-LATENT-NEURAL-VALUE-GEOMETRY-ADMISSION-20260810-V1/speed_accuracy_pareto.png",
+      "outputs/figures/q2_m1_latent_neural_value_geometry_admission_v1/Q2-M1-LATENT-NEURAL-VALUE-GEOMETRY-ADMISSION-20260810-V1/break_even_queries.png"
+    ],
+    "processed_root": "data/processed/q2_m1_latent_neural_value_geometry_admission_v1/Q2-M1-LATENT-NEURAL-VALUE-GEOMETRY-ADMISSION-20260810-V1",
+    "report": "docs/codex_reports/q2_m1_latent_neural_value_geometry_admission_v1.md",
+    "table_root": "outputs/tables/q2_m1_latent_neural_value_geometry_admission_v1/Q2-M1-LATENT-NEURAL-VALUE-GEOMETRY-ADMISSION-20260810-V1"
+  },
+  "phase_id": "Q2_PHASE1E_M1_LATENT_NEURAL_VALUE_GEOMETRY_ADMISSION",
+  "pod": {
+    "fit_case_ids": [
+      "g010nm_cooling_high_localized-sink",
+      "g010nm_cooling_high_nominal",
+      "g010nm_cooling_low_localized-sink",
+      "g010nm_cooling_low_nominal",
+      "g010nm_cooling_near-transition_localized-sink",
+      "g010nm_cooling_near-transition_nominal",
+      "g010nm_heating_high_localized-sink",
+      "g010nm_heating_high_nominal",
+      "g010nm_heating_low_localized-sink",
+      "g010nm_heating_low_nominal",
+      "g010nm_heating_near-transition_localized-sink",
+      "g010nm_heating_near-transition_nominal",
+      "g020nm_cooling_high_localized-sink",
+      "g020nm_cooling_low_localized-sink",
+      "g020nm_cooling_low_nominal",
+      "g020nm_cooling_near-transition_nominal",
+      "g020nm_heating_high_nominal",
+      "g020nm_heating_low_localized-sink",
+      "g020nm_heating_low_nominal",
+      "g020nm_heating_near-transition_localized-sink"
+    ],
+    "maximum_train_reconstruction_error": 0.019111872073187916,
+    "rank": 2,
+    "rank_cap": 8,
+    "selected_cumulative_energy": 0.9999844449847785,
+    "validation_test_leakage": false
+  },
+  "postprocessing_resume": {
+    "evaluation_repeated": false,
+    "reason": "matplotlib_boxplot_keyword_compatibility",
+    "training_repeated": false
+  },
+  "reference": {
+    "additional_nonlinear_reference_solves_after_repair": 0,
+    "all_finite": true,
+    "case_count": 36,
+    "conservative_reconstruction_pass_count": 36,
+    "diagnostic_electrical_reconstruction_solves_this_pass": 36,
+    "generation_wall_time_s": 7.305144399928395,
+    "localized_near_transition_gate": {
+      "cases": [
+        {
+          "case_id": "g010nm_heating_near-transition_localized-sink",
+          "chi_2d": 0.18884457523703302,
+          "hotspot_lateral_shift_width_fraction": 0.48,
+          "pass": true
+        },
+        {
+          "case_id": "g010nm_cooling_near-transition_localized-sink",
+          "chi_2d": 0.18991259655837703,
+          "hotspot_lateral_shift_width_fraction": 0.48,
+          "pass": true
+        },
+        {
+          "case_id": "g020nm_heating_near-transition_localized-sink",
+          "chi_2d": 0.18632870463406723,
+          "hotspot_lateral_shift_width_fraction": 0.48,
+          "pass": true
+        },
+        {
+          "case_id": "g020nm_cooling_near-transition_localized-sink",
+          "chi_2d": 0.18745458711802623,
+          "hotspot_lateral_shift_width_fraction": 0.48,
+          "pass": true
+        },
+        {
+          "case_id": "g030nm_heating_near-transition_localized-sink",
+          "chi_2d": 0.18118337645410482,
+          "hotspot_lateral_shift_width_fraction": 0.48,
+          "pass": true
+        },
+        {
+          "case_id": "g030nm_cooling_near-transition_localized-sink",
+          "chi_2d": 0.18276686489878388,
+          "hotspot_lateral_shift_width_fraction": 0.48,
+          "pass": true
+        }
+      ],
+      "passed": true
+    },
+    "max_conservative_potential_relative_l2": 1.8868613357607015e-15,
+    "max_conservative_source_current_relative_error": 4.663668932479047e-15,
+    "max_current_imbalance": 2.8387550023785424e-15,
+    "max_electrical_heat_sink_ledger_error": 8.572376643832034e-08,
+    "max_scaled_nonlinear_residual": 9.840223746486757e-08,
+    "max_terminal_electrical_heat_ledger_error": 4.3265919320224615e-15,
+    "pass_count": 36,
+    "physical_solutions_reused_after_metric_repair": 36,
+    "unique_m1_reference_solve_count": 36
+  },
+  "ridge": {
+    "design_condition_number": 1720.799414569268,
+    "fit_case_ids": [
+      "g010nm_cooling_high_localized-sink",
+      "g010nm_cooling_high_nominal",
+      "g010nm_cooling_low_localized-sink",
+      "g010nm_cooling_low_nominal",
+      "g010nm_cooling_near-transition_localized-sink",
+      "g010nm_cooling_near-transition_nominal",
+      "g010nm_heating_high_localized-sink",
+      "g010nm_heating_high_nominal",
+      "g010nm_heating_low_localized-sink",
+      "g010nm_heating_low_nominal",
+      "g010nm_heating_near-transition_localized-sink",
+      "g010nm_heating_near-transition_nominal",
+      "g020nm_cooling_high_localized-sink",
+      "g020nm_cooling_low_localized-sink",
+      "g020nm_cooling_low_nominal",
+      "g020nm_cooling_near-transition_nominal",
+      "g020nm_heating_high_nominal",
+      "g020nm_heating_low_localized-sink",
+      "g020nm_heating_low_nominal",
+      "g020nm_heating_near-transition_localized-sink"
+    ],
+    "regularization_lambda": 1e-08
+  },
+  "run_id": "Q2-M1-LATENT-NEURAL-VALUE-GEOMETRY-ADMISSION-20260810-V1",
+  "scientific_role": "diagnostic_non_voting",
+  "seed_summaries": [
+    {
+      "a1_mean_joint_field_score": 0.002695460412412738,
+      "a2_complete_case_passes": 12,
+      "a2_mean_joint_field_score": 0.00013833918104617652,
+      "n1_catastrophic": false,
+      "n1_complete_case_passes": 11,
+      "n1_improvement_over_a1": -0.42014367292688465,
+      "n1_improvement_over_r1": 0.6164948026548962,
+      "n1_mean_joint_field_score": 0.0038279410503128408,
+      "n1_median_speedup_vs_a2": 2.768428374254603,
+      "n1_paired_case_speedup_median_diagnostic": 2.1697029551604974,
+      "n1_terminal_current_error_p95": 0.018473989298565776,
+      "n2_additional_passes_over_a2": 0,
+      "n2_catastrophic": false,
+      "n2_complete_case_passes": 12,
+      "n2_improvement_over_a2": -0.3253524729894747,
+      "n2_improvement_over_r2": 0.6406695028500674,
+      "n2_mean_joint_field_score": 0.00018334817571088872,
+      "n2_median_wall_time_ratio_vs_a2": 0.737907678461688,
+      "n2_paired_case_wall_time_ratio_median_diagnostic": 0.7668015789508659,
+      "path_h_pass": false,
+      "path_s_accuracy_condition_pass": false,
+      "path_s_pass": false,
+      "r1_mean_joint_field_score": 0.009981458078828073,
+      "r2_mean_joint_field_score": 0.0005102494143000216,
+      "seed": 20260809
+    }
+  ],
+  "task_id": "Q2_M1_LATENT_NEURAL_VALUE_GEOMETRY_ADMISSION_V1",
+  "training": {
+    "executed_seeds": [
+      20260809
+    ],
+    "per_seed": {
+      "20260809": {
+        "completed_steps": 1500,
+        "resumed_postprocessing_without_retraining": true,
+        "wall_time_s": 462.69531390001066
+      }
+    },
+    "seed_count": 1,
+    "total_training_wall_time_s": 462.69531390001066
+  },
+  "validity": "valid"
+}

@@ -1,0 +1,44 @@
+{
+  "test": [
+    "g030nm_cooling_high_localized-sink",
+    "g030nm_cooling_high_nominal",
+    "g030nm_cooling_low_localized-sink",
+    "g030nm_cooling_low_nominal",
+    "g030nm_cooling_near-transition_localized-sink",
+    "g030nm_cooling_near-transition_nominal",
+    "g030nm_heating_high_localized-sink",
+    "g030nm_heating_high_nominal",
+    "g030nm_heating_low_localized-sink",
+    "g030nm_heating_low_nominal",
+    "g030nm_heating_near-transition_localized-sink",
+    "g030nm_heating_near-transition_nominal"
+  ],
+  "train": [
+    "g010nm_cooling_high_localized-sink",
+    "g010nm_cooling_high_nominal",
+    "g010nm_cooling_low_localized-sink",
+    "g010nm_cooling_low_nominal",
+    "g010nm_cooling_near-transition_localized-sink",
+    "g010nm_cooling_near-transition_nominal",
+    "g010nm_heating_high_localized-sink",
+    "g010nm_heating_high_nominal",
+    "g010nm_heating_low_localized-sink",
+    "g010nm_heating_low_nominal",
+    "g010nm_heating_near-transition_localized-sink",
+    "g010nm_heating_near-transition_nominal",
+    "g020nm_cooling_high_localized-sink",
+    "g020nm_cooling_low_localized-sink",
+    "g020nm_cooling_low_nominal",
+    "g020nm_cooling_near-transition_nominal",
+    "g020nm_heating_high_nominal",
+    "g020nm_heating_low_localized-sink",
+    "g020nm_heating_low_nominal",
+    "g020nm_heating_near-transition_localized-sink"
+  ],
+  "validation": [
+    "g020nm_cooling_high_nominal",
+    "g020nm_cooling_near-transition_localized-sink",
+    "g020nm_heating_high_localized-sink",
+    "g020nm_heating_near-transition_nominal"
+  ]
+}

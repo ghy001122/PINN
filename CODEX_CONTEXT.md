@@ -4,14 +4,14 @@
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
 - Delivery ladder: historical/high-spec R1 `HysGeo-Hybrid-PINN`, stopped direct-coordinate R1-Lite `GeoState-MC-Hybrid-PINN`, active bounded candidate `M1-LatentProj-PINN`, preferred R2 `GeoPhase-HomoMoE-PINN`, and conditional R3.
-- Active phase: `Q2_PHASE1D_M1_LATENT_SOLVER_PROJECTED_PINN_MVE`.
-- Checkpoint: `Q2_M1_LATENT_SOLVER_PROJECTED_PINN_MVE_V1_VALID_GO`.
+- Active phase: `Q2_PHASE1E_M1_LATENT_NEURAL_VALUE_GEOMETRY_ADMISSION`.
+- Checkpoint: `Q2_M1_LATENT_NEURAL_VALUE_GEOMETRY_ADMISSION_V1_VALID_NO_GO`.
 - Preserved prior checkpoint: `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED`.
 - Preserved parent CC-B disposition: `INVALID_CC_B_EXECUTION`.
 - Stability-requalification disposition: `PASS_CC_B_STABILITY_REQUALIFICATION`.
 - Branch-bracket disposition: `STOP_NUMERICAL_SEMANTICS_NOT_CLOSED`.
 - Patterned-MVE disposition: `NO_GO_CC_B_STABLE_PATTERNED_TRANSITION_SPAN`.
-- Baseline before this task: `main@425d485838ac90cb2b7dba36bad409a9ef931b28`.
+- Baseline before this task: `main@56999bbe33065a7e80587c009ab78011d61b265c`.
 - Patterned-MVE code anchor: `6c655955c7c8718c3e21248da55ef7887dbd3fdc`.
 - `cc_b_matrix_launch_count=0`; `scientific_vote=false`;
   `formal_execution_count=0`.
@@ -58,5 +58,18 @@ giving `GO_M1_LATENT_PROJECTION_PINN_MVE`. This remains single-seed diagnostic
 evidence; analytic A2 passed the same fast thresholds on 2/2 tests with lower
 mean joint-field error than N2, so neural-specific advantage, formal
 superiority, and formal OOD execution remain forbidden here.
+
+PR #39 and its single-seed `GO_M1_LATENT_PROJECTION_PINN_MVE` interpretation
+were preserved unchanged and squash-merged as
+`56999bbe33065a7e80587c009ab78011d61b265c`. The subsequent geometry-admission
+benchmark generated 36 converged M1 cases over true 10/20/30 nm contact masks;
+36/36 reference gates and 4/4 preregistered M2 sentinels passed. Train-only POD
+selected rank 2 from the 20 train cases. The sole seed `20260809` completed
+1500 Adam steps, but N1 was worse than A1 and N2 was worse than A2 in mean
+joint-field score; Path H and Path S both failed. The binding disposition is
+`NO_GO_M1_NEURAL_SPECIFIC_VALUE_A2_OR_RIDGE_DOMINATES`. Analytic A2 or the
+linear POD mapper covers this bounded benchmark, so formal OOD and all further
+neural-forward architecture expansion are now forbidden; retain the M1
+projection operator and analytic A2 only as numerical assets.
 Historical PR #29/#30/#31/#32 results, dynamic stops, D0,
 equivalence-v1/v2/v3, and Frozen GT remain immutable.
