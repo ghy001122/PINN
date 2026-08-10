@@ -1,0 +1,184 @@
+task_id: Q2_M1_PROTOCOL_SELECTED_EQUILIBRIUM_MANIFOLD_MVE_V1
+run_id: Q2-M1-PROTOCOL-SELECTED-EQUILIBRIUM-MANIFOLD-MVE-20260810-V1
+schema_version: q2_m1_protocol_selected_equilibrium_manifold_mve_v1
+phase_id: Q2_PHASE1G_M1_PROTOCOL_SELECTED_EQUILIBRIUM_MANIFOLD
+status: authorized_bounded_protocol_selection_mve
+evidence_type: literature-guided synthetic numerical digital-twin evidence
+
+frozen_baseline:
+  pr: 41
+  head_sha: ee945aff570e53c952402b09dbbe180539b3362c
+  merge_sha: 53ef26de742f8c1ecab1c3aa6b579249d9729c27
+  disposition: NO_GO_SINGLE_VALUED_IMT_FORWARD_MAP
+  interpretation: immutable_fixed_parameter_multifixedpoint_result
+
+reference:
+  base_config: configs/q2_mf_geostate_mc_pinn_fasttrack_v1.yaml
+  source_contract: configs/qiu_vo2_phase1_source_contract_v3.yaml
+  model_form: M1
+  production_grid: {nx: 10, ny: 25}
+  ambient_temperature_K: 325.0
+  evidence_object: protocol-selected branch-resolved quasi-static electrothermal equilibria
+  constitutive_mode: self_consistent_major_branch
+  Tc_up_K: 336.3965
+  Tc_down_K: 329.2035
+  nominal_transition_width_K: 3.952569169960474
+  phase_width_multiplier: 1.0
+  joule_feedback_multiplier: 1.0
+  relaxation_alpha: 0.35
+
+source_role:
+  device_thermal_capacitance_path: source_author_fitted_lumped_quantities.lumped_thermal_capacitance_J_K.value
+  expected_device_thermal_capacitance_J_K: 4.96e-11
+  cell_capacity_rule: uniform_device_capacity_divided_by_cell_count
+  interpretation: device_level_uniform_positive_time_scale_not_local_intrinsic_vo2_capacity
+
+contexts:
+  G0:
+    contact_overlap_nm: 20.0
+    sink_amplitude: 0.0
+    label: nominal_20nm
+  G1:
+    contact_overlap_nm: 30.0
+    sink_amplitude: 1.5
+    label: localized_sink_30nm
+
+protocols:
+  heating:
+    branch_value: 1.0
+    start_voltage_V: 0.75
+    end_voltage_V: 1.55
+    voltage_step_V: 0.025
+    start_temperature_K: 325.0
+    direction: increasing
+    endpoint_mean_state_max: 0.1
+    endpoint_preparation: uniform_ambient_then_full_relaxed_solve
+  cooling:
+    branch_value: -1.0
+    start_voltage_V: 1.55
+    end_voltage_V: 0.75
+    voltage_step_V: -0.025
+    start_temperature_K: 360.0
+    direction: decreasing
+    endpoint_mean_state_min: 0.9
+    fallback_preparation_voltage_V: 1.75
+    endpoint_preparation: uniform_360K_then_full_relaxed_solve
+  previous_state_provenance: immediately_preceding_accepted_protocol_equilibrium
+  forbidden_future_inputs: [root_id, cold_solution_label, hot_solution_label]
+  forbidden_selection_operations: [root_averaging, hidden_root_label, pseudo_arclength]
+
+solver:
+  maximum_iterations: 800
+  temperature_scale_K: 50.0
+  scaled_residual_max: 1.0e-7
+  scaled_update_max: 1.0e-8
+  finite_guard_temperature_min_K: 250.0
+  finite_guard_temperature_max_K: 1000.0
+
+validity_gates:
+  scaled_nonlinear_residual_max: 1.0e-7
+  current_imbalance_max: 1.0e-6
+  terminal_electrical_heat_ledger_max: 1.0e-6
+  electrical_heat_sink_ledger_max: 1.0e-6
+  minimum_valid_fraction_per_ramp: 0.9
+
+jump_detection:
+  mean_state_change_min: 0.4
+  terminal_current_relative_jump_min: 0.5
+  temperature_rise_field_relative_jump_min: 0.25
+  first_jump_only_per_ramp: true
+  refinement_voltage_resolution_V: 0.005
+  maximum_refinement_solves_per_event: 6
+  maximum_total_refinement_solves: 24
+  midpoint_initialization: last_accepted_pre_switch_equilibrium
+
+stability:
+  maximum_states: 24
+  jacobian_dtype: float64
+  jacobian_method: full_torch_autograd_250x250
+  state_priority:
+    - start_endpoint
+    - end_endpoint
+    - last_pre_switch
+    - first_post_switch
+    - half_step_pre_switch
+    - half_step_post_switch
+    - protocol_quartile_1_interior
+    - protocol_quartile_3_interior
+  fixed_interior_coarse_indices: [8, 24]
+  fixed_interior_selection_role: nonadaptive_same_voltage_stability_probes
+  state_equivalence_temperature_rise_relative_max: 1.0e-8
+  stable_margin_max: -1.0e-6
+  unstable_margin_min: 1.0e-6
+  indeterminate_label: indeterminate
+  thermal_mass_sign_role: positive_uniform_scale_preserves_eigenvalue_real_part_sign
+
+step_sensitivity:
+  half_voltage_step_abs_V: 0.0125
+  coarse_points_before_event: 2
+  coarse_points_after_event: 2
+  switching_voltage_difference_max_V: 0.01
+  off_event_distance_min_V: 0.025
+  temperature_rise_relative_difference_max: 0.01
+  terminal_current_relative_difference_max: 0.01
+  stability_classification_reversal_forbidden: true
+
+decision_gates:
+  switching_voltage_separation_min_V: 0.02
+  bistable_reachable_width_min_V: 0.05
+  bistable_current_relative_difference_min: 0.2
+  bistable_temperature_rise_relative_difference_min: 0.2
+  event_mean_state_jump_min: 0.5
+  stable_transition_fraction_min: 0.02
+  dispositions:
+    go: GO_PROTOCOL_SELECTED_EQUILIBRIUM_MANIFOLD
+    partial: PARTIAL_GO_PROTOCOL_SELECTED_MANIFOLD
+    dynamic: ROUTE_DYNAMIC_ATTRACTOR_REQUIRED
+    unresolved: NO_GO_PROTOCOL_SELECTION_UNRESOLVED
+    cooling_endpoint: NO_GO_COOLING_PROTOCOL_ENDPOINT
+    step_dependent: NO_GO_PROTOCOL_PATH_STEP_DEPENDENT
+
+surrogate_eligibility:
+  execute_only_after: [GO_PROTOCOL_SELECTED_EQUILIBRIUM_MANIFOLD, PARTIAL_GO_PROTOCOL_SELECTED_MANIFOLD]
+  pod_transform: log1p_temperature_rise_in_1K_units
+  pod_energy_target: 0.999
+  pod_rank_cap: 8
+  pod_fit_contexts: [G0, G1]
+  excluded_holdout_contexts: []
+  split_status: eligibility_only_stable_point_fit_no_future_holdout_preregistered
+  future_allowed_inputs:
+    - device_voltage_V
+    - explicit_ramp_direction
+    - protocol_start_end_metadata
+    - geometry
+    - sink_condition
+    - deployable_previous_state_summary
+  future_forbidden_inputs: [root_id, cold_solution_label, hot_solution_label]
+
+budgets:
+  main_protocol_ramps: 4
+  maximum_event_refinement_solves: 24
+  maximum_stability_states: 24
+  neural_training_runs: 0
+
+outputs:
+  processed_root: data/processed/q2_m1_protocol_selected_equilibrium_manifold_mve_v1/Q2-M1-PROTOCOL-SELECTED-EQUILIBRIUM-MANIFOLD-MVE-20260810-V1
+  table_root: outputs/tables/q2_m1_protocol_selected_equilibrium_manifold_mve_v1/Q2-M1-PROTOCOL-SELECTED-EQUILIBRIUM-MANIFOLD-MVE-20260810-V1
+  figure_root: outputs/figures/q2_m1_protocol_selected_equilibrium_manifold_mve_v1/Q2-M1-PROTOCOL-SELECTED-EQUILIBRIUM-MANIFOLD-MVE-20260810-V1
+  report: docs/codex_reports/q2_m1_protocol_selected_equilibrium_manifold_mve_v1.md
+  paper_evidence_map: docs/paper/q2_protocol_manifold_evidence_map.md
+
+claim_boundary:
+  m1_conservative_operator: supported
+  self_consistent_major_branch_implementation: supported
+  protocol_selected_equilibrium_manifold: qualified_supported_only_if_go
+  local_physical_stability: qualified_supported_under_uniform_positive_device_thermal_mass
+  event_thresholds: qualified_supported_within_frozen_step_and_refinement_contract
+  full_hysteresis: forbidden
+  minor_loop_reproduction: forbidden
+  qiu_source_rc_reproduction: forbidden
+  experimental_validation: forbidden
+  formal_pinn_superiority: forbidden
+  dynamic_attractor: forbidden
+  inverse: forbidden
+  zero_shot_material_transfer: forbidden

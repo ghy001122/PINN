@@ -1,47 +1,50 @@
 # Active Phase
 
-Active phase ID: `Q2_PHASE1F_M1_SELF_CONSISTENT_IMT_CONTRACTION_GATE`
+Active phase ID: `Q2_PHASE1G_M1_PROTOCOL_SELECTED_EQUILIBRIUM_MANIFOLD_MVE`
 
-Status: `completed_after_valid_non_single_valued_forward_no_go`
+Status: `completed_after_protocol_selected_manifold_go`
 
-Current checkpoint: `Q2_M1_SELF_CONSISTENT_IMT_CONTRACTION_GATE_V1_VALID_NONUNIQUE_NO_GO`
+Current checkpoint: `Q2_M1_PROTOCOL_SELECTED_EQUILIBRIUM_MANIFOLD_MVE_V1_GO`
 
 ## Task Contract
 
-- Objective/manuscript destination: determine whether a Qiu-anchored,
-  branch-conditioned self-consistent major-loop M1 closure supplies a unique
-  steady forward relation and enough contraction headroom to justify any new
-  neural question.
-- Inputs: the immutable PR #40 result, source-contract `beta=0.253 K^-1`, loop
-  width `7.193 K`, `Tc0=332.8 K`, the contact-aware 10 x 25 M1 operator, six
-  bounded Stage A voltage conditions, and cold/hot initial fields.
-- Outputs: actual fixed-point fields, uniqueness and ledger tables, applicable
-  figures, stop-gated contraction/A1-A2 schemas, report, and manuscript route
-  evidence map.
-- Allowed scope: the independent `self_consistent_major_branch` closure,
-  `alpha=0.35`, physical `lambda_J=1`, at most 22 main physical cases, and a
-  conditional neural stage only after a passed single-valued headroom gate.
-- Prohibited: modifying prescribed-state history, averaging distinct solutions,
-  adding hidden labels or network capacity, full hysteresis/minor loops,
-  dynamic stability, inverse, MoE, NbO2, threshold movement, or formal OOD.
-- Result: 6/6 Stage A cold/hot pairs are finite, converged, and ledger-valid,
-  but only heating 0.95 V is unique. The other five pairs differ by
-  `0.989--0.994` in T-rise and current; Stage B/C and neural execution are
-  correctly ineligible.
+- Objective/manuscript destination: determine whether explicit monotone ideal
+  terminal-voltage protocols select reproducible, locally stable equilibrium
+  components from the multi-fixed-point self-consistent M1 relation.
+- Inputs: immutable PR #41, the Qiu-anchored self-consistent major-branch M1
+  operator, G0 20 nm/nominal and G1 30 nm/localized contexts, and frozen
+  0.75--1.55 V heating/cooling protocols.
+- Outputs: four complete field ramps, refined events, full sampled-state
+  physical spectra, half-step event checks, eligibility-only POD diagnostic,
+  eight figures, report, and paper evidence map.
+- Allowed scope: exactly four main 33-point ramps, at most 24 event-refinement
+  solves, at most 24 spectrum evaluations, no root labels/averaging, and no
+  neural training.
+- Prohibited: pseudo-arclength, current clamp, dynamic RC, full hysteresis or
+  minor loops, source-RC reproduction, experimental validation, inverse, MoE,
+  threshold movement, or formal PINN superiority.
+- Result: all four ramps and `132/132` main points are valid. Cooling events in
+  G0/G1 refine to `[0.840625,0.843750] V` and
+  `[1.062500,1.065625] V`; both half-step repeats pass. All 20 unique sampled
+  states are locally stable, and each context has four stable same-voltage
+  pairs spanning `0.8 V` with maximum current/T-rise separation near `0.994`.
 
 Final disposition:
 
 ```text
-NO_GO_SINGLE_VALUED_IMT_FORWARD_MAP
+GO_PROTOCOL_SELECTED_EQUILIBRIUM_MANIFOLD
 validity = valid
-claim_status = failed_but_informative
-scientific_role = diagnostic_non_voting
+claim_status = qualified_supported
+scientific_role = bounded_protocol_manifold_evidence
 ```
 
-The sole next priority is limitation-manuscript consolidation plus, only under
-fresh authorization, a solver-first physical-selection/equilibrium-manifold
-contract. Contraction, A1/A2 headroom, formal OOD, and neural-forward rescue
-remain ineligible under the current single-valued surrogate contract.
+The sole eligible next priority, under fresh authorization, is
+`Q2_PROTOCOL_MANIFOLD_BRANCH_AWARE_SURROGATE_MVE_V1`. It must freeze a split,
+compare analytic/ridge/single-head/physically gated latent baselines, preserve
+conservative projection, and implement unknown-protocol set output or refusal.
+No neural model was trained in this phase. Full hysteresis, dynamic-attractor
+claims, source-RC reproduction, experiment, inverse, and formal superiority
+remain forbidden.
 
 ## Preserved PR #40 Contract And Outcome
 

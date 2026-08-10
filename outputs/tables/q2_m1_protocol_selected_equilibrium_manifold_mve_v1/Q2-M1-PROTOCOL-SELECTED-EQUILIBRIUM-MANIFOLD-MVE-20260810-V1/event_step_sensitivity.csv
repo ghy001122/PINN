@@ -1,0 +1,5 @@
+event_id,protocol_id,executed,pass,reason,primary_interval_lower_V,primary_interval_upper_V,primary_switching_voltage_estimate_V,half_step_interval_lower_V,half_step_interval_upper_V,half_step_switching_voltage_estimate_V,switching_voltage_difference_V,aligned_off_event_comparison_count,aligned_pre_side_count,aligned_post_side_count,worst_off_event_temperature_rise_relative_difference,worst_off_event_terminal_current_relative_difference,primary_pre_stability,primary_post_stability,half_step_pre_stability,half_step_post_stability,stability_classification_reversal_count,stability_indeterminate_count,half_step_continuation_solve_count
+,G0_heating,False,,not_applicable_no_detected_event,,,,,,,,,,,,,,,,,,,
+G0_cooling_event_01,G0_cooling,True,True,passed,0.840625,0.84375,0.8421875,0.840625,0.84375,0.8421875,0.0,4,2,2,1.0664411603850156e-08,1.0964334440751013e-09,stable,stable,stable,stable,0,0,10
+,G1_heating,False,,not_applicable_no_detected_event,,,,,,,,,,,,,,,,,,,
+G1_cooling_event_01,G1_cooling,True,True,passed,1.0625,1.065625,1.0640625,1.0625,1.065625,1.0640625,0.0,4,2,2,1.2529962235708556e-09,3.9290139968999503e-10,stable,stable,stable,stable,0,0,10
