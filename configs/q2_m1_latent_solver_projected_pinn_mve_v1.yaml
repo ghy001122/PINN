@@ -1,0 +1,122 @@
+task_id: Q2_M1_LATENT_SOLVER_PROJECTED_PINN_MVE_V1
+run_id: Q2-M1-LATENT-PROJ-PINN-MVE-20260810-V1
+schema_version: q2_m1_latent_solver_projected_pinn_mve_v1
+phase_id: Q2_PHASE1D_M1_LATENT_SOLVER_PROJECTED_PINN_MVE
+status: authorized_single_seed_scientific_mve
+evidence_type: literature-guided synthetic numerical digital-twin evidence
+
+frozen_baseline:
+  pr: 38
+  head_sha: 19a0a1c23aa27f9bfd7c91df13f5113c7d1ced57
+  merge_sha: 425d485838ac90cb2b7dba36bad409a9ef931b28
+  disposition: NO_GO_M1_RCV_PINN_RESCUE
+  interpretation: immutable_bounded_negative_result
+
+reference:
+  config: configs/q2_mf_geostate_mc_pinn_fasttrack_v1.yaml
+  model_form: M1
+  data_root: data/processed/q2_mf_geostate_mc_pinn_fasttrack_v1/Q2-MF-GEOSTATE-MC-PINN-FASTTRACK-20260809-V1-R1/cases
+  expected_cases: 12
+  ambient_temperature_K: 325.0
+  nonlinear_reference_dataset_rerun_forbidden: true
+
+dataset:
+  validation_cases:
+    - heating_high_localized-sink
+    - cooling_near-transition_nominal
+  test_cases:
+    - heating_near-transition_localized-sink
+    - cooling_high_nominal
+
+operator_parity:
+  finite_case_count_required: 12
+  phi_relative_l2_max: 1.0e-6
+  mapped_temperature_relative_l2_max: 1.0e-6
+  terminal_current_relative_error_max: 1.0e-6
+  internal_joule_relative_error_max: 1.0e-6
+  contact_joule_relative_error_max: 1.0e-6
+  terminal_electrical_heat_ledger_max: 1.0e-8
+  electrical_heat_sink_ledger_max: 1.0e-8
+  fixed_point_map_defect_max: 1.0e-6
+  implementation_repairs_allowed: 1
+
+pod:
+  transform: log1p_temperature_rise_per_1K
+  cumulative_energy_target: 0.999
+  rank_cap: 6
+  training_sample_rank_cap: 8
+  smooth_nonnegative_beta_K: 1.0e-4
+
+model:
+  seed: 20260809
+  dtype: float64
+  hidden_layers: 2
+  hidden_width: 32
+  activation: SiLU
+  voltage_scale_V: 1.5
+  sink_amplitude_scale: 1.5
+
+training:
+  stage1_steps: 500
+  stage1_learning_rate: 1.0e-3
+  stage2_steps: 1000
+  stage2_learning_rate: 3.0e-4
+  maximum_wall_time_s: 1800
+  history_stride: 1
+  fixed_loss_weights:
+    coefficient: 1.0
+    projected_temperature: 1.0
+    projected_potential: 1.0
+    terminal_current: 1.0
+    fixed_point_defect: 1.0
+
+evaluation:
+  fast_timing_repeats: 20
+  certified_timing_repeats: 10
+  timing_warmup_repeats: 1
+  nc_maximum_additional_iterations: 8
+  cold_maximum_iterations: 800
+  relaxation: 0.35
+  temperature_scale_K: 50.0
+  scaled_residual_max: 1.0e-7
+  scaled_update_max: 1.0e-8
+  fast_go:
+    temperature_rise_relative_l2_max: 0.10
+    potential_relative_l2_max: 0.03
+    terminal_current_relative_error_max: 0.05
+    fixed_point_defect_max: 0.02
+    sigma_defect_max: 0.02
+    terminal_electrical_heat_ledger_max: 1.0e-5
+    electrical_heat_sink_ledger_max: 1.0e-5
+    required_test_case_passes: 1
+    speedup_min: 5.0
+    joint_field_improvement_over_n0_min: 0.30
+    catastrophic_relative_error_max: 2.0
+  certified_go:
+    required_test_case_passes: 2
+    field_and_current_relative_error_max: 0.005
+    ledger_error_max: 1.0e-8
+    maximum_additional_iterations: 8
+    median_total_projection_updates_max: 8
+    speedup_min: 3.0
+
+outputs:
+  processed_root: data/processed/q2_m1_latent_solver_projected_pinn_mve_v1/Q2-M1-LATENT-PROJ-PINN-MVE-20260810-V1
+  table_root: outputs/tables/q2_m1_latent_solver_projected_pinn_mve_v1/Q2-M1-LATENT-PROJ-PINN-MVE-20260810-V1
+  figure_root: outputs/figures/q2_m1_latent_solver_projected_pinn_mve_v1/Q2-M1-LATENT-PROJ-PINN-MVE-20260810-V1
+  checkpoint_root: outputs/checkpoints/q2_m1_latent_solver_projected_pinn_mve_v1/Q2-M1-LATENT-PROJ-PINN-MVE-20260810-V1
+  report: docs/codex_reports/q2_m1_latent_solver_projected_pinn_mve_v1.md
+
+claim_boundary:
+  m1_reference: qualified_supported
+  direct_coordinate_pinn_failure: failed_but_informative
+  operator_parity: supported_if_all_gates_pass
+  single_seed_latent_projection_mve: diagnostic_non_voting
+  formal_superiority: forbidden
+  experimental_validation: forbidden
+  dynamic_hysteresis: forbidden
+  inverse: forbidden
+  data_free_pinn: forbidden
+  mesh_free_pinn: forbidden
+  sparse_anchor_only: forbidden
+  zero_shot_material_transfer: forbidden

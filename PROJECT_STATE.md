@@ -3,21 +3,26 @@
 ## Authoritative Current Snapshot
 
 - Delivery/phase: `Q2_SCI_DELIVERY_MODE` /
-  `Q2_PHASE1C_M1_ROBIN_CONTROL_VOLUME_PINN_RESCUE`.
-- Checkpoint: `Q2_M1_ROBIN_CONTROL_VOLUME_PINN_RESCUE_V1_VALID_NO_GO`.
-- Active fallback: R1-Lite `GeoState-MC-Hybrid-PINN` for
-  `state-conditioned quasi-static electrothermal fields`.
-- Current result: M1 remains the simplest qualified reference; its discrete
-  teacher/objective compatibility passed 12/12 cases, but B0-R/B1-R/P0-RCV
-  each passed 0/2 complete test cases, ending `NO_GO_M1_RCV_PINN_RESCUE`.
-- Evidence boundary: implementation is `supported`, the reduced M1 reference
-  is `qualified_supported`, compatibility is a supported contract fact, the
-  single-seed rescue is diagnostic `failed_but_informative`, and positive PINN
-  superiority remains `forbidden`.
+  `Q2_PHASE1D_M1_LATENT_SOLVER_PROJECTED_PINN_MVE`.
+- Checkpoint: `Q2_M1_LATENT_SOLVER_PROJECTED_PINN_MVE_V1_VALID_GO`.
+- Active bounded candidate: `M1-LatentProj-PINN` for
+  `state-conditioned quasi-static electrothermal fields`; direct-coordinate
+  R1-Lite `GeoState-MC-Hybrid-PINN` is historical stopped evidence.
+- Current result: the differentiable conservative M1 operator passes 12/12
+  parity cases; the train-only rank-2 latent projection MVE completed one
+  1500-step run and N2 passed 1/2 complete test cases with median `17.900x`
+  speedup, ending `GO_M1_LATENT_PROJECTION_PINN_MVE`. Analytic A2 passed the
+  same fast thresholds on 2/2 tests with lower mean joint-field error, so a
+  neural-specific advantage is not supported.
+- Evidence boundary: operator parity is `supported`, the reduced M1 reference
+  is `qualified_supported`, the direct coordinate-PINN failure remains
+  `failed_but_informative`, the latent MVE is single-seed diagnostic/non-voting,
+  and formal PINN superiority remains `forbidden`.
 - Preserved terminal checkpoint: `Q2_CC_B_PATTERNED_BRANCH_VALID_NO_GO`.
 - Preserved prior checkpoint: `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED`.
 - Patterned-MVE baseline: `4c30021c45782e3803f1f285328e09b4411789df`.
-- Result branch: `codex/q2-cc-b-patterned-branch-decision-mve-v1`.
+- Current result branch: `codex/q2-m1-latent-solver-projected-pinn-mve-v1`.
+- Patterned-MVE result branch: `codex/q2-cc-b-patterned-branch-decision-mve-v1`.
 - Parent disposition: `INVALID_CC_B_EXECUTION`.
 - Requalification disposition: `PASS_CC_B_STABILITY_REQUALIFICATION`.
 - Branch-bracket disposition: `STOP_NUMERICAL_SEMANTICS_NOT_CLOSED`.
@@ -96,8 +101,8 @@ as infrastructure provenance only and do not vote on the active S2 route.
 
 ## Boundary
 
-The current-clamp route stops at its valid bounded NO-GO and is immutable. The
-Phase 1B and PR #37 remain immutable bounded negative evidence. Phase 1C closes
-the only structural direct coordinate-PINN rescue at a valid NO-GO. No further
-PINN rescue, formal OOD, current-clamp work, inverse, MoE, dynamic RC, or NbO2
-work is authorized.
+The current-clamp route and both direct coordinate-PINN routes remain immutable
+bounded negative evidence. The solver-projected MVE is a valid single-seed GO,
+but does not authorize formal superiority inside this round. The only eligible
+next request is `Q2_M1_LATENT_PROJECTION_PINN_FORMAL_OOD_V1`; inverse, MoE,
+dynamic RC, NbO2, and new neural-forward rescue architectures remain forbidden.

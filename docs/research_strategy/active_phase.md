@@ -1,29 +1,30 @@
 # Active Phase
 
-Active phase ID: `Q2_PHASE1C_M1_ROBIN_CONTROL_VOLUME_PINN_RESCUE`
+Active phase ID: `Q2_PHASE1D_M1_LATENT_SOLVER_PROJECTED_PINN_MVE`
 
-Status: `stopped_after_valid_structural_rescue_no_go`
+Status: `completed_after_valid_single_seed_fast_projection_go`
 
-Current checkpoint: `Q2_M1_ROBIN_CONTROL_VOLUME_PINN_RESCUE_V1_VALID_NO_GO`
+Current checkpoint: `Q2_M1_LATENT_SOLVER_PROJECTED_PINN_MVE_V1_VALID_GO`
 
 ## Task Contract
 
-- Objective/manuscript destination: test the only authorized structural rescue
-  after making the M1 teacher, Robin boundaries, subdomain traces,
-  control-volume conservation, ports, ledgers, and evaluation isomorphic.
-- Inputs: PR #37's frozen 12-case M1 data; no reference nonlinear solve rerun.
-- Outputs: compatibility evidence, actual B0-R/B1-R/P0-RCV training, three
-  checkpoints, complete test predictions, numeric tables, seven figures, and
-  one report.
-- Allowed scope: one versioned M1-consistent implementation and one focused
-  test file, seed `20260809`, float64, fixed 5% phi/T anchors, and 1500 Adam
-  steps per model.
+- Objective/manuscript destination: determine whether a network can learn only
+  a low-rank M1 thermal initialization while one or two frozen conservative
+  projections recover accurate phase-state-conditioned electrothermal fields.
+- Inputs: PR #38's frozen 12-case M1 data and 8/2/2 complete-case split; no
+  reference dataset regeneration and no validation/test POD leakage.
+- Outputs: dense Torch operator parity, train-only POD, one actual latent-model
+  training, COLD/A2/N0/N1/N2/NC metrics, timings, predictions, seven figures,
+  one checkpoint, and one report.
+- Allowed scope: one 2x32 SiLU latent network, rank selected once at 99.9%
+  train energy, seed `20260809`, float64, and exactly 1500 Adam steps.
 - Prohibited: Frozen GT edits; current-clamp/BranchConserve/NLS/equivalence
   reruns; threshold movement; inverse, MoE, dynamic RC, NbO2, or formal OOD.
 - Success gate and routing are frozen in
-  `configs/q2_m1_robin_control_volume_pinn_rescue_v1.yaml`.
-- Failure route: teacher incompatibility stops before training; otherwise the
-  exact GO/PARTIAL-GO/NO-GO test-case rules bind without threshold movement.
+  `configs/q2_m1_latent_solver_projected_pinn_mve_v1.yaml`.
+- Failure route: operator parity or low-rank failure stops before training;
+  otherwise the exact Fast-GO/Certified-GO/NO-GO rules bind without threshold
+  movement.
 
 ## Frozen Scientific Premise
 
@@ -33,44 +34,53 @@ contact-corrected vertical thermal conductance, contact/bare in-plane thermal
 conductance differences, localized sink, and prescribed state-conditioned
 conductivity. Branch and state are protocol/state metadata, not dynamics.
 
-All models use one shared trunk and three explicit static-region heads. B0-R is
-phi/T data-only, B1-R derives fluxes and applies per-region strong form, and
-P0-RCV predicts phi/T/J/q with first-order constitutive and locked weak-CV
-losses. M0 terminal hard lifting and legacy `np.gradient` flux anchors are absent.
+The network takes only normalized voltage, branch metadata, prescribed state,
+and sink amplitude, and outputs rank-2 POD coefficients. It has no coordinate
+input and does not directly predict phi, J, or q. The undamped dense Torch M1
+operator supplies electrical and thermal fields, Robin contacts, ports, face
+fluxes, Joule partition, and ledgers; COLD/NC retain the frozen 0.35 relaxation.
 
 ## Claim Boundary And Preserved History
 
-Implementation facts may become `supported`; a selected reduced reference is
-at most `qualified_supported`; this one-seed run is diagnostic/non-voting.
-Formal PINN superiority, experimental validation, stable-branch physics, and
-inverse recovery remain `forbidden`.
+Operator parity is `supported`; the selected reduced reference is at most
+`qualified_supported`; this one-seed MVE is diagnostic/non-voting. It uses all
+eight complete train fields for POD and training, so data-free, mesh-free, and
+sparse-anchor-only identities are forbidden. Formal superiority, experimental
+validation, dynamic hysteresis, inverse recovery, and material transfer remain
+`forbidden`.
 
-PR #37 at `c4ccd7a995fbd4027d92a10fcbf42b1e14906092` is the immutable
-`NO_GO_GEOSTATE_PINN_IDEA_SCREEN` baseline and was squash-merged unchanged as
-`183f129545a2a047137745d36a0c432d02a28219`. All earlier stops, dynamic work,
-equivalence evidence, and Frozen GT remain immutable.
+PR #38 at `19a0a1c23aa27f9bfd7c91df13f5113c7d1ced57` remains the immutable
+`NO_GO_M1_RCV_PINN_RESCUE` baseline and was squash-merged unchanged as
+`425d485838ac90cb2b7dba36bad409a9ef931b28`. PR #37 and all earlier stops,
+dynamic work, equivalence evidence, and Frozen GT remain immutable.
 
-## Executed Outcome And Stop
+## Executed Outcome And Route
 
-Discrete teacher/objective compatibility passed all 12 cases. Worst normalized
-current/energy P95 were `7.287e-15` and `9.332e-8`; worst Robin/interface and
-both global ledgers were below `1.392e-9`. No implementation repair or reference
-nonlinear solve was used.
+Dense float64 operator parity passed 12/12 cases. Worst phi/T map/current
+errors were `2.129e-15`, `8.631e-10`, and `6.083e-15`; worst terminal and sink
+ledgers were `2.839e-15` and `2.775e-12`. No reference dataset solve was rerun.
 
-B0-R/B1-R/P0-RCV each completed exactly 1500 steps. Their mean test T-rise / phi
-/ current / energy / interface / current-CV / energy-CV metrics were:
-`0.2062/0.0413/35.9296/0.7714/1.2963/0.2670/31.5428`,
-`0.9444/0.2645/0.8965/0.9995/0.1036/0.000075/0.0946`, and
-`0.6193/0.1829/0.8914/0.8736/0.1029/0.0050/0.9470`. Each passed 0/2 test cases.
+Train-only POD selected rank 2 at cumulative energy `0.999997413`. The sole
+2x32 SiLU network completed 1500 steps in `131.94 s`. On the two frozen test
+cases N2 mean T-rise/phi/current errors were `5.813e-4`, `3.467e-5`, and
+`5.760e-4`; mean fixed-point and sigma defects were `0.013418` and
+`6.069e-4`; the worst ledger was `9.040e-14`. N2 passed 1/2 complete cases,
+improved mean joint-field score over N0 by `99.828%`, and achieved median
+`17.900x` speedup versus COLD. NC did not certify within eight extra updates.
+Analytic A2 passed the same fast per-case thresholds on 2/2 test cases and had
+lower mean joint-field error than N2; the GO therefore opens formal OOD but
+does not establish neural-specific value.
 Final disposition:
 
 ```text
-NO_GO_M1_RCV_PINN_RESCUE
+GO_M1_LATENT_PROJECTION_PINN_MVE
 validity = valid
-claim_status = failed_but_informative
+claim_status = qualified_supported
+scientific_role = diagnostic_non_voting
 scientific_vote = false
 ```
 
-Do not start formal OOD or another direct coordinate-PINN rescue. The single
-next priority is a preregistration for a solver-projected conservative surrogate;
-execution requires separate authorization.
+Do not start formal OOD in this round. The single next priority is a separate
+preregistration for `Q2_M1_LATENT_PROJECTION_PINN_FORMAL_OOD_V1`, with analytic
+A2 as the first neural-specific value comparator; formal execution requires
+new authorization.

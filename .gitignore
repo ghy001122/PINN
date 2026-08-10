@@ -595,6 +595,24 @@ outputs/checkpoints/q2_m1_robin_control_volume_pinn_rescue_v1/*
 !outputs/checkpoints/q2_m1_robin_control_volume_pinn_rescue_v1/Q2-M1-ROBIN-CV-PINN-RESCUE-20260810-V1/
 !outputs/checkpoints/q2_m1_robin_control_volume_pinn_rescue_v1/Q2-M1-ROBIN-CV-PINN-RESCUE-20260810-V1/*.pt
 
+# Q2 M1 latent solver-projected PINN MVE evidence.
+!data/processed/q2_m1_latent_solver_projected_pinn_mve_v1/
+data/processed/q2_m1_latent_solver_projected_pinn_mve_v1/*
+!data/processed/q2_m1_latent_solver_projected_pinn_mve_v1/Q2-M1-LATENT-PROJ-PINN-MVE-20260810-V1/
+!data/processed/q2_m1_latent_solver_projected_pinn_mve_v1/Q2-M1-LATENT-PROJ-PINN-MVE-20260810-V1/**
+!outputs/tables/q2_m1_latent_solver_projected_pinn_mve_v1/
+outputs/tables/q2_m1_latent_solver_projected_pinn_mve_v1/*
+!outputs/tables/q2_m1_latent_solver_projected_pinn_mve_v1/Q2-M1-LATENT-PROJ-PINN-MVE-20260810-V1/
+!outputs/tables/q2_m1_latent_solver_projected_pinn_mve_v1/Q2-M1-LATENT-PROJ-PINN-MVE-20260810-V1/**
+!outputs/figures/q2_m1_latent_solver_projected_pinn_mve_v1/
+outputs/figures/q2_m1_latent_solver_projected_pinn_mve_v1/*
+!outputs/figures/q2_m1_latent_solver_projected_pinn_mve_v1/Q2-M1-LATENT-PROJ-PINN-MVE-20260810-V1/
+!outputs/figures/q2_m1_latent_solver_projected_pinn_mve_v1/Q2-M1-LATENT-PROJ-PINN-MVE-20260810-V1/**
+!outputs/checkpoints/q2_m1_latent_solver_projected_pinn_mve_v1/
+outputs/checkpoints/q2_m1_latent_solver_projected_pinn_mve_v1/*
+!outputs/checkpoints/q2_m1_latent_solver_projected_pinn_mve_v1/Q2-M1-LATENT-PROJ-PINN-MVE-20260810-V1/
+!outputs/checkpoints/q2_m1_latent_solver_projected_pinn_mve_v1/Q2-M1-LATENT-PROJ-PINN-MVE-20260810-V1/*.pt
+
 # Local-only third-party PDF provenance renders; never redistribute.
 tmp/pdfs/qiu_si_pdf_page4.png
 tmp/pdfs/qiu_si_equations_crop.png
