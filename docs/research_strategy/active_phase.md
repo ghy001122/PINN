@@ -1,44 +1,56 @@
 # Active Phase
 
-Active phase ID: `Q2_PHASE1E_M1_LATENT_NEURAL_VALUE_GEOMETRY_ADMISSION`
+Active phase ID: `Q2_PHASE1F_M1_SELF_CONSISTENT_IMT_CONTRACTION_GATE`
 
-Status: `completed_after_valid_neural_specific_value_no_go`
+Status: `completed_after_valid_non_single_valued_forward_no_go`
 
-Current checkpoint: `Q2_M1_LATENT_NEURAL_VALUE_GEOMETRY_ADMISSION_V1_VALID_NO_GO`
+Current checkpoint: `Q2_M1_SELF_CONSISTENT_IMT_CONTRACTION_GATE_V1_VALID_NONUNIQUE_NO_GO`
 
 ## Task Contract
 
-- Objective/manuscript destination: test whether the train-only POD neural
-  latent mapper has independent value over analytic A1/A2 and closed-form
-  ridge R1/R2 on a true 10/20/30 nm contact-geometry domain.
-- Inputs: 36 newly generated M1 cases on the fixed 10 x 25 grid, four bounded
-  M2 sentinels, a 20/4/12 train/validation/30-nm-test split, and immutable PR
-  #39 history.
-- Outputs: matched-budget A1/A2/R1/R2/N1/N2 fields, true look-ahead defects,
-  timings, one actual 1500-step seed, POD/ridge/checkpoint/predictions, eight
-  figures, tables, and a claim-gated report.
-- Allowed scope: one rank-selected 2x32 SiLU mapper at seed `20260809`; two
-  additional seeds only after an initial Path H or Path S pass.
-- Prohibited: threshold movement, validation/test leakage, PR #39 changes,
-  formal OOD, another architecture, inverse, MoE, dynamic RC, or material
-  transfer.
-- Result: 36/36 M1 gates and 4/4 M2 sentinels pass; POD rank is 2. N1 passes
-  11/12 cases but is `42.0%` worse than A1 in mean joint-field score; N2 passes
-  12/12 but is `32.5%` worse than A2. Both neural admission paths fail, so the
-  two conditional seeds are correctly skipped.
+- Objective/manuscript destination: determine whether a Qiu-anchored,
+  branch-conditioned self-consistent major-loop M1 closure supplies a unique
+  steady forward relation and enough contraction headroom to justify any new
+  neural question.
+- Inputs: the immutable PR #40 result, source-contract `beta=0.253 K^-1`, loop
+  width `7.193 K`, `Tc0=332.8 K`, the contact-aware 10 x 25 M1 operator, six
+  bounded Stage A voltage conditions, and cold/hot initial fields.
+- Outputs: actual fixed-point fields, uniqueness and ledger tables, applicable
+  figures, stop-gated contraction/A1-A2 schemas, report, and manuscript route
+  evidence map.
+- Allowed scope: the independent `self_consistent_major_branch` closure,
+  `alpha=0.35`, physical `lambda_J=1`, at most 22 main physical cases, and a
+  conditional neural stage only after a passed single-valued headroom gate.
+- Prohibited: modifying prescribed-state history, averaging distinct solutions,
+  adding hidden labels or network capacity, full hysteresis/minor loops,
+  dynamic stability, inverse, MoE, NbO2, threshold movement, or formal OOD.
+- Result: 6/6 Stage A cold/hot pairs are finite, converged, and ledger-valid,
+  but only heating 0.95 V is unique. The other five pairs differ by
+  `0.989--0.994` in T-rise and current; Stage B/C and neural execution are
+  correctly ineligible.
 
 Final disposition:
 
 ```text
-NO_GO_M1_NEURAL_SPECIFIC_VALUE_A2_OR_RIDGE_DOMINATES
+NO_GO_SINGLE_VALUED_IMT_FORWARD_MAP
 validity = valid
 claim_status = failed_but_informative
 scientific_role = diagnostic_non_voting
 ```
 
-The sole next priority is limitation-manuscript consolidation using the M1
-conservative operator and analytic A2 as numerical assets. Formal OOD and all
-new neural-forward rescue architectures are ineligible.
+The sole next priority is limitation-manuscript consolidation plus, only under
+fresh authorization, a solver-first physical-selection/equilibrium-manifold
+contract. Contraction, A1/A2 headroom, formal OOD, and neural-forward rescue
+remain ineligible under the current single-valued surrogate contract.
+
+## Preserved PR #40 Contract And Outcome
+
+PR #40 at `a4a20a919dd4eca907269cf0aef351ecdb0c37b3` remains the immutable
+`NO_GO_M1_NEURAL_SPECIFIC_VALUE_A2_OR_RIDGE_DOMINATES` baseline and was
+squash-merged unchanged as `22e3760f1505691f55d5d2366ca7659d7a7723a6`.
+Its 36-case geometry data, M2 sentinels, POD/ridge/neural metrics, figures,
+checkpoint, report, and interpretation are not modified by this new physical
+premise.
 
 ## Preserved PR #39 Contract And Outcome
 
@@ -60,15 +72,15 @@ new neural-forward rescue architectures are ineligible.
   otherwise the exact Fast-GO/Certified-GO/NO-GO rules bind without threshold
   movement.
 
-## Frozen Scientific Premise
+## Preserved PR #39 Frozen Scientific Premise
 
-The scientific object remains phase-state-conditioned quasi-static
+For preserved PR #39, the scientific object was phase-state-conditioned quasi-static
 electrothermal fields. M1 uses finite external electrical contact resistance,
 contact-corrected vertical thermal conductance, contact/bare in-plane thermal
 conductance differences, localized sink, and prescribed state-conditioned
 conductivity. Branch and state are protocol/state metadata, not dynamics.
 
-The network takes only normalized voltage, branch metadata, prescribed state,
+That historical network takes only normalized voltage, branch metadata, prescribed state,
 and sink amplitude, and outputs rank-2 POD coefficients. It has no coordinate
 input and does not directly predict phi, J, or q. The undamped dense Torch M1
 operator supplies electrical and thermal fields, Robin contacts, ports, face
@@ -102,7 +114,7 @@ cases N2 mean T-rise/phi/current errors were `5.813e-4`, `3.467e-5`, and
 improved mean joint-field score over N0 by `99.828%`, and achieved median
 `17.900x` speedup versus COLD. NC did not certify within eight extra updates.
 Analytic A2 passed the same fast per-case thresholds on 2/2 test cases and had
-lower mean joint-field error than N2; the GO therefore opens formal OOD but
+lower mean joint-field error than N2; at the time, that GO made formal OOD eligible but
 does not establish neural-specific value.
 Final disposition:
 

@@ -1256,3 +1256,35 @@ ledger. B0 uses only matched sparse anchors; B1 derives fluxes from a
 second-order strong form; M0 learns the four flux components explicitly. The
 single-seed fast-track comparison is diagnostic/non-voting and cannot support
 formal PINN superiority or experimental validation.
+
+## Self-consistent M1 major-branch closure (bounded diagnostic)
+
+For the versioned `self_consistent_major_branch` mode only, the prescribed
+effective conductive-state coordinate is replaced by the branch-conditioned
+quasi-static closure
+
+\[
+m_{\mathrm{eq}}(T,b)=\frac{1}{2}\left[1+\tanh\!\left(
+\frac{T-T_c(b)}{w_T}\right)\right],\qquad
+T_c(b)=\frac{1+b}{2}T_{c,\uparrow}+\frac{1-b}{2}T_{c,\down}.
+\]
+
+The Qiu source contract supplies
+\(T_{c,\uparrow}=T_{c,0}+\Delta T_c/2\),
+\(T_{c,\downarrow}=T_{c,0}-\Delta T_c/2\), and the nominal tanh scale
+\(w_T=1/\beta\).  The resulting \(m_{\mathrm{eq}}\) remains only an effective
+conductive-state coordinate and is passed to the existing white-box VO2
+conductivity; it is not a measured metallic volume fraction or a full
+hysteresis/minor-loop state.
+
+The raw conservative electrothermal target is damped with the frozen solver
+policy
+
+\[
+\mathcal P_\alpha(T)=(1-\alpha)T+\alpha\mathcal P_{\mathrm{raw}}(T),
+\qquad \alpha=0.35.
+\]
+
+The diagnostic multiplier \(\lambda_J\) scales the complete internal-plus-
+contact Joule source before the thermal solve.  Only \(\lambda_J=1\) is a
+physical claim case; \(\lambda_J=0.5\) is a stiffness diagnostic.
