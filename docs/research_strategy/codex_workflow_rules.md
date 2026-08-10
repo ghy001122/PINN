@@ -10,6 +10,16 @@ The full stage-gate contract is `docs/research_strategy/sci_delivery_pipeline.md
 4. State whether the task is documentation, smoke/preflight, actual experiment, review, or publication.
 5. Use a phase-scoped `codex/` branch for Phase 1 implementation or contract changes; merge through review rather than developing directly on `main`.
 
+## Communication, Coordination, And Stop Discipline
+
+- Lead with the decision and verified facts. Mark interpretations, assumptions or hypotheses, and unresolved unknowns explicitly; keep wording concise and direct.
+- Use a compact table, flowchart, timeline, or dependency diagram when it materially reduces the effort needed to understand a complex mapping or sequence. Do not add a visual when short prose is clearer.
+- For extended work, report meaningful progress periodically: actual state change, decisive evidence or blocker, and next action. Skip command narration and unchanged-status updates.
+- Use sub-agents only when the runtime and user authorization permit them and the subtasks are independent, bounded, and genuinely parallelizable. Assign one integration owner, prevent overlapping edits or duplicate audits, and verify every delegated result before relying on it.
+- Begin with an explicit plan. Revise it only after material evidence changes the route, and run validation in proportion to risk. Do not repeat an unchanged audit or check; after a declared pass, fail, or blocker, close the loop and route the result.
+- Do not create or adjust byte, token, line, or file-count gates merely to keep documentation compact. Check ownership, relevance, duplication, and staleness; use a numeric limit only when a cited external system or explicit approved contract truly imposes it.
+- Do not let defensive governance work displace an eligible high-value bounded research experiment. Explore authorized ideas aggressively, then apply conservative evidence and manuscript gates.
+
 ## Bottleneck Selection And Round Contract
 
 - Activate exactly one bottleneck from the ordered queue in `PROJECT_GOAL.md`; do not bundle unrelated research tracks.
