@@ -3,24 +3,24 @@
 ## Authoritative Current Snapshot
 
 - Delivery/phase: `Q2_SCI_DELIVERY_MODE` /
-  `Q2_PHASE1F_M1_SELF_CONSISTENT_IMT_CONTRACTION_GATE`.
-- Checkpoint: `Q2_M1_SELF_CONSISTENT_IMT_CONTRACTION_GATE_V1_VALID_NONUNIQUE_NO_GO`.
-- Active bounded result: the Qiu-anchored self-consistent major-branch closure
-  is implemented, but its fixed-parameter to steady-field solution relation is
-  not single-valued under the initialization-independent surrogate contract.
-- Current result: all 6/6 Stage A cold/hot solve pairs pass residual, current,
-  ledger, and finite gates; only heating 0.95 V is unique and the other five
-  have T-rise/current differences near `0.989--0.994`, yielding
-  `NO_GO_SINGLE_VALUED_IMT_FORWARD_MAP` before the contraction atlas.
-- Evidence boundary: the M1 operator and new closure implementation are
-  `supported` implementation facts; the bounded multi-fixed-point result is
-  `failed_but_informative`; unique-atlas, contraction, neural-headroom, full
-  hysteresis, dynamic stability, and formal superiority remain `forbidden` or
-  unassessed.
+  `Q2_PHASE1G_M1_PROTOCOL_SELECTED_EQUILIBRIUM_MANIFOLD_MVE`.
+- Checkpoint: `Q2_M1_PROTOCOL_SELECTED_EQUILIBRIUM_MANIFOLD_MVE_V1_GO`.
+- Active bounded result: explicit monotone heating/cooling voltage protocols
+  select reproducible branch-resolved quasi-static equilibria from the
+  multi-fixed-point self-consistent M1 relation.
+- Current result: 4/4 ramps and `132/132` main points are valid; two cooling
+  events pass refinement and half-step reproduction; 20/20 unique sampled
+  states are locally stable; G0 and G1 each have a `0.8 V` sampled stable
+  same-voltage span. Disposition: `GO_PROTOCOL_SELECTED_EQUILIBRIUM_MANIFOLD`.
+- Evidence boundary: the selected manifold, sampled-state physical stability,
+  and event thresholds are `qualified_supported` only under the frozen
+  synthetic ideal terminal-voltage protocol. Full hysteresis, dynamic
+  attractors, source-RC reproduction, experiment, and surrogate performance
+  remain forbidden or unassessed.
 - Preserved terminal checkpoint: `Q2_CC_B_PATTERNED_BRANCH_VALID_NO_GO`.
 - Preserved prior checkpoint: `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED`.
 - Patterned-MVE baseline: `4c30021c45782e3803f1f285328e09b4411789df`.
-- Current result branch: `codex/q2-m1-self-consistent-imt-contraction-gate-v1`.
+- Current result branch: `codex/q2-m1-protocol-selected-equilibrium-manifold-mve-v1`.
 - Patterned-MVE result branch: `codex/q2-cc-b-patterned-branch-decision-mve-v1`.
 - Parent disposition: `INVALID_CC_B_EXECUTION`.
 - Requalification disposition: `PASS_CC_B_STABILITY_REQUALIFICATION`.
@@ -101,10 +101,9 @@ as infrastructure provenance only and do not vote on the active S2 route.
 ## Boundary
 
 The current-clamp, direct-coordinate, and prescribed-state latent neural routes
-remain immutable bounded evidence. The self-consistent major-branch premise
-does not define an initialization-independent single-valued steady forward
-relation on 5/6 bounded admission conditions, so contraction and neural
-headroom were not eligible. Do not add a hidden label or network capacity to
-choose a solution. The next priority is a solver-first physical-selection or
-equilibrium-manifold contract under fresh authorization, while the current
-result enters the limitation manuscript.
+remain immutable bounded evidence. The fixed-parameter self-consistent relation
+remains multi-valued, but the frozen monotone protocols now define qualified,
+locally stable selected components without a hidden root label. The next and
+only eligible task is the preregistered protocol-manifold branch-aware
+surrogate MVE; it must compare analytic/linear baselines, preserve unknown-
+protocol ambiguity/refusal, and may not claim full hysteresis or dynamics.

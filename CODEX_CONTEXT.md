@@ -4,14 +4,14 @@
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
 - Delivery ladder: historical/high-spec R1 `HysGeo-Hybrid-PINN`, stopped direct-coordinate R1-Lite `GeoState-MC-Hybrid-PINN`, stopped latent neural-forward route, retained conservative M1 numerical operator, preferred R2 `GeoPhase-HomoMoE-PINN`, and conditional R3.
-- Active phase: `Q2_PHASE1F_M1_SELF_CONSISTENT_IMT_CONTRACTION_GATE`.
-- Checkpoint: `Q2_M1_SELF_CONSISTENT_IMT_CONTRACTION_GATE_V1_VALID_NONUNIQUE_NO_GO`.
+- Active phase: `Q2_PHASE1G_M1_PROTOCOL_SELECTED_EQUILIBRIUM_MANIFOLD_MVE`.
+- Checkpoint: `Q2_M1_PROTOCOL_SELECTED_EQUILIBRIUM_MANIFOLD_MVE_V1_GO`.
 - Preserved prior checkpoint: `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED`.
 - Preserved parent CC-B disposition: `INVALID_CC_B_EXECUTION`.
 - Stability-requalification disposition: `PASS_CC_B_STABILITY_REQUALIFICATION`.
 - Branch-bracket disposition: `STOP_NUMERICAL_SEMANTICS_NOT_CLOSED`.
 - Patterned-MVE disposition: `NO_GO_CC_B_STABLE_PATTERNED_TRANSITION_SPAN`.
-- Baseline before this task: `main@22e3760f1505691f55d5d2366ca7659d7a7723a6`.
+- Baseline before this task: `main@53ef26de742f8c1ecab1c3aa6b579249d9729c27`.
 - Patterned-MVE code anchor: `6c655955c7c8718c3e21248da55ef7887dbd3fdc`.
 - `cc_b_matrix_launch_count=0`; `scientific_vote=false`;
   `formal_execution_count=0`.
@@ -83,5 +83,20 @@ above the frozen `1e-4` uniqueness gate. The binding disposition is
 `NO_GO_SINGLE_VALUED_IMT_FORWARD_MAP`: the fixed-parameter to steady-solution
 relation is multi-valued under the surrogate contract, so the contraction
 atlas, A1/A2 headroom vote, and conditional neural stage were not executed.
+
+PR #41 preserved that valid multi-fixed-point result unchanged and was
+squash-merged as `53ef26de742f8c1ecab1c3aa6b579249d9729c27`. The explicitly
+authorized protocol-selection MVE then completed four monotone 33-point ramps
+with `132/132` valid main equilibria. Two cooling events were refined to
+`[0.840625, 0.843750] V` in G0 and `[1.062500, 1.065625] V` in G1; both were
+identically reproduced by the half-step protocol. Twenty numerically unique
+states were assessed with the full thermal-dynamics spectrum and all 20 were
+stable; the cumulative spectrum-evaluation count remained 24. Four stable
+same-voltage pairs per context established a sampled protocol-reachable span
+of `0.8 V` with maximum current/T-rise separation about `0.994`. The binding
+disposition is `GO_PROTOCOL_SELECTED_EQUILIBRIUM_MANIFOLD`. This is
+`qualified_supported` only within the frozen synthetic ideal terminal-voltage
+protocol; it is not full hysteresis, a dynamic-attractor result, source-RC
+reproduction, experimental validation, or a surrogate-training result.
 Historical PR #29/#30/#31/#32 results, dynamic stops, D0,
 equivalence-v1/v2/v3, and Frozen GT remain immutable.

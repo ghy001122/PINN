@@ -1,0 +1,162 @@
+{
+  "aggregation_repair": {
+    "classification": "aggregation_and_evidence_schema_defect",
+    "cumulative_spectrum_evaluation_count": 24,
+    "fixed_interior_spectrum_evaluation_count": 8,
+    "initial_spectrum_row_count": 16,
+    "main_protocol_points_reexecuted": 0,
+    "main_protocol_ramps_reexecuted": 0,
+    "physics_changed": false,
+    "saved_protocol_npz_rehydrated": 4,
+    "thresholds_changed": false
+  },
+  "base_sha": "53ef26de742f8c1ecab1c3aa6b579249d9729c27",
+  "branch": "codex/q2-m1-protocol-selected-equilibrium-manifold-mve-v1",
+  "claim_boundary": {
+    "dynamic_attractor": "forbidden",
+    "event_thresholds": "qualified_supported_within_frozen_step_and_refinement_contract",
+    "experimental_validation": "forbidden",
+    "formal_pinn_superiority": "forbidden",
+    "full_hysteresis": "forbidden",
+    "inverse": "forbidden",
+    "local_physical_stability": "qualified_supported_under_uniform_positive_device_thermal_mass",
+    "m1_conservative_operator": "supported",
+    "minor_loop_reproduction": "forbidden",
+    "protocol_selected_equilibrium_manifold": "qualified_supported_only_if_go",
+    "qiu_source_rc_reproduction": "forbidden",
+    "self_consistent_major_branch_implementation": "supported",
+    "zero_shot_material_transfer": "forbidden"
+  },
+  "claim_status": "qualified_supported",
+  "completed_protocol_ramp_count": 4,
+  "contexts": {
+    "G0": {
+      "branch_difference_gate": true,
+      "common_voltage_pair_count": 33,
+      "conservative_switching_voltage_separation_V": null,
+      "context_id": "G0",
+      "cooling_switch_interval_V": [
+        0.840625,
+        0.84375
+      ],
+      "events_resolved": true,
+      "heating_switch_interval_V": [
+        null,
+        null
+      ],
+      "maximum_bistable_current_relative_difference": 0.9943761857863301,
+      "maximum_bistable_temperature_rise_relative_difference": 0.9943808659419343,
+      "maximum_event_mean_state_jump": 0.8535974614415495,
+      "phase_separation_gate": true,
+      "protocol_bistable_reachable_width_V": 0.8,
+      "qualified": true,
+      "ramps_complete": true,
+      "required_state_classes": [
+        "stable",
+        "stable",
+        "stable",
+        "stable",
+        "stable",
+        "stable"
+      ],
+      "required_state_indeterminate_present": false,
+      "required_state_unstable_present": false,
+      "required_states_stable": true,
+      "stable_distinct_common_voltage_pair_count": 4,
+      "stable_transition_fraction_gate": true,
+      "step_sensitivity_pass": true,
+      "transition_evidence_gate": true
+    },
+    "G1": {
+      "branch_difference_gate": true,
+      "common_voltage_pair_count": 33,
+      "conservative_switching_voltage_separation_V": null,
+      "context_id": "G1",
+      "cooling_switch_interval_V": [
+        1.0625,
+        1.065625
+      ],
+      "events_resolved": true,
+      "heating_switch_interval_V": [
+        null,
+        null
+      ],
+      "maximum_bistable_current_relative_difference": 0.9943419342026315,
+      "maximum_bistable_temperature_rise_relative_difference": 0.9943552484560396,
+      "maximum_event_mean_state_jump": 0.2735678579182046,
+      "phase_separation_gate": true,
+      "protocol_bistable_reachable_width_V": 0.8,
+      "qualified": true,
+      "ramps_complete": true,
+      "required_state_classes": [
+        "stable",
+        "stable",
+        "stable",
+        "stable",
+        "stable",
+        "stable"
+      ],
+      "required_state_indeterminate_present": false,
+      "required_state_unstable_present": false,
+      "required_states_stable": true,
+      "stable_distinct_common_voltage_pair_count": 4,
+      "stable_transition_fraction_gate": true,
+      "step_sensitivity_pass": true,
+      "transition_evidence_gate": true
+    }
+  },
+  "disposition": "GO_PROTOCOL_SELECTED_EQUILIBRIUM_MANIFOLD",
+  "endpoint_auxiliary_solve_count": 0,
+  "event_count": 2,
+  "event_refinement_budget_pass": true,
+  "event_refinement_solve_count": 12,
+  "evidence_type": "literature-guided synthetic numerical digital-twin evidence",
+  "figure_root": "outputs/figures/q2_m1_protocol_selected_equilibrium_manifold_mve_v1/Q2-M1-PROTOCOL-SELECTED-EQUILIBRIUM-MANIFOLD-MVE-20260810-V1",
+  "focused_test_file": "tests/test_q2_m1_protocol_selected_equilibrium_manifold_mve_v1.py",
+  "half_step_continuation_solve_count": 20,
+  "indeterminate_state_count": 0,
+  "main_protocol_point_count": 132,
+  "main_protocol_ramp_count": 4,
+  "neural_training_executed": false,
+  "paper_evidence_map_path": "docs/paper/q2_protocol_manifold_evidence_map.md",
+  "physical_stability_budget_pass": true,
+  "physical_stability_state_count": 20,
+  "protocol_npz_paths": {
+    "G0_cooling": "data/processed/q2_m1_protocol_selected_equilibrium_manifold_mve_v1/Q2-M1-PROTOCOL-SELECTED-EQUILIBRIUM-MANIFOLD-MVE-20260810-V1/G0_cooling.npz",
+    "G0_heating": "data/processed/q2_m1_protocol_selected_equilibrium_manifold_mve_v1/Q2-M1-PROTOCOL-SELECTED-EQUILIBRIUM-MANIFOLD-MVE-20260810-V1/G0_heating.npz",
+    "G1_cooling": "data/processed/q2_m1_protocol_selected_equilibrium_manifold_mve_v1/Q2-M1-PROTOCOL-SELECTED-EQUILIBRIUM-MANIFOLD-MVE-20260810-V1/G1_cooling.npz",
+    "G1_heating": "data/processed/q2_m1_protocol_selected_equilibrium_manifold_mve_v1/Q2-M1-PROTOCOL-SELECTED-EQUILIBRIUM-MANIFOLD-MVE-20260810-V1/G1_heating.npz"
+  },
+  "reason": "both_contexts_pass_all_protocol_manifold_gates",
+  "report_path": "docs/codex_reports/q2_m1_protocol_selected_equilibrium_manifold_mve_v1.md",
+  "resolved_event_count": 2,
+  "root_averaging_used": false,
+  "root_identifier_used": false,
+  "routing_precedence": [
+    "cooling_endpoint",
+    "ramp_or_event_unresolved",
+    "stability_indeterminate_or_budget",
+    "dynamic_instability",
+    "step_sensitivity",
+    "GO",
+    "PARTIAL_GO",
+    "NO_GO_unresolved"
+  ],
+  "run_id": "Q2-M1-PROTOCOL-SELECTED-EQUILIBRIUM-MANIFOLD-MVE-20260810-V1",
+  "stability_execution": {
+    "aggregation_repair_fixed_interior_spectrum_evaluation_count": 8,
+    "cumulative_spectrum_evaluation_count": 24,
+    "current_postprocess_new_spectrum_evaluation_count": 0,
+    "final_unique_stability_state_count": 20,
+    "initial_formal_spectrum_evaluation_count": 16,
+    "reused_final_unique_state_count": 20
+  },
+  "stable_state_count": 20,
+  "step_sensitivity_all_pass": true,
+  "step_sensitivity_event_count": 2,
+  "table_root": "outputs/tables/q2_m1_protocol_selected_equilibrium_manifold_mve_v1/Q2-M1-PROTOCOL-SELECTED-EQUILIBRIUM-MANIFOLD-MVE-20260810-V1",
+  "task_id": "Q2_M1_PROTOCOL_SELECTED_EQUILIBRIUM_MANIFOLD_MVE_V1",
+  "unstable_state_count": 0,
+  "valid_main_protocol_point_count": 132,
+  "validity": "valid"
+}

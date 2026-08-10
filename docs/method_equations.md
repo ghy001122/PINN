@@ -1288,3 +1288,55 @@ policy
 The diagnostic multiplier \(\lambda_J\) scales the complete internal-plus-
 contact Joule source before the thermal solve.  Only \(\lambda_J=1\) is a
 physical claim case; \(\lambda_J=0.5\) is a stiffness diagnostic.
+
+## Protocol-selected self-consistent equilibria
+
+For the bounded ideal terminal-voltage protocol MVE, the selected state is
+defined by monotone continuation rather than a hidden numerical-root label:
+
+\[
+T_{k}^{\uparrow}=\operatorname{Solve}_{M1}
+  (V_k,b=+1;T_{k-1}^{\uparrow}),\qquad V_k-V_{k-1}=+0.025\ \mathrm V,
+\]
+
+\[
+T_{k}^{\downarrow}=\operatorname{Solve}_{M1}
+  (V_k,b=-1;T_{k-1}^{\downarrow}),\qquad V_k-V_{k-1}=-0.025\ \mathrm V.
+\]
+
+Only the preceding accepted equilibrium may initialize the next point.
+Detected discontinuities are refined inside their first coarse bracket and
+locally repeated at a 0.0125 V step; roots are neither averaged nor assigned a
+future-model root identifier.
+
+Local physical stability is assessed after quasi-static electrical
+elimination from the semi-discrete thermal dynamics
+
+\[
+C_{cell}\frac{dT}{dt}=Q_{J,\mathrm{internal}}(T,V,b)
++Q_{J,\mathrm{contact}}(T,V,b)
+-L_{th}(T-T_0)-G_z(T-T_0),
+\qquad C_{cell}=\frac{C_{th,device}}{250}.
+\]
+
+The full non-symmetric Jacobian is
+
+\[
+J_{dyn}=\frac{\partial}{\partial T}
+\left[\frac{Q_J(T,V,b)-L_{th}(T-T_0)-G_z(T-T_0)}{C_{cell}}\right].
+\]
+
+With eigenvalues \(\lambda_i\), the reported relative margin is
+
+\[
+\eta=\frac{\max_i\operatorname{Re}\lambda_i}
+{\max(\max_i|\lambda_i|,10^{-30})}.
+\]
+
+The classification is stable for \(\eta\le -10^{-6}\), unstable for
+\(\eta\ge10^{-6}\), and indeterminate otherwise.  The uniformly distributed
+positive Qiu device-level heat capacity fixes the time scale but not the sign
+of the eigenvalue real parts; it is not interpreted as a local intrinsic VO2
+heat capacity.  Continuation reachability and this local spectrum remain
+quasi-static synthetic evidence, not a time-domain attractor or full
+hysteresis claim.
