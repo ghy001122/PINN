@@ -1,0 +1,7 @@
+interface:
+  display_name: "Research Module Recombination"
+  short_description: "Decompose, adapt, recombine, rank, and validate SCI modules."
+  default_prompt: "Use $research-module-recombination to decompose cited methods, design bounded adaptations and combinations, and produce a minimum-evidence research plan."
+
+policy:
+  allow_implicit_invocation: true

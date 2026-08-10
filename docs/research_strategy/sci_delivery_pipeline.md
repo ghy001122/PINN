@@ -16,6 +16,27 @@ Read only what the task needs:
 
 Current state lives in `PROJECT_STATE.md`; authorization lives in `active_phase.md`; the queue lives in `NEXT_ACTIONS.md`. A memory file, old report, or cumulative registry cannot override those files.
 
+## Research Synthesis And Module-Recombination Lane
+
+For innovation-point design, literature-method decomposition, 魔改/排列组合, method rerouting, contribution analysis, negative-result salvage, or selection of the next research combination, invoke `$research-module-recombination` and use:
+
+```text
+source decomposition
+  -> adaptation ledger
+  -> bounded combination pool
+  -> utility ranking
+  -> top combination
+  -> minimal evidence
+  -> claim/story routing
+  -> execution contract
+```
+
+Allow directly transferred modules when attributed; do not require every component to be modified or individually novel. Keep component provenance and contribution type separate from the existing claim gate. A contribution may lie in adaptation, interface, workflow, functional composition, validation, composability, or a newly enabled capability.
+
+Activate one highest-value combination per round and retain at most two fallbacks. Use an MVE for the smallest discriminative baseline/ablation/complete-combination comparison; reserve full ablations and multi-seed matched-budget claims for an authorized formal stage. When a candidate does not beat a baseline on every metric, first test its preregistered functional, interface, applicability, conservation, refusal, workflow, or reusable-negative increment.
+
+This lane cannot override the active phase, evidence gates, source and license requirements, data boundaries, frozen artifacts, academic ethics, or execution budget. It must not turn a historical frozen NO-GO into a family-wide ban, nor use a new combination label to evade the failed contract.
+
 ## Pre-Execution Requirement Contract
 
 Before substantive work, record a compact contract with: objective, inputs, outputs, allowed changes, prohibited actions, success gate, failure route, and budget. Map it to the unresolved problem and the exact claim, figure/table, ablation, or reviewer question it may serve. A method/version name alone is insufficient: record its equations, variables, network inputs/outputs, losses, control flow, data source, and intended effect when applicable.
