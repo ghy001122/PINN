@@ -1,0 +1,249 @@
+task_id: Q2_PROTOCOL_MANIFOLD_BRANCH_AWARE_SURROGATE_MVE_V1
+run_id: Q2-PROTOCOL-MANIFOLD-BRANCH-AWARE-SURROGATE-MVE-20260810-V1
+schema_version: q2_protocol_manifold_branch_aware_surrogate_mve_v1
+phase_id: Q2_PHASE1H_PROTOCOL_MANIFOLD_BRANCH_AWARE_SURROGATE_MVE
+status: authorized_bounded_protocol_manifold_surrogate_mve
+evidence_type: literature-guided synthetic numerical digital-twin evidence
+
+frozen_baseline:
+  pr: 42
+  head_sha: d0f0e6799f4f956262e0670999ab34f41baea4b1
+  merge_sha: 67241766beb8ce101573e72c8b95906b9d1b4c69
+  disposition: GO_PROTOCOL_SELECTED_EQUILIBRIUM_MANIFOLD
+  interpretation: immutable_protocol_manifold_reference
+
+reference:
+  base_config: configs/q2_mf_geostate_mc_pinn_fasttrack_v1.yaml
+  source_contract: configs/qiu_vo2_phase1_source_contract_v3.yaml
+  historical_protocol_config: configs/q2_m1_protocol_selected_equilibrium_manifold_mve_v1.yaml
+  historical_processed_root: data/processed/q2_m1_protocol_selected_equilibrium_manifold_mve_v1/Q2-M1-PROTOCOL-SELECTED-EQUILIBRIUM-MANIFOLD-MVE-20260810-V1
+  historical_table_root: outputs/tables/q2_m1_protocol_selected_equilibrium_manifold_mve_v1/Q2-M1-PROTOCOL-SELECTED-EQUILIBRIUM-MANIFOLD-MVE-20260810-V1
+  model_form: M1
+  production_grid: {nx: 10, ny: 25}
+  ambient_temperature_K: 325.0
+  constitutive_mode: self_consistent_major_branch
+  Tc_up_K: 336.3965
+  Tc_down_K: 329.2035
+  nominal_transition_width_K: 3.952569169960474
+  phase_width_multiplier: 1.0
+  joule_feedback_multiplier: 1.0
+  relaxation_alpha: 0.35
+
+source_role:
+  device_thermal_capacitance_path: source_author_fitted_lumped_quantities.lumped_thermal_capacitance_J_K.value
+  expected_device_thermal_capacitance_J_K: 4.96e-11
+  cell_capacity_rule: uniform_device_capacity_divided_by_cell_count
+  interpretation: device_level_uniform_positive_time_scale_not_local_intrinsic_vo2_capacity
+
+contexts:
+  G0: {contact_overlap_nm: 20.0, sink_amplitude: 0.0, label: nominal_20nm, source: frozen_pr42}
+  G1: {contact_overlap_nm: 30.0, sink_amplitude: 1.5, label: localized_sink_30nm, source: frozen_pr42_compound_holdout}
+  G2: {contact_overlap_nm: 20.0, sink_amplitude: 1.5, label: localized_sink_20nm, source: new_execution}
+  G3: {contact_overlap_nm: 30.0, sink_amplitude: 0.0, label: nominal_30nm, source: new_execution}
+  new_execution_contexts: [G2, G3]
+  fit_contexts: [G0, G2, G3]
+  compound_holdout_context: G1
+
+protocols:
+  heating:
+    branch_value: 1.0
+    start_voltage_V: 0.75
+    end_voltage_V: 1.55
+    voltage_step_V: 0.025
+    start_temperature_K: 325.0
+    direction: increasing
+    endpoint_mean_state_max: 0.1
+    endpoint_preparation: uniform_ambient_then_full_relaxed_solve
+  cooling:
+    branch_value: -1.0
+    start_voltage_V: 1.55
+    end_voltage_V: 0.75
+    voltage_step_V: -0.025
+    start_temperature_K: 360.0
+    direction: decreasing
+    endpoint_mean_state_min: 0.9
+    fallback_preparation_voltage_V: 1.75
+    endpoint_preparation: uniform_360K_then_full_relaxed_solve
+  previous_state_provenance: immediately_preceding_accepted_protocol_equilibrium
+  forbidden_future_inputs: [root_id, cold_solution_label, hot_solution_label]
+  forbidden_selection_operations: [root_averaging, hidden_root_label, pseudo_arclength]
+
+solver:
+  maximum_iterations: 800
+  temperature_scale_K: 50.0
+  scaled_residual_max: 1.0e-7
+  scaled_update_max: 1.0e-8
+  finite_guard_temperature_min_K: 250.0
+  finite_guard_temperature_max_K: 1000.0
+
+validity_gates:
+  scaled_nonlinear_residual_max: 1.0e-7
+  current_imbalance_max: 1.0e-6
+  terminal_electrical_heat_ledger_max: 1.0e-6
+  electrical_heat_sink_ledger_max: 1.0e-6
+  minimum_valid_fraction_per_ramp: 0.9
+
+jump_detection:
+  mean_state_change_min: 0.4
+  terminal_current_relative_jump_min: 0.5
+  temperature_rise_field_relative_jump_min: 0.25
+  first_jump_only_per_ramp: true
+  refinement_voltage_resolution_V: 0.005
+  maximum_refinement_solves_per_event: 6
+  maximum_total_refinement_solves: 24
+  midpoint_initialization: last_accepted_pre_switch_equilibrium
+
+stability:
+  maximum_states: 20
+  maximum_new_context_states: 20
+  maximum_states_new_contexts: 20
+  jacobian_dtype: float64
+  jacobian_method: full_torch_autograd_250x250
+  representative_coarse_index: 16
+  state_equivalence_temperature_rise_relative_max: 1.0e-8
+  stable_margin_max: -1.0e-6
+  unstable_margin_min: 1.0e-6
+
+step_sensitivity:
+  half_voltage_step_abs_V: 0.0125
+  coarse_points_before_event: 2
+  coarse_points_after_event: 2
+  switching_voltage_difference_max_V: 0.01
+  off_event_distance_min_V: 0.025
+  temperature_rise_relative_difference_max: 0.01
+  terminal_current_relative_difference_max: 0.01
+  stability_classification_reversal_forbidden: true
+
+split:
+  validation_coarse_indices: [6, 14, 22, 30]
+  fit_contexts: [G0, G2, G3]
+  test_context: G1
+  train_point_kind: coarse
+  validation_event_point_kinds: [event_refinement, event_reachability_confirmation]
+  excluded_auxiliary_point_kinds: [endpoint_preparation, half_step_anchor_reused, half_step_continuation, half_step_event_refinement]
+  headline_source: frozen_pr42_unique_stability_rows
+  full_curve_role: diagnostic_only
+
+pod:
+  transform: log1p_temperature_rise_in_1K_units
+  cumulative_energy_target: 0.999
+  rank_cap: 8
+  smooth_nonnegative_beta_K: 0.05
+
+ridge:
+  polynomial_degree: 2
+  regularization_lambda: 1.0e-8
+  intercept_penalized: false
+
+network:
+  hidden_layers: 2
+  hidden_units: 32
+  activation: SiLU
+  dtype: float64
+  protocol_input_order: [device_voltage_V, ramp_direction, protocol_start_voltage_V, contact_overlap_nm, sink_amplitude]
+  history_blind_input_order: [device_voltage_V, contact_overlap_nm, sink_amplitude]
+  forbidden_inputs: [root_id, cold_solution_label, hot_solution_label]
+  maximum_single_vs_gated_parameter_difference_fraction: 0.05
+
+training:
+  initial_seed: 20260809
+  conditional_seeds: [20260810, 20260811]
+  stage1_steps: 500
+  stage1_learning_rate: 1.0e-3
+  stage2_steps: 1000
+  stage2_learning_rate: 3.0e-4
+  stage2_batch_size: 12
+  maximum_wall_time_s_per_network: 1800
+  gradient_clip_norm: 100.0
+  fixed_loss_weights:
+    coefficient: 1.0
+    one_projection_temperature: 1.0
+    one_projection_potential: 1.0
+    one_projection_current: 1.0
+    one_projection_fixed_point_defect: 1.0
+    two_projection_temperature: 1.0
+    two_projection_potential: 1.0
+    two_projection_current: 1.0
+    two_projection_fixed_point_defect: 1.0
+
+evaluation:
+  fast_timing_repeats: 20
+  sequential_timing_repeats: 10
+  torch_threads: 1
+  diagnostic_lookahead_projection_count: 1
+  diagnostic_included_in_main_timing: false
+  practical_gates:
+    temperature_rise_relative_l2_max: 0.05
+    potential_relative_l2_max: 0.01
+    terminal_current_relative_error_max: 0.02
+    fixed_point_defect_max: 0.02
+    sigma_defect_max: 0.02
+    terminal_electrical_heat_ledger_max: 1.0e-8
+    electrical_heat_sink_ledger_max: 1.0e-8
+  event_neighborhood_half_width_V: 0.025
+
+branch_separation:
+  certified_pair_count: 4
+  certified_head_swap_max: 0
+  certified_separation_relative_error_max: 0.10
+  full_curve_fraction_within_error_min: 0.90
+  full_curve_separation_relative_error_max: 0.20
+
+unknown_protocol:
+  reference_practical_ambiguity_min: 0.20
+  predicted_ambiguity_min: 0.10
+  certified_ambiguity_recall_min: 1.0
+  full_curve_ambiguity_recall_min: 0.95
+  certified_false_unique_max: 0
+  two_candidate_set_coverage_min: 0.90
+  candidate_averaging_forbidden: true
+
+decision_gates:
+  headline_complete_pass_fraction_min: 0.90
+  one_projection_improvement_vs_A1_min: 0.20
+  one_projection_improvement_vs_R1_min: 0.15
+  one_projection_improvement_vs_S1_min: 0.15
+  one_projection_speedup_vs_A2_min: 1.5
+  two_projection_improvement_vs_A2_min: 0.15
+  two_projection_additional_passes_vs_A2_min: 2
+  two_projection_improvement_vs_R2_min: 0.15
+  two_projection_improvement_vs_S2_min: 0.15
+  two_projection_wall_ratio_vs_A2_max: 1.10
+  conditional_seed_same_path_minimum: 2
+  dispositions:
+    path_h: GO_PROTOCOL_MANIFOLD_GATED_ONE_PROJECTION_PROJPINN
+    path_s: GO_PROTOCOL_MANIFOLD_GATED_SAME_BUDGET_PROJPINN
+    partial: PARTIAL_GO_PROTOCOL_CONDITIONED_SINGLE_HEAD_PROJPINN
+    no_go: NO_GO_PROTOCOL_MANIFOLD_NEURAL_VALUE
+    physics_no_go: NO_GO_PROTOCOL_FACTORIAL_CONTEXT_REFERENCE
+    pod_no_go: NO_GO_PROTOCOL_MANIFOLD_LOW_RANK_CONTRACT
+
+surrogate_eligibility:
+  future_allowed_inputs: [device_voltage_V, explicit_ramp_direction, protocol_start_end_metadata, geometry, sink_condition]
+  future_forbidden_inputs: [root_id, cold_solution_label, hot_solution_label]
+
+budgets:
+  main_protocol_ramps_new_contexts: 4
+  maximum_new_context_stability_states: 20
+  maximum_adam_steps_per_network: 1500
+  initial_neural_seeds: 1
+  conditional_neural_seeds: 2
+
+outputs:
+  processed_root: data/processed/q2_protocol_manifold_branch_aware_surrogate_mve_v1/Q2-PROTOCOL-MANIFOLD-BRANCH-AWARE-SURROGATE-MVE-20260810-V1
+  table_root: outputs/tables/q2_protocol_manifold_branch_aware_surrogate_mve_v1/Q2-PROTOCOL-MANIFOLD-BRANCH-AWARE-SURROGATE-MVE-20260810-V1
+  figure_root: outputs/figures/q2_protocol_manifold_branch_aware_surrogate_mve_v1/Q2-PROTOCOL-MANIFOLD-BRANCH-AWARE-SURROGATE-MVE-20260810-V1
+  checkpoint_root: outputs/checkpoints/q2_protocol_manifold_branch_aware_surrogate_mve_v1/Q2-PROTOCOL-MANIFOLD-BRANCH-AWARE-SURROGATE-MVE-20260810-V1
+  report: docs/codex_reports/q2_protocol_manifold_branch_aware_surrogate_mve_v1.md
+  paper_evidence_map: docs/paper/q2_protocol_manifold_surrogate_evidence_map.md
+
+claim_boundary:
+  m1_operator: supported
+  protocol_selected_manifold: qualified_supported
+  new_context_physical_data: qualified_supported_only_if_reference_gate_passes
+  surrogate_mve: diagnostic_non_voting
+  formal_pinn_superiority: forbidden
+  full_hysteresis: forbidden
+  dynamic_attractor: forbidden
+  experimental_validation: forbidden
+  inverse: forbidden

@@ -1,0 +1,5 @@
+metric_scope,coefficient_index,normalized_coefficient_rmse,train_sample_count,polynomial_degree,design_feature_count,ridge_lambda,intercept_penalized,design_condition_number,G1_holdout_used_in_fit,seed,mode,headline_case_count,headline_complete_pass_count,headline_complete_pass_fraction,mean_temperature_rise_relative_l2,mean_potential_relative_l2,mean_joint_field_score,mean_terminal_current_relative_error,maximum_fixed_point_defect,maximum_sigma_defect,median_random_access_wall_s
+train_coefficient_fit,1,0.25227827751707654,174,2,21,1e-08,False,702941448676.1272,False,,,,,,,,,,,,
+train_coefficient_fit,2,0.7842699140509808,174,2,21,1e-08,False,702941448676.1272,False,,,,,,,,,,,,
+headline_projected_mode,,,,,,,,,,0,R1,10,0,0.0,0.9077489023512415,0.012429419470079214,0.46008916091066043,0.12796026928015652,0.3920006685621034,0.4773047385876292,0.00806070001272019
+headline_projected_mode,,,,,,,,,,0,R2,10,0,0.0,0.6366342642964522,0.011907231844978067,0.3242707480707151,0.13245025986221048,0.390657789253727,0.38906923867258003,0.016298050002660602

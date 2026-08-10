@@ -1340,3 +1340,49 @@ of the eigenvalue real parts; it is not interpreted as a local intrinsic VO2
 heat capacity.  Continuation reachability and this local spectrum remain
 quasi-static synthetic evidence, not a time-domain attractor or full
 hysteresis claim.
+
+## Protocol-manifold latent projection surrogates
+
+For a protocol-selected equilibrium sample, the train-only transformed thermal
+state is
+
+\[
+y=\log\!\left(1+\frac{T-T_0}{1\ \mathrm K}\right),\qquad
+y\approx \bar y_{\mathrm{train}}+U_r a,
+\]
+
+where the POD mean, basis, rank, coefficient normalization, input
+normalization, ridge fit, and neural training exclude the compound G1 holdout.
+The analytic initializer uses 325 K on the heating path and 360 K on the
+cooling path. The fixed polynomial baseline predicts \(a\) from
+\([1,x_i,x_ix_j]_{i\le j}\) with \(\lambda=10^{-8}\).
+
+The protocol-conditioned networks use
+
+\[
+x=(V,d,V_{start},\ell_c,s_{sink}),\qquad d\in\{+1,-1\}.
+\]
+
+The single-head map is \(a_S=f_S(x)\). The gated map shares a trunk but uses
+the non-trainable physical selector
+
+\[
+a_G=\mathbf 1_{d=+1} f_{\uparrow}(x)
+    +\mathbf 1_{d=-1} f_{\downarrow}(x).
+\]
+
+No learned gate, root identifier, or root averaging is permitted. Each
+initializer is evaluated with one or two applications of the same damped M1
+map \(\mathcal P_\alpha\). A separate look-ahead projection reports
+
+\[
+d_{fp}(T)=\frac{\|\mathcal P_\alpha(T)-T\|_2}
+{\|\mathcal P_\alpha(T)-T_0\|_2+\epsilon},\qquad
+d_\sigma(T)=\frac{\|\sigma(\mathcal P_\alpha(T))-\sigma(T)\|_2}
+{\|\sigma(\mathcal P_\alpha(T))\|_2+\epsilon},
+\]
+
+and is excluded from the primary projection count and timing. When protocol
+metadata are unknown, the two gated candidates are returned as a set and a
+unique field is refused whenever their predicted current or temperature-rise
+separation reaches the frozen ambiguity threshold.

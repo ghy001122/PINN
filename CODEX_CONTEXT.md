@@ -3,15 +3,15 @@
 ## Current Route
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
-- Delivery ladder: historical/high-spec R1 `HysGeo-Hybrid-PINN`, stopped direct-coordinate R1-Lite `GeoState-MC-Hybrid-PINN`, stopped latent neural-forward route, retained conservative M1 numerical operator, preferred R2 `GeoPhase-HomoMoE-PINN`, and conditional R3.
-- Active phase: `Q2_PHASE1G_M1_PROTOCOL_SELECTED_EQUILIBRIUM_MANIFOLD_MVE`.
-- Checkpoint: `Q2_M1_PROTOCOL_SELECTED_EQUILIBRIUM_MANIFOLD_MVE_V1_GO`.
+- Delivery ladder: historical/high-spec R1 `HysGeo-Hybrid-PINN`, stopped direct-coordinate R1-Lite `GeoState-MC-Hybrid-PINN`, stopped prescribed-state and protocol-manifold neural-forward routes, and retained conservative M1/protocol numerical assets.
+- Active phase: `Q2_PHASE1H_PROTOCOL_MANIFOLD_BRANCH_AWARE_SURROGATE_MVE`.
+- Checkpoint: `Q2_PROTOCOL_MANIFOLD_BRANCH_AWARE_SURROGATE_MVE_V1_NO_GO`.
 - Preserved prior checkpoint: `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED`.
 - Preserved parent CC-B disposition: `INVALID_CC_B_EXECUTION`.
 - Stability-requalification disposition: `PASS_CC_B_STABILITY_REQUALIFICATION`.
 - Branch-bracket disposition: `STOP_NUMERICAL_SEMANTICS_NOT_CLOSED`.
 - Patterned-MVE disposition: `NO_GO_CC_B_STABLE_PATTERNED_TRANSITION_SPAN`.
-- Baseline before this task: `main@53ef26de742f8c1ecab1c3aa6b579249d9729c27`.
+- Baseline before this task: `main@67241766beb8ce101573e72c8b95906b9d1b4c69`.
 - Patterned-MVE code anchor: `6c655955c7c8718c3e21248da55ef7887dbd3fdc`.
 - `cc_b_matrix_launch_count=0`; `scientific_vote=false`;
   `formal_execution_count=0`.
@@ -98,5 +98,19 @@ disposition is `GO_PROTOCOL_SELECTED_EQUILIBRIUM_MANIFOLD`. This is
 `qualified_supported` only within the frozen synthetic ideal terminal-voltage
 protocol; it is not full hysteresis, a dynamic-attractor result, source-RC
 reproduction, experimental validation, or a surrogate-training result.
+
+PR #42 was preserved unchanged and squash-merged as
+`67241766beb8ce101573e72c8b95906b9d1b4c69`. The bounded branch-aware
+surrogate MVE completed the missing G2/G3 factorial contexts with `132/132`
+new main points valid, two cooling events reproduced by the half-step check,
+and `16/16` required new stability states classified stable. The no-leakage
+split contains 174 train coarse states, 24 fixed-index coarse validation
+states, and a 10-state spectrum-certified G1 headline holdout; train-only POD
+selected rank 2. H/S/G each completed 1500 Adam steps at seed `20260809`.
+Neither gated path passed a headline case, both branch-separation and
+unknown-protocol set-coverage gates failed, and G was worse than S at matched
+projection depth. The binding disposition is
+`NO_GO_PROTOCOL_MANIFOLD_NEURAL_VALUE`; conditional seeds were correctly
+skipped, formal OOD is ineligible, and neural-forward expansion is closed.
 Historical PR #29/#30/#31/#32 results, dynamic stops, D0,
 equivalence-v1/v2/v3, and Frozen GT remain immutable.
