@@ -3,15 +3,15 @@
 ## Current Route
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
-- Delivery ladder: historical/high-spec R1 `HysGeo-Hybrid-PINN`, active fallback R1-Lite `GeoState-MC-Hybrid-PINN`, preferred R2 `GeoPhase-HomoMoE-PINN`, and conditional R3.
-- Active phase: `Q2_PHASE1C_M1_ROBIN_CONTROL_VOLUME_PINN_RESCUE`.
-- Checkpoint: `Q2_M1_ROBIN_CONTROL_VOLUME_PINN_RESCUE_V1_VALID_NO_GO`.
+- Delivery ladder: historical/high-spec R1 `HysGeo-Hybrid-PINN`, stopped direct-coordinate R1-Lite `GeoState-MC-Hybrid-PINN`, active bounded candidate `M1-LatentProj-PINN`, preferred R2 `GeoPhase-HomoMoE-PINN`, and conditional R3.
+- Active phase: `Q2_PHASE1D_M1_LATENT_SOLVER_PROJECTED_PINN_MVE`.
+- Checkpoint: `Q2_M1_LATENT_SOLVER_PROJECTED_PINN_MVE_V1_VALID_GO`.
 - Preserved prior checkpoint: `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED`.
 - Preserved parent CC-B disposition: `INVALID_CC_B_EXECUTION`.
 - Stability-requalification disposition: `PASS_CC_B_STABILITY_REQUALIFICATION`.
 - Branch-bracket disposition: `STOP_NUMERICAL_SEMANTICS_NOT_CLOSED`.
 - Patterned-MVE disposition: `NO_GO_CC_B_STABLE_PATTERNED_TRANSITION_SPAN`.
-- Baseline before this task: `main@4c30021c45782e3803f1f285328e09b4411789df`.
+- Baseline before this task: `main@425d485838ac90cb2b7dba36bad409a9ef931b28`.
 - Patterned-MVE code anchor: `6c655955c7c8718c3e21248da55ef7887dbd3fdc`.
 - `cc_b_matrix_launch_count=0`; `scientific_vote=false`;
   `formal_execution_count=0`.
@@ -46,5 +46,17 @@ phi, current, energy, interface, current-CV, and energy-CV errors were
 `0.61932`, `0.18294`, `0.89136`, `0.87358`, `0.10295`, `0.00496`, and
 `0.94696`, giving `NO_GO_M1_RCV_PINN_RESCUE`. Direct coordinate-PINN
 architecture expansion is terminal; formal OOD remains forbidden.
+PR #38 and this interpretation were preserved unchanged and squash-merged as
+`425d485838ac90cb2b7dba36bad409a9ef931b28`.
+
+The separately authorized solver-projected MVE passed dense float64 M1 operator
+parity on 12/12 stored cases without regenerating reference data. A train-only
+rank-2 POD and one 2x32 SiLU latent network completed 1500 Adam steps at seed
+`20260809`. N2 passed 1/2 complete frozen test cases, reduced mean joint-field
+score by `99.828%` versus N0, and achieved median `17.900x` speedup versus COLD,
+giving `GO_M1_LATENT_PROJECTION_PINN_MVE`. This remains single-seed diagnostic
+evidence; analytic A2 passed the same fast thresholds on 2/2 tests with lower
+mean joint-field error than N2, so neural-specific advantage, formal
+superiority, and formal OOD execution remain forbidden here.
 Historical PR #29/#30/#31/#32 results, dynamic stops, D0,
 equivalence-v1/v2/v3, and Frozen GT remain immutable.

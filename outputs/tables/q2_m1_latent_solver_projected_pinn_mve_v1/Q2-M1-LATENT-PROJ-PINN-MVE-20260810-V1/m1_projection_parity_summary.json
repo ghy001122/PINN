@@ -1,0 +1,16 @@
+{
+  "case_count": 12,
+  "disposition_if_stopped": null,
+  "finite_case_count": 12,
+  "implementation_repairs_used": 0,
+  "max_contact_joule_relative_error": 1.2496308661497789e-14,
+  "max_electrical_heat_sink_ledger_error": 2.775189884211491e-12,
+  "max_fixed_point_map_defect": 8.031471114673611e-08,
+  "max_internal_joule_relative_error": 7.78893037428279e-15,
+  "max_mapped_temperature_relative_l2": 8.630758198044333e-10,
+  "max_phi_relative_l2": 2.128716120752171e-15,
+  "max_terminal_current_relative_error": 6.083046433668322e-15,
+  "max_terminal_electrical_heat_ledger_error": 2.8387550023785333e-15,
+  "passed": true,
+  "reference_nonlinear_solves_rerun": 0
+}
