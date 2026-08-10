@@ -1,12 +1,46 @@
 # Active Phase
 
-Active phase ID: `Q2_PHASE1D_M1_LATENT_SOLVER_PROJECTED_PINN_MVE`
+Active phase ID: `Q2_PHASE1E_M1_LATENT_NEURAL_VALUE_GEOMETRY_ADMISSION`
 
-Status: `completed_after_valid_single_seed_fast_projection_go`
+Status: `completed_after_valid_neural_specific_value_no_go`
 
-Current checkpoint: `Q2_M1_LATENT_SOLVER_PROJECTED_PINN_MVE_V1_VALID_GO`
+Current checkpoint: `Q2_M1_LATENT_NEURAL_VALUE_GEOMETRY_ADMISSION_V1_VALID_NO_GO`
 
 ## Task Contract
+
+- Objective/manuscript destination: test whether the train-only POD neural
+  latent mapper has independent value over analytic A1/A2 and closed-form
+  ridge R1/R2 on a true 10/20/30 nm contact-geometry domain.
+- Inputs: 36 newly generated M1 cases on the fixed 10 x 25 grid, four bounded
+  M2 sentinels, a 20/4/12 train/validation/30-nm-test split, and immutable PR
+  #39 history.
+- Outputs: matched-budget A1/A2/R1/R2/N1/N2 fields, true look-ahead defects,
+  timings, one actual 1500-step seed, POD/ridge/checkpoint/predictions, eight
+  figures, tables, and a claim-gated report.
+- Allowed scope: one rank-selected 2x32 SiLU mapper at seed `20260809`; two
+  additional seeds only after an initial Path H or Path S pass.
+- Prohibited: threshold movement, validation/test leakage, PR #39 changes,
+  formal OOD, another architecture, inverse, MoE, dynamic RC, or material
+  transfer.
+- Result: 36/36 M1 gates and 4/4 M2 sentinels pass; POD rank is 2. N1 passes
+  11/12 cases but is `42.0%` worse than A1 in mean joint-field score; N2 passes
+  12/12 but is `32.5%` worse than A2. Both neural admission paths fail, so the
+  two conditional seeds are correctly skipped.
+
+Final disposition:
+
+```text
+NO_GO_M1_NEURAL_SPECIFIC_VALUE_A2_OR_RIDGE_DOMINATES
+validity = valid
+claim_status = failed_but_informative
+scientific_role = diagnostic_non_voting
+```
+
+The sole next priority is limitation-manuscript consolidation using the M1
+conservative operator and analytic A2 as numerical assets. Formal OOD and all
+new neural-forward rescue architectures are ineligible.
+
+## Preserved PR #39 Contract And Outcome
 
 - Objective/manuscript destination: determine whether a network can learn only
   a low-rank M1 thermal initialization while one or two frozen conservative
@@ -80,7 +114,6 @@ scientific_role = diagnostic_non_voting
 scientific_vote = false
 ```
 
-Do not start formal OOD in this round. The single next priority is a separate
-preregistration for `Q2_M1_LATENT_PROJECTION_PINN_FORMAL_OOD_V1`, with analytic
-A2 as the first neural-specific value comparator; formal execution requires
-new authorization.
+This prior bounded MVE remains valid and immutable, but the later geometry
+admission NO-GO supersedes its formal-OOD eligibility. Do not start formal OOD
+or another neural-forward rescue.

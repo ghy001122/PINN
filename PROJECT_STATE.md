@@ -3,25 +3,23 @@
 ## Authoritative Current Snapshot
 
 - Delivery/phase: `Q2_SCI_DELIVERY_MODE` /
-  `Q2_PHASE1D_M1_LATENT_SOLVER_PROJECTED_PINN_MVE`.
-- Checkpoint: `Q2_M1_LATENT_SOLVER_PROJECTED_PINN_MVE_V1_VALID_GO`.
-- Active bounded candidate: `M1-LatentProj-PINN` for
-  `state-conditioned quasi-static electrothermal fields`; direct-coordinate
-  R1-Lite `GeoState-MC-Hybrid-PINN` is historical stopped evidence.
-- Current result: the differentiable conservative M1 operator passes 12/12
-  parity cases; the train-only rank-2 latent projection MVE completed one
-  1500-step run and N2 passed 1/2 complete test cases with median `17.900x`
-  speedup, ending `GO_M1_LATENT_PROJECTION_PINN_MVE`. Analytic A2 passed the
-  same fast thresholds on 2/2 tests with lower mean joint-field error, so a
-  neural-specific advantage is not supported.
-- Evidence boundary: operator parity is `supported`, the reduced M1 reference
-  is `qualified_supported`, the direct coordinate-PINN failure remains
-  `failed_but_informative`, the latent MVE is single-seed diagnostic/non-voting,
-  and formal PINN superiority remains `forbidden`.
+  `Q2_PHASE1E_M1_LATENT_NEURAL_VALUE_GEOMETRY_ADMISSION`.
+- Checkpoint: `Q2_M1_LATENT_NEURAL_VALUE_GEOMETRY_ADMISSION_V1_VALID_NO_GO`.
+- Active bounded result: M1 conservative projection and analytic A2 remain
+  numerical assets for `state-conditioned quasi-static electrothermal fields`;
+  direct-coordinate and latent neural-forward expansion are both stopped.
+- Current result: 36/36 geometry-varying M1 cases and 4/4 M2 sentinels pass;
+  train-only POD selects rank 2. Seed `20260809` completed 1500 Adam steps, but
+  N1 is worse than A1 and N2 is worse than A2 in mean joint-field score, so
+  both neural-value paths fail with
+  `NO_GO_M1_NEURAL_SPECIFIC_VALUE_A2_OR_RIDGE_DOMINATES`.
+- Evidence boundary: the M1 operator is `supported`, the 10--30 nm geometry
+  reference is `qualified_supported`, both neural routes are
+  `failed_but_informative`, and formal superiority remains `forbidden`.
 - Preserved terminal checkpoint: `Q2_CC_B_PATTERNED_BRANCH_VALID_NO_GO`.
 - Preserved prior checkpoint: `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED`.
 - Patterned-MVE baseline: `4c30021c45782e3803f1f285328e09b4411789df`.
-- Current result branch: `codex/q2-m1-latent-solver-projected-pinn-mve-v1`.
+- Current result branch: `codex/q2-m1-latent-neural-value-geometry-admission-v1`.
 - Patterned-MVE result branch: `codex/q2-cc-b-patterned-branch-decision-mve-v1`.
 - Parent disposition: `INVALID_CC_B_EXECUTION`.
 - Requalification disposition: `PASS_CC_B_STABILITY_REQUALIFICATION`.
@@ -102,7 +100,9 @@ as infrastructure provenance only and do not vote on the active S2 route.
 ## Boundary
 
 The current-clamp route and both direct coordinate-PINN routes remain immutable
-bounded negative evidence. The solver-projected MVE is a valid single-seed GO,
-but does not authorize formal superiority inside this round. The only eligible
-next request is `Q2_M1_LATENT_PROJECTION_PINN_FORMAL_OOD_V1`; inverse, MoE,
-dynamic RC, NbO2, and new neural-forward rescue architectures remain forbidden.
+bounded negative evidence. The earlier solver-projected MVE remains a valid
+single-seed bounded GO, but the geometry-admission benchmark shows no
+neural-specific value over A2/ridge. Formal OOD, inverse, MoE, dynamic RC,
+NbO2, and every new neural-forward rescue architecture remain forbidden; the
+next priority is limitation-manuscript consolidation around the conservative
+M1 operator and analytic A2 numerical asset.
