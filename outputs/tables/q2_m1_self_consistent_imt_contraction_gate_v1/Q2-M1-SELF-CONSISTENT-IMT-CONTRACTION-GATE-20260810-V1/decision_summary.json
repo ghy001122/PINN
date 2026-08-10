@@ -1,0 +1,81 @@
+{
+  "a1_a2_headroom": {
+    "HEADROOM_ONE_PROJECTION": false,
+    "HEADROOM_TWO_PROJECTION": false,
+    "executed": false,
+    "reason": "stage_a_single_valued_forward_map_prerequisite_failed"
+  },
+  "allowed_claim": "bounded synthetic multi-fixed-point limitation",
+  "claim_status": "failed_but_informative",
+  "conditional_neural_stage": {
+    "executed": false,
+    "reason": "headroom_gate_ineligible_after_stage_a_uniqueness_failure"
+  },
+  "evidence_type": "literature-guided synthetic numerical digital-twin evidence",
+  "final_disposition": "NO_GO_SINGLE_VALUED_IMT_FORWARD_MAP",
+  "forbidden_claims": [
+    "unique_fixed_point_atlas",
+    "global_contraction_proof",
+    "neural_headroom",
+    "full_hysteresis",
+    "minor_loop_reproduction",
+    "dynamic_stability",
+    "experimental_validation",
+    "qiu_quantitative_field_reproduction",
+    "formal_pinn_superiority",
+    "inverse",
+    "zero_shot_material_transfer"
+  ],
+  "frozen_pr40": {
+    "disposition": "NO_GO_M1_NEURAL_SPECIFIC_VALUE_A2_OR_RIDGE_DOMINATES",
+    "head_sha": "a4a20a919dd4eca907269cf0aef351ecdb0c37b3",
+    "interpretation": "immutable_prescribed_state_neural_specific_value_no_go",
+    "merge_sha": "22e3760f1505691f55d5d2366ca7659d7a7723a6",
+    "pr": 40
+  },
+  "lifecycle_state": "numerically_validated",
+  "outputs": {
+    "figure_root": "outputs/figures/q2_m1_self_consistent_imt_contraction_gate_v1/Q2-M1-SELF-CONSISTENT-IMT-CONTRACTION-GATE-20260810-V1",
+    "paper_evidence_map": "docs/paper/q2_pinn_route_evidence_map_after_imt_gate.md",
+    "processed_root": "data/processed/q2_m1_self_consistent_imt_contraction_gate_v1/Q2-M1-SELF-CONSISTENT-IMT-CONTRACTION-GATE-20260810-V1",
+    "report": "docs/codex_reports/q2_m1_self_consistent_imt_contraction_gate_v1.md",
+    "table_root": "outputs/tables/q2_m1_self_consistent_imt_contraction_gate_v1/Q2-M1-SELF-CONSISTENT-IMT-CONTRACTION-GATE-20260810-V1"
+  },
+  "run_id": "Q2-M1-SELF-CONSISTENT-IMT-CONTRACTION-GATE-20260810-V1",
+  "scientific_object": "branch-conditioned self-consistent major-loop quasi-static electrothermal fields",
+  "source_contract": {
+    "Tc_down_K": 329.2035,
+    "Tc_up_K": 336.3965,
+    "beta_per_K": 0.253,
+    "critical_temperature_K": 332.8,
+    "loop_width_K": 7.193,
+    "nominal_wT_K": 3.952569169960474,
+    "source_contract_schema": "qiu_vo2_phase1_source_contract_v3"
+  },
+  "stage_b_contraction_atlas": {
+    "case_count": 0,
+    "executed": false,
+    "reason": "stage_a_single_valued_forward_map_prerequisite_failed"
+  },
+  "task_id": "Q2_M1_SELF_CONSISTENT_IMT_CONTRACTION_GATE_V1",
+  "validity": "valid",
+  "voltage_admission": {
+    "case_count": 6,
+    "disposition": "NO_GO_SINGLE_VALUED_IMT_FORWARD_MAP",
+    "invalid_case_count": 0,
+    "nonunique_case_count": 5,
+    "qiu_parameters": {
+      "Tc_down_K": 329.2035,
+      "Tc_up_K": 336.3965,
+      "beta_per_K": 0.253,
+      "critical_temperature_K": 332.8,
+      "loop_width_K": 7.193,
+      "nominal_wT_K": 3.952569169960474,
+      "source_contract_schema": "qiu_vo2_phase1_source_contract_v3"
+    },
+    "reason": "cold_hot_initializations_converged_to_distinct_fixed_points",
+    "selected_voltage_by_branch_V": {},
+    "unique_case_count": 1,
+    "valid_case_count": 6
+  }
+}

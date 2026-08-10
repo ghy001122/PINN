@@ -3,23 +3,24 @@
 ## Authoritative Current Snapshot
 
 - Delivery/phase: `Q2_SCI_DELIVERY_MODE` /
-  `Q2_PHASE1E_M1_LATENT_NEURAL_VALUE_GEOMETRY_ADMISSION`.
-- Checkpoint: `Q2_M1_LATENT_NEURAL_VALUE_GEOMETRY_ADMISSION_V1_VALID_NO_GO`.
-- Active bounded result: M1 conservative projection and analytic A2 remain
-  numerical assets for `state-conditioned quasi-static electrothermal fields`;
-  direct-coordinate and latent neural-forward expansion are both stopped.
-- Current result: 36/36 geometry-varying M1 cases and 4/4 M2 sentinels pass;
-  train-only POD selects rank 2. Seed `20260809` completed 1500 Adam steps, but
-  N1 is worse than A1 and N2 is worse than A2 in mean joint-field score, so
-  both neural-value paths fail with
-  `NO_GO_M1_NEURAL_SPECIFIC_VALUE_A2_OR_RIDGE_DOMINATES`.
-- Evidence boundary: the M1 operator is `supported`, the 10--30 nm geometry
-  reference is `qualified_supported`, both neural routes are
-  `failed_but_informative`, and formal superiority remains `forbidden`.
+  `Q2_PHASE1F_M1_SELF_CONSISTENT_IMT_CONTRACTION_GATE`.
+- Checkpoint: `Q2_M1_SELF_CONSISTENT_IMT_CONTRACTION_GATE_V1_VALID_NONUNIQUE_NO_GO`.
+- Active bounded result: the Qiu-anchored self-consistent major-branch closure
+  is implemented, but its fixed-parameter to steady-field solution relation is
+  not single-valued under the initialization-independent surrogate contract.
+- Current result: all 6/6 Stage A cold/hot solve pairs pass residual, current,
+  ledger, and finite gates; only heating 0.95 V is unique and the other five
+  have T-rise/current differences near `0.989--0.994`, yielding
+  `NO_GO_SINGLE_VALUED_IMT_FORWARD_MAP` before the contraction atlas.
+- Evidence boundary: the M1 operator and new closure implementation are
+  `supported` implementation facts; the bounded multi-fixed-point result is
+  `failed_but_informative`; unique-atlas, contraction, neural-headroom, full
+  hysteresis, dynamic stability, and formal superiority remain `forbidden` or
+  unassessed.
 - Preserved terminal checkpoint: `Q2_CC_B_PATTERNED_BRANCH_VALID_NO_GO`.
 - Preserved prior checkpoint: `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED`.
 - Patterned-MVE baseline: `4c30021c45782e3803f1f285328e09b4411789df`.
-- Current result branch: `codex/q2-m1-latent-neural-value-geometry-admission-v1`.
+- Current result branch: `codex/q2-m1-self-consistent-imt-contraction-gate-v1`.
 - Patterned-MVE result branch: `codex/q2-cc-b-patterned-branch-decision-mve-v1`.
 - Parent disposition: `INVALID_CC_B_EXECUTION`.
 - Requalification disposition: `PASS_CC_B_STABILITY_REQUALIFICATION`.
@@ -99,10 +100,11 @@ as infrastructure provenance only and do not vote on the active S2 route.
 
 ## Boundary
 
-The current-clamp route and both direct coordinate-PINN routes remain immutable
-bounded negative evidence. The earlier solver-projected MVE remains a valid
-single-seed bounded GO, but the geometry-admission benchmark shows no
-neural-specific value over A2/ridge. Formal OOD, inverse, MoE, dynamic RC,
-NbO2, and every new neural-forward rescue architecture remain forbidden; the
-next priority is limitation-manuscript consolidation around the conservative
-M1 operator and analytic A2 numerical asset.
+The current-clamp, direct-coordinate, and prescribed-state latent neural routes
+remain immutable bounded evidence. The self-consistent major-branch premise
+does not define an initialization-independent single-valued steady forward
+relation on 5/6 bounded admission conditions, so contraction and neural
+headroom were not eligible. Do not add a hidden label or network capacity to
+choose a solution. The next priority is a solver-first physical-selection or
+equilibrium-manifold contract under fresh authorization, while the current
+result enters the limitation manuscript.

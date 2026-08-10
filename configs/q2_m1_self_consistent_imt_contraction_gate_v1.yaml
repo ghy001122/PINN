@@ -1,0 +1,133 @@
+task_id: Q2_M1_SELF_CONSISTENT_IMT_CONTRACTION_GATE_V1
+run_id: Q2-M1-SELF-CONSISTENT-IMT-CONTRACTION-GATE-20260810-V1
+schema_version: q2_m1_self_consistent_imt_contraction_gate_v1
+phase_id: Q2_PHASE1F_M1_SELF_CONSISTENT_IMT_CONTRACTION_GATE
+status: authorized_bounded_physics_gate
+evidence_type: literature-guided synthetic numerical digital-twin evidence
+
+frozen_baseline:
+  pr: 40
+  head_sha: a4a20a919dd4eca907269cf0aef351ecdb0c37b3
+  merge_sha: 22e3760f1505691f55d5d2366ca7659d7a7723a6
+  disposition: NO_GO_M1_NEURAL_SPECIFIC_VALUE_A2_OR_RIDGE_DOMINATES
+  interpretation: immutable_prescribed_state_neural_specific_value_no_go
+
+reference:
+  base_config: configs/q2_mf_geostate_mc_pinn_fasttrack_v1.yaml
+  model_form: M1
+  production_grid: {nx: 10, ny: 25}
+  ambient_temperature_K: 325.0
+  evidence_object: branch-conditioned self-consistent major-loop quasi-static electrothermal fields
+  maximum_main_physical_cases: 22
+
+source_contract:
+  path: configs/qiu_vo2_phase1_source_contract_v3.yaml
+  section: source_author_fitted_lumped_quantities
+  beta_per_K: 0.253
+  loop_width_K: 7.193
+  critical_temperature_K: 332.8
+  nominal_width_rule: inverse_beta
+  expected_Tc_up_K: 336.3965
+  expected_Tc_down_K: 329.2035
+  expected_nominal_wT_K: 3.952569169960474
+
+constitutive:
+  mode: self_consistent_major_branch
+  branch_values: {heating: 1.0, cooling: -1.0}
+  state_identity: effective_conductive_state_coordinate
+  full_hysteresis_claim: forbidden
+  width_multipliers: [4.0, 2.0, 1.0]
+  joule_feedback_multipliers: [1.0, 0.5]
+
+solver:
+  relaxation_alpha: 0.35
+  maximum_iterations: 800
+  temperature_scale_K: 50.0
+  scaled_residual_max: 1.0e-7
+  scaled_update_max: 1.0e-8
+  cold_initial_temperature_K: 325.0
+  hot_initial_temperature_K: 360.0
+  finite_guard_temperature_min_K: 250.0
+  finite_guard_temperature_max_K: 1000.0
+
+validity_gates:
+  scaled_nonlinear_residual_max: 1.0e-7
+  current_imbalance_max: 1.0e-6
+  terminal_electrical_heat_ledger_max: 1.0e-6
+  electrical_heat_sink_ledger_max: 1.0e-6
+  cold_hot_temperature_rise_relative_l2_max: 1.0e-4
+  cold_hot_terminal_current_relative_difference_max: 1.0e-4
+
+voltage_admission:
+  contact_overlap_nm: 20.0
+  sink_amplitude: 0.0
+  width_multiplier: 1.0
+  joule_feedback_multiplier: 1.0
+  voltages_V: [0.95, 1.15, 1.35]
+  transition_fraction_min: 0.02
+  tie_break: mean_effective_state_closest_to_0p5
+
+atlas:
+  contexts:
+    G0: {contact_overlap_nm: 20.0, sink_amplitude: 0.0}
+    G1: {contact_overlap_nm: 30.0, sink_amplitude: 1.5}
+  physical_width_multipliers: [4.0, 2.0, 1.0]
+  physical_joule_feedback_multiplier: 1.0
+  stiffness_width_multiplier: 1.0
+  stiffness_joule_feedback_multiplier: 0.5
+  maximum_nonunique_or_invalid_fraction: 0.25
+
+evaluation:
+  practical_case_gate:
+    temperature_rise_relative_l2_max: 0.05
+    potential_relative_l2_max: 0.01
+    terminal_current_relative_error_max: 0.02
+    true_fixed_point_defect_max: 0.02
+    sigma_defect_max: 0.02
+    terminal_electrical_heat_ledger_max: 1.0e-8
+    electrical_heat_sink_ledger_max: 1.0e-8
+  transition_bearing_fraction_min: 0.02
+  joint_field_score: half_sum_temperature_and_potential_relative_l2
+
+contraction:
+  map: damped_projection
+  power_iterations: 8
+  dtype: float64
+  deterministic_seed: 20260809
+  perturbation_amplitude_K: 1.0
+  perturbation_directions: [uniform, x-gradient, localized-sink-patch]
+  path_h_required_cases: 4
+  path_s_required_cases: 3
+  path_s_local_singular_value_max: 0.98
+  empirical_ratio_role: local_diagnostic_not_global_proof
+
+conditional_neural_stage:
+  eligible_only_if_headroom: true
+  initial_seed: 20260809
+  conditional_seeds: [20260810, 20260811]
+  training_steps: {coefficient: 500, projected: 1000}
+  network: {hidden_layers: 2, hidden_width: 32, activation: SiLU, dtype: float64}
+  pod_rank_cap: 8
+  status_before_headroom_vote: prohibited
+
+outputs:
+  processed_root: data/processed/q2_m1_self_consistent_imt_contraction_gate_v1/Q2-M1-SELF-CONSISTENT-IMT-CONTRACTION-GATE-20260810-V1
+  table_root: outputs/tables/q2_m1_self_consistent_imt_contraction_gate_v1/Q2-M1-SELF-CONSISTENT-IMT-CONTRACTION-GATE-20260810-V1
+  figure_root: outputs/figures/q2_m1_self_consistent_imt_contraction_gate_v1/Q2-M1-SELF-CONSISTENT-IMT-CONTRACTION-GATE-20260810-V1
+  report: docs/codex_reports/q2_m1_self_consistent_imt_contraction_gate_v1.md
+  paper_evidence_map: docs/paper/q2_pinn_route_evidence_map_after_imt_gate.md
+
+claim_boundary:
+  m1_operator: supported
+  self_consistent_major_branch_implementation: supported_implementation_fact_if_tests_pass
+  unique_fixed_point_atlas: qualified_supported_if_gates_pass
+  contraction_estimates: qualified_supported_local_diagnostics
+  single_seed_neural_result: diagnostic_non_voting
+  full_hysteresis: forbidden
+  minor_loop: forbidden
+  dynamic_stability: forbidden
+  experimental_validation: forbidden
+  qiu_quantitative_field_reproduction: forbidden
+  formal_pinn_superiority: forbidden
+  inverse: forbidden
+  zero_shot_material_transfer: forbidden

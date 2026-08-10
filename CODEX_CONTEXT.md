@@ -3,15 +3,15 @@
 ## Current Route
 
 - Delivery mode: `Q2_SCI_DELIVERY_MODE`.
-- Delivery ladder: historical/high-spec R1 `HysGeo-Hybrid-PINN`, stopped direct-coordinate R1-Lite `GeoState-MC-Hybrid-PINN`, active bounded candidate `M1-LatentProj-PINN`, preferred R2 `GeoPhase-HomoMoE-PINN`, and conditional R3.
-- Active phase: `Q2_PHASE1E_M1_LATENT_NEURAL_VALUE_GEOMETRY_ADMISSION`.
-- Checkpoint: `Q2_M1_LATENT_NEURAL_VALUE_GEOMETRY_ADMISSION_V1_VALID_NO_GO`.
+- Delivery ladder: historical/high-spec R1 `HysGeo-Hybrid-PINN`, stopped direct-coordinate R1-Lite `GeoState-MC-Hybrid-PINN`, stopped latent neural-forward route, retained conservative M1 numerical operator, preferred R2 `GeoPhase-HomoMoE-PINN`, and conditional R3.
+- Active phase: `Q2_PHASE1F_M1_SELF_CONSISTENT_IMT_CONTRACTION_GATE`.
+- Checkpoint: `Q2_M1_SELF_CONSISTENT_IMT_CONTRACTION_GATE_V1_VALID_NONUNIQUE_NO_GO`.
 - Preserved prior checkpoint: `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED`.
 - Preserved parent CC-B disposition: `INVALID_CC_B_EXECUTION`.
 - Stability-requalification disposition: `PASS_CC_B_STABILITY_REQUALIFICATION`.
 - Branch-bracket disposition: `STOP_NUMERICAL_SEMANTICS_NOT_CLOSED`.
 - Patterned-MVE disposition: `NO_GO_CC_B_STABLE_PATTERNED_TRANSITION_SPAN`.
-- Baseline before this task: `main@56999bbe33065a7e80587c009ab78011d61b265c`.
+- Baseline before this task: `main@22e3760f1505691f55d5d2366ca7659d7a7723a6`.
 - Patterned-MVE code anchor: `6c655955c7c8718c3e21248da55ef7887dbd3fdc`.
 - `cc_b_matrix_launch_count=0`; `scientific_vote=false`;
   `formal_execution_count=0`.
@@ -71,5 +71,17 @@ joint-field score; Path H and Path S both failed. The binding disposition is
 linear POD mapper covers this bounded benchmark, so formal OOD and all further
 neural-forward architecture expansion are now forbidden; retain the M1
 projection operator and analytic A2 only as numerical assets.
+
+PR #40 and that geometry-admission NO-GO were preserved unchanged and
+squash-merged as `22e3760f1505691f55d5d2366ca7659d7a7723a6`. Under the newly
+authorized Qiu-anchored self-consistent major-branch premise, all six bounded
+20 nm/nominal/lambda-J=1 voltage-admission cases converged from both 325 K and
+360 K initial fields and passed residual, current, and ledger gates. Only
+heating 0.95 V was initialization-independent; the other five cases had
+cold/hot T-rise and current differences of approximately `0.989--0.994`, far
+above the frozen `1e-4` uniqueness gate. The binding disposition is
+`NO_GO_SINGLE_VALUED_IMT_FORWARD_MAP`: the fixed-parameter to steady-solution
+relation is multi-valued under the surrogate contract, so the contraction
+atlas, A1/A2 headroom vote, and conditional neural stage were not executed.
 Historical PR #29/#30/#31/#32 results, dynamic stops, D0,
 equivalence-v1/v2/v3, and Frozen GT remain immutable.

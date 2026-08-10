@@ -1,0 +1,7 @@
+stage,case_id,branch_label,device_voltage_V,cold_valid,hot_valid,cold_hot_temperature_rise_relative_l2_difference,cold_hot_terminal_current_relative_difference,temperature_tolerance,current_tolerance,unique
+voltage_admission,heating_0.95V,heating,0.95,True,True,1.5730803697438368e-07,8.071181829101504e-10,0.0001,0.0001,True
+voltage_admission,heating_1.15V,heating,1.15,True,True,0.9943312929895799,0.9943267659457125,0.0001,0.0001,False
+voltage_admission,heating_1.35V,heating,1.35,True,True,0.9943360681761403,0.9943307401633169,0.0001,0.0001,False
+voltage_admission,cooling_0.95V,cooling,0.95,True,True,0.9898830862191157,0.9898746381207493,0.0001,0.0001,False
+voltage_admission,cooling_1.15V,cooling,1.15,True,True,0.9896783699629704,0.9896685868726804,0.0001,0.0001,False
+voltage_admission,cooling_1.35V,cooling,1.35,True,True,0.9892442065044357,0.9892339718661248,0.0001,0.0001,False
