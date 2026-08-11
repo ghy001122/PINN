@@ -20,8 +20,18 @@ Rules that cannot be reliably encoded by a command prefix, such as detecting eve
 
 ## Project-Local Research Skill
 
-The reusable research-synthesis skill is `.agents/skills/research-module-recombination/SKILL.md`. Invoke it explicitly with `$research-module-recombination` for SCI innovation design, literature-module decomposition, 魔改/排列组合, method rerouting, contribution mapping, minimum-evidence planning, or negative-result module salvage.
+The reusable research-synthesis skill is `.agents/skills/research-module-recombination/SKILL.md`. `Research Module Recombination` is its UI display name; the most reliable explicit invocation is `$research-module-recombination`.
 
-Codex may also invoke the skill implicitly from its description. Skill edits are normally detected automatically; restart Codex if the skill does not appear after an update.
+Use the smallest applicable mode:
+
+```text
+$research-module-recombination FAST_SCAN
+$research-module-recombination FULL_DESIGN
+$research-module-recombination CLOSEOUT_SALVAGE
+```
+
+Use `FAST_SCAN` for SCI innovation screening or next-route selection, `FULL_DESIGN` for an already selected method requiring a full contract, and `CLOSEOUT_SALVAGE` for result/NO-GO closeout and asset recovery. None of these modes automatically authorizes an experiment.
+
+Codex may also invoke the skill implicitly from its description; implicit screening defaults to `FAST_SCAN`, not the longest `FULL_DESIGN`. Skill edits are normally detected automatically; restart Codex if the skill does not appear after an update.
 
 The skill cannot override `AGENTS.md`, the active phase, evidence gates, source and license requirements, scientific state, or academic ethics. `.codex/rules/` remains command-safety policy only and does not contain research-method instructions.

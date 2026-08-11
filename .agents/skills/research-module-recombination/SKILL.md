@@ -17,6 +17,39 @@ Use this skill for innovation-point design, literature-method decomposition, ada
 
 Do not use it for routine bug fixes, variable renaming, formatting, log triage, direct execution of a frozen config, or an experiment whose method and gate are already fixed. Do not use it to reopen a route prohibited by the active phase.
 
+## Invocation Modes
+
+Honor an explicit mode first:
+
+- `$research-module-recombination FAST_SCAN`
+- `$research-module-recombination FULL_DESIGN`
+- `$research-module-recombination CLOSEOUT_SALVAGE`
+
+Use `FAST_SCAN` for innovation screening, next-route selection, or post-failure candidate ranking before any experiment. Decompose at most six core modules, generate at most six combinations, deeply score at most three, choose one active route and two fallbacks, and target 20–30 minutes. Do not execute experiments or generate a full execution prompt by default. Return:
+
+1. Target Paper Claim
+2. Compact Source Module Genealogy
+3. Candidate Combination Matrix
+4. Top-3 Utility Ranking
+5. One Active Route And Two Fallbacks
+6. Minimum Evidence Contract
+7. Pass/Fail Manuscript Routing
+
+Use `FULL_DESIGN` only after an active combination has been selected and a complete method and execution contract is needed. Return the full eight-section output in Required Output. Treat the prompt as a design artifact, not execution authorization; active phase, user authorization, claim gates, data boundaries, Frozen Ground Truth, and budget remain binding.
+
+Use `CLOSEOUT_SALVAGE` after a valid experiment or NO-GO to freeze the result, recover assets, and route stop, paper, fallback, or a possible new MVE. Do not generate a new experiment prompt by default. Return:
+
+1. Frozen Disposition And Contract
+2. Failed Module And Failed Interface
+3. Retained Scientific And Software Assets
+4. Publishable Positive/Negative Evidence
+5. Closed And Unanswered Claims
+6. Recombination Candidates
+7. Manuscript Routing
+8. Stop / Paper / New-MVE Decision
+
+When no mode is specified, route innovation screening or next-route selection to `FAST_SCAN`, a selected method needing a full contract to `FULL_DESIGN`, and experiment closeout or NO-GO salvage to `CLOSEOUT_SALVAGE`. Never let implicit invocation default to the longest `FULL_DESIGN` output. Convert a salvage candidate into an execution contract only after an explicit `FULL_DESIGN` request and active-phase authorization.
+
 ## Academic Attribution Boundary
 
 - Cite every directly transferred or adapted module at its primary paper, repository, DOI, or authoritative source.
@@ -67,13 +100,19 @@ Permitted adaptation classes include physical-variable, material-mechanism, geom
 
 ## Utility Ranking
 
-Score each shortlisted combination from 1 to 10 on manuscript distinctiveness, usable-evidence probability, implementation readiness, asset reuse, reviewer-defense value, negative-result salvage value, modular reuse, time cost, compute cost, and integration risk.
+Use ordinal scores from 1 to 5. For benefit dimensions, `1` means very weak/very low and `5` means very strong/very high; `2`, `3`, and `4` mean weak, medium, and strong. For raw cost or risk dimensions, `1` means lowest cost/risk and `5` means highest. Do not use decimals or 7–10 pseudo-precision, and explain only non-obvious scores that affect ranking.
+
+Score manuscript distinctiveness, usable-evidence probability, implementation readiness, asset reuse, reviewer-defense value, negative-result salvage value, modular reuse, compute cost, and integration risk. Also record both a raw estimate and a favorable 1–5 score for:
+
+- `time_to_first_figure`: record an actual estimate; score `5` for <=0.5 day, `4` for <=1 day, `3` for <=2 days, `2` for <=4 days, and `1` for >4 days or unknown.
+- `time_to_manuscript_claim`: include positive, bounded-domain, interface, or reusable-negative claims that pass the Claim Gate; score `5` for <=1 day, `4` for <=2 days, `3` for <=4 days, `2` for <=7 days, and `1` for >7 days or unknown.
+- `new_data_or_solver_runs_required`: record anticipated reference solves, continuations, training runs, stability spectra, and OOD cases; score `5` for no new run, `4` for <=10, `3` for <=50, `2` for <=200, and `1` for >200, unknown scale, or new data infrastructure.
 
 Use the score only as a decision aid:
 
-utility = (manuscript value × usable-evidence probability × asset reuse × reviewer defense × salvage value) / max(time cost × compute cost × integration risk, epsilon)
+paper_utility = (manuscript value × usable-evidence probability × asset reuse × reviewer defense × salvage value × time_to_first_figure_score × time_to_manuscript_claim_score × low_new_run_burden_score) / max(compute cost × integration risk, epsilon)
 
-Select one active combination and two fallbacks. Never present the utility score as an objective scientific law.
+Select one active combination and two fallbacks. Never present the utility score as an objective scientific law, invent time estimates to raise it, or let it override physical feasibility or the active-phase gate.
 
 ## Minimum Evidence Design
 
@@ -117,7 +156,7 @@ Use [references/pinn_pcm_worked_example.md](references/pinn_pcm_worked_example.m
 
 ## Required Output
 
-Return these eight sections unless the user asks for a narrower review:
+For `FULL_DESIGN`, return these eight sections unless the user asks for a narrower review:
 
 1. Target Paper Claim
 2. Source Module Genealogy
@@ -128,7 +167,7 @@ Return these eight sections unless the user asks for a narrower review:
 7. Pass/Fail Claim Routing
 8. Codex-Ready Execution Prompt
 
-For an idea-only or review request, the execution prompt may be omitted, but source attribution and module relationships remain mandatory.
+For `FAST_SCAN` and `CLOSEOUT_SALVAGE`, use the mode-specific output above. For an idea-only or review request, an execution prompt remains unauthorized and may be marked omitted, but source attribution and module relationships remain mandatory.
 
 ## Project Authority And Fallback
 

@@ -25,7 +25,7 @@ Every real use of the skill must reread current authority and live evidence.
 | #40 | Analytic A2 or ridge-POD covered the prescribed-state geometry benchmark; NO_GO_M1_NEURAL_SPECIFIC_VALUE_A2_OR_RIDGE_DOMINATES. | Prescribed-state neural mapper value contract failed. | Geometry dataset, POD, ridge, analytic projection baselines, and neural-necessity gate. |
 | #41 | Cold and hot initializations reached distinct valid steady states in 5/6 cases; NO_GO_SINGLE_VALUED_IMT_FORWARD_MAP. | Initialization-independent self-consistent steady map failed. | Self-consistent major-branch closure, multi-fixed-point evidence, and a reason to add explicit selection semantics. |
 | #42 | Monotone voltage continuation selected reproducible sampled stable components; GO_PROTOCOL_SELECTED_EQUILIBRIUM_MANIFOLD. | Protocol-selection, reachability, local-stability, and step-sensitivity contract passed. | Protocol-selected manifold, switching events, stability spectra, provenance, and eligibility contract. |
-| #43 (read-only open-draft snapshot) | A 2×2 geometry/thermal context and branch-aware surrogate MVE completed; hard-gated heads did not beat the protocol-conditioned single head, and candidate-set coverage failed; NO_GO_PROTOCOL_MANIFOLD_NEURAL_VALUE. This row records the open draft PR evidence and is not current authority. | Hard-gated neural-value and refusal-coverage contract failed. | Factorial contexts, leakage-free POD, analytic/ridge/single-head baselines, branch-separation metrics, refusal evaluation, and another bounded negative route. |
+| #43 merged bounded scientific result | A 2×2 geometry × thermal factorial context, leakage-free POD, and analytic/ridge/single-head/hard-gated comparison completed; hard-gated heads did not establish incremental value over the protocol-conditioned single head. Unknown-protocol ambiguity recall was 1.0 and certified false-unique was 0, but two-candidate set coverage failed its frozen gate; NO_GO_PROTOCOL_MANIFOLD_NEURAL_VALUE. | Hard-gated neural-value and refusal-coverage contract failed. | Factorial contexts, leakage-free POD, matched baselines, branch-separation metrics, refusal evaluation, and another bounded negative route. |
 
 ## 2. Recovered Module Genealogy
 
@@ -90,7 +90,7 @@ The example does not imply that adding another neural head is the next priority.
 
 ### PR #43
 
-- Failed: hard-gated heads' independent value and two-candidate coverage, despite ambiguity recall = 1.0.
+- Failed: hard-gated heads' independent value and two-candidate coverage, despite ambiguity recall = 1.0 and certified false-unique = 0.
 - Retained: full factorial contexts, leakage barriers, protocol-conditioned single-head baseline, and refusal diagnostics.
 - Current lesson: a functional idea must still cover the physical candidate set; perfect ambiguity recall alone is insufficient.
 

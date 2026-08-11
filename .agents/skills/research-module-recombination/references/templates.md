@@ -13,6 +13,15 @@
 
 Use only the fields needed for the current decision. Keep evidence and hypotheses separate.
 
+## Invocation Mode Selector
+
+- Requested/selected mode: FAST_SCAN | FULL_DESIGN | CLOSEOUT_SALVAGE
+- Routing reason:
+- Mode budget/limits:
+- Execution authorized: yes | no
+
+Use `FAST_SCAN` for bounded screening, `FULL_DESIGN` for an already selected method contract, and `CLOSEOUT_SALVAGE` for a completed result or NO-GO. Implicit invocation must not default to `FULL_DESIGN`.
+
 ## A. Source Module Card
 
 - Module ID:
@@ -46,13 +55,27 @@ Limits: twelve candidates, three deeply scored, one active, two fallbacks.
 
 ## D. Utility Scorecard
 
-Score each item from 1 to 10 and explain non-obvious values.
+Use ordinal 1–5 scores and explain only non-obvious values that change ranking. Benefit scores use `1 = very weak/very low`, `2 = weak`, `3 = medium`, `4 = strong`, and `5 = very strong/very high`. Raw cost/risk scores use `1 = lowest` and `5 = highest`.
 
-| Candidate | Manuscript value | Usable-evidence probability | Readiness | Asset reuse | Reviewer defense | Salvage | Modular reuse | Time cost | Compute cost | Integration risk | Utility/rank |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-|  |  |  |  |  |  |  |  |  |  |  |  |
+| Candidate | Manuscript value | Usable-evidence probability | Readiness | Asset reuse | Reviewer defense | Salvage | Modular reuse | Compute cost (1 low, 5 high) | Integration risk (1 low, 5 high) | Utility/rank |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+|  |  |  |  |  |  |  |  |  |  |  |
 
-Treat utility as a ranking aid, not a scientific result.
+Record raw estimates and favorable ranking scores separately:
+
+| Candidate | Time to first figure (raw) | Score | Time to manuscript claim (raw) | Score | New data/solver runs required (raw counts by type) | Low-run-burden score |
+| --- | --- | ---: | --- | ---: | --- | ---: |
+|  |  |  |  |  |  |  |
+
+- `time_to_first_figure`: score `5` for <=0.5 day, `4` for <=1 day, `3` for <=2 days, `2` for <=4 days, and `1` for >4 days or unknown.
+- `time_to_manuscript_claim`: score `5` for <=1 day, `4` for <=2 days, `3` for <=4 days, `2` for <=7 days, and `1` for >7 days or unknown.
+- `new_data_or_solver_runs_required`: list reference solves, continuations, training runs, stability spectra, and OOD cases; score `5` for none, `4` for <=10, `3` for <=50, `2` for <=200, and `1` for >200, unknown scale, or new data infrastructure.
+
+Ranking aid:
+
+`paper_utility = (manuscript value × usable-evidence probability × asset reuse × reviewer defense × salvage value × time_to_first_figure_score × time_to_manuscript_claim_score × low_new_run_burden_score) / max(compute cost × integration risk, epsilon)`
+
+Treat utility as a ranking aid, not a scientific result. Do not use decimal pseudo-precision, invent estimates, or override physical and active-phase gates.
 
 ## E. Minimum Evidence Card
 
@@ -94,6 +117,7 @@ Treat utility as a ranking aid, not a scientific result.
 ## H. Codex Research Task Contract
 
 - Task ID and method identity:
+- Invocation mode: FAST_SCAN | FULL_DESIGN | CLOSEOUT_SALVAGE
 - Unresolved problem and manuscript destination:
 - Current authority and prerequisite:
 - Source modules and attribution:
@@ -111,6 +135,9 @@ Treat utility as a ranking aid, not a scientific result.
 - Baselines and ablation:
 - Metrics and fixed gates:
 - Budget:
+- Time to first figure estimate and score:
+- Time to manuscript claim estimate and score:
+- New reference/continuation/training/stability/OOD runs and low-burden score:
 - Evidence chain: config → implementation → test → JSON/CSV → figure/table → report → claim matrix → manuscript sentence:
 - Pass claim:
 - Fail/negative claim:

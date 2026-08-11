@@ -3,15 +3,16 @@
 ## Contents
 
 1. Operating principles
-2. Authority and paper bottleneck
-3. Source-module decomposition
-4. Adaptation design
-5. Bounded combination pool
-6. Pruning and utility ranking
-7. Minimum evidence
-8. Claim and story routing
-9. Negative-result salvage
-10. Closeout
+2. Invocation modes
+3. Authority and paper bottleneck
+4. Source-module decomposition
+5. Adaptation design
+6. Bounded combination pool
+7. Pruning and utility ranking
+8. Minimum evidence
+9. Claim and story routing
+10. Negative-result salvage
+11. Closeout
 
 ## 1. Operating Principles
 
@@ -24,7 +25,17 @@
 - Bind a negative result to its frozen contract rather than treating it as a universal family ban.
 - Preserve academic attribution, license, provenance, evidence, and active-phase boundaries.
 
-## 2. Authority And Paper Bottleneck
+## 2. Invocation Modes
+
+Choose the smallest mode that answers the request:
+
+- `FAST_SCAN`: screen the next route in 20–30 minutes; use at most six modules, six combinations, and three deeply scored candidates; select one active route and two fallbacks; do not execute an experiment or generate a full execution prompt by default.
+- `FULL_DESIGN`: expand an already selected active combination into the full eight-section method and execution contract; do not treat the contract as execution authorization.
+- `CLOSEOUT_SALVAGE`: freeze a valid result or NO-GO, recover modules and evidence, and route stop, paper, fallback, or a possible new MVE; do not generate a new experiment prompt by default.
+
+Honor an explicit mode. Otherwise use `FAST_SCAN` for screening, `FULL_DESIGN` for a selected method needing a complete contract, and `CLOSEOUT_SALVAGE` for completed-result routing. Implicit invocation must not default to `FULL_DESIGN`.
+
+## 3. Authority And Paper Bottleneck
 
 Before designing a combination:
 
@@ -37,7 +48,7 @@ Before designing a combination:
 
 Do not use this workflow to activate a prohibited experiment. A useful combination remains a hypothesis until an authorized gate is opened.
 
-## 3. Source-Module Decomposition
+## 4. Source-Module Decomposition
 
 Decompose no more than ten core modules. Give each module a stable ID such as A, B, or C.
 
@@ -58,7 +69,7 @@ Record:
 
 Prefer primary sources. A review can identify a lead but cannot replace the original source for a claim about equations, originality, or measured parameters.
 
-## 4. Adaptation Design
+## 5. Adaptation Design
 
 For each selected adaptation candidate:
 
@@ -84,7 +95,7 @@ Allowed classes include:
 
 Leave a module unmodified when direct transfer is the correct and attributable design.
 
-## 5. Bounded Combination Pool
+## 6. Bounded Combination Pool
 
 Build combinations such as A' + C, A' + D, A' + C', or A' + B' + C + D'. A prime means a documented adaptation; its absence means attributed direct transfer.
 
@@ -96,9 +107,11 @@ Limits per round:
 - one active combination;
 - two fallbacks.
 
+In `FAST_SCAN`, tighten these limits to six modules and six combinations while retaining the same top-three/one-active/two-fallback structure.
+
 Do not enumerate all 2^N combinations.
 
-## 6. Pruning And Utility Ranking
+## 7. Pruning And Utility Ranking
 
 Prune a candidate when it:
 
@@ -110,7 +123,9 @@ Prune a candidate when it:
 - bypasses an active-phase prerequisite or evidence gate;
 - adds complexity without a measurable contribution axis.
 
-Score the remaining combinations from 1 to 10 on:
+Use ordinal 1–5 scores. For benefit dimensions, `1` is very weak/very low and `5` is very strong/very high; `2`, `3`, and `4` are weak, medium, and strong. For raw cost/risk dimensions, `1` is lowest and `5` is highest. Do not use decimals or 7–10 pseudo-precision.
+
+Score the remaining combinations on:
 
 - manuscript distinctiveness;
 - usable-evidence probability;
@@ -119,17 +134,22 @@ Score the remaining combinations from 1 to 10 on:
 - reviewer-defense value;
 - negative-result salvage value;
 - modular reuse;
-- time cost;
 - compute cost;
 - integration risk.
 
+Record raw estimates and favorable 1–5 ranking scores for:
+
+- `time_to_first_figure`: `5` for <=0.5 day, `4` for <=1 day, `3` for <=2 days, `2` for <=4 days, and `1` for >4 days or unknown;
+- `time_to_manuscript_claim`: `5` for <=1 day, `4` for <=2 days, `3` for <=4 days, `2` for <=7 days, and `1` for >7 days or unknown;
+- `new_data_or_solver_runs_required`: record reference solves, continuations, training runs, stability spectra, and OOD cases; score `5` for none, `4` for <=10, `3` for <=50, `2` for <=200, and `1` for >200, unknown scale, or new data infrastructure.
+
 Suggested ranking aid:
 
-utility = (manuscript value × usable-evidence probability × asset reuse × reviewer defense × salvage value) / max(time cost × compute cost × integration risk, epsilon)
+paper_utility = (manuscript value × usable-evidence probability × asset reuse × reviewer defense × salvage value × time_to_first_figure_score × time_to_manuscript_claim_score × low_new_run_burden_score) / max(compute cost × integration risk, epsilon)
 
-Document the reasons behind scores. Do not present the ranking as a scientific measurement.
+Explain only non-obvious scores that change the ranking. Do not present utility as a scientific measurement, invent time estimates, or let ranking override physical feasibility and active-phase gates.
 
-## 7. Minimum Evidence
+## 8. Minimum Evidence
 
 For an MVE, prefer three matched views:
 
@@ -147,7 +167,7 @@ Choose metrics that discriminate the intended increment:
 
 Do not require a full ablation matrix during an idea screen. Expand to complete matched-budget and multi-seed evidence only after the relevant formal stage is authorized.
 
-## 8. Claim And Story Routing
+## 9. Claim And Story Routing
 
 For each candidate, map:
 
@@ -170,7 +190,7 @@ A known component can participate in a qualified_supported combination claim. A 
 
 When a baseline dominates one metric, check whether a different preregistered contribution axis is supported. Do not move thresholds after seeing results. If there is no performance, functional, interface, workflow, applicability, validation, composability, or reusable-negative increment, record combination_increment_evidence_insufficient.
 
-## 9. Negative-Result Salvage
+## 10. Negative-Result Salvage
 
 For every valid bounded NO-GO:
 
@@ -196,7 +216,7 @@ Use precise diagnoses:
 
 Reserve misconduct language for plagiarism, hidden sources, fabricated evidence, false priority, copied work presented as original, or license violations.
 
-## 10. Closeout
+## 11. Closeout
 
 Output:
 
@@ -209,4 +229,4 @@ Output:
 7. Pass/Fail Claim Routing
 8. Codex-Ready Execution Prompt
 
-End with one active combination, two fallbacks, a bounded evidence contract, and an explicit stop or downgrade route. If execution was not authorized, stop at the plan and label all expected outcomes as hypotheses.
+Use this full list for `FULL_DESIGN`. Use the compact seven-section scan or eight-section salvage output defined in Invocation Modes for the other modes. End with one active combination, two fallbacks, a bounded evidence contract, and an explicit stop or downgrade route. If execution was not authorized, stop at the plan and label all expected outcomes as hypotheses.

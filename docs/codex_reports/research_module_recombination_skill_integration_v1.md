@@ -12,6 +12,9 @@ No physics solve, continuation, stability spectrum, dataset generation, PINN/sur
 - Path: .agents/skills/research-module-recombination/SKILL.md
 - Explicit invocation: $research-module-recombination
 - Implicit invocation: enabled in agents/openai.yaml
+- Invocation modes: FAST_SCAN, FULL_DESIGN, and CLOSEOUT_SALVAGE
+- Utility scale: ordinal 1–5 with raw time/run estimates
+- Pragmatic metrics: time_to_first_figure, time_to_manuscript_claim, and new_data_or_solver_runs_required
 - References: workflow.md, templates.md, and pinn_pcm_worked_example.md
 
 The UI short description uses the 60-character “Decompose, adapt, recombine, rank, and validate SCI modules.” form because the project Skill generator enforces a 25–64 character field; the task's 67-character wording was shortened without changing scope.
@@ -47,9 +50,15 @@ The evidence gate remains supported, qualified_supported, failed_but_informative
 - docs/research_strategy/pinn_phase_change_q2_sci_execution_guide.md: less rigid module-adaptation methodology without changing scientific gates.
 - .codex/README.md: project Skill location, explicit/implicit invocation, reload behavior, and command-policy separation.
 
+PR #44 was synchronized by a normal merge with post-PR43 `origin/main`. The overlapping PR #43 communication, efficiency, stop-discipline, and scientific-state rules remain authoritative; the Skill-specific routing and contribution-axis additions are layered once without a second authority surface.
+
+The following workflow-governance files now match post-PR43 main exactly and are absent from the PR #44 diff: `workflow_research_norms_14_item_audit_2026-08-10.md`, `codex_workflow_rules.md`, `durable_project_memory.md`, `codex_final_report.md`, `audit_project_governance.py`, and `test_project_governance.py`.
+
 ## 6. PR #36–#43 Worked Example
 
-The non-authoritative worked example preserves every recorded disposition while showing asset reuse: unstable patterned equilibria (#36), failed direct-coordinate PINNs with retained M1/Robin/conservation assets (#37–#38), accurate projected latent fields without neural necessity (#39–#40), multi-fixed-point self-consistent IMT followed by protocol selection (#41–#42), and the open PR #43 factorial hard-gated surrogate NO-GO snapshot with retained POD/baseline/refusal assets. It does not override current authority or authorize a new experiment.
+The non-authoritative worked example preserves every recorded disposition while showing asset reuse: unstable patterned equilibria (#36), failed direct-coordinate PINNs with retained M1/Robin/conservation assets (#37–#38), accurate projected latent fields without neural necessity (#39–#40), multi-fixed-point self-consistent IMT followed by protocol selection (#41–#42), and the merged PR #43 bounded factorial hard-gated surrogate result with retained POD/baseline/refusal assets.
+
+PR #42 remains the independent `GO_PROTOCOL_SELECTED_EQUILIBRIUM_MANIFOLD` node. PR #43 remains `NO_GO_PROTOCOL_MANIFOLD_NEURAL_VALUE`: the 2×2 geometry × thermal context, leakage-free POD, and analytic/ridge/single-head/hard-gated comparisons completed; hard gating did not establish incremental value over the single head; ambiguity recall was 1.0 and certified false-unique was 0, while two-candidate set coverage missed its frozen gate. The example does not override current authority or authorize a new experiment.
 
 ## 7. Lightweight Validation
 
@@ -57,6 +66,9 @@ The non-authoritative worked example preserves every recorded disposition while 
 - SKILL.md frontmatter: valid name and non-empty trigger description.
 - agents/openai.yaml: required interface fields and allow_implicit_invocation: true present.
 - Three references: present and linked from the Skill.
+- FAST_SCAN, FULL_DESIGN, and CLOSEOUT_SALVAGE: defined and routed in the Skill, workflow, templates, metadata, and README.
+- Utility ranking: 1–5 only, with the three raw pragmatic estimates and favorable ranking scores present.
+- Worked example: PR #42/#43 identities and PR #36–#43 range preserved.
 - Root authority and delivery pipeline: both reference $research-module-recombination.
 - Current authoritative workflow files: no pseudo-novelty or 伪创新 wording remains.
 - Focused standard-library structural/trigger check: passed.
@@ -64,18 +76,22 @@ The non-authoritative worked example preserves every recorded disposition while 
 
 ## 8. Scientific State Unchanged
 
-CODEX_CONTEXT.md, PROJECT_STATE.md, NEXT_ACTIONS.md, docs/research_strategy/active_phase.md, docs/paper/final_claim_matrix.md, scientific configs, data, figures, outputs, and historical task reports were not modified by this integration. PR #43 remains an open draft and was used read-only as a worked-example snapshot.
+The scientific state is the post-PR43 main state, whose frozen disposition is `NO_GO_PROTOCOL_MANIFOLD_NEURAL_VALUE`. PR #44 does not alter that scientific state: relative to post-PR43 main, it does not modify CODEX_CONTEXT.md, PROJECT_STATE.md, NEXT_ACTIONS.md, docs/research_strategy/active_phase.md, docs/paper/final_claim_matrix.md, scientific configs, data, figures, outputs, or historical scientific reports.
 
-Evidence type: governance/software implementation fact. This task creates no new scientific evidence and changes no PR #36–#43 disposition or claim status.
+Evidence type: governance/software implementation fact. Synchronizing PR #44 incorporates the already merged PR #43 state but creates no new scientific evidence, changes no PR #36–#43 disposition or claim status, and does not constitute a formal Skill research invocation.
 
 ## 9. Usage
 
-Explicit example:
+Explicit examples:
 
-> Use $research-module-recombination to decompose three cited methods into attributed modules, design at most twelve bounded combinations, rank the top three, select one active route and two fallbacks, and produce a minimum-evidence claim contract.
+> Use $research-module-recombination FAST_SCAN to screen the next bounded research combination without executing it.
 
-Codex may invoke the Skill implicitly for innovation design, method decomposition, recombination, rerouting, contribution analysis, or negative-result salvage. Routine execution and maintenance tasks do not invoke it.
+> Use $research-module-recombination FULL_DESIGN to turn an already selected combination into a complete evidence and execution contract.
+
+> Use $research-module-recombination CLOSEOUT_SALVAGE to freeze a result, recover modules, and route stop, paper, fallback, or a possible new MVE.
+
+Codex may invoke the Skill implicitly for innovation design, method decomposition, recombination, rerouting, contribution analysis, or negative-result salvage. Implicit screening defaults to FAST_SCAN; no mode automatically authorizes an experiment. Routine execution and maintenance tasks do not invoke it.
 
 ## 10. Future Codex Research Tasks
 
-Read current authority first, then use the Skill to output the target claim, source genealogy, adaptation ledger, candidate matrix, top-three utility ranking, selected minimum evidence, pass/fail claim routing, and a Codex-ready task prompt. The Skill never supplies execution authority and cannot relax active-phase, provenance, evidence, budget, or ethics constraints.
+Read current authority first, then select the smallest mode. Use FAST_SCAN for next-route screening, FULL_DESIGN only for an already selected combination requiring the complete eight-part contract, and CLOSEOUT_SALVAGE after a valid result or NO-GO. Rank with ordinal 1–5 scores and record raw estimates for first-figure time, manuscript-claim time, and new runs. The Skill never supplies execution authority and cannot relax active-phase, provenance, evidence, budget, or ethics constraints.
