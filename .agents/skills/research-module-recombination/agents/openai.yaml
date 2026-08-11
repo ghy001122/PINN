@@ -1,0 +1,7 @@
+interface:
+  display_name: "Research Module Recombination"
+  short_description: "Decompose, adapt, recombine, rank, and validate SCI modules."
+  default_prompt: "Use $research-module-recombination in FAST_SCAN by default for innovation screening, FULL_DESIGN for an already selected method, or CLOSEOUT_SALVAGE after a result; do not execute experiments without separate authorization."
+
+policy:
+  allow_implicit_invocation: true

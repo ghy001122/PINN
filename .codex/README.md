@@ -17,3 +17,21 @@ Safe alternatives for forbidden commands:
 - replace force-push with a normal push, new branch, or user-approved history repair.
 
 Rules that cannot be reliably encoded by a command prefix, such as detecting every path outside the repository, remain governed by sandbox permissions and `AGENTS.md`.
+
+## Project-Local Research Skill
+
+The reusable research-synthesis skill is `.agents/skills/research-module-recombination/SKILL.md`. `Research Module Recombination` is its UI display name; the most reliable explicit invocation is `$research-module-recombination`.
+
+Use the smallest applicable mode:
+
+```text
+$research-module-recombination FAST_SCAN
+$research-module-recombination FULL_DESIGN
+$research-module-recombination CLOSEOUT_SALVAGE
+```
+
+Use `FAST_SCAN` for SCI innovation screening or next-route selection, `FULL_DESIGN` for an already selected method requiring a full contract, and `CLOSEOUT_SALVAGE` for result/NO-GO closeout and asset recovery. None of these modes automatically authorizes an experiment.
+
+Codex may also invoke the skill implicitly from its description; implicit screening defaults to `FAST_SCAN`, not the longest `FULL_DESIGN`. Skill edits are normally detected automatically; restart Codex if the skill does not appear after an update.
+
+The skill cannot override `AGENTS.md`, the active phase, evidence gates, source and license requirements, scientific state, or academic ethics. `.codex/rules/` remains command-safety policy only and does not contain research-method instructions.

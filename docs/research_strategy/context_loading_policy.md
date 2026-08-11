@@ -32,6 +32,12 @@ Load the minimum context required by the task.
 - task-relevant `docs/paper/` or `docs/manuscript/` files
 - external search only when local evidence is insufficient or the user requests current verification
 
+## Module-Recombination Routing
+
+Invoke `$research-module-recombination` for innovation-point design, literature-method decomposition, 魔改/排列组合, method rerouting, contribution analysis, negative-result module salvage, or selection of the next research combination. Load only the task-relevant source papers, module cards, negative results, and claim surfaces after reading current authority.
+
+Do not invoke it for routine bug fixes, variable renaming, formatting, log triage, or direct execution of an already-frozen config.
+
 ## Tier 4: Code And Experiments
 
 Read only relevant configs, source, scripts, tests, and lightweight outputs. Do not load the entire repository or every historical report.

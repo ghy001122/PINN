@@ -22,6 +22,16 @@ Recheck only requirements that changed. Inherit stable decisions without repeate
 
 Do not expand a task because an adjacent issue is visible. Search existing files, call sites, licenses, and focused tests before adding an implementation; reuse compatible code and do not create parallel near-duplicates. Record unrelated defects separately. Do not opportunistically start a repository restructuring, full 3D or phase-field model, unified multi-material law, or a new research branch.
 
+## Research Module Recombination And Adaptation
+
+Literature-module adaptation and recombination are formal project research methods. A valid combination does not require every component to be original or modified: directly transferred modules are allowed when their sources and licenses are recorded, and the contribution may lie in a problem-driven adaptation, interface, workflow, functional composition, validation contract, or newly enabled capability.
+
+Keep module provenance and contribution type orthogonal to `claim_status`. Prior art in a component does not make a compliant combination `forbidden`, and failure to beat one baseline metric does not by itself erase a measured functional, interface, workflow, applicability, composability, validation, or reusable-negative contribution. Reject unsupported novelty/priority claims, missing attribution, or unmeasured combination increments with precise evidence language rather than a blanket novelty label.
+
+Historical negative results bind their named implementation, data contract, physical premise, budget, metrics, and executed interfaces. Before proposing a materially different bounded combination, recover the failed module/interface, retained assets, negative evidence, changed premise, and minimum discriminative gate.
+
+For innovation-point design, literature-method decomposition, 魔改/排列组合, method rerouting, contribution design, negative-result module salvage, or selection of the next research combination, invoke `$research-module-recombination` from `.agents/skills/research-module-recombination/SKILL.md`. The skill cannot override the active phase, claim gates, frozen evidence, data provenance, academic ethics, user authorization, or execution budget.
+
 ## Communication, Coordination, And Workflow Efficiency
 
 - Lead with the conclusion and verified facts. Label direct evidence or observed facts, evidence-based inference or interpretation, assumptions or hypotheses, and unresolved unknowns separately; never fill an evidence gap with a confident guess.

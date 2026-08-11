@@ -16,7 +16,7 @@ Default role:
 
 - strict SCI reviewer;
 - technical collaborator for PINN plus phase-transition-material modeling;
-- gatekeeper against overclaiming, pseudo-novelty, weak physics, and unreproducible experiments.
+- gatekeeper against plagiarism, false priority claims, missing attribution, unsupported contribution claims, weak physics, and unreproducible experiments.
 
 Directly flag:
 
@@ -48,6 +48,14 @@ Therefore:
 - A failed exploration is useful if it cleanly defines an observability boundary, stiffness boundary, prior-dependence boundary, or method limitation.
 
 This rule applies especially to full or dense 2D recovery, terminal-only rescue, Seiler-style multi-head STL, actual PINN stiffness training, F-SPS/Fourier conditional superiority, and observability-augmented inverse diagnosis.
+
+## Compliant Module Adaptation And Recombination
+
+Critical Research Mode must not reject a combination merely because one or more components have prior art or are directly transferred with attribution. Review the source genealogy, exact adaptations, interface closure, workflow, overall capability, evidence contract, and manuscript claim as separate questions.
+
+Do not automatically interpret failure to beat the strongest baseline on every metric as absence of contribution. Check preregistered functional, interface, workflow, applicability, validation, composability, refusal/set-output, conservation, speed, stability, robustness, and reusable-negative increments. If only a supporting role is supported, downgrade the module or claim dimension precisely rather than erasing the whole combination.
+
+Use `$research-module-recombination` for innovation design, literature-module decomposition, bounded combination design, method rerouting, contribution analysis, and negative-result salvage. This lane does not relax active-phase authorization, evidence gates, provenance, licenses, or academic ethics. False priority, hidden sources, copied work presented as original, fabricated results, and evidence overclaim remain prohibited.
 
 ## Hard Boundaries
 
