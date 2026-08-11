@@ -1,50 +1,50 @@
 # Active Phase
 
-Active phase ID: `Q2_PHASE1G_M1_PROTOCOL_SELECTED_EQUILIBRIUM_MANIFOLD_MVE`
+Active phase ID: `Q2_PHASE1H_PROTOCOL_MANIFOLD_BRANCH_AWARE_SURROGATE_MVE`
 
-Status: `completed_after_protocol_selected_manifold_go`
+Status: `completed_after_protocol_manifold_neural_value_no_go`
 
-Current checkpoint: `Q2_M1_PROTOCOL_SELECTED_EQUILIBRIUM_MANIFOLD_MVE_V1_GO`
+Current checkpoint: `Q2_PROTOCOL_MANIFOLD_BRANCH_AWARE_SURROGATE_MVE_V1_NO_GO`
 
 ## Task Contract
 
-- Objective/manuscript destination: determine whether explicit monotone ideal
-  terminal-voltage protocols select reproducible, locally stable equilibrium
-  components from the multi-fixed-point self-consistent M1 relation.
-- Inputs: immutable PR #41, the Qiu-anchored self-consistent major-branch M1
-  operator, G0 20 nm/nominal and G1 30 nm/localized contexts, and frozen
-  0.75--1.55 V heating/cooling protocols.
-- Outputs: four complete field ramps, refined events, full sampled-state
-  physical spectra, half-step event checks, eligibility-only POD diagnostic,
-  eight figures, report, and paper evidence map.
-- Allowed scope: exactly four main 33-point ramps, at most 24 event-refinement
-  solves, at most 24 spectrum evaluations, no root labels/averaging, and no
-  neural training.
-- Prohibited: pseudo-arclength, current clamp, dynamic RC, full hysteresis or
-  minor loops, source-RC reproduction, experimental validation, inverse, MoE,
-  threshold movement, or formal PINN superiority.
-- Result: all four ramps and `132/132` main points are valid. Cooling events in
-  G0/G1 refine to `[0.840625,0.843750] V` and
-  `[1.062500,1.065625] V`; both half-step repeats pass. All 20 unique sampled
-  states are locally stable, and each context has four stable same-voltage
-  pairs spanning `0.8 V` with maximum current/T-rise separation near `0.994`.
+- Objective/manuscript destination: test whether explicit hard-gated
+  heating/cooling latent heads add random-access value over analytic, fixed
+  ridge-POD, history-blind, and protocol-conditioned single-head baselines on
+  the qualified protocol-selected equilibrium manifold.
+- Inputs: immutable PR #42 G0/G1 protocol data, newly authorized G2/G3
+  factorial contexts, the self-consistent M1 conservative projection, and a
+  compound G1 context holdout.
+- Outputs: complete 2x2 physical context data, train-only POD/ridge, H/S/G
+  single-seed training, matched-budget predictions, branch-separation and
+  unknown-protocol refusal evidence, nine figures, report, and evidence map.
+- Allowed scope: only four new G2/G3 main ramps, at most 20 new spectra, one
+  initial seed, conditional seeds only after a frozen path passes, fixed 2x32
+  SiLU networks and 1500 Adam steps, no root labels or candidate averaging.
+- Prohibited: rerunning G0/G1 ramps, current clamp, dynamic RC, formal OOD,
+  full hysteresis/minor loops, experimental validation, inverse, MoE, STL,
+  threshold movement, or architecture/hyperparameter search.
+- Result: G2/G3 complete 4/4 ramps with `132/132` valid main points, two
+  half-step-reproduced cooling events, and `16/16` stable required spectra.
+  The split has 174 train, 24 coarse validation, 66 G1 full-curve diagnostic,
+  and 10 unique certified headline states; train-only POD selects rank 2. H/S/G
+  each complete 1500 steps at seed `20260809`. G1/G2 pass 0/10 headline states,
+  fail branch/refusal gates, and are worse than S1/S2 at matched depth.
 
 Final disposition:
 
 ```text
-GO_PROTOCOL_SELECTED_EQUILIBRIUM_MANIFOLD
+NO_GO_PROTOCOL_MANIFOLD_NEURAL_VALUE
 validity = valid
-claim_status = qualified_supported
-scientific_role = bounded_protocol_manifold_evidence
+claim_status = failed_but_informative
+scientific_role = bounded_protocol_manifold_surrogate_negative_evidence
 ```
 
-The sole eligible next priority, under fresh authorization, is
-`Q2_PROTOCOL_MANIFOLD_BRANCH_AWARE_SURROGATE_MVE_V1`. It must freeze a split,
-compare analytic/ridge/single-head/physically gated latent baselines, preserve
-conservative projection, and implement unknown-protocol set output or refusal.
-No neural model was trained in this phase. Full hysteresis, dynamic-attractor
-claims, source-RC reproduction, experiment, inverse, and formal superiority
-remain forbidden.
+No conditional seed or formal OOD stage is eligible. The single next priority
+is limitation/negative-manuscript synthesis using the immutable failed routes
+and retained conservative M1/protocol/ridge assets. Further forward-neural
+rescue, full hysteresis, dynamic-attractor claims, source-RC reproduction,
+experiment, inverse, and formal superiority remain forbidden.
 
 ## Preserved PR #40 Contract And Outcome
 

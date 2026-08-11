@@ -3,24 +3,25 @@
 ## Authoritative Current Snapshot
 
 - Delivery/phase: `Q2_SCI_DELIVERY_MODE` /
-  `Q2_PHASE1G_M1_PROTOCOL_SELECTED_EQUILIBRIUM_MANIFOLD_MVE`.
-- Checkpoint: `Q2_M1_PROTOCOL_SELECTED_EQUILIBRIUM_MANIFOLD_MVE_V1_GO`.
-- Active bounded result: explicit monotone heating/cooling voltage protocols
-  select reproducible branch-resolved quasi-static equilibria from the
-  multi-fixed-point self-consistent M1 relation.
-- Current result: 4/4 ramps and `132/132` main points are valid; two cooling
-  events pass refinement and half-step reproduction; 20/20 unique sampled
-  states are locally stable; G0 and G1 each have a `0.8 V` sampled stable
-  same-voltage span. Disposition: `GO_PROTOCOL_SELECTED_EQUILIBRIUM_MANIFOLD`.
-- Evidence boundary: the selected manifold, sampled-state physical stability,
-  and event thresholds are `qualified_supported` only under the frozen
-  synthetic ideal terminal-voltage protocol. Full hysteresis, dynamic
-  attractors, source-RC reproduction, experiment, and surrogate performance
-  remain forbidden or unassessed.
+  `Q2_PHASE1H_PROTOCOL_MANIFOLD_BRANCH_AWARE_SURROGATE_MVE`.
+- Checkpoint: `Q2_PROTOCOL_MANIFOLD_BRANCH_AWARE_SURROGATE_MVE_V1_NO_GO`.
+- Active bounded result: the four-context protocol manifold is a valid
+  qualified synthetic physical asset, but the matched-budget branch-aware
+  latent surrogate does not establish neural value on the compound G1 holdout.
+- Current result: G2/G3 add 4/4 completed ramps, `132/132` valid main points,
+  two reproducible cooling events, and `16/16` stable required spectrum states.
+  Train-only POD rank is 2. At seed `20260809`, H/S/G each completes 1500
+  steps; gated G1/G2 pass 0/10 headline cases and fail branch-separation and
+  set-coverage gates. Disposition: `NO_GO_PROTOCOL_MANIFOLD_NEURAL_VALUE`.
+- Evidence boundary: the M1 operator and protocol-selected physical contexts
+  remain supported/qualified-supported. The surrogate result is diagnostic
+  failed-but-informative; formal superiority, formal OOD, full hysteresis,
+  dynamics, experiment, inverse, and further neural-forward expansion are
+  forbidden.
 - Preserved terminal checkpoint: `Q2_CC_B_PATTERNED_BRANCH_VALID_NO_GO`.
 - Preserved prior checkpoint: `Q2_QIU_SOURCE_CONSISTENT_STAGE_A_STOPPED`.
 - Patterned-MVE baseline: `4c30021c45782e3803f1f285328e09b4411789df`.
-- Current result branch: `codex/q2-m1-protocol-selected-equilibrium-manifold-mve-v1`.
+- Current result branch: `codex/q2-protocol-manifold-branch-aware-surrogate-mve-v1`.
 - Patterned-MVE result branch: `codex/q2-cc-b-patterned-branch-decision-mve-v1`.
 - Parent disposition: `INVALID_CC_B_EXECUTION`.
 - Requalification disposition: `PASS_CC_B_STABILITY_REQUALIFICATION`.
@@ -100,10 +101,10 @@ as infrastructure provenance only and do not vote on the active S2 route.
 
 ## Boundary
 
-The current-clamp, direct-coordinate, and prescribed-state latent neural routes
-remain immutable bounded evidence. The fixed-parameter self-consistent relation
-remains multi-valued, but the frozen monotone protocols now define qualified,
-locally stable selected components without a hidden root label. The next and
-only eligible task is the preregistered protocol-manifold branch-aware
-surrogate MVE; it must compare analytic/linear baselines, preserve unknown-
-protocol ambiguity/refusal, and may not claim full hysteresis or dynamics.
+The current-clamp, direct-coordinate, prescribed-state latent, and
+protocol-manifold neural routes remain immutable bounded evidence. The frozen
+monotone protocols still define qualified locally stable selected components,
+but hard-gated neural heads add no matched-budget value and do not provide
+adequate two-candidate set coverage. Formal OOD and further forward-neural
+rescues are ineligible; retain the operator, protocol fields, and ridge/POD
+assets for limitation synthesis and deterministic solver use.

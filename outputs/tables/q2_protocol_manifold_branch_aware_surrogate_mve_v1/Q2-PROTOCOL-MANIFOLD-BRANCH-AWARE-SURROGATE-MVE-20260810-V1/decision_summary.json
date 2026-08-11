@@ -1,0 +1,204 @@
+{
+  "POD": {
+    "energy_target": 0.999,
+    "rank": 2,
+    "rank_cap": 8,
+    "selected_cumulative_energy": 0.9991907182264719,
+    "train_only": true
+  },
+  "artifact_paths": {
+    "checkpoint_paths": [
+      "E:/Python demo/PINN/outputs/checkpoints/q2_protocol_manifold_branch_aware_surrogate_mve_v1/Q2-PROTOCOL-MANIFOLD-BRANCH-AWARE-SURROGATE-MVE-20260810-V1/H_seed_20260809.pt",
+      "E:/Python demo/PINN/outputs/checkpoints/q2_protocol_manifold_branch_aware_surrogate_mve_v1/Q2-PROTOCOL-MANIFOLD-BRANCH-AWARE-SURROGATE-MVE-20260810-V1/S_seed_20260809.pt",
+      "E:/Python demo/PINN/outputs/checkpoints/q2_protocol_manifold_branch_aware_surrogate_mve_v1/Q2-PROTOCOL-MANIFOLD-BRANCH-AWARE-SURROGATE-MVE-20260810-V1/G_seed_20260809.pt"
+    ],
+    "figure_root": "E:/Python demo/PINN/outputs/figures/q2_protocol_manifold_branch_aware_surrogate_mve_v1/Q2-PROTOCOL-MANIFOLD-BRANCH-AWARE-SURROGATE-MVE-20260810-V1",
+    "frozen_protocol_copies": [
+      "E:/Python demo/PINN/data/processed/q2_protocol_manifold_branch_aware_surrogate_mve_v1/Q2-PROTOCOL-MANIFOLD-BRANCH-AWARE-SURROGATE-MVE-20260810-V1/G0_heating.npz",
+      "E:/Python demo/PINN/data/processed/q2_protocol_manifold_branch_aware_surrogate_mve_v1/Q2-PROTOCOL-MANIFOLD-BRANCH-AWARE-SURROGATE-MVE-20260810-V1/G0_cooling.npz",
+      "E:/Python demo/PINN/data/processed/q2_protocol_manifold_branch_aware_surrogate_mve_v1/Q2-PROTOCOL-MANIFOLD-BRANCH-AWARE-SURROGATE-MVE-20260810-V1/G1_heating.npz",
+      "E:/Python demo/PINN/data/processed/q2_protocol_manifold_branch_aware_surrogate_mve_v1/Q2-PROTOCOL-MANIFOLD-BRANCH-AWARE-SURROGATE-MVE-20260810-V1/G1_cooling.npz"
+    ],
+    "prediction_paths": [
+      "E:/Python demo/PINN/data/processed/q2_protocol_manifold_branch_aware_surrogate_mve_v1/Q2-PROTOCOL-MANIFOLD-BRANCH-AWARE-SURROGATE-MVE-20260810-V1/predictions/seed_0/A1_G1_predictions.npz",
+      "E:/Python demo/PINN/data/processed/q2_protocol_manifold_branch_aware_surrogate_mve_v1/Q2-PROTOCOL-MANIFOLD-BRANCH-AWARE-SURROGATE-MVE-20260810-V1/predictions/seed_0/A2_G1_predictions.npz",
+      "E:/Python demo/PINN/data/processed/q2_protocol_manifold_branch_aware_surrogate_mve_v1/Q2-PROTOCOL-MANIFOLD-BRANCH-AWARE-SURROGATE-MVE-20260810-V1/predictions/seed_0/R1_G1_predictions.npz",
+      "E:/Python demo/PINN/data/processed/q2_protocol_manifold_branch_aware_surrogate_mve_v1/Q2-PROTOCOL-MANIFOLD-BRANCH-AWARE-SURROGATE-MVE-20260810-V1/predictions/seed_0/R2_G1_predictions.npz",
+      "E:/Python demo/PINN/data/processed/q2_protocol_manifold_branch_aware_surrogate_mve_v1/Q2-PROTOCOL-MANIFOLD-BRANCH-AWARE-SURROGATE-MVE-20260810-V1/predictions/seed_20260809/H0_G1_predictions.npz",
+      "E:/Python demo/PINN/data/processed/q2_protocol_manifold_branch_aware_surrogate_mve_v1/Q2-PROTOCOL-MANIFOLD-BRANCH-AWARE-SURROGATE-MVE-20260810-V1/predictions/seed_20260809/H1_G1_predictions.npz",
+      "E:/Python demo/PINN/data/processed/q2_protocol_manifold_branch_aware_surrogate_mve_v1/Q2-PROTOCOL-MANIFOLD-BRANCH-AWARE-SURROGATE-MVE-20260810-V1/predictions/seed_20260809/H2_G1_predictions.npz",
+      "E:/Python demo/PINN/data/processed/q2_protocol_manifold_branch_aware_surrogate_mve_v1/Q2-PROTOCOL-MANIFOLD-BRANCH-AWARE-SURROGATE-MVE-20260810-V1/predictions/seed_20260809/S1_G1_predictions.npz",
+      "E:/Python demo/PINN/data/processed/q2_protocol_manifold_branch_aware_surrogate_mve_v1/Q2-PROTOCOL-MANIFOLD-BRANCH-AWARE-SURROGATE-MVE-20260810-V1/predictions/seed_20260809/S2_G1_predictions.npz",
+      "E:/Python demo/PINN/data/processed/q2_protocol_manifold_branch_aware_surrogate_mve_v1/Q2-PROTOCOL-MANIFOLD-BRANCH-AWARE-SURROGATE-MVE-20260810-V1/predictions/seed_20260809/G1_G1_predictions.npz",
+      "E:/Python demo/PINN/data/processed/q2_protocol_manifold_branch_aware_surrogate_mve_v1/Q2-PROTOCOL-MANIFOLD-BRANCH-AWARE-SURROGATE-MVE-20260810-V1/predictions/seed_20260809/G2_G1_predictions.npz"
+    ],
+    "processed_root": "E:/Python demo/PINN/data/processed/q2_protocol_manifold_branch_aware_surrogate_mve_v1/Q2-PROTOCOL-MANIFOLD-BRANCH-AWARE-SURROGATE-MVE-20260810-V1",
+    "table_root": "E:/Python demo/PINN/outputs/tables/q2_protocol_manifold_branch_aware_surrogate_mve_v1/Q2-PROTOCOL-MANIFOLD-BRANCH-AWARE-SURROGATE-MVE-20260810-V1"
+  },
+  "candidate_averaging_used": false,
+  "claim_boundary": {
+    "dynamic_attractor": "forbidden",
+    "experimental_validation": "forbidden",
+    "formal_pinn_superiority": "forbidden",
+    "full_hysteresis": "forbidden",
+    "inverse": "forbidden",
+    "m1_operator": "supported",
+    "new_context_physical_data": "qualified_supported_only_if_reference_gate_passes",
+    "protocol_selected_manifold": "qualified_supported",
+    "surrogate_mve": "diagnostic_non_voting"
+  },
+  "conditional_seeds_executed": false,
+  "decision": {
+    "conditional_seeds_executed": false,
+    "final_disposition": "NO_GO_PROTOCOL_MANIFOLD_NEURAL_VALUE",
+    "initial_candidate_path": "none",
+    "same_path_pass_count": 0
+  },
+  "evidence_type": "literature-guided synthetic numerical digital-twin evidence",
+  "factorial_context_physics": {
+    "completed_protocol_ramp_count": 4,
+    "context_ids": [
+      "G2",
+      "G3"
+    ],
+    "contexts": {
+      "G2": {
+        "context_id": "G2",
+        "endpoints_pass": true,
+        "event_count": 1,
+        "events_pass": true,
+        "indeterminate_state_count": 0,
+        "qualified": true,
+        "ramp_count": 2,
+        "ramps_pass": true,
+        "resolved_event_count": 1,
+        "stability_pass": true,
+        "stability_state_count": 8,
+        "stable_state_count": 8,
+        "step_sensitivity_pass": true,
+        "unstable_state_count": 0,
+        "valid_fraction_by_branch": {
+          "cooling": 1.0,
+          "heating": 1.0
+        }
+      },
+      "G3": {
+        "context_id": "G3",
+        "endpoints_pass": true,
+        "event_count": 1,
+        "events_pass": true,
+        "indeterminate_state_count": 0,
+        "qualified": true,
+        "ramp_count": 2,
+        "ramps_pass": true,
+        "resolved_event_count": 1,
+        "stability_pass": true,
+        "stability_state_count": 8,
+        "stable_state_count": 8,
+        "step_sensitivity_pass": true,
+        "unstable_state_count": 0,
+        "valid_fraction_by_branch": {
+          "cooling": 1.0,
+          "heating": 1.0
+        }
+      }
+    },
+    "event_count": 2,
+    "failure_reasons": [],
+    "historical_G0_G1_ramps_reexecuted": 0,
+    "indeterminate_state_count": 0,
+    "main_protocol_point_count": 132,
+    "main_protocol_ramp_count": 4,
+    "new_G2_G3_main_ramps_reexecuted_during_repair": 0,
+    "new_context_reference_gate_pass": true,
+    "new_stability_budget_maximum": 20,
+    "new_stability_spectrum_evaluation_count": 16,
+    "resolved_event_count": 2,
+    "resume_classification": "implementation_field_name_repair_after_completed_physics",
+    "root_averaging_used": false,
+    "root_identifier_used": false,
+    "stable_state_count": 16,
+    "stage": "factorial_context_reference",
+    "stage_disposition": "PASS_PROTOCOL_FACTORIAL_CONTEXT_REFERENCE",
+    "step_sensitivity_all_executed_events_pass": true,
+    "step_sensitivity_event_count": 2,
+    "surrogate_training_eligible": true,
+    "unstable_state_count": 0,
+    "valid_main_protocol_point_count": 132
+  },
+  "final_disposition": "NO_GO_PROTOCOL_MANIFOLD_NEURAL_VALUE",
+  "frozen_PR42": {
+    "disposition": "GO_PROTOCOL_SELECTED_EQUILIBRIUM_MANIFOLD",
+    "head": "d0f0e6799f4f956262e0670999ab34f41baea4b1",
+    "historical_G0_G1_main_ramps_reexecuted": 0,
+    "merge": "67241766beb8ce101573e72c8b95906b9d1b4c69"
+  },
+  "network_training": [
+    {
+      "model": "H",
+      "parameter_count": 1250,
+      "seed": 20260809,
+      "stage1_steps": 500,
+      "stage2_steps": 1000,
+      "total_steps": 1500,
+      "wall_time_s": 209.44806529997732
+    },
+    {
+      "model": "S",
+      "parameter_count": 1320,
+      "seed": 20260809,
+      "stage1_steps": 500,
+      "stage2_steps": 1000,
+      "total_steps": 1500,
+      "wall_time_s": 292.8390577999817
+    },
+    {
+      "model": "G",
+      "parameter_count": 1326,
+      "seed": 20260809,
+      "stage1_steps": 500,
+      "stage2_steps": 1000,
+      "total_steps": 1500,
+      "wall_time_s": 318.77849419999984
+    }
+  ],
+  "root_identifier_used": false,
+  "run_id": "Q2-PROTOCOL-MANIFOLD-BRANCH-AWARE-SURROGATE-MVE-20260810-V1",
+  "seed_gates": [
+    {
+      "G1_branch_gate_pass": false,
+      "G1_headline_complete_pass_fraction": 0.0,
+      "G1_improvement_vs_A1": 0.9872240262535469,
+      "G1_improvement_vs_R1": 0.5825697485879568,
+      "G1_improvement_vs_S1": -0.03467741568579482,
+      "G1_mean_joint_field_score": 0.19205513411089298,
+      "G1_refusal_gate_pass": false,
+      "G1_speedup_vs_A2": 1.8236400616417892,
+      "G2_additional_passes_vs_A2": 0,
+      "G2_branch_gate_pass": false,
+      "G2_headline_complete_pass_fraction": 0.0,
+      "G2_improvement_vs_A2": 0.986846716015395,
+      "G2_improvement_vs_R2": 0.532241096158486,
+      "G2_improvement_vs_S2": -0.03867459672595292,
+      "G2_mean_joint_field_score": 0.15168052966542542,
+      "G2_refusal_gate_pass": false,
+      "G2_wall_ratio_vs_A2": 1.0491564432036118,
+      "S1_neural_specific_value_pass": false,
+      "S2_neural_specific_value_pass": false,
+      "candidate_path": "none",
+      "partial_path_pass": false,
+      "path_h_pass": false,
+      "path_s_pass": false,
+      "seed": 20260809
+    }
+  ],
+  "split": {
+    "G1_full_curve_diagnostic_count": 66,
+    "G1_headline_unique_stability_count": 10,
+    "G1_used_in_fit": false,
+    "train_count": 174,
+    "validation_coarse_count": 24,
+    "validation_event_count": 12
+  },
+  "task_id": "Q2_PROTOCOL_MANIFOLD_BRANCH_AWARE_SURROGATE_MVE_V1"
+}
