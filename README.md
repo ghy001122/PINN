@@ -1,6 +1,6 @@
 # PINN Phase-Transition Device Research
 
-This repository is a reproducible Python 3.11 research codebase and evidence package for a Q2 SCI delivery objective. The historical Phase 1 Checkpoint A implementation and final v8 screen ended the fixed-bottom material-stack/K-state route at `NO_GO_VERTICAL_REFERENCE`; its 96 items remain permanently `planned_not_executed`. The active Phase 1-v2 contract uses S2, a source-scale-preserving locally distributed single-RC nominal closure, while S1 diffusive memory is non-blocking model-form sensitivity. The fresh 63-item campaign has not run (`formal_execution_count=0`), and no Phase 1-v2 scientific result, positive PINN result, inverse result, or experimental validation exists.
+This repository is a reproducible Python 3.11 research codebase and evidence package for a Q2 SCI delivery objective. Historical routes, valid negative results, and retained numerical assets remain versioned evidence, but this README does not repeat a transient phase, checkpoint, branch, or execution count. Read the live authority chain below before interpreting status or starting work; no overview text authorizes an experiment or upgrades a scientific claim.
 
 ## Workspace preflight
 
@@ -8,27 +8,26 @@ Read [LIVE_WORKSPACE.md](LIVE_WORKSPACE.md) before mutation. It distinguishes a 
 
 ## Authoritative entry chain
 
-1. [CODEX_CONTEXT.md](CODEX_CONTEXT.md)
-2. [PROJECT_GOAL.md](PROJECT_GOAL.md)
-3. [PROJECT_STATE.md](PROJECT_STATE.md)
-4. [active_phase.md](docs/research_strategy/active_phase.md)
-5. [NEXT_ACTIONS.md](NEXT_ACTIONS.md)
-6. [current_evidence_index.md](docs/project_state/current_evidence_index.md)
-7. [Q2 SCI execution guide](docs/research_strategy/pinn_phase_change_q2_sci_execution_guide.md)
-8. [Phase 1-v2 technical contract](docs/research_strategy/phase1_geophase_2p5d_reference_v2_contract.md)
-9. [Qiu Phase 1 source-only contract](configs/qiu_vo2_phase1_source_contract.yaml)
+1. [AGENTS.md](AGENTS.md) and the applicable nested `AGENTS.md`
+2. [CODEX_CONTEXT.md](CODEX_CONTEXT.md)
+3. [active_phase.md](docs/research_strategy/active_phase.md)
+4. [PROJECT_GOAL.md](PROJECT_GOAL.md) for the stable delivery contract
+5. [PROJECT_STATE.md](PROJECT_STATE.md)
+6. [NEXT_ACTIONS.md](NEXT_ACTIONS.md)
+7. [current_evidence_index.md](docs/project_state/current_evidence_index.md)
+8. [Q2 SCI execution guide](docs/research_strategy/pinn_phase_change_q2_sci_execution_guide.md) and only the task-relevant contract/config named by the active authority
 
 `AGENTS.md` and nested `AGENTS.md` files govern execution, evidence, and claim discipline. Archived strategy and manuscripts are provenance only and cannot authorize current work.
 
 ## Degradable research ladder
 
-| Route | Role | Current status |
+| Route | Role | Authority boundary |
 | --- | --- | --- |
-| R1 `HysGeo-Hybrid-PINN` | Minimum manuscript route: 2.5D geometry, white-box hysteresis, source-scale-preserving S2 thermal closure, differentiable port/RC/energy ledgers, and explicit sparse independent-solver anchors | candidate; result claim `forbidden` |
-| R2 `GeoPhase-HomoMoE-PINN` | Preferred method route: R1 plus transition-localized spectral experts and dual-axis stiffness homotopy | candidate; result claim `forbidden` |
-| R3 conditional observable-subspace/OQ | Solver-first event-aligned local observable-subspace inverse, PINN sensitivity fidelity, and refusal | conditional candidate; result claim `forbidden` |
+| R1 `HysGeo-Hybrid-PINN` | Minimum manuscript route: 2.5D geometry, white-box hysteresis, source-scale-preserving thermal closure, differentiable port/energy ledgers, and explicit sparse independent-solver anchors | Long-term delivery lane; current eligibility comes only from `active_phase.md` |
+| R2 `GeoPhase-HomoMoE-PINN` | Preferred method route: R1 plus transition-localized spectral experts and dual-axis stiffness homotopy | Long-term conditional lane; this table is not execution authorization |
+| R3 conditional observable-subspace/OQ | Solver-first event-aligned local observable-subspace inverse, PINN sensitivity fidelity, and refusal | Long-term conditional lane; this table is not execution authorization |
 
-R1 is the minimum route that must be attempted through its preregistered gates. R2 is pursued only after stable R1 evidence. R3 is optional and cannot block an R1/R2 paper.
+The ladder is a degradable delivery contract, not the current execution queue. A stopped or completed active contract is not reopened by this overview; any new route must satisfy the current authorization, evidence, baseline, budget, and stop gates.
 
 ## Evidence boundary
 

@@ -8,6 +8,7 @@ These rules extend the root `AGENTS.md` for `src/pinnpcm/physics/`.
 - Enforce boundary, interface, current, heat-flux, and energy conservation with independently computed residuals; algebraic self-cancellation is not validation.
 - Record parameter and equation provenance. Label engineering priors and ranges as such; never call them measurements.
 - Map every claim-bearing 2D/2.5D model one-to-one to the source device: literature structure, physical dimensions, material regions, electrode locations, coordinate system, boundary conditions, and simulation domain. A schematic alone is insufficient.
+- A claim-bearing 2.5D model must resolve the actual x-y in-plane device geometry and document its vertical reduced-order closure. One-dimensional `gamma_sub` remains a historical baseline or failure/identifiability asset and must not be relabeled as the manuscript's 2.5D physical core.
 - Geometry comparators use SI-valued physical coordinates. Normalized coordinates may be network inputs but cannot replace physical film-thickness, spacing, or substrate-depth evidence.
 - With only device-level `G_theta` and `C_theta`, use the identifiable single-RC/S2 baseline. Upgrade to K-state or diffusive memory only with independent transient evidence or a validated higher-order reference. Never relabel device/interface/electrode/substrate effective quantities as intrinsic VO2 properties.
 - Without microscopy, state `s` means only an effective conductive-state coordinate or hysteresis internal variable, never a measured metallic-phase volume fraction.

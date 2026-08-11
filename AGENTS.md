@@ -95,7 +95,7 @@ Do not relax gates, change GT, or hide failures to complete a task.
 
 ## Current High-Risk Claim Boundary
 
-Without new direct evidence, manuscript claims remain `forbidden` for a successful GeoPhase forward solver, Qiu quantitative reproduction, nonzero dual-device thermal-coupling validation, PINN--solver sensitivity fidelity, observation-quotient recovery, terminal-only full 2D hidden-field recovery, full or Seiler-style STL-PINN reproduction, universal F-SPS/Fourier superiority, VO2-to-NbO2 zero-shot generalization, real experimental validation, and full FEM/3D/device-grade multiphysics reproduction. The active Phase 1 independent-solver gate must pass before Phase 2 data generation or any R1-R3 training claim is eligible.
+Without new direct evidence, manuscript claims remain `forbidden` for a successful GeoPhase forward solver, Qiu quantitative reproduction, nonzero dual-device thermal-coupling validation, PINN--solver sensitivity fidelity, observation-quotient recovery, terminal-only full 2D hidden-field recovery, full or Seiler-style STL-PINN reproduction, universal F-SPS/Fourier superiority, VO2-to-NbO2 zero-shot generalization, real experimental validation, and full FEM/3D/device-grade multiphysics reproduction. Every downstream data-generation or training claim must satisfy the applicable prerequisite gate in `docs/research_strategy/active_phase.md`; do not hard-code an obsolete phase as the current prerequisite.
 
 ## Engineering Rules
 
