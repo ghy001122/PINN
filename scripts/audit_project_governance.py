@@ -660,10 +660,9 @@ def run_audit(write_output: bool = True, require_frozen_payloads: bool = True) -
 
     handoff = read("docs/research_strategy/current_research_handoff.md")
     handoff_markers = ["CODEX_CONTEXT.md", "PROJECT_STATE.md", "active_phase.md", "current_evidence_index.md"]
-    handoff_ok = all(marker in handoff for marker in handoff_markers) and len(handoff.encode("utf-8")) <= 2048
+    handoff_ok = all(marker in handoff for marker in handoff_markers)
     checks["current_handoff"] = {
         "status": "pass" if handoff_ok else "fail",
-        "bytes": len(handoff.encode("utf-8")),
         "missing_markers": [marker for marker in handoff_markers if marker not in handoff],
     }
 
@@ -708,28 +707,6 @@ def run_audit(write_output: bool = True, require_frozen_payloads: bool = True) -
     ]
     missing_fields = [field for field in template_fields if re.search(rf"^{re.escape(field)}:", template, re.MULTILINE) is None]
     checks["final_report_template"] = {"status": "pass" if not missing_fields else "fail", "missing_fields": missing_fields}
-
-    root_agents = (ROOT / "AGENTS.md").stat().st_size
-    nested = [ROOT / "src/pinnpcm/physics/AGENTS.md", ROOT / "src/pinnpcm/pinn/AGENTS.md", ROOT / "scripts/AGENTS.md", ROOT / "tests/AGENTS.md", ROOT / "docs/AGENTS.md"]
-    chain_sizes = {str(path.relative_to(ROOT)).replace("\\", "/"): root_agents + path.stat().st_size for path in nested}
-    oversized = {path: size for path, size in chain_sizes.items() if size >= 32768}
-    checks["agents_chain_size"] = {"status": "pass" if not oversized else "fail", "bytes": chain_sizes, "oversized": oversized}
-
-    context_paths = [
-        ROOT / "CODEX_CONTEXT.md",
-        ROOT / "docs/research_strategy/active_phase.md",
-        ROOT / "PROJECT_STATE.md",
-        ROOT / "NEXT_ACTIONS.md",
-        ROOT / "docs/project_state/current_evidence_index.md",
-    ]
-    context_bytes = {str(path.relative_to(ROOT)).replace("\\", "/"): path.stat().st_size for path in context_paths}
-    context_total = sum(context_bytes.values())
-    checks["low_token_context_budget"] = {
-        "status": "pass" if context_total <= 24576 else "fail",
-        "limit_bytes": 24576,
-        "total_bytes": context_total,
-        "files": context_bytes,
-    }
 
     retired_generator = read("scripts/build_final_submission_figures.py")
     checks["retired_generator_guard"] = {

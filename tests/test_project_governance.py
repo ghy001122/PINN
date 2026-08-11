@@ -26,7 +26,7 @@ def test_frozen_gt_hashes_and_claim_vocabulary() -> None:
     assert summary["checks"]["claim_matrix_vocabulary"]["status"] == "pass"
 
 
-def test_single_current_route_and_context_budget() -> None:
+def test_single_current_route_and_context_hygiene() -> None:
     summary = MODULE.run_audit(write_output=False)
     assert summary["checks"]["current_handoff"]["status"] == "pass"
     assert summary["checks"]["single_current_snapshot"]["status"] == "pass"
@@ -37,7 +37,27 @@ def test_single_current_route_and_context_budget() -> None:
     assert summary["checks"]["delivery_contract"]["status"] == "pass"
     assert summary["checks"]["no_obsolete_current_route"]["status"] == "pass"
     assert summary["checks"]["critical_markdown_links"]["status"] == "pass"
-    assert summary["checks"]["low_token_context_budget"]["status"] == "pass"
+
+
+def test_documentation_hygiene_has_no_arbitrary_size_gate() -> None:
+    audit_source = (ROOT / "scripts" / "audit_project_governance.py").read_text(
+        encoding="utf-8"
+    )
+    pipeline = (
+        ROOT / "docs" / "research_strategy" / "sci_delivery_pipeline.md"
+    ).read_text(encoding="utf-8")
+    root_rules = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+
+    for obsolete in [
+        "low_token_context_budget",
+        "agents_chain_size",
+        "context_total <= 24576",
+        'len(handoff.encode("utf-8")) <= 2048',
+    ]:
+        assert obsolete not in audit_source
+    assert "below 24 KiB" not in pipeline
+    assert "do not use arbitrary byte, token, line, or file-count" in pipeline
+    assert "must not use arbitrary byte, token, line, or file-count" in root_rules
 
 
 def test_revision_rules_and_current_routers_are_semantically_guarded() -> None:
@@ -56,7 +76,6 @@ def test_archive_outputs_and_repository_safety_are_governed() -> None:
     assert summary["checks"]["realignment_outputs"]["status"] == "pass"
     assert summary["checks"]["realignment_outputs"]["rows"] >= 1000
     assert summary["checks"]["phase0_report"]["status"] == "pass"
-    assert summary["checks"]["agents_chain_size"]["status"] == "pass"
     assert summary["checks"]["retired_generator_guard"]["status"] == "pass"
     assert summary["checks"]["no_duplicate_active_markdown"]["status"] == "pass"
     assert summary["checks"]["final_report_template"]["status"] == "pass"

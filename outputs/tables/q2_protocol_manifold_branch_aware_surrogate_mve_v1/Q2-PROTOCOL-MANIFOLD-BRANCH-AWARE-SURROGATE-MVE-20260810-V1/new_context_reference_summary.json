@@ -1,0 +1,71 @@
+{
+  "completed_protocol_ramp_count": 4,
+  "context_ids": [
+    "G2",
+    "G3"
+  ],
+  "contexts": {
+    "G2": {
+      "context_id": "G2",
+      "endpoints_pass": true,
+      "event_count": 1,
+      "events_pass": true,
+      "indeterminate_state_count": 0,
+      "qualified": true,
+      "ramp_count": 2,
+      "ramps_pass": true,
+      "resolved_event_count": 1,
+      "stability_pass": true,
+      "stability_state_count": 8,
+      "stable_state_count": 8,
+      "step_sensitivity_pass": true,
+      "unstable_state_count": 0,
+      "valid_fraction_by_branch": {
+        "cooling": 1.0,
+        "heating": 1.0
+      }
+    },
+    "G3": {
+      "context_id": "G3",
+      "endpoints_pass": true,
+      "event_count": 1,
+      "events_pass": true,
+      "indeterminate_state_count": 0,
+      "qualified": true,
+      "ramp_count": 2,
+      "ramps_pass": true,
+      "resolved_event_count": 1,
+      "stability_pass": true,
+      "stability_state_count": 8,
+      "stable_state_count": 8,
+      "step_sensitivity_pass": true,
+      "unstable_state_count": 0,
+      "valid_fraction_by_branch": {
+        "cooling": 1.0,
+        "heating": 1.0
+      }
+    }
+  },
+  "event_count": 2,
+  "failure_reasons": [],
+  "historical_G0_G1_ramps_reexecuted": 0,
+  "indeterminate_state_count": 0,
+  "main_protocol_point_count": 132,
+  "main_protocol_ramp_count": 4,
+  "new_G2_G3_main_ramps_reexecuted_during_repair": 0,
+  "new_context_reference_gate_pass": true,
+  "new_stability_budget_maximum": 20,
+  "new_stability_spectrum_evaluation_count": 16,
+  "resolved_event_count": 2,
+  "resume_classification": "implementation_field_name_repair_after_completed_physics",
+  "root_averaging_used": false,
+  "root_identifier_used": false,
+  "stable_state_count": 16,
+  "stage": "factorial_context_reference",
+  "stage_disposition": "PASS_PROTOCOL_FACTORIAL_CONTEXT_REFERENCE",
+  "step_sensitivity_all_executed_events_pass": true,
+  "step_sensitivity_event_count": 2,
+  "surrogate_training_eligible": true,
+  "unstable_state_count": 0,
+  "valid_main_protocol_point_count": 132
+}
