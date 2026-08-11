@@ -1,5 +1,7 @@
 # N0/SID conditional route register
 
+> **Lifecycle notice (2026-08-11):** This is a frozen historical contract/snapshot, not current authorization. Original preregistration and status wording is retained below for provenance; use the applicable `AGENTS.md`, `docs/research_strategy/active_phase.md`, `PROJECT_STATE.md`, and `NEXT_ACTIONS.md` for current status and queue.
+
 This register is conditional and authorizes no experiment. The v3r optimizer replay and solver-first SID/EC-OQ discovery map are complete and failed their locked gates.
 
 1. `quotient_goal_dwr_pinn`: ineligible because SID/EC-OQ failed. A future user-authorized revisit would still require matched uniform, residual-adaptive, and quotient-QoI DWR budgets.

@@ -13,6 +13,6 @@ Authority order:
 
 When memory conflicts with Git, outputs, or the active phase, verify current evidence and ignore the stale memory. Do not copy transient HEADs, metrics, or next actions into durable memory.
 
-Secrets, credentials, tokens, private identifiers, and personal local paths must not be written into memory. The `/memories` interface may be used only when the user permits reading or contributing local memory; it cannot replace the versioned evidence chain.
+Secrets, credentials, tokens, private identifiers, and personal local paths must not be written into memory. Read access to the runtime's local memory follows the active runtime permission and should be a bounded, task-relevant lookup. Contributing, changing, or deleting memory requires an explicit user request. Memory cannot replace the versioned evidence chain.
 
 This repository intentionally does not create a `memorys/` directory. Stable project facts belong in `durable_project_memory.md`; changing status belongs in the authoritative state files.

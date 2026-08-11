@@ -2,8 +2,10 @@
 
 > Historical v2 roster. These figures remain locked evidence for the former
 > 1D submission route; they are not the active R1/R2/R3 manuscript roster and
-> provide no vote on Phase 1 or R1-R3. A new roster is created only after Phase 1 and a
-> positive R1 route pass.
+> provide no vote on Phase 1 or R1-R3. A new roster is created only for a
+> separately versioned manuscript route authorized by `active_phase.md`; positive
+> R1 figures require passed R1 evidence, while a limitation/negative roster may use
+> precisely scoped supported or failed-but-informative evidence.
 
 Figures 1--6 use synthetic numerical digital-twin evidence. The E1F supplementary bridge figure is a read-only mapping diagnostic; the excluded original E1F image combines invalid/non-voting digitized-literature comparisons. The E1F-R setting figure is a failed source-equation implementation check. None is project-generated experimental measurement.
 

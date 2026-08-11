@@ -4,11 +4,20 @@ Compact router only. Named configs, outputs, reports, and the claim matrix are
 authoritative. Project-generated results are synthetic numerical digital-twin
 evidence unless provenance explicitly says otherwise.
 
-## Current
+## Current Authority Snapshot
+
+- Current research authorization and disposition: `docs/research_strategy/active_phase.md`.
+- Current fact snapshot: `PROJECT_STATE.md`.
+- Current single priority: `NEXT_ACTIONS.md`.
+- At this revision, the active Phase 1H contract is completed with `NO_GO_PROTOCOL_MANIFOLD_NEURAL_VALUE`, and the authorized next route is limitation/negative-manuscript synthesis. This index does not authorize another experiment.
+
+## Retained Cumulative Evidence Ledger
+
+The table below is a compact lookup across retained phases, not a list of current tasks. Status and metrics remain scoped to their named contracts; later software or governance changes cannot upgrade them.
 
 | Item | Status and use | Authority/evidence |
 | --- | --- | --- |
-| Q2 ladder | `supported` governance fact | `PROJECT_GOAL.md`; execution guide |
+| Q2 ladder | `supported` governance fact | `PROJECT_GOAL.md`; current eligibility is delegated to the active phase |
 | Phase 0 | `supported` governance only | Phase 0 report and machine summary |
 | E0 single-implementation activation | `supported` historical governance/preregistration only | E0 config/contract and one frozen implementation; its invalid terminal evidence remains immutable |
 | Fresh S0 direct-physics runner | `supported` software/reproducibility fact | Independent single-implementation runner, atomic registry, content-addressed units, two 4/4 non-voting smoke runs; no equivalence/E0 runner reuse |
@@ -66,7 +75,9 @@ evidence unless provenance explicitly says otherwise.
 Historical outcomes cannot be upgraded by current software evidence. Route
 details through the claim matrix, experiment registry, and named reports.
 
-## Candidates
+## Historical Candidate Ledger
+
+These candidate rows preserve the gate view at the time they were recorded. They are neither a live queue nor execution authorization; current eligibility comes only from `active_phase.md` and `NEXT_ACTIONS.md`.
 
 | Candidate | Status | Required predecessor |
 | --- | --- | --- |
@@ -78,7 +89,9 @@ details through the claim matrix, experiment registry, and named reports.
 | R1/R2/R3 | `forbidden` | sequential configured evidence |
 | NbO2/extensions | `forbidden` | explicit later activation and contracts |
 
-## Forbidden Manuscript Claims
+## Retained Forbidden-Claim Summary
+
+This compact summary is subordinate to the claim matrix and current evidence. It cannot be used to infer execution permission.
 
 Successful or scientifically failed E0/S0/Phase 1; general campaign feasibility or
 infeasibility beyond the bounded NLS-v1 qualification; Qiu quantitative reproduction; experimental validation; positive
@@ -89,11 +102,11 @@ VO2-to-NbO2 zero-shot transfer.
 ## Routing
 
 - Workspace: `LIVE_WORKSPACE.md`.
-- Current chain: `CODEX_CONTEXT.md` -> `PROJECT_STATE.md` -> active phase ->
-  `NEXT_ACTIONS.md`.
-- Strategy: canonical execution guide.
+- Current chain: applicable `AGENTS.md` -> `CODEX_CONTEXT.md` -> active phase ->
+  `PROJECT_STATE.md` -> `NEXT_ACTIONS.md`.
+- Workflow: `docs/research_strategy/sci_delivery_pipeline.md`; the long Q2 execution guide is a versioned design reference only.
 - Claims: `docs/paper/final_claim_matrix.md`.
 - History: `docs/archive/README.md`, registries, and named reports.
-- Boundary: v1/v2/v3, prior E0, prior S0 V1/V2, controller-v3, NLS-v1, PR #27
-  T1/T2, and this T4 evidence remain immutable. No T8/T16, new time metric,
-  formal S0, Phase 2, or PINN is authorized now.
+- Immutable historical boundary: v1/v2/v3, prior E0, prior S0 V1/V2,
+  controller-v3, NLS-v1, PR #27 T1/T2, and the named T4 evidence retain their
+  exact dispositions. This historical list does not state what is authorized now.

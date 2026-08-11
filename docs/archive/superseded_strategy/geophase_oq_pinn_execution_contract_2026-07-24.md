@@ -1,5 +1,7 @@
 # GeoPhase-OQ-PINN Execution Contract
 
+> **Lifecycle notice (2026-08-11):** This is a frozen historical contract/snapshot, not current authorization. Original preregistration and status wording is retained below for provenance; use the applicable `AGENTS.md`, `docs/research_strategy/active_phase.md`, `PROJECT_STATE.md`, and `NEXT_ACTIONS.md` for current status and queue.
+
 ## Status And Authority
 
 This document converts the revised 2026-07-24 brainstorm into the versioned,

@@ -1,5 +1,7 @@
 # Phase 1 E0 Single-Implementation Physics Validation
 
+> **Lifecycle notice (2026-08-11):** This is a frozen historical contract/snapshot, not current authorization. Original preregistration and status wording is retained below for provenance; use the applicable `AGENTS.md`, `docs/research_strategy/active_phase.md`, `PROJECT_STATE.md`, and `NEXT_ACTIONS.md` for current status and queue.
+
 ## Status And Purpose
 
 Task ID: `Q2_PHASE1_E0_SINGLE_IMPLEMENTATION_PHYSICS_VALIDATION`.

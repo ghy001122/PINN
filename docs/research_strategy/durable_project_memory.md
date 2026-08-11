@@ -19,7 +19,7 @@ This file stores stable project facts, not current HEADs, transient metrics, or 
 - The primary benchmark is Qiu-inspired coplanar VO2 in a conservative 2.5D reduction; Chen-inspired SnSe/NbO2 is auxiliary cross-model numerical validation with separate material physics.
 - Research must balance novelty, workload, reproducibility, physical credibility, and delivery time.
 - Negative evidence is valuable when converted into a clear observability, stiffness, calibration, or applicability boundary.
-- High-risk ideas should be explored through bounded audits; manuscript wording remains claim-gated.
+- High-risk ideas should be explored through bounded audits when the active phase authorizes them; manuscript wording remains claim-gated.
 - The user prefers concise, direct, conclusion-first communication that separates verified facts, interpretations, assumptions, and unknowns; use the smallest useful visualization when complexity warrants it.
 - Long tasks need brief evidence-bearing updates at meaningful milestones, not command-by-command narration. Sub-agents, when available and authorized, are for independent bounded work only and never for redundant parallelism or overlapping edits.
 - Plan non-trivial work before execution, keep validation proportional to risk, and close a pass/fail/blocker loop without unchanged re-audits. Do not let over-defensive meta-work displace the highest-value authorized bounded research step.

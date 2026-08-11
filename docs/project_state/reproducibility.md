@@ -2,20 +2,20 @@
 
 > Not default context. Use `docs/project_state/reproduction_quickstart.md` for current commands and this file only to trace an older run.
 
-## Current Phase 0 And Phase 1 Routing
+## Historical Phase 0 And Phase 1 Routing
 
-Current governance replay:
+Governance replay used at that stage:
 
     .\.venv\Scripts\python.exe scripts\audit_repository_realignment.py --base-commit 36cbc020869ca483ed1e84eb0326cee11618891c
     .\.venv\Scripts\python.exe scripts\audit_project_governance.py --no-write
     .\.venv\Scripts\python.exe scripts\validate_tracked_json.py
     .\.venv\Scripts\python.exe -m pytest -q
 
-Current Phase 1 preregistration check:
+Phase 1 preregistration check used at that stage:
 
     .\.venv\Scripts\python.exe -m pytest tests\test_geophase_phase1_preregistration.py -q
 
-No formal Phase 1 solver command exists yet. These commands verify governance, frozen integrity, JSON syntax, and the preregistration contract only; they do not create a solver result or experimental evidence. Use the reproduction quickstart for the compact current route.
+At that historical stage, no formal Phase 1 solver command existed. These commands verify governance, frozen integrity, JSON syntax, and the old preregistration contract only; they do not create a solver result or experimental evidence. Use the reproduction quickstart and current authority chain for present routing.
 
 
 ## Phase-activated multidomain OASIS-PINN v9 reproduction

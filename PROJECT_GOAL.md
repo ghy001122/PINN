@@ -14,25 +14,25 @@ None of those scientific claims is currently established. All generated evidence
 
 ## Stable Delivery Lanes
 
-- R1 `HysGeo-Hybrid-PINN`: minimum must-complete route. It includes real x-y device geometry, the Phase 1-v2 source-scale-preserving locally distributed S2 thermal closure, a white-box hysteretic conductivity kernel, differentiable port and RC coupling, a full energy ledger, and sparse independently generated field anchors declared as hybrid supervision. Qiu source-author fits may constrain only nominal device-effective electrical and uniform-mode low-frequency thermal scales; they never become intrinsic local-property, identified thermal-spectrum, or experimental-validation claims. S1 diffusive memory is non-blocking model-form sensitivity unless independently eligible same-device evidence passes its separate gate.
+- R1 `HysGeo-Hybrid-PINN`: minimum positive-delivery target. It includes real x-y device geometry, the Phase 1-v2 source-scale-preserving locally distributed S2 thermal closure, a white-box hysteretic conductivity kernel, differentiable port and RC coupling, a full energy ledger, and sparse independently generated field anchors declared as hybrid supervision. Qiu source-author fits may constrain only nominal device-effective electrical and uniform-mode low-frequency thermal scales; they never become intrinsic local-property, identified thermal-spectrum, or experimental-validation claims. S1 diffusive memory is non-blocking model-form sensitivity unless independently eligible same-device evidence passes its separate gate. This long-term target is not a standing instruction to reopen a stopped route; current eligibility comes only from `docs/research_strategy/active_phase.md`.
 - Versioned fallback R1-Lite `GeoState-MC-Hybrid-PINN`: the fast-track selected M1 as a qualified reduced reference but ended `NO_GO_GEOSTATE_PINN_IDEA_SCREEN` because no test case passed the frozen field/ledger/interface gate. The result is diagnostic and non-voting; it does not erase or reinterpret the historical dynamic/stable-branch R1 route.
 - R2 `GeoPhase-HomoMoE-PINN`: preferred Q2 method route. It adds transition-localized spectral mixture-of-experts capacity and dual-axis stiffness homotopy to a passed R1 foundation.
 - R3 conditional observable-subspace/OQ: high-upside extension. It requires stable solver Jacobians, event alignment, local observable-subspace stability, PINN trajectory and sensitivity fidelity, fresh nonlinear/noisy inverse tests, and refusal outside the identifiable region.
 - Historical lane: frozen 1D GT, constrained `gamma_sub`, public-data source-reproduction/identifiability bridge, failed complete phase-transition PINN work, M40/M40R/M44, OASIS, and SID/OQ remain baselines, negative evidence, provenance, and reviewer defense.
 
-R1 failure is reported honestly and triggers the guide's downgrade rule; R2 or R3 failure cannot erase R1 evidence or block a lower-tier defensible manuscript.
+Failure of a named R1 contract is reported honestly and follows that contract's scoped downgrade rule; R2 or R3 failure cannot erase R1 evidence or block a lower-tier defensible manuscript. A limitation or negative-result manuscript remains eligible when the active authority routes supported or failed-but-informative evidence there.
 
 ## Mandatory Research Filter
 
 Every task must state manuscript use and support at least one core claim, equation, main figure/table, baseline/ablation, generalization or uncertainty test, reviewer defense, publishable negative boundary, reproducibility asset, or submission deliverable. Select exactly one active bottleneck per round by manuscript value times probability of useful evidence times reviewer-defense value divided by time, compute, and risk.
 
-A claim marked `forbidden` may still receive a bounded preregistered exploration. Historical stop votes bind only their named implementation and budget; they are not universal bans after this explicitly authorized core-line change.
+A claim marked `forbidden` may still receive a bounded preregistered exploration when the active phase does not explicitly prohibit that execution. Historical stop votes bind only their named implementation and budget; they are not universal bans after an explicitly authorized premise or core-line change.
 
 ## Phase Ladder
 
 - Phase 0: governance, archive, reproducibility baseline, and claim separation.
 - Phase 1: independent conservative 2.5D FVM/implicit reference solver.
-- Phase 1B: active R1-Lite model-form sufficiency, locked quasi-static dataset, and single-seed mixed-conservative PINN idea screen.
+- Phase 1B: retained R1-Lite model-form sufficiency, locked quasi-static dataset, and single-seed mixed-conservative PINN idea-screen stage.
 - Phase 2: locked dataset generation, splits, and inverse-crime safeguards.
 - Phase 3: solver and neural baselines with a fairness contract.
 - Phase 4: R1 HysGeo-Hybrid-PINN.
@@ -41,7 +41,7 @@ A claim marked `forbidden` may still receive a bounded preregistered exploration
 - Phases 7-8: conditional protocol/discrepancy extensions and material-specific NbO2 validation.
 - Phase 9: final experiment matrix, manuscript, supplement, and reviewer-defense closure.
 
-The earliest unpassed phase is authoritative in `docs/research_strategy/active_phase.md`. Later phases remain unauthorized until predecessor gates pass.
+This ladder is a long-term dependency map, not a live queue. Current authorization, applicable prerequisites, and any explicit prohibition are recorded in `docs/research_strategy/active_phase.md`; the next single priority is recorded in `NEXT_ACTIONS.md`. A historical phase number neither authorizes a task nor creates a project-wide block by itself.
 
 ## Evidence Lifecycle
 
@@ -54,7 +54,7 @@ Finite output, loss decrease, a smoke test, a local Jacobian, or a proxy audit i
 ## Must-Have Definition Of Done
 
 - Frozen GT and retained claim-bearing evidence pass documented integrity and replay checks.
-- Phase 1-v2 passes its nominal S2 coefficient/positivity preflights, manufactured electrical/thermal solutions, terminal-current conservation, full energy ledger, mask identities, mesh and time refinement, limit cases, and literature-trend sanity.
+- Any positive solver-dependent delivery route passes the foundation gates named by its current versioned contract. The retained Phase 1-v2 design required nominal S2 coefficient/positivity preflights, manufactured electrical/thermal solutions, terminal-current conservation, full energy ledger, mask identities, mesh and time refinement, limit cases, and literature-trend sanity; listing those historical gates does not reopen that route.
 - R1 produces a positive hybrid PINN result on at least one locked geometry OOD and one protocol OOD case; sparse anchors and label budgets are explicit.
 - Any R2 claim passes fixed-budget component and combination ablations over preregistered seeds and stiffness regimes, with no hidden failed-seed or smooth-regime regression.
 - Any R3 claim passes solver derivative convergence, local subspace stability, PINN sensitivity fidelity, fresh nonlinear/noisy recovery, and refusal.
@@ -66,7 +66,7 @@ Finite output, loss decrease, a smoke test, a local Jacobian, or a proxy audit i
 
 - A passed gate is locked; do not tune it after seeing downstream results.
 - A failed budgeted gate becomes `failed_but_informative`; do not move thresholds or hide failed seeds.
-- Phase 1 failure blocks dataset generation and all new-route PINN training until the foundation is repaired or rejected.
+- Failure of a required reference-solver gate blocks only the downstream tasks that cite that named solver, data contract, physical premise, and budget. It does not become a family-wide prohibition or override a later versioned active-phase decision.
 - Data-free failure does not disqualify the explicitly hybrid R1 identity; sparse anchors must remain visible.
 - R2 without synergistic matched-budget gain is removed or downgraded to an implementation detail.
 - R3 without stable rank/rotation or sensitivity fidelity is removed; retain a fixed reduced inverse or identifiability boundary only if directly supported.

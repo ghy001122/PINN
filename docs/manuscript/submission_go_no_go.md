@@ -2,11 +2,13 @@
 
 Date: 2026-07-28
 
+> Historical decision snapshot. The “current” wording and unblock sequence below describe the repository on 2026-07-28 and are preserved for provenance; they do not authorize work or report today's phase. Use `docs/research_strategy/active_phase.md`, `PROJECT_STATE.md`, and `NEXT_ACTIONS.md` for current status. A later active phase may route a limitation/negative manuscript even when a positive R1 submission remains unsupported.
+
 ## Decision
 
-**Current research package: NO-GO at Phase 1-v2 runtime readiness; R1 remains blocked. Manuscript submission: NO-GO.**
+**Decision at the 2026-07-28 snapshot: NO-GO at Phase 1-v2 runtime readiness; R1 remained blocked. Manuscript submission: NO-GO.**
 
-Phase 0 completed repository governance and reproducibility realignment only. Phase 1-v2 later implemented the independent S2 solver and seven bounded non-voting smoke cases, but no formal item has run. Controller-v2 C1/C2 integrity passed; C3 stopped at the worker backstop before an eligible forecast or dormant-runner vote. The current disposition is `NO_GO_RUNTIME_PERFORMANCE_ONLY`, not a Phase 1 scientific pass or failure. No PINN, inverse, or experimental evidence exists.
+At that snapshot, Phase 0 had completed repository governance and reproducibility realignment only. Phase 1-v2 had implemented the independent S2 solver and seven bounded non-voting smoke cases, but no formal item had run. Controller-v2 C1/C2 integrity passed; C3 stopped at the worker backstop before an eligible forecast or dormant-runner vote. The then-current disposition was `NO_GO_RUNTIME_PERFORMANCE_ONLY`, not a Phase 1 scientific pass or failure. Later repository evidence is intentionally not folded into this historical decision.
 
 ## Candidate Paper Ladder
 
@@ -15,7 +17,7 @@ Phase 0 completed repository governance and reproducibility realignment only. Ph
 - Conditional: R3 event-aligned local observable-subspace/OQ, only after solver derivative convergence and PINN trajectory/sensitivity fidelity.
 - Auxiliary: material-specific SnSe/NbO2 numerical trend validation; never zero-shot or experimental.
 
-## Unblock Sequence
+## Historical Unblock Sequence
 
 1. Obtain explicit authorization for the one remaining mathematically equivalent performance optimization, version it without changing S2 physics, tolerances, protocols, grids, controller semantics, scientific gates, or the 63-item manifest, and rerun the identical readiness contract. A readiness GO would still require fresh formal-campaign authorization.
 2. Phase 1-v2 independent Qiu-inspired single-device x-y S2 FVM/implicit reference then passes every manufactured, current, full-energy, mesh/time/event, topology, limit, failure, and trend gate in the separately authorized formal campaign. Nonzero dual-device coupling remains outside this gate.
@@ -28,7 +30,7 @@ Phase 0 completed repository governance and reproducibility realignment only. Ph
 
 ## Downgrade Rules
 
-- Phase 1 failure blocks every downstream new-route task.
+- Failure of the named Phase 1 contract blocked the downstream route defined by this snapshot; it was not a family-wide permanent prohibition.
 - Data-free PINN failure may coexist with the explicitly hybrid R1 route; anchor identity and budget must be visible.
 - R1 failure prevents a positive new-route submission and is retained as a boundary result.
 - R2 failure removes or downgrades the algorithmic claim; it does not erase R1.

@@ -1,5 +1,7 @@
 # Phase 1-v2 S2 2.5D Reference Contract
 
+> **Lifecycle notice (2026-08-11):** This is a frozen historical contract/snapshot, not current authorization. Original preregistration and status wording is retained below for provenance; use the applicable `AGENTS.md`, `docs/research_strategy/active_phase.md`, `PROJECT_STATE.md`, and `NEXT_ACTIONS.md` for current status and queue.
+
 Status: `preregistered_pending_implementation_and_bounded_smoke`
 
 Task ID: `Q2_PHASE1_V2_S2_REFERENCE`

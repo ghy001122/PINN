@@ -15,7 +15,7 @@ Read [LIVE_WORKSPACE.md](LIVE_WORKSPACE.md) before mutation. It distinguishes a 
 5. [PROJECT_STATE.md](PROJECT_STATE.md)
 6. [NEXT_ACTIONS.md](NEXT_ACTIONS.md)
 7. [current_evidence_index.md](docs/project_state/current_evidence_index.md)
-8. [Q2 SCI execution guide](docs/research_strategy/pinn_phase_change_q2_sci_execution_guide.md) and only the task-relevant contract/config named by the active authority
+8. [SCI delivery pipeline](docs/research_strategy/sci_delivery_pipeline.md) and only the task-relevant contract/config named by the active authority; the [Q2 SCI execution guide](docs/research_strategy/pinn_phase_change_q2_sci_execution_guide.md) is a versioned long-term design reference, not a source of current action
 
 `AGENTS.md` and nested `AGENTS.md` files govern execution, evidence, and claim discipline. Archived strategy and manuscripts are provenance only and cannot authorize current work.
 

@@ -18,7 +18,13 @@ Current state lives in `PROJECT_STATE.md`; authorization lives in `active_phase.
 
 ## Research Synthesis And Module-Recombination Lane
 
-For innovation-point design, literature-method decomposition, 魔改/排列组合, method rerouting, contribution analysis, negative-result salvage, or selection of the next research combination, invoke `$research-module-recombination` and use:
+For innovation-point design, literature-method decomposition, 魔改/排列组合, method rerouting, contribution analysis, negative-result salvage, or selection of the next research combination, invoke `$research-module-recombination`. Route the mode before choosing the output depth:
+
+- `FAST_SCAN` screens and ranks a bounded set; it stops at a minimum evidence contract and does not execute or generate a full execution prompt by default.
+- `FULL_DESIGN` describes an already selected method in full; its design artifact becomes an execution contract only when the active phase separately authorizes it.
+- `CLOSEOUT_SALVAGE` freezes a valid result or NO-GO and routes retained assets, manuscript use, stop, fallback, or a possible new MVE; it does not create a new experiment by default.
+
+The full-design reasoning chain is:
 
 ```text
 source decomposition
@@ -28,7 +34,8 @@ source decomposition
   -> top combination
   -> minimal evidence
   -> claim/story routing
-  -> execution contract
+  -> design artifact
+  -> separately authorized execution contract, if eligible
 ```
 
 Allow directly transferred modules when attributed; do not require every component to be modified or individually novel. Keep component provenance and contribution type separate from the existing claim gate. A contribution may lie in adaptation, interface, workflow, functional composition, validation, composability, or a newly enabled capability.

@@ -2,21 +2,23 @@
 
 > **版本**：v1.2-phase1v2-s2（2026-07-27）  
 > **项目模式**：`Q2_SCI_DELIVERY_MODE`  
-> **时间约束**：以一个自然月完成核心研究与论文初稿为默认预算；若时间增加，只扩展已通过证据门的路线。  
+> **历史预算假设**：v1.2 曾以一个自然月完成核心研究与论文初稿为规划假设；实际任务预算只以当前授权合同为准。  
 > **研究边界**：项目自身结果均为 **literature-guided synthetic numerical digital-twin evidence**；文献曲线数字化不等于自有实验，作者模型复现不等于独立实验验证。  
 > **主材料**：Qiu 等 VO₂ 共面 thermal neuristor。  
 > **辅助材料**：Chen 等 SnSe/NbO₂ 垂直阈值开关器件。  
 > **核心目标**：以真实 2.5D 器件物理为底座，使 PINN 在正向场预测、跨工况泛化或受限逆问题中承担不可替代的正面方法角色，并形成一篇逻辑闭合、证据可复现、边界诚实的二区 SCI 论文。
 
+> **生命周期与权限（2026-08-11）**：本文是版本化长期设计目录和 2026-07-27 路线快照，不是当前执行授权。下文保留的“当前”“活跃”“立即执行”和固定阶段前置措辞只描述当时设计，除非 `docs/research_strategy/active_phase.md` 明确重新引用，否则不得用来启动或阻断工作。当前状态与队列依次查看适用的 `AGENTS.md`、`CODEX_CONTEXT.md`、`active_phase.md`、`PROJECT_STATE.md` 和 `NEXT_ACTIONS.md`。
+
 ## Repository adaptation record
 
-The imported v1.0 source guide has SHA-256 `759DC17CBD7D6C884AF25F71ABF00ED833EEBDD7E7E477604B33EA7E6A75B517`. This repository copy is the canonical executable guide and records the following bounded adaptations rather than silently changing the imported text:
+The imported v1.0 source guide has SHA-256 `759DC17CBD7D6C884AF25F71ABF00ED833EEBDD7E7E477604B33EA7E6A75B517`. This repository copy is a versioned design reference and records the following bounded adaptations rather than silently changing the imported text:
 
 1. the active-phase path is the existing `docs/research_strategy/active_phase.md`;
 2. the numerical contract locks adaptive implicit backward Euler plus independent time refinement instead of leaving BDF/Radau as an implementation choice;
 3. the formal baseline resolves one device; nonzero dual-device coupling is deferred until an explicit substrate surface field or independently validated passive nonlocal kernel exists;
 4. the v6-v8 material-stack/K-state route used source-author-fitted Qiu resistance and thermal quantities only as nominal device-effective scales; its failed pullback-depth result and unexecuted 96-item inventory remain immutable history;
-5. Phase 1-v2 replaces that active thermal route with S2, a locally distributed single-RC closure whose uniform-mode low-frequency coefficients preserve Qiu's device-level \(G_\theta,C_\theta\) semantics while VO2 and mask-local Ti/Au storage/conduction remain explicit in-plane;
+5. Phase 1-v2 replaced the then-active thermal route with S2, a locally distributed single-RC closure whose uniform-mode low-frequency coefficients preserve Qiu's device-level \(G_\theta,C_\theta\) semantics while VO2 and mask-local Ti/Au storage/conduction remain explicit in-plane;
 6. S1 positive-real diffusive memory is a bounded, non-blocking model-form sensitivity and cannot become nominal without independently eligible same-device thermal evidence and its preregistered effect-size gate.
 
 These adaptations narrow unsupported claims and remove implementation ambiguity. They do not upgrade any scientific result.
@@ -25,7 +27,7 @@ These adaptations narrow unsupported claims and remove implementation ambiguity.
 
 # 0. 本指南的使用规则
 
-本指南不是愿望清单，而是项目的**研究路由器、实验预注册表、失败止损协议和论文写作合同**。后续每一个 Codex 任务、代码分支、实验和论文 claim 都必须能映射到本文中的一个明确条目。
+本文保存长期研究设计、历史预注册模板、失败止损思路和论文写作边界。当前任务必须映射到活跃权威链及其命名合同；仅与本文条目相似不构成授权。
 
 每项工作在启动前必须回答：
 
@@ -692,7 +694,7 @@ src/pinnpcm/
 
 ## 操作
 
-1. 核验 `HEAD == origin/main`、分支和工作区；
+1. 核验本地分支和工作区；仅当发布、PR、CI 或远端身份与任务相关时核验远端状态，不要求每轮 `HEAD == origin/main`；
 2. 运行全测试并记录通过数、失败数和耗时；
 3. 校验 frozen GT v1.1 哈希、mtime 和文件清单；
 4. 创建独立新阶段配置，不修改历史 benchmark；
@@ -717,7 +719,7 @@ src/pinnpcm/
 
 ## 目标
 
-建立所有 PINN 实验的可信判卷器。没有参考求解器通过，禁止训练正式 PINN。
+为引用该参考求解器的 PINN 合同建立可信判卷器。正式训练必须满足 `active_phase.md` 指定的适用 reference/teacher gate；本历史 Phase 1 门不自动约束采用不同已授权证据合同的路线。
 
 ## 实施顺序
 
@@ -1273,6 +1275,8 @@ R3 失败不影响 R1/R2 投稿。任何时候都不得为了保住 “OQ” 名
 
 ## 11.2 失败后的论文降级路由
 
+下表只适用于其命名实现、数据合同、物理前提、预算和已执行接口。它不能把一次 NO-GO 扩展成方法族禁令，也不能自动启动 fallback；任何新路线仍须由当前阶段版本化授权。
+
 | 失败点 | 降级方案 |
 |---|---|
 | data-free PINN 失败 | 使用 dual-discretization hybrid PINN |
@@ -1422,17 +1426,9 @@ R3 失败不影响 R1/R2 投稿。任何时候都不得为了保住 “OQ” 名
 
 # 15. 最终推荐决策
 
-## 当前立即执行
+## v1.2 的历史初始推荐
 
-\[
-\boxed{
-\text{Phase 0}
-\rightarrow
-\text{Phase 1 参考求解器}
-\rightarrow
-\text{R1 HysGeo-Hybrid-PINN}
-}
-\]
+v1.2 在 2026-07-27 建议从 Phase 0 经 Phase 1 参考求解器进入 R1。后续执行与 NO-GO 已使这段顺序失去当前路由作用；不得按此处重启 Phase 0、Phase 1 或 R1。当前唯一行动来自 `docs/research_strategy/active_phase.md` 和 `NEXT_ACTIONS.md`。
 
 ## R1 成功后优先升级
 
@@ -1469,6 +1465,8 @@ R3 失败不影响 R1/R2 投稿。任何时候都不得为了保住 “OQ” 名
 # 16. 主要来源与文献入口
 
 ## 项目战略文件
+
+以下是形成 v1.2 时使用的外部 AI 报告、旧 handoff 或策略输入，仅作咨询性线索和整合 provenance。它们不能证明当前仓库事实、充当可移植文献引用或提供执行授权；任何可用事实和引用必须回到当前仓库证据或原始来源核验。
 
 - `Critical Research Mode for PINN Phase-Transition Project.md`
 - `PINN_Codex_New_Dialog_Handoff_d23a576(1).md`
@@ -1515,4 +1513,4 @@ R3 失败不影响 R1/R2 投稿。任何时候都不得为了保住 “OQ” 名
 
 # 17. 一句话项目合同
 
-> **先用独立求解器证明真实 2.5D 器件物理正确，再用 hybrid PINN 获得可复现的正向与泛化收益；只在 solver 验证的灵敏度子空间内做逆问题，任何高阶模块都必须接受单模块消融、失败止损和 claim 降级。**
+> **长期设计原则：先用适用的独立证据合同约束真实 2.5D 器件物理，再评估 hybrid PINN 的正向与泛化收益；只在 solver 验证的灵敏度子空间内做逆问题，任何高阶模块都必须接受单模块消融、失败止损和 claim 降级。当前是否执行仍由活跃权威链决定。**

@@ -8,7 +8,7 @@ The full stage-gate contract is `docs/research_strategy/sci_delivery_pipeline.md
 2. Inspect `git status -sb` and preserve unrelated changes.
 3. Load only task-relevant context through `context_loading_policy.md`.
 4. State whether the task is documentation, smoke/preflight, actual experiment, review, or publication.
-5. Use a phase-scoped `codex/` branch for Phase 1 implementation or contract changes; merge through review rather than developing directly on `main`.
+5. Use a task-scoped `codex/` branch when the change or publication workflow benefits from isolation; do not create or rename a branch merely for governance ceremony.
 
 ## Communication, Coordination, And Stop Discipline
 
@@ -22,7 +22,7 @@ The full stage-gate contract is `docs/research_strategy/sci_delivery_pipeline.md
 
 ## Bottleneck Selection And Round Contract
 
-- Activate exactly one bottleneck from the ordered queue in `PROJECT_GOAL.md`; do not bundle unrelated research tracks.
+- Activate exactly one bottleneck from the authorized scope in `docs/research_strategy/active_phase.md` and the queue in `NEXT_ACTIONS.md`; use `PROJECT_GOAL.md` only for the stable delivery objective and utility ranking. Do not bundle unrelated research tracks.
 - Rank candidates by manuscript value x probability of useful evidence x reviewer-defense value / time-compute-risk.
 - Before execution, state the target claim/artifact, budget, success threshold, failure interpretation, and allowed/forbidden wording.
 - Use the complete evidence lifecycle: config -> implementation -> test -> JSON/CSV -> figure/table -> report -> claim matrix -> manuscript sentence.
@@ -45,14 +45,14 @@ The full stage-gate contract is `docs/research_strategy/sci_delivery_pipeline.md
 
 ## Validation
 
-Documentation/governance changes:
+Documentation/governance changes use the smallest relevant semantic checks. The commands below are available when the changed files intersect their contracts; do not rerun an unchanged full audit merely because the task is documentation:
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\audit_project_governance.py
 .\.venv\Scripts\python.exe -m pytest tests\test_project_governance.py
 ```
 
-Code/experiment changes require task-specific tests plus one final full pytest when feasible. Mark current Phase 1 tests with `current` and `phase1`; do not move the historical flat test suite merely for appearance. Before merging claim-bearing Phase 1 work, run the manual `full claim-bearing validation` workflow on the reviewed branch. Always run `git diff --check` and inspect `git status --short` before commit.
+Code/experiment changes require task-specific tests plus one final full pytest when feasible. Use lifecycle markers required by the active contract; do not relabel or move the historical flat test suite merely for appearance. Before merging claim-bearing work, run the task's manual full claim-bearing validation workflow when one is specified. Always run `git diff --check` and inspect `git status --short` before commit.
 
 ## Commit And Report
 

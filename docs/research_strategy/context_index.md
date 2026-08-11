@@ -14,13 +14,13 @@
 - `PROJECT_STATE.md`: single current fact snapshot.
 - `NEXT_ACTIONS.md`: single active task.
 - `docs/research_strategy/active_phase.md`: current research authorization, task contract, and route boundary; load only the task-relevant configs and evidence it names.
-- `docs/research_strategy/pinn_phase_change_q2_sci_execution_guide.md`: complete research strategy, phase ladder, downgrade rules, and writing guide.
-- `docs/research_strategy/sci_delivery_pipeline.md`: reusable evidence lifecycle.
+- `docs/research_strategy/sci_delivery_pipeline.md`: reusable evidence lifecycle and workflow router.
+- `docs/research_strategy/pinn_phase_change_q2_sci_execution_guide.md`: versioned long-term design catalog and historical phase ladder; it cannot authorize current action.
 - `docs/project_state/current_evidence_index.md`: current/historical/candidate/forbidden evidence routing.
 
 ## Task Routing
 
-- Physics, equations, materials, geometry, or provenance: load `docs/method_equations.md`, the Phase 1-v2 config/manifest, the source-only contract, and only the relevant physics/provenance files.
+- Physics, equations, materials, geometry, or provenance: load `docs/method_equations.md`, only the task-relevant contract/config named by the active authority, and the relevant physics/provenance files. Do not load Phase 1-v2 artifacts by default merely because they are retained.
 - Code or tests: load the applicable nested `AGENTS.md`, config, implementation, and focused tests.
 - Claims or manuscript: load `docs/project_prompts/critical_research_mode.md`, `docs/paper/final_claim_matrix.md`, and only the relevant manuscript component.
 - Historical reproduction or reviewer defense: use `docs/archive/README.md`, registries, and the named report/artifact. Archived documents never authorize current work.

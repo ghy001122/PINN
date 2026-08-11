@@ -3,6 +3,12 @@
 The local reference pack at `E:/pinn_codex_reference_pack` was read during the
 first context-integration task on 2026-06-26.
 
+That absolute path is a machine-local observation from 2026-06-26, not a
+portable or current repository fact. The pack is advisory integration
+provenance only: it cannot authorize work, establish a scientific result, or
+serve as a literature citation without verification against the original
+source and current repository evidence.
+
 ## Read Files
 
 - `CODEX_CONTEXT.md`
@@ -35,3 +41,7 @@ was deduplicated and compressed into:
 No PDF, DOCX, ZIP, NPZ, cache, virtual environment, or large figure file was
 copied from the reference pack. Google Drive was not accessed for this
 integration because the local digest was sufficient.
+
+Any retained instruction or claim from the pack is subordinate to the current
+`AGENTS.md` chain and authority files. Reopening the machine-local pack is not a
+default context step.

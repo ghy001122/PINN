@@ -1,5 +1,7 @@
 # Phase 1-v2 S1 diffusive sensitivity MVE amendment
 
+> **Lifecycle notice (2026-08-11):** This is a frozen historical contract/snapshot, not current authorization. Original preregistration and status wording is retained below for provenance; use the applicable `AGENTS.md`, `docs/research_strategy/active_phase.md`, `PROJECT_STATE.md`, and `NEXT_ACTIONS.md` for current status and queue.
+
 Status: preregistered amendment; no S1 numerical fit or response evaluation is
 authorized until the amendment commit is pushed.
 

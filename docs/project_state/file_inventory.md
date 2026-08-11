@@ -13,10 +13,11 @@ The Phase 0 snapshot contains 1070 rows and must retain its original hashes and 
 | `PROJECT_GOAL.md` | Stable Q2 delivery ladder and Definition of Done. |
 | `CODEX_CONTEXT.md` | Low-token current route, boundary, and one priority. |
 | `PROJECT_STATE.md` | Single authoritative current fact snapshot. |
-| `docs/research_strategy/active_phase.md` | Earliest unpassed phase and authorization boundary. |
+| `docs/research_strategy/active_phase.md` | Sole current research authorization, applicable prerequisites, and explicit route boundary. |
 | `NEXT_ACTIONS.md` | Single current execution queue. |
-| canonical execution guide | Full R1/R2/R3 research, downgrade, paper, and reviewer-defense plan. |
-| Phase 1 technical contract and YAML | Current solver-only implementation/gate contract. |
+| `docs/research_strategy/sci_delivery_pipeline.md` | Reusable evidence lifecycle and workflow router. |
+| versioned Q2 execution guide | Long-term design catalog and historical phase ladder; not current authorization. |
+| versioned technical contracts and YAML | Replayable implementation/gate contracts; current only when the active authority cites them. |
 | `configs/qiu_vo2_phase1_source_contract.yaml` | Source-only Qiu facts, fitted-lumped quantities, device-effective scale-normalization rules, priors, unresolved semantics, and historical non-inheritance boundary. |
 | `docs/project_state/current_evidence_index.md` | Current/historical/candidate/forbidden evidence router. |
 | `docs/archive/README.md` | Historical lifecycle and replacement index. |
@@ -34,7 +35,7 @@ The Phase 0 snapshot contains 1070 rows and must retain its original hashes and 
 - `data/external/`: provenance-backed external inputs; `data/processed/` includes frozen/read-only and generated assets.
 - cumulative registries and `docs/codex_reports/`: exact run/evidence chronology.
 
-## Active Phase 1 Files
+## Historical Phase 1-v2 File Bundle
 
 - `configs/geo2p5d_stage.yaml`
 - `configs/geophase_phase1_v2_s2_reference.yaml`
@@ -52,7 +53,7 @@ The Phase 0 snapshot contains 1070 rows and must retain its original hashes and 
 - `tests/test_geophase_phase1_v2_controller_v2_readiness_evidence.py`
 - `docs/codex_reports/geophase_phase1_v2_embedded_controller_readiness.md`
 
-The S2 implementation and seven bounded non-voting smoke cases exist. All 63 formal items remain `planned_not_executed`; controller-v2 ended at `NO_GO_RUNTIME_PERFORMANCE_ONLY`. This is software and bounded readiness evidence only, not a Phase 1 scientific result or authorization to rerun readiness.
+This list preserves the Phase 1-v2 contract and replay bundle; it is not the active phase file list. The S2 implementation and seven bounded non-voting smoke cases exist. All 63 formal items remain `planned_not_executed`; controller-v2 ended at `NO_GO_RUNTIME_PERFORMANCE_ONLY`. This is software and bounded readiness evidence only, not a Phase 1 scientific result or authorization to rerun readiness.
 
 ## Local Non-Repository Assets
 

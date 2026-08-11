@@ -40,12 +40,14 @@ Use this rule everywhere:
 
 Therefore:
 
-- Do not use `forbidden` to block exploratory experiments.
-- `forbidden` only means the current manuscript claim is not allowed yet.
+- Do not use claim status `forbidden` by itself to block an otherwise authorized bounded exploration.
+- `forbidden` means the current manuscript claim is not allowed yet; an explicit execution prohibition in `active_phase.md` is separately authorization-binding and does block the named work.
 - High-risk directions should still be explored when they may improve paper quality, workload, novelty, applicability, generalization, reviewer defense, or future-method value.
 - Convert risky directions into bounded audits, stress ladders, rescue attempts, ablations, or negative-result tests.
 - Every exploratory task must have success thresholds, failure interpretation, allowed claim wording, forbidden overclaim wording, and lightweight reproducibility checks.
 - A failed exploration is useful if it cleanly defines an observability boundary, stiffness boundary, prior-dependence boundary, or method limitation.
+
+This exploration rule applies only inside the current authorization and budget. Reopening a phase-prohibited route requires changed premises or new evidence, an expected-value case, and a versioned preregistration/phase-contract update; a generic invitation to explore cannot supply that authorization.
 
 This rule applies especially to full or dense 2D recovery, terminal-only rescue, Seiler-style multi-head STL, actual PINN stiffness training, F-SPS/Fourier conditional superiority, and observability-augmented inverse diagnosis.
 

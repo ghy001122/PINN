@@ -8,13 +8,14 @@ ledger are defined in `docs/physics/m40_qiu_2d_equations.md`. Those equations
 form a source-constrained external-literature bridge and do not replace or
 revise the frozen synthetic Ground Truth equations below.
 
-## Active Phase 1-v2 S2 and R1-R3 2.5D Contract
+## Retained Phase 1-v2 S2 and R1-R3 2.5D Contract
 
-The active Phase 1-v2 closure is preregistered in
-`configs/geophase_phase1_v2_s2_reference.yaml`. It supersedes the v6-v8
-fixed-bottom material-stack/K-state route as the active numerical contract;
+The Phase 1-v2 closure was preregistered in
+`configs/geophase_phase1_v2_s2_reference.yaml`. It superseded the v6-v8
+fixed-bottom material-stack/K-state route within that versioned contract;
 the older equations remain below as immutable `failed_but_informative`
-history. No Phase 1-v2 solver result is implied by this section.
+history. This section preserves equation and replay provenance, not current
+execution authorization, and implies no Phase 1-v2 solver result.
 
 The resolved domain is the single-device VO2 footprint
 \(\Omega=[0,L]\times[0,W]\). In-plane charge conservation and the terminal

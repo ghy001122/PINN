@@ -1,5 +1,7 @@
 # Q2 CurrentClamp-HysGeo-PINN v1
 
+> **Lifecycle notice (2026-08-11):** This is a frozen historical contract/snapshot, not current authorization. Original preregistration and status wording is retained below for provenance; use the applicable `AGENTS.md`, `docs/research_strategy/active_phase.md`, `PROJECT_STATE.md`, and `NEXT_ACTIONS.md` for current status and queue.
+
 ## Batch 1 contract
 
 This is a new research contract after the valid negative Stage A result in PR
@@ -10,8 +12,9 @@ zero-dimensional admission gate.
 Batch 1 executed on code anchor `230f1e37fbefd88d554d54009db626d175a00444`
 and terminated with `PASS_CC_A_CURRENT_CLAMP_ADMISSION`. The lifecycle state is
 `executed` and the claim status is `qualified_supported`; the global science
-vote remains false and the formal execution count remains zero. CC-B remains
-unauthorized and unexecuted.
+vote remains false and the formal execution count remains zero. At this
+historical checkpoint, CC-B remained unauthorized and unexecuted; later CC-B
+contracts and dispositions are not folded back into this frozen Batch 1 text.
 
 The unresolved reviewer question is whether ideal current control, under the
 audited Qiu S1 major-branch source law, admits a non-degenerate set of locally
